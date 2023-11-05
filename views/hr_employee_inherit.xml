@@ -1,0 +1,40 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="employee_list">
+            <field name="name">employee inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_tree"/>
+            <field name="arch" type="xml">
+                <tree>
+
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="employee_form">
+            <field name="name">employee inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <form>
+
+                </form>
+            </field>
+
+        </record>
+        <record model="ir.actions.act_window" id="action_ressource_humaine">
+            <field name="name">employee</field>
+            <field name="res_model">hr.employee</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="hr.view_employee_tree"/>
+
+        </record>
+
+        <menuitem name="Ressource_Humaine" id="ressource_humaine.menu_root"/>
+        <menuitem name="Employee" id="ressource_humaine_employee" parent="ressource_humaine.menu_root"
+           action="action_ressource_humaine"/>
+
+
+    </data>
+
+</odoo>

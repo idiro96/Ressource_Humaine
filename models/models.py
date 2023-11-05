@@ -2,8 +2,8 @@
 
 from odoo import models, fields, api
 
-# class ressource_humaine(models.Model):
-#     _name = 'ressource_humaine.ressource_humaine'
+# class invistissement(models.Model):
+#     _name = 'invistissement.invistissement'
 
 #     name = fields.Char()
 #     value = fields.Integer()
