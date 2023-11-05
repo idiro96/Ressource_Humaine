@@ -1,0 +1,30 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="employee_list">
+            <field name="name">Liste employe</field>
+            <field name="model">hr.employee</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" string="Nom"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="employee_action_window">
+            <field name="name">Liste Employe</field>
+            <field name="res_model">hr.employee</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+         <menuitem name="Ressources Humaines" id="ressource_humaine.menu_root"/>
+        <menuitem name="Employee" id="ressource_humaine_employe" parent="ressource_humaine.menu_root"
+                  action="employee_action_window"/>
+
+    </data>
+</odoo>
