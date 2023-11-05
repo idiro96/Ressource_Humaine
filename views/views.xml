@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <!--
+    <record model="ir.ui.view" id="ressource_humaine.list">
+      <field name="name">ressource_humaine list</field>
+      <field name="model">ressource_humaine.ressource_humaine</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+    -->
+
+    <!-- actions opening views on models -->
+    <!--
+    <record model="ir.actions.act_window" id="ressource_humaine.action_window">
+      <field name="name">ressource_humaine window</field>
+      <field name="res_model">ressource_humaine.ressource_humaine</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    -->
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="ressource_humaine.action_server">
+      <field name="name">ressource_humaine server</field>
+      <field name="model_id" ref="model_ressource_humaine_ressource_humaine"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem name="ressource_humaine" id="ressource_humaine.menu_root"/>
+    -->
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="ressource_humaine.menu_1" parent="ressource_humaine.menu_root"/>
+    <menuitem name="Menu 2" id="ressource_humaine.menu_2" parent="ressource_humaine.menu_root"/>
+    -->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="ressource_humaine.menu_1_list" parent="ressource_humaine.menu_1"
+              action="ressource_humaine.action_window"/>
+    <menuitem name="Server to list" id="ressource_humaine" parent="ressource_humaine.menu_2"
+              action="ressource_humaine.action_server"/>
+    -->
+  </data>
+</odoo>
