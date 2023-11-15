@@ -1,0 +1,49 @@
+<odoo>
+    <record id="view_rh_conjoint_tree" model="ir.ui.view">
+        <field name="name">rh.conjoint.tree</field>
+        <field name="model">rh.conjoint</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nom_conjoint" string="Nom Conjoint"/>
+                <field name="prenom_conjoint" string="Prenom Conjoint"/>
+                <field name="femme_foyer" string="Femme Foyer"/>
+            </tree>
+        </field>
+
+    </record>
+    <record id="view_rh_conjoint_form" model="ir.ui.view">
+        <field name="name">rh.conjoint.form</field>
+        <field name="model">rh.conjoint</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="nom_conjoint" string="Nom Conjoint"/>
+                            <field name="prenom_conjoint" string="Prenom Conjoint"/>
+                            <field name="femme_foyer" string="Femme Foyer"/>
+                        </group>
+                        <group>
+                            <field name="date_naissance_conjoint" string="Date Naissance"/>
+                            <field name="lieu_naissance_conjoint" string="Lieu Naissance"/>
+                            <field name="date_mariage" string="Date Mariage"/>
+                        </group>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_rh_conjoint" model="ir.actions.act_window">
+        <field name="name">Conjoint</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">rh.conjoint</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create your first conjoint!</p>
+        </field>
+    </record>
+            <menuitem name="Conjoint" id="ressource_humaine_conjoint" parent="employee_gestion"
+           action="action_rh_conjoint"/>
+</odoo>

@@ -15,9 +15,27 @@
             <field name="model">hr.employee</field>
             <field name="inherit_id" ref="hr.view_employee_form"/>
             <field name="arch" type="xml">
-                <form>
-
-                </form>
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='place_of_birth']" position="after">
+                    <field name="handicape" string="Handicape"/>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='bank_account_id']" position="after">
+                    <field name="service_militaire" string="Service Militaire"/>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='resource_calendar_id']" position="after">
+                    <field name="fin_relation" string="Fin Relation"/>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='fin_relation']" position="after">
+                    <field name="date_fin_relation" string="Date Fin Relation"/>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_fin_relation']" position="after">
+                    <field name="date_reintegration" string="Date Reintegration"/>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='department_id']" position="before">
+                    <field name="date_entrer" string="Date Entrer"/>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='marital']" position="after">
+                    <field name="activite_conjoint" string="Activite Conjoint"/>
+                </xpath>
             </field>
 
         </record>
@@ -30,8 +48,14 @@
 
         </record>
 
-        <menuitem name="Ressource_Humaine" id="ressource_humaine.menu_root"/>
-        <menuitem name="Employee" id="ressource_humaine_employee" parent="ressource_humaine.menu_root"
+        <menuitem name="Ressource Humaine" id="ressource_humaine.menu_root"  web_icon="ressource_humaine,description/icon.png"/>
+        <menuitem name="Gestion Employee" id="employee_gestion" parent="ressource_humaine.menu_root"/>
+        <menuitem name="Suivi Personnel" id="suivi_personnel_id" parent="ressource_humaine.menu_root"/>
+        <menuitem name="Recrutement" id="recrutement_id" parent="ressource_humaine.menu_root"/>
+        <menuitem name="Formation" id="formation_id" parent="ressource_humaine.menu_root"/>
+        <menuitem name="Médecine Travail" id="medecine_travai_id" parent="ressource_humaine.menu_root"/>
+        <menuitem name="Référentiels" id="referentiel_id" parent="ressource_humaine.menu_root"/>
+        <menuitem name="Employee" id="ressource_humaine_employee" parent="employee_gestion"
            action="action_ressource_humaine"/>
 
 

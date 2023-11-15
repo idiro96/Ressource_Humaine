@@ -1,0 +1,39 @@
+<odoo>
+    <record id="view_rh_entretien_tree" model="ir.ui.view">
+        <field name="name">rh.entretien.tree</field>
+        <field name="model">rh.entretien</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="code_entretien" string="Code de l'entretien"/>
+                <field name="date_entretien" string="Date"/>
+            </tree>
+        </field>
+
+    </record>
+    <record id="view_rh_entretien_form" model="ir.ui.view">
+        <field name="name">rh.entretien.form</field>
+        <field name="model">rh.entretien</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="code_entretien" string="Code de l'entretien"/>
+                        <field name="date_entretien" string="Date"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_rh_entretien" model="ir.actions.act_window">
+        <field name="name">Entretien</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">rh.entretien</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Création de l'entretien</p>
+        </field>
+    </record>
+            <menuitem name="Entretien" id="ressource_humaine_entretien" parent="ressource_humaine.menu_root"
+           action="action_rh_entretien"/>
+</odoo>
