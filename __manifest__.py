@@ -33,6 +33,16 @@
 
         'views/hr_employee_inherit.xml',
 
+        'views/conjoint.xml',
+        'views/contrat.xml',
+        'views/type_contrat.xml',
+        'views/fin_relation.xml',
+        'views/type_fin_relation.xml',
+        'views/visite_medicale.xml',
+        'views/enfant.xml',
+        'views/cabinet_medical.xml',
+        'data/sequence.xml',
+
     ],
     # only loaded in demonstration mode
     'demo': [

@@ -1,0 +1,41 @@
+<odoo>
+    <record id="view_rh_organisme_tree" model="ir.ui.view">
+        <field name="name">rh.organisme.tree</field>
+        <field name="model">rh.organisme</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="code_organisme" string="Code organisme"/>
+                <field name="rs_organisme" string="Raison sociale"/>
+                <field name="adresse_organisme" string="Adresse"/>
+            </tree>
+        </field>
+
+    </record>
+    <record id="view_rh_organisme_form" model="ir.ui.view">
+        <field name="name">rh.organisme.form</field>
+        <field name="model">rh.organisme</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="code_organisme" string="Code organisme"/>
+                        <field name="rs_organisme" string="Raison sociale"/>
+                        <field name="adresse_organisme" string="Adresse"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_rh_organisme" model="ir.actions.act_window">
+        <field name="name">Organisme</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">rh.organisme</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Création de l'organisme</p>
+        </field>
+    </record>
+            <menuitem name="Organisme" id="ressource_humaine_organisme" parent="ressource_humaine.menu_root"
+           action="action_rh_organisme"/>
+</odoo>

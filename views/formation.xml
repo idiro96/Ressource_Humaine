@@ -1,0 +1,50 @@
+<odoo>
+    <record id="view_rh_formation_tree" model="ir.ui.view">
+        <field name="name">rh.formation.tree</field>
+        <field name="model">rh.formation</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="code_formation" string="Code formation"/>
+                <field name="date_debut_formation" string="Date de début"/>
+                <field name="date_fin_formation" string="Date de fin"/>
+                <field name="type_formation_id" string="Type Formation"/>
+            </tree>
+        </field>
+
+    </record>
+    <record id="view_rh_formation_form" model="ir.ui.view">
+        <field name="name">rh.formation.form</field>
+        <field name="model">rh.formation</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                         <group>
+                             <field name="code_formation" string="Code formation"/>
+                             <field name="date_debut_formation" string="Date de début"/>
+                             <field name="date_fin_formation" string="Date de fin"/>
+                             <field name="type_formation_id" string="Type Formation"/>
+                         </group>
+                         <group>
+                             <field name="lieu_formation" string="Lieu de déroulement"/>
+                             <field name="salle_formation" string="N° Salle"/>
+                             <field name="budget_allouee_formation" string="Budget alloué"/>
+                         </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_rh_formation" model="ir.actions.act_window">
+        <field name="name">Formation</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">rh.formation</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Création de la formation</p>
+        </field>
+    </record>
+            <menuitem name="Formation" id="ressource_humaine_formation" parent="ressource_humaine.menu_root"
+           action="action_rh_formation"/>
+</odoo>

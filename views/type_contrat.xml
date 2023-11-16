@@ -1,0 +1,39 @@
+<odoo>
+    <record id="view_rh_type_contrat_tree" model="ir.ui.view">
+        <field name="name">rh.type.contrat.tree</field>
+        <field name="model">rh.type.contrat</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="code" string="Code"/>
+                <field name="intitule_contrat" string="Type de contrat"/>
+            </tree>
+        </field>
+
+    </record>
+    <record id="view_rh_type_contrat_form" model="ir.ui.view">
+        <field name="name">rh.type.contrat.form</field>
+        <field name="model">rh.type.contrat</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="code" string="Code"/>
+                        <field name="intitule_contrat" string="Type de contrat"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_rh_type_contrat" model="ir.actions.act_window">
+        <field name="name">Type contrat</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">rh.type.contrat</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Création d'un type de contrat</p>
+        </field>
+    </record>
+            <menuitem name="Type contrat" id="ressource_humaine_type_contrat" parent="referentiel_id"
+           action="action_rh_type_contrat"/>
+</odoo>
