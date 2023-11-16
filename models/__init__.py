@@ -10,3 +10,4 @@ from . import type_fin_relation
 from . import visite_medicale
 from . import enfant
 from . import cabinet_medical
+from . import visite_medical_line

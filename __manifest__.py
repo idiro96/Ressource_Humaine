@@ -35,6 +35,7 @@
         'views/enfant.xml',
         'views/cabinet_medical.xml',
         'data/sequence.xml',
+        'wizards/visite_medical_detaille.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

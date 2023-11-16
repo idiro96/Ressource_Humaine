@@ -16,6 +16,9 @@
         <field name="model">rh.visite.medicale</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                        <button name="visite_medical_detaille" type="object" string="Detaille Viste Medical" class="oe_highlight"/>
+                </header>
                 <sheet>
                     <group>
                          <group>
@@ -25,9 +28,20 @@
                          </group>
                          <group>
                              <field name="date_debut_visite_medicale" string="Date Début Visite"/>
-                            <field name="date_fin_visite_medicale" string="Date Fin Visite"/>
+                             <field name="date_fin_visite_medicale" string="Date Fin Visite"/>
                         </group>
                     </group>
+                    <notebook>
+                       <page string="Viste Medicale Detaille">
+                         <field name="visite_medical_lines">
+                           <tree editable="bottom">
+                             <field name="employee_id"/>
+                             <field name="visite_medical_id"/>
+                             <field name="date_visite_medicale"/>
+                           </tree>
+                         </field>
+                       </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
