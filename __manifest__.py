@@ -37,11 +37,16 @@
         'views/contrat.xml',
         'views/type_contrat.xml',
         'views/fin_relation.xml',
+        'views/formation.xml',
+        'views/organisme.xml',
+        'views/type_formation.xml',
         'views/type_fin_relation.xml',
         'views/visite_medicale.xml',
         'views/enfant.xml',
         'views/cabinet_medical.xml',
         'data/sequence.xml',
+        'wizards/visite_medical_detaille.xml',
+        'wizards/formation_detail_wizard.xml',
 
     ],
     # only loaded in demonstration mode

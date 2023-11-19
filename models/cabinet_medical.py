@@ -6,6 +6,7 @@ from odoo import models, fields, api, _
 
 class RHCabinetMedical(models.Model):
     _name = 'rh.cabinet.medical'
+    _rec_name = 'raison_social'
 
     code = fields.Char()
     raison_social = fields.Char()

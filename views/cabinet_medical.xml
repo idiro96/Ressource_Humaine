@@ -38,7 +38,7 @@
         </field>
     </record>
     <record id="action_cabinet_medical" model="ir.actions.act_window">
-        <field name="name">Enfant</field>
+        <field name="name">Cabinet Medical</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">rh.cabinet.medical</field>
         <field name="view_mode">tree,form</field>

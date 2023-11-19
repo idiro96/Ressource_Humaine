@@ -4,11 +4,15 @@ from odoo import models, fields, api, _
 
 
 
-class RHVisiteMedicalDetail(models.Model):
+class RHVisiteMedicalLine(models.Model):
     _name = 'rh.visite.medical.line'
 
-    id_visite_medical_detail = fields.Integer()
+
+    employee_id = fields.Many2one('hr.employee')
+    visite_medical_id = fields.Many2one('rh.visite.medicale')
     date_visite_medicale = fields.Date()
+
+
 
 
 

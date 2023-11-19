@@ -8,6 +8,7 @@
                 <field name="date_debut_formation" string="Date de début"/>
                 <field name="date_fin_formation" string="Date de fin"/>
                 <field name="type_formation_id" string="Type Formation"/>
+                <field name="organisme_id" string="Organisme"/>
             </tree>
         </field>
 
@@ -17,6 +18,9 @@
         <field name="model">rh.formation</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                <button name="formation_detail_wizard" type="object" string="Detail formation" class="oe_highlight"/>
+                </header>
                 <sheet>
                     <group>
                          <group>
@@ -29,8 +33,18 @@
                              <field name="lieu_formation" string="Lieu de déroulement"/>
                              <field name="salle_formation" string="N° Salle"/>
                              <field name="budget_allouee_formation" string="Budget alloué"/>
+                             <field name="organisme_id" string="Organisme Accueil"/>
                          </group>
                     </group>
+                         <notebook>
+                       <page string="Formation Détail">
+                         <field name="formation_lines">
+                           <tree editable="bottom">
+                             <field name="employee_id"/>
+                           </tree>
+                         </field>
+                       </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
@@ -45,6 +59,6 @@
             <p class="o_view_nocontent_smiling_face">Création de la formation</p>
         </field>
     </record>
-            <menuitem name="Formation" id="ressource_humaine_formation" parent="ressource_humaine.menu_root"
+            <menuitem name="Formation" id="ressource_humaine_formation" parent="formation_id"
            action="action_rh_formation"/>
 </odoo>
