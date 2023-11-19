@@ -19,4 +19,5 @@ from . import sanction
 from . import type_faute
 from . import type_sanction
 from . import absence_formation
+from . import commission_line
 

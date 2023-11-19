@@ -19,25 +19,37 @@
         <field name="model">rh.sanction</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                        <button name="choisir_commission" type="object" string="Choisir Commission" class="oe_highlight"/>
+                </header>
                 <sheet>
                     <group>
-                        <group>
-                            <field name="employee_id" string="Employé"/>
-                        </group>
+                        <field name="employee_id" string="Employé"/>
+                    </group>
+                    <group>
                         <group>
                             <field name="code_sanction" string="Code Sanction"/>
                             <field name="ref_pv_sanction" string="Ref Pv Sanction"/>
                             <field name="date_pv_sanction" string="Date Pv Sanctionr"/>
                             <field name="type_sanction_id" string="Type Sanction"/>
-
                         </group>
                         <group>
                             <field name="num_decision_sanction" string="Num Decision Sanction"/>
                             <field name="date_decision_sanction" string="Date Decision Sanction"/>
                             <field name="type_faute_id" string="Type Faute"/>
-
                         </group>
                     </group>
+                    <notebook>
+                       <page string="Membre De Commission">
+                         <field name="choisir_commission_lines">
+                           <tree editable="bottom">
+                             <field name="employee_id"/>
+                             <field name="department_id" string="Department"/>
+                             <field name="job_id" string="Poste"/>
+                           </tree>
+                         </field>
+                       </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>

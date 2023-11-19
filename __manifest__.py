@@ -35,6 +35,7 @@
 
         'views/conjoint.xml',
         'views/contrat.xml',
+        'views/formation.xml',
         'views/type_contrat.xml',
         'views/fin_relation.xml',
         'views/formation.xml',
@@ -51,6 +52,7 @@
         'wizards/visite_medical_detaille.xml',
         'wizards/formation_detail_wizard.xml',
         'wizards/formation_absence_wizard.xml',
+        'wizards/choisir_commission.xml',
 
     ],
     # only loaded in demonstration mode
