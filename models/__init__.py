@@ -15,4 +15,7 @@ from . import formation
 from . import type_formation
 from . import formation_line
 from . import organisme
+from . import sanction
+from . import type_faute
+from . import type_sanction
 

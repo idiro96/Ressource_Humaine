@@ -1,3 +1,4 @@
+
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
@@ -27,12 +28,8 @@ class RHVisiteMedicalDetaille(models.TransientModel):
     def _default_employees(self):
         records = self.env['hr.employee'].search([])
         for rec in records:
-            rec.selection_employe_visite_medicale == False
+            rec.selection_employe_visite_medicale = False
         return records
-
-
-
-
 
 
 
