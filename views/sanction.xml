@@ -1,0 +1,57 @@
+<odoo>
+    <record id="view_rh_sanction_tree" model="ir.ui.view">
+        <field name="name">rh.sanction.tree</field>
+        <field name="model">rh.sanction</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="code_sanction" string="Code Sanction"/>
+                <field name="ref_pv_sanction" string="Ref Pv Sanction"/>
+                <field name="date_pv_sanction" string="Date Pv Sanctionr"/>
+                <field name="num_decision_sanction" string="Num Decision Sanction"/>
+                <field name="date_decision_sanction" string="Date Decision Sanction"/>
+                <field name="type_faute_id" string="Type Faute"/>
+                <field name="type_sanction_id" string="Type Sanction"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_rh_sanction_form" model="ir.ui.view">
+        <field name="name">rh.sanction.form</field>
+        <field name="model">rh.sanction</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="employee_id" string="Employé"/>
+                        </group>
+                        <group>
+                            <field name="code_sanction" string="Code Sanction"/>
+                            <field name="ref_pv_sanction" string="Ref Pv Sanction"/>
+                            <field name="date_pv_sanction" string="Date Pv Sanctionr"/>
+                            <field name="type_sanction_id" string="Type Sanction"/>
+
+                        </group>
+                        <group>
+                            <field name="num_decision_sanction" string="Num Decision Sanction"/>
+                            <field name="date_decision_sanction" string="Date Decision Sanction"/>
+                            <field name="type_faute_id" string="Type Faute"/>
+
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_rh_sanction" model="ir.actions.act_window">
+        <field name="name">Sanction</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">rh.sanction</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create your first Sanction!</p>
+        </field>
+    </record>
+            <menuitem name="Sanction" id="ressource_humaine_sanction" parent="suivi_personnel_id"
+           action="action_rh_sanction"/>
+</odoo>

@@ -11,3 +11,6 @@ from . import visite_medicale
 from . import enfant
 from . import cabinet_medical
 from . import visite_medical_line
+from . import sanction
+from . import type_faute
+from . import type_sanction
