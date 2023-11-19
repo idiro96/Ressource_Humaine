@@ -15,6 +15,8 @@ class RHSanction(models.Model):
     type_faute_id = fields.Many2one('rh.type.faute')
     type_sanction_id = fields.Many2one('rh.type.sanction')
     employee_id = fields.Many2one('hr.employee')
+    choisir_commission_lines = fields.One2many('rh.commission.line', 'sanction_id')
+
 
 
     @api.model
@@ -23,3 +25,14 @@ class RHSanction(models.Model):
              vals['code_sanction'] = self.env['ir.sequence'].next_by_code('rh.sanction.sequence') or _('New')
         result = super(RHSanction, self).create(vals)
         return result
+
+
+    def choisir_commission(self):
+
+        return {
+            'type': 'ir.actions.act_window',
+            'target': 'new',
+            'name': 'Choisir Commission',
+            'view_mode': 'form',
+            'res_model': 'choisir.commission',
+        }

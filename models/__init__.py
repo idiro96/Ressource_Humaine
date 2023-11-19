@@ -14,3 +14,4 @@ from . import visite_medical_line
 from . import sanction
 from . import type_faute
 from . import type_sanction
+from . import commission_line

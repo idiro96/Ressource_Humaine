@@ -39,6 +39,7 @@
         'views/type_faute.xml',
         'data/sequence.xml',
         'wizards/visite_medical_detaille.xml',
+        'wizards/choisir_commission.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
