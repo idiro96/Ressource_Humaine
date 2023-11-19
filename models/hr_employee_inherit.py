@@ -16,6 +16,7 @@ class HrEmployeInherited(models.Model):
     date_reintegration = fields.Date()
     activite_conjoint = fields.Boolean(default=False)
     visite_medical_detaille_id = fields.Many2one('ressource_humaine.visite.medical.detaille')
+    formation_detail_id = fields.Many2one('ressource_humaine.formation.detail')
     selection_employe_visite_medicale = fields.Boolean('Sélection', default=False)
 
     

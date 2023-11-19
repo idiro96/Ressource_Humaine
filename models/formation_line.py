@@ -9,7 +9,13 @@ class RHFormationLine(models.Model):
 
     employee_id = fields.Many2one('hr.employee')
     formation_id = fields.Many2one('rh.formation')
-    nbr_jour_assiste = fields.Integer()
+    date_debut_formation_line = fields.Date()
+    date_fin_formation_line = fields.Date()
+    # nbr_jour_assiste = fields.Integer()
+    groupe = fields.Selection(
+        [('groupe1', 'Groupe 1'), ('groupe2', 'Groupe 2'), ('groupe3', 'Groupe 3'), ('groupe4', 'Groupe 4'),
+         ('groupe5', 'Groupe 5')])
+
 
 
 

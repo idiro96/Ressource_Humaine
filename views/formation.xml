@@ -25,6 +25,7 @@
                     <group>
                          <group>
                              <field name="code_formation" string="Code formation"/>
+                              <field name="intitule_formation" string="Thème"/>
                              <field name="date_debut_formation" string="Date de début"/>
                              <field name="date_fin_formation" string="Date de fin"/>
                              <field name="type_formation_id" string="Type Formation"/>
@@ -41,6 +42,9 @@
                          <field name="formation_lines">
                            <tree editable="bottom">
                              <field name="employee_id"/>
+                             <field name="date_debut_formation_line" string = "Date Debut"/>
+                             <field name="date_fin_formation_line" string = "Date Fin"/>
+                             <field name="groupe" string = "Groupe"/>
                            </tree>
                          </field>
                        </page>

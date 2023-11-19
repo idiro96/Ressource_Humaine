@@ -18,6 +18,11 @@ class RHFormation(models.Model):
     organisme_id = fields.Many2one('rh.organisme')
     formation_lines = fields.One2many('rh.formation.line', inverse_name='formation_id', string="Formation Lines")
 
-
-
-
+    def formation_detail_wizard(self):
+        return {
+        'type': 'ir.actions.act_window',
+        'target': 'new',
+        'name': 'Formation detail',
+        'view_mode': 'form',
+        'res_model': 'formation.detail',
+        }
