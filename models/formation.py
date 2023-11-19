@@ -17,6 +17,7 @@ class RHFormation(models.Model):
     type_formation_id = fields.Many2one('rh.type.formation')
     organisme_id = fields.Many2one('rh.organisme')
     formation_lines = fields.One2many('rh.formation.line', inverse_name='formation_id', string="Formation Lines")
+    formation_absence = fields.One2many('rh.absence.formation', inverse_name='formation_id', string="Formation Absence")
 
     def formation_detail_wizard(self):
         return {

@@ -45,6 +45,16 @@
                              <field name="date_debut_formation_line" string = "Date Debut"/>
                              <field name="date_fin_formation_line" string = "Date Fin"/>
                              <field name="groupe" string = "Groupe"/>
+                             <button name="formation_absence" type="object" string="Absence" class="oe_highlight"/>
+
+                           </tree>
+                         </field>
+                        </page>
+                        <page string="Formation Absence">
+                           <field name="formation_absence">
+                           <tree editable="bottom">
+                             <field name="employee_id"/>
+                             <field name="date_absence"/>
                            </tree>
                          </field>
                        </page>

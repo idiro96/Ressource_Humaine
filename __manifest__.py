@@ -50,6 +50,7 @@
         'data/sequence.xml',
         'wizards/visite_medical_detaille.xml',
         'wizards/formation_detail_wizard.xml',
+        'wizards/formation_absence_wizard.xml',
 
     ],
     # only loaded in demonstration mode

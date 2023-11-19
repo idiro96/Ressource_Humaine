@@ -18,4 +18,5 @@ from . import organisme
 from . import sanction
 from . import type_faute
 from . import type_sanction
+from . import absence_formation
 

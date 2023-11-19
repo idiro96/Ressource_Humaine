@@ -16,6 +16,14 @@ class RHFormationLine(models.Model):
         [('groupe1', 'Groupe 1'), ('groupe2', 'Groupe 2'), ('groupe3', 'Groupe 3'), ('groupe4', 'Groupe 4'),
          ('groupe5', 'Groupe 5')])
 
+    def formation_absence(self):
+        return {
+        'type': 'ir.actions.act_window',
+        'target': 'new',
+        'name': 'Formation absence',
+        'view_mode': 'form',
+        'res_model': 'absence.formation',
+        }
 
 
 
