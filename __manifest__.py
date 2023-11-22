@@ -32,6 +32,7 @@
         # 'views/templates.xml',
 
         'views/hr_employee_inherit.xml',
+        # 'views/hr_holidays_inherit.xml',
 
         'views/conjoint.xml',
         'views/contrat.xml',
@@ -46,8 +47,11 @@
         'views/enfant.xml',
         'views/cabinet_medical.xml',
         'views/sanction.xml',
+        'views/absence.xml',
         'views/type_sanction.xml',
         'views/type_faute.xml',
+        'views/type_absence.xml',
+        'views/accident_travail.xml',
         'data/sequence.xml',
         'wizards/visite_medical_detaille.xml',
         'wizards/formation_detail_wizard.xml',

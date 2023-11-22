@@ -27,3 +27,4 @@ class RHFormation(models.Model):
         'view_mode': 'form',
         'res_model': 'formation.detail',
         }
+

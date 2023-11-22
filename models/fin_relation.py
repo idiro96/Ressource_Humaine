@@ -10,6 +10,6 @@ class RHFinRelation(models.Model):
     date_fin_relation = fields.Date()
     num_decision_fin_relation = fields.Char()
     type_fin_relation_id = fields.Many2one('rh.type.fin.relation')
-
+    employee_id = fields.Many2one('hr.employee')
 
 

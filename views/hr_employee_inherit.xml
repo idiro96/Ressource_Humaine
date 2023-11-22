@@ -55,6 +55,7 @@
         <menuitem name="Formation" id="formation_id" parent="ressource_humaine.menu_root"/>
         <menuitem name="Médecine Travail" id="medecine_travai_id" parent="ressource_humaine.menu_root"/>
         <menuitem name="Référentiels" id="referentiel_id" parent="ressource_humaine.menu_root"/>
+        <menuitem name="Congé" id="conge_id" parent="ressource_humaine.menu_root"/>
         <menuitem name="Employee" id="ressource_humaine_employee" parent="employee_gestion"
            action="action_ressource_humaine"/>
 

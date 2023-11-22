@@ -16,8 +16,12 @@ from . import type_formation
 from . import formation_line
 from . import organisme
 from . import sanction
+from . import absence
 from . import type_faute
+from . import type_absence
 from . import type_sanction
+from . import accident_travail
 from . import absence_formation
 from . import commission_line
+from . import hr_holidays_inherit
 

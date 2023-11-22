@@ -1,0 +1,62 @@
+<odoo>
+    <record id="view_rh_absence_tree" model="ir.ui.view">
+        <field name="name">rh.absence.tree</field>
+        <field name="model">rh.absence</field>
+        <field name="arch" type="xml">
+
+
+            <tree>
+                <field name="num_reference_absence" string="Nom Ref"/>
+                <field name="employee_id" string="Demandeur"/>
+                <field name="date_debut_absence" string="Date Debut"/>
+                <field name="date_fin_absence" string="Date Fin"/>
+                <field name="nbr_jours_absence" string="Nbr jours absence"/>
+                <field name="nbre_heure_absence" string="Nbr heure absence"/>
+                <field name="type_absence_id" string="Type Absence"/>
+            </tree>
+        </field>
+
+    </record>
+    <record id="view_rh_absence_form" model="ir.ui.view">
+        <field name="name">rh.absence.form</field>
+        <field name="model">rh.absence</field>
+        <field name="arch" type="xml">
+            <form>
+                  <header>
+<!--                        <button name="envoyer" type="object" string="Envoyer" class="oe_highlight"/>-->
+<!--                        <button name="valider" type="object" string="valider" class="oe_highlight"/>-->
+<!--                        <button name="refuser" type="object" string="Refuser" class="oe_highlight"/>-->
+<!--                        <field name="state" widget="statusbar" statusbar_visible="draft,attente" />-->
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="employee_id" string="Demandeur"/>
+                            <field name="num_reference_absence" string="Ref"/>
+                            <field name="date_debut_absence" string="Date Debut"/>
+                            <field name="date_fin_absence" string="Date Fin"/>
+                        </group>
+                        <group>
+                            <field name="nbr_jours_absence" string="Nbr jours absence"/>
+                            <field name="nbre_heure_absence" string="Nbr heure absence"/>
+                            <field name="type_absence_id" string="Type Absence"/>
+                        </group>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_rh_absence" model="ir.actions.act_window">
+        <field name="name">Absence</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">rh.absence</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Creation Absence!</p>
+        </field>
+    </record>
+            <menuitem name="Absence" id="ressource_humaine_absence" parent="suivi_personnel_id"
+           action="action_rh_absence"/>
+</odoo>

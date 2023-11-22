@@ -7,7 +7,9 @@
             <field name="model">absence.formation</field>
             <field name="arch" type="xml">
                 <form>
+
                     <group>
+                       <field name="employee_name" string = "Employee"/>
                        <field name="date_absence" string = "Date Absence"/>
                     </group>
                     <footer>
