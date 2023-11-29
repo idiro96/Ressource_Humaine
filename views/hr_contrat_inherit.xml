@@ -1,0 +1,18 @@
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="action_ressource_humaine_contart">
+            <field name="name">Contract</field>
+            <field name="res_model">hr.contract</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">calendar,tree,form</field>
+            <field name="view_id" ref="hr_contract.hr_contract_view_tree"/>
+        </record>
+
+
+        <menuitem name="Contrat" id="menu_hr_contart" parent="employee_gestion"
+           action="action_ressource_humaine_contart"/>
+
+
+    </data>
+
+</odoo>

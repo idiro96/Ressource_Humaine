@@ -22,6 +22,17 @@
                         <field name="rs_organisme" string="Raison sociale"/>
                         <field name="adresse_organisme" string="Adresse"/>
                     </group>
+                     <notebook>
+                            <page string="Liste des Fichiers">
+                         <field name="organisme_file_lines">
+                           <tree editable="bottom">
+                             <field name="type_file_id" domain="[('type_file', '=', 'formation')]"/>
+                             <field name="description_fichier" string="Observation"/>
+                             <field name="fichier" string="Fichier"/>
+                           </tree>
+                         </field>
+                       </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>

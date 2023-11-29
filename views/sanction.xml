@@ -49,7 +49,18 @@
                            </tree>
                          </field>
                        </page>
+                            <page string="Liste des Fichiers">
+                         <field name="sanction_file_lines">
+                           <tree editable="bottom">
+                             <field name="type_file_id" domain="[('type_file', '=', 'sanction')]"/>
+                             <field name="description_fichier" string="Observation"/>
+                             <field name="fichier" string="Fichier"/>
+                           </tree>
+                         </field>
+                       </page>
                     </notebook>
+
+
                 </sheet>
             </form>
         </field>

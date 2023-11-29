@@ -43,6 +43,17 @@
                         </group>
 
                     </group>
+                     <notebook>
+                         <page string="Liste des Fichiers">
+                         <field name="absence_file_lines">
+                           <tree editable="bottom">
+                             <field name="type_file_id" domain="[('type_file', '=', 'indisponibilite')]"/>
+                             <field name="description_fichier" string="Observation"/>
+                             <field name="fichier" string="Fichier"/>
+                           </tree>
+                         </field>
+                       </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
@@ -57,6 +68,6 @@
             <p class="o_view_nocontent_smiling_face">Creation Absence!</p>
         </field>
     </record>
-            <menuitem name="Absence" id="ressource_humaine_absence" parent="suivi_personnel_id"
+            <menuitem name="Indisponibilité/Absence" id="ressource_humaine_absence" parent="suivi_personnel_id"
            action="action_rh_absence"/>
 </odoo>

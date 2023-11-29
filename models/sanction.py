@@ -16,6 +16,7 @@ class RHSanction(models.Model):
     type_sanction_id = fields.Many2one('rh.type.sanction')
     employee_id = fields.Many2one('hr.employee')
     choisir_commission_lines = fields.One2many('rh.commission.line', 'sanction_id')
+    sanction_file_lines = fields.One2many('rh.file', 'sanction_id')
 
 
 

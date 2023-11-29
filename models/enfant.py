@@ -12,3 +12,5 @@ class RHEnfant(models.Model):
     prenom_enfant = fields.Char()
     date_naissance_enfant = fields.Date()
     scolarite = fields.Boolean(default=False)
+    enfant_file_lines = fields.One2many('rh.file', 'enfant_id')
+    employee_id = fields.Many2one('hr.employee')

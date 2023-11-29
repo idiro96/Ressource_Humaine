@@ -11,6 +11,7 @@ class RHOrganisme(models.Model):
     code_organisme = fields.Char()
     rs_organisme = fields.Char()
     adresse_organisme = fields.Char()
+    organisme_file_lines = fields.One2many('rh.file', 'organisme_id')
 
 
 

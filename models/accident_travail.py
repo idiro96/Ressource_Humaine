@@ -11,6 +11,7 @@ class RHAccidentTravail(models.Model):
     description_accident_travail = fields.Text()
     num_pv_accident_travail = fields.Integer()
     employee_id = fields.Many2one('hr.employee')
+    accident_travail_file_lines = fields.One2many('rh.file', 'accident_travail_id')
 
 
 

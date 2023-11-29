@@ -6,6 +6,7 @@
             <tree>
                 <field name="nom_enfant" string="Nom Enfant"/>
                 <field name="prenom_enfant" string="Prenom Enfant"/>
+                 <field name="employee_id" string="Employe"/>
                 <field name="date_naissance_enfant" string="Date Naissance Enfant"/>
                 <field name="scolarite" string="Scolarite"/>
             </tree>
@@ -20,6 +21,7 @@
                 <sheet>
                     <group>
                         <group>
+                            <field name="employee_id" string="Employe"/>
                             <field name="nom_enfant" string="Nom Enfant"/>
                             <field name="prenom_enfant" string="Prenom Enfant"/>
                         </group>
@@ -29,6 +31,17 @@
                         </group>
 
                     </group>
+                          <notebook>
+                            <page string="Liste des Fichiers">
+                         <field name="enfant_file_lines">
+                           <tree editable="bottom">
+                             <field name="type_file_id" domain="[('type_file', '=', 'employe')]"/>
+                             <field name="description_fichier" string="Observation"/>
+                             <field name="fichier" string="Fichier"/>
+                           </tree>
+                         </field>
+                       </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>

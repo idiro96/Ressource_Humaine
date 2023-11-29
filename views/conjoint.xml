@@ -6,6 +6,7 @@
             <tree>
                 <field name="nom_conjoint" string="Nom Conjoint"/>
                 <field name="prenom_conjoint" string="Prenom Conjoint"/>
+                 <field name="employee_id" string="Employe"/>
                 <field name="femme_foyer" string="Femme Foyer"/>
             </tree>
         </field>
@@ -19,6 +20,7 @@
                 <sheet>
                     <group>
                         <group>
+                            <field name="employee_id" string="Employe"/>
                             <field name="nom_conjoint" string="Nom Conjoint"/>
                             <field name="prenom_conjoint" string="Prenom Conjoint"/>
                             <field name="femme_foyer" string="Femme Foyer"/>
@@ -30,6 +32,19 @@
                         </group>
 
                     </group>
+
+                    <notebook>
+                            <page string="Liste des Fichiers">
+                         <field name="conjoint_file_lines">
+                           <tree editable="bottom">
+                             <field name="type_file_id" domain="[('type_file', '=', 'employe')]"/>
+                             <field name="description_fichier" string="Observation"/>
+                             <field name="fichier" string="Fichier"/>
+                           </tree>
+                         </field>
+                       </page>
+
+                    </notebook>
                 </sheet>
             </form>
         </field>

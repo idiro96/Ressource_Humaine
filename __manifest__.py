@@ -35,7 +35,7 @@
         # 'views/hr_holidays_inherit.xml',
 
         'views/conjoint.xml',
-        'views/contrat.xml',
+        'views/hr_contrat_inherit.xml',
         'views/formation.xml',
         'views/type_contrat.xml',
         'views/fin_relation.xml',
@@ -58,6 +58,7 @@
         'wizards/formation_detail_wizard.xml',
         'wizards/formation_absence_wizard.xml',
         'wizards/choisir_commission.xml',
+        'views/type_file.xml',
 
     ],
     # only loaded in demonstration mode
