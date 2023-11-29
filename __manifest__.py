@@ -57,6 +57,7 @@
         'wizards/formation_detail_wizard.xml',
         'wizards/formation_absence_wizard.xml',
         'wizards/choisir_commission.xml',
+        'views/type_file.xml',
 
     ],
     # only loaded in demonstration mode

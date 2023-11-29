@@ -16,6 +16,7 @@ class RHCabinetMedical(models.Model):
     adress = fields.Char()
     contact = fields.Char()
     rc = fields.Char()
+    cabinet_medicale_file_lines = fields.One2many('rh.file', 'cabinet_medicale_id')
 
     @api.model
     def create(self, vals):

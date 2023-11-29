@@ -24,6 +24,17 @@
                         <field name="date_fin_relation" string="Date fin de relation"/>
                         <field name="type_fin_relation_id" string="Type Fin Relation"/>
                     </group>
+                        <notebook>
+                            <page string="Liste des Fichiers">
+                         <field name="fin_relation_file_lines">
+                           <tree editable="bottom">
+                             <field name="type_file_id" domain="[('type_file', '=', 'finrelation')]"/>
+                             <field name="description_fichier" string="Observation"/>
+                             <field name="fichier" string="Fichier"/>
+                           </tree>
+                         </field>
+                       </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>

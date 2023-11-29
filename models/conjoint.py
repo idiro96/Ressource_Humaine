@@ -14,5 +14,7 @@ class RHConjoint(models.Model):
     lieu_naissance_conjoint = fields.Char()
     date_mariage = fields.Date()
     femme_foyer = fields.Boolean(default=False)
+    conjoint_file_lines = fields.One2many('rh.file', 'conjoint_id')
+    employee_id = fields.Many2one('hr.employee')
 
 
