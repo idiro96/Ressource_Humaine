@@ -1,0 +1,39 @@
+<odoo>
+    <data>
+<!--        <record model="ir.ui.view" id="holidays_list">-->
+<!--            <field name="name">holidays inherit</field>-->
+<!--            <field name="model">hr.holidays</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--            <field name="inherit_id" ref="hr_holidays.view_holiday_new_calendar"/>-->
+<!--                <tree>-->
+
+<!--                </tree>-->
+<!--            </field>-->
+<!--        </record>-->
+<!--        <record model="ir.ui.view" id="holidays_form">-->
+<!--            <field name="name">holidays inherit</field>-->
+<!--            <field name="model">hr.holidays</field>-->
+<!--            <field name="inherit_id" ref="hr_holidays.view_holiday_new_calendar"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <form>-->
+
+<!--                </form>-->
+<!--            </field>-->
+<!--        </record>-->
+        <record model="ir.actions.act_window" id="action_ressource_humaine_holidays">
+            <field name="name">holidays</field>
+            <field name="res_model">hr.holidays</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">calendar,tree,form</field>
+            <field name="view_id" ref="hr_holidays.view_holiday_new_calendar"/>
+
+        </record>
+
+        <menuitem name="Congé" id="conge_id" parent="ressource_humaine.menu_root"/>
+        <menuitem name="Congé" id="menu_hr_holidays_root" parent="conge_id"
+           action="action_ressource_humaine_holidays"/>
+
+
+    </data>
+
+</odoo>
