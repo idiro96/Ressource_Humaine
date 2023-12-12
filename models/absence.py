@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import math
 
 from odoo import models, fields, api, _
 
@@ -8,10 +9,10 @@ class RHAbsence(models.Model):
     _name = 'rh.absence'
 
     num_reference_absence = fields.Integer()
-    date_debut_absence = fields.Date()
-    date_fin_absence = fields.Date()
+    date_debut_absence = fields.Datetime()
+    date_fin_absence = fields.Datetime()
     nbr_jours_absence = fields.Integer()
-    nbre_heure_absence = fields.Integer()
+    nbre_heure_absence = fields.Float()
     state = fields.Selection([('draft', 'Brouillon'), ('attente', 'attente'),('valide', 'Validé'),('refuse', 'Refusé')], default='draft')
     employee_id = fields.Many2one('hr.employee')
     type_absence_id = fields.Many2one('rh.type.absence')
@@ -24,5 +25,27 @@ class RHAbsence(models.Model):
     def refuser(self):
         self.state = 'refuse'
 
+    def _get_number_of_days(self, date_from, date_to, employee_id):
+        """ Returns a float equals to the timedelta between two dates given as string."""
+        from_dt = fields.Datetime.from_string(date_from)
+        to_dt = fields.Datetime.from_string(date_to)
 
+        if employee_id:
+            employee = self.env['hr.employee'].browse(employee_id)
+            return employee.get_work_days_count(from_dt, to_dt)
 
+        time_delta = to_dt - from_dt
+        return math.ceil(time_delta.days + float(time_delta.seconds) / 86400)
+
+    @api.onchange('date_fin_absence')
+    def _onchange_date_to(self):
+        """ Update the number_of_days. """
+        date_from = self.date_debut_absence
+        date_to = self.date_fin_absence
+
+        # Compute and update the number of days
+        if (date_to and date_from) and (date_from <= date_to):
+            self.nbr_jours_absence = self._get_number_of_days(date_from, date_to, self.employee_id.id)
+
+        else:
+            self.nbr_jours_absence = 0

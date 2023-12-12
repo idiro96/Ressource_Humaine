@@ -35,7 +35,7 @@
         # 'views/hr_holidays_inherit.xml',
 
         'views/conjoint.xml',
-        'views/contrat.xml',
+        'views/hr_contrat_inherit.xml',
         'views/formation.xml',
         'views/type_contrat.xml',
         'views/fin_relation.xml',
@@ -52,6 +52,7 @@
         'views/type_faute.xml',
         'views/type_absence.xml',
         'views/accident_travail.xml',
+        'views/hr_holidays_inherit.xml',
         'data/sequence.xml',
         'wizards/visite_medical_detaille.xml',
         'wizards/formation_detail_wizard.xml',

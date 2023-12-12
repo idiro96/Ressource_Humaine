@@ -49,13 +49,12 @@
         </record>
 
         <menuitem name="Ressource Humaine" id="ressource_humaine.menu_root"  web_icon="ressource_humaine,description/icon.png"/>
-        <menuitem name="Gestion Employee" id="employee_gestion" parent="ressource_humaine.menu_root"/>
+        <menuitem name="Personnel" id="employee_gestion" parent="ressource_humaine.menu_root"/>
         <menuitem name="Suivi Personnel" id="suivi_personnel_id" parent="ressource_humaine.menu_root"/>
         <menuitem name="Recrutement" id="recrutement_id" parent="ressource_humaine.menu_root"/>
         <menuitem name="Formation" id="formation_id" parent="ressource_humaine.menu_root"/>
         <menuitem name="Médecine Travail" id="medecine_travai_id" parent="ressource_humaine.menu_root"/>
         <menuitem name="Référentiels" id="referentiel_id" parent="ressource_humaine.menu_root"/>
-        <menuitem name="Congé" id="conge_id" parent="ressource_humaine.menu_root"/>
         <menuitem name="Employee" id="ressource_humaine_employee" parent="employee_gestion"
            action="action_ressource_humaine"/>
 

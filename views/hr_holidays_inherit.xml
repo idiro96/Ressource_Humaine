@@ -1,55 +1,37 @@
 <odoo>
     <data>
-        <record model="ir.ui.view" id="holidays_list">
-            <field name="name">holidays inherit</field>
-            <field name="model">hr.holidays</field>
-            <field name="arch" type="xml">
-                <tree>
+<!--        <record model="ir.ui.view" id="holidays_list">-->
+<!--            <field name="name">holidays inherit</field>-->
+<!--            <field name="model">hr.holidays</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--            <field name="inherit_id" ref="hr_holidays.view_holiday_new_calendar"/>-->
+<!--                <tree>-->
 
-                </tree>
-            </field>
-        </record>
-        <record model="ir.ui.view" id="holidays_form">
-            <field name="name">holidays inherit</field>
-            <field name="model">hr.holidays</field>
-            <field name="inherit_id" ref="hr.hr_holidays.view_hr_holidays_filter"/>
-            <field name="arch" type="xml">
-<!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='place_of_birth']" position="after">-->
-<!--                    <field name="handicape" string="Handicape"/>-->
-<!--                </xpath>-->
-<!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='bank_account_id']" position="after">-->
-<!--                    <field name="service_militaire" string="Service Militaire"/>-->
-<!--                </xpath>-->
-<!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='resource_calendar_id']" position="after">-->
-<!--                    <field name="fin_relation" string="Fin Relation"/>-->
-<!--                </xpath>-->
-<!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='fin_relation']" position="after">-->
-<!--                    <field name="date_fin_relation" string="Date Fin Relation"/>-->
-<!--                </xpath>-->
-<!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_fin_relation']" position="after">-->
-<!--                    <field name="date_reintegration" string="Date Reintegration"/>-->
-<!--                </xpath>-->
-<!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='department_id']" position="before">-->
-<!--                    <field name="date_entrer" string="Date Entrer"/>-->
-<!--                </xpath>-->
-<!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='marital']" position="after">-->
-<!--                    <field name="activite_conjoint" string="Activite Conjoint"/>-->
-<!--                </xpath>-->
-            </field>
+<!--                </tree>-->
+<!--            </field>-->
+<!--        </record>-->
+<!--        <record model="ir.ui.view" id="holidays_form">-->
+<!--            <field name="name">holidays inherit</field>-->
+<!--            <field name="model">hr.holidays</field>-->
+<!--            <field name="inherit_id" ref="hr_holidays.view_holiday_new_calendar"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <form>-->
 
-        </record>
+<!--                </form>-->
+<!--            </field>-->
+<!--        </record>-->
         <record model="ir.actions.act_window" id="action_ressource_humaine_holidays">
             <field name="name">holidays</field>
             <field name="res_model">hr.holidays</field>
             <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-            <field name="view_id" ref="hr.hr_holidays.view_hr_holidays_filter"/>
+            <field name="view_mode">calendar,tree,form</field>
+            <field name="view_id" ref="hr_holidays.view_holiday_simple"/>
 
         </record>
 
-
-<!--        <menuitem name="Congé" id="menu_hr_holidays_root" parent="conge_id"-->
-<!--           action="action_ressource_humaine_holidays"/>-->
+        <menuitem name="Congé" id="conge_id" parent="ressource_humaine.menu_root"/>
+        <menuitem name="Congé" id="menu_hr_holidays_root" parent="conge_id"
+           action="action_ressource_humaine_holidays"/>
 
 
     </data>
