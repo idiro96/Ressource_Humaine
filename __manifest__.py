@@ -32,7 +32,7 @@
         # 'views/templates.xml',
 
         'views/hr_employee_inherit.xml',
-        # 'views/hr_holidays_inherit.xml',
+        'views/hr_holidays_inherit.xml',
 
         'views/conjoint.xml',
         'views/hr_contrat_inherit.xml',
@@ -51,6 +51,7 @@
         'views/type_sanction.xml',
         'views/type_faute.xml',
         'views/type_absence.xml',
+        'views/absence.xml',
         'views/accident_travail.xml',
         'views/hr_holidays_inherit.xml',
         'data/sequence.xml',
