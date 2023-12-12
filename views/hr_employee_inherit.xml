@@ -49,7 +49,7 @@
         </record>
 
         <menuitem name="Ressource Humaine" id="ressource_humaine.menu_root"  web_icon="ressource_humaine,description/icon.png"/>
-        <menuitem name="Gestion Employee" id="employee_gestion" parent="ressource_humaine.menu_root"/>
+        <menuitem name="Personnel" id="employee_gestion" parent="ressource_humaine.menu_root"/>
         <menuitem name="Suivi Personnel" id="suivi_personnel_id" parent="ressource_humaine.menu_root"/>
         <menuitem name="Recrutement" id="recrutement_id" parent="ressource_humaine.menu_root"/>
         <menuitem name="Formation" id="formation_id" parent="ressource_humaine.menu_root"/>
