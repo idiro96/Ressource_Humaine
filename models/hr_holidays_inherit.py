@@ -1,13 +1,16 @@
 # -*- coding: utf-8 -*-
 import math
-
-from odoo import models, fields, api, _
+# import time
 #
 # import schedule
-# import time
+
+from odoo import models, fields, api, _
+
+
 
 class HrHolidaysInherited(models.Model):
     _inherit = "hr.holidays"
+
 
     # def job(self):
     #     print("Executing the cron job0!")
@@ -22,9 +25,14 @@ class HrHolidaysInherited(models.Model):
 
 
 
+
     # def _get_number_of_days(self):
     #
     #    print('test')
+
+    # def _get_number_of_days(self):
+    #
+
     #     absence =self.env['rh.absence'].serach()
     #     res = super(HrHolidaysInherited, self)._get_number_of_days(self, absence.date_debut_absence, absence.date_fin_absence, absence.employee_id)
     #     """ Returns a float equals to the timedelta between two dates given as string."""

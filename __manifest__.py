@@ -30,6 +30,7 @@
 
         # 'views/views.xml',
         # 'views/templates.xml',
+        'views/data.xml',
 
         'views/hr_employee_inherit.xml',
         'views/hr_holidays_inherit.xml',
@@ -54,12 +55,13 @@
         'views/absence.xml',
         'views/accident_travail.xml',
         'views/hr_holidays_inherit.xml',
+        'views/type_file.xml',
+        'views/conge_droit.xml',
         'data/sequence.xml',
         'wizards/visite_medical_detaille.xml',
         'wizards/formation_detail_wizard.xml',
         'wizards/formation_absence_wizard.xml',
         'wizards/choisir_commission.xml',
-        'views/type_file.xml',
 
     ],
     # only loaded in demonstration mode
