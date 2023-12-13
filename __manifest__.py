@@ -55,6 +55,7 @@
         'views/hr_holidays_inherit.xml',
         'views/type_file.xml',
         'views/conge_droit.xml',
+        'views/cron_view.xml',
         'data/sequence.xml',
         'wizards/visite_medical_detaille.xml',
         'wizards/formation_detail_wizard.xml',

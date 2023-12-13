@@ -47,3 +47,5 @@
             <menuitem name="Droit Conge" id="ressource_humaine_droit_conge" parent="conge_id"
            action="action_rh_droit_conge"/>
 </odoo>
+
+

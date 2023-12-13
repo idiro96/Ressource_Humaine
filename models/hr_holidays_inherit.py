@@ -4,9 +4,42 @@ import math
 from odoo import models, fields, api, _
 
 
-
 class HrHolidaysInherited(models.Model):
     _inherit = "hr.holidays"
+
+
+
+
+
+
+
+    # @api.model
+    # def _compute_days_off_scheduler(self):
+    #     records = self.search([])  # Fetch all records of your model
+    #     for record in records:
+    #         current_date = fields.Date.today()
+    #         last_updated_date = record.last_updated_date
+    #
+    #         if last_updated_date:
+    #             months_passed = (current_date.year - last_updated_date.year) * 12 + current_date.month - last_updated_date.month
+    #             days_increment = months_passed * 2.5
+    #             record.days_off += days_increment
+    #             record.last_updated_date = current_date
+    #
+    # def schedule_compute_days_off(self):
+    #     # Create a scheduler to call the computation method every month
+    #     next_call = datetime.now() + timedelta(days=30)  # Set the interval for 30 days
+    #     self.env['ir.cron'].sudo().create({
+    #         'name': 'Compute Days Off Scheduler',
+    #         'model_id': self.env.ref('your_module_name.model_your_model_name').id,  # Replace with your model's reference
+    #         'state': 'code',
+    #         'code': 'model.schedule_compute_days_off()',
+    #         'interval_number': 1,
+    #         'interval_type': 'months',
+    #         'numbercall': -1,
+    #         'nextcall': next_call.strftime('%Y-%m-%d %H:%M:%S'),
+    #         'user_id': self.env.user.id,
+    #     })
 
 
 

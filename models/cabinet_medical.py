@@ -8,7 +8,7 @@ class RHCabinetMedical(models.Model):
     _name = 'rh.cabinet.medical'
     _rec_name = 'raison_social'
 
-    code = fields.Char()
+    code = fields.Char(readonly=True, default=lambda self: _('New'))
     raison_social = fields.Char()
     nif_cabinet = fields.Char()
     nis_cabinet = fields.Char()

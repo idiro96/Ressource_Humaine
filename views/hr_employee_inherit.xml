@@ -33,6 +33,9 @@
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='department_id']" position="before">
                     <field name="date_entrer" string="Date Entrer"/>
                 </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_entrer']" position="after">
+                    <field name="days_off" string="Date off"/>
+                </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='marital']" position="after">
                     <field name="activite_conjoint" string="Activite Conjoint"/>
                 </xpath>

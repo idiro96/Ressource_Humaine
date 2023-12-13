@@ -14,6 +14,16 @@ class RHCongeDroit(models.Model):
     nbr_jour_consomme = fields.Float()
     nbr_jour_reste = fields.Float()
 
+    @api.model
+    def my_function(self):
+        (print('testaaaaaaaaaaaaaaaaaaaaaaaaaaaaa') )
+
+
+
+
+
+
+
 
 
 
