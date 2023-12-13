@@ -7,7 +7,7 @@ from odoo import models, fields, api, _
 class RHFormation(models.Model):
     _name = 'rh.formation'
 
-    code_formation = fields.Char()
+    code_for = fields.Char(readonly=True, default=lambda self: _('New'))
     intitule_formation = fields.Char()
     date_debut_formation = fields.Date()
     date_fin_formation = fields.Date()
@@ -28,4 +28,12 @@ class RHFormation(models.Model):
         'view_mode': 'form',
         'res_model': 'formation.detail',
         }
+
+
+    @api.model
+    def create(self, vals):
+        if vals.get('code_for', _('New')) == _('New'):
+             vals['code_for'] = self.env['ir.sequence'].next_by_code('rh.formation.sequence') or _('New')
+        result = super(RHFormation, self).create(vals)
+        return result
 

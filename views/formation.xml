@@ -4,7 +4,7 @@
         <field name="model">rh.formation</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="code_formation" string="Code formation"/>
+                <field name="code_for" string="Code formation"/>
                 <field name="date_debut_formation" string="Date de début"/>
                 <field name="date_fin_formation" string="Date de fin"/>
                 <field name="type_formation_id" string="Type Formation"/>
@@ -24,7 +24,7 @@
                 <sheet>
                     <group>
                          <group>
-                             <field name="code_formation" string="Code formation"/>
+                             <field name="code_for" string="Code formation"/>
                               <field name="intitule_formation" string="Thème"/>
                              <field name="date_debut_formation" string="Date de début"/>
                              <field name="date_fin_formation" string="Date de fin"/>

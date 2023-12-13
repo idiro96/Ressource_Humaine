@@ -7,7 +7,7 @@ from odoo import models, fields, api, _
 class RHSanction(models.Model):
     _name = 'rh.sanction'
 
-    code_sanction = fields.Char()
+    code_sanction = fields.Char(readonly=True, default=lambda self: _('New'))
     ref_pv_sanction = fields.Char()
     date_pv_sanction = fields.Date()
     num_decision_sanction = fields.Char()

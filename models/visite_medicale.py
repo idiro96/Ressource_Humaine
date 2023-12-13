@@ -10,7 +10,7 @@ class RHVisiteMedicale(models.Model):
     _rec_name = 'code_visite_medicale'
 
 
-    code_visite_medicale = fields.Char()
+    code_visite_medicale = fields.Char(readonly=True, default=lambda self: _('New'))
     date_debut_visite_medicale = fields.Date()
     date_fin_visite_medicale = fields.Date()
     cout_visite_medicale = fields.Float()
