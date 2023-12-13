@@ -8,7 +8,7 @@ class RHCongeDroit(models.Model):
     _name = 'rh.congedroit'
 
 
-    id_personnel = fields.Many2one(comodel_name='hr.holidays')
+    id_personnel = fields.Many2one(comodel_name='hr.employee')
     exercice_conge = fields.Char()
     nbr_jour = fields.Float()
     nbr_jour_consomme = fields.Float()
