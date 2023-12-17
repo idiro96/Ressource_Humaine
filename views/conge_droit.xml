@@ -18,6 +18,9 @@
         <field name="model">rh.congedroit</field>
         <field name="arch" type="xml">
             <form>
+                 <header>
+                <button name="Actualiser_Droit_Conge" type="object" string="Actualiser Droit Congé" class="oe_highlight"/>
+                </header>
                 <sheet>
                     <group>
                         <group>

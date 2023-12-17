@@ -28,4 +28,5 @@ from . import commission_line
 from . import hr_holidays_inherit
 from . import file
 from . import conge_droit
+from . import conge_droit_month
 

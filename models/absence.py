@@ -49,9 +49,9 @@ class RHAbsence(models.Model):
 
         else:
             self.nbr_jours_absence = 0
-
-    @api.model
-    def my_method(self):
-        print('fatiha')
-        # Votre logique ici
-        return True
+    #
+    # @api.model
+    # def my_method(self):
+    #     print('fatiha')
+    #     # Votre logique ici
+    #     return True
