@@ -58,11 +58,14 @@
         'views/type_file.xml',
         'views/conge_droit.xml',
         'views/cron_view.xml',
+        'views/grille.xml',
         'data/sequence.xml',
         'wizards/visite_medical_detaille.xml',
         'wizards/formation_detail_wizard.xml',
         'wizards/formation_absence_wizard.xml',
         'wizards/choisir_commission.xml',
+        'reports/hr_contract.xml',
+
 
     ],
     # only loaded in demonstration mode

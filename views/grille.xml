@@ -1,0 +1,61 @@
+<odoo>
+    <record id="view_rh_grille_tree" model="ir.ui.view">
+        <field name="name">rh.grille.tree</field>
+        <field name="model">rh.grille</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="code" string="Code GS"/>
+                <field name="date_publication_journal_officiel" string="Date de publication ( journal officiel )"/>
+                <field name="num_decret_journal_officiel" string="N° Decret( journal officiel )"/>
+                <field name="date_application_provisoire" string="Date application provisoire"/>
+                <field name="date_application_effective" string="Date application effective"/>
+                <field name="description_grille" string="Description"/>
+                <button name="appliquer_grille" type="object" string="Appliquée" class="oe_highlight"/>
+            </tree>
+        </field>
+
+    </record>
+    <record id="view_rh_grille_form" model="ir.ui.view">
+        <field name="name">rh.grille.form</field>
+        <field name="model">rh.grille</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                <button name="importation_grille" type="object" string="Importation" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <group>
+                         <group>
+                             <field name="code" string="Code GS"/>
+                             <field name="date_publication_journal_officiel" string="Date de publication ( journal officiel )"/>
+                             <field name="num_decret_journal_officiel" string="N° Decret( journal officiel )"/>
+                             <field name="description_grille" string="Description de la grille de salaire"/>
+                         </group>
+                        <group>
+                             <field name="date_application_provisoire" string="Date application provisoire"/>
+                             <field name="date_application_effective" string="Date application effective"/>
+                             <field name="statut_applique" string="Appliquée"/>
+                         </group>
+                     </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_rh_grille" model="ir.actions.act_window">
+        <field name="name">Grille</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">rh.grille</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Création d'une nouvelle grille</p>
+        </field>
+    </record>
+
+
+            <menuitem name="Grille" id="ressource_humaine_formation" parent="referentiel_id"
+           action="action_rh_grille"/>
+
+
+</odoo>
