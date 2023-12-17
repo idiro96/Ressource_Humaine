@@ -8,7 +8,7 @@
                 <form>
                     <field name="employee_id_lines">
                            <tree editable="bottom">
-                             <field name="selection_employe_visite_medicale"/>
+                             <field name="selection_employe"/>
                              <field name="name"/>
                              <field name="department_id"/>
                              <field name="job_id"/>

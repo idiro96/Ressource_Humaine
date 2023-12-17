@@ -14,7 +14,7 @@
                     </group>
                     <field name="employee_id_lines">
                            <tree editable="bottom">
-                             <field name="selection_employe_visite_medicale"/>
+                             <field name="selection_employe"/>
                              <field name="name"/>
                              <field name="work_phone"/>
                            </tree>

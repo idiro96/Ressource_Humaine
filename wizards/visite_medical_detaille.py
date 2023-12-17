@@ -16,7 +16,7 @@ class RHVisiteMedicalDetaille(models.TransientModel):
     def detaille_viste_medical(self):
         record = self.env['rh.visite.medicale'].browse(self._context['active_id'])
         for line in self.employee_id_lines:
-            if line.selection_employe_visite_medicale == True:
+            if line.selection_employe == True:
                 visite_medical = self.env['rh.visite.medical.line'].create({
                 'employee_id': line.id,
                 'visite_medical_id':record.id,
@@ -28,7 +28,7 @@ class RHVisiteMedicalDetaille(models.TransientModel):
     def _default_employees(self):
         records = self.env['hr.employee'].search([])
         for rec in records:
-            rec.selection_employe_visite_medicale = False
+            rec.selection_employe = False
         return records
 
 

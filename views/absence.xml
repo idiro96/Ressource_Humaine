@@ -31,7 +31,7 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="employee_id" string="Demandeur"/>
+                            <field name="employee_id" string="Demandeur" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                             <field name="num_reference_absence" string="Ref"/>
                             <field name="date_debut_absence" string="Date Debut"/>
                             <field name="date_fin_absence" string="Date Fin"/>
@@ -39,7 +39,7 @@
                         <group>
                             <field name="nbr_jours_absence" string="Nbr jours absence"/>
                             <field name="nbre_heure_absence" string="Nbr heure absence"/>
-                            <field name="type_absence_id" string="Type Absence"/>
+                            <field name="type_absence_id" string="Type Absence" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                         </group>
 
                     </group>

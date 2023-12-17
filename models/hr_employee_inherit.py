@@ -18,7 +18,7 @@ class HrEmployeInherited(models.Model):
     activite_conjoint = fields.Boolean(default=False)
     visite_medical_detaille_id = fields.Many2one('ressource_humaine.visite.medical.detaille')
     formation_detail_id = fields.Many2one('ressource_humaine.formation.detail')
-    selection_employe_visite_medicale = fields.Boolean('Sélection', default=False)
+    selection_employe = fields.Boolean('Sélection', default=False)
     days_off = fields.Float(compute='_compute_days_off', string='Total Days Off', store=True)
 
 

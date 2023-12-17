@@ -19,54 +19,57 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-                <button name="formation_detail_wizard" type="object" string="Detail formation" class="oe_highlight"/>
+                    <button name="formation_detail_wizard" type="object" string="Detail formation"
+                            class="oe_highlight"/>
                 </header>
                 <sheet>
                     <group>
-                         <group>
-                             <field name="code_for" string="Code formation"/>
-                              <field name="intitule_formation" string="Thème"/>
-                             <field name="date_debut_formation" string="Date de début"/>
-                             <field name="date_fin_formation" string="Date de fin"/>
-                             <field name="type_formation_id" string="Type Formation"/>
-                         </group>
-                         <group>
-                             <field name="lieu_formation" string="Lieu de déroulement"/>
-                             <field name="salle_formation" string="N° Salle"/>
-                             <field name="budget_allouee_formation" string="Budget alloué"/>
-                             <field name="organisme_id" string="Organisme Accueil"/>
-                         </group>
+                        <group>
+                            <field name="code_for" string="Code formation"/>
+                            <field name="intitule_formation" string="Thème"/>
+                            <field name="date_debut_formation" string="Date de début"/>
+                            <field name="date_fin_formation" string="Date de fin"/>
+                            <field name="type_formation_id" string="Type Formation"
+                                   options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                        </group>
+                        <group>
+                            <field name="lieu_formation" string="Lieu de déroulement"/>
+                            <field name="salle_formation" string="N° Salle"/>
+                            <field name="budget_allouee_formation" string="Budget alloué"/>
+                            <field name="organisme_id" string="Organisme Accueil"
+                                   options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                        </group>
                     </group>
-                         <notebook>
-                       <page string="Formation Détail">
-                         <field name="formation_lines">
-                           <tree editable="bottom">
-                             <field name="employee_id"/>
-                             <field name="date_debut_formation_line" string = "Date Debut"/>
-                             <field name="date_fin_formation_line" string = "Date Fin"/>
-                             <field name="groupe" string = "Groupe"/>
-                             <button name="formation_absence" type="object" string="Absence" class="oe_highlight"/>
-
-                           </tree>
-                         </field>
+                    <notebook>
+                        <page string="Formation Détail">
+                            <field name="formation_lines" widget="one2many_list" domain="[('formation_id', '=', id)]">
+                                <tree editable="bottom">
+                                    <field name="employee_id"/>
+                                    <field name="date_debut_formation_line" string="Date Debut"/>
+                                    <field name="date_fin_formation_line" string="Date Fin"/>
+                                    <field name="groupe" string="Groupe"/>
+                                    <button name="formation_absence" type="object" string="Absence"
+                                            class="oe_highlight"/>
+                                </tree>
+                            </field>
                         </page>
                         <page string="Formation Absence">
-                           <field name="formation_absence">
-                           <tree editable="bottom">
-                             <field name="employee_id"/>
-                             <field name="date_absence"/>
-                           </tree>
-                         </field>
-                       </page>
-                            <page string="Liste des Fichiers">
-                         <field name="formation_file_lines">
-                           <tree editable="bottom">
-                             <field name="type_file_id" domain="[('type_file', '=', 'formation')]"/>
-                             <field name="description_fichier" string="Observation"/>
-                             <field name="fichier" string="Fichier"/>
-                           </tree>
-                         </field>
-                       </page>
+                            <field name="formation_absence">
+                                <tree editable="bottom">
+                                    <field name="employee_id"/>
+                                    <field name="date_absence"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Liste des Fichiers">
+                            <field name="formation_file_lines">
+                                <tree editable="bottom">
+                                    <field name="type_file_id" domain="[('type_file', '=', 'formation')]"/>
+                                    <field name="description_fichier" string="Observation"/>
+                                    <field name="fichier" string="Fichier"/>
+                                </tree>
+                            </field>
+                        </page>
                     </notebook>
                 </sheet>
             </form>
@@ -82,6 +85,6 @@
             <p class="o_view_nocontent_smiling_face">Création de la formation</p>
         </field>
     </record>
-            <menuitem name="Formation" id="ressource_humaine_formation" parent="formation_id"
-           action="action_rh_formation"/>
+    <menuitem name="Formation" id="ressource_humaine_formation" parent="formation_id"
+              action="action_rh_formation"/>
 </odoo>

@@ -2,13 +2,12 @@
 import math
 
 from odoo import models, fields, api, _
+from odoo.exceptions import ValidationError
+
 
 
 class HrHolidaysInherited(models.Model):
     _inherit = "hr.holidays"
-
-
-
 
 
 
