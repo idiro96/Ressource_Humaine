@@ -32,10 +32,16 @@ class HrEmployeInherited(models.Model):
         for employee in self:
             if employee.date_entrer:
                 # Assuming date_entry is a Date field in the hr.employee model
-                entrer_date = fields.Date.from_string(employee.date_entrer)
-                today_date = fields.Date.from_string(fields.Date.today())
-                months_passed = (today_date.year - entrer_date.year) * 12 + today_date.month - entrer_date.month
-                days_off = months_passed * 2.5
+                # entrer_date = fields.Date.from_string(employee.date_entrer)
+                # today_date = fields.Date.from_string(fields.Date.today())
+                # months_passed = (today_date.year - entrer_date.year) * 12 + today_date.month - entrer_date.month
+                # days_off = months_passed * 2.5
+                days_off = 0
+                conge_existe = self.env['rh.congedroit'].search(
+                        [('id_personnel', '=', employee.id)])
+                for conge in conge_existe:
+                    days_off = conge.nbr_jour_reste + days_off
+
                 employee.days_off = days_off
 
 
