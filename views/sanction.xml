@@ -24,19 +24,19 @@
                 </header>
                 <sheet>
                     <group>
-                        <field name="employee_id" string="Employé"/>
+                        <field name="employee_id" string="Employé" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                     </group>
                     <group>
                         <group>
                             <field name="code_sanction" string="Code Sanction"/>
                             <field name="ref_pv_sanction" string="Ref Pv Sanction"/>
                             <field name="date_pv_sanction" string="Date Pv Sanctionr"/>
-                            <field name="type_sanction_id" string="Type Sanction"/>
+                            <field name="type_sanction_id" string="Type Sanction" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                         </group>
                         <group>
                             <field name="num_decision_sanction" string="Num Decision Sanction"/>
                             <field name="date_decision_sanction" string="Date Decision Sanction"/>
-                            <field name="type_faute_id" string="Type Faute"/>
+                            <field name="type_faute_id" string="Type Faute" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                         </group>
                     </group>
                     <notebook>

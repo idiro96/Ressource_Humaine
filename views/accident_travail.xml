@@ -4,7 +4,7 @@
         <field name="model">rh.accident.travail</field>
         <field name="arch" type="xml">
             <tree>
-                 <field name="employee_id" string="Employe"/>
+                <field name="employee_id" string="Employe"/>
                 <field name="date_accident_travail" string="Date Accident"/>
                 <field name="num_pv_accident_travail" string="Numéro PV"/>
                 <field name="description_accident_travail" string="Description"/>
@@ -20,8 +20,10 @@
                 <sheet>
                     <group>
                          <group>
-                             <field name="employee_id" string="Employe"/>
+                             <field name="employee_id" string="Employe" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                              <field name="date_accident_travail" string="Date Accident"/>
+                         </group>
+                         <group>
                              <field name="num_pv_accident_travail" string="Numéro PV"/>
                              <field name="description_accident_travail" string="Description"/>
                          </group>

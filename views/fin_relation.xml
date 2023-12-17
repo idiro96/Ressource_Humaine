@@ -19,10 +19,10 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="employee_id" string="Employe"/>
+                        <field name="employee_id" string="Employe" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                         <field name="num_decision_fin_relation" string="N° décision du fin de relation"/>
                         <field name="date_fin_relation" string="Date fin de relation"/>
-                        <field name="type_fin_relation_id" string="Type Fin Relation"/>
+                        <field name="type_fin_relation_id" string="Type Fin Relation" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                     </group>
                         <notebook>
                             <page string="Liste des Fichiers">

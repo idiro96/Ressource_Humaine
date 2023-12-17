@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
+
 
 
 class RHFormationDetail(models.TransientModel):
@@ -18,46 +20,55 @@ class RHFormationDetail(models.TransientModel):
         [('groupe1', 'Groupe 1'), ('groupe2', 'Groupe 2'), ('groupe3', 'Groupe 3'), ('groupe4', 'Groupe 4'),
          ('groupe5', 'Groupe 5')])
 
+    # def detail_formation(self):
+    #     record = self.env['rh.formation'].browse(self._context['active_id'])
+    #     for line in self.employee_id_lines:
+    #         if line.selection_employe== True:
+    #             visite_medical = self.env['rh.formation.line'].create({
+    #             'employee_id': line.id,
+    #             'formation_id':record.id,
+    #             'date_debut_formation_line':self.date_debut_formation_line,
+    #             'date_fin_formation_line':self.date_debut_formation_line,
+    #             'groupe': self.groupe
+    #             })
+
     def detail_formation(self):
         record = self.env['rh.formation'].browse(self._context['active_id'])
         for line in self.employee_id_lines:
-            if line.selection_employe_visite_medicale == True:
-                visite_medical = self.env['rh.formation.line'].create({
-                'employee_id': line.id,
-                'formation_id':record.id,
-                'date_debut_formation_line':self.date_debut_formation_line,
-                'date_fin_formation_line':self.date_debut_formation_line,
-                'groupe': self.groupe
-                })
-    #date_visite_medicale = fields.Date()
+            if line.selection_employe:
+                # Check if the dates fall within the absence period
+                date_start = record.date_debut_formation
+                date_end = record.date_fin_formation
 
-    # def detaille_viste_medical(self):
-    #     record = self.env['rh.visite.medicale'].browse(self._context['active_id'])
-    #     visite_medical = self.env['rh.visite.medical.line'].create({
-    #
-    #         'employee_id': self.employee_id.id,
-    #         'visite_medical_id': self.visite_medical_id.id,
-    #         'date_visite_medicale': self.date_visite_medicale,
-    #     })
+                if not (date_start <= self.date_debut_formation_line <= date_end) or \
+                        not (date_start <= self.date_fin_formation_line <= date_end):
+                    raise ValidationError("la date doit étre compris dans l'intervale")
+
+                # Check for overlapping formations for each employee
+                overlapping_formations = self.env['rh.formation.line'].search([
+                    ('employee_id', '=', line.id),
+                    ('date_debut_formation_line', '<=', self.date_fin_formation_line),
+                    ('date_fin_formation_line', '>=', self.date_debut_formation_line),
+                    ('formation_id', '!=', record.id),
+                ])
+                if overlapping_formations:
+                    raise ValidationError("vous avez sélectioner des employees en qui sont déja en formation")
+
+                # Creating formation line
+                self.env['rh.formation.line'].create({
+                    'employee_id': line.id,
+                    'formation_id': record.id,
+                    'date_debut_formation_line': self.date_debut_formation_line,
+                    'date_fin_formation_line': self.date_fin_formation_line,
+                    'groupe': self.groupe
+                 })
 
     @api.model
     def _default_employees(self):
         records = self.env['hr.employee'].search([])
         for rec in records:
-            rec.selection_employe_visite_medicale = False
+            rec.selection_employe = False
         return records
-
-    @api.model
-    def detaille_formation(self):
-        print('rec1')
-        # for rec1 in self.employee_id_lines:
-        #     print(rec1)
-        #     if rec1.selection_employe_visite_medicale == True:
-        #         visite_medical_Detail = self.env['rh.formation.line'].create({
-        #             'employee_id': rec1.id,
-        #            # 'visite_medical_id': self.visite_medical_id.id,
-        #            #  'date_visite_medicale': self.date_visite_medicale,
-        #         })
 
 
 

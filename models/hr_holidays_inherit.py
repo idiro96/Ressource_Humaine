@@ -5,6 +5,8 @@ import math
 # import schedule
 
 from odoo import models, fields, api, _
+from odoo.exceptions import ValidationError
+
 
 
 class HrHolidaysInherited(models.Model):
@@ -21,9 +23,6 @@ class HrHolidaysInherited(models.Model):
     # while True:
     #     schedule.run_pending()
     #     time.sleep(1)
-
-
-
 
 
 

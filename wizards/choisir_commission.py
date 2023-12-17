@@ -14,7 +14,7 @@ class RHChoisirCommission(models.TransientModel):
     def valider_commission(self):
         record = self.env['rh.sanction'].browse(self._context['active_id'])
         for line in self.employee_id_lines:
-            if line.selection_employe_visite_medicale == True:
+            if line.selection_employe == True:
                 commission_line = self.env['rh.commission.line'].create({
                 'employee_id': line.id,
                 'department_id': line.department_id.name,
@@ -27,7 +27,7 @@ class RHChoisirCommission(models.TransientModel):
     def _default_employees(self):
         records = self.env['hr.employee'].search([])
         for rec in records:
-            rec.selection_employe_visite_medicale = False
+            rec.selection_employe = False
         return records
 
 

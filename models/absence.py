@@ -2,11 +2,13 @@
 import math
 
 from odoo import models, fields, api, _
+from odoo.exceptions import ValidationError
 
 
 
 class RHAbsence(models.Model):
     _name = 'rh.absence'
+    _rec_name = 'employee_id'
 
     num_reference_absence = fields.Integer()
     date_debut_absence = fields.Datetime()
@@ -17,14 +19,26 @@ class RHAbsence(models.Model):
     employee_id = fields.Many2one('hr.employee')
     type_absence_id = fields.Many2one('rh.type.absence')
     absence_file_lines = fields.One2many('rh.file', 'absence_id')
-    def envoyer(self):
-        self.state = 'attente'
 
-    def valider(self):
-        self.state = 'valide'
-    def refuser(self):
-        self.state = 'refuse'
+    # def envoyer(self):
+    #     self.state = 'attente'
+    #
+    # def valider(self):
+    #     self.state = 'valide'
+    # def refuser(self):
+    #     self.state = 'refuse'
 
+    @api.constrains('date_debut_absence', 'date_fin_absence', 'employee_id')
+    def _check_contract_overlap(self):
+        for absence in self:
+            overlapping_absence = self.search([
+                ('employee_id', '=', absence.employee_id.id),
+                ('date_debut_absence', '<=', absence.date_fin_absence),
+                ('date_fin_absence', '>=', absence.date_debut_absence),
+                ('id', '!=', absence.id),
+            ])
+            if overlapping_absence:
+                raise ValidationError("cette employé posséde une absence dans cette période")
     def _get_number_of_days(self, date_from, date_to, employee_id):
         """ Returns a float equals to the timedelta between two dates given as string."""
         from_dt = fields.Datetime.from_string(date_from)
@@ -49,6 +63,7 @@ class RHAbsence(models.Model):
 
         else:
             self.nbr_jours_absence = 0
+
     #
     # @api.model
     # def my_method(self):
