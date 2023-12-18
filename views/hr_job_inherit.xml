@@ -1,0 +1,52 @@
+<odoo>
+    <data>
+<!--        <record model="ir.ui.view" id="holidays_list">-->
+<!--            <field name="name">holidays inherit</field>-->
+<!--            <field name="model">hr.holidays</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--            <field name="inherit_id" ref="hr_holidays.view_holiday_new_calendar"/>-->
+<!--                <tree>-->
+
+<!--                </tree>-->
+<!--            </field>-->
+<!--        </record>-->
+<!--        <record model="ir.ui.view" id="holidays_form">-->
+<!--            <field name="name">holidays inherit</field>-->
+<!--            <field name="model">hr.holidays</field>-->
+<!--            <field name="inherit_id" ref="hr_holidays.view_holiday_new_calendar"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <form>-->
+
+<!--                </form>-->
+<!--            </field>-->
+<!--        </record>-->
+        <record model="ir.actions.act_window" id="action_hr_job">
+            <field name="name">job</field>
+            <field name="res_model">hr.job</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_id" ref="hr_recruitment.view_hr_job_kanban"/>
+
+        </record>
+
+        <record model="ir.actions.act_window" id="crm_case_categ0_act_job">
+            <field name="name">applicant</field>
+            <field name="res_model">hr.applicant</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_id" ref="hr_recruitment.hr_kanban_view_applicant"/>
+        </record>
+
+
+
+        <menuitem name="Recruitment" id="recruitment_id" parent="ressource_humaine.menu_root"/>
+        <menuitem name="Postes" id="action_hr_job_id" parent="recruitment_id"
+           action="action_hr_job"/>
+        <menuitem name="Rapport Détails du congé" id="crm_case_categ0_act_job_id" parent="recruitment_id"
+           action="crm_case_categ0_act_job"/>
+>
+
+
+    </data>
+
+</odoo>

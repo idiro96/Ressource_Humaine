@@ -59,6 +59,7 @@
         'views/conge_droit.xml',
         'views/cron_view.xml',
         'views/grille.xml',
+        'views/hr_job_inherit.xml',
         'data/sequence.xml',
         'wizards/visite_medical_detaille.xml',
         'wizards/formation_detail_wizard.xml',
