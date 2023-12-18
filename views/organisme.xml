@@ -47,6 +47,6 @@
             <p class="o_view_nocontent_smiling_face">Création de l'organisme</p>
         </field>
     </record>
-            <menuitem name="Organisme" id="ressource_humaine_organisme" parent="formation_id"
-           action="action_rh_organisme"/>
+    <menuitem name="Organisme" id="ressource_humaine_organisme" parent="formation_id"
+              action="action_rh_organisme"/>
 </odoo>

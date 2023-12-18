@@ -34,10 +34,8 @@
 
         'views/hr_employee_inherit.xml',
         'views/hr_holidays_inherit.xml',
-
         'views/conjoint.xml',
         'views/hr_contrat_inherit.xml',
-        'views/formation.xml',
         'views/type_contrat.xml',
         'views/fin_relation.xml',
         'views/formation.xml',

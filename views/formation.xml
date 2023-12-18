@@ -85,6 +85,7 @@
             <p class="o_view_nocontent_smiling_face">Création de la formation</p>
         </field>
     </record>
+
     <menuitem name="Formation" id="ressource_humaine_formation" parent="formation_id"
               action="action_rh_formation"/>
 </odoo>
