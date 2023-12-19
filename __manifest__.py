@@ -34,10 +34,8 @@
 
         'views/hr_employee_inherit.xml',
         'views/hr_holidays_inherit.xml',
-
         'views/conjoint.xml',
         'views/hr_contrat_inherit.xml',
-        'views/formation.xml',
         'views/type_contrat.xml',
         'views/fin_relation.xml',
         'views/formation.xml',
@@ -59,6 +57,7 @@
         'views/conge_droit.xml',
         'views/cron_view.xml',
         'views/grille.xml',
+        'views/hr_job_inherit.xml',
         'data/sequence.xml',
         'wizards/visite_medical_detaille.xml',
         'wizards/formation_detail_wizard.xml',

@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api, _
+from odoo.exceptions import ValidationError
+
 
 
 
 class RHFormationLine(models.Model):
     _name = 'rh.formation.line'
+
 
     employee_id = fields.Many2one('hr.employee')
     formation_id = fields.Many2one('rh.formation')
@@ -16,14 +19,6 @@ class RHFormationLine(models.Model):
         [('groupe1', 'Groupe 1'), ('groupe2', 'Groupe 2'), ('groupe3', 'Groupe 3'), ('groupe4', 'Groupe 4'),
          ('groupe5', 'Groupe 5')])
 
-    @api.onchange('formation_id')
-    def _onchange_formation_id(self):
-        if self.formation_id:
-            formation_employees = self.env['rh.formation.line'].search([('formation_id', '=', self.formation_id.id)])
-            employee_ids = formation_employees.mapped('employee_id.id')
-            return {'domain': {'employee_id': [('id', 'not in', employee_ids)]}}
-        else:
-            return {}
 
     def formation_absence(self):
         context = {

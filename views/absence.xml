@@ -22,11 +22,12 @@
         <field name="model">rh.absence</field>
         <field name="arch" type="xml">
             <form>
-                  <header>
-<!--                        <button name="envoyer" type="object" string="Envoyer" class="oe_highlight"/>-->
-<!--                        <button name="valider" type="object" string="valider" class="oe_highlight"/>-->
-<!--                        <button name="refuser" type="object" string="Refuser" class="oe_highlight"/>-->
-<!--                        <field name="state" widget="statusbar" statusbar_visible="draft,attente" />-->
+                <header>
+                    <button name="action_confirm" type="object" class="oe_highlight" string="Confirmer Absence"
+                    attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                    <button name="action_done" type="object" class="oe_highlight" string="Refuser Absence"
+                    attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm,refuse"/>
                 </header>
                 <sheet>
                     <group>
