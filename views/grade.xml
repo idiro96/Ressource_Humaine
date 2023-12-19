@@ -1,0 +1,45 @@
+<odoo>
+    <record id="view_rh_grade_tree" model="ir.ui.view">
+        <field name="name">rh.grade.tree</field>
+        <field name="model">rh.grade</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="code" string="Code"/>
+                <field name="intitule_grade" string="Grade"/>
+                <field name="secteure_id" string="Secteure"/>
+            </tree>
+        </field>
+
+    </record>
+    <record id="view_rh_grade_form" model="ir.ui.view">
+        <field name="name">rh.grade.form</field>
+        <field name="model">rh.grade</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="code" string="Code"/>
+                            <field name="intitule_grade" string="Grade"/>
+                        </group>
+                        <group>
+                            <field name="secteure_id" string="Secteure" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_rh_grade" model="ir.actions.act_window">
+        <field name="name">grade</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">rh.grade</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Création d'un grade</p>
+        </field>
+    </record>
+    <menuitem name="Grade" id="ressource_humaine_grade" parent="referentiel_id"
+           action="action_rh_grade"/>
+</odoo>
