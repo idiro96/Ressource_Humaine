@@ -1,5 +1,48 @@
 <odoo>
     <data>
+        <record model="ir.ui.view" id="ressource_humaine_contract_form">
+            <field name="name">contract inherit</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='information']" position="attributes">
+                    <attribute name="string">Informations sur le salaire</attribute>
+                </xpath>
+                <xpath expr="//group[@name='salary_and_advantages']" position="attributes">
+                    <attribute name="string">Affectation des qualifications salariales :</attribute>
+                </xpath>
+                <xpath expr="//field[@name='wage']" position="attributes">
+                    <attribute name="options">{'no_currency_symbol': 1}</attribute>
+                </xpath>
+                <xpath expr="//span[contains(text(), '/ month')]" position="replace">
+                    <span>Mensuel</span>
+                </xpath>
+                <xpath expr="//div[@name='wage']" position="after">
+                    <field name="categorie_id" string="Categorie"/>
+                </xpath>
+                <xpath expr="//field[@name='categorie_id']" position="after">
+                    <field name="echelon_id" string="Echelon"/>
+                </xpath>
+                <xpath expr="//field[@name='echelon_id']" position="after">
+                    <field name="point_indiciare" string="Point Indicaire"/>
+                </xpath>
+                <xpath expr="//page[@name='information']" position="after">
+                    <page string="Grille de salaire" name="grille_page"/>
+                </xpath>
+                <xpath expr="//page[@name='grille_page']" position="inside">
+                    <group string="Informations sur la grille actuelle" name="info_grille"/>
+                </xpath>
+                <xpath expr="//group[@name='info_grille']" position="inside">
+                    <field name="grille_id" string="Grille"/>
+                </xpath>
+                <xpath expr="//group[@name='info_grille']" position="after">
+                    <group string="Historique des grilles de salaires" name="histo_grille"/>
+                </xpath>
+                <xpath expr="//form" position="attributes">
+                    <attribute name="string">Current Contract</attribute>
+                </xpath>
+            </field>
+        </record>
         <record model="ir.actions.act_window" id="action_ressource_humaine_contart">
             <field name="name">Contract</field>
             <field name="res_model">hr.contract</field>
@@ -10,7 +53,7 @@
 
 
         <menuitem name="Contrat" id="menu_hr_contart" parent="employee_gestion"
-           action="action_ressource_humaine_contart"/>
+                  action="action_ressource_humaine_contart"/>
 
 
     </data>

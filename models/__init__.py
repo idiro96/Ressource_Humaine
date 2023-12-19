@@ -29,4 +29,5 @@ from . import hr_holidays_inherit
 from . import file
 from . import conge_droit
 from . import conge_droit_month
+from . import grille
 
