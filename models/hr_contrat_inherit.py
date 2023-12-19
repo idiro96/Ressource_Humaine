@@ -16,6 +16,8 @@ class  HrContratInherited(models.Model):
     # salaire_base_contrat = fields.Float()
     # motif_contrat = fields.Char()
     # type_contrat_id = fields.Many2one('rh.type.contrat')
+    type = fields.Selection([('contrat', 'Contrat'), ('decision', 'Decision'),]
+                                   , required=True, default='contrat')
     point_indiciare = fields.Integer()
     categorie_id = fields.Many2one('rh.categorie')
     echelon_id = fields.Many2one('rh.echelon')
