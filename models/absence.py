@@ -15,18 +15,25 @@ class RHAbsence(models.Model):
     date_fin_absence = fields.Datetime()
     nbr_jours_absence = fields.Integer()
     nbre_heure_absence = fields.Float()
-    state = fields.Selection([('draft', 'Brouillon'), ('attente', 'attente'),('valide', 'Validé'),('refuse', 'Refusé')], default='draft')
     employee_id = fields.Many2one('hr.employee')
     type_absence_id = fields.Many2one('rh.type.absence')
     absence_file_lines = fields.One2many('rh.file', 'absence_id')
+    state = fields.Selection([('draft', 'Brouillon'),
+                              ('confirm', 'Validé'),
+                              ('refuse', 'Refusé'),],
+                               string="Status", readonly=True,default='draft')
 
-    # def envoyer(self):
-    #     self.state = 'attente'
-    #
-    # def valider(self):
-    #     self.state = 'valide'
-    # def refuser(self):
-    #     self.state = 'refuse'
+    def unlink(self):
+        for rec in self:
+            if rec.state in ['confirm', 'refuse']:
+                raise ValidationError('You cannot delete a record that is confirmed or refused.')
+        return super(RHAbsence, self).unlink()
+    def action_confirm(self):
+        for rec in self:
+            rec.state='confirm'
+    def action_done(self):
+        for rec in self:
+            rec.state='refuse'
 
     @api.constrains('date_debut_absence', 'date_fin_absence', 'employee_id')
     def _check_contract_overlap(self):
@@ -64,9 +71,3 @@ class RHAbsence(models.Model):
         else:
             self.nbr_jours_absence = 0
 
-    #
-    # @api.model
-    # def my_method(self):
-    #     print('fatiha')
-    #     # Votre logique ici
-    #     return True

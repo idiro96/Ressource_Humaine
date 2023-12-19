@@ -21,6 +21,18 @@ class RHFormation(models.Model):
     formation_lines = fields.One2many('rh.formation.line', inverse_name='formation_id', string="Formation Lines")
     formation_absence = fields.One2many('rh.absence.formation', inverse_name='formation_id', string="Formation Absence")
     formation_file_lines = fields.One2many('rh.file', 'formation_id')
+    state = fields.Selection([('draft', 'Brouillon'),
+                              ('confirm', 'Validé'),],
+                               string="Status", readonly=True,default='draft')
+
+    def unlink(self):
+        for rec in self:
+            if rec.state in ['confirm']:
+                raise ValidationError('You cannot delete a record that is confirmed or refused.')
+        return super(RHFormation, self).unlink()
+    def action_confirm(self):
+        for rec in self:
+            rec.state='confirm'
 
 
     def formation_detail_wizard(self):

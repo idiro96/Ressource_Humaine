@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api, _
+from odoo.exceptions import ValidationError
+
 
 
 
@@ -10,6 +12,16 @@ class RHAbsenceFormation(models.TransientModel):
     date_absence = fields.Date()
     employee_name = fields.Char()
     # employee_name = fields.Char(default=lambda self: self._default_employees())
+
+    @api.constrains('date_absence')
+    def _check_date_absence_within_interval(self):
+        for wizard in self:
+            if wizard.date_absence:
+                formation_line = self.env['rh.formation.line'].browse(self._context.get('active_id'))
+                start_date = formation_line.date_debut_formation_line
+                end_date = formation_line.date_fin_formation_line
+                if not (start_date <= wizard.date_absence <= end_date):
+                    raise ValidationError(_("La date d''absence doit étre dans l'interval de la formation"))
 
     def absence_formation(self):
         record = self.env['rh.formation.line'].browse(self._context['active_id'])

@@ -19,6 +19,11 @@
         <field name="arch" type="xml">
             <form>
                 <header>
+                    <button name="action_confirm" type="object" class="oe_highlight" string="Confirmer Formation"
+                    attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                    <button name="action_done" type="object" class="oe_highlight" string="Refuser Formation"
+                    attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
                     <button name="formation_detail_wizard" type="object" string="Detail formation"
                             class="oe_highlight"/>
                 </header>
@@ -42,7 +47,7 @@
                     </group>
                     <notebook>
                         <page string="Formation Détail">
-                            <field name="formation_lines" widget="one2many_list" domain="[('formation_id', '=', id)]">
+                            <field name="formation_lines" widget="one2many_list">
                                 <tree editable="bottom">
                                     <field name="employee_id"/>
                                     <field name="date_debut_formation_line" string="Date Debut"/>

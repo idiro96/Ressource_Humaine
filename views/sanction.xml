@@ -20,7 +20,12 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-                        <button name="choisir_commission" type="object" string="Choisir Commission" class="oe_highlight"/>
+                    <button name="choisir_commission" type="object" string="Choisir Commission" class="oe_highlight"/>
+                    <button name="action_confirm" type="object" class="oe_highlight" string="Confirmer Sanction"
+                    attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                    <button name="action_done" type="object" class="oe_highlight" string="Refuser Sanction"
+                    attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm,refuse"/>
                 </header>
                 <sheet>
                     <group>
