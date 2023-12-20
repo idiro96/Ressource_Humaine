@@ -6,6 +6,8 @@ from odoo import models, fields, api, _
 
 class RHSecteure(models.Model):
     _name = 'rh.corps'
+    _rec_name = 'intitule_corps'
+
 
     code = fields.Char(String='Code', readonly=True, default=lambda self: _('New'))
     intitule_corps= fields.Char()
