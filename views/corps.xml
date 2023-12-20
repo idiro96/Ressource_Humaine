@@ -1,26 +1,26 @@
 <odoo>
-    <record id="view_rh_secteure_tree" model="ir.ui.view">
-        <field name="name">rh.secteure.tree</field>
-        <field name="model">rh.secteure</field>
+    <record id="view_rh_corps_tree" model="ir.ui.view">
+        <field name="name">rh.corps.tree</field>
+        <field name="model">rh.corps</field>
         <field name="arch" type="xml">
             <tree>
                 <field name="code" string="Code"/>
-                <field name="intitule_secteure" string="Secteure"/>
+                <field name="intitule_corps" string="Corps"/>
                 <field name="filiere_id" string="Filiere"/>
             </tree>
         </field>
 
     </record>
-    <record id="view_rh_secteure_form" model="ir.ui.view">
-        <field name="name">rh.secteure.form</field>
-        <field name="model">rh.secteure</field>
+    <record id="view_rh_corps_form" model="ir.ui.view">
+        <field name="name">rh.corps.form</field>
+        <field name="model">rh.corps</field>
         <field name="arch" type="xml">
             <form>
                 <sheet>
                     <group>
                         <group>
                             <field name="code" string="Code"/>
-                            <field name="intitule_secteure" string="Secteure"/>
+                            <field name="intitule_corps" string="Corps"/>
                         </group>
                         <group>
                             <field name="filiere_id" string="Filiere" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
@@ -30,16 +30,16 @@
             </form>
         </field>
     </record>
-    <record id="action_rh_secteure" model="ir.actions.act_window">
-        <field name="name">secteure</field>
+    <record id="action_rh_corps" model="ir.actions.act_window">
+        <field name="name">corps</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">rh.secteure</field>
+        <field name="res_model">rh.corps</field>
         <field name="view_mode">tree,form</field>
         <field name="context">{}</field>
         <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">Création d'un secteure</p>
+            <p class="o_view_nocontent_smiling_face">Création d'un corps</p>
         </field>
     </record>
-    <menuitem name="secteure" id="ressource_humaine_secteure" parent="referentiel_id"
-           action="action_rh_secteure"/>
+    <menuitem name="Corps" id="ressource_humaine_corps" parent="referentiel_id"
+           action="action_rh_corps"/>
 </odoo>

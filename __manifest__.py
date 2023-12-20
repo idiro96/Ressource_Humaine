@@ -60,7 +60,7 @@
         'views/hr_job_inherit.xml',
         'views/Loi.xml',
         'views/filiere.xml',
-        'views/secteure.xml',
+        'views/corps.xml',
         'views/grade.xml',
         'data/sequence.xml',
         'wizards/visite_medical_detaille.xml',
