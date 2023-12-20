@@ -33,6 +33,6 @@ from . import grille
 from . import hr_job_inherit
 from . import loi
 from . import filiere
-from . import secteure
+from . import corps
 from . import grade
 
