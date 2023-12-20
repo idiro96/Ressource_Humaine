@@ -6,6 +6,7 @@ from odoo import models, fields, api, _
 
 class RHFiliere(models.Model):
     _name = 'rh.filiere'
+    _rec_name = 'intitule_filiere'
 
     code = fields.Char(String='Code', readonly=True, default=lambda self: _('New'))
     intitule_filiere = fields.Char()
