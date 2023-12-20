@@ -6,7 +6,7 @@
             <tree>
                 <field name="code" string="Code"/>
                 <field name="intitule_grade" string="Grade"/>
-                <field name="secteure_id" string="Secteure"/>
+                <field name="corps_id" string="Corps"/>
             </tree>
         </field>
 
@@ -23,7 +23,7 @@
                             <field name="intitule_grade" string="Grade"/>
                         </group>
                         <group>
-                            <field name="secteure_id" string="Secteure" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                            <field name="corps_id" string="Corps" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                         </group>
                     </group>
                 </sheet>

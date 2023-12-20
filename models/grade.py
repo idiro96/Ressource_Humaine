@@ -6,10 +6,11 @@ from odoo import models, fields, api, _
 
 class RHGrade(models.Model):
     _name = 'rh.grade'
+    _rec_name = 'intitule_grade'
 
     code = fields.Char(String='Code', readonly=True, default=lambda self: _('New'))
     intitule_grade = fields.Char()
-    secteure_id = fields.Many2one(comodel_name='rh.secteure')
+    corps_id = fields.Many2one(comodel_name='rh.corps')
 
 
 
