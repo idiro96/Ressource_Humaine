@@ -68,6 +68,7 @@
         'wizards/formation_absence_wizard.xml',
         'wizards/choisir_commission.xml',
         'reports/hr_contract.xml',
+        'reports/attestation_travail.xml',
 
 
     ],
