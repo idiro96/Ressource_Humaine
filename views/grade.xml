@@ -40,6 +40,6 @@
             <p class="o_view_nocontent_smiling_face">Création d'un grade</p>
         </field>
     </record>
-    <menuitem name="Grade" id="ressource_humaine_grade" parent="referentiel_id"
+    <menuitem name="Grade" id="ressource_humaine_grade" parent="promotion_id"
            action="action_rh_grade"/>
 </odoo>

@@ -35,4 +35,7 @@ from . import loi
 from . import filiere
 from . import corps
 from . import grade
+from . import promotion
+from . import promotion_ligne
+from . import nature_travail
 

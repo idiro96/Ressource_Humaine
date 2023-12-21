@@ -25,8 +25,15 @@ class HrEmployeInherited(models.Model):
 
     selection_employe = fields.Boolean('Sélection', default=False)
     days_off = fields.Float(compute='_compute_days_off', string='Total Days Off', store=True)
-
-
+    corps_id = fields.Many2one('rh.corps')
+    grade_id = fields.Many2one('rh.grade')
+    date_grade = fields.Date()
+    promotion_lines = fields.One2many('rh.promotion.line', inverse_name='employee_id', string="Promotion Lines")
+    nature_travail_id = fields.Many2one('rh.nature.travail')
+    position_statutaire = fields.Selection([('activite', 'القيام بالخدمة'),
+                              ('detachement', 'الانتداب'),
+                              ('horscadre', 'خارج الايطار '),('miseendisponibilite', 'الاحالة على الاستدعاء '),('servicenationale', 'الخدمة الوطنية'),],
+                               string="Status", readonly=False,default='activite')
     @api.depends('date_entrer')
     def _compute_days_off(self):
         for employee in self:

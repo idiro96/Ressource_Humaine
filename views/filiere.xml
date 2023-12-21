@@ -40,6 +40,6 @@
             <p class="o_view_nocontent_smiling_face">Création d'une filiere</p>
         </field>
     </record>
-    <menuitem name="filiere" id="ressource_humaine_filiere" parent="referentiel_id"
+    <menuitem name="filiere" id="ressource_humaine_filiere" parent="promotion_id"
            action="action_rh_filiere"/>
 </odoo>

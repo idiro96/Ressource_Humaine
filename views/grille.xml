@@ -54,7 +54,7 @@
     </record>
 
 
-    <menuitem name="Grille" id="ressource_humaine_grille" parent="referentiel_id"
+    <menuitem name="Grille" id="ressource_humaine_grille" parent="promotion_id"
            action="action_rh_grille"/>
 
 
