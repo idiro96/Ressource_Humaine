@@ -5,9 +5,26 @@
             <field name="model">hr.employee</field>
             <field name="inherit_id" ref="hr.view_employee_tree"/>
             <field name="arch" type="xml">
-                <tree>
+                <xpath expr="//tree//field[@name='name']" position="after">
+                    <field name="nature_travail_id"></field>
+                </xpath>
+                <xpath expr="//tree//field[@name='nature_travail_id']" position="after">
+                    <field name="date_entrer"></field>
+                </xpath>
+                <xpath expr="//tree//field[@name='date_entrer']" position="after">
+                    <field name="corps_id"></field>
+                </xpath>
+                <xpath expr="//tree//field[@name='corps_id']" position="after">
+                    <field name="grade_id"></field>
+                </xpath>
+                <xpath expr="//tree//field[@name='grade_id']" position="after">
+                    <field name="date_grade"></field>
+                </xpath>
+                <xpath expr="//tree//field[@name='date_grade']" position="after">
+                    <field name="position_statutaire"></field>
+                </xpath>
 
-                </tree>
+
             </field>
         </record>
         <record model="ir.ui.view" id="employee_form">
@@ -15,29 +32,66 @@
             <field name="model">hr.employee</field>
             <field name="inherit_id" ref="hr.view_employee_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='place_of_birth']" position="after">
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='place_of_birth']"
+                       position="after">
                     <field name="handicape" string="Handicape"/>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='bank_account_id']" position="after">
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='bank_account_id']"
+                       position="after">
                     <field name="service_militaire" string="Service Militaire"/>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='resource_calendar_id']" position="after">
+
+
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='resource_calendar_id']"
+                       position="after">
                     <field name="fin_relation" string="Fin Relation"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='fin_relation']" position="after">
                     <field name="date_fin_relation" string="Date Fin Relation"/>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_fin_relation']" position="after">
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_fin_relation']"
+                       position="after">
                     <field name="date_reintegration" string="Date Reintegration"/>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='department_id']" position="before">
+                <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='job_id']" position="after">
+                    <field name="corps_id" string="Corps"/>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='corps_id']" position="after">
+                    <field name="grade_id" string="Grade"/>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='grade_id']" position="after">
+                    <field name="date_grade" string="Date Grade"/>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_grade']" position="after">
+                    <field name="position_statutaire" string="Statutaire"/>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='department_id']"
+                       position="before">
                     <field name="date_entrer" string="Date Entrer"/>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_entrer']" position="before">
+                    <field name="nature_travail_id" string="Nature Travail"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_entrer']" position="after">
                     <field name="days_off" string="Date off"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='marital']" position="after">
                     <field name="activite_conjoint" string="Activite Conjoint"/>
+                </xpath>
+                <xpath expr="//form//sheet//notebook" position="inside">
+                    <page string="Historique Promotion">
+                        <tree>
+                            <field name="promotion_lines">
+                                <tree create="false" delete="false">
+                                    <field name="date_examin_professionnel"/>
+                                    <field name="grade_old_id"/>
+                                    <field name="grade_new_id"/>
+                                    <field name="date_new_grade"/>
+                                </tree>
+
+                            </field>
+                        </tree>
+                    </page>
                 </xpath>
             </field>
 
@@ -51,15 +105,17 @@
 
         </record>
 
-        <menuitem name="Ressource Humaine" id="ressource_humaine.menu_root"  web_icon="ressource_humaine,description/icon.png"/>
+        <menuitem name="Ressource Humaine" id="ressource_humaine.menu_root"
+                  web_icon="ressource_humaine,description/icon.png"/>
         <menuitem name="Personnel" id="employee_gestion" parent="ressource_humaine.menu_root"/>
         <menuitem name="Suivi Personnel" id="suivi_personnel_id" parent="ressource_humaine.menu_root"/>
         <menuitem name="Recrutement" id="recrutement_id" parent="ressource_humaine.menu_root"/>
         <menuitem name="Formation" id="formation_id" parent="ressource_humaine.menu_root"/>
         <menuitem name="Médecine Travail" id="medecine_travai_id" parent="ressource_humaine.menu_root"/>
+        <menuitem name="Promotion" id="promotion_id" parent="ressource_humaine.menu_root"/>
         <menuitem name="Référentiels" id="referentiel_id" parent="ressource_humaine.menu_root"/>
         <menuitem name="Employee" id="ressource_humaine_employee" parent="employee_gestion"
-           action="action_ressource_humaine"/>
+                  action="action_ressource_humaine"/>
 
 
     </data>

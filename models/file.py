@@ -16,7 +16,8 @@ class RHFile(models.Model):
     enfant_id = fields.Many2one('rh.enfant')
     conjoint_id = fields.Many2one('rh.conjoint')
     absence_id = fields.Many2one('rh.absence')
-    formation_id = fields.Many2one('rh.absence')
+    formation_id = fields.Many2one('rh.formation')
+    promotion_id = fields.Many2one('rh.promotion_id')
     accident_travail_id = fields.Many2one('rh.accident_travail')
     type_file_id = fields.Many2one('rh.type.file')
 

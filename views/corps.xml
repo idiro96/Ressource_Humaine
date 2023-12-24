@@ -7,6 +7,7 @@
                 <field name="code" string="Code"/>
                 <field name="intitule_corps" string="Corps"/>
                 <field name="filiere_id" string="Filiere"/>
+                <field name="loi_id" string="Loi"/>
             </tree>
         </field>
 
@@ -23,7 +24,8 @@
                             <field name="intitule_corps" string="Corps"/>
                         </group>
                         <group>
-                            <field name="filiere_id" string="Filiere" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                            <field name="loi_id" string="Loi"/>
+                            <field name="filiere_id" string="Filiere"  options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                         </group>
                     </group>
                 </sheet>
@@ -40,6 +42,6 @@
             <p class="o_view_nocontent_smiling_face">Création d'un corps</p>
         </field>
     </record>
-    <menuitem name="Corps" id="ressource_humaine_corps" parent="referentiel_id"
+    <menuitem name="Corps" id="ressource_humaine_corps" parent="promotion_id"
            action="action_rh_corps"/>
 </odoo>

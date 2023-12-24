@@ -8,7 +8,6 @@ class RHLoi(models.Model):
     _name = 'rh.loi'
     _rec_name = 'intitule_loi'
 
-
     code = fields.Char(String='Code', readonly=True, default=lambda self: _('New'))
     intitule_loi = fields.Char()
 

@@ -31,6 +31,12 @@
                 <xpath expr="//field[@name='echelon_id']" position="after">
                     <field name="point_indiciare" string="Point Indicaire"/>
                 </xpath>
+                  <xpath expr="//form//group//group//field[@name='job_id']" position="after">
+                    <field name="corps_id" string="Corps"/>
+                </xpath>
+                <xpath expr="//form//group//group//field[@name='corps_id']" position="after">
+                    <field name="grade_id" string="Grade"/>
+                </xpath>
                 <xpath expr="//page[@name='information']" position="after">
                     <page string="Grille de salaire" name="grille_page"/>
                 </xpath>
@@ -57,7 +63,7 @@
         </record>
 
 
-        <menuitem name="Contrat" id="menu_hr_contart" parent="employee_gestion"
+        <menuitem name="Contrat/Decision" id="menu_hr_contart" parent="employee_gestion"
                   action="action_ressource_humaine_contart"/>
 
 

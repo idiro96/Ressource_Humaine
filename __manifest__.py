@@ -62,6 +62,8 @@
         'views/filiere.xml',
         'views/corps.xml',
         'views/grade.xml',
+        'views/promotion.xml',
+        'views/nature_travail.xml',
         'data/sequence.xml',
         'wizards/visite_medical_detaille.xml',
         'wizards/formation_detail_wizard.xml',
