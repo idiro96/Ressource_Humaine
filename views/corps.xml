@@ -7,6 +7,7 @@
                 <field name="code" string="Code"/>
                 <field name="intitule_corps" string="Corps"/>
                 <field name="filiere_id" string="Filiere"/>
+                <field name="loi_id" string="Loi"/>
             </tree>
         </field>
 
@@ -23,6 +24,7 @@
                             <field name="intitule_corps" string="Corps"/>
                         </group>
                         <group>
+                            <field name="loi_id" string="Loi"/>
                             <field name="filiere_id" string="Filiere" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                         </group>
                     </group>
