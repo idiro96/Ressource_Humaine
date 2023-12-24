@@ -68,6 +68,10 @@
         'wizards/formation_absence_wizard.xml',
         'wizards/choisir_commission.xml',
         'reports/hr_contract.xml',
+        'reports/report_rh.xml',
+        'reports/titre_conge.xml',
+        'reports/report_template_header.xml',
+
 
 
     ],
