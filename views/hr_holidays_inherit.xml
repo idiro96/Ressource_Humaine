@@ -10,16 +10,16 @@
 <!--                </tree>-->
 <!--            </field>-->
 <!--        </record>-->
-<!--        <record model="ir.ui.view" id="holidays_form">-->
-<!--            <field name="name">holidays inherit</field>-->
-<!--            <field name="model">hr.holidays</field>-->
-<!--            <field name="inherit_id" ref="hr_holidays.view_holiday_new_calendar"/>-->
-<!--            <field name="arch" type="xml">-->
-<!--                <form>-->
-
-<!--                </form>-->
-<!--            </field>-->
-<!--        </record>-->
+        <record model="ir.ui.view" id="holidays_form">
+            <field name="name">holidays inherit</field>
+            <field name="model">hr.holidays</field>
+            <field name="inherit_id" ref="hr_holidays.edit_holiday_new"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header/button[@name='action_refuse']" position="before">
+                    <button name="print_conge" type="object" string="Imprimer titre de congé" class="oe_highlight"/>
+                </xpath>
+            </field>
+        </record>
         <record model="ir.actions.act_window" id="action_hr_holidays_dashboard">
             <field name="name">holidays</field>
             <field name="res_model">hr.holidays</field>
@@ -37,22 +37,12 @@
             <field name="view_id" ref="hr_holidays.view_holiday_employee"/>
         </record>
 
-<!--        <record model="ir.actions.act_window" id="action_hr_holidays_summary_dept">-->
-<!--            <field name="name">Rapport Département</field>-->
-<!--            <field name="type">ir.actions.act_window</field>-->
-<!--            <field name="res_model">hr.holidays</field>-->
-<!--            <field name="view_type">form</field>-->
-<!--            <field name="view_mode">form</field>-->
-<!--            <field name="view_id" ref="hr_holidays.view_hr_holidays_summary_dept"/>-->
-<!--        </record>-->
 
         <menuitem name="Congé" id="conge_id" parent="ressource_humaine.menu_root"/>
         <menuitem name="Congé" id="menu_hr_holidays_root" parent="conge_id"
            action="action_hr_holidays_dashboard"/>
         <menuitem name="Rapport Détails du congé" id="menu_hr_rapport" parent="conge_id"
            action="open_employee_leaves"/>
-<!--        <menuitem name="Rapport Congé Départemrnt" id="menu_hr_rapport_departemeny" parent="conge_id"-->
-<!--           action="action_hr_holidays_summary_dept"/>-->
 
 
     </data>
