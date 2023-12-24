@@ -23,3 +23,21 @@ class RHSecteure(models.Model):
         result = super(RHSecteure, self).create(vals)
         return result
 
+    @api.onchange('loi_id')
+    def _onchange_related_field(self):
+        # This method will be called when the value of 'related_field' changes
+        # Update the domain for 'field1' based on the value of 'related_field'
+        print('teste')
+        for rec in self:
+            domain = []
+            if rec.loi_id:
+                print('teste')
+                filiere = self.env['rh.filiere'].search([('loi_id', '=', rec.loi_id.id)])
+                print(filiere)
+                domain.append(('id', 'in', filiere.ids))
+            else:
+                domain = ''
+
+        res = {'domain': {'filiere_id': domain}}
+        print(res)
+        return res
