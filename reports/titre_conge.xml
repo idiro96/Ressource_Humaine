@@ -47,12 +47,13 @@
                         </div>
                     </strong>
                 </div>
-                <div style="text-align:center;">
+                <br/>
+                <br/>
+                <div style="text-align:center;font-size: 40px">
                     <strong>
-                        <h2 style="padding:7px;">سند عطلة</h2>
+                        سند عطلة
                     </strong>
                 </div>
-                <br/>
                 <br/>
                 <br/>
                 <div class="text-right" style="text-align:center;font-size:23px;text-align: right;">
@@ -65,31 +66,74 @@
                         القانون الأساسي الخاص بالموظفين المنتمين للأسلاك الخاص بالموظفين المنتمين للأسلاك الخاصة بالتربية الوطنية
                         <br/>
                         <br/>
-                        بناء على جدول العطلة السنوية لمستخدمي المدرسة الوطنية للإدارة بعنوان سنة 2023,
+                        <br/>
+                        ،
+                        <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
+                        بناء على جدول العطلة السنوية لمستخدمي المدرسة الوطنية للإدارة بعنوان سنة
                         <br/>
                         <br/>
-
+                        <br/>
                     </p>
                 </div>
-                <div style="text-align:right;">
+                <div style="text-align:right;font-size:23px;">
                     <strong>
-                        <h3 style="padding:5px;">المادة الأولى:</h3>
+<!--                        <h3 style="padding:5px;">-->
+                            <u>
+                            :المادة الأولى</u>
+<!--                        </h3>-->
                     </strong>
                 </div>
                 <div style="text-align: right;font-size:23px;">
                     <p>
                         <br/>
-                         تمنح مخلف عطلة سنوية بعنوان 2021 مدتها ثلاثون يوما (30)للسيد(ة
+                          /(تمنح مخلف عطلة سنوية بعنوان 2021 مدتها ثلاثون يوما (30)للسيد(ة
                         <br/>
+                        <span style="display: inline-block;">
+                            <t t-esc="conge.employee_id.name"/>
+                        </span>
+                        <span style="display: inline-block;">
                          : الاسم و اللقب
+                        </span>
                         <br/>
+                        <t t-if="contract.type_id.name == 'موظف'">
+                            <span style="display: inline-block;">
+                                <t t-esc="conge.employee_id.job_id.name"/>
+                            </span>
+                        </t>
+                        <span style="display: inline-block;">
                          :الرتبة
+                        </span>
                         <br/>
+                        <t t-if="contract.type_id.name == 'متعاقد'">
+                            <span style="display: inline-block;">
+                                <t t-esc="conge.employee_id.job_id.name"/>
+                            </span>
+                        </t>
+                        <span style="display: inline-block;">
                          :المنصب
+                        </span>
                         <br/>
-                        :ابتداء من : و يستأنف عمله يوم
+                        <span style="display: inline-block;">
+                            <t t-esc="conge_date_to.strftime('%Y-%m-%d')"/>&#160;
+                        </span>
+                        <span style="display: inline-block;">
+                            : و يستأنف عمله يوم
+                        </span>&#160;&#160;&#160;&#160;&#160;
+                        <span style="display: inline-block;">
+                            <t t-esc="conge_date_from.strftime('%Y-%m-%d')"/>&#160;
+                        </span>
+                        <span style="display: inline-block;">
+                            :ابتداء من
+                        </span>
                         <br/>
-                         المادة 02 : يحتفظ المعنى(ة) بمخلف عطلة قدره
+                        <span style="display: inline-block;">
+                            يحتفظ المعنى(ة) بمخلف عطلة قدره
+                        </span>&#160;
+                        <span style="display: inline-block;">
+                            <u>
+                                :المادة 02
+                            </u>
+                        </span>
                     </p>
                 </div>
             </div>

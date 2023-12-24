@@ -4,15 +4,15 @@
 
         <template id="attestation_travail_report">
             <t t-call="web.html_container">
-                <t t-call="ressource_humaine.report_header_custom"/>
                 <t t-call="web.internal_layout">
+                    <t t-call="ressource_humaine.report_header_custom"/>
                     <div class="page">
                         <t t-if="contract.state== 'open'">
                             <strong>
                                 <div style="font-size: 20px;text-align: right;">
                                     <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/>
                                     <span style="display: inline-block;">
-                                         الجزائر في
+                                        الجزائر في
                                     </span>
                                     <span style="display: inline-block;margin-left: 400px;">
                                         المدرسة الوطنية للإدارة
@@ -44,42 +44,46 @@
                             <br/>
                             <br/>
                             <div style="font-size: 40px;text-align: center;">
-                                <strong><span style="border-bottom: 5px double;">
-                                    شهادة عمل</span></strong>
+                                <strong>
+                                    <span style="border-bottom: 5px double;">
+                                        شهادة عمل
+                                    </span>
+                                </strong>
                             </div>
                             <br/>
                             <br/>
                             <br/>
                             <br/>
                             <div style="font-size: 20px;text-align: right;">
-                                <span style="margin-right: 10px;">
+                                <span>
                                     ،أنا الممضي أسفله، المدير العام للمدرسة الوطنية للإدارة
                                 </span>
                                 <br/>
                                 <br/>
                                 <div style="font-size: 20px;text-align: right;">
                                     <span style="display: inline-block;">
-                                        <t t-if="not contract.employee_id.name">.......................</t>
+                                        <t t-if="not contract.employee_id.name">.....................................</t>
                                         <t t-esc="contract.employee_id.name" t-if="contract.employee_id.name"/>
                                     </span>
-                                    <span style="display: inline-block;margin-right: 33px;">
+                                    <span style="display: inline-block">
                                         :(أشهد أن السيد(ة
                                     </span>
                                 </div>
                                 <br/>
-                                <t t-if="not contract.employee_id.birthday"> ........-....-.... </t>
+                                <t t-if="not contract.employee_id.birthday">........-....-....</t>
                                 <t t-esc="contract.employee_id.birthday" t-if="contract.employee_id.birthday"/>
-                                <span style="margin-right: 5px;">
+                                <span>
                                     :المولود(ة) بتاريخ
                                 </span>
                                 <br/>
                                 <br/>
                                 <span style="display: inline-block;">
-                                   .إلى غاية يومنا هذا
+                                    .إلى غاية يومنا هذا
                                 </span>&#160;
-                                <t t-esc="contract.date_start"/>&#160;
+                                <t t-if="not contract.employee_id.date_entrer">........-....-....</t>
+                                <t t-esc="contract.employee_id.date_entrer" t-if="contract.employee_id.date_entrer"/>&#160;
                                 <span style="display: inline-block;">
-                                :ـ عامل(ة) بمؤسستنا منذ تاريخ
+                                    :ـ عامل(ة) بمؤسستنا منذ تاريخ
                                 </span>
                                 <br/>
                                 <br/>
@@ -88,7 +92,7 @@
                                 </span>
                                 <br/>
                                 <br/>
-                                <span style="margin-right: 33px;">
+                                <span>
                                     ـ
                                 </span>
                             </div>
