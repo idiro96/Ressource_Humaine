@@ -10,16 +10,17 @@
 <!--                </tree>-->
 <!--            </field>-->
 <!--        </record>-->
-<!--        <record model="ir.ui.view" id="holidays_form">-->
-<!--            <field name="name">holidays inherit</field>-->
-<!--            <field name="model">hr.holidays</field>-->
-<!--            <field name="inherit_id" ref="hr_holidays.view_holiday_new_calendar"/>-->
-<!--            <field name="arch" type="xml">-->
-<!--                <form>-->
-
-<!--                </form>-->
-<!--            </field>-->
-<!--        </record>-->
+        <record model="ir.ui.view" id="job_form">
+            <field name="name">job inherit</field>
+            <field name="model">hr.job</field>
+            <field name="inherit_id" ref="hr.view_hr_job_form"/>
+            <field name="arch" type="xml">
+                 <xpath expr="//form//sheet//div[2]//field[@name='name']" position="after">
+                     <label for="type_job" class="oe_edit_only"/>
+                     <field name="type_job" string="Type Poste"/>
+                </xpath>
+            </field>
+        </record>
         <record model="ir.actions.act_window" id="action_hr_job">
             <field name="name">job</field>
             <field name="res_model">hr.job</field>
