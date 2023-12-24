@@ -73,9 +73,12 @@
                                 </span>
                                 <br/>
                                 <br/>
-                                .
-                                <span>
-                                   ـ عامل(ة) بمؤسستنا منذ تاريخ : 25/12/2007  إلى غاية يومنا هذا
+                                <span style="display: inline-block;">
+                                   .إلى غاية يومنا هذا
+                                </span>&#160;
+                                <t t-esc="contract.date_start"/>&#160;
+                                <span style="display: inline-block;">
+                                :ـ عامل(ة) بمؤسستنا منذ تاريخ
                                 </span>
                                 <br/>
                                 <br/>

@@ -8,7 +8,8 @@ class AttestationTravail(models.Model):
     @api.multi
     def print_report(self):
         if self.state != 'open':
-            raise UserError(_("Ce contrat n'est pas en cours"))
+            raise UserError(
+                _("Ce contrat n'est pas en cours. Vous ne pouvez imprimer l'attestation que pour les contrats en cours."))
 
         return self.env.ref('ressource_humaine.action_attestation_travail_report').report_action(self)
 
