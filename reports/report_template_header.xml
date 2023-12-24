@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_header_custom">
+            <div class="header">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <span style="text-align: left; display: block;">
+                            République Algérienne Démocratique et Populaire
+                        </span>
+                        <span style="text-align: left; display: block;">
+                            Ministre de l'Intérieur des Collectivités Locales et de l'Aménagement du Territoire
+                        </span>
+                    </div>
+                    <div class="col-xs-6" style="text-align: right;">
+                        <span style="display: block;">
+                            الجمهورية الجزائرية الديمقراطية الشعبية
+                        </span>
+                        <span style="display: block;">
+                            وزير الداخلية والجماعات المحلية والتهيئة العمرانية
+                        </span>
+                    </div>
+                    <div class="col-xs-12 text-center" style="margin-top: 10px;">
+                        <img src="/ressource_humaine/static/description/icon.png" style="max-height: 60px;"/>
+                    </div>
+                    <div class="col-xs-12" style="border-bottom: 3px solid black; margin-top: 10px;"></div>
+                </div>
+            </div>
+        </template>
+    </data>
+</odoo>
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<odoo>-->
+<!--    <data>-->
+
+<!--        <template id="report_header_custom">-->
+<!--                <div class="header">-->
+<!--                    <div class="row">-->
+<!--                        <span>-->
+<!--                            république algérienne démocratique et populaire-->
+<!--                            ministre de l'intérieur des collectivités locales et de l'aménagement du territoire-->
+<!--                        </span>-->
+<!--                        <img alt="client" src="/entete/static/description/divindus.jpg" align="left"-->
+<!--                             style="max-height: 60px;"/>-->
+<!--                        <span>-->
+<!--                            الجمهورية الجزائرية الديمقراطية الشعبية-->
+<!--                            وزير الداخلية والجماعات المحلية والتهيئة العمرانية-->
+<!--                        </span>-->
+
+
+<!--                        <div class="col-xs-12" style="border-bottom: 3px solid black;"/>-->
+
+<!--                    </div>-->
+<!--                </div>-->
+<!--        </template>-->
+<!--    </data>-->
+<!--</odoo>-->
