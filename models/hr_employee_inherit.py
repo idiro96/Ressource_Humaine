@@ -18,7 +18,7 @@ class HrEmployeInherited(models.Model):
     fin_relation = fields.Boolean(default=False)
     date_fin_relation = fields.Date()
     date_debut_emploi = fields.Date()
-    numero_identif_national = fields.Char()
+    numero_securite_social = fields.Char()
     prenom_pere = fields.Char()
     nom_mere = fields.Char()
     prenom_mere = fields.Char()
