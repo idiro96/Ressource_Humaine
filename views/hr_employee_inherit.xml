@@ -73,15 +73,15 @@
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_entrer']" position="before">
                     <field name="date_debut_emploi" string="Debut travail"/>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page[2]/group//group[3]//field[@name='marital']" position="after">
-                    <field name="prenom_pere" string="Prenom Pere"/>
-                </xpath>
-                 <xpath expr="//form//sheet//notebook//page[2]//group//group[3]//field[@name='prenom_pere']" position="after">
-                    <field name="nom_mere" string="Nom mere"/>
-                </xpath>
-                 <xpath expr="//form//sheet//notebook//page[2]//group//group[3]//field[@name='nom_mere']" position="after">
-                    <field name="prenom_mere" string="Prenom mere"/>
-                </xpath>
+<!--                <xpath expr="//form//sheet//notebook//page[2]/group//group[3]//field[@name='marital']" position="after">-->
+<!--                    <field name="prenom_pere" string="Prenom Pere"/>-->
+<!--                </xpath>-->
+<!--                 <xpath expr="//form//sheet//notebook//page[2]//group//group[3]//field[@name='prenom_pere']" position="after">-->
+<!--                    <field name="nom_mere" string="Nom mere"/>-->
+<!--                </xpath>-->
+<!--                 <xpath expr="//form//sheet//notebook//page[2]//group//group[3]//field[@name='nom_mere']" position="after">-->
+<!--                    <field name="prenom_mere" string="Prenom mere"/>-->
+<!--                </xpath>-->
                  <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_debut_emploi']" position="before">
                     <field name="nature_travail_id" string="Nature Travail"/>
                 </xpath>
