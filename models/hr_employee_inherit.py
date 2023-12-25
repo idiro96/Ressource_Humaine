@@ -44,6 +44,9 @@ class HrEmployeInherited(models.Model):
                               ('cinetique', 'حركي')],
                               readonly=False,default='audio')
     taux_handicap = fields.Float()
+    corps_visible = fields.Boolean(default=True)
+
+
     @api.depends('date_entrer')
     def _compute_days_off(self):
         for employee in self:
@@ -61,8 +64,26 @@ class HrEmployeInherited(models.Model):
 
                 employee.days_off = days_off
 
+    @api.onchange('nature_travail_id')
+    def _onchange_related_field_filier(self):
+        print('teste')
+        for rec in self:
+            domain = []
+            if rec.nature_travail_id:
+                if rec.nature_travail_id == 'المتعاقدين':
+                    corps_visible = False
+                else:
+                    corps_visible = True
+                print('teste')
+                jobs = self.env['hr.job'].search([('nature_travail_id', '=', rec.nature_travail_id.id)])
+                print(jobs)
+                domain.append(('id', 'in', jobs.ids))
+            else:
+                domain = ''
 
-
+        res = {'domain': {'job_id': domain}}
+        print(res)
+        return res
 
 
 
