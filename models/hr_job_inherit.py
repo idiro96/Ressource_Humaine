@@ -13,3 +13,7 @@ class HrJobInherited(models.Model):
 
     _inherit = "hr.job"
 
+    type_job = fields.Selection([('fonctionnaire', 'موضف'),
+                                ('contractuel', 'متعاقد'),('stagiaire', 'متربص'),],
+                               string="Status", readonly=False,default='fonctionnaire')
+
