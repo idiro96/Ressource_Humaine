@@ -59,7 +59,7 @@
                     <field name="date_reintegration" string="Date Reintegration"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='job_id']" position="after">
-                    <field name="corps_id" string="Corps"/>
+                    <field name="corps_id" string="Corps" attrs="{'invisible': [('nature_travail_id', '=', 1)]}"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='corps_id']" position="after">
                     <field name="grade_id" string="Grade"/>
@@ -77,13 +77,16 @@
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_entrer']" position="before">
                     <field name="date_debut_emploi" string="Debut travail"/>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page[2]/group//group[3]//field[@name='marital']" position="after">
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='marital']" position="after">
+                    <field name="activite_conjoint" string="Activite Conjoint"/>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='activite_conjoint']" position="after">
                     <field name="prenom_pere" string="Prenom Pere"/>
                 </xpath>
-                 <xpath expr="//form//sheet//notebook//page[2]//group//group[3]//field[@name='prenom_pere']" position="after">
+                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='prenom_pere']" position="after">
                     <field name="nom_mere" string="Nom mere"/>
                 </xpath>
-                 <xpath expr="//form//sheet//notebook//page[2]//group//group[3]//field[@name='nom_mere']" position="after">
+                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='nom_mere']" position="after">
                     <field name="prenom_mere" string="Prenom mere"/>
                 </xpath>
                  <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_debut_emploi']" position="before">
@@ -91,9 +94,6 @@
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_entrer']" position="after">
                     <field name="days_off" string="Date off"/>
-                </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='marital']" position="after">
-                    <field name="activite_conjoint" string="Activite Conjoint"/>
                 </xpath>
                   <xpath expr="//form//sheet//notebook//page//group//group//field[@name='bank_account_id']" position="after">
                     <field name="numero_identif_national" string="N° Identification National"/>
