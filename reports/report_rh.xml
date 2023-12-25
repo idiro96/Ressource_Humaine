@@ -8,4 +8,12 @@
             name="ressource_humaine.titre_conge"
             file="ressource_humaine.titre_conge"/>
 
+        <report
+                id="action_attestation_travail_report"
+                string="Attestation de Travail"
+                model="hr.contract"
+                report_type="qweb-html"
+                name="ressource_humaine.attestation_travail_report"
+                file="ressource_humaine.attestation_travail_report"/>
+
 </odoo>
