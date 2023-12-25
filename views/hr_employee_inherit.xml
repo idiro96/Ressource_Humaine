@@ -46,7 +46,6 @@
                     <field name="service_militaire" string="Service Militaire"/>
                 </xpath>
 
-
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='resource_calendar_id']"
                        position="after">
                     <field name="fin_relation" string="Fin Relation"/>
