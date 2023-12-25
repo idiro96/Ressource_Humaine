@@ -39,6 +39,11 @@ class HrEmployeInherited(models.Model):
                               ('detachement', 'الانتداب'),
                               ('horscadre', 'خارج الايطار '),('miseendisponibilite', 'الاحالة على الاستدعاء '),('servicenationale', 'الخدمة الوطنية'),],
                                string="Status", readonly=False,default='activite')
+    nature_handicap = fields.Selection([('audio', 'سمعي'),
+                              ('visuel', 'بصري'),
+                              ('cinetique', 'حركي')],
+                              readonly=False,default='audio')
+    taux_handicap = fields.Float()
     @api.depends('date_entrer')
     def _compute_days_off(self):
         for employee in self:

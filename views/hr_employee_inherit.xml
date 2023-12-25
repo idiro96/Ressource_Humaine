@@ -32,9 +32,14 @@
             <field name="model">hr.employee</field>
             <field name="inherit_id" ref="hr.view_employee_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='place_of_birth']"
-                       position="after">
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='place_of_birth']" position="after">
                     <field name="handicape" string="Handicape"/>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='handicape']" position="after">
+                    <field name="nature_handicap" string="Nature Hanicap" attrs="{'invisible': [('handicape', '=', False)]}"/>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='nature_handicap']" position="after">
+                    <field name="taux_handicap" string="Taux Hanicap" attrs="{'invisible': [('handicape', '=', False)]}"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='bank_account_id']"
                        position="after">
@@ -73,15 +78,7 @@
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_entrer']" position="before">
                     <field name="date_debut_emploi" string="Debut travail"/>
                 </xpath>
-<!--                <xpath expr="//form//sheet//notebook//page[2]/group//group[3]//field[@name='marital']" position="after">-->
-<!--                    <field name="prenom_pere" string="Prenom Pere"/>-->
-<!--                </xpath>-->
-<!--                 <xpath expr="//form//sheet//notebook//page[2]//group//group[3]//field[@name='prenom_pere']" position="after">-->
-<!--                    <field name="nom_mere" string="Nom mere"/>-->
-<!--                </xpath>-->
-<!--                 <xpath expr="//form//sheet//notebook//page[2]//group//group[3]//field[@name='nom_mere']" position="after">-->
-<!--                    <field name="prenom_mere" string="Prenom mere"/>-->
-<!--                </xpath>-->
+
                  <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_debut_emploi']" position="before">
                     <field name="nature_travail_id" string="Nature Travail"/>
                 </xpath>
