@@ -39,6 +39,10 @@ class HrEmployeInherited(models.Model):
                               ('detachement', 'الانتداب'),
                               ('horscadre', 'خارج الايطار '),('miseendisponibilite', 'الاحالة على الاستدعاء '),('servicenationale', 'الخدمة الوطنية'),],
                                string="Status", readonly=False,default='activite')
+    methode_embauche = fields.Selection([('recrutement', 'القيام بالخدمة'),
+                              ('transfert', 'نقل'),
+                              ('detachement', 'الانتداب'),],
+                               string="Status", readonly=False,default='activite')
     nature_handicap = fields.Selection([('audio', 'سمعي'),
                               ('visuel', 'بصري'),
                               ('cinetique', 'حركي')],

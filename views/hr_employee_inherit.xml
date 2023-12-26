@@ -63,7 +63,9 @@
                     <field name="date_reintegration" string="Date Reintegration"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='job_id']" position="after">
-                    <field name="corps_id" string="Corps" attrs="{'invisible': [('nature_travail_id', '=', 'المتعاقدين')]}"/>
+
+                    <field name="corps_id" string="Corps" attrs="{'invisible': [('nature_travail_id', '=', 1)]}"/>
+
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='corps_id']" position="after">
                     <field name="grade_id" string="Grade"/>
@@ -84,15 +86,15 @@
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='marital']" position="after">
                     <field name="activite_conjoint" string="Activite Conjoint"/>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='activite_conjoint']" position="after">
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='activite_conjoint']"
+                       position="after">
                     <field name="prenom_pere" string="Prenom Pere"/>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='prenom_pere']"
-                       position="after">
+
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='prenom_pere']" position="after">
                     <field name="nom_mere" string="Nom mere"/>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='nom_mere']"
-                       position="after">
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='nom_mere']" position="after">
                     <field name="prenom_mere" string="Prenom mere"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_debut_emploi']"
@@ -106,23 +108,29 @@
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='bank_account_id']"
                        position="after">
                     <field name="numero_securite_social" string="N° Sécurité sociale"/>
+
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page[@name='hr_settings']" position="attributes">
                     <attribute name="attrs">{'invisible': True}</attribute>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page[@name='personal_information']//group//group[@name='work_permit']" position="attributes">
+                <xpath expr="//form//sheet//notebook//page[@name='personal_information']//group//group[@name='work_permit']"
+                       position="attributes">
                     <attribute name="attrs">{'invisible': True}</attribute>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='passport_id']" position="attributes">
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='passport_id']"
+                       position="attributes">
                     <attribute name="attrs">{'invisible': True}</attribute>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='bank_account_id']" position="attributes">
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='bank_account_id']"
+                       position="attributes">
                     <attribute name="string">N°Compte CCP</attribute>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='parent_id']" position="attributes">
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='parent_id']"
+                       position="attributes">
                     <attribute name="attrs">{'invisible': True}</attribute>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='coach_id']" position="attributes">
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='coach_id']"
+                       position="attributes">
                     <attribute name="attrs">{'invisible': True}</attribute>
                 </xpath>
                 <xpath expr="//form//sheet//notebook" position="inside">
