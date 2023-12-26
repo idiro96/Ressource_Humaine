@@ -80,8 +80,29 @@
                        position="before">
                     <field name="date_entrer" string="Date Entrer"/>
                 </xpath>
+
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_entrer']" position="before">
+                    <field name="date_ancien_grade" string="Date Ancien Grade"/>
+                </xpath>
+                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_ancien_grade']" position="before">
+                    <field name="ancien_grade_id" string="Ancien Grade"/>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='ancien_grade_id']" position="before">
+                    <field name="ancien_corps_id" string="Ancien Corps"/>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='ancien_corps_id']" position="before">
                     <field name="date_debut_emploi" string="Debut travail"/>
+                </xpath>
+
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_debut_emploi']" position="before">
+                    <field name="ancienne_etablissement" string="Ancienne etablissement"/>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='ancienne_etablissement']" position="before">
+                    <field name="methode_embauche" string="Méthode d'embauche"/>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='methode_embauche']"
+                       position="before">
+                    <field name="nature_travail_id" string="Nature Travail"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='marital']" position="after">
                     <field name="activite_conjoint" string="Activite Conjoint"/>
@@ -97,10 +118,7 @@
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='nom_mere']" position="after">
                     <field name="prenom_mere" string="Prenom mere"/>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_debut_emploi']"
-                       position="before">
-                    <field name="nature_travail_id" string="Nature Travail"/>
-                </xpath>
+
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_entrer']" position="after">
                     <field name="days_off" string="Date off"/>
                 </xpath>
@@ -125,8 +143,12 @@
                        position="attributes">
                     <attribute name="string">N°Compte CCP</attribute>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='parent_id']"
-                       position="attributes">
+
+
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='identification_id']" position="attributes">
+                    <attribute name="string">N° d'identification National</attribute>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='parent_id']" position="attributes">
                     <attribute name="attrs">{'invisible': True}</attribute>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='coach_id']"

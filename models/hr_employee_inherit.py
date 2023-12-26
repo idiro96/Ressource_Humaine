@@ -38,11 +38,15 @@ class HrEmployeInherited(models.Model):
     position_statutaire = fields.Selection([('activite', 'القيام بالخدمة'),
                               ('detachement', 'الانتداب'),
                               ('horscadre', 'خارج الايطار '),('miseendisponibilite', 'الاحالة على الاستدعاء '),('servicenationale', 'الخدمة الوطنية'),],
-                               string="Status", readonly=False,default='activite')
-    methode_embauche = fields.Selection([('recrutement', 'القيام بالخدمة'),
+                               string="Status", readonly=False, default='activite')
+    methode_embauche = fields.Selection([('recrutement', 'توضيف'),
                               ('transfert', 'نقل'),
                               ('detachement', 'الانتداب'),],
-                               string="Status", readonly=False,default='activite')
+                               string="Status", readonly=False, default='recrutement')
+    ancienne_etablissement = fields.Char()
+    ancien_corps_id = fields.Many2one('rh.corps')
+    ancien_grade_id = fields.Many2one('rh.grade')
+    date_ancien_grade = fields.Date()
     nature_handicap = fields.Selection([('audio', 'سمعي'),
                               ('visuel', 'بصري'),
                               ('cinetique', 'حركي')],
