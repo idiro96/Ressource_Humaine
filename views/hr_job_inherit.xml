@@ -16,8 +16,8 @@
             <field name="inherit_id" ref="hr.view_hr_job_form"/>
             <field name="arch" type="xml">
                  <xpath expr="//form//sheet//div[2]//field[@name='name']" position="after">
-                     <label for="type_job" class="oe_edit_only"/>
-                     <field name="type_job" string="Type Poste"/>
+                     <label for="nature_travail_id" class="oe_edit_only"/>
+                     <field name="nature_travail_id" string="Type Poste"/>
                 </xpath>
             </field>
         </record>

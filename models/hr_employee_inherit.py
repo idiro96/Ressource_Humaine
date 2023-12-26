@@ -18,7 +18,7 @@ class HrEmployeInherited(models.Model):
     fin_relation = fields.Boolean(default=False)
     date_fin_relation = fields.Date()
     date_debut_emploi = fields.Date()
-    numero_identif_national = fields.Char()
+    numero_securite_social = fields.Char()
     prenom_pere = fields.Char()
     nom_mere = fields.Char()
     prenom_mere = fields.Char()
@@ -38,12 +38,23 @@ class HrEmployeInherited(models.Model):
     position_statutaire = fields.Selection([('activite', 'القيام بالخدمة'),
                               ('detachement', 'الانتداب'),
                               ('horscadre', 'خارج الايطار '),('miseendisponibilite', 'الاحالة على الاستدعاء '),('servicenationale', 'الخدمة الوطنية'),],
-                               string="Status", readonly=False,default='activite')
+                               string="Status", readonly=False, default='activite')
+    methode_embauche = fields.Selection([('recrutement', 'توضيف'),
+                              ('transfert', 'نقل'),
+                              ('detachement', 'الانتداب'),],
+                               string="Status", readonly=False, default='recrutement')
+    ancienne_etablissement = fields.Char()
+    ancien_corps_id = fields.Many2one('rh.corps')
+    ancien_grade_id = fields.Many2one('rh.grade')
+    date_ancien_grade = fields.Date()
     nature_handicap = fields.Selection([('audio', 'سمعي'),
                               ('visuel', 'بصري'),
                               ('cinetique', 'حركي')],
                               readonly=False,default='audio')
     taux_handicap = fields.Float()
+    corps_visible = fields.Boolean(default=True)
+
+
     @api.depends('date_entrer')
     def _compute_days_off(self):
         for employee in self:
@@ -61,8 +72,26 @@ class HrEmployeInherited(models.Model):
 
                 employee.days_off = days_off
 
+    @api.onchange('nature_travail_id')
+    def _onchange_related_field_filier(self):
+        print('teste')
+        for rec in self:
+            domain = []
+            if rec.nature_travail_id:
+                if rec.nature_travail_id == 'المتعاقدين':
+                    corps_visible = False
+                else:
+                    corps_visible = True
+                print('teste')
+                jobs = self.env['hr.job'].search([('nature_travail_id', '=', rec.nature_travail_id.id)])
+                print(jobs)
+                domain.append(('id', 'in', jobs.ids))
+            else:
+                domain = ''
 
-
+        res = {'domain': {'job_id': domain}}
+        print(res)
+        return res
 
 
 
