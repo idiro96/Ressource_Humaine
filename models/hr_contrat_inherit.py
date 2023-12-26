@@ -40,23 +40,29 @@ class  HrContratInherited(models.Model):
             if overlapping_contracts:
                 raise ValidationError("cette employé posséde un contrat dans cette période")
 
-        @api.depends('trial_date_end')
-        def _compute_months_passed(self):
-            for contract in self:
-                if contract.trial_date_end:
-                    enter_date = fields.Date.from_string(contract.date_start)
-                    end_date = fields.Date.from_string(contract.trial_date_end)
-                    months_passed = (end_date.year - enter_date.year) * 12 + end_date.month - enter_date.month
-                    contract.months_passed = months_passed
-                else:
-                    contract.months_passed = 0
+    @api.depends('trial_date_end')
+    def _compute_months_passed(self):
+        for contract in self:
+            if contract.trial_date_end:
+                enter_date = fields.Date.from_string(contract.date_start)
+                end_date = fields.Date.from_string(contract.trial_date_end)
+                months_passed = (end_date.year - enter_date.year) * 12 + end_date.month - enter_date.month
+                contract.months_passed = months_passed
+            else:
+                contract.months_passed = 0
 
-        months_passed = fields.Integer(compute='_compute_months_passed', string='Months Passed During Trial Period',
-                                       store=True)
+    months_passed = fields.Integer(compute='_compute_months_passed', string='Months Passed During Trial Period',
+                                   store=True)
 
-        @api.multi
-        def print_report(self):
-            return self.env.ref('ressource_humaine.action_hr_contract_report').report_action(self)
+    @api.multi
+    def print_report(self):
+        return self.env.ref('ressource_humaine.action_hr_contract_report').report_action(self)
+
+    @api.multi
+    def print_pv(self):
+        return self.env.ref('ressource_humaine.report_pv_instalation').report_action(self)
+
+
 
 class HrContractReport(models.AbstractModel):
     _name = 'report.ressource_humaine.hr_contract_report'

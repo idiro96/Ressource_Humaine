@@ -18,6 +18,9 @@
                 <xpath expr="//header/button[@name='action_refuse']" position="before">
                     <button name="print_conge" type="object" string="Imprimer titre de congé" class="oe_highlight"/>
                 </xpath>
+                <xpath expr="//header/button[@name='print_conge']" position="before">
+                    <button name="note_conge" type="object" string="Imprimer Note de congé" class="oe_highlight"/>
+                </xpath>
             </field>
         </record>
         <record model="ir.actions.act_window" id="action_hr_holidays_dashboard">

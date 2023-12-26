@@ -8,4 +8,20 @@
             name="ressource_humaine.titre_conge"
             file="ressource_humaine.titre_conge"/>
 
+        <report
+            id="report_note_conge"
+            string="Note Conge"
+            model="hr.holidays"
+            report_type="qweb-html"
+            name="ressource_humaine.note_conge"
+            file="ressource_humaine.note_conge"/>
+
+        <report
+            id="report_pv_instalation"
+            string="PV Instalation"
+            model="hr.contract"
+            report_type="qweb-html"
+            name="ressource_humaine.pv_instalation"
+            file="ressource_humaine.pv_instalation"/>
+
 </odoo>
