@@ -82,20 +82,20 @@
                 </xpath>
 
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_entrer']" position="before">
-                    <field name="date_ancien_grade" string="Date Ancien Grade"/>
+                    <field name="date_ancien_grade" string="Date Ancien Grade" attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}"/>
                 </xpath>
                  <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_ancien_grade']" position="before">
-                    <field name="ancien_grade_id" string="Ancien Grade"/>
+                    <field name="ancien_grade_id" string="Ancien Grade" attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='ancien_grade_id']" position="before">
-                    <field name="ancien_corps_id" string="Ancien Corps"/>
+                    <field name="ancien_corps_id" string="Ancien Corps" attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}"/>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='ancien_corps_id']" position="before">
-                    <field name="date_debut_emploi" string="Debut travail"/>
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='ancien_corps_id']" attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}" position="before">
+                    <field name="date_debut_emploi" string="Debut travail" attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}"/>
                 </xpath>
 
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_debut_emploi']" position="before">
-                    <field name="ancienne_etablissement" string="Ancienne etablissement"/>
+                    <field name="ancienne_etablissement" string="Ancienne etablissement" attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='ancienne_etablissement']" position="before">
                     <field name="methode_embauche" string="Méthode d'embauche"/>
