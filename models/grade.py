@@ -23,39 +23,58 @@ class RHGrade(models.Model):
         return result
 
     @api.onchange('loi_id')
-    def _onchange_related_field_loi(self):
-        # This method will be called when the value of 'related_field' changes
-        # Update the domain for 'field1' based on the value of 'related_field'
-        print('teste')
-        for rec in self:
-            domain = []
-            if rec.loi_id:
-                print('teste')
-                filiere = self.env['rh.filiere'].search([('loi_id', '=', rec.loi_id.id)])
-                print(filiere)
-                domain.append(('id', 'in', filiere.ids))
-            else:
-                domain = ''
-
-        res = {'domain': {'filiere_id': domain}}
-        print(res)
-        return res
+    def onchange_loi_id(self):
+        if self.loi_id:
+            filiere_domain = [('loi_id', '=', self.loi_id.id)]
+            corps_domain = [('loi_id', '=', self.loi_id.id)]
+            if self.filiere_id:
+                filiere_domain.append(('id', '=', self.filiere_id.id))
+                corps_domain.append(('filiere_id', '=', self.filiere_id.id))
+            return {'domain': {'filiere_id': filiere_domain, 'corps_id': corps_domain}}
+        else:
+            return {'domain': {'filiere_id': [], 'corps_id': []}}
 
     @api.onchange('filiere_id')
-    def _onchange_related_field_filier(self):
-        print('teste')
-        for rec in self:
-            domain = []
-            if rec.filiere_id:
-                print('teste')
-                corps = self.env['rh.corps'].search([('filiere_id', '=', rec.filiere_id.id)])
-                print(corps)
-                if not rec.filiere_id:
-                    corps = self.env['rh.corps'].search([('loi_id', '=', rec.loi_id.id)])
-                    domain.append(('id', 'in', corps.ids))
-            else:
-                domain = ''
+    def onchange_filiere_id(self):
+        if self.filiere_id:
+            return {'domain': {'corps_id': [('filiere_id', '=', self.filiere_id.id)]}}
+        else:
+            return {'domain': {'corps_id': []}}
 
-        res = {'domain': {'corps_id': domain}}
-        print(res)
-        return res
+    # @api.onchange('loi_id')
+    # def _onchange_related_field_loi(self):
+    #     # This method will be called when the value of 'related_field' changes
+    #     # Update the domain for 'field1' based on the value of 'related_field'
+    #     print('teste')
+    #     for rec in self:
+    #         domain = []
+    #         if rec.loi_id:
+    #             print('teste')
+    #             filiere = self.env['rh.filiere'].search([('loi_id', '=', rec.loi_id.id)])
+    #             print(filiere)
+    #             domain.append(('id', 'in', filiere.ids))
+    #         else:
+    #             domain = ''
+    #
+    #     res = {'domain': {'filiere_id': domain}}
+    #     print(res)
+    #     return res
+    #
+    # @api.onchange('filiere_id')
+    # def _onchange_related_field_filier(self):
+    #     print('teste')
+    #     for rec in self:
+    #         domain = []
+    #         if rec.filiere_id:
+    #             print('teste')
+    #             corps = self.env['rh.corps'].search([('filiere_id', '=', rec.filiere_id.id)])
+    #             print(corps)
+    #             if not rec.filiere_id:
+    #                 corps = self.env['rh.corps'].search([('loi_id', '=', rec.loi_id.id)])
+    #                 domain.append(('id', 'in', corps.ids))
+    #         else:
+    #             domain = ''
+    #
+    #     res = {'domain': {'corps_id': domain}}
+    #     print(res)
+    #     return res
