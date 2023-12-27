@@ -9,7 +9,8 @@
                     <field name="nature_travail_id"></field>
                 </xpath>
                 <xpath expr="//tree//field[@name='nature_travail_id']" position="after">
-                    <field name="date_entrer"></field>
+                    <field name="date_entrer"
+                    ></field>
                 </xpath>
                 <xpath expr="//tree//field[@name='date_entrer']" position="after">
                     <field name="corps_id"></field>
@@ -68,17 +69,17 @@
 
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='corps_id']" position="after">
-                    <field name="grade_id" string="Grade"/>
+                    <field name="grade_id" string="Grade" required="True"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='grade_id']" position="after">
-                    <field name="date_grade" string="Date Grade"/>
+                    <field name="date_grade" string="Date Grade" required="True"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_grade']" position="after">
                     <field name="position_statutaire" string="Statutaire"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='department_id']"
                        position="before">
-                    <field name="date_entrer" string="Date Entrer"/>
+                    <field name="date_entrer" string="Date Entrer" required="True"/>
                 </xpath>
 
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_entrer']" position="before">
@@ -98,25 +99,42 @@
                     <field name="ancienne_etablissement" string="Ancienne etablissement" attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='ancienne_etablissement']" position="before">
-                    <field name="methode_embauche" string="Méthode d'embauche"/>
+                    <field name="methode_embauche" string="Méthode d'embauche" required="True"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='methode_embauche']"
                        position="before">
-                    <field name="nature_travail_id" string="Nature Travail"/>
+                    <field name="nature_travail_id" string="Nature Travail" required="True"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='marital']" position="after">
                     <field name="activite_conjoint" string="Activite Conjoint"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='activite_conjoint']"
                        position="after">
-                    <field name="prenom_pere" string="Prenom Pere"/>
+                    <field name="prenom_pere" string="Prenom Pere" required="True"/>
                 </xpath>
 
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='prenom_pere']" position="after">
-                    <field name="nom_mere" string="Nom mere"/>
+                    <field name="nom_mere" string="Nom mere" required="True"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='nom_mere']" position="after">
-                    <field name="prenom_mere" string="Prenom mere"/>
+                    <field name="prenom_mere" string="Prenom mere" required="True"/>
+                </xpath>
+                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='children']" position="after">
+                    <field name="nom_fr" string="Nom" required="True"/>
+                </xpath>
+                  <xpath expr="//form//sheet//notebook//page//group//group//field[@name='nom_fr']" position="after">
+                    <field name="prenom_fr" string="Prenom" required="True"/>
+                </xpath>
+
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='birthday']" position="attributes">
+                    <attribute name="required">True</attribute>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='place_of_birth']" position="attributes">
+                    <attribute name="required">True</attribute>
+                </xpath>
+
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='gender']" position="attributes">
+                    <attribute name="required">True</attribute>
                 </xpath>
 
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_entrer']" position="after">

@@ -95,7 +95,7 @@ class  HrContratInherited(models.Model):
                 employee = self.env['hr.employee'].search([('nature_travail_id', '!=', 1)])
                 print(employee)
                 domain.append(('id', 'in', employee.ids))
-
+                print(domain)
         res = {'domain': {'employee_id': domain}}
         print(res)
         return res

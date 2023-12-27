@@ -22,6 +22,8 @@ class HrEmployeInherited(models.Model):
     prenom_pere = fields.Char()
     nom_mere = fields.Char()
     prenom_mere = fields.Char()
+    nom_fr = fields.Char()
+    prenom_fr = fields.Char()
     date_entrer = fields.Date()
     date_reintegration = fields.Date()
     activite_conjoint = fields.Boolean(default=False)
@@ -93,6 +95,21 @@ class HrEmployeInherited(models.Model):
         print(res)
         return res
 
+    @api.onchange('corps_id')
+    def _onchange_corps(self):
+        print('teste')
+        for rec in self:
+            domain = []
+            if rec.corps_id:
+                print('teste')
+                corps = self.env['rh.grade'].search([('corps_id', '=', rec.corps_id.id)])
+                domain.append(('id', 'in', corps.ids))
+            else:
+                domain = ''
+
+        res = {'domain': {'grade_id': domain}}
+        print(res)
+        return res
 
 
 
