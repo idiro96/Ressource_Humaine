@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="attestation_travail_fr_report">
+            <t t-call="web.html_container">
+                <t t-call="web.internal_layout">
+                    <t t-call="ressource_humaine.report_header_custom"/>
+                    <div class="page">
+                        <t t-if="contract.state== 'open'">
+                            <strong>
+                                <div style="font-size: 20px;text-align: right;">
+                                    <span style="display: inline-block;">
+                                        ALGER LE
+                                    </span>
+                                    <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/>
+                                    <br/>
+                                    <br/>
+
+                                </div>
+                                <br/>
+                                <br/>
+                                <div style="font-size: 20px;text-align: left;">
+                                   <span>
+                                        Ecole Nationale d'Administration
+                                    </span>
+                                </div>
+                                <div style="font-size: 20px;text-align: left;">
+                                    <span>
+                                        Secrétariat Général
+                                    </span>
+                                </div>
+                                <div style="font-size: 20px;text-align: left;">
+                                    <span>
+                                        Service de la Gestion des Ressources Humaines
+                                    </span>
+                                </div>
+                                <br/>
+                                <br/>
+                                <div style="font-size: 20px;text-align: left;">
+                                    <span>
+                                        N°:.................E.N.A/S.G/S.G.R.H/2023
+                                    </span>
+                                </div>
+                            </strong>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <div style="font-size: 40px;text-align: center;">
+                                <strong>
+                                    <span style="border-bottom: 5px double;">
+                                        ATTESTATION DE TRAVAIL
+                                    </span>
+                                </strong>
+                            </div>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <div style="font-size: 20px;text-align: left;">
+                                <span>
+                                    Le Directeur Général de l'Ecole Nationale d'Administration,atteste que:
+                                </span>
+                                <br/>
+                                <br/>
+                                 <span style="display: inline-block">
+                                     Monsieur(Madame),
+                                     <t t-if="not contract.employee_id.name">.....................................</t>
+                                    <t t-esc="contract.employee_id.name" t-if="contract.employee_id.name"/>
+                                         née le
+                                     <t t-if="not contract.employee_id.birthday">........-....-....</t>
+                                <t t-esc="contract.employee_id.birthday" t-if="contract.employee_id.birthday"/>
+
+                                 </span>
+                                <span>
+                                    à
+                                          <t t-if="not contract.employee_id.place_of_birth">........-....-....</t>
+                                <t t-esc="contract.employee_id.place_of_birth" t-if="contract.employee_id.place_of_birth"/>
+                                     <br/>
+                                     <br/>
+                                        est fonctionnaire au sein de notre établissement depuis le:
+                                <t t-esc="contract.employee_id.date_entrer" t-if="contract.employee_id.date_entrer"/>&#160;
+
+                                </span>
+                                <span style="display: inline-block;">
+                                </span>
+                                  <br/>
+                                  <br/>
+
+                                <span>
+                                    Il (elle), exerce ses fonctions en sa qualité
+                                    <t t-esc="contract.employee_id.grade_id.intitule_grade" t-if="contract.employee_id.grade_id.intitule_grade"/>
+                                </span>
+                                <br/>
+                                <br/>
+
+                            </div>
+                            <br/>
+                            <div style="font-size: 20px;text-align: left;">
+                                <span>
+                                    Cette attestation est délivrée à l'intéressée pour servir et valoir ce que de droit
+                                </span>
+                            </div>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+        <report
+                id="action_attestation_travail_fr_report"
+                model="hr.contract"
+                string="Attestation de Travail En Français"
+                report_type="qweb-html"
+                name="ressource_humaine.attestation_travail_fr_report"
+                file="ressource_humaine.attestation_travail_fr_report"
+        />
+
+    </data>
+</odoo>
