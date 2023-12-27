@@ -74,6 +74,9 @@
         'reports/report_rh.xml',
         'reports/titre_conge.xml',
         'reports/report_template_header.xml',
+        'reports/note_conge.xml',
+        'reports/pv_instalation.xml',
+        'reports/planning_conge.xml',
 
 
     ],
