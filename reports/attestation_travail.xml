@@ -88,12 +88,13 @@
                                 <br/>
                                 <br/>
                                 <span>
-                                    :ـ و تمارس مها مها بصفتها
-                                </span>
-                                <br/>
-                                <br/>
+                                    ـ و تمارس مها مها بصفتها:
+                                  </span>
+
                                 <span>
-                                    ـ
+                                     <t t-if="not contract.employee_id.grade_id.intitule_grade">........-....-....</t>
+                                <t t-esc="contract.employee_id.grade_id.intitule_grade" t-if="contract.employee_id.grade_id.intitule_grade"/>&#160;
+
                                 </span>
                             </div>
                             <br/>

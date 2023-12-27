@@ -71,6 +71,8 @@
         'wizards/choisir_commission.xml',
         'reports/hr_contract.xml',
         'reports/attestation_travail.xml',
+        'reports/attestation_travail_fr.xml',
+        'reports/cont_indete_tem_part.xml',
         'reports/report_rh.xml',
         'reports/titre_conge.xml',
         'reports/report_template_header.xml',
