@@ -13,6 +13,9 @@
                         <field name="type" selection="[('contrat', 'Contrat'), ('decision', 'Decision')]" required="1" default="contrat" widget="radio" options="{'horizontal': true}"/>
                     </group>
                 </xpath>
+                <xpath expr="//field[@name='type_id']" position="attributes">
+                    <attribute name="attrs">{'invisible': [('type','=', 'decision')]}</attribute>
+                </xpath>
                 <xpath expr="//page[@name='information']" position="attributes">
                     <attribute name="string">Informations sur le salaire</attribute>
                 </xpath>

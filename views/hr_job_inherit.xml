@@ -19,6 +19,11 @@
                      <label for="nature_travail_id" class="oe_edit_only"/>
                      <field name="nature_travail_id" string="Type Poste"/>
                 </xpath>
+                <xpath expr="//form//sheet//div[2]//field[@name='nature_travail_id']" position="after">
+                     <label for="nature_poste" class="oe_edit_only"/>
+                     <field name="nature_poste" string="Nature Poste"/>
+                </xpath>
+
             </field>
         </record>
         <record model="ir.actions.act_window" id="action_hr_job">
