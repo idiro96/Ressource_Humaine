@@ -21,6 +21,11 @@ class HrHolidaysInherited(models.Model):
     def note_conge(self):
         return self.env.ref('ressource_humaine.report_note_conge').report_action(self)
 
+    @api.multi
+    def planning_conge(self):
+        return self.env.ref('ressource_humaine.report_planning_conge').report_action(self)
+
+
     # def job(self):
     #     print("Executing the cron job0!")
     #
