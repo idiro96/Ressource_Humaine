@@ -15,14 +15,25 @@ class  HrContratInherited(models.Model):
     # date_fin_contrat = fields.Date()
     # salaire_base_contrat = fields.Float()
     # motif_contrat = fields.Char()
-    corps_id = fields.Many2one('rh.corps')
-    grade_id = fields.Many2one('rh.grade')
+    name = fields.Char('Contract Reference', required=True,readonly=True ,default=lambda self: _('New'))
+    corps_id = fields.Many2one('rh.corps', readonly=True, compute='_compute_employee_fields')
+    grade_id = fields.Many2one('rh.grade', readonly=True, compute='_compute_employee_fields')
+    department_id = fields.Many2one('hr.department', string="Department", readonly=True, compute='_compute_employee_fields')
+    job_id = fields.Many2one('hr.job', string='Job Position', readonly=True, compute='_compute_employee_fields')
     type = fields.Selection([('contrat', 'Contrat'), ('decision', 'Decision'),]
                                    , required=True, default='contrat')
     point_indiciare = fields.Integer()
     categorie_id = fields.Many2one('rh.categorie')
     echelon_id = fields.Many2one('rh.echelon')
     grille_id = fields.Many2one('rh.grille')
+
+    @api.model
+    def create(self, vals):
+        if not vals.get('name') or vals.get('name', _('New')) == _('New'):
+            vals['name'] = self.env['ir.sequence'].next_by_code('hr.contract.inhert') or _('New')
+
+        result = super(HrContratInherited, self).create(vals)
+        return result
     @api.onchange('point_indiciare')
     def onchange_sb(self):
         for contract in self:
@@ -31,14 +42,24 @@ class  HrContratInherited(models.Model):
     @api.constrains('date_start', 'date_end', 'employee_id')
     def _check_contract_overlap(self):
         for contract in self:
-            overlapping_contracts = self.search([
-                ('employee_id', '=', contract.employee_id.id),
-                ('date_start', '<=', contract.date_end),
-                ('date_end', '>=', contract.date_start),
-                ('id', '!=', contract.id),
-            ])
-            if overlapping_contracts:
-                raise ValidationError("cette employé posséde un contrat dans cette période")
+            if not contract.date_end:  # If there's no end date
+                # Check if the employee has any other contracts with no end date
+                same_employee_contracts = self.search([
+                    ('employee_id', '=', contract.employee_id.id),
+                    ('date_end', '=', False),
+                    ('id', '!=', contract.id),
+                ])
+                if same_employee_contracts:
+                    raise ValidationError("This employee already has a contract with no end date.")
+            else:
+                overlapping_contracts = self.search([
+                    ('employee_id', '=', contract.employee_id.id),
+                    ('date_start', '<=', contract.date_end),
+                    ('date_end', '>=', contract.date_start),
+                    ('id', '!=', contract.id),
+                ])
+                if overlapping_contracts:
+                    raise ValidationError("This employee has a contract within this period.")
 
     @api.depends('trial_date_end')
     def _compute_months_passed(self):
@@ -78,18 +99,18 @@ class  HrContratInherited(models.Model):
                 employee = self.env['hr.employee'].search([('nature_travail_id', '!=', 1)])
                 print(employee)
                 domain.append(('id', 'in', employee.ids))
-
+                print(domain)
         res = {'domain': {'employee_id': domain}}
         print(res)
         return res
 
-    @api.onchange('employee_id')
-    def onchange_employee(self):
+    @api.depends('employee_id')
+    def _compute_employee_fields(self):
         for rec in self:
-            rec.department_id = rec.employee_id.department_id.id
-            rec.job_id = rec.employee_id.job_id.id
-            rec.corps_id = rec.employee_id.corps_id.id
-            rec.grade_id = rec.employee_id.grade_id.id
+            rec.department_id = rec.employee_id.department_id.id if rec.employee_id else False
+            rec.job_id = rec.employee_id.job_id.id if rec.employee_id else False
+            rec.corps_id = rec.employee_id.corps_id.id if rec.employee_id else False
+            rec.grade_id = rec.employee_id.grade_id.id if rec.employee_id else False
         #     domain = []
         #     if rec.type == 'contrat':
         #         employee = self.env['hr.employee'].search([('nature_travail_id', '=', 1)])
