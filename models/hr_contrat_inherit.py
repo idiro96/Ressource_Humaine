@@ -62,6 +62,10 @@ class  HrContratInherited(models.Model):
     def print_pv(self):
         return self.env.ref('ressource_humaine.report_pv_instalation').report_action(self)
 
+    @api.multi
+    def print_renew(self):
+        return self.env.ref('ressource_humaine.action_renew_contract_report').report_action(self)
+
     @api.onchange('type')
     def onchange_type(self):
         for rec in self:
