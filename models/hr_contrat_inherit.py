@@ -62,8 +62,43 @@ class  HrContratInherited(models.Model):
     def print_pv(self):
         return self.env.ref('ressource_humaine.report_pv_instalation').report_action(self)
 
+    @api.onchange('type')
+    def onchange_type(self):
+        for rec in self:
+            domain = []
+            if rec.type == 'contrat':
+                employee = self.env['hr.employee'].search([('nature_travail_id', '=', 1)])
+                print(employee)
+                domain.append(('id', 'in', employee.ids))
+            else:
+                employee = self.env['hr.employee'].search([('nature_travail_id', '!=', 1)])
+                print(employee)
+                domain.append(('id', 'in', employee.ids))
 
+        res = {'domain': {'employee_id': domain}}
+        print(res)
+        return res
 
+    @api.onchange('employee_id')
+    def onchange_employee(self):
+        for rec in self:
+            rec.department_id = rec.employee_id.department_id.id
+            rec.job_id = rec.employee_id.job_id.id
+            rec.corps_id = rec.employee_id.corps_id.id
+            rec.grade_id = rec.employee_id.grade_id.id
+        #     domain = []
+        #     if rec.type == 'contrat':
+        #         employee = self.env['hr.employee'].search([('nature_travail_id', '=', 1)])
+        #         print(employee)
+        #         domain.append(('id', 'in', employee.ids))
+        #     else:
+        #         employee = self.env['hr.employee'].search([('nature_travail_id', '!=', 1)])
+        #         print(employee)
+        #         domain.append(('id', 'in', employee.ids))
+        #
+        # res = {'domain': {'employee_id': domain}}
+        # print(res)
+        # return res
 class HrContractReport(models.AbstractModel):
     _name = 'report.ressource_humaine.hr_contract_report'
 
