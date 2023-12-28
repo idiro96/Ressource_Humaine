@@ -1,17 +1,10 @@
 # -*- coding: utf-8 -*-
-import math
-# import time
-#
-# import schedule
-
 from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
 
 
-
 class HrHolidaysInherited(models.Model):
     _inherit = "hr.holidays"
-
 
     @api.multi
     def print_conge(self):
