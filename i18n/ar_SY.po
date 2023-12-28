@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-28 08:41+0000\n"
-"PO-Revision-Date: 2023-12-28 08:41+0000\n"
+"POT-Creation-Date: 2023-12-28 10:27+0000\n"
+"PO-Revision-Date: 2023-12-28 10:27+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -1264,7 +1264,7 @@ msgstr "Absence File Lines"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_file_accident_travail_id
 #: selection:rh.type.file,type_file:0
 msgid "Accident Travail"
-msgstr "الحوادث المتعلقة بالعمل"
+msgstr "Accident Travail"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_accident_travail_accident_travail_file_lines
@@ -1274,7 +1274,7 @@ msgstr "Accident Travail File Lines"
 #. module: ressource_humaine
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_accident_travail
 msgid "Accident de Travail"
-msgstr "الحوادث المتعلقة بالعمل"
+msgstr "Accident de Travail"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_activite_conjoint
@@ -1303,7 +1303,7 @@ msgstr "عنوان"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_organisme_adresse_organisme
 msgid "Adresse Organisme"
-msgstr "عنوان الهيئة"
+msgstr "Adresse Organisme"
 
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.ressource_humaine_contract_form
@@ -1330,7 +1330,7 @@ msgstr "الرتبةالأصلية"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_ancienne_etablissement
 msgid "Ancienne Etablissement"
-msgstr "المؤسسةالأصلية"
+msgstr "Ancienne Etablissement"
 
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.employee_form
@@ -1351,17 +1351,17 @@ msgstr "المادة"
 #. module: ressource_humaine
 #: model:ir.actions.report,name:ressource_humaine.action_attestation_travail_report
 msgid "Attestation de Travail"
-msgstr "شهادة عمل"
+msgstr "Attestation de Travail"
 
 #. module: ressource_humaine
 #: model:ir.actions.report,name:ressource_humaine.action_attestation_travail_fr_report
 msgid "Attestation de Travail En Français"
-msgstr "شهادة العمل باللغة الفرنسية"
+msgstr "Attestation de Travail En Français"
 
 #. module: ressource_humaine
 #: selection:rh.type.file,type_file:0
 msgid "Autres"
-msgstr "آحرون"
+msgstr "Autres"
 
 #. module: ressource_humaine
 #: selection:rh.absence,state:0
@@ -1373,7 +1373,7 @@ msgstr "Brouillon"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_formation_budget_allouee_formation
 msgid "Budget Allouee Formation"
-msgstr "الميزانية المخصصة لتكوين"
+msgstr "Budget Allouee Formation"
 
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_formation_form
@@ -1391,7 +1391,7 @@ msgstr "عيادة طبية"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_file_cabinet_medicale_id
 msgid "Cabinet Medicale"
-msgstr "عيادة طبية"
+msgstr "Cabinet Medicale"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_cabinet_medical_cabinet_medicale_file_lines
@@ -1418,7 +1418,7 @@ msgstr "فئة"
 #: code:addons/ressource_humaine/reports/cont_indete_tem_part.py:12
 #, python-format
 msgid "Ce contrat n'est pas en cours. Vous ne pouvez imprimer l'attestation que pour les contrats en cours."
-msgstr "هذا العقد ليس مستمرا. يمكنك فقط طباعة الشهادة للعقود الحالية"
+msgstr "Ce contrat n'est pas en cours. Vous ne pouvez imprimer l'attestation que pour les contrats en cours."
 
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_sanction_form
@@ -1466,12 +1466,12 @@ msgstr "Choisir Commission Lines"
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_type_formation_form
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_type_formation_tree
 msgid "Code"
-msgstr "رقم"
+msgstr "الكود"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_formation_code_for
 msgid "Code For"
-msgstr "رقم التكوين"
+msgstr "Code For"
 
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_grille_form
@@ -1482,7 +1482,7 @@ msgstr "رقم الشبكة الإستدلالية"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_organisme_code_organisme
 msgid "Code Organisme"
-msgstr "رقم المؤسسة"
+msgstr "Code Organisme"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_sanction_code_sanction
@@ -1494,12 +1494,12 @@ msgstr "رقم العقوبة"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_absence_code_type_absence
 msgid "Code Type Absence"
-msgstr "رقم نوع الغياب"
+msgstr "Code Type Absence"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_conge_code_type_conge
 msgid "Code Type Conge"
-msgstr "رقم نوع العطلة"
+msgstr "Code Type Conge"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_faute_code_type_faute
@@ -1558,14 +1558,14 @@ msgstr "تأكيد العقوبة"
 #: model:ir.ui.menu,name:ressource_humaine.conge_id
 #: model:ir.ui.menu,name:ressource_humaine.menu_hr_holidays_root
 msgid "Congé"
-msgstr "العطلة"
+msgstr "Congé"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.action_rh_conjoint
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_file_conjoint_id
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_conjoint
 msgid "Conjoint"
-msgstr "الزوج(ة)"
+msgstr "Conjoint"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_conjoint_conjoint_file_lines
@@ -1582,17 +1582,17 @@ msgstr "جهة الاتصال"
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.action_ressource_humaine_contart
 msgid "Contract"
-msgstr "العقد"
+msgstr "Contract"
 
 #. module: ressource_humaine
 #: selection:hr.contract,type:0
 msgid "Contrat"
-msgstr "العقد"
+msgstr "Contrat"
 
 #. module: ressource_humaine
 #: model:ir.actions.report,name:ressource_humaine.action_cont_indete_tem_part_report
 msgid "Contrat Indéterminé à Temps Partiel"
-msgstr "عقد غير محدد المدة بدوام جزئي"
+msgstr "Contrat Indéterminé à Temps Partiel"
 
 #. module: ressource_humaine
 #: model:ir.actions.report,name:ressource_humaine.action_hr_contract_report
@@ -1621,7 +1621,7 @@ msgstr "Contrôle Médicale"
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_grade_form
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_grade_tree
 msgid "Corps"
-msgstr "Corps"
+msgstr "السلك"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_corps_visible
@@ -1636,7 +1636,7 @@ msgstr "Cout Visite Medicale"
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_visite_medicale_form
 msgid "Coût visite"
-msgstr "Coût visite"
+msgstr "ثمن الفحص"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,help:ressource_humaine.action_cabinet_medical
@@ -1946,13 +1946,13 @@ msgstr "Dans le cadre de ses fonctions, il s'engage à :\n"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_absence_formation_date_absence
 #: model:ir.ui.view,arch_db:ressource_humaine.absence_formation_liste
 msgid "Date Absence"
-msgstr "Date Absence"
+msgstr "تاريخ الغياب"
 
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_accident_travail_form
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_accident_travail_tree
 msgid "Date Accident"
-msgstr "Date Accident"
+msgstr "تاريخ حادث العمل"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_accident_travail_date_accident_travail
@@ -1963,7 +1963,7 @@ msgstr "Date Accident Travail"
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_date_ancien_grade
 #: model:ir.ui.view,arch_db:ressource_humaine.employee_form
 msgid "Date Ancien Grade"
-msgstr "Date Ancien Grade"
+msgstr "تاريخ الرتبة الأصلية"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_grille_date_application_effective
@@ -2192,7 +2192,7 @@ msgstr "Date nouveau grade"
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.employee_form
 msgid "Date off"
-msgstr "Date off"
+msgstr "الأيام التبقية"
 
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.employee_form
