@@ -40,4 +40,12 @@
             name="ressource_humaine.planning_conge"
             file="ressource_humaine.planning_conge"/>
 
+    <report
+            id="action_renew_contract_report"
+            string="Renouvellement Contrat"
+            model="hr.contract"
+            report_type="qweb-html"
+            name="ressource_humaine.renew_contract_report"
+            file="ressource_humaine.renew_contract_report"/>
+
 </odoo>
