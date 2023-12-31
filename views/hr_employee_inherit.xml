@@ -9,8 +9,7 @@
                     <field name="nature_travail_id"></field>
                 </xpath>
                 <xpath expr="//tree//field[@name='nature_travail_id']" position="after">
-                    <field name="date_entrer"
-                    ></field>
+                    <field name="date_entrer"></field>
                 </xpath>
                 <xpath expr="//tree//field[@name='date_entrer']" position="after">
                     <field name="corps_id"></field>
@@ -79,7 +78,7 @@
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='department_id']"
                        position="before">
-                    <field name="date_entrer" string="Date Entrer" required="True"/>
+                    <field name="date_entrer" required="True"/>
                 </xpath>
 
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_entrer']" position="before">
@@ -138,7 +137,7 @@
                 </xpath>
 
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_entrer']" position="after">
-                    <field name="days_off" string="Date off"/>
+                    <field name="days_off"/>
                 </xpath>
 
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='bank_account_id']"

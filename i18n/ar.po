@@ -1565,7 +1565,7 @@ msgstr "Congé"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_file_conjoint_id
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_conjoint
 msgid "Conjoint"
-msgstr "Conjoint"
+msgstr "الزوچ(ة)"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_conjoint_conjoint_file_lines
@@ -1582,12 +1582,12 @@ msgstr "جهة الاتصال"
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.action_ressource_humaine_contart
 msgid "Contract"
-msgstr "Contract"
+msgstr "العقد"
 
 #. module: ressource_humaine
 #: selection:hr.contract,type:0
 msgid "Contrat"
-msgstr "Contrat"
+msgstr "العقد"
 
 #. module: ressource_humaine
 #: model:ir.actions.report,name:ressource_humaine.action_cont_indete_tem_part_report
@@ -2025,7 +2025,7 @@ msgstr "Date Début Visite"
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_date_entrer
 #: model:ir.ui.view,arch_db:ressource_humaine.employee_form
 msgid "Date Entrer"
-msgstr "Date Entrer"
+msgstr "تاريخ الدخول"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_date_examin_professionnel
@@ -2089,12 +2089,12 @@ msgstr "Date Mariage"
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_conjoint_form
 msgid "Date Naissance"
-msgstr "Date Naissance"
+msgstr "تاريخ الميلاد"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_conjoint_date_naissance_conjoint
 msgid "Date Naissance Conjoint"
-msgstr "Date Naissance Conjoint"
+msgstr "تاريخ الميلاد الزوج(ة)"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_enfant_date_naissance_enfant
@@ -3186,14 +3186,14 @@ msgstr "طبيعة العمل"
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_droit_conge_form
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_droit_conge_tree
 msgid "Nbr Jour"
-msgstr "Nbr Jour"
+msgstr "عدد الأيام"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_congedroit_nbr_jour_consomme
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_droit_conge_form
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_droit_conge_tree
 msgid "Nbr Jour Consomme"
-msgstr "Nbr Jour Consomme"
+msgstr "عدد الأيام المستهلكة"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_congedroit_nbr_jour_reste
@@ -3310,14 +3310,14 @@ msgstr "Nom"
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_conjoint_form
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_conjoint_tree
 msgid "Nom Conjoint"
-msgstr "Nom Conjoint"
+msgstr " لقب الزوج(ة)"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_enfant_nom_enfant
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_enfant_form
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_enfant_tree
 msgid "Nom Enfant"
-msgstr "Nom Enfant"
+msgstr "لقب الإبن"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_nom_fr
@@ -3530,8 +3530,8 @@ msgstr "Prenom Conjoint"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_enfant_prenom_enfant
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_enfant_form
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_enfant_tree
-msgid "Prenom Enfant"
-msgstr "Prenom Enfant"
+msgid "Prénom Enfant"
+msgstr "إسم الإبن"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_prenom_fr
