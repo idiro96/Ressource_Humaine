@@ -4,7 +4,7 @@
         <field name="model">rh.conjoint</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="nom_conjoint" string="Nom Conjoint"/>
+                <field name="nom_conjoint"/>
                 <field name="prenom_conjoint" string="Prenom Conjoint"/>
                  <field name="employee_id" string="Employe"/>
                 <field name="femme_foyer" string="Femme Foyer"/>
@@ -21,7 +21,7 @@
                     <group>
                         <group>
                             <field name="employee_id" string="Employe" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
-                            <field name="nom_conjoint" string="Nom Conjoint"/>
+                            <field name="nom_conjoint"/>
                             <field name="prenom_conjoint" string="Prenom Conjoint"/>
                             <field name="femme_foyer" string="Femme Foyer"/>
                         </group>

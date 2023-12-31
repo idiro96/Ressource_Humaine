@@ -31,7 +31,7 @@ class HrEmployeInherited(models.Model):
     formation_detail_id = fields.Many2one('ressource_humaine.formation.detail')
 
     selection_employe = fields.Boolean('Sélection', default=False)
-    days_off = fields.Float(compute='_compute_days_off', string='Total Days Off', store=True)
+    days_off = fields.Float(compute='_compute_days_off', string='Total Days Off', store=True, translate=True)
     corps_id = fields.Many2one('rh.corps')
     grade_id = fields.Many2one('rh.grade')
     date_grade = fields.Date()
