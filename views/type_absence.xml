@@ -4,8 +4,8 @@
         <field name="model">rh.type.absence</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="code_type_absence" string="Code"/>
-                <field name="intitule_type_absence" string="Intitule Type Absence"/>
+                <field name="code_type_absence"/>
+                <field name="intitule_type_absence"/>
             </tree>
         </field>
 
@@ -18,8 +18,8 @@
                 <sheet>
 
                         <group>
-                               <field name="code_type_absence" string="Code"/>
-                            <field name="intitule_type_absence" string="Intitule Type Absence"/>
+                            <field name="code_type_absence"/>
+                            <field name="intitule_type_absence"/>
                         </group>
 
                 </sheet>

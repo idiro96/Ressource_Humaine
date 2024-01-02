@@ -4,11 +4,11 @@
         <field name="model">rh.congedroit</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="id_personnel" string="Emplyee"/>
-                <field name="exercice_conge" string="Exercice Conge"/>
-                 <field name="nbr_jour" string="Nbr Jour"/>
-                <field name="nbr_jour_consomme" string="Nbr Jour Consomme"/>
-                <field name="nbr_jour_reste" string="Nbr Jour Reste"/>
+                <field name="id_personnel"/>
+                <field name="exercice_conge"/>
+                 <field name="nbr_jour"/>
+                <field name="nbr_jour_consomme"/>
+                <field name="nbr_jour_reste"/>
             </tree>
         </field>
 
@@ -24,13 +24,13 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="id_personnel" string="Emplyee"/>
-                            <field name="exercice_conge" string="Exercice Conge"/>
-                            <field name="nbr_jour" string="Nbr Jour"/>
+                            <field name="id_personnel"/>
+                            <field name="exercice_conge"/>
+                            <field name="nbr_jour"/>
                         </group>
                         <group>
-                            <field name="nbr_jour_consomme" string="Nbr Jour Consomme"/>
-                            <field name="nbr_jour_reste" string="Nbr Jour Reste"/>
+                            <field name="nbr_jour_consomme"/>
+                            <field name="nbr_jour_reste"/>
                         </group>
                     </group>
                 </sheet>

@@ -31,27 +31,27 @@ class HrEmployeInherited(models.Model):
     formation_detail_id = fields.Many2one('ressource_humaine.formation.detail')
 
     selection_employe = fields.Boolean('Sélection', default=False)
-    days_off = fields.Float(compute='_compute_days_off', string='Total Days Off', store=True, translate=True)
+    days_off = fields.Float(compute='_compute_days_off', store=True, translate=True)
     corps_id = fields.Many2one('rh.corps')
     grade_id = fields.Many2one('rh.grade')
     date_grade = fields.Date()
-    promotion_lines = fields.One2many('rh.promotion.line', inverse_name='employee_id', string="Promotion Lines")
+    promotion_lines = fields.One2many('rh.promotion.line', inverse_name='employee_id')
     nature_travail_id = fields.Many2one('rh.nature.travail')
-    position_statutaire = fields.Selection([('activite', 'القيام بالخدمة'),
-                              ('detachement', 'الانتداب'),
-                              ('horscadre', 'خارج الايطار '),('miseendisponibilite', 'الاحالة على الاستدعاء '),('servicenationale', 'الخدمة الوطنية'),],
-                               string="Status", readonly=False, default='activite')
-    methode_embauche = fields.Selection([('recrutement', 'توضيف'),
-                              ('transfert', 'نقل'),
-                              ('detachement', 'الانتداب'),],
-                               string="Status", readonly=False, default='recrutement')
+    position_statutaire = fields.Selection([('activite', 'Activite'),
+                              ('detachement', 'Detachement'),
+                              ('horscadre', 'Horscadre'),('miseendisponibilite', 'Miseendisponibilite'),('servicenationale', 'Servicenationale'),],
+                                readonly=False, default='activite')
+    methode_embauche = fields.Selection([('recrutement', 'Recrutement'),
+                              ('transfert', 'Transfert'),
+                              ('detachement', 'Detachement'),],
+                                readonly=False, default='Recrutement')
     ancienne_etablissement = fields.Char()
     ancien_corps_id = fields.Many2one('rh.corps')
     ancien_grade_id = fields.Many2one('rh.grade')
     date_ancien_grade = fields.Date()
-    nature_handicap = fields.Selection([('audio', 'سمعي'),
-                              ('visuel', 'بصري'),
-                              ('cinetique', 'حركي')],
+    nature_handicap = fields.Selection([('audio', 'Audio'),
+                              ('visuel', 'Visuel'),
+                              ('cinetique', 'Cinetique')],
                               readonly=False,default='audio')
     taux_handicap = fields.Float()
     corps_visible = fields.Boolean(default=True)

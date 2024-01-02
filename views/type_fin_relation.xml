@@ -4,8 +4,8 @@
         <field name="model">rh.type.fin.relation</field>
         <field name="arch" type="xml">
             <tree>
-                 <field name="code" string="Code"/>
-                        <field name="description" string="Description"/>
+                 <field name="code"/>
+                 <field name="description"/>
             </tree>
         </field>
 
@@ -17,8 +17,8 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="code" string="Code"/>
-                        <field name="description" string="Description"/>
+                        <field name="code"/>
+                        <field name="description"/>
                     </group>
                 </sheet>
             </form>

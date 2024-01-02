@@ -8,7 +8,7 @@ class RHGrade(models.Model):
     _name = 'rh.grade'
     _rec_name = 'intitule_grade'
 
-    code = fields.Char(String='Code', readonly=True, default=lambda self: _('New'))
+    code = fields.Char(readonly=True, default=lambda self: _('New'))
     intitule_grade = fields.Char()
     corps_id = fields.Many2one(comodel_name='rh.corps')
     filiere_id = fields.Many2one(comodel_name='rh.filiere')

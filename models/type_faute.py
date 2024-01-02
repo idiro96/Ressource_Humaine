@@ -9,7 +9,7 @@ class RHTypeFaute(models.Model):
     _rec_name = 'intitule_type_faute'
 
 
-    code_type_faute = fields.Char(String='Code type faute', readonly=True, default=lambda self: _('New'))
+    code_type_faute = fields.Char(readonly=True, default=lambda self: _('New'))
     intitule_type_faute = fields.Char()
 
 

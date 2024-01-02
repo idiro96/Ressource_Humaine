@@ -4,13 +4,13 @@
         <field name="model">rh.sanction</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="code_sanction" string="Code Sanction"/>
-                <field name="ref_pv_sanction" string="Ref Pv Sanction"/>
-                <field name="date_pv_sanction" string="Date Pv Sanctionr"/>
-                <field name="num_decision_sanction" string="Num Decision Sanction"/>
-                <field name="date_decision_sanction" string="Date Decision Sanction"/>
-                <field name="type_faute_id" string="Type Faute"/>
-                <field name="type_sanction_id" string="Type Sanction"/>
+                <field name="code_sanction"/>
+                <field name="ref_pv_sanction"/>
+                <field name="date_pv_sanction"/>
+                <field name="num_decision_sanction"/>
+                <field name="date_decision_sanction"/>
+                <field name="type_faute_id"/>
+                <field name="type_sanction_id"/>
             </tree>
         </field>
     </record>
@@ -20,28 +20,28 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-                    <button name="choisir_commission" type="object" string="Choisir Commission" class="oe_highlight"/>
-                    <button name="action_confirm" type="object" class="oe_highlight" string="Confirmer Sanction"
+                    <button name="choisir_commission" type="object" class="oe_highlight"/>
+                    <button name="action_confirm" type="object" class="oe_highlight"
                     attrs="{'invisible': [('state', '!=', 'draft')]}"/>
-                    <button name="action_done" type="object" class="oe_highlight" string="Refuser Sanction"
+                    <button name="action_done" type="object" class="oe_highlight"
                     attrs="{'invisible': [('state', '!=', 'draft')]}"/>
                     <field name="state" widget="statusbar" statusbar_visible="draft,confirm,refuse"/>
                 </header>
                 <sheet>
                     <group>
-                        <field name="employee_id" string="Employé" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                        <field name="employee_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                     </group>
                     <group>
                         <group>
-                            <field name="code_sanction" string="Code Sanction"/>
-                            <field name="ref_pv_sanction" string="Ref Pv Sanction"/>
-                            <field name="date_pv_sanction" string="Date Pv Sanctionr"/>
-                            <field name="type_sanction_id" string="Type Sanction" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                            <field name="code_sanction"/>
+                            <field name="ref_pv_sanction"/>
+                            <field name="date_pv_sanction"/>
+                            <field name="type_sanction_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                         </group>
                         <group>
-                            <field name="num_decision_sanction" string="Num Decision Sanction"/>
-                            <field name="date_decision_sanction" string="Date Decision Sanction"/>
-                            <field name="type_faute_id" string="Type Faute" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                            <field name="num_decision_sanction"/>
+                            <field name="date_decision_sanction"/>
+                            <field name="type_faute_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                         </group>
                     </group>
                     <notebook>
@@ -49,8 +49,8 @@
                          <field name="choisir_commission_lines">
                            <tree editable="bottom">
                              <field name="employee_id"/>
-                             <field name="department_id" string="Department"/>
-                             <field name="job_id" string="Poste"/>
+                             <field name="department_id"/>
+                             <field name="job_id"/>
                            </tree>
                          </field>
                        </page>
@@ -58,8 +58,8 @@
                          <field name="sanction_file_lines">
                            <tree editable="bottom">
                              <field name="type_file_id" domain="[('type_file', '=', 'sanction')]"/>
-                             <field name="description_fichier" string="Observation"/>
-                             <field name="fichier" string="Fichier"/>
+                             <field name="description_fichier"/>
+                             <field name="fichier"/>
                            </tree>
                          </field>
                        </page>

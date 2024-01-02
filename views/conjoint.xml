@@ -5,9 +5,9 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="nom_conjoint"/>
-                <field name="prenom_conjoint" string="Prenom Conjoint"/>
-                 <field name="employee_id" string="Employe"/>
-                <field name="femme_foyer" string="Femme Foyer"/>
+                <field name="prenom_conjoint"/>
+                 <field name="employee_id"/>
+                <field name="femme_foyer"/>
             </tree>
         </field>
 
@@ -20,15 +20,15 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="employee_id" string="Employe" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                            <field name="employee_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                             <field name="nom_conjoint"/>
-                            <field name="prenom_conjoint" string="Prenom Conjoint"/>
-                            <field name="femme_foyer" string="Femme Foyer"/>
+                            <field name="prenom_conjoint"/>
+                            <field name="femme_foyer"/>
                         </group>
                         <group>
-                            <field name="date_naissance_conjoint" string="Date Naissance"/>
-                            <field name="lieu_naissance_conjoint" string="Lieu Naissance"/>
-                            <field name="date_mariage" string="Date Mariage"/>
+                            <field name="date_naissance_conjoint"/>
+                            <field name="lieu_naissance_conjoint"/>
+                            <field name="date_mariage"/>
                         </group>
 
                     </group>
@@ -38,8 +38,8 @@
                          <field name="conjoint_file_lines">
                            <tree editable="bottom">
                              <field name="type_file_id" domain="[('type_file', '=', 'employe')]"/>
-                             <field name="description_fichier" string="Observation"/>
-                             <field name="fichier" string="Fichier"/>
+                             <field name="description_fichier"/>
+                             <field name="fichier"/>
                            </tree>
                          </field>
                        </page>

@@ -4,9 +4,9 @@
         <field name="model">rh.contrat</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="code_formateur" string="Code contrat"/>
-                <field name="nom_formateur" string="Date de début"/>
-                <field name="prenom_formateur" string="Date de fin"/>
+                <field name="code_formateur"/>
+                <field name="nom_formateur"/>
+                <field name="prenom_formateur"/>
             </tree>
         </field>
 
@@ -19,14 +19,14 @@
                 <sheet>
                     <group>
                          <group>
-                             <field name="code_formateur" string="Code formateur"/>
-                             <field name="nom_formateur" string="Nom"/>
-                             <field name="prenom_formateur" string="Prénom"/>
+                             <field name="code_formateur"/>
+                             <field name="nom_formateur"/>
+                             <field name="prenom_formateur"/>
                          </group>
                          <group>
-                             <field name="adresse_formateur" string="Adresse"/>
-                             <field name="tel_formateur" string="Tél"/>
-                             <field name="email_formateur" string="Email"/>
+                             <field name="adresse_formateur"/>
+                             <field name="tel_formateur"/>
+                             <field name="email_formateur"/>
                         </group>
                     </group>
                 </sheet>

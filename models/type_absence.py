@@ -11,7 +11,7 @@ class RHTypeAbsence(models.Model):
 
 
 
-    code_type_absence = fields.Char(String='Code type absence', readonly=True, default=lambda self: _('New'))
+    code_type_absence = fields.Char(readonly=True, default=lambda self: _('New'))
     intitule_type_absence = fields.Char()
 
 

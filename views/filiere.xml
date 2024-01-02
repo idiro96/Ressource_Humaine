@@ -4,9 +4,9 @@
         <field name="model">rh.filiere</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="code" string="Code"/>
-                <field name="intitule_filiere" string="filiere"/>
-                <field name="loi_id" string="Intitule Loi"/>
+                <field name="code"/>
+                <field name="intitule_filiere"/>
+                <field name="loi_id"/>
             </tree>
         </field>
 
@@ -19,11 +19,11 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="code" string="Code"/>
-                            <field name="intitule_filiere" string="filiere"/>
+                            <field name="code"/>
+                            <field name="intitule_filiere"/>
                         </group>
                         <group>
-                            <field name="loi_id" string="Intitule Loi" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                            <field name="loi_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                         </group>
                     </group>
                 </sheet>

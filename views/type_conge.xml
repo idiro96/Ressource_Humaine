@@ -4,8 +4,8 @@
         <field name="model">rh.type.conge</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="code_type_conge" string="Code"/>
-                <field name="intitule_type_conge" string="Intitule Type Congé"/>
+                <field name="code_type_conge"/>
+                <field name="intitule_type_conge"/>
             </tree>
         </field>
 
@@ -18,8 +18,8 @@
                 <sheet>
 
                         <group>
-                               <field name="code_type_conge" string="Code"/>
-                            <field name="intitule_type_conge" string="Intitule Type Congé"/>
+                               <field name="code_type_conge"/>
+                            <field name="intitule_type_conge"/>
                         </group>
 
                 </sheet>

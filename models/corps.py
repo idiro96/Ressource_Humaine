@@ -9,7 +9,7 @@ class RHSecteure(models.Model):
     _rec_name = 'intitule_corps'
 
 
-    code = fields.Char(String='Code', readonly=True, default=lambda self: _('New'))
+    code = fields.Char(readonly=True, default=lambda self: _('New'))
     intitule_corps= fields.Char()
     filiere_id = fields.Many2one(comodel_name='rh.filiere')
     loi_id = fields.Many2one(comodel_name='rh.loi')
