@@ -55,12 +55,7 @@ class HrEmployeInherited(models.Model):
                               readonly=False,default='audio')
     taux_handicap = fields.Float()
     corps_visible = fields.Boolean(default=True)
-    gender = fields.Selection(selection='_remove_other_gender', compute='_compute_gender', readonly=False, store=True, required=True)
-
-    @api.model
-    def _remove_other_gender(self):
-        selection = [('male', 'Masculin'), ('female', 'Féminin')]
-        return selection
+    gender = fields.Selection(selection=[('male', 'Masculin'), ('female', 'Féminin')], readonly=False, required=True)
 
     @api.depends('date_entrer')
     def _compute_days_off(self):
