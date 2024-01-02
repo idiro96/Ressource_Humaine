@@ -6,8 +6,8 @@
 
 
             <tree>
-                <field name="code" string="Code"/>
-                <field name="intitule" string="intitule"/>
+                <field name="code"/>
+                <field name="intitule"/>
                 <field name="nbr_poste_max" string="Nombre de poste Maximum"/>
                 <field name="nbr_poste_existe" string="Nombre de poste occupé"/>
                 <field name="nbr_poste_non_occupe" string="Nombre de poste non occupe"/>
@@ -22,8 +22,8 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="code" string="Code"/>
-                        <field name="intitule" string="intitule"/>
+                        <field name="code"/>
+                        <field name="intitule"/>
                         <field name="nbr_poste_max" string="Nombre de poste Maximum"/>
                         <field name="nbr_poste_existe" string="Nombre de poste occupé"/>
                         <field name="nbr_poste_non_occupe" string="Nombre de poste non occupe"/>

@@ -80,8 +80,7 @@
                                 <span style="display: inline-block;">
                                     .إلى غاية يومنا هذا
                                 </span>&#160;
-                                <t t-if="not contract.employee_id.date_entrer">........-....-....</t>
-                                <t t-esc="contract.employee_id.date_entrer" t-if="contract.employee_id.date_entrer"/>&#160;
+                                <t t-esc="contract.employee_id.date_entrer"/>&#160;
                                 <span style="display: inline-block;">
                                     :ـ عامل(ة) بمؤسستنا منذ تاريخ
                                 </span>
