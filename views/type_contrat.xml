@@ -4,8 +4,8 @@
         <field name="model">rh.type.contrat</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="code" string="Code"/>
-                <field name="intitule_contrat" string="Type de contrat"/>
+                <field name="code"/>
+                <field name="intitule_contrat"/>
             </tree>
         </field>
 
@@ -17,8 +17,8 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="code" string="Code"/>
-                        <field name="intitule_contrat" string="Type de contrat"/>
+                        <field name="code"/>
+                        <field name="intitule_contrat"/>
                     </group>
                 </sheet>
             </form>

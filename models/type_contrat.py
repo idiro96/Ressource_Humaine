@@ -7,7 +7,7 @@ from odoo import models, fields, api, _
 class RHTypeContrat(models.Model):
     _name = 'rh.type.contrat'
 
-    code = fields.Char(String='Code', readonly=True, default=lambda self: _('New'))
+    code = fields.Char(readonly=True, default=lambda self: _('New'))
     intitule_contrat = fields.Char()
 
 

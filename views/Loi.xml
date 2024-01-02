@@ -4,8 +4,8 @@
         <field name="model">rh.loi</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="code" string="Code"/>
-                <field name="intitule_loi" string="Intitule Loi"/>
+                <field name="code"/>
+                <field name="intitule_loi"/>
             </tree>
         </field>
 
@@ -17,8 +17,8 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="code" string="Code"/>
-                        <field name="intitule_loi" string="Intitule Loi"/>
+                        <field name="code"/>
+                        <field name="intitule_loi"/>
                     </group>
                 </sheet>
             </form>

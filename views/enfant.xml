@@ -6,9 +6,9 @@
             <tree>
                 <field name="nom_enfant"/>
                 <field name="prenom_enfant"/>
-                 <field name="employee_id" string="Employe"/>
-                <field name="date_naissance_enfant" string="Date Naissance Enfant"/>
-                <field name="scolarite" string="Scolarite"/>
+                 <field name="employee_id"/>
+                <field name="date_naissance_enfant"/>
+                <field name="scolarite"/>
             </tree>
         </field>
 
@@ -21,13 +21,13 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="employee_id" string="Employe" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                            <field name="employee_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                             <field name="nom_enfant"/>
                             <field name="prenom_enfant"/>
                         </group>
                         <group>
-                            <field name="date_naissance_enfant" string="Date Naissance Enfant"/>
-                            <field name="scolarite" string="Scolarite"/>
+                            <field name="date_naissance_enfant"/>
+                            <field name="scolarite"/>
                         </group>
 
                     </group>
@@ -36,8 +36,8 @@
                          <field name="enfant_file_lines">
                            <tree editable="bottom">
                              <field name="type_file_id" domain="[('type_file', '=', 'employe')]"/>
-                             <field name="description_fichier" string="Observation"/>
-                             <field name="fichier" string="Fichier"/>
+                             <field name="description_fichier"/>
+                             <field name="fichier"/>
                            </tree>
                          </field>
                        </page>

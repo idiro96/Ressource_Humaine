@@ -14,8 +14,7 @@ class HrJobInherited(models.Model):
     _inherit = "hr.job"
 
     nature_travail_id = fields.Many2one('rh.nature.travail')
-    nature_poste = fields.Selection([('postesuperieure', 'منصب عالي'),
-                              ('fonctionsuperieure', 'وظيفة عليا'),
-                              ],
-                               string="Nature Poste ", readonly=False)
+    nature_poste = fields.Selection([('postesuperieure', 'Postesuperieure'),
+                              ('fonctionsuperieure', 'Fonctionsuperieure'),
+                              ], readonly=False)
 

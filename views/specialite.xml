@@ -4,8 +4,8 @@
         <field name="model">rh.specialite</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="code_specialite" string="Code spécialité"/>
-                <field name="intitule_specialite" string="Intitulé"/>
+                <field name="code_specialite"/>
+                <field name="intitule_specialite"/>
             </tree>
         </field>
 
@@ -17,8 +17,8 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="code_specialite" string="Code spécialité"/>
-                        <field name="intitule_specialite" string="Intitulé"/>
+                        <field name="code_specialite"/>
+                        <field name="intitule_specialite"/>
                     </group>
                 </sheet>
             </form>

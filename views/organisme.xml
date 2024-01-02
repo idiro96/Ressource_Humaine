@@ -4,9 +4,9 @@
         <field name="model">rh.organisme</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="code_organisme" string="Code organisme"/>
-                <field name="rs_organisme" string="Raison sociale"/>
-                <field name="adresse_organisme" string="Adresse"/>
+                <field name="code_organisme"/>
+                <field name="rs_organisme"/>
+                <field name="adresse_organisme"/>
             </tree>
         </field>
 
@@ -18,17 +18,17 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="code_organisme" string="Code organisme"/>
-                        <field name="rs_organisme" string="Raison sociale"/>
-                        <field name="adresse_organisme" string="Adresse"/>
+                        <field name="code_organisme"/>
+                        <field name="rs_organisme"/>
+                        <field name="adresse_organisme"/>
                     </group>
                      <notebook>
                             <page string="Liste des Fichiers">
                          <field name="organisme_file_lines">
                            <tree editable="bottom">
                              <field name="type_file_id" domain="[('type_file', '=', 'formation')]"/>
-                             <field name="description_fichier" string="Observation"/>
-                             <field name="fichier" string="Fichier"/>
+                             <field name="description_fichier"/>
+                             <field name="fichier"/>
                            </tree>
                          </field>
                        </page>

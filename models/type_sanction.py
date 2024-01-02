@@ -10,7 +10,7 @@ class RHTypeSanction(models.Model):
     _rec_name = "intitule_type_sanction"
 
 
-    code_type_sanction = fields.Char(String='Code type sanction', readonly=True, default=lambda self: _('New'))
+    code_type_sanction = fields.Char(readonly=True, default=lambda self: _('New'))
     intitule_type_sanction = fields.Char()
 
 

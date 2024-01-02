@@ -4,9 +4,9 @@
         <field name="model">rh.visite.medicale</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="code_visite_medicale" string="Code Visite Medicale"/>
-                <field name="date_debut_visite_medicale" string="Date Début Visite"/>
-                <field name="date_fin_visite_medicale" string="Date Fin Visite"/>
+                <field name="code_visite_medicale"/>
+                <field name="date_debut_visite_medicale"/>
+                <field name="date_fin_visite_medicale"/>
             </tree>
         </field>
 
@@ -17,18 +17,18 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-                        <button name="visite_medical_detaille" type="object" string="Detaille Viste Medical" class="oe_highlight"/>
+                        <button name="visite_medical_detaille" type="object" class="oe_highlight"/>
                 </header>
                 <sheet>
                     <group>
                          <group>
-                         <field name="code_visite_medicale" string="Code Visite Medicale"/>
-                         <field name="cout_visite_medicale" string="Coût visite"/>
-                         <field name="cabinet_medical_id" string="Cabinet Medical" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                         <field name="code_visite_medicale"/>
+                         <field name="cout_visite_medicale"/>
+                         <field name="cabinet_medical_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                          </group>
                          <group>
-                             <field name="date_debut_visite_medicale" string="Date Début Visite"/>
-                             <field name="date_fin_visite_medicale" string="Date Fin Visite"/>
+                             <field name="date_debut_visite_medicale"/>
+                             <field name="date_fin_visite_medicale"/>
                         </group>
                     </group>
                     <notebook>

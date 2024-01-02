@@ -4,13 +4,13 @@
         <field name="model">rh.grille</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="code" string="Code GS"/>
-                <field name="date_publication_journal_officiel" string="Date de publication ( journal officiel )"/>
-                <field name="num_decret_journal_officiel" string="N° Decret( journal officiel )"/>
-                <field name="date_application_provisoire" string="Date application provisoire"/>
-                <field name="date_application_effective" string="Date application effective"/>
-                <field name="description_grille" string="Description"/>
-                <button name="appliquer_grille" type="object" string="Appliquée" class="oe_highlight"/>
+                <field name="code"/>
+                <field name="date_publication_journal_officiel"/>
+                <field name="num_decret_journal_officiel"/>
+                <field name="date_application_provisoire"/>
+                <field name="date_application_effective"/>
+                <field name="description_grille"/>
+                <button name="appliquer_grille" type="object" class="oe_highlight"/>
             </tree>
         </field>
 
@@ -21,20 +21,20 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-                <button name="importation_grille" type="object" string="Importation" class="oe_highlight"/>
+                <button name="importation_grille" type="object" class="oe_highlight"/>
                 </header>
                 <sheet>
                     <group>
                          <group>
-                             <field name="code" string="Code GS"/>
-                             <field name="date_publication_journal_officiel" string="Date de publication ( journal officiel )"/>
-                             <field name="num_decret_journal_officiel" string="N° Decret( journal officiel )"/>
-                             <field name="description_grille" string="Description de la grille de salaire"/>
+                             <field name="code"/>
+                             <field name="date_publication_journal_officiel"/>
+                             <field name="num_decret_journal_officiel"/>
+                             <field name="description_grille"/>
                          </group>
                         <group>
-                             <field name="date_application_provisoire" string="Date application provisoire"/>
-                             <field name="date_application_effective" string="Date application effective"/>
-                             <field name="statut_applique" string="Appliquée"/>
+                             <field name="date_application_provisoire"/>
+                             <field name="date_application_effective"/>
+                             <field name="statut_applique"/>
                          </group>
                      </group>
 

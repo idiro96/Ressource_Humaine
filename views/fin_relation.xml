@@ -4,10 +4,10 @@
         <field name="model">rh.fin.relation</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="employee_id" string="Employe"/>
-                <field name="num_decision_fin_relation" string="N° décision du fin de relation"/>
-                <field name="date_fin_relation" string="Date fin de relation"/>
-                <field name="type_fin_relation_id" string="Type Fin Relation"/>
+                <field name="employee_id"/>
+                <field name="num_decision_fin_relation"/>
+                <field name="date_fin_relation"/>
+                <field name="type_fin_relation_id"/>
             </tree>
         </field>
 
@@ -19,18 +19,18 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="employee_id" string="Employe" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
-                        <field name="num_decision_fin_relation" string="N° décision du fin de relation"/>
-                        <field name="date_fin_relation" string="Date fin de relation"/>
-                        <field name="type_fin_relation_id" string="Type Fin Relation" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                        <field name="employee_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                        <field name="num_decision_fin_relation"/>
+                        <field name="date_fin_relation"/>
+                        <field name="type_fin_relation_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                     </group>
                         <notebook>
                             <page string="Liste des Fichiers">
                          <field name="fin_relation_file_lines">
                            <tree editable="bottom">
                              <field name="type_file_id" domain="[('type_file', '=', 'finrelation')]"/>
-                             <field name="description_fichier" string="Observation"/>
-                             <field name="fichier" string="Fichier"/>
+                             <field name="description_fichier"/>
+                             <field name="fichier"/>
                            </tree>
                          </field>
                        </page>

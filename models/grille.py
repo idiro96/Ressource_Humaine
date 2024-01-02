@@ -10,17 +10,17 @@ class RHGrille(models.Model):
     _name = 'rh.grille'
     _rec_name = 'description_grille'
 
-    code = fields.Char(String='Code', readonly=True, default=lambda self: _('New'))
+    code = fields.Char(readonly=True, default=lambda self: _('New'))
     date_publication_journal_officiel = fields.Date()
     date_application_provisoire = fields.Date()
     statut_applique=fields.Boolean()
     date_application_effective = fields.Date()
     num_decret_journal_officiel = fields.Char()
-    description_grille = fields.Text(string='Description de la grille de salaire')
+    description_grille = fields.Text()
     # a adapter selon les colonnes de la grille salariale de l'ENA
     # normalement une grille à un détail et le détail sera faite l'importation
-    specialite = fields.Char(string='specialite', required=True)
-    salaire = fields.Float(string='salaire', required=True)
+    specialite = fields.Char(required=True)
+    salaire = fields.Float(required=True)
 
     @api.model
     def check_date_application_provisoire_and_notify(self):

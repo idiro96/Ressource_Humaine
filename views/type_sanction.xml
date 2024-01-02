@@ -4,8 +4,8 @@
         <field name="model">rh.type.sanction</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="code_type_sanction" string="Code Type Sanction"/>
-                <field name="intitule_type_sanction" string="Intitule Type Sanction"/>
+                <field name="code_type_sanction"/>
+                <field name="intitule_type_sanction"/>
             </tree>
         </field>
 
@@ -18,10 +18,10 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="code_type_sanction" string="Code Type Sanction"/>
+                            <field name="code_type_sanction"/>
                         </group>
                         <group>
-                            <field name="intitule_type_sanction" string="Intitule Type Sanction"/>
+                            <field name="intitule_type_sanction"/>
                         </group>
                     </group>
                 </sheet>

@@ -18,12 +18,12 @@ class RHFormation(models.Model):
     budget_allouee_formation = fields.Float()
     type_formation_id = fields.Many2one('rh.type.formation')
     organisme_id = fields.Many2one('rh.organisme')
-    formation_lines = fields.One2many('rh.formation.line', inverse_name='formation_id', string="Formation Lines")
-    formation_absence = fields.One2many('rh.absence.formation', inverse_name='formation_id', string="Formation Absence")
+    formation_lines = fields.One2many('rh.formation.line', inverse_name='formation_id')
+    formation_absence = fields.One2many('rh.absence.formation', inverse_name='formation_id')
     formation_file_lines = fields.One2many('rh.file', 'formation_id')
     state = fields.Selection([('draft', 'Brouillon'),
                               ('confirm', 'Validé'),],
-                               string="Status", readonly=True,default='draft')
+                               readonly=True,default='draft')
 
     def unlink(self):
         for rec in self:

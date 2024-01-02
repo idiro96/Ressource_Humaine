@@ -4,8 +4,8 @@
         <field name="model">rh.detail.entretien</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="code_entretien" string="Code entretien"/>
-                <field name="salle_entretien" string="N° de la salle"/>
+                <field name="code_entretien"/>
+                <field name="salle_entretien"/>
             </tree>
         </field>
 
@@ -18,13 +18,13 @@
                 <sheet>
                     <group>
                          <group>
-                         <field name="code_entretien" string="Code entretien"/>
-                         <field name="salle_entretien" string="N° de la salle"/>
+                         <field name="code_entretien"/>
+                         <field name="salle_entretien"/>
                          </group>
                          <group>
-                         <field name="decision_recrutement" string="Décision de recrutement"/>
-                         <field name="date_prevue_recrutement" string="Date prévue de recrutement"/>
-                         <field name="rdv_integration" string="Date d'intégration"/>
+                         <field name="decision_recrutement"/>
+                         <field name="date_prevue_recrutement"/>
+                         <field name="rdv_integration"/>
                         </group>
                     </group>
                 </sheet>

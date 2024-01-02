@@ -16,13 +16,13 @@
             <field name="inherit_id" ref="hr_holidays.edit_holiday_new"/>
             <field name="arch" type="xml">
                 <xpath expr="//header/button[@name='action_refuse']" position="before">
-                    <button name="print_conge" type="object" string="Imprimer titre de congé" class="oe_highlight"/>
+                    <button name="print_conge" type="object" class="oe_highlight"/>
                 </xpath>
                 <xpath expr="//header/button[@name='print_conge']" position="before">
-                    <button name="note_conge" type="object" string="Imprimer Note de congé" class="oe_highlight"/>
+                    <button name="note_conge" type="object" class="oe_highlight"/>
                 </xpath>
                 <xpath expr="//header/button[@name='note_conge']" position="before">
-                    <button name="planning_conge" type="object" string="Imprimer Planning Congé" class="oe_highlight"/>
+                    <button name="planning_conge" type="object" class="oe_highlight"/>
                 </xpath>
             </field>
         </record>

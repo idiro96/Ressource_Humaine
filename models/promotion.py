@@ -9,7 +9,7 @@ class RHPromotion(models.Model):
 
     date_examin_professionnel = fields.Date()
     code = fields.Char()
-    promotion_lines = fields.One2many('rh.promotion.line', inverse_name='promotion_id', string="Promotion Lines")
+    promotion_lines = fields.One2many('rh.promotion.line', inverse_name='promotion_id')
     promotion_file_lines = fields.One2many('rh.file', 'promotion_id')
 
 
