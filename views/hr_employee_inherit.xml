@@ -156,15 +156,14 @@
                        position="attributes">
                        <attribute name="attrs">{'invisible': True}</attribute>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='bank_account_id']"
-                       position="attributes">
-                       <attribute name="string">N°Compte CCP</attribute>
-                </xpath>
-
-
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='identification_id']" position="attributes">
-                    <attribute name="string">N° d'identification National</attribute>
-                </xpath>
+<!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='bank_account_id']"-->
+<!--                       position="attributes">-->
+<!--                       <attribute name="string">N°Compte CCP</attribute>-->
+<!--                </xpath>-->
+<!--                -->
+<!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='identification_id']" position="attributes">-->
+<!--                    <attribute name="string">N° d'identification National</attribute>-->
+<!--                </xpath>-->
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='parent_id']" position="attributes">
                     <attribute name="attrs">{'invisible': True}</attribute>
                 </xpath>
