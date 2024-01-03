@@ -6,13 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-<<<<<<< HEAD:i18n/fr.po
-"POT-Creation-Date: 2023-12-31 15:08+0000\n"
-"PO-Revision-Date: 2023-12-31 15:08+0000\n"
-=======
 "POT-Creation-Date: 2024-01-02 10:43+0000\n"
 "PO-Revision-Date: 2024-01-02 10:43+0000\n"
->>>>>>> 8ae206dacb5bae5385b317dfb7d17b6946818b6c:i18n/ar.po
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -1466,15 +1461,12 @@ msgid "Adress"
 msgstr "Adress"
 
 #. module: ressource_humaine
-<<<<<<< HEAD:i18n/fr.po
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_organisme_form
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_organisme_tree
 msgid "Adresse"
 msgstr "Adresse"
 
 #. module: ressource_humaine
-=======
->>>>>>> 8ae206dacb5bae5385b317dfb7d17b6946818b6c:i18n/ar.po
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_organisme_adresse_organisme
 msgid "Adresse Organisme"
 msgstr "عنوان المؤسسة"
@@ -1495,7 +1487,6 @@ msgid "Ancien Grade"
 msgstr "Ancien Grade"
 
 #. module: ressource_humaine
-<<<<<<< HEAD:i18n/fr.po
 #: model:ir.ui.view,arch_db:ressource_humaine.view_promotion_form
 msgid "Ancien grade"
 msgstr "Ancien grade"
@@ -1520,11 +1511,10 @@ msgstr "Appliquée"
 #: model:ir.ui.view,arch_db:ressource_humaine.view_cabinet_medical_form
 msgid "Article"
 msgstr "Article"
-=======
+
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_ancienne_etablissement
 msgid "Ancienne Etablissement"
 msgstr "المؤسسة الأصلية"
->>>>>>> 8ae206dacb5bae5385b317dfb7d17b6946818b6c:i18n/ar.po
 
 #. module: ressource_humaine
 #: model:ir.actions.report,name:ressource_humaine.action_attestation_travail_report
@@ -1556,16 +1546,12 @@ msgstr "Brouillon"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_formation_budget_allouee_formation
 msgid "Budget Allouee Formation"
-<<<<<<< HEAD:i18n/fr.po
 msgstr "Budget Allouee Formation"
 
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_formation_form
 msgid "Budget alloué"
 msgstr "Budget alloué"
-=======
-msgstr "الميزانية المخصصة لتكوين"
->>>>>>> 8ae206dacb5bae5385b317dfb7d17b6946818b6c:i18n/ar.po
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.action_cabinet_medical
@@ -1603,16 +1589,12 @@ msgstr "Categorie"
 #: code:addons/ressource_humaine/reports/cont_indete_tem_part.py:12
 #, python-format
 msgid "Ce contrat n'est pas en cours. Vous ne pouvez imprimer l'attestation que pour les contrats en cours."
-<<<<<<< HEAD:i18n/fr.po
 msgstr "Ce contrat n'est pas en cours. Vous ne pouvez imprimer l'attestation que pour les contrats en cours."
 
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_sanction_form
 msgid "Choisir Commission"
 msgstr "Choisir Commission"
-=======
-msgstr "هذا العقد ليس مستمرا. يمكنك فقط طباعة الشهادة للعقود الحالية."
->>>>>>> 8ae206dacb5bae5385b317dfb7d17b6946818b6c:i18n/ar.po
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_sanction_choisir_commission_lines
@@ -1643,17 +1625,13 @@ msgstr "Code"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_formation_code_for
 msgid "Code For"
-<<<<<<< HEAD:i18n/fr.po
 msgstr "Code For"
 
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_grille_form
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_grille_tree
 msgid "Code GS"
-msgstr "Code GS"
-=======
 msgstr "رقم التكوين"
->>>>>>> 8ae206dacb5bae5385b317dfb7d17b6946818b6c:i18n/ar.po
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_organisme_code_organisme
@@ -1681,33 +1659,26 @@ msgid "Code Type Faute"
 msgstr "Code Type Faute"
 
 #. module: ressource_humaine
-<<<<<<< HEAD:i18n/fr.po
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_type_file_form
 msgid "Code Type File"
 msgstr "Code Type File"
 
 #. module: ressource_humaine
-=======
->>>>>>> 8ae206dacb5bae5385b317dfb7d17b6946818b6c:i18n/ar.po
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_sanction_code_type_sanction
 msgid "Code Type Sanction"
 msgstr "Code Type Sanction"
 
 #. module: ressource_humaine
-<<<<<<< HEAD:i18n/fr.po
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_type_file_tree
 msgid "Code Type file"
 msgstr "Code Type file"
 
 #. module: ressource_humaine
-=======
->>>>>>> 8ae206dacb5bae5385b317dfb7d17b6946818b6c:i18n/ar.po
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_visite_medicale_code_visite_medicale
 msgid "Code Visite Medicale"
 msgstr "Code Visite Medicale"
 
 #. module: ressource_humaine
-<<<<<<< HEAD:i18n/fr.po
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_formation_form
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_formation_tree
 msgid "Code formation"
@@ -1730,8 +1701,6 @@ msgid "Confirmer Sanction"
 msgstr "Confirmer Sanction"
 
 #. module: ressource_humaine
-=======
->>>>>>> 8ae206dacb5bae5385b317dfb7d17b6946818b6c:i18n/ar.po
 #: model:ir.ui.menu,name:ressource_humaine.conge_id
 #: model:ir.ui.menu,name:ressource_humaine.menu_hr_holidays_root
 msgid "Congé"
@@ -1800,16 +1769,12 @@ msgstr "السلك مرئي"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_visite_medicale_cout_visite_medicale
 msgid "Cout Visite Medicale"
-<<<<<<< HEAD:i18n/fr.po
 msgstr "Cout Visite Medicale"
 
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_visite_medicale_form
 msgid "Coût visite"
 msgstr "Coût visite"
-=======
-msgstr "تكلفة الزيارة الطبية"
->>>>>>> 8ae206dacb5bae5385b317dfb7d17b6946818b6c:i18n/ar.po
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,help:ressource_humaine.action_cabinet_medical
@@ -1922,11 +1887,7 @@ msgstr "أنشئ الغياب!"
 #. module: ressource_humaine
 #: model:ir.actions.act_window,help:ressource_humaine.action_rh_nature_travail
 msgid "Creation Nature Travail!"
-<<<<<<< HEAD:i18n/fr.po
 msgstr "Creation Nature Travail!"
-=======
-msgstr "أنشئ طبيعة العمل!"
->>>>>>> 8ae206dacb5bae5385b317dfb7d17b6946818b6c:i18n/ar.po
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,help:ressource_humaine.action_rh_promotion
@@ -2021,11 +1982,7 @@ msgstr "نشأة حادث العمل"
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.ressource_humaine_contract_form
 msgid "Current Contract"
-<<<<<<< HEAD:i18n/fr.po
 msgstr "Contrat en cours"
-=======
-msgstr "العقد الحالي"
->>>>>>> 8ae206dacb5bae5385b317dfb7d17b6946818b6c:i18n/ar.po
 
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.hr_contract_report
@@ -2130,15 +2087,12 @@ msgid "Date Absence"
 msgstr "Date Absence"
 
 #. module: ressource_humaine
-<<<<<<< HEAD:i18n/fr.po
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_accident_travail_form
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_accident_travail_tree
 msgid "Date Accident"
 msgstr "Date Accident"
 
 #. module: ressource_humaine
-=======
->>>>>>> 8ae206dacb5bae5385b317dfb7d17b6946818b6c:i18n/ar.po
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_accident_travail_date_accident_travail
 msgid "Date Accident Travail"
 msgstr "تاريخ حادث العمل"
@@ -2245,16 +2199,13 @@ msgstr " تاريخ الرتبة"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_conjoint_date_mariage
 msgid "Date Mariage"
-<<<<<<< HEAD:i18n/fr.po
 msgstr "Date Mariage"
 
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_conjoint_form
 msgid "Date Naissance"
 msgstr "Date Naissance"
-=======
 msgstr " تاريخ الزواج"
->>>>>>> 8ae206dacb5bae5385b317dfb7d17b6946818b6c:i18n/ar.po
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_conjoint_date_naissance_conjoint
@@ -2294,7 +2245,6 @@ msgid "Date Visite Medicale"
 msgstr "تاريخ الزيارة الطبية"
 
 #. module: ressource_humaine
-<<<<<<< HEAD:i18n/fr.po
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_fin_relation_form
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_fin_relation_tree
 msgid "Date fin de relation"
@@ -2309,11 +2259,10 @@ msgstr "Date nouveau grade"
 #: model:ir.ui.view,arch_db:ressource_humaine.employee_form
 msgid "Debut travail"
 msgstr "Debut travail"
-=======
+
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_days_off
 msgid "Days Off"
 msgstr "أيام عطلة"
->>>>>>> 8ae206dacb5bae5385b317dfb7d17b6946818b6c:i18n/ar.po
 
 #. module: ressource_humaine
 #: selection:hr.contract,type:0
@@ -3392,11 +3341,7 @@ msgstr " إسم الزوج(ة)"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_enfant_prenom_enfant
 msgid "Prenom Enfant"
-<<<<<<< HEAD:i18n/fr.po
 msgstr "Prénom de l'enfant"
-=======
-msgstr "إسم الإبن"
->>>>>>> 8ae206dacb5bae5385b317dfb7d17b6946818b6c:i18n/ar.po
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_prenom_fr
@@ -3552,13 +3497,10 @@ msgstr "تخصص"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_absence_state
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_formation_state
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_sanction_state
-<<<<<<< HEAD:i18n/fr.po
 msgid "Status"
 msgstr "État"
-=======
 msgid "State"
 msgstr "المحافظة"
->>>>>>> 8ae206dacb5bae5385b317dfb7d17b6946818b6c:i18n/ar.po
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_grille_statut_applique
@@ -3769,14 +3711,11 @@ msgid "employee"
 msgstr "موظف"
 
 #. module: ressource_humaine
-<<<<<<< HEAD:i18n/fr.po
-=======
 #: model:ir.model,name:ressource_humaine.model_entretien_detail
 msgid "entretien.detail"
 msgstr "تفاصيل.المقابلة"
 
 #. module: ressource_humaine
->>>>>>> 8ae206dacb5bae5385b317dfb7d17b6946818b6c:i18n/ar.po
 #: model:ir.actions.act_window,name:ressource_humaine.action_rh_filiere
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_filiere
 msgid "filiere"
@@ -3784,13 +3723,10 @@ msgstr "الشعبة"
 
 #. module: ressource_humaine
 #: model:ir.model,name:ressource_humaine.model_formation_detail
-<<<<<<< HEAD:i18n/fr.po
 msgid "formation.detail"
 msgstr "formation.detail"
-=======
 msgid "formation_detail"
 msgstr "تفاصيل_التدريب"
->>>>>>> 8ae206dacb5bae5385b317dfb7d17b6946818b6c:i18n/ar.po
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.action_rh_grade
