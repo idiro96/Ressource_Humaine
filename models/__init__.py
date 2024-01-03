@@ -30,6 +30,10 @@ from . import file
 from . import conge_droit
 from . import conge_droit_month
 from . import grille
+from . import categorie
+from . import echelon
+from . import section
+from . import groupe
 from . import hr_job_inherit
 from . import loi
 from . import filiere
@@ -38,4 +42,5 @@ from . import grade
 from . import promotion
 from . import promotion_ligne
 from . import nature_travail
+from . import type_fonction
 

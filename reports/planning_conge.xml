@@ -24,7 +24,7 @@
                         <br/>
                         <div style="font-size: 20px;text-align: right;">
                             <span>
-                                مصلحة تسيير الموارد البشرية
+                                <t t-esc="conge.department_id.name"/>
                             </span>
                         </div>
                         <br/>
@@ -42,10 +42,68 @@
                 <br/>
                 <div style="text-align:center;font-size: 40px">
                     <strong>
+                        الخاص
                         <t t-esc="conge.department_id.name"/>
-                        الخاص بمصلحة
                     </strong>
                 </div>
+            </div>
+            <div class="row" style="margin:30;">
+                <table border="1" class="table table-bordered"
+                       style="border-collapse: collapse; width: 100%;">
+                    <thead>
+                        <tr>
+                            <th style="text-align:center;background-color : #E9E4E4;font-size:18px;">
+                                <strong>المستخلف في حالة ضرورة المصلحة</strong>
+                            </th>
+                            <th style="text-align:center;background-color : #E9E4E4;font-size:18px;">
+                                <strong>الملاحظة</strong>
+                            </th>
+                            <th style="text-align:center;background-color : #E9E4E4;font-size:18px;">
+                                <strong>تاريخ إستئناف العمل</strong>
+                            </th>
+                            <th style="text-align:center;background-color : #E9E4E4;font-size:18px;">
+                                <strong>المدة</strong>
+                            </th>
+                            <th style="text-align:center;background-color : #E9E4E4;font-size:18px;">
+                                <strong>تاريخ بداية العطلة</strong>
+                            </th>
+                            <th style="text-align:center;background-color : #E9E4E4;font-size:18px;">
+                                <strong>الإسم و اللقب</strong>
+                            </th>
+                            <th style="text-align:center;background-color : #E9E4E4;font-size:18px;">
+                                <strong>الرقم</strong>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       <t t-foreach="employees" t-as="employee">
+                            <tr>
+
+                                <td style="font-size:18px;text-align:center;">
+<!--                                    <span t-field="record.depreciation_date"/>-->
+                                </td>
+                                <td style="font-size:18px;text-align:right;">
+<!--                                    <span t-esc="'%.2f'%(record.depreciated_value)"/>-->
+                                </td>
+                                <td style="font-size:18px;text-align:right;">
+<!--                                    <span t-esc="'%.2f'%(record.amount)"/>-->
+                                </td>
+                                <td style="font-size:18px;text-align:right;">
+<!--                                    <span t-esc="'%.2f'%(record.remaining_value)"/>-->
+                                </td>
+                                <td style="font-size:18px;text-align:right;">
+<!--                                    <span t-esc="'%.2f'%(record.remaining_value)"/>-->
+                                </td>
+                                <td style="font-size:18px;text-align:right;">
+                                    <span t-field="employee.name"/>
+                                </td>
+                                <td style="font-size:18px;text-align:right;">
+<!--                                    <span t-esc="'%.2f'%(record.remaining_value)"/>-->
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
             </div>
 
         </t>

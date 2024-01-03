@@ -13,6 +13,7 @@ class RHGrade(models.Model):
     corps_id = fields.Many2one(comodel_name='rh.corps')
     filiere_id = fields.Many2one(comodel_name='rh.filiere')
     loi_id = fields.Many2one(comodel_name='rh.loi')
+    grade_id = fields.Many2one('hr.groupe')
 
 
     @api.model

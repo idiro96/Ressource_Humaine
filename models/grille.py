@@ -19,8 +19,8 @@ class RHGrille(models.Model):
     description_grille = fields.Text(string='Description de la grille de salaire')
     # a adapter selon les colonnes de la grille salariale de l'ENA
     # normalement une grille à un détail et le détail sera faite l'importation
-    specialite = fields.Char(string='specialite', required=True)
-    salaire = fields.Float(string='salaire', required=True)
+    # specialite = fields.Char(string='specialite', required=True)
+    # salaire = fields.Float(string='salaire', required=True)
 
     @api.model
     def check_date_application_provisoire_and_notify(self):
@@ -41,15 +41,16 @@ class RHGrille(models.Model):
 
     @api.multi
     def importation_grille(self):
-        file_path = '/Program Files (x86)/Odoo 11.0/server/odoo/addons_cetic_invist/ressource_humaine/tmp/nouvelle_grille.csv'
-        with open(file_path, 'r') as file:
-            data = file.read()
-        csv_data = csv.DictReader(StringIO(data))
-        for row in csv_data:
-                self.create({
-                    'name': row['specialite'],
-                    'salaire': float(row['salaire']),
-                })
+        print("en cours")
+        # file_path = '/Program Files (x86)/Odoo 11.0/server/odoo/addons_cetic_invist/ressource_humaine/tmp/nouvelle_grille.csv'
+        # with open(file_path, 'r') as file:
+        #     data = file.read()
+        # csv_data = csv.DictReader(StringIO(data))
+        # for row in csv_data:
+        #         self.create({
+        #             'name': row['specialite'],
+        #             'salaire': float(row['salaire']),
+        #         })
 
     @api.multi
     def appliquer_grille(self):
