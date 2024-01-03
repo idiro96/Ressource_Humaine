@@ -20,10 +20,10 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-                    <button name="choisir_commission" type="object" class="oe_highlight"/>
-                    <button name="action_confirm" type="object" class="oe_highlight"
+                    <button name="choisir_commission" type="object" string="Choisir Commission" class="oe_highlight"/>
+                    <button name="action_confirm" type="object" string="Confirmer Sanction" class="oe_highlight"
                     attrs="{'invisible': [('state', '!=', 'draft')]}"/>
-                    <button name="action_done" type="object" class="oe_highlight"
+                    <button name="action_done" type="object" string="Refuser Sanction" class="oe_highlight"
                     attrs="{'invisible': [('state', '!=', 'draft')]}"/>
                     <field name="state" widget="statusbar" statusbar_visible="draft,confirm,refuse"/>
                 </header>
@@ -54,7 +54,7 @@
                            </tree>
                          </field>
                        </page>
-                            <page string="Liste des Fichiers">
+                        <page string="Liste des Fichiers">
                          <field name="sanction_file_lines">
                            <tree editable="bottom">
                              <field name="type_file_id" domain="[('type_file', '=', 'sanction')]"/>
