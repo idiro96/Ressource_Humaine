@@ -8,7 +8,7 @@ class RHTypeFinRelation(models.Model):
     _name = 'rh.type.fin.relation'
     _rec_name = 'description'
 
-    code = fields.Char(String='Code', readonly=True, default=lambda self: _('New'))
+    code = fields.Char(readonly=True, default=lambda self: _('New'))
     description = fields.Char()
 
 

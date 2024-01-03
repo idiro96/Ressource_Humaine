@@ -4,10 +4,10 @@
         <field name="model">rh.cabinet.medical</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="code" string="Code"/>
-                <field name="raison_social" string="Raison Social"/>
-                <field name="contact" string="Contact"/>
-                <field name="adress" string="Adress"/>
+                <field name="code"/>
+                <field name="raison_social"/>
+                <field name="contact"/>
+                <field name="adress"/>
             </tree>
         </field>
 
@@ -20,16 +20,16 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="code" string="Code"/>
-                            <field name="raison_social" string="Raison Social"/>
-                            <field name="contact" string="Contact"/>
-                            <field name="adress" string="Adress"/>
+                            <field name="code"/>
+                            <field name="raison_social"/>
+                            <field name="contact"/>
+                            <field name="adress"/>
                         </group>
                         <group>
-                            <field name="rc" string="RC"/>
-                            <field name="nif_cabinet" string="NIF"/>
-                            <field name="nis_cabinet" string="NIS"/>
-                            <field name="num_article" string="Article"/>
+                            <field name="rc"/>
+                            <field name="nif_cabinet"/>
+                            <field name="nis_cabinet"/>
+                            <field name="num_article"/>
                         </group>
 
                     </group>
@@ -38,8 +38,8 @@
                          <field name="cabinet_medicale_file_lines">
                            <tree editable="bottom">
                              <field name="type_file_id" domain="[('type_file', '=', 'controlemedicale')]"/>
-                             <field name="description_fichier" string="Observation"/>
-                             <field name="fichier" string="Fichier"/>
+                             <field name="description_fichier"/>
+                             <field name="fichier"/>
                            </tree>
                          </field>
                        </page>

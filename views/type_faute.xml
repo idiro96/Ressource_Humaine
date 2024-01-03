@@ -4,8 +4,8 @@
         <field name="model">rh.type.faute</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="code_type_faute" string="Code Type Faute"/>
-                <field name="intitule_type_faute" string="Intitule Type Faute"/>
+                <field name="code_type_faute"/>
+                <field name="intitule_type_faute"/>
             </tree>
         </field>
 
@@ -18,10 +18,10 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="code_type_faute" string="Code Type Faute"/>
+                            <field name="code_type_faute"/>
                         </group>
                         <group>
-                            <field name="intitule_type_faute" string="Intitule Type Faute"/>
+                            <field name="intitule_type_faute"/>
                         </group>
                     </group>
                 </sheet>

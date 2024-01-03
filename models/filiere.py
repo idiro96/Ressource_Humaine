@@ -8,7 +8,7 @@ class RHFiliere(models.Model):
     _name = 'rh.filiere'
     _rec_name = 'intitule_filiere'
 
-    code = fields.Char(String='Code', readonly=True, default=lambda self: _('New'))
+    code = fields.Char(readonly=True, default=lambda self: _('New'))
     intitule_filiere = fields.Char()
     loi_id = fields.Many2one(comodel_name='rh.loi')
 

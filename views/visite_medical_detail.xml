@@ -4,8 +4,8 @@
         <field name="model">rh.visite.medicale</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="id_visite_medical_detail" string="Identifiant de la visite médicale"/>
-                <field name="date_visite_medicale" string="Date de visite médicale"/>
+                <field name="id_visite_medical_detail"/>
+                <field name="date_visite_medicale"/>
             </tree>
         </field>
 
@@ -17,8 +17,8 @@
             <form>
                 <sheet>
                     <group>
-                         <field name="id_visite_medical_detail" string="Identifiant de la visite médicale"/>
-                         <field name="date_visite_medicale" string="Date de visite médicale"/>
+                         <field name="id_visite_medical_detail"/>
+                         <field name="date_visite_medicale"/>
                     </group>
                 </sheet>
             </form>

@@ -3,8 +3,8 @@
     <data>
 
         <template id="attestation_travail_report">
-            <t t-call="web.html_container">
-                <t t-call="web.internal_layout">
+<!--            <t t-call="web.html_container">-->
+                <t t-call="web.basic_layout">
                     <t t-call="ressource_humaine.report_header_custom"/>
                     <div class="page">
                         <t t-if="contract.state== 'open'">
@@ -119,18 +119,18 @@
                             </div>
                         </t>
                     </div>
-                </t>
+<!--                </t>-->
             </t>
         </template>
 
-        <report
-                id="action_attestation_travail_report"
-                model="hr.contract"
-                string="Attestation de Travail"
-                report_type="qweb-html"
-                name="ressource_humaine.attestation_travail_report"
-                file="ressource_humaine.attestation_travail_report"
-        />
+<!--        <report-->
+<!--                id="action_attestation_travail_report"-->
+<!--                model="hr.contract"-->
+<!--                string="Attestation de Travail"-->
+<!--                report_type="qweb-html"-->
+<!--                name="ressource_humaine.attestation_travail_report"-->
+<!--                file="ressource_humaine.attestation_travail_report"-->
+<!--        />-->
 
     </data>
 </odoo>

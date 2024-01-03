@@ -4,8 +4,8 @@
         <field name="model">rh.critere</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="code_critere" string="Code critère"/>
-                <field name="description_critere" string="Description"/>
+                <field name="code_critere"/>
+                <field name="description_critere"/>
             </tree>
         </field>
 
@@ -17,8 +17,8 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="code_critere" string="Code critère"/>
-                        <field name="description_critere" string="Description"/>
+                        <field name="code_critere"/>
+                        <field name="description_critere"/>
                     </group>
                 </sheet>
             </form>

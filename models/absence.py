@@ -21,7 +21,7 @@ class RHAbsence(models.Model):
     state = fields.Selection([('draft', 'Brouillon'),
                               ('confirm', 'Validé'),
                               ('refuse', 'Refusé'),],
-                               string="Status", readonly=True,default='draft')
+                                readonly=True,default='draft')
 
     def unlink(self):
         for rec in self:

@@ -15,7 +15,7 @@ class RHVisiteMedicale(models.Model):
     date_fin_visite_medicale = fields.Date()
     cout_visite_medicale = fields.Float()
     cabinet_medical_id = fields.Many2one('rh.cabinet.medical')
-    visite_medical_lines = fields.One2many('rh.visite.medical.line', 'visite_medical_id', string="Visite Medical Lines")
+    visite_medical_lines = fields.One2many('rh.visite.medical.line', 'visite_medical_id')
 
 
     @api.model

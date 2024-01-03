@@ -1,14 +1,8 @@
 # -*- coding: utf-8 -*-
-import math
-# import time
-#
-# import schedule
-
 from odoo import models, fields, api, _
 from odoo.addons.hr_holidays.models.hr_holidays import Holidays
-from odoo.addons_cetic_invist.gestion_temps.models.hr_employee_inherit import HrEmployeInherited
-from odoo.exceptions import ValidationError
 
+from odoo.exceptions import ValidationError
 
 
 class HrHolidaysInherited(models.Model):
@@ -47,13 +41,34 @@ class HrHolidaysInherited(models.Model):
         employ = self.env['hr.employee'].search([('id', '=', holidays.employee_id.id)])
         if employ:
                 print('rrrrrrr')
-                leave_days = employ.days_off-holidays.number_of_days_temp
-                employ.write({'days_off': leave_days})
-                print(leave_days)
-                print(employ.days_off)
-                if leave_days <= 0:
+                if employ.days_off >= holidays.number_of_days_temp:
+                    droitconge  = self.env['rh.congedroit'].search([('id_personnel', '=',employ.id)])
+                    jours_conge = holidays.number_of_days_temp
+                    nbr_jour_reste = 0
+                    nbr_jour_consomme = 0
+                    for droit in droitconge:
+                        if droit.nbr_jour >= droit.nbr_jour_reste:
+                            if droit.nbr_jour_reste > jours_conge:
+                                if jours_conge > 0:
+                                    nbr_jour_reste = droit.nbr_jour_reste - jours_conge
+                                    nbr_jour_consomme = droit.nbr_jour - nbr_jour_reste
+                                    jours_conge = holidays.number_of_days_temp - jours_conge
+                                    droit.write({'nbr_jour_reste': nbr_jour_reste})
+                                    droit.write({'nbr_jour_consomme': nbr_jour_consomme})
+                            else:
+                                droit.nbr_jour_reste = 0
+                                nbr_jour_consomme = droit.nbr_jour - nbr_jour_reste
+                                # jours_conge = 0
+                                droit.write({'nbr_jour_reste': 0})
+                                droit.write({'nbr_jour_consomme': nbr_jour_consomme})
+
+                    leave_days = employ.days_off-holidays.number_of_days_temp
+                    employ.write({'days_off': leave_days})
+                    print(leave_days)
+                    print(employ.days_off)
+                else:
                     raise ValidationError(_('The number of remaining leaves is not sufficient for this leave type.\n'
-                                'Please verify also the leaves waiting for validation.'))
+                                            'Please verify also the leaves waiting for validation.'))
 
         print('rrrrrrr2')
 

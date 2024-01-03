@@ -4,11 +4,11 @@
         <field name="model">rh.grade</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="code" string="Code"/>
-                <field name="intitule_grade" string="Grade"/>
-                <field name="corps_id" string="Corps"/>
-                <field name="filiere_id" string="Filier" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
-                <field name="loi_id" string="Loi" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                <field name="code"/>
+                <field name="intitule_grade"/>
+                <field name="corps_id"/>
+                <field name="filiere_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                <field name="loi_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
             </tree>
         </field>
 
@@ -21,13 +21,13 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="code" string="Code"/>
-                            <field name="intitule_grade" string="Grade"/>
+                            <field name="code"/>
+                            <field name="intitule_grade"/>
                         </group>
                         <group>
-                            <field name="loi_id" string="Loi" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
-                            <field name="filiere_id" string="Filier" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
-                            <field name="corps_id" string="Corps" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                            <field name="loi_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                            <field name="filiere_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                            <field name="corps_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                         </group>
                     </group>
                 </sheet>

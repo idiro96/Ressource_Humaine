@@ -11,7 +11,7 @@ class RHTypeConge(models.Model):
 
 
 
-    code_type_conge = fields.Char(String='Code type congé', readonly=True, default=lambda self: _('New'))
+    code_type_conge = fields.Char(readonly=True, default=lambda self: _('New'))
     intitule_type_conge = fields.Char()
 
 

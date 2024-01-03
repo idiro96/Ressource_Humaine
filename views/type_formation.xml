@@ -4,8 +4,8 @@
         <field name="model">rh.type.formation</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="code" string="Code"/>
-                <field name="description_type_formation" string="Type de formation"/>
+                <field name="code"/>
+                <field name="description_type_formation"/>
             </tree>
         </field>
 
@@ -17,8 +17,8 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="code" string="Code"/>
-                        <field name="description_type_formation" string="Type de formation"/>
+                        <field name="code"/>
+                        <field name="description_type_formation"/>
                     </group>
                 </sheet>
             </form>

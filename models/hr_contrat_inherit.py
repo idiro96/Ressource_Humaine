@@ -18,8 +18,8 @@ class  HrContratInherited(models.Model):
     name = fields.Char('Contract Reference', required=True,readonly=True ,default=lambda self: _('New'))
     corps_id = fields.Many2one('rh.corps', readonly=True, compute='_compute_employee_fields')
     grade_id = fields.Many2one('rh.grade', readonly=True, compute='_compute_employee_fields')
-    department_id = fields.Many2one('hr.department', string="Department", readonly=True, compute='_compute_employee_fields')
-    job_id = fields.Many2one('hr.job', string='Job Position', readonly=True, compute='_compute_employee_fields')
+    department_id = fields.Many2one('hr.department', readonly=True, compute='_compute_employee_fields')
+    job_id = fields.Many2one('hr.job', readonly=True, compute='_compute_employee_fields')
     type = fields.Selection([('contrat', 'Contrat'), ('decision', 'Decision'),]
                                    , required=True, default='contrat')
     point_indiciare = fields.Integer()

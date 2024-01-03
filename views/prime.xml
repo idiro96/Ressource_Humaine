@@ -4,8 +4,8 @@
         <field name="model">rh.prime</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="code_prime" string="Code de la prime"/>
-                <field name="description_prime" string="Description"/>
+                <field name="code_prime"/>
+                <field name="description_prime"/>
             </tree>
         </field>
 
@@ -17,9 +17,9 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="code_prime" string="Code de la prime"/>
-                        <field name="description_prime" string="Description"/>
-                        <field name="montant_prime" string="Montant"/>
+                        <field name="code_prime"/>
+                        <field name="description_prime"/>
+                        <field name="montant_prime"/>
                     </group>
                 </sheet>
             </form>

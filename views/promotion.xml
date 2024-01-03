@@ -6,8 +6,8 @@
 
 
             <tree>
-                <field name="code" string="Code"/>
-                <field name="date_examin_professionnel" string="Date examin professionnel"/>
+                <field name="code"/>
+                <field name="date_examin_professionnel"/>
 
             </tree>
         </field>
@@ -21,19 +21,19 @@
                 <sheet>
                     <group>
                         <group>
-                <field name="code" string="Code"/>
-                <field name="date_examin_professionnel" string="Date examin professionnel"/>
+                <field name="code"/>
+                <field name="date_examin_professionnel"/>
                         </group>
                     </group>
                      <notebook>
                          <page string="Liste Employee">
                          <field name="promotion_lines">
                            <tree editable="bottom">
-                             <field name="employee_id" string="Employe"/>
-                             <field name="grade_old_id" string="Ancien grade"/>
-                             <field name="grade_new_id" string="Nouveau grade"/>
-                             <field name="date_examin_professionnel" string="Date examin professionl"/>
-                             <field name="date_new_grade" string="Date nouveau grade"/>
+                             <field name="employee_id"/>
+                             <field name="grade_old_id"/>
+                             <field name="grade_new_id"/>
+                             <field name="date_examin_professionnel"/>
+                             <field name="date_new_grade"/>
                            </tree>
                          </field>
                        </page>
@@ -41,8 +41,8 @@
                             <field name="promotion_file_lines">
                                 <tree editable="bottom">
                                     <field name="type_file_id" domain="[('type_file', '=', 'formation')]"/>
-                                    <field name="description_fichier" string="Observation"/>
-                                    <field name="fichier" string="Fichier"/>
+                                    <field name="description_fichier"/>
+                                    <field name="fichier"/>
                                 </tree>
                             </field>
                         </page>

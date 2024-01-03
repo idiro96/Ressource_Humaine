@@ -6,7 +6,7 @@
             <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
             <field name="arch" type="xml">
                 <header>
-                    <button name="print_pv" type="object" string="Imprimer PV Instalation" class="oe_highlight"/>
+                    <button name="print_pv" type="object" class="oe_highlight"/>
                 </header>
                 <xpath expr="//div[@class='oe_title' and @name='title']" position="before">
                     <group>
@@ -29,31 +29,31 @@
                     <span>Mensuel</span>
                 </xpath>
                 <xpath expr="//div[@name='wage']" position="after">
-                    <field name="categorie_id" string="Categorie"/>
+                    <field name="categorie_id"/>
                 </xpath>
                 <xpath expr="//field[@name='categorie_id']" position="after">
-                    <field name="echelon_id" string="Echelon"/>
+                    <field name="echelon_id"/>
                 </xpath>
                 <xpath expr="//field[@name='echelon_id']" position="after">
-                    <field name="point_indiciare" string="Point Indicaire"/>
+                    <field name="point_indiciare"/>
                 </xpath>
                   <xpath expr="//form//group//group//field[@name='job_id']" position="after">
-                    <field name="corps_id" string="Corps"/>
+                    <field name="corps_id"/>
                 </xpath>
                 <xpath expr="//form//group//group//field[@name='corps_id']" position="after">
-                    <field name="grade_id" string="Grade"/>
+                    <field name="grade_id"/>
                 </xpath>
                 <xpath expr="//page[@name='information']" position="after">
-                    <page string="Grille de salaire" name="grille_page"/>
+                    <page name="grille_page"/>
                 </xpath>
                 <xpath expr="//page[@name='grille_page']" position="inside">
-                    <group string="Informations sur la grille actuelle" name="info_grille"/>
+                    <group name="info_grille"/>
                 </xpath>
                 <xpath expr="//group[@name='info_grille']" position="inside">
-                    <field name="grille_id" string="Grille"/>
+                    <field name="grille_id"/>
                 </xpath>
                 <xpath expr="//group[@name='info_grille']" position="after">
-                    <group string="Historique des grilles de salaires" name="histo_grille"/>
+                    <group name="histo_grille"/>
                 </xpath>
                 <xpath expr="//form" position="attributes">
                     <attribute name="string">Current Contract</attribute>
