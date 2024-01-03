@@ -44,7 +44,7 @@ class HrEmployeInherited(models.Model):
     methode_embauche = fields.Selection([('recrutement', 'Recrutement'),
                               ('transfert', 'Transfert'),
                               ('detachement', 'Detachement'),],
-                                readonly=False, default='Recrutement')
+                                readonly=False, default='recrutement')
     ancienne_etablissement = fields.Char()
     ancien_corps_id = fields.Many2one('rh.corps')
     ancien_grade_id = fields.Many2one('rh.grade')
