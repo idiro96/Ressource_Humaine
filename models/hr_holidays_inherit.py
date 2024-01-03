@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from odoo import models, fields, api, _
 from odoo.addons.hr_holidays.models.hr_holidays import Holidays
-from odoo.addons_cetic_invist.gestion_temps.models.hr_employee_inherit import HrEmployeInherited
 from odoo.exceptions import ValidationError
 
 
