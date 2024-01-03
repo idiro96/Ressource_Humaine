@@ -1345,7 +1345,7 @@ msgstr "أخر"
 #: selection:rh.formation,state:0
 #: selection:rh.sanction,state:0
 msgid "Brouillon"
-msgstr "Brouillon"
+msgstr "مسودة"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_formation_budget_allouee_formation
@@ -1393,7 +1393,7 @@ msgstr "هذا العقد ليس مستمرا. يمكنك فقط طباعة ال
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_sanction_choisir_commission_lines
 msgid "Choisir Commission Lines"
-msgstr "Choisir Commission Lines"
+msgstr "خطوط إختيار اللجنة"
 
 #. module: ressource_humaine
 #: selection:hr.employee,nature_handicap:0
@@ -1678,7 +1678,7 @@ msgstr "إنشاء نوع الملف"
 #. module: ressource_humaine
 #: model:ir.actions.act_window,help:ressource_humaine.action_rh_type_formation
 msgid "Création d'un type de formation"
-msgstr "إنشاء نوع التدريب"
+msgstr "إنشاء نوع التكوين"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,help:ressource_humaine.action_rh_type_sanction
@@ -1723,7 +1723,7 @@ msgstr "إنشاء المنظمة"
 #. module: ressource_humaine
 #: model:ir.actions.act_window,help:ressource_humaine.action_rh_formation
 msgid "Création de la formation"
-msgstr "إنشاء التدريب"
+msgstr "إنشاء التكوين"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,help:ressource_humaine.action_rh_accident_travail
@@ -1875,13 +1875,13 @@ msgstr "تاريخ بدء الوظيفة"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_formation_date_debut_formation
 msgid "Date Debut Formation"
-msgstr "تاريخ بدء التدريب"
+msgstr "تاريخ بدء التكوين"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_formation_detail_date_debut_formation_line
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_formation_line_date_debut_formation_line
 msgid "Date Debut Formation Line"
-msgstr "خط تاريخ بدء التدريب"
+msgstr "خط تاريخ بدء التكوين"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_visite_medicale_date_debut_visite_medicale
@@ -1917,13 +1917,13 @@ msgstr "تاريخ انتهاء الغياب"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_formation_date_fin_formation
 msgid "Date Fin Formation"
-msgstr "تاريخ انتهاء التدريب"
+msgstr "تاريخ انتهاء التكوين"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_formation_detail_date_fin_formation_line
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_formation_line_date_fin_formation_line
 msgid "Date Fin Formation Line"
-msgstr "خط تاريخ إنتهاء التدريب"
+msgstr "خط تاريخ إنتهاء التكوين"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_date_fin_relation
@@ -2944,7 +2944,7 @@ msgstr "لقب الإبن"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_nom_fr
 msgid "Nom Fr"
-msgstr "Nom Fr"
+msgstr "Nom (Fr)"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_nom_mere
@@ -3067,7 +3067,7 @@ msgstr "إسم الإبن"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_prenom_fr
 msgid "Prenom Fr"
-msgstr "الاسم بالفرنسية"
+msgstr "Prénom (Fr)"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_prenom_mere
@@ -3162,7 +3162,7 @@ msgstr "الاجور"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_formation_salle_formation
 msgid "Salle Formation"
-msgstr "غرفة التدريب"
+msgstr "غرفة التكوين"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.action_rh_sanction
@@ -3224,7 +3224,7 @@ msgstr "الحالة المطبقة"
 #. module: ressource_humaine
 #: model:ir.ui.menu,name:ressource_humaine.suivi_personnel_id
 msgid "Suivi Personnel"
-msgstr "مراقبة الموظفين"
+msgstr "متابعة الموظفين"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_selection_employe
@@ -3300,7 +3300,7 @@ msgstr "نوع نهاية العلاقة"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_formation_type_formation_id
 msgid "Type Formation"
-msgstr "نوع التدريب"
+msgstr "نوع التكوين"
 
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.job_form
@@ -3335,7 +3335,7 @@ msgstr "نوع نهاية العلاقة"
 #: model:ir.actions.act_window,name:ressource_humaine.action_rh_type_formation
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_type_formation
 msgid "Type formation"
-msgstr "نوع التدريب"
+msgstr "نوع التكوين"
 
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.absence_formation_liste
@@ -3397,7 +3397,7 @@ msgstr "بصري"
 #. module: ressource_humaine
 #: model:ir.model,name:ressource_humaine.model_absence_formation
 msgid "absence.formation"
-msgstr "غياب.التدريب"
+msgstr "غياب.التكوين"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.action_rh_accident_travail

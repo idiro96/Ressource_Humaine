@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from odoo import models, fields, api, _
+from odoo.addons.hr_holidays.models.hr_holidays import Holidays
 from odoo.exceptions import ValidationError
 
 
@@ -18,7 +19,38 @@ class HrHolidaysInherited(models.Model):
     def planning_conge(self):
         return self.env.ref('ressource_humaine.report_planning_conge').report_action(self)
 
+    @api.multi
+    def _check_holidays(self):
+        # Votre code ici
+        leave_days = 0
 
+        employ = self.env['hr.employee'].search([('id', '=', self.employee_id.id)])
+        if employ:
+            leave_days = employ.days_off
+            leave_days = 0
+            print('ici conge1')
+        result = super(Holidays, self)._check_holidays()
+        employ.write({'days_off': 0})
+        print('ici conge2')
+        # Votre code supplémentaire ici
+        return result
+    @api.model
+    def create(self, vals):
+        holidays = super(HrHolidaysInherited, self).create(vals)
+        employ = self.env['hr.employee'].search([('id', '=', holidays.employee_id.id)])
+        if employ:
+                print('rrrrrrr')
+                leave_days = employ.days_off-holidays.number_of_days_temp
+                employ.write({'days_off': leave_days})
+                print(leave_days)
+                print(employ.days_off)
+                if leave_days <= 0:
+                    raise ValidationError(_('The number of remaining leaves is not sufficient for this leave type.\n'
+                                'Please verify also the leaves waiting for validation.'))
+
+        print('rrrrrrr2')
+
+        return holidays
     # def job(self):
     #     print("Executing the cron job0!")
     #

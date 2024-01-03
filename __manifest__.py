@@ -60,6 +60,11 @@
         'views/hr_job_inherit.xml',
         'views/Loi.xml',
         'views/filiere.xml',
+        'views/groupe.xml',
+        'views/categorie.xml',
+        'views/echelon.xml',
+        'views/section.xml',
+        'views/type_fonction.xml',
         'views/corps.xml',
         'views/grade.xml',
         'views/promotion.xml',
@@ -79,6 +84,7 @@
         'reports/note_conge.xml',
         'reports/pv_instalation.xml',
         'reports/planning_conge.xml',
+        'reports/contract_renew.xml',
 
 
     ],
