@@ -13,7 +13,7 @@ class RHSection(models.Model):
     intitule = fields.Char()
     description = fields.Char()
 
-    categorie_id = fields.Many2one('rh.categorie')
+    categorie_id = fields.Many2one('rh.categorie', domain="[('type_fonction_id', 'in', ['منصب عالي', 'وظيفة عليا'])]")
     indice_base = fields.Integer()
 
 

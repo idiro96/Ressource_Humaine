@@ -69,6 +69,7 @@
         'views/promotion.xml',
         'views/nature_travail.xml',
         'data/sequence.xml',
+        'data/type_fonction.xml',
         'wizards/visite_medical_detaille.xml',
         'wizards/formation_detail_wizard.xml',
         'wizards/formation_absence_wizard.xml',
