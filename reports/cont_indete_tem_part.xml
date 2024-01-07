@@ -3,8 +3,8 @@
     <data>
 
         <template id="cont_indete_tem_part_report">
-            <t t-call="web.html_container">
-                <t t-call="web.internal_layout">
+<!--            <t t-call="web.html_container">-->
+                <t t-call="web.basic_layout">
                     <t t-call="ressource_humaine.report_header_custom"/>
                     <div class="page">
                         <t t-if="contract.state== 'open'">
@@ -54,75 +54,106 @@
                             <br/>
                             <div style="font-size: 20px;text-align: right;">
                                 <span>
-                                    بين:
-                                </span>
-                                <br/>
-                                <br/>
-                                <span>
-                                    المدرسة الوطنية للإدارة "مولاي أحمد مدغري"
+                                     :بين
                                 </span>
                                 <br/>
                                 <span>
-                                    الممثلة بالسيد/مزهود عبد المليك، المدير العام للمدرسة الوطنية للإدارة
+                                   <t t-esc="company.name"/>
                                 </span>
                                 <br/>
-                                <span>
-                                    من جهة،
-                                </span>
-                                <br/>
-                                <span>
-                                    و:
-                                </span>
-                                <br/>
-                                <span>
-
-                                    السيد/
-                                    <t t-if="not contract.employee_id.name">.....................................
-                                    </t>
-                                    <t t-esc="contract.employee_id.name" t-if="contract.employee_id.name"/>
-
-                                </span>
-                                <br/>
-                                <span>
-                                    المولود في:
-                                    <t t-if="not contract.employee_id.birthday">........-....-....</t>
-                                    <t t-esc="contract.employee_id.birthday" t-if="contract.employee_id.birthday"/>
-
-                                </span>
-                                <br/>
-                                <span>
-                                    <t t-if="not contract.employee_id.place_of_birth">........-....-....</t>
-                                    <t t-esc="contract.employee_id.place_of_birth"
-                                       t-if="contract.employee_id.place_of_birth"/>
-
-                                    الساكن في/
-
-                                </span>
-                                <br/>
-                                <span>
-                                    من جهة أخرى،
-                                </span>
-                                <br/>
-                                <span>
-                                    - بمقتضى المرسوم الرئاسي رقم 07-308 المؤرخ في 29 سبتمبر 2007 الذي يحدد كيفيات توظيف
-                                    الأعوان المتعاقدين و حقوقهم
-                                    وواجباتهم و العناصر المشكلة لرواتبهم و القواعد المتعلقة بتسييرهم و كذا النظام المطبق
-                                    عليهم،
-                                </span>
-                                <span>
-                                    -و بمقتضى القرار المؤرخ في 07 أفريل 2008 الذي يحدد تشكيل الملف الإداري وكيفيات تنظيم
-                                    توظيف الأعوان المتعاقدين و كذا
-                                    إجراءات الإعلان،
-
-                                </span>
-                                <br/>
-                                <span>
+                                <t t-if="superior_employee.gender == 'male'">
                                     <span>
-                                        المادة الأولى : يوظف السيد في منصب شغل
+                                        الممثلة بالسيد/
+                                        <t t-esc="superior_employee.name"/>
+                                        ،
+                                        المدير العام للمدرسة الوطنية للإدارة
                                     </span>
+                                </t>
+                                <t t-if="superior_employee.gender == 'female'">
                                     <span>
-                                        <t t-if="not contract.employee_id.job_id.name">........-....-....
-                                        </t>
+                                        الممثلة بالسيدة/
+                                        <t t-esc="superior_employee.name"/>
+                                        ،
+                                        المدير العام للمدرسة الوطنية للإدارة
+                                    </span>
+                                </t>
+                                <br/>
+                                <span>
+                                    ،من جهة
+                                </span>
+                                <br/>
+                                <span>
+                                    :و
+                                </span>
+                                <br/>
+                                <t t-if="contract.employee_id.gender == 'male'">
+                                    <span>
+                                        السيد/
+                                        <t t-esc="contract.employee_id.name"/>
+                                    </span>
+                                </t>
+                                 <t t-if="contract.employee_id.gender == 'female'">
+                                    <span>
+                                        السيدة/
+                                        <t t-esc="contract.employee_id.name"/>
+                                    </span>
+                                </t>
+                                <br/>
+                                <t t-if="contract.employee_id.gender == 'male'">
+                                    <span>
+                                        المولود في:
+                                        &#160;<t t-esc="contract.employee_id.birthday"/>
+                                    </span>
+                                </t>
+                                <t t-if="contract.employee_id.gender == 'female'">
+                                    <span>
+                                        المولودة في:
+                                        &#160;<t t-esc="contract.employee_id.birthday"/>
+                                    </span>
+                                </t>
+                                <br/>
+                                <t t-if="contract.employee_id.gender == 'male'">
+                                    <span>
+                                        الساكن في/
+                                        &#160;<t t-esc="contract.employee_id.place_of_birth"/>
+                                    </span>
+                                </t>
+                                <t t-if="contract.employee_id.gender == 'female'">
+                                    <span>
+                                        الساكنة في/
+                                        &#160;<t t-esc="contract.employee_id.place_of_birth"/>
+                                    </span>
+                                </t>
+                                <br/>
+                                <span>
+                                    ،من جهة أخرى
+                                </span>
+                                <br/>
+                                <span>
+                                    ـ بمقتضى المرسوم الرئاسي رقم 07ـ308 المؤرخ في 29 سبتمبر 2007 الذي يحدد كيفيات توظيف
+                                    الأعوان المتعاقدين و حقوقهم وواجباتهم و العناصر المشكلة لرواتبهم و القواعد المتعلقة
+                                    بتسييرهم و كذا النظام المطبق عليهم
+                                </span>
+                                <br/>
+                                <span>
+                                    ـ و بمقتضى القرار المؤرخ في 07 أفريل 2008 الذي يحدد تشكيل الملف الإداري وكيفيات
+                                    تنظيم توظيف الأعوان المتعاقدين و كذا إجراأت الإعلان
+                                </span>
+                                <br/>
+                                <br/>
+                                <span>
+                                    <t t-if="contract.employee_id.gender == 'male'">
+                                        <span>
+                                            المادة الأولى : يوظف السيد في منصب شغل
+                                        </span>
+                                    </t>
+                                    <t t-if="contract.employee_id.gender == 'female'">
+                                        <span>
+                                            المادة الأولى : يوظف السيدة في منصب شغل
+                                        </span>
+                                    </t>
+                                    <span>
+                                        &#160;<t t-if="not contract.employee_id.job_id.name">........................</t>
                                         <t t-esc="contract.employee_id.job_id.name"
                                            t-if="contract.employee_id.job_id.name"/>&#160;
                                     </span>
@@ -131,28 +162,50 @@
                                     غير محدد المدة
                                 </span>
                                 <br/>
+                                <t t-if="contract.employee_id.gender == 'male'">
+                                    <span>
+                                        المـادة 02 : يعين المعني في
+                                    </span>
+                                </t>
+                                <t t-if="contract.employee_id.gender == 'female'">
+                                    <span>
+                                        المـادة 02 : يعين المعنية في
+                                    </span>
+                                </t>
                                 <span>
-                                    <t t-if="not contract.employee_id.department_id.name">........-....-....
-                                    </t>
+                                    <t t-if="not contract.employee_id.department_id.name">........................</t>
                                     <t t-esc="contract.employee_id.department_id.name"
-                                       t-if="contract.employee_id.department_id.name"/>&#160;
-                                </span>
-                                <span>
-                                    المـادة 02 : يعين المعني في
-                                </span>
-
-                                <br/>
-                                <span>
-                                    المـادة 03 : يصنف المعني في الصنف 1 الرقم الإستدلالي 325.
+                                       t-if="contract.employee_id.department_id.name"/>
                                 </span>
                                 <br/>
+                                <t t-if="contract.employee_id.gender == 'male'">
+                                    <span>
+                                        المـادة 03 : يصنف المعني في الصنف 1 الرقم الإستدلالي 325
+                                    </span>
+                                </t>
+                                <t t-if="contract.employee_id.gender == 'female'">
+                                    <span>
+                                        المـادة 03 : يصنف المعنية في الصنف 1 الرقم الإستدلالي 325
+                                    </span>
+                                </t>
+                                <br/>
+                                <t t-if="contract.employee_id.gender == 'male'">
+                                    <span>
+                                        المـادة 04 : يستفيد المعني من العلاوات و التعويضات المنصوص عليهي في التنظيم
+                                        الساري
+                                        المفعول و هي
+                                    </span>
+                                </t>
+                                <t t-if="contract.employee_id.gender == 'female'">
+                                    <span>
+                                        المـادة 04 : يستفيد المعنية من العلاوات و التعويضات المنصوص عليها في التنظيم
+                                        الساري
+                                        المفعول و هي
+                                    </span>
+                                </t>
+                                <br/>
                                 <span>
-                                    المـادة 04 : يستفيد المعني من العلاوات و التعويضات المنصوص عليها في التنظيم الساري
-                                    المفعول و هي:
-                                </span>
-                                 <br/>
-                                <span>
-                                     المنحة الجزافية التعويضية -
+                                    المنحة الجزافية التعويضية -
                                 </span>
                                  <br/>
                                 <span>
@@ -160,28 +213,38 @@
                                 </span>
                                  <br/>
                                 <span>
-                                     تعويض الضرر-
+                                     تعويض الضرر -
                                 </span>
                                  <br/>
                                 <span>
-                                     علاوة المردودة-
+                                     علاوة المردودة -
+                                </span>
+                                <br/>
+                                <t t-if="contract.employee_id.gender == 'male'">
+                                    <span>
+                                        المـادة 05 : زيادة على الواجبات المنصوص عليهي في المرسوم الرئاسي رقم 07-308
+                                        المؤرخ
+                                        في 29
+                                        سبتمبر سنة 2007
+                                        و المذكور أعلاه،يخضع المعني للواجبات الخاصة المرتبطة بمنصب شغلهي، لا سيما:
+                                    </span>
+                                </t>
+                                <t t-if="contract.employee_id.gender == 'female'">
+                                    <span>
+                                        المـادة 05 : زيادة على الواجبات المنصوص عليها في المرسوم الرئاسي رقم 07-308
+                                        المؤرخ
+                                        في 29
+                                        سبتمبر سنة 2007
+                                        و المذكور أعلاه،يخضع المعنية للواجبات الخاصة المرتبطة بمنصب شغلها، لا سيما
+                                    </span>
+                                </t>
+                                <br/>
+                                <span>
+                                    ـ إحترام التعليمات و الإمتثال لجميع الأوامر الصادرة عن الإدارة
                                 </span>
                                 <br/>
                                 <span>
-                                    المـادة 05 : زيادة على الواجبات المنصوص عليها في المرسوم الرئاسي رقم 07-308 المؤرخ
-                                    في 29
-                                    سبتمبر سنة 2007
-                                    و المذكور أعلاه،يخضع المعني للواجبات الخاصة المرتبطة بمنصب شغله، لا سيما:
-
-                                </span>
-                                <br/>
-                                <span>
-                                    - إحترام التعليمات و الإمتثال لجميع الأوامر الصادرة عن الإدارة.
-
-                                </span>
-                                <br/>
-                                <span>
-                                     <t t-if="not contract.date_start">........-....-....
+                                    <t t-if="not contract.date_start">......................
                                     </t>
                                     <t t-esc="contract.date_start"
                                        t-if="contract.date_start"/>&#160;
@@ -194,42 +257,58 @@
                                 <br/>
                                 <br/>
                                 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
-                                <span>
-                                    لسيد المعني
-
-                                </span>
-                                <span>
-                                    المدير العام
-
-                                </span>
-                                <br/>
-                                 <br/>
-                                <br/>
-                                 <br/>
-                                 <br/>
-                                 <br/>
-                                 <br/>
-                                 <br/>
-                                      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
-
-                                <span>
-                                    حرر بالجزائر في ..................
-
-                                </span>
-                                  <br/>
-                                 <br/>
-                                 <br/>
-                                 <br/>
-                                <span>
-                                    قرئ و صودق علية
-
-                                </span>
-
-                                <br/>
-
-
+                                <div/>
                             </div>
-
+                            <div class="row">
+                                <div style="float:left;font-size:20px;">
+                                    <span>
+                                        المدير العام
+                                    </span>
+                                </div>
+                                <div style="float:right;font-size:20px;">
+                                    <t t-if="contract.employee_id.gender == 'male'">
+                                        <span>
+                                            السيد المعني
+                                        </span>
+                                    </t>
+                                    <t t-if="contract.employee_id.gender == 'female'">
+                                        <span>
+                                            السيدة المعنية
+                                        </span>
+                                    </t>
+                                </div>
+                            </div>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                            <div class="row">
+                                <div style="float:left;font-size:20px;">
+                                    <span>
+                                        ......................
+                                    </span>
+                                    <span>
+                                        حرر بالجزائر في
+                                    </span>
+                                </div>
+                                <div style="float:right;font-size:20px;">
+                                    <t t-if="contract.employee_id.gender == 'male'">
+                                        <span>
+                                            قرئ و صدق عليه
+                                        </span>
+                                    </t>
+                                    <t t-if="contract.employee_id.gender == 'female'">
+                                        <span>
+                                            قرئت و صدقت عليه
+                                        </span>
+                                    </t>
+                                </div>
+                            </div>
                             <br/>
                             <br/>
                             <br/>
@@ -242,21 +321,12 @@
                             <br/>
                             <br/>
                             <br/>
-
+                            <br/>
                         </t>
                     </div>
                 </t>
-            </t>
+            <!--            </t>-->
         </template>
-
-        <report
-                id="action_cont_indete_tem_part_report"
-                model="hr.contract"
-                string="Contrat Indéterminé à Temps Partiel"
-                report_type="qweb-html"
-                name="ressource_humaine.cont_indete_tem_part_report"
-                file="ressource_humaine.cont_indete_tem_part_report"
-        />
 
     </data>
 </odoo>

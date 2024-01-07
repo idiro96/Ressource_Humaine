@@ -57,6 +57,7 @@ class HrEmployeInherited(models.Model):
     taux_handicap = fields.Float()
     corps_visible = fields.Boolean(default=True)
     gender = fields.Selection(selection=[('male', 'Masculin'), ('female', 'Féminin')], readonly=False, required=True)
+    place_of_birth_fr = fields.Char('Lieu de naissance', groups="hr.group_hr_user", required=True)
 
     # @api.depends('date_entrer')
     # def _compute_days_off(self):

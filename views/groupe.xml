@@ -6,9 +6,9 @@
 
 
             <tree>
-                <field name="name" string="name"/>
-                <field name="description" string="Description"/>
-                <field name="grille_id" string="Grille"/>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="grille_id"/>
             </tree>
         </field>
 
@@ -21,18 +21,18 @@
                 <sheet>
                     <group>
 
-                        <field name="name" string="name"/>
-                        <field name="description" string="Description"/>
-                        <field name="grille_id" string="Grille"/>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="grille_id"/>
 
                     </group>
                     <notebook>
                          <page string="Liste Categorie">
                          <field name="categorie_lines">
                            <tree editable="bottom">
-                             <field name="intitule" string="intitule"/>
-                             <field name="description" string="description"/>
-                             <field name="Indice_minimal" string="Indice minimal"/>
+                             <field name="intitule"/>
+                             <field name="description"/>
+                             <field name="Indice_minimal"/>
                            </tree>
                          </field>
                        </page>
