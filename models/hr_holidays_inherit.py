@@ -7,6 +7,16 @@ from odoo.exceptions import ValidationError
 class HrHolidaysInherited(models.Model):
     _inherit = "hr.holidays"
 
+    holiday_status_id = fields.Many2one("hr.holidays.status", string="Leave Type",  required=False, readonly=True,
+                                        states={'draft': [('readonly', False)], 'confirm': [('readonly', False)]}, compute='_get_default_value')
+    def _get_default_value(self):
+        # You can set the default value based on your requirements
+        # For example, if you want to set a specific record as default, you can use the `search` method
+        default_record = self.env['hr.holidays.status'].search([('name', '=', 'Legal Leaves 2023')], limit=1)
+        print('ici')
+        print(default_record)
+        # Return the ID of the default record
+        return default_record
     @api.multi
     def print_conge(self):
         return self.env.ref('ressource_humaine.report_titre_conge').report_action(self)
@@ -38,19 +48,63 @@ class HrHolidaysInherited(models.Model):
     def create(self, vals):
         holidays = super(HrHolidaysInherited, self).create(vals)
         employ = self.env['hr.employee'].search([('id', '=', holidays.employee_id.id)])
+        holiday = self.env['hr.holidays'].search([('employee_id', '=', self.employee_id.id),('state', '=', 'confirm')])
         if employ:
-                print('rrrrrrr')
-                leave_days = employ.days_off-holidays.number_of_days_temp
-                employ.write({'days_off': leave_days})
-                print(leave_days)
-                print(employ.days_off)
-                if leave_days <= 0:
+                print(holiday)
+                print(employ.days_off-holiday.number_of_days_temp)
+                if employ.days_off-holiday.number_of_days >= holidays.number_of_days_temp:
+                    pass
+                else:
                     raise ValidationError(_('The number of remaining leaves is not sufficient for this leave type.\n'
-                                'Please verify also the leaves waiting for validation.'))
+                                            'Please verify also the leaves waiting for validation.'))
 
         print('rrrrrrr2')
 
         return holidays
+
+    @api.multi
+    def action_approve(self):
+        for holidays in self:
+            employ = self.env['hr.employee'].search([('id', '=', holidays.employee_id.id)])
+            if employ:
+                print('rrrrrrr')
+                if employ.days_off >= holidays.number_of_days_temp:
+                    droitconge = self.env['rh.congedroit'].search([('id_personnel', '=', employ.id)])
+                    jours_conge = holidays.number_of_days_temp
+                    nbr_jour_reste = 0
+                    nbr_jour_consomme = 0
+                    for droit in droitconge:
+                        if droit.nbr_jour >= droit.nbr_jour_reste:
+                            if droit.nbr_jour_reste > jours_conge:
+                                if jours_conge > 0:
+                                    nbr_jour_resteOld = droit.nbr_jour_reste
+                                    print('ancien')
+                                    print(nbr_jour_resteOld)
+                                    nbr_jour_reste = droit.nbr_jour_reste - jours_conge
+                                    print('new ')
+                                    print(nbr_jour_reste)
+                                    nbr_jour_consomme = droit.nbr_jour - nbr_jour_reste
+                                    print('consomme new ')
+                                    print(nbr_jour_consomme)
+                                    jours_conge = jours_conge - (nbr_jour_resteOld - nbr_jour_reste)
+                                    print('reste conge new ')
+                                    print(nbr_jour_consomme)
+                                    droit.write({'nbr_jour_reste': nbr_jour_reste})
+                                    droit.write({'nbr_jour_consomme': nbr_jour_consomme})
+                            else:
+                                jours_conge = jours_conge - droit.nbr_jour_reste
+                                print('conge')
+                                print(jours_conge)
+                                droit.nbr_jour_reste = 0
+                                nbr_jour_consomme = droit.nbr_jour - nbr_jour_reste
+
+                                droit.write({'nbr_jour_reste': 0})
+                                droit.write({'nbr_jour_consomme': nbr_jour_consomme})
+
+                    leave_days = employ.days_off - holidays.number_of_days_temp
+                    employ.write({'days_off': leave_days})
+
+            holidays.write({'state': 'validate'})
     # def job(self):
     #     print("Executing the cron job0!")
     #

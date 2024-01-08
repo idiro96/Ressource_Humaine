@@ -31,8 +31,11 @@ from . import conge_droit
 from . import conge_droit_month
 from . import grille
 from . import categorie
+from . import categorie_superieure
 from . import echelon
+from . import niveau_hierarchique
 from . import section
+from . import section_superieure
 from . import groupe
 from . import hr_job_inherit
 from . import loi

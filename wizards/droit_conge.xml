@@ -1,0 +1,20 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="droit_conge_liste">
+            <field name="name">droit aux conge</field>
+            <field name="model">droit.conge</field>
+            <field name="arch" type="xml">
+                <form>
+
+                    <footer>
+                        <button name="actualiserDroitConge" string="Actualiser la fiche droit aux congés" type="object"
+                                class="btn-danger text-uppercase"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

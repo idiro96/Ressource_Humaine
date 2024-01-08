@@ -18,6 +18,11 @@
                 <xpath expr="//header/button[@name='action_refuse']" position="before">
                     <button name="print_conge" type="object" string="Imprimer titre de congé" class="oe_highlight"/>
                 </xpath>
+
+                <xpath expr="//field[@name='holiday_status_id']" position="attributes">
+                    <attribute name="readonly">True</attribute>
+                </xpath>
+
                 <xpath expr="//header/button[@name='print_conge']" position="before">
                     <button name="note_conge" type="object" string="Imprimer Note de congé" class="oe_highlight"/>
                 </xpath>
