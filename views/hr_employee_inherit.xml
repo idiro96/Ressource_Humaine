@@ -212,17 +212,40 @@
             </field>
 
         </record>
-        <record model="ir.actions.act_window" id="action_ressource_humaine">
-            <field name="name">employee</field>
+
+        <record id="distribution_graph" model="ir.ui.view">
+            <field name="name">Graph de Distribution</field>
+            <field name="model">hr.employee</field>
+            <field name="arch" type="xml">
+                <graph string="Graph de Distribution" type="pie">
+                    <field name="gender" string="Genre"/>
+                    <field name="id" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+
+
+        <!--        <record model="ir.actions.act_window" id="action_ressource_humaine">-->
+<!--            <field name="name">employee</field>-->
+<!--            <field name="res_model">hr.employee</field>-->
+<!--            <field name="view_type">form</field>-->
+<!--            <field name="view_mode">tree,form</field>-->
+<!--            <field name="view_id" ref="hr.view_employee_tree"/>-->
+<!--        </record>-->
+
+        <record id="action_ressource_humaine" model="ir.actions.act_window">
+            <field name="name">emloyee</field>
             <field name="res_model">hr.employee</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
-            <field name="view_id" ref="hr.view_employee_tree"/>
-
+            <field name="type">ir.actions.act_window</field>
+            <field name="context">{}</field>
         </record>
 
         <menuitem name="Ressource Humaine" id="ressource_humaine.menu_root"
-                  web_icon="ressource_humaine,description/icon.png"/>
+                  web_icon="ressource_humaine,description/icon.png"
+                  action="action_employee_dashboard"/>
         <menuitem name="Personnel" id="employee_gestion" parent="ressource_humaine.menu_root"/>
         <menuitem name="Suivi Personnel" id="suivi_personnel_id" parent="ressource_humaine.menu_root"/>
         <menuitem name="Recrutement" id="recrutement_id" parent="ressource_humaine.menu_root"/>

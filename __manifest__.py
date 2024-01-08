@@ -21,17 +21,16 @@
 
     # any module necessary for this one to work correctly
 
-    'depends': ['base','hr'],
+    'depends': ['base','hr','hr_recruitment','hr_holidays','hr_payroll','board'],
 
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
-
         # 'views/views.xml',
         # 'views/templates.xml',
         # 'views/data.xml',
-
+        'views/hr_dashboard.xml',
         'views/hr_employee_inherit.xml',
         'views/hr_holidays_inherit.xml',
         'views/conjoint.xml',
