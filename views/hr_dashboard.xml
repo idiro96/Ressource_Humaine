@@ -12,6 +12,18 @@
         </field>
     </record>
 
+    <record id="act_conge" model="ir.actions.act_window">
+        <field name="name">Planning des Congés</field>
+        <field name="res_model">hr.holidays</field>
+        <field name="view_mode">calendar,tree,form</field>
+    </record>
+
+    <record id="act_employees" model="ir.actions.act_window">
+        <field name="name">Liste des Employés</field>
+        <field name="res_model">hr.employee</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
     <record id="act_employee_distribution" model="ir.actions.act_window">
         <field name="name">Distribution des Employées</field>
         <field name="res_model">hr.employee</field>
@@ -34,6 +46,12 @@
             <form string="Tableau de bord">
                 <board style="2-1">
                     <column>
+                        <action
+                        string="Planning des Congés"
+                        name="%(ressource_humaine.act_conge)d"/>
+                        <action
+                        string="Liste des Employés"
+                        name="%(ressource_humaine.act_employees)d"/>
                     </column>
                     <column>
                         <action
