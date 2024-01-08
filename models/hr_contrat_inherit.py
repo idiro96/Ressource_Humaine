@@ -10,21 +10,24 @@ from odoo.exceptions import ValidationError
 class  HrContratInherited(models.Model):
     _inherit = 'hr.contract'
 
-    # code_contrat = fields.Char()
-    # date_debut_contrat = fields.Date()
-    # date_fin_contrat = fields.Date()
-    # salaire_base_contrat = fields.Float()
-    # motif_contrat = fields.Char()
     name = fields.Char('Contract Reference', required=True,readonly=True ,default=lambda self: _('New'))
     corps_id = fields.Many2one('rh.corps', readonly=True, compute='_compute_employee_fields')
     grade_id = fields.Many2one('rh.grade', readonly=True, compute='_compute_employee_fields')
+    groupe_id = fields.Many2one('rh.groupe', readonly=False)
     department_id = fields.Many2one('hr.department', readonly=True, compute='_compute_employee_fields')
     job_id = fields.Many2one('hr.job', readonly=True, compute='_compute_employee_fields')
     type = fields.Selection([('contrat', 'Contrat'), ('decision', 'Decision'),]
                                    , required=True, default='contrat')
     point_indiciare = fields.Integer()
+    indice_minimal = fields.Integer()
+    indice_base = fields.Integer()
+    bonification_indiciaire = fields.Integer()
     categorie_id = fields.Many2one('rh.categorie')
+    categorie_superieure_id = fields.Many2one('rh.categorie.superieure')
     echelon_id = fields.Many2one('rh.echelon')
+    niveau_hierarchique_id = fields.Many2one('rh.niveau.hierarchique')
+    section_id = fields.Many2one('rh.section')
+    section_superieure_id = fields.Many2one('rh.section.superieure')
     grille_id = fields.Many2one('rh.grille')
 
     @api.model
@@ -34,10 +37,7 @@ class  HrContratInherited(models.Model):
 
         result = super(HrContratInherited, self).create(vals)
         return result
-    @api.onchange('point_indiciare')
-    def onchange_sb(self):
-        for contract in self:
-            contract.wage = contract.point_indiciare * 45
+
 
     @api.constrains('date_start', 'date_end', 'employee_id')
     def _check_contract_overlap(self):
@@ -83,23 +83,114 @@ class  HrContratInherited(models.Model):
     def print_pv(self):
         return self.env.ref('ressource_humaine.report_pv_instalation').report_action(self)
 
+    @api.multi
+    def print_renew(self):
+        return self.env.ref('ressource_humaine.action_renew_contract_report').report_action(self)
+
     @api.onchange('type')
     def onchange_type(self):
         for rec in self:
             domain = []
             if rec.type == 'contrat':
-                employee = self.env['hr.employee'].search([('nature_travail_id', '=', 1)])
+                type_fonction = self.env['rh.type.fonction'].search([('code_type_fonction', '=', 'contractuel')])
+                job = self.env['hr.job'].search([('nature_travail_id', '=', type_fonction.id)])
+                employee = self.env['hr.employee'].search([('job_id', '=', job.id)])
                 print(employee)
                 domain.append(('id', 'in', employee.ids))
             else:
-                employee = self.env['hr.employee'].search([('nature_travail_id', '!=', 1)])
+                print('benyoucef')
+                type_fonction = self.env['rh.type.fonction'].search([('code_type_fonction', '=', 'contractuel')])
+                # job = self.env['hr.job'].search([('nature_travail_id', '=', type_fonction.id)])
+                employee = self.env['hr.employee'].search([('nature_travail_id', '!=', type_fonction.id)])
+                # employee = self.env['hr.employee'].search([('nature_travail_id', '!=', 1)])
                 print(employee)
                 domain.append(('id', 'in', employee.ids))
                 print(domain)
         res = {'domain': {'employee_id': domain}}
-        print(res)
         return res
 
+    @api.onchange('groupe_id')
+    def onchange_groupe(self):
+        for rec in self:
+            domain = []
+            if rec.groupe_id:
+                categorie = self.env['rh.categorie'].search([('groupe_id', '=', rec.groupe_id.id)])
+                print(categorie)
+                domain.append(('id', 'in', categorie.ids))
+            else:
+                categorie = self.env['rh.categorie'].search([('groupe_id', '=', None)])
+                print(categorie)
+                domain.append(('id', 'in', categorie.ids))
+
+        res = {'domain': {'categorie_id': domain}}
+        print(res)
+        return res
+    @api.onchange('categorie_id')
+    def onchange_categorie(self):
+        for rec in self:
+            domain = []
+            if rec.categorie_id:
+                echelon = self.env['rh.echelon'].search([('categorie_id', '=', rec.categorie_id.id)])
+                section = self.env['rh.section'].search([('categorie_id', '=', rec.categorie_id.id)])
+                type_fonction = self.env['rh.type.fonction'].search([('id', '=', rec.employee_id.nature_travail_id.id)])
+                if type_fonction.code_type_fonction == 'contractuel':
+                    rec.indice_minimal = rec.categorie_id.Indice_minimal
+                    rec.wage = rec.indice_minimal * 45
+                elif type_fonction.code_type_fonction == 'fonction':
+                    print('beny')
+                    domain.append(('id', 'in', echelon.ids))
+                    rec.indice_minimal = rec.categorie_id.Indice_minimal
+
+                elif type_fonction.code_type_fonction == 'postesuperieure':
+                    domain.append(('id', 'in', echelon.ids))
+                    rec.indice_minimal = rec.categorie_id.Indice_minimal
+                else:
+                    domain.append(('id', 'in', section.ids))
+
+            res = {'domain': {'echelon_id': domain}}
+
+        return res
+
+    @api.onchange('section_id')
+    def onchange_section(self):
+        domain = []
+        for rec in self:
+            if rec.section_id:
+                rec.indice_base = rec.section_id.indice_base
+                echelon = self.env['rh.echelon'].search([('section', '=', rec.section_id.id)])
+                domain.append(('id', 'in', echelon.ids))
+                rec.indice_minimal = rec.categorie_id.Indice_minimal
+            res = {'domain': {'echelon_id': domain}}
+        return res
+
+    @api.onchange('niveau_hierarchique_id')
+    def onchange_niveau_hierarchique(self):
+            for rec in self:
+                if rec.niveau_hierarchique_id:
+                    type_fonction = self.env['rh.type.fonction'].search([('id', '=', rec.job_id.nature_poste.id)])
+                    if type_fonction.code_type_fonction == 'postesuperieure':
+                        rec.bonification_indiciaire = rec.niveau_hierarchique_id.bonification_indiciaire
+                        rec.wage = (rec.indice_minimal * 45 + rec.point_indiciare * 45) + rec.bonification_indiciaire
+
+
+    @api.onchange('echelon_id')
+    def onchange_echelon(self):
+        for rec in self:
+            domain = []
+            if rec.echelon_id:
+                type_fonction = self.env['rh.type.fonction'].search([('id', '=', rec.employee_id.nature_travail_id.id)])
+                if type_fonction.code_type_fonction == 'postesuperieure':
+                    rec.point_indiciare = rec.echelon_id.indice_echelon
+                elif type_fonction.code_type_fonction == 'fonction':
+                    rec.point_indiciare = rec.echelon_id.indice_echelon
+                    rec.wage = rec.indice_minimal * 45 + rec.point_indiciare * 45
+                else:
+                    rec.point_indiciare = rec.echelon_id.indice_echelon
+                    rec.wage = rec.indice_base * 45 + rec.point_indiciare
+        #
+        # res = {'domain': {'echelon_id': domain}}
+        # print(res)
+        # return res
     @api.depends('employee_id')
     def _compute_employee_fields(self):
         for rec in self:

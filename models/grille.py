@@ -20,6 +20,7 @@ class RHGrille(models.Model):
     # a adapter selon les colonnes de la grille salariale de l'ENA
     # normalement une grille à un détail et le détail sera faite l'importation
 
+
     # specialite = fields.Char(string='specialite', required=True)
     # salaire = fields.Float(string='salaire', required=True)
 

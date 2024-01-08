@@ -19,10 +19,10 @@
                      <label for="nature_travail_id" class="oe_edit_only"/>
                      <field name="nature_travail_id" string="Type Poste"/>
                 </xpath>
-                <xpath expr="//form//sheet//div[2]//field[@name='nature_travail_id']" position="after">
-                     <label for="nature_poste" class="oe_edit_only"/>
-                     <field name="nature_poste"/>
-                </xpath>
+<!--                <xpath expr="//form//sheet//div[2]//field[@name='nature_travail_id']" position="after">-->
+<!--                     <label for="nature_poste" class="oe_edit_only"/>-->
+<!--                     <field name="nature_poste"/>-->
+<!--                </xpath>-->
 
             </field>
         </record>

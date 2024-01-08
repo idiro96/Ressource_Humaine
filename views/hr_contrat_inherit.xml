@@ -6,7 +6,7 @@
             <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
             <field name="arch" type="xml">
                 <header>
-                    <button name="print_pv" type="object" class="oe_highlight"/>
+                    <button name="print_pv" type="object" string="Imprimer PV Instalation" class="oe_highlight"/>
                 </header>
                 <xpath expr="//div[@class='oe_title' and @name='title']" position="before">
                     <group>
@@ -28,14 +28,40 @@
                 <xpath expr="//span[contains(text(), '/ month')]" position="replace">
                     <span>Mensuel</span>
                 </xpath>
+
                 <xpath expr="//div[@name='wage']" position="after">
+                    <field name="groupe_id"/>
+                </xpath>
+                  <xpath expr="//field[@name='groupe_id']" position="after">
                     <field name="categorie_id"/>
                 </xpath>
                 <xpath expr="//field[@name='categorie_id']" position="after">
+                    <field name="section_id"/>
+                </xpath>
+                <xpath expr="//field[@name='section_id']" position="after">
+                    <field name="indice_base"/>
+                </xpath>
+                  <xpath expr="//field[@name='indice_base']" position="after">
+                    <field name="indice_minimal"/>
+                </xpath>
+                <xpath expr="//field[@name='indice_minimal']" position="after">
                     <field name="echelon_id"/>
                 </xpath>
                 <xpath expr="//field[@name='echelon_id']" position="after">
                     <field name="point_indiciare"/>
+                </xpath>
+                 <xpath expr="//field[@name='point_indiciare']" position="after">
+                    <field name="categorie_superieure_id"/>
+                </xpath>
+                 <xpath expr="//field[@name='categorie_superieure_id']" position="after">
+                    <field name="section_superieure_id"/>
+                </xpath>
+                 <xpath expr="//field[@name='section_superieure_id']" position="after">
+                    <field name="niveau_hierarchique_id"/>
+                </xpath>
+
+                <xpath expr="//field[@name='niveau_hierarchique_id']" position="after">
+                    <field name="bonification_indiciaire"/>
                 </xpath>
                   <xpath expr="//form//group//group//field[@name='job_id']" position="after">
                     <field name="corps_id"/>

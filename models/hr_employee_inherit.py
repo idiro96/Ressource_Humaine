@@ -32,15 +32,19 @@ class HrEmployeInherited(models.Model):
 
     selection_employe = fields.Boolean('Sélection', default=False)
 
+
     days_off = fields.Float(string='Total Days Off', store=True)
 
     # days_off = fields.Float(compute='_compute_days_off', store=True, translate=True)
+
+    # days_off = fields.Float(compute='_compute_days_off', store=True, translate=True)
+    days_off = fields.Float(store=True)
 
     corps_id = fields.Many2one('rh.corps')
     grade_id = fields.Many2one('rh.grade')
     date_grade = fields.Date()
     promotion_lines = fields.One2many('rh.promotion.line', inverse_name='employee_id')
-    nature_travail_id = fields.Many2one('rh.nature.travail')
+    nature_travail_id = fields.Many2one('rh.type.fonction')
     position_statutaire = fields.Selection([('activite', 'Activite'),
                               ('detachement', 'Detachement'),
                               ('horscadre', 'Horscadre'),('miseendisponibilite', 'Miseendisponibilite'),('servicenationale', 'Servicenationale'),],
@@ -59,7 +63,7 @@ class HrEmployeInherited(models.Model):
                               readonly=False,default='audio')
     taux_handicap = fields.Float()
     corps_visible = fields.Boolean(default=True)
-
+    gender = fields.Selection(selection=[('male', 'Masculin'), ('female', 'Féminin')], readonly=False, required=True)
 
     # @api.depends('date_entrer')
     # def _compute_days_off(self):
@@ -84,14 +88,23 @@ class HrEmployeInherited(models.Model):
         for rec in self:
             domain = []
             if rec.nature_travail_id:
-                if rec.nature_travail_id == 'المتعاقدين':
+                if rec.nature_travail_id.code_type_fonction == 'contractuel':
                     corps_visible = False
-                else:
+                    jobs = self.env['hr.job'].search([('nature_travail_id', '=', rec.nature_travail_id.id)])
+                    domain.append(('id', 'in', jobs.ids))
+                elif rec.nature_travail_id.code_type_fonction == 'fonctionsuperieure':
                     corps_visible = True
-                print('teste')
-                jobs = self.env['hr.job'].search([('nature_travail_id', '=', rec.nature_travail_id.id)])
-                print(jobs)
-                domain.append(('id', 'in', jobs.ids))
+                    print('teste')
+                    jobs = self.env['hr.job'].search([('nature_travail_id', '=', rec.nature_travail_id.id)])
+                    domain.append(('id', 'in', jobs.ids))
+                elif rec.nature_travail_id.code_type_fonction == 'postesuperieure':
+                    corps_visible = True
+                    print('teste')
+                    jobs = self.env['hr.job'].search([('nature_travail_id', '=', rec.nature_travail_id.id)])
+                    domain.append(('id', 'in', jobs.ids))
+                else:
+                    jobs = None
+                    domain = None
             else:
                 domain = ''
 
