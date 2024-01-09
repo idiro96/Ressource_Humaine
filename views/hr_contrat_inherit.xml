@@ -29,10 +29,17 @@
                     <span>Mensuel</span>
                 </xpath>
 
-                <xpath expr="//div[@name='wage']" position="after">
-                    <field name="groupe_id"/>
-                </xpath>
-                  <xpath expr="//field[@name='groupe_id']" position="after">
+
+              <!--xpath expr="//div[@name='wage']" position="after">
+                     <field name="groupe_id" attrs="{'invisible': [('bool1', '=', 'True')]}" />
+              </xpath!-->
+
+               <xpath expr="//div[@name='wage']" position="after">
+                     <field name="groupe_id"/>
+              </xpath>
+                
+
+             <xpath expr="//field[@name='groupe_id']" position="after">
                     <field name="categorie_id"/>
                 </xpath>
                 <xpath expr="//field[@name='categorie_id']" position="after">
