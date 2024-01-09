@@ -18,10 +18,18 @@
         <field name="view_mode">calendar,tree,form</field>
     </record>
 
-    <record id="act_employees" model="ir.actions.act_window">
-        <field name="name">Liste des Employés</field>
+    <record id="act_male_employees" model="ir.actions.act_window">
+        <field name="name">Liste des Employés (Hommes)</field>
         <field name="res_model">hr.employee</field>
         <field name="view_mode">kanban,tree,form</field>
+        <field name="domain">[('gender', '=', 'male')]</field>
+    </record>
+
+    <record id="act_female_employees" model="ir.actions.act_window">
+        <field name="name">Liste des Employées (Femmes)</field>
+        <field name="res_model">hr.employee</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="domain">[('gender', '=', 'female')]</field>
     </record>
 
     <record id="act_employee_distribution" model="ir.actions.act_window">
@@ -47,16 +55,19 @@
                 <board style="2-1">
                     <column>
                         <action
-                        string="Planning des Congés"
-                        name="%(ressource_humaine.act_conge)d"/>
+                                string="Planning des Congés"
+                                name="%(ressource_humaine.act_conge)d"/>
                         <action
-                        string="Liste des Employés"
-                        name="%(ressource_humaine.act_employees)d"/>
+                                string="Liste des Employés (Hommes)"
+                                name="%(ressource_humaine.act_male_employees)d"/>
+                        <action
+                                string="Liste des Employées (Femmes)"
+                                name="%(ressource_humaine.act_female_employees)d"/>
                     </column>
                     <column>
                         <action
-                            string="Distribution des Employés"
-                            name="%(ressource_humaine.act_employee_distribution)d"/>
+                                string="Distribution des Employés"
+                                name="%(ressource_humaine.act_employee_distribution)d"/>
                         <action
                             string="Recrutement des Employés"
                             name="%(ressource_humaine.act_employee_recruitment)d"/>

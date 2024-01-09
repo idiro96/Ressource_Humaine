@@ -21,7 +21,7 @@ class ContratIdetermineReport(models.AbstractModel):
     def get_report_values(self, docids, data=None):
         contract = self.env['hr.contract'].browse(docids[0])
 
-        superior_job = self.env['hr.job'].search([('nature_poste', '=', 'postesuperieure')], limit=1)
+        superior_job = self.env['hr.job'].search([('nature_travail_id.code_type_fonction', '=', 'postesuperieur')], limit=1)
 
         superior_employee = self.env['hr.employee'].search([('job_id', '=', superior_job.id)], limit=1)
 
