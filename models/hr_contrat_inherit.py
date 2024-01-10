@@ -29,6 +29,9 @@ class  HrContratInherited(models.Model):
     section_id = fields.Many2one('rh.section')
     section_superieure_id = fields.Many2one('rh.section.superieure')
     grille_id = fields.Many2one('rh.grille')
+    bool1 = fields.Boolean(default=True)
+    code_type_fonction = fields.Char(related='employee_id.nature_travail_id.code_type_fonction', string='Code Type Fonction', store=True)
+
 
     @api.model
     def create(self, vals):
@@ -92,6 +95,8 @@ class  HrContratInherited(models.Model):
         for rec in self:
             domain = []
             if rec.type == 'contrat':
+                print('hkf')
+                rec.bool1 = False
                 type_fonction = self.env['rh.type.fonction'].search([('code_type_fonction', '=', 'contractuel')])
                 job = self.env['hr.job'].search([('nature_travail_id', '=', type_fonction.id)])
                 employee = self.env['hr.employee'].search([('job_id', '=', job.id)])
@@ -100,6 +105,10 @@ class  HrContratInherited(models.Model):
             else:
                 print('benyoucef')
                 type_fonction = self.env['rh.type.fonction'].search([('code_type_fonction', '=', 'contractuel')])
+                if type_fonction.code_type_fonction == 'fonctionsuperieure':
+                    rec.bool1 = False
+                else:
+                    rec.bool1 = True
                 # job = self.env['hr.job'].search([('nature_travail_id', '=', type_fonction.id)])
                 employee = self.env['hr.employee'].search([('nature_travail_id', '!=', type_fonction.id)])
                 # employee = self.env['hr.employee'].search([('nature_travail_id', '!=', 1)])
@@ -107,8 +116,8 @@ class  HrContratInherited(models.Model):
                 domain.append(('id', 'in', employee.ids))
                 print(domain)
         res = {'domain': {'employee_id': domain}}
-        return res
 
+        return res
     @api.onchange('groupe_id')
     def onchange_groupe(self):
         for rec in self:
@@ -167,7 +176,7 @@ class  HrContratInherited(models.Model):
     def onchange_niveau_hierarchique(self):
             for rec in self:
                 if rec.niveau_hierarchique_id:
-                    type_fonction = self.env['rh.type.fonction'].search([('id', '=', rec.job_id.nature_poste.id)])
+                    type_fonction = self.env['rh.type.fonction'].search([('id', '=', rec.employee_id.nature_travail_id.id)])
                     if type_fonction.code_type_fonction == 'postesuperieure':
                         rec.bonification_indiciaire = rec.niveau_hierarchique_id.bonification_indiciaire
                         rec.wage = (rec.indice_minimal * 45 + rec.point_indiciare * 45) + rec.bonification_indiciaire
@@ -187,10 +196,28 @@ class  HrContratInherited(models.Model):
                 else:
                     rec.point_indiciare = rec.echelon_id.indice_echelon
                     rec.wage = rec.indice_base * 45 + rec.point_indiciare
-        #
-        # res = {'domain': {'echelon_id': domain}}
-        # print(res)
-        # return res
+
+    @api.onchange('employee_id')
+    def onchange_employee(self):
+        for rec in self:
+            domain = []
+            if rec.employee_id:
+                type_fonction = self.env['rh.type.fonction'].search([('id', '=', rec.employee_id.nature_travail_id.id)])
+                if type_fonction.code_type_fonction == 'contractuel':
+                    categorie = self.env['rh.categorie'].search([('type_fonction_id', '=', type_fonction.id)])
+                    domain.append(('id', 'in', categorie.ids))
+                elif type_fonction.code_type_fonction == 'fonctionsuperieure':
+                    categorie = self.env['rh.categorie'].search([('type_fonction_id', '=', type_fonction.id)])
+                    domain.append(('id', 'in', categorie.ids))
+                    rec.point_indiciare = rec.echelon_id.indice_echelon
+                elif type_fonction.code_type_fonction == 'fonction':
+                   domain = None
+                else:
+                    domain = None
+
+        res = {'domain': {'categorie_id': domain}}
+        return res
+
     @api.depends('employee_id')
     def _compute_employee_fields(self):
         for rec in self:
@@ -198,19 +225,7 @@ class  HrContratInherited(models.Model):
             rec.job_id = rec.employee_id.job_id.id if rec.employee_id else False
             rec.corps_id = rec.employee_id.corps_id.id if rec.employee_id else False
             rec.grade_id = rec.employee_id.grade_id.id if rec.employee_id else False
-        #     domain = []
-        #     if rec.type == 'contrat':
-        #         employee = self.env['hr.employee'].search([('nature_travail_id', '=', 1)])
-        #         print(employee)
-        #         domain.append(('id', 'in', employee.ids))
-        #     else:
-        #         employee = self.env['hr.employee'].search([('nature_travail_id', '!=', 1)])
-        #         print(employee)
-        #         domain.append(('id', 'in', employee.ids))
-        #
-        # res = {'domain': {'employee_id': domain}}
-        # print(res)
-        # return res
+
 class HrContractReport(models.AbstractModel):
     _name = 'report.ressource_humaine.hr_contract_report'
 

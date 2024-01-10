@@ -4,5 +4,6 @@ from . import formation_detail
 from . import formation_absence
 from . import choisir_commission
 from . import droit_conge
+from . import droit_avencement
 
 

@@ -12,6 +12,17 @@
         </field>
     </record>
 
+    <record id="distribution_graph" model="ir.ui.view">
+        <field name="name">Graph de Distribution</field>
+        <field name="model">hr.employee</field>
+        <field name="arch" type="xml">
+            <graph string="Graph de Distribution" type="pie">
+                <field name="gender" string="Genre"/>
+                <field name="id" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
     <record id="act_conge" model="ir.actions.act_window">
         <field name="name">Planning des Congés</field>
         <field name="res_model">hr.holidays</field>
