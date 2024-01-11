@@ -4,7 +4,6 @@
         <field name="model">rh.nature.travail</field>
         <field name="arch" type="xml">
 
-
             <tree>
                 <field name="code"/>
                 <field name="intitule"/>

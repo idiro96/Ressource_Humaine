@@ -214,6 +214,7 @@
         </record>
 
 
+
         <!--        <record model="ir.actions.act_window" id="action_ressource_humaine">-->
 <!--            <field name="name">employee</field>-->
 <!--            <field name="res_model">hr.employee</field>-->

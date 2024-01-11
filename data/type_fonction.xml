@@ -3,6 +3,7 @@
     <data noupdate="1">
 
         <!-- TAGS FOR CASH FLOW STATEMENT -->
+
         <record id="rh_type_contractuel" model="rh.type.fonction">
             <field name="code_type_fonction">contractuel</field>
             <field name="intitule_type_fonction">متعاقد</field>
