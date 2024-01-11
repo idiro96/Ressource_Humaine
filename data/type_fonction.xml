@@ -12,7 +12,7 @@
             <field name="intitule_type_fonction">وظيفة</field>
         </record>
         <record id="rh_type_Poste_superieur" model="rh.type.fonction">
-            <field name="code_type_fonction">postesuperieur</field>
+            <field name="code_type_fonction">postesuperieure</field>
             <field name="intitule_type_fonction">وظيفة عليا</field>
         </record>
 
