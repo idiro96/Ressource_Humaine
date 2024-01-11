@@ -4,7 +4,11 @@
         <field name="model">rh.avencement.droit</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="test"/>
+                <field name="employee_id"/>
+                <field name="groupe_old_id"/>
+                <field name="categorie_old_id"/>
+                <field name="section_old_id"/>
+                <field name="echelon_old_id"/>
             </tree>
         </field>
 
@@ -15,14 +19,18 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
-                    <field name="test"/>
+                <field name="employee_id"/>
+                <field name="groupe_old_id"/>
+                <field name="categorie_old_id"/>
+                <field name="section_old_id"/>
+                <field name="echelon_old_id"/>
                 </sheet>
             </form>
         </field>
     </record>
     <record id="action_rh_avencement_droit_wizard" model="ir.actions.act_window">
             <field name="name">Droit Avencement</field>
-            <field name="res_model">rh.avencement.droit</field>
+            <field name="res_model">droit.avencement</field>
             <field name="view_type">form</field>
             <field name="view_mode">form</field>
            <field name="view_id" ref="ressource_humaine.droit_avencement_wizard"/>

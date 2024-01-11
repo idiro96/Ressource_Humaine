@@ -6,7 +6,9 @@
             <field name="model">droit.avencement</field>
             <field name="arch" type="xml">
                 <form>
-
+                    <group>
+                       <field name="date_avancement" string = "Date Avancement"/>
+                    </group>
                     <footer>
                         <button name="actualiser_droit_avencement" string="Actualiser Droit Avencement" type="object"
                                 class="btn-danger text-uppercase"/>

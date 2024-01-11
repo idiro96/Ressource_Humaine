@@ -58,6 +58,22 @@ class  HrContratInherited(models.Model):
             vals['name'] = self.env['ir.sequence'].next_by_code('hr.contract.inhert') or _('New')
 
         result = super(HrContratInherited, self).create(vals)
+
+
+
+        type_fonction = result.env['rh.type.fonction'].search([('id', '=', result.employee_id.nature_travail_id.id)])
+        if type_fonction:
+            if type_fonction.code_type_fonction == 'fonction':
+                avancement = result.env['rh.avancement'].create({
+                    'date_avancement': result.date_start,
+                })
+                avancement_ligne = result.env['rh.avancement.line'].create({
+
+                    'categorie_new_id': result.categorie_id.id,
+                    'section_new_id': result.section_id.id,
+                    'echelon_new_id': result.echelon_id.id,
+
+                })
         return result
 
 

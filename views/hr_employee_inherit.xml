@@ -209,6 +209,24 @@
                         </tree>
                     </page>
                 </xpath>
+                <xpath expr="//form//sheet//notebook" position="inside">
+                    <page string="Historique Avancement">
+                        <tree>
+                            <field name="avancement_lines">
+                                <tree create="false" delete="false">
+                                    <field name="date_avancement"/>
+                                    <field name="groupe_old_id"/>
+                                    <field name="categorie_old_id"/>
+                                    <field name="echelon_old_id"/>
+                                    <field name="groupe_new_id"/>
+                                    <field name="categorie_new_id"/>
+                                    <field name="echelon_new_id"/>
+                                </tree>
+
+                            </field>
+                        </tree>
+                    </page>
+                </xpath>
             </field>
 
         </record>
