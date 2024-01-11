@@ -9,9 +9,6 @@ class RHDroitConge(models.TransientModel):
     _name = 'droit.conge'
 
 
-
-
-
     @api.multi
     def actualiserDroitConge(self):
         print('droit conge')

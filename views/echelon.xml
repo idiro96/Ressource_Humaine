@@ -26,7 +26,6 @@
                         <field name="intitule" string="intitule"/>
                         <field name="type_fonction" string="type fonction"/>
                         <field name="categorie_id" string="Categorie"/>
-                        <field name="check_function" invisible="1"/>
                         <field name="section" string="section"/>
                         <field name="indice_echelon" string="Indice Echelon"/>
                         <field name="groupe_id" string="Groupe" readonly="True"/>

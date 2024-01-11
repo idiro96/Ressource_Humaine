@@ -44,6 +44,7 @@ class HrEmployeInherited(models.Model):
     grade_id = fields.Many2one('rh.grade')
     date_grade = fields.Date()
     promotion_lines = fields.One2many('rh.promotion.line', inverse_name='employee_id')
+    avancement_lines = fields.One2many('rh.avancement.line', inverse_name='employee_id')
     nature_travail_id = fields.Many2one('rh.type.fonction')
     position_statutaire = fields.Selection([('activite', 'Activite'),
                               ('detachement', 'Detachement'),
