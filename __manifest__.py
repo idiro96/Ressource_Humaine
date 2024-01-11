@@ -21,17 +21,17 @@
 
     # any module necessary for this one to work correctly
 
-    'depends': ['base','hr'],
+    'depends': ['base','hr','hr_recruitment','hr_holidays','hr_payroll','board'],
 
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
-
         # 'views/views.xml',
         # 'views/templates.xml',
         # 'views/data.xml',
-
+        'wizards/droit_avencement.xml',
+        'views/hr_dashboard.xml',
         'views/hr_employee_inherit.xml',
         'views/hr_holidays_inherit.xml',
         'views/conjoint.xml',
@@ -53,6 +53,7 @@
         'views/hr_holidays_inherit.xml',
         'views/type_file.xml',
         'views/absence.xml',
+        'wizards/droit_conge.xml',
         'views/conge_droit.xml',
         'views/cron_view.xml',
         'views/grille.xml',
@@ -72,12 +73,13 @@
         'views/promotion.xml',
         'views/avancement.xml',
         'views/nature_travail.xml',
+        'views/avencement_droit.xml',
         'data/sequence.xml',
         'data/type_fonction.xml',
         'wizards/visite_medical_detaille.xml',
         'wizards/formation_detail_wizard.xml',
         'wizards/choisir_commission.xml',
-        'wizards/droit_conge.xml',
+
         'reports/hr_contract.xml',
         'reports/attestation_travail.xml',
         'reports/attestation_travail_fr.xml',

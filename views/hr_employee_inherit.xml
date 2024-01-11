@@ -62,10 +62,21 @@
                        position="after">
                     <field name="date_reintegration"/>
                 </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='job_id']"
+                       position="attributes">
+                    <attribute name="nolabel">1</attribute>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='job_id']" position="before">
+                    <div>
+                        <label string="منصب شغل"
+                               attrs="{'invisible':[('nature_travail_id', '!=', 1)]}"
+                               for="job_id"/>
+                        <label string="المناصب الوظيفية" attrs="{'invisible':[('nature_travail_id', '=', 1)]}"
+                               for="job_id"/>
+                    </div>
+                </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='job_id']" position="after">
-
                     <field name="corps_id" attrs="{'invisible': [('nature_travail_id', '=', 1)]}"/>
-
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='corps_id']" position="after">
                     <field name="grade_id" required="True"/>
@@ -84,20 +95,26 @@
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_entrer']" position="before">
                     <field name="date_ancien_grade" attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}"/>
                 </xpath>
-                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_ancien_grade']" position="before">
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_ancien_grade']"
+                       position="before">
                     <field name="ancien_grade_id" attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}"/>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='ancien_grade_id']" position="before">
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='ancien_grade_id']"
+                       position="before">
                     <field name="ancien_corps_id" attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}"/>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='ancien_corps_id']" attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}" position="before">
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='ancien_corps_id']"
+                       attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}" position="before">
                     <field name="date_debut_emploi" attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}"/>
                 </xpath>
 
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_debut_emploi']" position="before">
-                    <field name="ancienne_etablissement" attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}"/>
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_debut_emploi']"
+                       position="before">
+                    <field name="ancienne_etablissement"
+                           attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}"/>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='ancienne_etablissement']" position="before">
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='ancienne_etablissement']"
+                       position="before">
                     <field name="methode_embauche" required="True"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='methode_embauche']"
@@ -118,20 +135,25 @@
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='nom_mere']" position="after">
                     <field name="prenom_mere" required="True"/>
                 </xpath>
-                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='children']" position="after">
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='children']" position="after">
                     <field name="nom_fr" required="True"/>
                 </xpath>
-                  <xpath expr="//form//sheet//notebook//page//group//group//field[@name='nom_fr']" position="after">
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='nom_fr']" position="after">
                     <field name="prenom_fr" required="True"/>
                 </xpath>
 
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='birthday']" position="attributes">
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='birthday']"
+                       position="attributes">
                     <attribute name="required">True</attribute>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='place_of_birth']" position="attributes">
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='place_of_birth']"
+                       position="attributes">
                     <attribute name="required">True</attribute>
                 </xpath>
-
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='handicape']"
+                       position="before">
+                    <field name="place_of_birth_fr"/>
+                </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='gender']" position="attributes">
                     <attribute name="required">True</attribute>
                 </xpath>
@@ -154,22 +176,23 @@
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='passport_id']"
                        position="attributes">
-                       <attribute name="attrs">{'invisible': True}</attribute>
+                    <attribute name="attrs">{'invisible': True}</attribute>
                 </xpath>
-<!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='bank_account_id']"-->
-<!--                       position="attributes">-->
-<!--                       <attribute name="string">N°Compte CCP</attribute>-->
-<!--                </xpath>-->
-<!--                -->
-<!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='identification_id']" position="attributes">-->
-<!--                    <attribute name="string">N° d'identification National</attribute>-->
-<!--                </xpath>-->
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='parent_id']" position="attributes">
+                <!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='bank_account_id']"-->
+                <!--                       position="attributes">-->
+                <!--                       <attribute name="string">N°Compte CCP</attribute>-->
+                <!--                </xpath>-->
+                <!--                -->
+                <!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='identification_id']" position="attributes">-->
+                <!--                    <attribute name="string">N° d'identification National</attribute>-->
+                <!--                </xpath>-->
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='parent_id']"
+                       position="attributes">
                     <attribute name="attrs">{'invisible': True}</attribute>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='coach_id']"
                        position="attributes">
-                       <attribute name="attrs">{'invisible': True}</attribute>
+                    <attribute name="attrs">{'invisible': True}</attribute>
                 </xpath>
                 <xpath expr="//form//sheet//notebook" position="inside">
                     <page string="Historique Promotion">
@@ -207,17 +230,29 @@
             </field>
 
         </record>
-        <record model="ir.actions.act_window" id="action_ressource_humaine">
-            <field name="name">employee</field>
+
+
+
+        <!--        <record model="ir.actions.act_window" id="action_ressource_humaine">-->
+<!--            <field name="name">employee</field>-->
+<!--            <field name="res_model">hr.employee</field>-->
+<!--            <field name="view_type">form</field>-->
+<!--            <field name="view_mode">tree,form</field>-->
+<!--            <field name="view_id" ref="hr.view_employee_tree"/>-->
+<!--        </record>-->
+
+        <record id="action_ressource_humaine" model="ir.actions.act_window">
+            <field name="name">emloyee</field>
             <field name="res_model">hr.employee</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
-            <field name="view_id" ref="hr.view_employee_tree"/>
-
+            <field name="type">ir.actions.act_window</field>
+            <field name="context">{}</field>
         </record>
 
         <menuitem name="Ressource Humaine" id="ressource_humaine.menu_root"
-                  web_icon="ressource_humaine,description/icon.png"/>
+                  web_icon="ressource_humaine,description/icon.png"
+                  action="action_employee_dashboard"/>
         <menuitem name="Personnel" id="employee_gestion" parent="ressource_humaine.menu_root"/>
         <menuitem name="Suivi Personnel" id="suivi_personnel_id" parent="ressource_humaine.menu_root"/>
         <menuitem name="Recrutement" id="recrutement_id" parent="ressource_humaine.menu_root"/>

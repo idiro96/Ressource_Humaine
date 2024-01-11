@@ -139,11 +139,20 @@
                             <br/>
                             <br/>
                             <br/>
-                            <div style="font-size: 20px;text-align: right;">
-                                <span>
-                                    .تسلم هذه الشهادة للمعنية للإدلاء بها في إطار ما يسمح به القانون
-                                </span>
-                            </div>
+                            <t t-if="contract.employee_id.gender == 'male'">
+                                <div style="font-size: 20px;text-align: right;">
+                                    <span>
+                                        .تسلم هذه الشهادة للمعني للإدلاء بها في إطار ما يسمح به القانون
+                                    </span>
+                                </div>
+                            </t>
+                            <t t-if="contract.employee_id.gender == 'female'">
+                                <div style="font-size: 20px;text-align: right;">
+                                    <span>
+                                        .تسلم هذه الشهادة للمعنية للإدلاء بها في إطار ما يسمح به القانون
+                                    </span>
+                                </div>
+                            </t>
                         </t>
                     </div>
 <!--                </t>-->

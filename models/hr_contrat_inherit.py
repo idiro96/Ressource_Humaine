@@ -30,6 +30,8 @@ class  HrContratInherited(models.Model):
     section_superieure_id = fields.Many2one('rh.section.superieure')
     grille_id = fields.Many2one('rh.grille')
     bool1 = fields.Boolean(default=True)
+    code_type_fonction = fields.Char(related='employee_id.nature_travail_id.code_type_fonction', string='Code Type Fonction', store=True)
+
 
     @api.model
     def create(self, vals):

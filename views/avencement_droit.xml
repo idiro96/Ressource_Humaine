@@ -1,0 +1,43 @@
+<odoo>
+    <record id="view_rh_avencement_droit_tree" model="ir.ui.view">
+        <field name="name">Droit Avencement Tree</field>
+        <field name="model">rh.avencement.droit</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="employee_id"/>
+                <field name="groupe_old_id"/>
+                <field name="categorie_old_id"/>
+                <field name="section_old_id"/>
+                <field name="echelon_old_id"/>
+            </tree>
+        </field>
+
+    </record>
+    <record id="view_rh_avencement_droit_form" model="ir.ui.view">
+        <field name="name">Droit Avencement Form</field>
+        <field name="model">rh.avencement.droit</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                <field name="employee_id"/>
+                <field name="groupe_old_id"/>
+                <field name="categorie_old_id"/>
+                <field name="section_old_id"/>
+                <field name="echelon_old_id"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_rh_avencement_droit_wizard" model="ir.actions.act_window">
+            <field name="name">Droit Avencement</field>
+            <field name="res_model">droit.avencement</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+           <field name="view_id" ref="ressource_humaine.droit_avencement_wizard"/>
+           <field name="target">new</field>
+     </record>
+    <menuitem name="Droit Avencement" id="ressource_humaine_droit_avencement" parent="promotion_id"
+           action="action_rh_avencement_droit_wizard"/>
+</odoo>
+
+

@@ -48,4 +48,22 @@
             name="ressource_humaine.renew_contract_report"
             file="ressource_humaine.renew_contract_report"/>
 
+    <report
+            id="action_attestation_travail_fr_report"
+            model="hr.contract"
+            string="Attestation de Travail En Français"
+            report_type="qweb-html"
+            name="ressource_humaine.attestation_travail_fr_report"
+            file="ressource_humaine.attestation_travail_fr_report"
+    />
+
+    <report
+            id="action_cont_indete_tem_part_report"
+            model="hr.contract"
+            string="Contrat Indéterminé à Temps Partiel"
+            report_type="qweb-html"
+            name="ressource_humaine.cont_indete_tem_part_report"
+            file="ressource_humaine.cont_indete_tem_part_report"
+    />
+
 </odoo>
