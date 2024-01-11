@@ -14,7 +14,8 @@ class  HrContratInherited(models.Model):
     corps_id = fields.Many2one('rh.corps', readonly=True, compute='_compute_employee_fields')
     grade_id = fields.Many2one('rh.grade', readonly=True, compute='_compute_employee_fields')
     groupe_id = fields.Many2one('rh.groupe', readonly=False)
-    department_id = fields.Many2one('hr.department', readonly=True, compute='_compute_employee_fields')
+    department_id = fields.Many2one('hr.department', readonly=True, related='employee_id.department_id',
+                                    compute='_compute_employee_fields', store=True)
     job_id = fields.Many2one('hr.job', readonly=True, compute='_compute_employee_fields')
     type = fields.Selection([('contrat', 'Contrat'), ('decision', 'Decision'),]
                                    , required=True, default='contrat')
@@ -32,6 +33,24 @@ class  HrContratInherited(models.Model):
     bool1 = fields.Boolean(default=True)
     code_type_fonction = fields.Char(related='employee_id.nature_travail_id.code_type_fonction', string='Code Type Fonction', store=True)
 
+    wage_range = fields.Selection([
+        ('low', '15000-30000'),
+        ('medium', '30000-50000'),
+        ('high', '50000-100000'),
+        ('very_high', '100000+')
+    ], compute='_compute_wage_range', store=True)
+
+    @api.depends('wage')
+    def _compute_wage_range(self):
+        for rec in self:
+            if rec.wage < 30000:
+                rec.wage_range = 'low'
+            elif 30000 <= rec.wage < 50000:
+                rec.wage_range = 'medium'
+            elif 50000 <= rec.wage < 100000:
+                rec.wage_range = 'high'
+            else:
+                rec.wage_range = 'very_high'
 
     @api.model
     def create(self, vals):
