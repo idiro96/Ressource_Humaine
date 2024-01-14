@@ -23,17 +23,16 @@
                 <xpath expr="//group[@name='salary_and_advantages']" position="attributes">
                     <attribute name="string">Affectation des qualifications salariales :</attribute>
                 </xpath>
-                <xpath expr="//field[@name='wage']" position="attributes">
-                    <attribute name="options">{'no_currency_symbol': 1}</attribute>
+                
+                <xpath expr="//label[@for='wage']" position="attributes">
+                    <attribute name="invisible">1</attribute>
                 </xpath>
-                <xpath expr="//span[contains(text(), '/ month')]" position="replace">
-                    <span>Mensuel</span>
+                <xpath expr="//div[@name='wage']" position="attributes">
+                    <attribute name="invisible">True</attribute>
                 </xpath>
-
-
-                <!--xpath expr="//div[@name='wage']" position="after">
-                       <field name="groupe_id" attrs="{'invisible': [('bool1', '=', 'True')]}" />
-                </xpath!-->
+<!--                <xpath expr="//span[contains(text(), '/ month')]" position="replace">-->
+<!--                    <span>Mensuel</span>-->
+<!--                </xpath>-->
                 <xpath expr="//div[@name='wage']" position="before">
                     <field name="code_type_fonction" invisible="1"/>
                 </xpath>
@@ -41,6 +40,7 @@
                     <field name="groupe_id"
                            attrs="{'invisible': ['|', ('code_type_fonction', '=', 'fonctionsuperieure'), ('code_type_fonction', '=', 'contractuel')]}"/>
                 </xpath>
+
 
                 <xpath expr="//field[@name='groupe_id']" position="after">
                     <field name="categorie_id"/>
@@ -100,6 +100,9 @@
                 </xpath>
                 <xpath expr="//form" position="attributes">
                     <attribute name="string">Current Contract</attribute>
+                </xpath>
+                <xpath expr="//field[@name='bonification_indiciaire']" position="after">
+                    <field name="wage"/>
                 </xpath>
             </field>
         </record>
