@@ -72,8 +72,19 @@ class  HrContratInherited(models.Model):
                     'categorie_new_id': result.categorie_id.id,
                     'section_new_id': result.section_id.id,
                     'echelon_new_id': result.echelon_id.id,
+                    'date_avancement': result.date_start,
+
+                    'categorie_old_id': result.categorie_id.id,
+                    'section_old_id': result.section_id.id,
+                    'echelon_old_id': result.echelon_id.id,
 
                 })
+                print('heeeer')
+                print(result.categorie_id.id)
+                print(result.section_id.id)
+                print(result.echelon_id.id)
+                print(result.echelon_id.id)
+                print('heeeer2')
         return result
 
 
