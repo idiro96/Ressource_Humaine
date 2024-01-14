@@ -42,6 +42,6 @@
             <p class="o_view_nocontent_smiling_face">Création d'un corps</p>
         </field>
     </record>
-    <menuitem name="Corps" id="ressource_humaine_corps" parent="promotion_id"
+    <menuitem name="Corps" id="ressource_humaine_corps" parent="promotion_id" sequence="11"
            action="action_rh_corps"/>
 </odoo>

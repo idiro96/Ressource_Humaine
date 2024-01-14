@@ -36,7 +36,7 @@
            <field name="view_id" ref="ressource_humaine.droit_avencement_wizard"/>
            <field name="target">new</field>
      </record>
-    <menuitem name="Droit Avencement" id="ressource_humaine_droit_avencement" parent="promotion_id"
+    <menuitem name="Droit Avencement" id="ressource_humaine_droit_avencement" parent="avancement_id" sequence="5"
            action="action_rh_avencement_droit_wizard"/>
 </odoo>
 

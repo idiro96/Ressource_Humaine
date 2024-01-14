@@ -34,6 +34,6 @@
             <p class="o_view_nocontent_smiling_face"> Création d'un type fin de relation </p>
         </field>
     </record>
-            <menuitem name="Type fin relation" id="ressource_humaine_type_fin_relation" parent="referentiel_id"
+            <menuitem name="Type fin relation" id="ressource_humaine_type_fin_relation" parent="referentiel_id" sequence="4"
            action="action_rh_type_fin_relation"/>
 </odoo>

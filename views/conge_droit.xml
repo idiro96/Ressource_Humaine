@@ -55,7 +55,7 @@
            <field name="view_id" ref="droit_conge_liste"/>
            <field name="target">new</field>
      </record>
-    <menuitem name="Droit Conge" id="ressource_humaine_droit_conge" parent="conge_id"
+    <menuitem name="Droit Conge" id="ressource_humaine_droit_conge" parent="conge_id" sequence="1"
            action="action_droit_conge_wizard"/>
 </odoo>
 
