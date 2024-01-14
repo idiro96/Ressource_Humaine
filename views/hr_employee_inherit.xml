@@ -62,19 +62,6 @@
                        position="after">
                     <field name="date_reintegration"/>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='job_id']"
-                       position="attributes">
-                    <attribute name="nolabel">1</attribute>
-                </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='job_id']" position="before">
-                    <div>
-                        <label string="منصب شغل"
-                               attrs="{'invisible':[('nature_travail_id', '!=', 1)]}"
-                               for="job_id"/>
-                        <label string="المناصب الوظيفية" attrs="{'invisible':[('nature_travail_id', '=', 1)]}"
-                               for="job_id"/>
-                    </div>
-                </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='job_id']" position="after">
                     <field name="corps_id" attrs="{'invisible': [('nature_travail_id', '=', 1)]}"/>
                 </xpath>
