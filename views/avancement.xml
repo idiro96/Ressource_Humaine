@@ -25,6 +25,33 @@
                 <field name="date_avancement"/>
                         </group>
                     </group>
+                         <notebook>
+                        <page string="Liste de Personnel">
+                            <field name="avancement_lines_wizard" widget="one2many_list">
+                                <tree editable="bottom">
+                                    <field name="employee_id"/>
+                                    <field name="categorie_old_id"/>
+                                    <field name="echelon_old_id"/>
+                                    <field name="categorie_new_id"/>
+                                    <field name="echelon_new_id"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+
+                      <notebook>
+                        <page string="Liste de Personnel">
+                            <field name="avancement_lines" widget="one2many_list">
+                                <tree editable="bottom">
+                                    <field name="employee_id"/>
+                                    <field name="categorie_old_id"/>
+                                    <field name="echelon_old_id"/>
+                                    <field name="categorie_new_id"/>
+                                    <field name="echelon_new_id"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
