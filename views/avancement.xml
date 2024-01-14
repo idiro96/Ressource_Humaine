@@ -25,27 +25,6 @@
                 <field name="date_avancement"/>
                         </group>
                     </group>
-                     <notebook>
-                         <page string="Liste Employee">
-                         <field name="avancement_lines_wizard">
-                           <tree editable="bottom">
-                             <field name=""/>
-                             <field name="groupe_old_id"/>
-                             <field name="categorie_old_id"/>
-                             <field name="date_avancement"/>
-                           </tree>
-                         </field>
-                       </page>
-<!--                           <page string="Liste des Fichiers">-->
-<!--                            <field name="promotion_file_lines">-->
-<!--                                <tree editable="bottom">-->
-<!--                                    <field name="type_file_id" domain="[('type_file', '=', 'formation')]"/>-->
-<!--                                    <field name="description_fichier"/>-->
-<!--                                    <field name="fichier"/>-->
-<!--                                </tree>-->
-<!--                            </field>-->
-<!--                        </page>-->
-                    </notebook>
                 </sheet>
             </form>
         </field>
