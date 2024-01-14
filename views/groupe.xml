@@ -54,6 +54,6 @@
             <p class="o_view_nocontent_smiling_face">Creation groupe!</p>
         </field>
     </record>
-            <menuitem name="groupe" id="ressource_humaine_groupe" parent="ressource_humaine_grille"
+            <menuitem name="groupe" id="ressource_humaine_groupe" parent="promotion_id" sequence="8"
            action="action_rh_groupe"/>
 </odoo>

@@ -54,7 +54,9 @@
     </record>
 
 
-    <menuitem name="Grille" id="ressource_humaine_grille" parent="promotion_id"
+    <menuitem name="Classification" id="classification_id" parent="promotion_id" sequence="6"/>
+
+    <menuitem name="Grille" id="ressource_humaine_grille" parent="classification_id" sequence="7"
            action="action_rh_grille"/>
 
 

@@ -70,6 +70,6 @@
             <p class="o_view_nocontent_smiling_face">Creation Absence!</p>
         </field>
     </record>
-    <menuitem name="Indisponibilité/Absence" id="ressource_humaine_absence" parent="suivi_personnel_id"
+    <menuitem name="Indisponibilité/Absence" id="ressource_humaine_absence" parent="suivi_personnel_id" sequence="1"
               action="action_rh_absence"/>
 </odoo>

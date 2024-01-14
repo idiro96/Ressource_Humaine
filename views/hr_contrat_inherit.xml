@@ -115,7 +115,7 @@
         </record>
 
 
-        <menuitem name="Contrat/Decision" id="menu_hr_contart" parent="employee_gestion"
+        <menuitem name="Contrat/Decision" id="menu_hr_contart" parent="recrutement_id"
                   action="action_ressource_humaine_contart"/>
 
 

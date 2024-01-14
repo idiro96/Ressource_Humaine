@@ -38,6 +38,6 @@
             <p class="o_view_nocontent_smiling_face">Création d'un type de sanction</p>
         </field>
     </record>
-            <menuitem name="Type Sanction" id="ressource_humaine_type_sanction" parent="referentiel_id"
+            <menuitem name="Type Sanction" id="ressource_humaine_type_sanction" parent="referentiel_id" sequence="2"
            action="action_rh_type_sanction"/>
 </odoo>

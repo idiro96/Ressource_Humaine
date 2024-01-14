@@ -4,7 +4,6 @@ from . import models
 from . import hr_employee_inherit
 from . import conjoint
 from . import hr_contrat_inherit
-from . import type_contrat
 from . import fin_relation
 from . import type_fin_relation
 from . import visite_medicale
@@ -46,7 +45,6 @@ from . import promotion
 from . import avancement
 from . import promotion_ligne
 from . import avancement_ligne
-from . import nature_travail
 from . import type_fonction
 from . import avencement_droit
 

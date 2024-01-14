@@ -53,6 +53,6 @@
             <p class="o_view_nocontent_smiling_face">Creation echelon!</p>
         </field>
     </record>
-    <menuitem name="Echelon" id="ressource_humaine_echelon" parent="promotion_id"
+    <menuitem name="Echelon" id="ressource_humaine_echelon" parent="promotion_id" sequence="15"
               action="action_rh_echelon"/>
 </odoo>
