@@ -23,11 +23,33 @@
         </field>
     </record>
 
-    <record id="act_conge" model="ir.actions.act_window">
-        <field name="name">Planning des Congés</field>
-        <field name="res_model">hr.holidays</field>
-        <field name="view_mode">calendar,tree,form</field>
+    <record id="wage_graph" model="ir.ui.view">
+        <field name="name">Coût des salaires</field>
+        <field name="model">hr.contract</field>
+        <field name="arch" type="xml">
+            <graph string="Coût des Salaires" type="pie">
+                <field name="department_id" string="Département" group="1"/>
+                <field name="wage" type="measure"/>
+            </graph>
+        </field>
     </record>
+
+    <record id="employee_count_pie_chart" model="ir.ui.view">
+        <field name="name">Nobmbre d'employés par tranche des salaire</field>
+        <field name="model">hr.contract</field>
+        <field name="arch" type="xml">
+            <graph string="Nobmbre d'employés par tranche des salaires" type="pie">
+                <field name="wage_range" string="Tranche de Salaire"/>
+                <field name="id" type="measure" operator="count"/>
+            </graph>
+        </field>
+    </record>
+
+<!--    <record id="act_conge" model="ir.actions.act_window">-->
+<!--        <field name="name">Planning des Congés</field>-->
+<!--        <field name="res_model">hr.holidays</field>-->
+<!--        <field name="view_mode">calendar,tree,form</field>-->
+<!--    </record>-->
 
     <record id="act_male_employees" model="ir.actions.act_window">
         <field name="name">Liste des Employés (Hommes)</field>
@@ -57,17 +79,28 @@
         <field name="view_id" ref="ressource_humaine.recruitment_graph"/>
     </record>
 
+    <record id="act_wage_graph" model="ir.actions.act_window">
+        <field name="name">Coût des Salaires</field>
+        <field name="res_model">hr.contract</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="ressource_humaine.wage_graph"/>
+    </record>
+
+    <record id="act_employee_count_pie_chart" model="ir.actions.act_window">
+        <field name="name">Nobmbre d'employés par tranche des salaire</field>
+        <field name="res_model">hr.contract</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="ressource_humaine.employee_count_pie_chart"/>
+    </record>
+
     <record id="dashboard_form_view" model="ir.ui.view">
         <field name="name">Formulaire du Tableau de Bord</field>
         <field name="model">board.board</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="Tableau de bord">
-                <board style="2-1">
+                <board style="1-1-1">
                     <column>
-                        <action
-                                string="Planning des Congés"
-                                name="%(ressource_humaine.act_conge)d"/>
                         <action
                                 string="Liste des Employés (Hommes)"
                                 name="%(ressource_humaine.act_male_employees)d"/>
@@ -80,8 +113,16 @@
                                 string="Distribution des Employés"
                                 name="%(ressource_humaine.act_employee_distribution)d"/>
                         <action
+                            string="Nobmbre d'employés par tranche des salaire"
+                            name="%(ressource_humaine.act_employee_count_pie_chart)d"/>
+                    </column>
+                    <column>
+                        <action
                             string="Recrutement des Employés"
                             name="%(ressource_humaine.act_employee_recruitment)d"/>
+                        <action
+                            string="Coût des Salaires"
+                            name="%(ressource_humaine.act_wage_graph)d"/>
                     </column>
                 </board>
             </form>

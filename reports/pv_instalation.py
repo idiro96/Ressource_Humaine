@@ -71,9 +71,11 @@ class TitreCongeReport(models.AbstractModel):
         # Convert the formatted date to Arabic text
         arabic_date = self.convert_date_to_arabic(formatted_date)
 
-        superior_job = self.env['hr.job'].search([('nature_travail_id.code_type_fonction', '=', 'postesuperieur')], limit=1)
+        superior_job_type_code = 'postesuperieure'
+        superior_employee = self.env['hr.employee'].search(
+            [('nature_travail_id.code_type_fonction', '=', superior_job_type_code)], limit=1)
 
-        superior_employee = self.env['hr.employee'].search([('job_id', '=', superior_job.id)], limit=1)
+        print(superior_employee)
 
         report_data = {
             'pv_insta': pv_insta,

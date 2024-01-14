@@ -63,16 +63,32 @@
                         <br/>
                         <t t-if="contract.employee_id.gender == 'female'">
                             <span>
-                                ـ و بناء على عقد عمل بالتوقيت الكامل محدد المدة رقم ..... المؤرخ في
-                                ....ـ....ـ............ الخاص بالسيدة ................... بصفتها عاملة مهنية من المستوى
-                                الأول، لمدة محددة بسنة واحدة ، إبتداأ من تاريخ
+                                  &#160;ـ و بناء على
+                            <t t-esc="contract.type_id.name"/>
+                                رقم .......... المؤرخ في
+<!--                            <t t-esc="contract.name"/>&#160;-->
+                            <t t-esc="contract.date_start"/>&#160;
+                                &#160;الخاص بالسيدة
+                            <t t-esc="contract.employee_id.name"/>
+                                بصفتها
+                            <t t-esc="contract.employee_id.grade_id.intitule_grade"/>
+                                ، لمدة محددة بسنة واحدة ، إبتداأ من تاريخ
+                            <t t-esc="contract.date_end"/>&#160;
                             </span>
                         </t>
                         <t t-if="contract.employee_id.gender == 'male'">
                             <span>
-                                ـ و بناء على عقد عمل بالتوقيت الكامل محدد المدة رقم ..... المؤرخ في
-                                ....ـ....ـ............ الخاص بالسيد ................... بصفته عامل مهني من المستوى
-                                الأول، لمدة محددة بسنة واحدة ، إبتداأ من تاريخ
+                                  &#160;ـ و بناء على
+                            <t t-esc="contract.type_id.name"/>
+                                رقم .......... المؤرخ في
+<!--                            <t t-esc="contract.name"/>&#160;-->
+                            <t t-esc="contract.date_start"/>&#160;
+                                &#160;الخاص بالسيد
+                            <t t-esc="contract.employee_id.name"/>
+                                بصفته
+                            <t t-esc="contract.employee_id.grade_id.intitule_grade"/>
+                                ، لمدة محددة بسنة واحدة ، إبتداأ من تاريخ
+                            <t t-esc="contract.date_end"/>&#160;
                             </span>
                         </t>
                         <br/>
