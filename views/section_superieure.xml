@@ -6,10 +6,10 @@
 
 
             <tree>
-                <field name="intitule" string="intitule"/>
+                <field name="intitule"/>
 
-                <field name="description" string="description"/>
-                <field name="categorie_superieure_id" string="Categorie"/>
+                <field name="description"/>
+                <field name="categorie_superieure_id"/>
 
             </tree>
         </field>
@@ -22,10 +22,10 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="intitule" string="intitule"/>
+                        <field name="intitule"/>
 
-                        <field name="description" string="description"/>
-                        <field name="categorie_superieure_id" string="Categorie"/>
+                        <field name="description"/>
+                        <field name="categorie_superieure_id"/>
                     </group>
 
                 </sheet>

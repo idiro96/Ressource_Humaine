@@ -1,46 +1,45 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* enterprise_theme
-#	* base_import
-#	* utm
+#	* web_responsive
+#	* hr_org_chart
+#	* web
 #	* web_planner
-#	* hr_payroll_account
-#	* base_setup
-#	* fetchmail
-#	* resource
-#	* mail
-#	* web_diagram
-#	* document
+#	* board
+#	* bus
 #	* decimal_precision
 #	* hr_holidays
-#	* hr
-#	* web
-#	* base
-#	* calendar_sms
-#	* hr_contract
-#	* hr_gamification
-#	* hr_payroll
 #	* hr_recruitment
-#	* web_settings_dashboard
-#	* hr_org_chart
-#	* auth_signup
-#	* iap
-#	* web_editor
-#	* board
-#	* ressource_humaine
-#	* web_responsive
-#	* calendar
 #	* sms
-#	* web_tour
-#	* bus
+#	* base_setup
+#	* web_settings_dashboard
+#	* document
+#	* enterprise_theme
+#	* hr
+#	* mail
+#	* calendar
+#	* iap
+#	* web_diagram
+#	* hr_contract
+#	* ressource_humaine
+#	* resource
+#	* web_editor
+#	* calendar_sms
+#	* hr_payroll
+#	* base
+#	* base_import
 #	* auth_crypt
+#	* utm
+#	* fetchmail
+#	* hr_gamification
+#	* auth_signup
+#	* web_tour
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-14 12:34+0000\n"
-"PO-Revision-Date: 2024-01-14 12:34+0000\n"
+"POT-Creation-Date: 2024-01-15 08:17+0000\n"
+"PO-Revision-Date: 2024-01-15 08:17+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -6720,7 +6719,7 @@ msgstr "%p - Equivalent of either AM or PM.\""
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
-#. modules: hr_payroll, hr, base, resource, mail
+#. modules: resource, mail, hr, hr_payroll, base
 #: code:addons/base/ir/ir_filters.py:38
 #: code:addons/base/res/res_partner.py:330
 #: code:addons/base/res/res_users.py:149
@@ -13916,7 +13915,7 @@ msgstr "الاختصار"
 msgid "Able to see Remaining Leaves"
 msgstr "يمكنه رؤية الإجازات المتبقية"
 
-#. modules: ressource_humaine, hr_holidays
+#. modules: hr_holidays, ressource_humaine
 #: model:ir.ui.view,arch_db:hr_holidays.hr_department_view_kanban
 #: model:ir.actions.act_window,name:ressource_humaine.action_rh_absence
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_file_absence_id
@@ -13926,12 +13925,12 @@ msgstr "الغياب"
 #. module: ressource_humaine
 #: model:ir.model,name:ressource_humaine.model_absence_dashboard
 msgid "Absence Dashboard"
-msgstr "Absence Dashboard"
+msgstr "لوحة الغيابات"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_absence_absence_file_lines
 msgid "Absence File Lines"
-msgstr "Absence File Lines"
+msgstr "خطوط ملف الغياب"
 
 #. module: hr_holidays
 #: model:ir.model.fields,field_description:hr_holidays.field_hr_department_absence_of_today
@@ -14033,7 +14032,7 @@ msgstr "مجموعات الوصول"
 msgid "Access Menu"
 msgstr "قائمة الوصول"
 
-#. modules: base, base_setup
+#. modules: base_setup, base
 #: model:ir.ui.view,arch_db:base.edit_menu_access
 #: model:ir.ui.view,arch_db:base.view_groups_form
 #: model:ir.ui.view,arch_db:base.view_model_fields_form
@@ -14074,17 +14073,17 @@ msgstr "الوصول إلى جميع تطبيقات نسخة المؤسسات"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_file_accident_travail_id
 #: selection:rh.type.file,type_file:0
 msgid "Accident Travail"
-msgstr "الحوادث المهنية"
+msgstr "حادث مهني"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_accident_travail_accident_travail_file_lines
 msgid "Accident Travail File Lines"
-msgstr "Accident Travail File Lines"
+msgstr "خطوط ملف الحادث المهني"
 
 #. module: ressource_humaine
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_accident_travail
 msgid "Accident de Travail"
-msgstr "حادث عمل"
+msgstr "الحوادث المهنية"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_account_analytic_default
@@ -14151,13 +14150,11 @@ msgstr "كلمة سر الحساب"
 msgid "Account and Payment Link and Portal"
 msgstr "Account and Payment Link and Portal"
 
-#. modules: hr_payroll, hr_payroll_account, base
+#. modules: hr_payroll, base
 #: model:ir.module.category,name:base.module_category_accounting
 #: model:ir.module.category,name:base.module_category_generic_modules_accounting
 #: model:ir.ui.view,arch_db:hr_payroll.res_config_settings_view_form
 #: model:ir.ui.view,arch_db:hr_payroll.view_hr_payslip_form
-#: model:ir.ui.view,arch_db:hr_payroll_account.hr_contract_form_inherit
-#: model:ir.ui.view,arch_db:hr_payroll_account.hr_salary_rule_form_inherit
 msgid "Accounting"
 msgstr "الحسابات"
 
@@ -14170,11 +14167,6 @@ msgstr "الحسابات و المالية"
 #: model:ir.module.module,shortdesc:base.module_account_test
 msgid "Accounting Consistency Tests"
 msgstr "اختبارات تناسق المحاسبة"
-
-#. module: hr_payroll_account
-#: model:ir.model.fields,field_description:hr_payroll_account.field_hr_payslip_move_id
-msgid "Accounting Entry"
-msgstr "قيد محاسبي"
 
 #. module: hr_payroll
 #: model:ir.ui.view,arch_db:hr_payroll.view_hr_payslip_form
@@ -14231,7 +14223,7 @@ msgstr "Accounting chart for Netherlands\n"
 msgid "Accès à l'application"
 msgstr "Accès à l'application"
 
-#. modules: web, web_editor, base
+#. modules: web, base, web_editor
 #. openerp-web
 #: selection:ir.actions.act_url,binding_type:0
 #: selection:ir.actions.act_window,binding_type:0
@@ -14398,7 +14390,7 @@ msgstr "Activate the developer mode (with assets)"
 msgid "Activated by default when subscribing."
 msgstr "تنشيط آلي عند الاشتراك."
 
-#. modules: hr_payroll, hr_holidays, utm, hr, web, web_planner, base, hr_recruitment, calendar, fetchmail, resource, mail
+#. modules: utm, fetchmail, resource, hr, mail, calendar, hr_payroll, web, base, web_planner, hr_holidays, hr_recruitment
 #. openerp-web
 #: model:ir.model.fields,field_description:base.field_ir_cron_active
 #: model:ir.model.fields,field_description:base.field_ir_filters_active
@@ -14476,9 +14468,9 @@ msgstr "القيام بالخدمة"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_activite_conjoint
 msgid "Activite Conjoint"
-msgstr "عمل الزوچ(ة)"
+msgstr "مهنة الزوچ(ة)"
 
-#. modules: mail, calendar
+#. modules: calendar, mail
 #. openerp-web
 #: model:ir.model.fields,field_description:calendar.field_calendar_event_activity_ids
 #: code:addons/mail/static/src/xml/systray.xml:87
@@ -14500,7 +14492,7 @@ msgstr "عمل الزوچ(ة)"
 msgid "Activities"
 msgstr "الأنشطة"
 
-#. modules: web_diagram, mail, calendar
+#. modules: calendar, web_diagram, mail
 #. openerp-web
 #: model:ir.model,name:calendar.model_mail_activity
 #: code:addons/mail/static/src/xml/chatter.xml:60
@@ -14520,7 +14512,7 @@ msgstr "النشاط"
 msgid "Activity Mixin"
 msgstr "Activity Mixin"
 
-#. modules: mail, calendar
+#. modules: calendar, mail
 #: model:ir.model,name:calendar.model_mail_activity_type
 #: model:ir.model,name:mail.model_mail_activity_type
 #: model:ir.ui.view,arch_db:mail.mail_activity_view_search
@@ -14544,14 +14536,14 @@ msgstr "نوع النشاط"
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.droit_avencement_wizard
 msgid "Actualiser Droit Avencement"
-msgstr "Actualiser Droit Avencement"
+msgstr "تحديث حق التقدم"
 
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.droit_conge_liste
 msgid "Actualiser la fiche droit aux congés"
-msgstr "Actualiser la fiche droit aux congés"
+msgstr "تحديث استمارة حق الإجازاتs"
 
-#. modules: web, web_editor, board, mail
+#. modules: web_editor, web, board, mail
 #. openerp-web
 #: code:addons/board/static/src/xml/board.xml:69
 #: code:addons/mail/static/src/xml/client_action.xml:87
@@ -14929,13 +14921,6 @@ msgstr "Adds support for authentication by LDAP server.\n"
 "         user to a username that does not exist in LDAP, and setup its groups\n"
 ""
 
-#. module: hr_payroll_account
-#: code:addons/hr_payroll_account/models/hr_payroll_account.py:114
-#: code:addons/hr_payroll_account/models/hr_payroll_account.py:129
-#, python-format
-msgid "Adjustment Entry"
-msgstr "تعديل القيد"
-
 #. module: base
 #: model:ir.module.category,name:base.module_category_administration
 msgid "Administration"
@@ -14957,7 +14942,7 @@ msgstr "Administrative divisions of a country. E.g. Fed. State, Departement, Can
 #: code:addons/base/ir/ir_model.py:1587
 #, python-format
 msgid "Administrator access is required to uninstall a module"
-msgstr "Administrator access is required to uninstall a module"
+msgstr "مطلوب وصول المسؤول لإلغاء تثبيت الوحدة النمطية"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_cabinet_medical_adress
@@ -15444,13 +15429,6 @@ msgstr "حدث خطأ CORS غير معروف. ربما يكون الخطأ بس�
 msgid "An user cannot have twice the same contact."
 msgstr "لا يمكن لمستخدم امتلاك نفس جهة الاتصال مرتين."
 
-#. module: hr_payroll_account
-#: model:ir.model.fields,field_description:hr_payroll_account.field_hr_contract_analytic_account_id
-#: model:ir.model.fields,field_description:hr_payroll_account.field_hr_payslip_line_analytic_account_id
-#: model:ir.model.fields,field_description:hr_payroll_account.field_hr_salary_rule_analytic_account_id
-msgid "Analytic Account"
-msgstr "الحساب التحليلي"
-
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_analytic
 msgid "Analytic Accounting"
@@ -15830,7 +15808,7 @@ msgstr "أرشفة"
 msgid "Archive Records"
 msgstr "أرشيف السجلات"
 
-#. modules: web, base, hr_recruitment, hr
+#. modules: hr_recruitment, web, base, hr
 #. openerp-web
 #: model:ir.ui.view,arch_db:base.view_res_partner_filter
 #: model:ir.ui.view,arch_db:hr.view_department_filter
@@ -16028,7 +16006,7 @@ msgstr "رابط المرفق"
 msgid "Attachment(s)"
 msgstr "المرفقات"
 
-#. modules: base, mail, hr_recruitment
+#. modules: mail, base, hr_recruitment
 #: model:ir.actions.act_window,name:base.action_attachment
 #: model:ir.ui.menu,name:base.menu_action_attachment
 #: model:ir.ui.view,arch_db:base.view_attachment_form
@@ -16103,7 +16081,7 @@ msgstr "شهادة عمل بالفرنسية"
 #. module: ressource_humaine
 #: model:ir.actions.report,name:ressource_humaine.action_hr_contract_report
 msgid "Attestation de Travail et de Salaire"
-msgstr "Attestation de Travail et de Salaire"
+msgstr "شهادة العمل و الأجر"
 
 #. module: ressource_humaine
 #: selection:hr.employee,nature_handicap:0
@@ -16298,7 +16276,7 @@ msgstr "أخر"
 msgid "Autres droits supplémentaires"
 msgstr "Autres droits supplémentaires"
 
-#. modules: hr_recruitment, calendar
+#. modules: calendar, hr_recruitment
 #: model:ir.ui.view,arch_db:calendar.view_calendar_event_search
 #: model:ir.model.fields,field_description:hr_recruitment.field_hr_applicant_availability
 msgid "Availability"
@@ -16324,19 +16302,20 @@ msgstr "متاح للمراسلات الجماعية"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_avancement_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_wizard_avancement_id
+#: model:ir.ui.menu,name:ressource_humaine.avancement_id
 msgid "Avancement"
-msgstr "Avancement"
+msgstr "التقدم"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_avancement_lines
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_avancement_lines
 msgid "Avancement Lines"
-msgstr "Avancement Lines"
+msgstr "خطوط التقدم"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_avancement_lines_wizard
 msgid "Avancement Lines Wizard"
-msgstr "Avancement Lines Wizard"
+msgstr "نافذة خطوط التقدم"
 
 #. module: bus
 #: selection:bus.presence,status:0
@@ -16861,7 +16840,7 @@ msgstr "نوع الربط"
 msgid "Birth"
 msgstr "الميلاد"
 
-#. modules: web_editor, hr_holidays
+#. modules: hr_holidays, web_editor
 #: selection:hr.holidays.status,color_name:0
 #: model:ir.ui.view,arch_db:web_editor.colorpicker
 msgid "Black"
@@ -16928,13 +16907,13 @@ msgstr "Bonaire, Sint Eustatius and Saba"
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_contract_bonification_indiciaire
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_niveau_hierarchique_bonification_indiciaire
 msgid "Bonification Indiciaire"
-msgstr "Bonification Indiciaire"
+msgstr "مكافأة المؤشر"
 
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_niveau_hierarchique_form
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_niveau_hierarchique_tree
 msgid "Bonification indiciaire"
-msgstr "Bonification indiciaire"
+msgstr "مكافأة المؤشر"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_contract_bool1
@@ -17220,24 +17199,24 @@ msgstr "CSV format: you may edit it directly with your favorite spreadsheet soft
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_visite_medicale_cabinet_medical_id
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_cabinet_medical
 msgid "Cabinet Medical"
-msgstr "عيادة طبية"
+msgstr "المؤسسات الطبية"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_file_cabinet_medicale_id
 msgid "Cabinet Medicale"
-msgstr "عيادة طبية"
+msgstr "المؤسسات الطبية"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_cabinet_medical_cabinet_medicale_file_lines
 msgid "Cabinet Medicale File Lines"
-msgstr "Cabinet Medicale File Lines"
+msgstr "خطوط ملف المؤسسة الطبيةs"
 
 #. module: hr_payroll
 #: model:ir.ui.view,arch_db:hr_payroll.view_hr_payslip_line_form
 msgid "Calculations"
 msgstr "حسابات"
 
-#. modules: web, base, calendar
+#. modules: web, calendar, base
 #. openerp-web
 #: selection:ir.actions.act_window.view,view_mode:0
 #: model:ir.module.module,shortdesc:base.module_calendar
@@ -17360,7 +17339,7 @@ msgstr "كندا"
 msgid "Canada - Accounting"
 msgstr "كندا - محاسبة"
 
-#. modules: hr_payroll, base_import, hr_holidays, web_planner, web, base, ressource_humaine, sms, mail, iap, hr_gamification
+#. modules: sms, ressource_humaine, hr_gamification, mail, web, hr_payroll, web_planner, base, base_import, iap, hr_holidays
 #. openerp-web
 #: model:ir.ui.view,arch_db:base.change_password_wizard_view
 #: model:ir.ui.view,arch_db:base.res_config_view_base
@@ -17436,7 +17415,7 @@ msgstr "ألغاء أمر الإزالة"
 msgid "Cancel Upgrade"
 msgstr "إلغاء الترقية"
 
-#. modules: mail, hr_contract, hr_holidays
+#. modules: hr_holidays, hr_contract, mail
 #: selection:hr.contract,state:0
 #: selection:hr.employee,current_leave_state:0
 #: selection:hr.holidays,state:0
@@ -17549,37 +17528,37 @@ msgstr "الفئة"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_categorie_new_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_wizard_categorie_new_id
 msgid "Categorie New"
-msgstr "Categorie New"
+msgstr "الفئة الجديدة"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_categorie_old_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_wizard_categorie_old_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avencement_droit_categorie_old_id
 msgid "Categorie Old"
-msgstr "Categorie Old"
+msgstr "الفئة الأصلية"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_contract_categorie_superieure_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_section_superieure_categorie_superieure_id
 msgid "Categorie Superieure"
-msgstr "Categorie Superieure"
+msgstr "الفئة العليا"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_categorie_superieure_new_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_wizard_categorie_superieure_new_id
 msgid "Categorie Superieure New"
-msgstr "Categorie Superieure New"
+msgstr "الفئة العليا الجديدة"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_categorie_superieure_old_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_wizard_categorie_superieure_old_id
 msgid "Categorie Superieure Old"
-msgstr "Categorie Superieure Old"
+msgstr "الفئة العليا القديمة"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_groupe_categorie_lines
 msgid "Categorie lines"
-msgstr " خطوط الفئة"
+msgstr "خطوط الفئة"
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_activity_activity_category
@@ -17587,7 +17566,7 @@ msgstr " خطوط الفئة"
 msgid "Categories may trigger specific behavior like opening calendar view"
 msgstr "قد يؤدي التصنيف لتفعيل أفعال معينة مثل فتح واجهة التقويم"
 
-#. modules: hr_payroll, base, mail, hr_holidays
+#. modules: hr_holidays, hr_payroll, base, mail
 #: model:ir.model.fields,field_description:base.field_ir_module_module_category_id
 #: model:ir.ui.view,arch_db:base.view_module_filter
 #: model:ir.ui.view,arch_db:hr_holidays.view_hr_holidays_filter
@@ -17753,7 +17732,7 @@ msgstr "لا يمكن تغيير نموذج أي حقل!"
 msgid "Changing the type of a field is not yet supported. Please drop it and create it again!"
 msgstr "نظامنا لا يدعم تغيير نوع حقل حاليًا. برجاء إلغاؤه وإعادة إنشاؤه!"
 
-#. modules: mail, utm, bus
+#. modules: bus, utm, mail
 #: model:ir.model.fields,field_description:bus.field_bus_bus_channel
 #: model:ir.model.fields,field_description:mail.field_mail_channel_partner_channel_id
 #: model:ir.ui.view,arch_db:mail.mail_channel_partner_view_form
@@ -17778,7 +17757,7 @@ msgstr "Channel Name"
 msgid "Channel Type"
 msgstr "نوع القناة"
 
-#. modules: mail, utm
+#. modules: utm, mail
 #. openerp-web
 #: code:addons/mail/static/src/xml/client_action.xml:36
 #: code:addons/mail/static/src/xml/client_action.xml:172
@@ -17985,7 +17964,7 @@ msgid "Choose 'Leave Request' if someone wants to take an off-day. \n"
 msgstr "اختر ' طلب اجازة ' عند حاجة  الموظف ليوم عطلة\n"
 "اختر 'طلب تخصيص ' لزيادة عدد ايام العطل المتاحة للموظف"
 
-#. modules: base, base_setup
+#. modules: base_setup, base
 #: code:addons/base/ir/ir_actions_report.py:709
 #: code:addons/base_setup/models/res_config_settings.py:102
 #, python-format
@@ -18068,6 +18047,11 @@ msgstr "المدينة"
 #: model:ir.module.module,shortdesc:base.module_base_address_city
 msgid "City Addresses"
 msgstr "عناوين المدينة"
+
+#. module: ressource_humaine
+#: model:ir.ui.menu,name:ressource_humaine.classification_id
+msgid "Classification"
+msgstr "تصنيف"
 
 #. module: base
 #: selection:res.company,external_report_layout:0
@@ -18266,7 +18250,7 @@ msgstr "العميل"
 msgid "Client action tag"
 msgstr "علامة إجراء العميل"
 
-#. modules: hr_payroll, web, base, web_editor
+#. modules: web, hr_payroll, base, web_editor
 #. openerp-web
 #: model:ir.ui.view,arch_db:base.view_base_language_install
 #: model:ir.ui.view,arch_db:base.view_base_module_update
@@ -18311,7 +18295,7 @@ msgstr "مدرب"
 msgid "Cocos (Keeling) Islands"
 msgstr "جزر الكوكوس"
 
-#. modules: hr_payroll, web_editor, base, ressource_humaine
+#. modules: ressource_humaine, hr_payroll, base, web_editor
 #. openerp-web
 #: selection:ir.translation,type:0
 #: model:ir.ui.view,arch_db:base.view_base_import_language
@@ -18333,9 +18317,7 @@ msgstr "جزر الكوكوس"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_grade_code
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_grille_code
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_loi_code
-#: model:ir.model.fields,field_description:ressource_humaine.field_rh_nature_travail_code
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_code
-#: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_contrat_code
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_file_code
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_fin_relation_code
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_formation_code
@@ -18425,7 +18407,7 @@ msgstr "الرمز:"
 msgid "Codéfication Des Tiers"
 msgstr "Codéfication Des Tiers"
 
-#. modules: base, base_setup
+#. modules: base_setup, base
 #: model:ir.module.module,shortdesc:base.module_pad
 #: model:ir.model.fields,field_description:base_setup.field_res_config_settings_module_pad
 msgid "Collaborative Pads"
@@ -18446,7 +18428,7 @@ msgstr "كولومبيا - محاسبة"
 msgid "Colombian Accounting and Tax Preconfiguration"
 msgstr "Colombian Accounting and Tax Preconfiguration"
 
-#. modules: web_editor, hr_holidays
+#. modules: hr_holidays, web_editor
 #. openerp-web
 #: model:ir.ui.view,arch_db:hr_holidays.report_holidayssummary
 #: code:addons/web_editor/static/src/xml/editor.xml:270
@@ -18454,7 +18436,7 @@ msgstr "Colombian Accounting and Tax Preconfiguration"
 msgid "Color"
 msgstr "اللون"
 
-#. modules: base, hr_recruitment, hr
+#. modules: hr_recruitment, base, hr
 #: model:ir.model.fields,field_description:base.field_res_groups_color
 #: model:ir.model.fields,field_description:base.field_res_partner_category_color
 #: model:ir.model.fields,field_description:base.field_res_partner_color
@@ -18835,7 +18817,7 @@ msgstr "إتصالات"
 msgid "Comoros"
 msgstr "جزر القمر"
 
-#. modules: hr_payroll, enterprise_theme, hr, base, base_setup, resource
+#. modules: base_setup, resource, enterprise_theme, hr, hr_payroll, base
 #: model:ir.actions.act_window,name:base.action_res_company_form
 #: model:ir.actions.act_window,name:base.company_normal_action_tree
 #: model:ir.model,name:base.model_res_company
@@ -18856,7 +18838,7 @@ msgstr "الشركات"
 msgid "Companies count"
 msgstr "عدد المؤسسات"
 
-#. modules: hr_payroll, hr_holidays, hr, base, hr_recruitment, base_setup, resource, iap, hr_contract
+#. modules: hr_contract, base_setup, resource, hr, hr_payroll, base, iap, hr_holidays, hr_recruitment
 #: model:ir.model.fields,field_description:base.field_ir_attachment_company_id
 #: model:ir.model.fields,field_description:base.field_ir_default_company_id
 #: model:ir.model.fields,field_description:base.field_ir_property_company_id
@@ -19063,7 +19045,7 @@ msgstr "خطوات إعداد المعالج"
 msgid "Config: Run Remaining Action Todo"
 msgstr "Config: Run Remaining Action Todo"
 
-#. modules: hr_payroll, hr_holidays, hr, base, hr_recruitment, fetchmail
+#. modules: fetchmail, hr, hr_payroll, base, hr_holidays, hr_recruitment
 #: model:ir.ui.menu,name:base.menu_reporting_config
 #: model:ir.ui.view,arch_db:base.res_config_view_base
 #: model:ir.model.fields,field_description:fetchmail.field_fetchmail_server_configuration
@@ -19097,7 +19079,7 @@ msgstr "قم بضبط إعدادات مؤسستك لإنشاء أوامر بيع
 msgid "Configure your activity types"
 msgstr "إعداد أنواع نشاطاتك"
 
-#. modules: auth_signup, base, hr_payroll, hr_holidays
+#. modules: hr_holidays, hr_payroll, auth_signup, base
 #: model:ir.ui.view,arch_db:auth_signup.reset_password
 #: model:ir.ui.view,arch_db:base.view_base_module_uninstall
 #: model:ir.ui.view,arch_db:base.view_base_module_upgrade
@@ -19126,7 +19108,7 @@ msgstr "أكّد كلمة المرور"
 msgid "Confirmation"
 msgstr "تأكيد"
 
-#. modules: auth_signup, fetchmail, hr_holidays, calendar
+#. modules: fetchmail, hr_holidays, calendar, auth_signup
 #: selection:res.users,state:0
 #: selection:calendar.event,state:0
 #: selection:fetchmail.server,state:0
@@ -19186,7 +19168,7 @@ msgstr "الزوچ(ة)"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_conjoint_conjoint_file_lines
 msgid "Conjoint File Lines"
-msgstr "Conjoint File Lines"
+msgstr "خطوط ملف الزوج(ة)"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_hw_proxy
@@ -19267,14 +19249,14 @@ msgstr "Constraints with the same name are unique per module."
 #. module: base
 #: model:res.partner.industry,name:base.res_partner_industry_F
 msgid "Construction"
-msgstr "Construction"
+msgstr "بناء"
 
 #. module: web_tour
 #: model:ir.model.fields,field_description:web_tour.field_web_tour_tour_user_id
 msgid "Consumed by"
 msgstr "يستهلك بواسطة"
 
-#. modules: hr, base, hr_recruitment, ressource_humaine, calendar, sms, mail, bus, auth_signup
+#. modules: sms, ressource_humaine, hr, mail, calendar, base, bus, auth_signup, hr_recruitment
 #: model:ir.model,name:auth_signup.model_res_partner
 #: model:ir.model,name:base.model_res_partner
 #: model:ir.ui.view,arch_db:base.view_partner_simple_form
@@ -19424,7 +19406,7 @@ msgstr "القيمة الافتراضية فارغة (Default: {})"
 msgid "Context:"
 msgstr "السياق:"
 
-#. modules: hr_payroll, hr_recruitment, ressource_humaine
+#. modules: ressource_humaine, hr_payroll, hr_recruitment
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip_contract_id
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip_input_contract_id
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip_line_contract_id
@@ -19764,7 +19746,6 @@ msgstr "غلاف"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.act_wage_graph
-#: model:ir.ui.view,arch_db:ressource_humaine.dashboard_form_view
 #: model:ir.ui.view,arch_db:ressource_humaine.wage_graph
 msgid "Coût des Salaires"
 msgstr "تكلفة الاجور"
@@ -19957,12 +19938,12 @@ msgstr "Create surveys, collect answers and print statistics"
 #. module: ressource_humaine
 #: model:ir.actions.act_window,help:ressource_humaine.action_cabinet_medical
 msgid "Create your Cabinet Medical!"
-msgstr "إنشاء الممارسة الطبية!"
+msgstr "إنشاء مؤسسة طبية!"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_board
 msgid "Create your custom dashboard"
-msgstr "Create your custom dashboard"
+msgstr "إنشئ لوحة التحكم المخصصة بك"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,help:ressource_humaine.action_rh_sanction
@@ -20012,7 +19993,7 @@ msgstr "أنشاء القوائم"
 msgid "Created Views"
 msgstr "طرق العرض التي تمّ إنشاؤها"
 
-#. modules: hr_payroll, web_editor, decimal_precision, base_import, hr_holidays, utm, hr, web_planner, base, hr_recruitment, ressource_humaine, calendar, sms, fetchmail, resource, mail, bus, iap, hr_contract
+#. modules: utm, sms, hr_contract, ressource_humaine, fetchmail, resource, hr, mail, web_editor, calendar, hr_payroll, web_planner, base, base_import, bus, decimal_precision, hr_holidays, iap, hr_recruitment
 #: model:ir.model.fields,field_description:base.field_base_language_export_create_uid
 #: model:ir.model.fields,field_description:base.field_base_language_import_create_uid
 #: model:ir.model.fields,field_description:base.field_base_language_install_create_uid
@@ -20184,7 +20165,6 @@ msgstr "طرق العرض التي تمّ إنشاؤها"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_grille_create_uid
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_groupe_create_uid
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_loi_create_uid
-#: model:ir.model.fields,field_description:ressource_humaine.field_rh_nature_travail_create_uid
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_niveau_hierarchique_create_uid
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_organisme_create_uid
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_create_uid
@@ -20194,7 +20174,6 @@ msgstr "طرق العرض التي تمّ إنشاؤها"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_section_superieure_create_uid
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_absence_create_uid
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_conge_create_uid
-#: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_contrat_create_uid
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_faute_create_uid
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_file_create_uid
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_fin_relation_create_uid
@@ -20220,7 +20199,7 @@ msgstr "أنشئ بواسطة"
 msgid "Created by :"
 msgstr "أنشأت بواسطة:"
 
-#. modules: hr_payroll, web_editor, decimal_precision, base_import, hr_holidays, utm, hr, web_planner, base, hr_recruitment, ressource_humaine, calendar, sms, fetchmail, resource, mail, iap, hr_contract
+#. modules: utm, sms, hr_contract, ressource_humaine, fetchmail, resource, hr, mail, web_editor, calendar, hr_payroll, web_planner, base, base_import, iap, decimal_precision, hr_holidays, hr_recruitment
 #. openerp-web
 #: model:ir.model.fields,field_description:base.field_base_language_export_create_date
 #: model:ir.model.fields,field_description:base.field_base_language_import_create_date
@@ -20391,7 +20370,6 @@ msgstr "أنشأت بواسطة:"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_grille_create_date
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_groupe_create_date
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_loi_create_date
-#: model:ir.model.fields,field_description:ressource_humaine.field_rh_nature_travail_create_date
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_niveau_hierarchique_create_date
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_organisme_create_date
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_create_date
@@ -20401,7 +20379,6 @@ msgstr "أنشأت بواسطة:"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_section_superieure_create_date
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_absence_create_date
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_conge_create_date
-#: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_contrat_create_date
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_faute_create_date
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_file_create_date
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_fin_relation_create_date
@@ -20450,11 +20427,6 @@ msgstr "تاريخ الإنشاء:"
 msgid "Creation Month"
 msgstr "إنشاء شهر"
 
-#. module: ressource_humaine
-#: model:ir.actions.act_window,help:ressource_humaine.action_rh_nature_travail
-msgid "Creation Nature Travail!"
-msgstr "أنشئ طبيعة العمل!"
-
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/xml/base.xml:297
@@ -20470,12 +20442,12 @@ msgstr "إنشاء اسبوع "
 #. module: ressource_humaine
 #: model:ir.actions.act_window,help:ressource_humaine.action_rh_avancement
 msgid "Creation avancement!"
-msgstr "Creation avancement!"
+msgstr "إنشاء تقدم !"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,help:ressource_humaine.action_rh_categorie_superieure
 msgid "Creation categorie superieure!"
-msgstr "Creation categorie superieure!"
+msgstr "إنشاء فئة عليا!"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,help:ressource_humaine.action_rh_categorie
@@ -20495,7 +20467,7 @@ msgstr "!إنشاء الفوج"
 #. module: ressource_humaine
 #: model:ir.actions.act_window,help:ressource_humaine.action_rh_niveau_hierarchique
 msgid "Creation niveau hierarchique!"
-msgstr "Creation niveau hierarchique!"
+msgstr "إنشاء مستوى مهني!"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,help:ressource_humaine.action_rh_promotion
@@ -20505,18 +20477,12 @@ msgstr "!أنشئ ترقية"
 #. module: ressource_humaine
 #: model:ir.actions.act_window,help:ressource_humaine.action_rh_section_superieure
 msgid "Creation section superieure!"
-msgstr "Creation section superieure!"
+msgstr "! إنشاء قسم عالي"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,help:ressource_humaine.action_rh_section
 msgid "Creation section!"
 msgstr "!إنشاء قسم"
-
-#. module: hr_payroll_account
-#: model:ir.model.fields,field_description:hr_payroll_account.field_hr_payslip_line_account_credit
-#: model:ir.model.fields,field_description:hr_payroll_account.field_hr_salary_rule_account_credit
-msgid "Credit Account"
-msgstr "حساب دائن"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_partner_credit_limit
@@ -20566,11 +20532,6 @@ msgid "Création d'un type d'absence"
 msgstr "إنشاء نوع الغياب"
 
 #. module: ressource_humaine
-#: model:ir.actions.act_window,help:ressource_humaine.action_rh_type_contrat
-msgid "Création d'un type de contrat"
-msgstr "إنشاء نوع العقد"
-
-#. module: ressource_humaine
 #: model:ir.actions.act_window,help:ressource_humaine.action_rh_type_faute
 msgid "Création d'un type de faute"
 msgstr "إنشاء نوع الخطأ"
@@ -20593,7 +20554,7 @@ msgstr "إنشاء نوع العقوبة"
 #. module: ressource_humaine
 #: model:ir.actions.act_window,help:ressource_humaine.action_rh_type_fonction
 msgid "Création d'un type dun fonction"
-msgstr "Création d'un type dun fonction"
+msgstr "إنشاء نوع وظيفة"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,help:ressource_humaine.action_rh_type_fin_relation
@@ -20638,7 +20599,7 @@ msgstr "إنشاء التكوين"
 #. module: ressource_humaine
 #: model:ir.actions.act_window,help:ressource_humaine.action_rh_accident_travail
 msgid "Création du Accident Travail"
-msgstr "نشأة حادث العمل"
+msgstr "إنشاء حادث مهني"
 
 #. module: base
 #: model:res.country,name:base.cu
@@ -20658,7 +20619,7 @@ msgstr "Curaçao"
 msgid "Currencies"
 msgstr "العملات"
 
-#. modules: base, hr_contract
+#. modules: hr_contract, base
 #: model:ir.model,name:base.model_res_currency
 #: model:ir.model.fields,field_description:base.field_res_company_currency_id
 #: model:ir.model.fields,field_description:base.field_res_country_currency_id
@@ -20790,7 +20751,7 @@ msgstr "المستخدم الحالي قام بتحديد إخطار مقترن 
 msgid "Currently there are not any activity scheduled."
 msgstr "Currently there are not any activity scheduled."
 
-#. modules: web_editor, base
+#. modules: base, web_editor
 #. openerp-web
 #: model:ir.ui.view,arch_db:base.view_model_fields_search
 #: model:ir.ui.view,arch_db:base.view_model_search
@@ -21008,7 +20969,7 @@ msgstr "هيكل قاعدة البيانات"
 msgid "Database fetch misses ids ({}) and has extra ids ({}), may be caused by a type incoherence in a previous request"
 msgstr "Database fetch misses ids ({}) and has extra ids ({}), may be caused by a type incoherence in a previous request"
 
-#. modules: base, mail, calendar
+#. modules: calendar, base, mail
 #: model:ir.model.fields,field_description:base.field_res_currency_date
 #: model:ir.model.fields,field_description:base.field_res_currency_rate_name
 #: model:ir.model.fields,field_description:base.field_res_partner_date
@@ -21032,12 +20993,7 @@ msgstr "تاريخ الغياب"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_accident_travail_date_accident_travail
 msgid "Date Accident Travail"
-msgstr "تاريخ حادث العمل"
-
-#. module: hr_payroll_account
-#: model:ir.model.fields,field_description:hr_payroll_account.field_hr_payslip_date
-msgid "Date Account"
-msgstr "تاريخ الحساب"
+msgstr "تاريخ الحادث المهني"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_date_ancien_grade
@@ -21061,7 +21017,7 @@ msgstr "تاريخ التطبيق المؤقت"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_wizard_date_avancement
 #: model:ir.ui.view,arch_db:ressource_humaine.droit_avencement_wizard
 msgid "Date Avancement"
-msgstr "Date Avancement"
+msgstr "تاريخ التقدم"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_attachment_create_date
@@ -21169,17 +21125,17 @@ msgstr "التاريخ من"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_date_grade
 msgid "Date Grade"
-msgstr " تاريخ الرتبة"
+msgstr "تاريخ الرتبة"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_conjoint_date_mariage
 msgid "Date Mariage"
-msgstr " تاريخ الزواج"
+msgstr "تاريخ الزواج"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_conjoint_date_naissance_conjoint
 msgid "Date Naissance Conjoint"
-msgstr "تاريخ الميلاد الزوج(ة)"
+msgstr "تاريخ ميلاد الزوج(ة)"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_enfant_date_naissance_enfant
@@ -21206,7 +21162,7 @@ msgstr "تاريخ محضر العقوبة"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_date_range
 msgid "Date Range"
-msgstr "Date Range"
+msgstr "نطاق الموعد"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_date_reintegration
@@ -21393,12 +21349,6 @@ msgstr "Dear Sir/Madam,\n"
 "\n"
 "Thank you in advance for your cooperation.\n"
 "Best Regards,"
-
-#. module: hr_payroll_account
-#: model:ir.model.fields,field_description:hr_payroll_account.field_hr_payslip_line_account_debit
-#: model:ir.model.fields,field_description:hr_payroll_account.field_hr_salary_rule_account_debit
-msgid "Debit Account"
-msgstr "حساب مدين"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_mail_server_smtp_debug
@@ -21653,7 +21603,7 @@ msgstr "درجات"
 msgid "Delay to Close"
 msgstr "تأخير الإغلاق"
 
-#. modules: web, hr_recruitment, hr_contract
+#. modules: web, hr_contract, hr_recruitment
 #. openerp-web
 #: model:ir.ui.view,arch_db:hr_contract.hr_contract_view_kanban
 #: model:ir.ui.view,arch_db:hr_recruitment.hr_kanban_view_applicant
@@ -21743,7 +21693,7 @@ msgstr "جمهورية الكونغو الديمقراطية"
 msgid "Denmark"
 msgstr "الدنمارك"
 
-#. modules: hr_holidays, hr, hr_recruitment, ressource_humaine, hr_contract
+#. modules: hr_contract, ressource_humaine, hr, hr_holidays, hr_recruitment
 #: model:ir.model.fields,field_description:hr.field_hr_employee_department_id
 #: model:ir.model.fields,field_description:hr.field_hr_job_department_id
 #: model:ir.ui.view,arch_db:hr.view_department_filter
@@ -21823,7 +21773,7 @@ msgstr "Deprecated empty module in favor of test-lint."
 msgid "Describe what they did and why it matters (will be public)"
 msgstr "صف مافعلوه وما أهميته (سيكون عاماً)"
 
-#. modules: hr_payroll, web_editor, hr_holidays, base, hr_recruitment, ressource_humaine, calendar, mail
+#. modules: ressource_humaine, mail, web_editor, calendar, hr_payroll, base, hr_holidays, hr_recruitment
 #. openerp-web
 #: model:ir.model.fields,field_description:base.field_ir_attachment_description
 #: model:ir.model.fields,field_description:base.field_ir_mail_server_name
@@ -21869,12 +21819,12 @@ msgstr "الوصف"
 #: code:addons/web_editor/static/src/xml/editor.xml:34
 #, python-format
 msgid "Description (alt tag)"
-msgstr "Description (alt tag)"
+msgstr "الوصف (alt tag)"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_accident_travail_description_accident_travail
 msgid "Description Accident Travail"
-msgstr "وصف حادث عمل"
+msgstr "وصف الحادث المهني"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_file_description_fichier
@@ -21899,7 +21849,7 @@ msgstr "وصف نوع الشبكة الإستدلالية"
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_message_subtype_description
 msgid "Description that will be added in the message posted for this subtype. If void, the name will be added instead."
-msgstr "Description that will be added in the message posted for this subtype. If void, the name will be added instead."
+msgstr "الوصف الذي سيتم إضافته في الرسالة المنشورة لهذا النوع الفرعي. إذا كان لاغيا، سيتم إضافة الاسم بدلا منه."
 
 #. module: base
 #: model:ir.module.module,summary:base.module_mass_mailing
@@ -22045,7 +21995,7 @@ msgid "Disabling this option will also uninstall the following modules \n"
 msgstr "Disabling this option will also uninstall the following modules \n"
 "%s"
 
-#. modules: web_editor, web, base, hr_recruitment, mail
+#. modules: web_editor, mail, web, base, hr_recruitment
 #. openerp-web
 #: model:ir.ui.view,arch_db:base.res_config_settings_view_form
 #: model:ir.ui.view,arch_db:hr_recruitment.hr_job_simple_form
@@ -22094,7 +22044,7 @@ msgstr "المناقشات، القوائم البريدية، الأخبار"
 msgid "Display"
 msgstr "عرض"
 
-#. modules: base_import, utm, web_planner, fetchmail, resource, mail, decimal_precision, hr_holidays, hr, base, hr_contract, hr_payroll, hr_recruitment, iap, web_editor, board, ressource_humaine, calendar, sms, web_tour, bus
+#. modules: web_planner, board, bus, decimal_precision, hr_holidays, hr_recruitment, sms, hr, mail, calendar, iap, hr_contract, ressource_humaine, resource, web_editor, hr_payroll, base, base_import, utm, fetchmail, web_tour
 #: model:ir.model.fields,field_description:base.field__unknown_display_name
 #: model:ir.model.fields,field_description:base.field_base_display_name
 #: model:ir.model.fields,field_description:base.field_base_language_export_display_name
@@ -22314,7 +22264,6 @@ msgstr "عرض"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_grille_display_name
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_groupe_display_name
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_loi_display_name
-#: model:ir.model.fields,field_description:ressource_humaine.field_rh_nature_travail_display_name
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_niveau_hierarchique_display_name
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_organisme_display_name
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_display_name
@@ -22324,7 +22273,6 @@ msgstr "عرض"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_section_superieure_display_name
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_absence_display_name
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_conge_display_name
-#: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_contrat_display_name
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_faute_display_name
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_file_display_name
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_fin_relation_display_name
@@ -22396,16 +22344,11 @@ msgstr "Display format to use for addresses belonging to this country.\n"
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_activity_res_name
 msgid "Display name of the related document."
-msgstr "Display name of the related document."
+msgstr "اسم العرض للوثيقة ذات الصلة."
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.act_employee_distribution
 msgid "Distribution des Employées"
-msgstr "توزيع الموظفين"
-
-#. module: ressource_humaine
-#: model:ir.ui.view,arch_db:ressource_humaine.dashboard_form_view
-msgid "Distribution des Employés"
 msgstr "توزيع الموظفين"
 
 #. module: hr
@@ -22454,7 +22397,7 @@ msgstr "دكتور"
 msgid "Doctoral Degree"
 msgstr "درجة الدكتوراة"
 
-#. modules: web_editor, base, calendar
+#. modules: calendar, base, web_editor
 #. openerp-web
 #: model:ir.ui.view,arch_db:base.view_base_module_uninstall
 #: model:ir.ui.view,arch_db:calendar.view_calendar_event_form
@@ -22501,7 +22444,7 @@ msgstr "Document Name"
 msgid "Document Style"
 msgstr "نمط المستند"
 
-#. modules: base, base_setup
+#. modules: base_setup, base
 #: model:ir.model.fields,field_description:base.field_res_company_external_report_layout
 #: model:ir.model.fields,field_description:base_setup.field_res_config_settings_external_report_layout
 #: model:ir.ui.view,arch_db:base_setup.res_config_settings_view_form
@@ -22720,7 +22663,7 @@ msgstr "اسحب لتحركه"
 #: model:ir.actions.act_window,name:ressource_humaine.action_rh_avencement_droit_wizard
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_droit_avencement
 msgid "Droit Avencement"
-msgstr "Droit Avencement"
+msgstr "حق التقدم"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.action_droit_conge_wizard
@@ -22731,7 +22674,7 @@ msgstr "حق العطلة"
 #. module: base
 #: model:ir.ui.view,arch_db:base.user_groups_view
 msgid "Droits supplémentaires"
-msgstr "Droits supplémentaires"
+msgstr "حقوق إضافية"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_stock_dropshipping
@@ -22798,7 +22741,7 @@ msgstr "Dynamic Placeholder Generator"
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.wage_graph
 msgid "Département"
-msgstr "Département"
+msgstr "القسم"
 
 #. module: base
 #: model:res.partner.industry,full_name:base.res_partner_industry_E
@@ -22830,14 +22773,14 @@ msgstr "الدرجة"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_echelon_new_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_wizard_echelon_new_id
 msgid "Echelon New"
-msgstr "Echelon New"
+msgstr "الدرجة الجديدة"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_echelon_old_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_wizard_echelon_old_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avencement_droit_echelon_old_id
 msgid "Echelon Old"
-msgstr "Echelon Old"
+msgstr "الدرجة الأصلية"
 
 #. module: base
 #: model:res.country,name:base.ec
@@ -22849,7 +22792,7 @@ msgstr "الإكوادور"
 msgid "Ecuador - Accounting"
 msgstr "الإكوادور - محاسبة"
 
-#. modules: web, web_editor, mail
+#. modules: web_editor, web, mail
 #. openerp-web
 #: code:addons/mail/static/src/xml/activity.xml:62
 #: code:addons/web/static/src/js/views/calendar/calendar_controller.js:296
@@ -23028,7 +22971,7 @@ msgstr "Element '%s' cannot be located in parent view"
 msgid "Elle, exerce ses fonctions en sa qualité de"
 msgstr "Elle, exerce ses fonctions en sa qualité de"
 
-#. modules: web, base, hr_recruitment, calendar, mail
+#. modules: mail, web, calendar, base, hr_recruitment
 #: model:ir.model.fields,field_description:base.field_res_bank_email
 #: model:ir.model.fields,field_description:base.field_res_company_email
 #: model:ir.model.fields,field_description:base.field_res_partner_email
@@ -23132,7 +23075,7 @@ msgstr "لمحة عامة عن قالب البريد الالكتروني"
 msgid "Email Templates"
 msgstr "قوالب البريد"
 
-#. modules: mail, sms
+#. modules: sms, mail
 #: model:ir.model,name:mail.model_mail_thread
 #: model:ir.model,name:sms.model_mail_thread
 msgid "Email Thread"
@@ -23196,9 +23139,9 @@ msgstr "الرسائل الإلكترونية"
 #. module: ressource_humaine
 #: selection:rh.type.file,type_file:0
 msgid "Employe"
-msgstr "الموضف"
+msgstr "الموظف"
 
-#. modules: hr_payroll, hr_holidays, hr, base, hr_recruitment, ressource_humaine, calendar, hr_org_chart, hr_contract, hr_gamification
+#. modules: hr_contract, ressource_humaine, hr_org_chart, hr_gamification, hr, calendar, hr_payroll, base, hr_holidays, hr_recruitment
 #: model:ir.model.fields,field_description:base.field_res_partner_employee
 #: model:ir.model.fields,field_description:base.field_res_users_employee
 #: model:res.groups,name:base.group_user
@@ -23253,10 +23196,9 @@ msgstr "شارات الموظف"
 msgid "Employee Category"
 msgstr "تصنيف الموظف"
 
-#. modules: hr_payroll, hr_payroll_account, hr_contract, ressource_humaine
+#. modules: ressource_humaine, hr_contract, hr_payroll
 #: model:ir.model,name:hr_contract.model_hr_contract
 #: model:ir.model,name:hr_payroll.model_hr_contract
-#: model:ir.model,name:hr_payroll_account.model_hr_contract
 #: model:ir.model,name:ressource_humaine.model_hr_contract
 msgid "Employee Contract"
 msgstr "عقود الموظف"
@@ -23282,11 +23224,11 @@ msgstr "مهمات الموظف"
 msgid "Employee HR Goals"
 msgstr "أهداف الموظفين"
 
-#. modules: hr_recruitment, ressource_humaine
+#. modules: ressource_humaine, hr_recruitment
 #: model:ir.model.fields,field_description:hr_recruitment.field_hr_applicant_employee_name
 #: model:ir.model.fields,field_description:ressource_humaine.field_absence_formation_employee_name
 msgid "Employee Name"
-msgstr "Employee Name"
+msgstr "إسم الموظف"
 
 #. module: hr_payroll
 #: model:ir.actions.act_window,name:hr_payroll.action_view_hr_payslip_form
@@ -23347,7 +23289,7 @@ msgstr "جدول عمل الموظف."
 msgid "Employee(s)"
 msgstr "الموظفين"
 
-#. modules: hr_payroll, base, hr_recruitment, hr
+#. modules: hr_recruitment, hr_payroll, base, hr
 #: model:ir.actions.act_window,name:base.action_partner_employee_form
 #: model:ir.module.category,name:base.module_category_human_resources
 #: model:ir.actions.act_window,name:hr.act_employee_from_department
@@ -23405,7 +23347,7 @@ msgstr "الترميز:"
 msgid "Encrypted Password"
 msgstr "كلمة المرور المشفرة"
 
-#. modules: hr_holidays, resource, hr_contract, calendar
+#. modules: hr_contract, calendar, resource, hr_holidays
 #: model:ir.model.fields,field_description:calendar.field_calendar_event_stop_date
 #: model:ir.ui.view,arch_db:calendar.view_calendar_event_tree
 #: model:ir.model.fields,field_description:hr_contract.field_hr_contract_date_end
@@ -23472,7 +23414,7 @@ msgstr "الأبناء"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_enfant_enfant_file_lines
 msgid "Enfant File Lines"
-msgstr "Enfant File Lines"
+msgstr "خطوط ملف الأبناء"
 
 #. module: base
 #: model:ir.ui.view,arch_db:base.view_server_action_form
@@ -23693,7 +23635,7 @@ msgstr "أوروبا"
 msgid "Evaluation Type"
 msgstr "نوع التقييم"
 
-#. modules: calendar_sms, hr_recruitment, calendar
+#. modules: calendar_sms, calendar, hr_recruitment
 #: model:ir.model,name:calendar.model_calendar_event
 #: model:ir.model,name:calendar_sms.model_calendar_event
 #: model:ir.model,name:hr_recruitment.model_calendar_event
@@ -23751,7 +23693,7 @@ msgstr "طرف ثالث في نهاية المطاف تشارك في دفع رو
 msgid "Everybody's calendars"
 msgstr "تقويمات الجميع"
 
-#. modules: mail, calendar
+#. modules: calendar, mail
 #: selection:calendar.event,privacy:0
 #: selection:mail.alias,alias_contact:0
 #: selection:mail.channel,public:0
@@ -23856,12 +23798,12 @@ msgstr "سنة الإجازة"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_account_move_fiscal_year
 msgid "Exercice des ecritures"
-msgstr "Exercice des ecritures"
+msgstr "ممارسة الكتاب المقدس"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_account_fiscal_year
 msgid "Exercice du compte"
-msgstr "Exercice du compte"
+msgstr "ممارسة الحساب"
 
 #. module: web
 #. openerp-web
@@ -24247,7 +24189,7 @@ msgstr "جلب الآن"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_iwesabe_reports_journal_entry
 msgid "Fiche Imputation"
-msgstr "Fiche Imputation"
+msgstr "نموذج الإسناد"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_file_fichier
@@ -24551,7 +24493,7 @@ msgstr "حجم الملف"
 #. module: base_import
 #: model:ir.model.fields,field_description:base_import.field_base_import_import_file_type
 msgid "File Type"
-msgstr "نوع الملف"
+msgstr "أنواع الملفات"
 
 #. module: web
 #. openerp-web
@@ -24678,7 +24620,7 @@ msgstr "نهاية علاقة العمل"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_fin_relation_fin_relation_file_lines
 msgid "Fin Relation File Lines"
-msgstr "Fin Relation File Lines"
+msgstr "خطوط ملف نهاية علاقة العمل"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.action_rh_fin_relation
@@ -24745,7 +24687,7 @@ msgstr "إدارة الأسطول"
 msgid "Flip axis"
 msgstr "إقلب المحاور"
 
-#. modules: base, decimal_precision
+#. modules: decimal_precision, base
 #: selection:ir.property,type:0
 #: model:ir.model.fields,field_description:decimal_precision.field_decimal_precision_test_float
 msgid "Float"
@@ -24973,7 +24915,7 @@ msgstr "Font awesome icon e.g. fa-tasks"
 msgid "Food"
 msgstr "طعام"
 
-#. modules: base, base_setup
+#. modules: base_setup, base
 #: model:ir.model.fields,help:base.field_res_company_report_footer
 #: model:ir.model.fields,help:base_setup.field_res_config_settings_report_footer
 msgid "Footer text displayed at the bottom of all reports."
@@ -25050,7 +24992,7 @@ msgstr "For this kind of document, you may only access records you created yours
 msgid "Form"
 msgstr "النموذج"
 
-#. modules: hr_payroll, hr_holidays
+#. modules: hr_holidays, hr_payroll
 #: code:addons/hr_holidays/report/holidays_summary_report.py:112
 #: code:addons/hr_payroll/report/report_contribution_register.py:34
 #, python-format
@@ -25068,7 +25010,7 @@ msgstr "بعض بيانات النموذج فارغة، لا يمكن طباعة
 msgid "Form-only"
 msgstr "Form-only"
 
-#. modules: web_editor, base_setup
+#. modules: base_setup, web_editor
 #. openerp-web
 #: model:ir.ui.view,arch_db:base_setup.res_config_settings_view_form
 #: code:addons/web_editor/static/src/xml/ace.xml:37
@@ -25092,7 +25034,7 @@ msgstr "Format email address \"Name <email@domain>\""
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_formation
 #: selection:rh.type.file,type_file:0
 msgid "Formation"
-msgstr "تكوين"
+msgstr "التكوين"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_formation_formation_absence
@@ -25113,18 +25055,18 @@ msgstr "تفصيل التكوين"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_formation_formation_file_lines
 msgid "Formation File Lines"
-msgstr "Formation File Lines"
+msgstr "خطوط ملف التكوين"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_absence_formation_formation_line_id
 msgid "Formation Line"
-msgstr "Formation Line"
+msgstr "خطوط التكوين"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_formation_detail_employee_id_lines
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_formation_formation_lines
 msgid "Formation Lines"
-msgstr "Formation Lines"
+msgstr "خطوط التكوين"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.formation_detail_action
@@ -25135,7 +25077,7 @@ msgstr "تفصيل التكوين"
 #: model:ir.model.fields,field_description:base.field_res_partner_email_formatted
 #: model:ir.model.fields,field_description:base.field_res_users_email_formatted
 msgid "Formatted Email"
-msgstr "Formatted Email"
+msgstr "البريد الإلكتروني المنسق"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_website_forum
@@ -25241,7 +25183,7 @@ msgstr "الأقاليم الشمالية الفرنسية"
 msgid "Fri"
 msgstr "جمع"
 
-#. modules: resource, calendar
+#. modules: calendar, resource
 #: selection:calendar.event,week_list:0
 #: selection:resource.calendar.attendance,dayofweek:0
 msgid "Friday"
@@ -25259,7 +25201,7 @@ msgstr "مساء الجمعة"
 msgid "Friday Morning"
 msgstr "صباح الجمعة"
 
-#. modules: base, mail, hr_holidays
+#. modules: hr_holidays, base, mail
 #: model:ir.model.fields,field_description:base.field_ir_sequence_date_range_date_from
 #: model:ir.model.fields,field_description:hr_holidays.field_hr_holidays_summary_dept_date_from
 #: model:ir.model.fields,field_description:hr_holidays.field_hr_holidays_summary_employee_date_from
@@ -25296,7 +25238,7 @@ msgstr "Full Name"
 msgid "Full Path"
 msgstr "المسار كاملاً"
 
-#. modules: web_editor, base
+#. modules: base, web_editor
 #. openerp-web
 #: selection:ir.actions.act_window,target:0
 #: selection:ir.actions.client,target:0
@@ -25444,7 +25386,7 @@ msgstr "عام"
 msgid "General Information"
 msgstr "المعلومات العامة"
 
-#. modules: base, base_setup
+#. modules: base_setup, base
 #: model:ir.ui.view,arch_db:base.view_window_action_form
 #: model:ir.ui.menu,name:base_setup.menu_config
 #: model:ir.ui.view,arch_db:base_setup.res_config_settings_view_form
@@ -25469,9 +25411,8 @@ msgstr "إنشاء مصطلحات مفقودة"
 msgid "Generate Payslips"
 msgstr "توليد قسائم الدفع "
 
-#. modules: hr_payroll, hr_payroll_account
+#. module: hr_payroll
 #: model:ir.model,name:hr_payroll.model_hr_payslip_employees
-#: model:ir.model,name:hr_payroll_account.model_hr_payslip_employees
 msgid "Generate payslips for all selected employees"
 msgstr "إنشاء قسائم دفع الرواتب لجميع الموظفين الذين تم تحديدهم"
 
@@ -25514,7 +25455,7 @@ msgstr "تراجم Gengo"
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.distribution_graph
 msgid "Genre"
-msgstr "Genre"
+msgstr "الجنس"
 
 #. module: base
 #: model:res.country,name:base.ge
@@ -25632,7 +25573,7 @@ msgstr "تاريخ الأهداف"
 msgid "Good"
 msgstr "جيد"
 
-#. modules: base, base_setup
+#. modules: base_setup, base
 #: model:ir.module.module,shortdesc:base.module_google_calendar
 #: model:ir.ui.view,arch_db:base_setup.res_config_settings_view_form
 msgid "Google Calendar"
@@ -25757,7 +25698,7 @@ msgstr "سواقة غوغل"
 msgid "Google Drive™ integration"
 msgstr "دمج جوجل درايف™"
 
-#. modules: base, base_setup
+#. modules: base_setup, base
 #: model:ir.module.module,shortdesc:base.module_google_spreadsheet
 #: model:ir.model.fields,field_description:base_setup.field_res_config_settings_module_google_spreadsheet
 msgid "Google Spreadsheet"
@@ -25791,7 +25732,7 @@ msgstr "الرتبة الأصلية"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_groupe_grade_lines
 msgid "Grade lines"
-msgstr "Grade lines"
+msgstr "خطوط الرتبة"
 
 #. module: hr_recruitment
 #: model:hr.recruitment.degree,name:hr_recruitment.degree_graduate
@@ -25830,12 +25771,12 @@ msgstr "Graph de Distribution"
 #. module: web_editor
 #: model:ir.ui.view,arch_db:web_editor.colorpicker
 msgid "Gray"
-msgstr "Gray"
+msgstr "رمادي"
 
 #. module: web_editor
 #: model:ir.ui.view,arch_db:web_editor.colorpicker
 msgid "Gray Dark"
-msgstr "Gray Dark"
+msgstr "رمادي داكن"
 
 #. module: web_editor
 #: model:ir.ui.view,arch_db:web_editor.colorpicker
@@ -25898,7 +25839,7 @@ msgstr "الإجمالي"
 msgid "Group"
 msgstr "المجموعة"
 
-#. modules: hr_payroll, hr_holidays, hr, web, base, hr_recruitment, calendar, resource, mail, hr_contract
+#. modules: hr_contract, resource, hr, mail, calendar, hr_payroll, web, base, hr_holidays, hr_recruitment
 #. openerp-web
 #: model:ir.ui.view,arch_db:base.act_report_xml_search_view
 #: model:ir.ui.view,arch_db:base.ir_access_view_search
@@ -26013,14 +25954,14 @@ msgstr "الفوج 5"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_groupe_new_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_wizard_groupe_new_id
 msgid "Groupe New"
-msgstr "Groupe New"
+msgstr "الفوج الجديد"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_groupe_old_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_wizard_groupe_old_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avencement_droit_groupe_old_id
 msgid "Groupe Old"
-msgstr "Groupe Old"
+msgstr "الفوج الأصلي"
 
 #. modules: base, mail
 #: model:ir.actions.act_window,name:base.action_res_groups
@@ -26110,7 +26051,7 @@ msgstr "تعليقات الموارد البشرية"
 msgid "HR Contract: update state"
 msgstr "عقد الموارد البشرية: تحديث الحالة"
 
-#. modules: hr_recruitment, hr_holidays, hr
+#. modules: hr_holidays, hr_recruitment, hr
 #: model:ir.model,name:hr.model_hr_department
 #: model:ir.model,name:hr_holidays.model_hr_department
 #: model:ir.model,name:hr_recruitment.model_hr_department
@@ -26157,7 +26098,7 @@ msgstr "HST"
 msgid "HTML"
 msgstr "HTML"
 
-#. modules: web_editor, utm, web, base, calendar, web_tour, auth_signup
+#. modules: utm, web_editor, web, calendar, base, auth_signup, web_tour
 #: model:ir.model,name:auth_signup.model_ir_http
 #: model:ir.model,name:base.model_ir_http
 #: model:ir.model,name:calendar.model_ir_http
@@ -26513,7 +26454,7 @@ msgstr "الموظفون المعينون"
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.employee_form
 msgid "Historique Avancement"
-msgstr "Historique Avancement"
+msgstr "سجل التقدم"
 
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.employee_form
@@ -26592,7 +26533,7 @@ msgstr "Hour 00->24: %(h24)s"
 msgid "Hour(s)"
 msgstr "ساعة(ـات)"
 
-#. modules: base, resource
+#. modules: resource, base
 #: selection:ir.cron,interval_type:0
 #: model:ir.ui.view,arch_db:resource.view_resource_calendar_attendance_form
 msgid "Hours"
@@ -26678,9 +26619,9 @@ msgstr "حسابات IAP"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_base_iban
 msgid "IBAN Bank Accounts"
-msgstr "IBAN Bank Accounts"
+msgstr "حسابات بنك الآيبان IBAN"
 
-#. modules: base_import, utm, web_planner, fetchmail, resource, mail, decimal_precision, hr_holidays, hr, base, hr_contract, hr_payroll, hr_recruitment, iap, web_editor, board, ressource_humaine, calendar, sms, web_tour, bus
+#. modules: web_planner, board, bus, decimal_precision, hr_holidays, hr_recruitment, sms, hr, mail, calendar, iap, hr_contract, ressource_humaine, resource, web_editor, hr_payroll, base, base_import, utm, fetchmail, web_tour
 #: model:ir.model.fields,field_description:base.field__unknown_id
 #: model:ir.model.fields,field_description:base.field_base_id
 #: model:ir.model.fields,field_description:base.field_base_language_export_id
@@ -26900,7 +26841,6 @@ msgstr "IBAN Bank Accounts"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_grille_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_groupe_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_loi_id
-#: model:ir.model.fields,field_description:ressource_humaine.field_rh_nature_travail_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_niveau_hierarchique_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_organisme_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_id
@@ -26910,7 +26850,6 @@ msgstr "IBAN Bank Accounts"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_section_superieure_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_absence_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_conge_id
-#: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_contrat_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_faute_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_file_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_fin_relation_id
@@ -27020,12 +26959,12 @@ msgstr "Icon URL"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_conge_droit_month_id_conge_droit
 msgid "Id Conge Droit"
-msgstr "Id Conge Droit"
+msgstr "معرف حق العطلة"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_congedroit_id_personnel
 msgid "Id Personnel"
-msgstr "Id Personnel"
+msgstr "الهوية الشخصية"
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_followers_res_id
@@ -27369,7 +27308,7 @@ msgstr "إذا كنت ترغب في إلغاء هذه العملية، اضغط 
 msgid "Il, exerce ses fonctions en sa qualité de"
 msgstr "Il, exerce ses fonctions en sa qualité de"
 
-#. modules: web, web_editor, base
+#. modules: web, base, web_editor
 #. openerp-web
 #: model:ir.model.fields,field_description:base.field_res_country_image
 #: model:ir.model.fields,field_description:base.field_res_partner_image
@@ -27471,7 +27410,7 @@ msgstr "رسائل مهمة"
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.holidays_form
 msgid "Imprimer Note de congé"
-msgstr "Imprimer Note de congé"
+msgstr "طباعة مذكرة مصلحية"
 
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.ressource_humaine_contract_form
@@ -27481,17 +27420,17 @@ msgstr "طباعة محضر تنصيب"
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.holidays_form
 msgid "Imprimer Planning Congé"
-msgstr "Imprimer Planning Congé"
+msgstr "طباعة جدول العطلة السنوية"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_iwesabe_reports_journal_entry
 msgid "Imprimer fiche imputation"
-msgstr "Imprimer fiche imputation"
+msgstr "طباعة ورقة الإسناد"
 
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.holidays_form
 msgid "Imprimer titre de congé"
-msgstr "Imprimer titre de congé"
+msgstr "طباعة سند عطلة"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_model_fields_modules
@@ -27530,7 +27469,7 @@ msgid "In this mode, you can only translate texts. To change the structure of th
 msgstr "في هذا الوضع، يمكنك ترجمة النصوص فقط. لتغيير بنية الصفحة، يجب تحرير الصفحة الرئيسية.\n"
 "        كل تعديل تقوم به في الصفحة الرئيسية، يُطبق تلقائيًا على كافة الإصدارات المترجمة."
 
-#. modules: base, iap
+#. modules: iap, base
 #. openerp-web
 #: model:ir.module.module,shortdesc:base.module_iap
 #: code:addons/iap/static/src/xml/iap_templates.xml:23
@@ -27538,7 +27477,7 @@ msgstr "في هذا الوضع، يمكنك ترجمة النصوص فقط. لت
 msgid "In-App Purchases"
 msgstr "عمليات شراء داخل التطبيق"
 
-#. modules: web, base, resource, web_planner
+#. modules: web, resource, base, web_planner
 #. openerp-web
 #: model:ir.ui.view,arch_db:base.view_currency_search
 #: model:ir.ui.view,arch_db:base.view_view_search
@@ -27751,7 +27690,7 @@ msgstr "معلومات على الأجرة"
 #. module: base
 #: model:ir.ui.view,arch_db:base.view_view_search
 msgid "Inherit"
-msgstr "Inherit"
+msgstr "يرث"
 
 #. module: base
 #: model:ir.ui.view,arch_db:base.view_groups_form
@@ -27859,7 +27798,7 @@ msgstr "إدراج فيديو"
 msgid "Instagram"
 msgstr "إنستجرام"
 
-#. modules: web_editor, base
+#. modules: base, web_editor
 #. openerp-web
 #: code:addons/base/module/module.py:439
 #: model:ir.ui.view,arch_db:base.module_form
@@ -27954,7 +27893,7 @@ msgstr "Insufficient fields to generate a Calendar View for %s, missing a date_s
 msgid "Integer"
 msgstr "عدد صحيح"
 
-#. modules: mail, base_setup
+#. modules: base_setup, mail
 #: model:ir.ui.view,arch_db:base_setup.res_config_settings_view_form
 #: model:ir.ui.menu,name:mail.mail_channel_integrations_menu
 #: model:ir.ui.view,arch_db:mail.mail_channel_view_form
@@ -28037,18 +27976,12 @@ msgstr "نماذج المقابلة"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_categorie_intitule
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_categorie_superieure_intitule
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_echelon_intitule
-#: model:ir.model.fields,field_description:ressource_humaine.field_rh_nature_travail_intitule
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_niveau_hierarchique_intitule
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_section_intitule
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_section_superieure_intitule
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_file_intitule
 msgid "Intitule"
 msgstr "التسمية"
-
-#. module: ressource_humaine
-#: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_contrat_intitule_contrat
-msgid "Intitule Contrat"
-msgstr "العقد"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_corps_intitule_corps
@@ -28103,7 +28036,7 @@ msgstr "نوع العقوبة"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_grade_intitule_grade_fr
 msgid "Intitulé Grade"
-msgstr "Intitulé Grade"
+msgstr "تسمية الرتبة"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_report_intrastat
@@ -28274,7 +28207,7 @@ msgstr "المخزون، اللوجستية، التقييم، المحاسبة"
 msgid "Inventory, Logistics, Warehousing"
 msgstr "Inventory, Logistics, Warehousing"
 
-#. modules: mail, calendar
+#. modules: calendar, mail
 #. openerp-web
 #: model:mail.message.subtype,name:calendar.subtype_invitation
 #: code:addons/mail/static/src/js/chat_manager.js:588
@@ -28308,7 +28241,7 @@ msgstr "دعوة لمتابعة %s: %s"
 msgid "Invitations"
 msgstr "الدعوات"
 
-#. modules: mail, web_settings_dashboard
+#. modules: web_settings_dashboard, mail
 #. openerp-web
 #: code:addons/mail/static/src/js/client_action.js:44
 #: code:addons/mail/static/src/xml/client_action.xml:133
@@ -28346,7 +28279,7 @@ msgstr "دعوة أشخاص"
 msgid "Invite people to #%s"
 msgstr "دعوة أشخاص لـ#%s"
 
-#. modules: mail, calendar
+#. modules: calendar, mail
 #: model:ir.model,name:calendar.model_mail_wizard_invite
 #: model:ir.model,name:mail.model_mail_wizard_invite
 msgid "Invite wizard"
@@ -28578,7 +28511,7 @@ msgstr "Japan - Accounting"
 msgid "Jersey"
 msgstr "Jersey"
 
-#. modules: ressource_humaine, hr_recruitment, hr_contract, hr
+#. modules: ressource_humaine, hr_contract, hr_recruitment, hr
 #: model:ir.ui.view,arch_db:hr.view_employee_filter
 #: model:ir.ui.view,arch_db:hr.view_hr_job_form
 #: model:ir.ui.view,arch_db:hr.view_hr_job_tree
@@ -28632,7 +28565,7 @@ msgstr "مُعرف الوظيفة"
 msgid "Job Location"
 msgstr "موقع الوظيفة"
 
-#. modules: hr, hr_recruitment, base, ressource_humaine, hr_contract
+#. modules: hr_contract, ressource_humaine, hr, base, hr_recruitment
 #: model:ir.model.fields,field_description:base.field_res_partner_function
 #: model:ir.model.fields,field_description:base.field_res_users_function
 #: model:ir.model,name:hr.model_hr_job
@@ -28777,11 +28710,6 @@ msgstr "حفظ الأصل"
 #: model:ir.model.fields,help:base.field_res_users_password
 msgid "Keep empty if you don't want the user to be able to connect on the system."
 msgstr "اترك هذا الحقل فارغًا إذا أردت منع المستخدم من الاتصال بالنظام."
-
-#. module: hr_payroll_account
-#: model:ir.model.fields,help:hr_payroll_account.field_hr_payslip_date
-msgid "Keep empty to use the period of the validation(Payslip) date."
-msgstr "اتركها فارغة لاستخدامها في الفترة من تاريخ التحقق لظرف المرتب."
 
 #. module: base
 #: model:res.country,name:base.ke
@@ -28987,7 +28915,7 @@ msgstr "تاريخ آخر رسالة"
 msgid "Last Modification Date"
 msgstr "تاريخ اخر تعديل"
 
-#. modules: base_import, utm, web_planner, fetchmail, resource, mail, decimal_precision, hr_holidays, hr, base, hr_contract, hr_payroll, hr_recruitment, iap, web_editor, board, ressource_humaine, calendar, sms, web_tour, bus
+#. modules: web_planner, board, bus, decimal_precision, hr_holidays, hr_recruitment, sms, hr, mail, calendar, iap, hr_contract, ressource_humaine, resource, web_editor, hr_payroll, base, base_import, utm, fetchmail, web_tour
 #: model:ir.model.fields,field_description:base.field__unknown___last_update
 #: model:ir.model.fields,field_description:base.field_base___last_update
 #: model:ir.model.fields,field_description:base.field_base_language_export___last_update
@@ -29207,7 +29135,6 @@ msgstr "تاريخ اخر تعديل"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_grille___last_update
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_groupe___last_update
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_loi___last_update
-#: model:ir.model.fields,field_description:ressource_humaine.field_rh_nature_travail___last_update
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_niveau_hierarchique___last_update
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_organisme___last_update
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion___last_update
@@ -29217,7 +29144,6 @@ msgstr "تاريخ اخر تعديل"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_section_superieure___last_update
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_absence___last_update
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_conge___last_update
-#: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_contrat___last_update
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_faute___last_update
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_file___last_update
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_fin_relation___last_update
@@ -29266,7 +29192,7 @@ msgstr "المرحلة الأخيرة"
 msgid "Last Stage Update"
 msgstr "آخر تحديث للمرحلة"
 
-#. modules: hr_payroll, web_editor, decimal_precision, base_import, hr_holidays, utm, hr, web_planner, base, hr_recruitment, ressource_humaine, calendar, sms, fetchmail, resource, mail, bus, iap, hr_contract
+#. modules: utm, sms, hr_contract, ressource_humaine, fetchmail, resource, hr, mail, web_editor, calendar, hr_payroll, web_planner, base, base_import, bus, decimal_precision, hr_holidays, iap, hr_recruitment
 #: model:ir.model.fields,field_description:base.field_base_language_export_write_uid
 #: model:ir.model.fields,field_description:base.field_base_language_import_write_uid
 #: model:ir.model.fields,field_description:base.field_base_language_install_write_uid
@@ -29439,7 +29365,6 @@ msgstr "آخر تحديث للمرحلة"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_grille_write_uid
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_groupe_write_uid
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_loi_write_uid
-#: model:ir.model.fields,field_description:ressource_humaine.field_rh_nature_travail_write_uid
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_niveau_hierarchique_write_uid
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_organisme_write_uid
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_line_write_uid
@@ -29449,7 +29374,6 @@ msgstr "آخر تحديث للمرحلة"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_section_write_uid
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_absence_write_uid
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_conge_write_uid
-#: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_contrat_write_uid
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_faute_write_uid
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_file_write_uid
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_fin_relation_write_uid
@@ -29468,7 +29392,7 @@ msgstr "آخر تحديث للمرحلة"
 msgid "Last Updated by"
 msgstr "آخر تحديث بواسطة"
 
-#. modules: hr_payroll, web_editor, decimal_precision, base_import, hr_holidays, utm, hr, web_planner, base, hr_recruitment, ressource_humaine, calendar, sms, fetchmail, resource, mail, bus, iap, hr_contract
+#. modules: utm, sms, hr_contract, ressource_humaine, fetchmail, resource, hr, mail, web_editor, calendar, hr_payroll, web_planner, base, base_import, bus, decimal_precision, hr_holidays, iap, hr_recruitment
 #: model:ir.model.fields,field_description:base.field_base_language_export_write_date
 #: model:ir.model.fields,field_description:base.field_base_language_import_write_date
 #: model:ir.model.fields,field_description:base.field_base_language_install_write_date
@@ -29639,7 +29563,6 @@ msgstr "آخر تحديث بواسطة"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_grille_write_date
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_groupe_write_date
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_loi_write_date
-#: model:ir.model.fields,field_description:ressource_humaine.field_rh_nature_travail_write_date
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_niveau_hierarchique_write_date
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_organisme_write_date
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_line_write_date
@@ -29649,7 +29572,6 @@ msgstr "آخر تحديث بواسطة"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_section_write_date
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_absence_write_date
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_conge_write_date
-#: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_contrat_write_date
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_faute_write_date
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_file_write_date
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_fin_relation_write_date
@@ -29769,14 +29691,14 @@ msgstr "ترشيحات إلى مهام"
 msgid "Leads, Opportunities, Activities"
 msgstr "Leads, Opportunities, Activities"
 
-#. modules: ressource_humaine, mail, hr_holidays
+#. modules: hr_holidays, ressource_humaine, mail
 #: model:ir.model,name:hr_holidays.model_hr_holidays
 #: model:ir.ui.view,arch_db:mail.mail_channel_view_kanban
 #: model:ir.model,name:ressource_humaine.model_hr_holidays
 msgid "Leave"
 msgstr "مغادرة"
 
-#. modules: resource, hr_holidays
+#. modules: hr_holidays, resource
 #: model:ir.model,name:hr_holidays.model_resource_calendar_leaves
 #: model:ir.model,name:resource.model_resource_calendar_leaves
 #: model:ir.ui.view,arch_db:resource.resource_calendar_leave_form
@@ -29895,7 +29817,7 @@ msgstr "مغادرة القناة"
 msgid "Leave to Approve"
 msgstr "إجازات مطلوب الموافقة عليها"
 
-#. modules: base, resource, hr_holidays
+#. modules: hr_holidays, resource, base
 #: model:ir.module.category,name:base.module_category_hr_holidays
 #: model:ir.actions.act_window,name:hr_holidays.act_hr_employee_holiday_request
 #: model:ir.ui.menu,name:hr_holidays.menu_hr_available_holidays_report_tree
@@ -30161,7 +30083,7 @@ msgstr "مكان ميلاد الزوج(ة)"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_place_of_birth_fr
 msgid "Lieu de naissance"
-msgstr "Lieu de naissance"
+msgstr "مكان ميلاد بالفرنسية"
 
 #. module: hr_holidays
 #: selection:hr.holidays.status,color_name:0
@@ -30279,7 +30201,7 @@ msgstr "Link Sales and Payment\n"
 " * add payment-related fields on SO\n"
 ""
 
-#. modules: base, utm
+#. modules: utm, base
 #: model:ir.module.module,shortdesc:base.module_link_tracker
 #: model:ir.ui.menu,name:utm.menu_link_tracker_root
 msgid "Link Tracker"
@@ -30363,13 +30285,11 @@ msgstr "قائمة الموظفين"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.act_female_employees
-#: model:ir.ui.view,arch_db:ressource_humaine.dashboard_form_view
 msgid "Liste des Employées (Femmes)"
 msgstr "قائمة الموظفين (نساء)"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.act_male_employees
-#: model:ir.ui.view,arch_db:ressource_humaine.dashboard_form_view
 msgid "Liste des Employés (Hommes)"
 msgstr "قائمة الموظفين (رجال)"
 
@@ -30429,7 +30349,7 @@ msgstr "تحميل"
 msgid "Load File"
 msgstr "تحميل ملف"
 
-#. modules: base, web_settings_dashboard
+#. modules: web_settings_dashboard, base
 #. openerp-web
 #: model:ir.actions.act_window,name:base.action_view_base_language_install
 #: model:ir.ui.menu,name:base.menu_view_base_language_install
@@ -30969,7 +30889,7 @@ msgstr "Manage your debts and credits thanks to simple sale/purchase receipts"
 msgid "Manage your employee payroll records"
 msgstr "إدارة سجلات أجور موظفيك"
 
-#. modules: hr_payroll, hr_recruitment, hr_holidays, hr
+#. modules: hr_holidays, hr_payroll, hr_recruitment, hr
 #: model:ir.model.fields,field_description:hr.field_hr_department_manager_id
 #: model:ir.model.fields,field_description:hr.field_hr_employee_parent_id
 #: model:ir.ui.view,arch_db:hr.view_employee_filter
@@ -31232,7 +31152,7 @@ msgstr "فحص طبي"
 msgid "Medical Examination Date"
 msgstr "تاريخ الفحص الطبي"
 
-#. modules: web_editor, utm
+#. modules: utm, web_editor
 #. openerp-web
 #: model:ir.actions.act_window,name:utm.utm_medium_action
 #: model:ir.model.fields,field_description:utm.field_hr_applicant_medium_id
@@ -31274,7 +31194,7 @@ msgstr "صورة متوسطة الحجم للموظف. يتم تغيير حجم 
 msgid "Medium-sized photo of the group. It is automatically resized as a 128x128px image, with aspect ratio preserved. Use this field in form views or some kanban views."
 msgstr "صورة متوسطة للمجموعة، سيتم إعادة تحجيمها إلى 128 × 128 بكسل مع الاحتفاظ بنسب أبعاد الصورة. استخدم هذا الحقل في واجهات النموذج أو كانبان."
 
-#. modules: mail, hr_holidays, calendar
+#. modules: hr_holidays, calendar, mail
 #: model:ir.ui.view,arch_db:calendar.view_calendar_event_search
 #: model:ir.model.fields,field_description:hr_holidays.field_hr_holidays_meeting_id
 #: selection:mail.activity.type,category:0
@@ -31351,9 +31271,9 @@ msgstr "أعضاء اللجنة"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_note_pad
 msgid "Memos pad"
-msgstr "Memos pad"
+msgstr "خطاب المذكرة"
 
-#. modules: base, web_tour, web_planner
+#. modules: web_tour, web_planner, base
 #: model:ir.model.fields,field_description:base.field_ir_ui_menu_name
 #: model:ir.ui.view,arch_db:base.edit_menu
 #: model:ir.ui.view,arch_db:base.edit_menu_access
@@ -31391,7 +31311,7 @@ msgstr "تخصيص القوائم"
 msgid "Mercury Payment Services"
 msgstr "خدمات Mercury للسداد"
 
-#. modules: base, calendar, sms, mail, bus
+#. modules: sms, mail, calendar, base, bus
 #: model:ir.model.fields,field_description:base.field_ir_logging_message
 #: model:ir.model.fields,field_description:bus.field_bus_bus_message
 #: model:ir.model,name:calendar.model_mail_message
@@ -31615,7 +31535,7 @@ msgstr "الدقيقة: %(دقيقة)s"
 msgid "Minutes"
 msgstr "الدقائق"
 
-#. modules: base, calendar
+#. modules: calendar, base
 #: model:ir.ui.view,arch_db:base.view_partner_form
 #: model:ir.ui.view,arch_db:calendar.view_calendar_event_form
 msgid "Misc"
@@ -31968,7 +31888,7 @@ msgstr "اثن"
 msgid "Monaco"
 msgstr "موناكو"
 
-#. modules: resource, calendar
+#. modules: calendar, resource
 #: selection:calendar.event,week_list:0
 #: selection:resource.calendar.attendance,dayofweek:0
 msgid "Monday"
@@ -32001,7 +31921,7 @@ msgstr "Monsieur,"
 msgid "Montenegro"
 msgstr "الجبل الأسود"
 
-#. modules: hr_holidays, web, base, ressource_humaine, mail
+#. modules: ressource_humaine, mail, web, base, hr_holidays
 #. openerp-web
 #: model:ir.ui.view,arch_db:base.ir_logging_search_view
 #: model:ir.ui.view,arch_db:hr_holidays.report_holidayssummary
@@ -32193,7 +32113,7 @@ msgstr "My Method Cron"
 #. module: hr_recruitment
 #: model:ir.actions.act_window,name:hr_recruitment.hr_applicant_action_activity
 msgid "My Next Activities"
-msgstr "My Next Activities"
+msgstr "أنشطتي القادمة"
 
 #. module: web
 #. openerp-web
@@ -32249,7 +32169,7 @@ msgstr "NIT"
 msgid "NONE"
 msgstr "لا شيء"
 
-#. modules: hr_payroll, web_editor, base_import, hr, web_planner, base, hr_recruitment, ressource_humaine, calendar, fetchmail, resource, mail, web_tour
+#. modules: ressource_humaine, fetchmail, resource, hr, mail, web_editor, calendar, hr_payroll, web_planner, base, base_import, web_tour, hr_recruitment
 #. openerp-web
 #: model:ir.model.fields,field_description:base.field_ir_act_report_xml_name
 #: model:ir.model.fields,field_description:base.field_ir_actions_name
@@ -32356,7 +32276,6 @@ msgstr "طبيعة الإعاقة"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_nature_travail_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_job_nature_travail_id
-#: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_nature_travail
 msgid "Nature Travail"
 msgstr "طبيعة العمل"
 
@@ -32384,21 +32303,6 @@ msgstr "عدد الأيام المتبقية"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_absence_nbr_jours_absence
 msgid "Nbr Jours Absence"
 msgstr "عدد أيام الغياب"
-
-#. module: ressource_humaine
-#: model:ir.model.fields,field_description:ressource_humaine.field_rh_nature_travail_nbr_poste_existe
-msgid "Nbr Poste Existe"
-msgstr "عدد المناصب المتوفرة"
-
-#. module: ressource_humaine
-#: model:ir.model.fields,field_description:ressource_humaine.field_rh_nature_travail_nbr_poste_max
-msgid "Nbr Poste Max"
-msgstr "عدد المناصب الأقصي"
-
-#. module: ressource_humaine
-#: model:ir.model.fields,field_description:ressource_humaine.field_rh_nature_travail_nbr_poste_non_occupe
-msgid "Nbr Poste Non Occupe"
-msgstr "عدد المناصب الشاغرة"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_absence_nbre_heure_absence
@@ -32464,7 +32368,7 @@ msgstr "هولندا - محاسبة"
 msgid "Never Connected"
 msgstr "لم يسجل الدخول أبداً"
 
-#. modules: hr_holidays, web, hr_recruitment, ressource_humaine, hr_contract
+#. modules: hr_contract, ressource_humaine, web, hr_holidays, hr_recruitment
 #. openerp-web
 #: selection:hr.contract,state:0
 #: selection:hr.employee,current_leave_state:0
@@ -32498,9 +32402,6 @@ msgstr "لم يسجل الدخول أبداً"
 #: code:addons/ressource_humaine/models/sanction.py:44
 #: code:addons/ressource_humaine/models/type_absence.py:14
 #: code:addons/ressource_humaine/models/type_conge.py:14
-#: code:addons/ressource_humaine/models/type_contrat.py:10
-#: code:addons/ressource_humaine/models/type_contrat.py:16
-#: code:addons/ressource_humaine/models/type_contrat.py:17
 #: code:addons/ressource_humaine/models/type_faute.py:12
 #: code:addons/ressource_humaine/models/type_faute.py:18
 #: code:addons/ressource_humaine/models/type_faute.py:19
@@ -32835,24 +32736,24 @@ msgstr "نييوي"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_contract_niveau_hierarchique_id
 msgid "Niveau Hierarchique"
-msgstr "Niveau Hierarchique"
+msgstr "الرتبة المهنية"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_niveau_hierarchique_new_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_wizard_niveau_hierarchique_new_id
 msgid "Niveau Hierarchique New"
-msgstr "Niveau Hierarchique New"
+msgstr "الرتبة المهنية الجديدة"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_niveau_hierarchique_old_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_wizard_niveau_hierarchique_old_id
 msgid "Niveau Hierarchique Old"
-msgstr "Niveau Hierarchique Old"
+msgstr "الرتبة المهنية الأصلية"
 
 #. module: ressource_humaine
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_niveau_hierarchique
 msgid "Niveau hierarchique"
-msgstr "Niveau hierarchique"
+msgstr "الرتبة المهنية"
 
 #. module: web
 #. openerp-web
@@ -33066,13 +32967,7 @@ msgstr "لا يوجد محادثة للإجابات"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.act_employee_count_pie_chart
-#: model:ir.ui.view,arch_db:ressource_humaine.dashboard_form_view
-msgid "Nombre d'employés par tranche des salaire"
-msgstr "عدد الموظفين لكل شريحة الاجور"
-
-#. module: ressource_humaine
-#: model:ir.ui.view,arch_db:ressource_humaine.employee_count_pie_chart
-msgid "Nombre d'employés par tranche des salaires"
+msgid "Nobmbre d'employés par tranche des salaire"
 msgstr "عدد الموظفين لكل شريحة الاجور"
 
 #. module: web
@@ -33095,12 +32990,17 @@ msgstr "لقب الإبن"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_nom_fr
 msgid "Nom Fr"
-msgstr "Nom (Fr)"
+msgstr "اللقب بالفرنسية"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_nom_mere
 msgid "Nom Mere"
 msgstr "إسم الأم"
+
+#. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.employee_count_pie_chart
+msgid "Nombre d'employés par tranche des salaires"
+msgstr "عدد الموظفين لكل شريحة الاجور"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_model_data_noupdate
@@ -33131,7 +33031,7 @@ msgstr "Non-relational field %r in dependency %r"
 msgid "Non-relational field name '%s' in related field '%s'"
 msgstr "Non-relational field name '%s' in related field '%s'"
 
-#. modules: web, web_editor, base
+#. modules: web, base, web_editor
 #. openerp-web
 #: selection:ir.mail_server,smtp_encryption:0
 #: code:addons/web/static/src/xml/base.xml:629
@@ -33146,7 +33046,7 @@ msgstr "لا شئ"
 msgid "Norfolk Island"
 msgstr "جزيرة نورفولك"
 
-#. modules: web_editor, hr_recruitment, web_responsive
+#. modules: web_responsive, hr_recruitment, web_editor
 #. openerp-web
 #: selection:hr.applicant,priority:0
 #: code:addons/web_editor/static/src/js/editor/rte.summernote.js:960
@@ -33232,7 +33132,7 @@ msgstr "تعليمة الإجازة"
 msgid "Note by"
 msgstr "ملاحظة من قبل"
 
-#. modules: hr_payroll, base, hr_contract, hr
+#. modules: hr_contract, hr_payroll, base, hr
 #: model:ir.model.fields,field_description:base.field_res_partner_comment
 #: model:ir.model.fields,field_description:base.field_res_users_comment
 #: model:ir.ui.view,arch_db:base.view_groups_form
@@ -33244,7 +33144,7 @@ msgstr "ملاحظة من قبل"
 msgid "Notes"
 msgstr "ملاحظات"
 
-#. modules: mail, calendar
+#. modules: calendar, mail
 #: selection:calendar.alarm,type:0
 #: model:ir.ui.view,arch_db:mail.view_mail_search
 msgid "Notification"
@@ -33295,7 +33195,7 @@ msgstr "رقم مرسوم الجريدة الرسمية"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_accident_travail_num_pv_accident_travail
 msgid "Num Pv Accident Travail"
-msgstr "رقم محضر حادث عمل"
+msgstr "رقم محضر الحادث المهني"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_absence_num_reference_absence
@@ -33358,7 +33258,7 @@ msgstr "عدد الاطفال"
 msgid "Number of Companies"
 msgstr "عدد المؤسسات"
 
-#. modules: hr_payroll, hr_holidays
+#. modules: hr_holidays, hr_payroll
 #: model:ir.model.fields,field_description:hr_holidays.field_hr_holidays_number_of_days
 #: model:ir.ui.view,arch_db:hr_holidays.view_holiday
 #: model:ir.ui.view,arch_db:hr_holidays.view_holiday_employee
@@ -33560,7 +33460,7 @@ msgstr "علاقة الكائن"
 msgid "Object:"
 msgstr "الكائن:"
 
-#. modules: web, mail, web_settings_dashboard
+#. modules: web, web_settings_dashboard, mail
 #. openerp-web
 #: model:ir.ui.view,arch_db:mail.message_user_assigned
 #: code:addons/web/static/src/js/core/dialog.js:51
@@ -35785,7 +35685,7 @@ msgstr "أطفئ"
 msgid "Offer"
 msgstr "عرض"
 
-#. modules: hr_payroll, hr_recruitment, hr_holidays, hr
+#. modules: hr_holidays, hr_payroll, hr_recruitment, hr
 #: model:res.groups,name:hr.group_hr_user
 #: model:res.groups,name:hr_holidays.group_hr_holidays_user
 #: model:res.groups,name:hr_payroll.group_hr_payroll_user
@@ -35793,7 +35693,7 @@ msgstr "عرض"
 msgid "Officer"
 msgstr "Officer"
 
-#. modules: mail, bus
+#. modules: bus, mail
 #. openerp-web
 #: selection:bus.presence,status:0
 #: code:addons/mail/static/src/xml/client_action.xml:120
@@ -35986,7 +35886,7 @@ msgstr "One2Many fields cannot be synchronized as part of `commercial_fields` or
 msgid "Ongoing"
 msgstr "جاري"
 
-#. modules: mail, bus
+#. modules: bus, mail
 #. openerp-web
 #: selection:bus.presence,status:0
 #: code:addons/mail/static/src/xml/client_action.xml:118
@@ -36473,7 +36373,7 @@ msgstr "اختياري: اسم المستخدم للتحقق من قبل ملق�
 msgid "Optional value to use if the target field is empty"
 msgstr "قيمة اختيارية للإستخدام إذا كان الحقل المطلوب خالي"
 
-#. modules: web_editor, hr_holidays, calendar
+#. modules: hr_holidays, calendar, web_editor
 #. openerp-web
 #: model:ir.ui.view,arch_db:calendar.view_calendar_event_form
 #: model:ir.ui.view,arch_db:hr_holidays.edit_holiday_status_form
@@ -36507,7 +36407,7 @@ msgstr "Ordre des  écriture comptables"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_formation_organisme_id
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_organisme
 msgid "Organisme"
-msgstr "المؤسسة"
+msgstr "مؤسسات التكوين"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_organisme_organisme_file_lines
@@ -36993,7 +36893,7 @@ msgstr "تجاوز بريد الناشر"
 msgid "Overwrite Existing Terms"
 msgstr "استبدل المصطلحات الموجودة"
 
-#. modules: base, mail, hr_recruitment, calendar
+#. modules: calendar, mail, base, hr_recruitment
 #: model:ir.model.fields,field_description:base.field_ir_attachment_create_uid
 #: model:ir.ui.view,arch_db:base.view_attachment_search
 #: model:ir.ui.view,arch_db:calendar.view_calendar_event_form
@@ -37124,7 +37024,7 @@ msgstr "تنسيق ورقة"
 msgid "Paper Format General Configuration"
 msgstr "الهيئة العامة لتنسيق ورقة"
 
-#. modules: base, base_setup
+#. modules: base_setup, base
 #: model:ir.model.fields,field_description:base.field_ir_act_report_xml_paperformat_id
 #: model:ir.model.fields,field_description:base.field_res_company_paperformat_id
 #: model:ir.model.fields,field_description:base_setup.field_res_config_settings_paperformat_id
@@ -37189,7 +37089,7 @@ msgstr "مخزن المعاملات "
 msgid "Paramètres techniques"
 msgstr "Paramètres techniques"
 
-#. modules: hr_payroll, mail, base_import, hr_holidays
+#. modules: hr_holidays, hr_payroll, mail, base_import
 #: model:ir.model.fields,field_description:base_import.field_base_import_tests_models_o2m_child_parent_id
 #: model:ir.model.fields,field_description:hr_holidays.field_hr_holidays_parent_id
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payroll_structure_parent_id
@@ -37340,7 +37240,7 @@ msgstr "الكلمات الدلالية للشريك"
 msgid "Partner Titles"
 msgstr "ألقاب الشريك"
 
-#. modules: base, calendar
+#. modules: calendar, base
 #: model:ir.model.fields,help:base.field_res_users_partner_id
 #: model:ir.model.fields,help:calendar.field_calendar_event_partner_id
 msgid "Partner-related data of the user"
@@ -37381,7 +37281,7 @@ msgstr "الشركاء: "
 msgid "Passport No"
 msgstr "رقم جواز السفر"
 
-#. modules: auth_signup, web, base, fetchmail
+#. modules: fetchmail, web, auth_signup, base
 #: model:ir.ui.view,arch_db:auth_signup.fields
 #: model:ir.model.fields,field_description:base.field_ir_mail_server_smtp_pass
 #: model:ir.model.fields,field_description:base.field_res_users_password
@@ -37411,7 +37311,7 @@ msgstr "استعادة كلمة المرور"
 msgid "Passwords do not match; please retype them."
 msgstr "خانتي كلمة المرور غير متطابقتين، يُرجى إعادة ملأهما."
 
-#. modules: base, web_tour
+#. modules: web_tour, base
 #. openerp-web
 #: model:ir.model.fields,field_description:base.field_ir_logging_path
 #: code:addons/web_tour/static/src/xml/debug_manager.xml:22
@@ -37419,14 +37319,13 @@ msgstr "خانتي كلمة المرور غير متطابقتين، يُرجى 
 msgid "Path"
 msgstr "مسار "
 
-#. modules: hr_payroll, hr_payroll_account
+#. module: hr_payroll
 #: model:ir.model,name:hr_payroll.model_hr_payslip
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip_input_payslip_id
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip_line_slip_id
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip_worked_days_payslip_id
 #: model:ir.ui.view,arch_db:hr_payroll.report_payslip
 #: model:ir.ui.view,arch_db:hr_payroll.report_payslipdetails
-#: model:ir.model,name:hr_payroll_account.model_hr_payslip
 msgid "Pay Slip"
 msgstr "ظرف المرتب"
 
@@ -37590,11 +37489,10 @@ msgstr "قسيمة الدفع"
 msgid "Payslip 'Date From' must be before 'Date To'."
 msgstr "قسيمة الراتب \"بداية التاريخ\" يجب ان تكون قبل \"نهاية التاريخ\""
 
-#. modules: hr_payroll, hr_payroll_account
+#. module: hr_payroll
 #: model:ir.model,name:hr_payroll.model_hr_payslip_run
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip_payslip_run_id
 #: model:ir.ui.view,arch_db:hr_payroll.hr_payslip_run_filter
-#: model:ir.model,name:hr_payroll_account.model_hr_payslip_run
 msgid "Payslip Batches"
 msgstr "دفعات ظرف المرتب"
 
@@ -37615,11 +37513,10 @@ msgstr "مدخل ظرف المرتب"
 msgid "Payslip Inputs"
 msgstr "مدخلات قسيمه الدفع "
 
-#. modules: hr_payroll, hr_payroll_account
+#. module: hr_payroll
 #: model:ir.model,name:hr_payroll.model_hr_payslip_line
 #: model:ir.ui.view,arch_db:hr_payroll.view_hr_payslip_form
 #: model:ir.ui.view,arch_db:hr_payroll.view_hr_payslip_line_form
-#: model:ir.model,name:hr_payroll_account.model_hr_payslip_line
 msgid "Payslip Line"
 msgstr "خط قسيمة الدفع"
 
@@ -37646,12 +37543,6 @@ msgstr "Payslip Name"
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip_worked_days_line_ids
 msgid "Payslip Worked Days"
 msgstr "ايام عمل قسيمه الدفع "
-
-#. module: hr_payroll_account
-#: code:addons/hr_payroll_account/models/hr_payroll_account.py:65
-#, python-format
-msgid "Payslip of %s"
-msgstr "قسيمة دفع مرتب لـ %s"
 
 #. module: hr_payroll
 #: model:ir.actions.act_window,name:hr_payroll.act_hr_employee_payslip_list
@@ -37871,7 +37762,7 @@ msgstr "مخطط"
 msgid "Planned activities"
 msgstr "الأنشطة المخطط لها"
 
-#. modules: base, web_planner
+#. modules: web_planner, base
 #: model:ir.module.module,shortdesc:base.module_web_planner
 #: model:ir.model,name:web_planner.model_web_planner
 #: model:ir.ui.view,arch_db:web_planner.web_planner_view_search
@@ -38039,7 +37930,7 @@ msgstr "نقطة المؤشرات"
 #. module: base
 #: model:ir.module.category,name:base.module_category_sales_point_of_sale
 msgid "Point Of Sale"
-msgstr "Point Of Sale"
+msgstr "نقطة البيع"
 
 #. module: base
 #: model:ir.module.category,name:base.module_category_point_of_sale
@@ -38250,7 +38141,7 @@ msgstr "إسم الإبن"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_prenom_fr
 msgid "Prenom Fr"
-msgstr "Prénom (Fr)"
+msgstr "الإسم بالفرنسية"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_prenom_mere
@@ -38318,7 +38209,7 @@ msgstr "دِقة السعر"
 msgid "Primary"
 msgstr "الرئيسي"
 
-#. modules: hr_payroll, web, hr_holidays
+#. modules: hr_holidays, web, hr_payroll
 #. openerp-web
 #: model:ir.ui.view,arch_db:hr_holidays.view_hr_holidays_summary_dept
 #: model:ir.ui.view,arch_db:hr_holidays.view_hr_holidays_summary_employee
@@ -38346,7 +38237,7 @@ msgstr "Printed Report Name"
 msgid "Priority"
 msgstr "الأولوية"
 
-#. modules: mail, calendar
+#. modules: calendar, mail
 #: model:ir.model.fields,field_description:calendar.field_calendar_event_privacy
 #: model:ir.ui.view,arch_db:calendar.view_calendar_event_search
 #: model:ir.model.fields,field_description:mail.field_mail_channel_public
@@ -38598,7 +38489,7 @@ msgstr "Project Management\n"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_rating_project
 msgid "Project Rating"
-msgstr "Project Rating"
+msgstr "تقييم المشروع"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_project
@@ -38611,6 +38502,11 @@ msgstr "المشاريع, المهام"
 #: model:ir.ui.menu,name:ressource_humaine.promotion_id
 msgid "Promotion"
 msgstr "الترقية"
+
+#. module: ressource_humaine
+#: model:ir.ui.menu,name:ressource_humaine.promotion_de_grade
+msgid "Promotion De Grade"
+msgstr "ترقية الدرجة"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_promotion_file_lines
@@ -38903,16 +38799,6 @@ msgstr "مدى"
 msgid "Range Based on"
 msgstr "نطاق على أساس"
 
-#. module: ressource_humaine
-#: model:ir.actions.act_window,name:ressource_humaine.open_employee_leaves
-msgid "Rapport"
-msgstr "تقرير"
-
-#. module: ressource_humaine
-#: model:ir.ui.menu,name:ressource_humaine.menu_hr_rapport
-msgid "Rapport Détails du congé"
-msgstr "تقرير تفاصيل الإجازة"
-
 #. module: base
 #: model:ir.module.module,summary:base.module_l10n_dz_reports
 msgid "Rapports financiers"
@@ -39014,7 +38900,7 @@ msgstr "Recent Color"
 msgid "Recipient"
 msgstr "المستلم"
 
-#. modules: mail, sms
+#. modules: sms, mail
 #: model:ir.model.fields,field_description:mail.field_email_template_preview_partner_ids
 #: model:ir.model.fields,field_description:mail.field_mail_mail_partner_ids
 #: model:ir.model.fields,field_description:mail.field_mail_message_partner_ids
@@ -39101,13 +38987,12 @@ msgstr "قواعد السجلات"
 msgid "Records:"
 msgstr "Records:"
 
-#. modules: ressource_humaine, base, hr_recruitment, hr
+#. modules: hr_recruitment, base, hr
 #: model:ir.module.category,name:base.module_category_hr_recruitment
 #: model:ir.ui.view,arch_db:hr.view_hr_job_form
 #: model:ir.ui.menu,name:hr_recruitment.menu_hr_recruitment_root
 #: model:ir.ui.view,arch_db:hr_recruitment.res_config_settings_view_form
 #: model:ir.ui.view,arch_db:hr_recruitment.view_hr_job_kanban
-#: model:ir.ui.menu,name:ressource_humaine.recruitment_id
 msgid "Recruitment"
 msgstr "التوظيف"
 
@@ -39150,7 +39035,7 @@ msgstr "مسؤول التوظيف"
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.act_employee_recruitment
 msgid "Recruitment des Employées"
-msgstr "Recruitment des Employées"
+msgstr "توظيف الموظفين"
 
 #. module: hr
 #: selection:hr.job,state:0
@@ -39166,17 +39051,12 @@ msgstr "تعيين"
 #: selection:hr.employee,methode_embauche:0
 #: model:ir.ui.menu,name:ressource_humaine.recrutement_id
 msgid "Recrutement"
-msgstr "توضيف"
-
-#. module: ressource_humaine
-#: model:ir.ui.view,arch_db:ressource_humaine.dashboard_form_view
-msgid "Recrutement des Employés"
-msgstr "توظيف الموظفين"
+msgstr "التوظيف"
 
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.recruitment_graph
 msgid "Recrutement par an"
-msgstr "Recrutement par an"
+msgstr "التوظيف سنويا"
 
 #. module: calendar
 #: model:ir.model.fields,field_description:calendar.field_calendar_event_rrule_type
@@ -39282,7 +39162,7 @@ msgstr "المسترجع"
 msgid "Refund: "
 msgstr "استرداد: "
 
-#. modules: hr_recruitment, hr_holidays
+#. modules: hr_holidays, hr_recruitment
 #: code:addons/hr_holidays/models/hr_holidays.py:589
 #: model:ir.ui.view,arch_db:hr_holidays.edit_holiday_new
 #: model:ir.ui.view,arch_db:hr_recruitment.crm_case_form_view_job
@@ -39290,7 +39170,7 @@ msgstr "استرداد: "
 msgid "Refuse"
 msgstr "رفض"
 
-#. modules: hr_recruitment, hr_holidays
+#. modules: hr_holidays, hr_recruitment
 #: selection:hr.employee,current_leave_state:0
 #: selection:hr.holidays,state:0
 #: model:mail.message.subtype,name:hr_holidays.mt_holidays_refused
@@ -39405,7 +39285,7 @@ msgstr "Related field '%s' does not have comodel '%s'"
 msgid "Related field '%s' does not have type '%s'"
 msgstr "الحقل المرتبط '%s' ليس به النوع '%s'"
 
-#. modules: resource, hr_holidays, hr
+#. modules: hr_holidays, resource, hr
 #: model:ir.model.fields,help:hr.field_hr_employee_user_id
 #: model:ir.model.fields,help:hr_holidays.field_hr_holidays_user_id
 #: model:ir.model.fields,help:resource.field_resource_resource_user_id
@@ -39611,7 +39491,7 @@ msgstr "Repair broken or damaged products"
 msgid "Repairs Management"
 msgstr "إدارة الإصلاحات"
 
-#. modules: web_editor, calendar
+#. modules: calendar, web_editor
 #. openerp-web
 #: model:ir.model.fields,field_description:calendar.field_calendar_event_count
 #: code:addons/web_editor/static/src/xml/editor.xml:334
@@ -39758,7 +39638,7 @@ msgstr "التقرير / القالب"
 msgid "Reported in last payslips"
 msgstr "تم الإبلاغ عنها في إيصالات المرتب الأخيرة"
 
-#. modules: base, hr_holidays, hr
+#. modules: hr_holidays, base, hr
 #: model:ir.module.category,name:base.module_category_reporting
 #: model:ir.ui.menu,name:base.reporting_menuitem
 #: model:ir.ui.menu,name:base.reports_menuitem
@@ -39908,7 +39788,7 @@ msgstr "Resize to force the height of this block"
 msgid "Resolve other errors first"
 msgstr "Resolve other errors first"
 
-#. modules: base, resource
+#. modules: resource, base
 #: model:ir.model.fields,field_description:base.field_ir_exports_resource
 #: model:ir.model.fields,field_description:base.field_ir_property_res_id
 #: model:ir.module.module,shortdesc:base.module_resource
@@ -39996,7 +39876,7 @@ msgstr "اوراق الموارد"
 msgid "Resources allow you to create and manage resources that should be involved in a specific project phase. You can also set their efficiency level and workload based on their weekly working hours."
 msgstr "الموارد تسمح لك بإنشاء وإدارة الموارد التي ينبغي أن تشارك في مرحلة مشروع معين. يمكنك أيضا تعيين مستوى الكفاءة وعبء العمل على أساس ساعات العمل الأسبوعية."
 
-#. modules: hr_recruitment, mail, calendar
+#. modules: calendar, hr_recruitment, mail
 #: model:ir.model.fields,field_description:calendar.field_calendar_event_partner_id
 #: model:ir.model.fields,field_description:calendar.field_calendar_event_user_id
 #: model:ir.ui.view,arch_db:calendar.view_calendar_event_search
@@ -40213,12 +40093,12 @@ msgstr "رواندا"
 #. module: ressource_humaine
 #: model:ir.ui.menu,name:ressource_humaine.referentiel_id
 msgid "Référentiels"
-msgstr "المستودعات"
+msgstr "الإعدادات"
 
 #. module: base
 #: model:res.country,name:base.re
 msgid "Réunion"
-msgstr "Réunion"
+msgstr "مقابلة"
 
 #. module: base
 #: model:res.partner.industry,full_name:base.res_partner_industry_S
@@ -40283,7 +40163,7 @@ msgstr "قيود الـ SQL"
 msgid "SSL"
 msgstr "بروتوكول SSL"
 
-#. modules: base, fetchmail
+#. modules: fetchmail, base
 #: selection:ir.mail_server,smtp_encryption:0
 #: model:ir.model.fields,field_description:fetchmail.field_fetchmail_server_is_ssl
 msgid "SSL/TLS"
@@ -40359,13 +40239,6 @@ msgstr "الراتب المتوقع من قبل المتقدم، مزايا إض
 msgid "Salary Information"
 msgstr "معلومات الراتب"
 
-#. module: hr_payroll_account
-#: model:ir.model.fields,field_description:hr_payroll_account.field_hr_contract_journal_id
-#: model:ir.model.fields,field_description:hr_payroll_account.field_hr_payslip_journal_id
-#: model:ir.model.fields,field_description:hr_payroll_account.field_hr_payslip_run_journal_id
-msgid "Salary Journal"
-msgstr "يومية الرواتب"
-
 #. module: hr_recruitment
 #: model:ir.model.fields,help:hr_recruitment.field_hr_applicant_salary_proposed
 msgid "Salary Proposed by the Organisation"
@@ -40431,7 +40304,7 @@ msgstr "هيكل المرتب"
 msgid "Salary Structures"
 msgstr "هياكل المرتب "
 
-#. modules: base, utm
+#. modules: utm, base
 #: model:ir.ui.view,arch_db:base.view_partner_form
 #: model:utm.campaign,name:utm.utm_campaign_fall_drive
 msgid "Sale"
@@ -40547,7 +40420,7 @@ msgstr "رقم الحساب المنسق"
 msgid "Sat"
 msgstr "سبت"
 
-#. modules: resource, calendar
+#. modules: calendar, resource
 #: selection:calendar.event,week_list:0
 #: selection:resource.calendar.attendance,dayofweek:0
 msgid "Saturday"
@@ -40563,7 +40436,7 @@ msgstr "المملكة العربية السعودية"
 msgid "Saudi Arabia - Accounting"
 msgstr "Saudi Arabia - Accounting"
 
-#. modules: web, web_editor, base
+#. modules: web, base, web_editor
 #. openerp-web
 #: model:ir.ui.view,arch_db:base.res_config_settings_view_form
 #: model:ir.ui.view,arch_db:base.view_company_report_form
@@ -40747,14 +40620,14 @@ msgstr "التعليم"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_hw_screen
 msgid "Screen Driver"
-msgstr "Screen Driver"
+msgstr "سائق الشاشة"
 
 #. module: fetchmail
 #: model:ir.model.fields,field_description:fetchmail.field_fetchmail_server_script
 msgid "Script"
 msgstr "نص برمجي"
 
-#. modules: web_editor, base
+#. modules: base, web_editor
 #. openerp-web
 #: model:ir.ui.view,arch_db:base.view_view_search
 #: selection:ir.ui.view,type:0
@@ -40945,37 +40818,37 @@ msgstr "القسم"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_section_new_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_wizard_section_new_id
 msgid "Section New"
-msgstr "Section New"
+msgstr "القسم الجديد"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_section_old_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_wizard_section_old_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avencement_droit_section_old_id
 msgid "Section Old"
-msgstr "Section Old"
+msgstr "القسم الأصلي"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_contract_section_superieure_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_niveau_hierarchique_section_superieure_id
 msgid "Section Superieure"
-msgstr "Section Superieure"
+msgstr "القسم العالي"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_section_superieure_new_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_wizard_section_superieure_new_id
 msgid "Section Superieure New"
-msgstr "Section Superieure New"
+msgstr "القسم العالي الجديد"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_section_superieure_old_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_wizard_section_superieure_old_id
 msgid "Section Superieure Old"
-msgstr "Section Superieure Old"
+msgstr "القسم العالي الأصلي"
 
 #. module: ressource_humaine
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_section_superieure
 msgid "Section superieure"
-msgstr "Section superieure"
+msgstr "القسم العالي"
 
 #. module: base
 #: model:ir.ui.menu,name:base.menu_security
@@ -41175,7 +41048,7 @@ msgstr "نصف سنوي"
 msgid "Semicolon"
 msgstr "Semicolon"
 
-#. modules: mail, sms
+#. modules: sms, mail
 #. openerp-web
 #: code:addons/mail/static/src/js/composer.js:382
 #: model:ir.ui.view,arch_db:mail.email_compose_message_wizard_form
@@ -41367,7 +41240,7 @@ msgstr "تنسيق الفاصل"
 msgid "Separator:"
 msgstr "الفاصل:"
 
-#. modules: hr_payroll, base, hr_recruitment, mail, hr_contract
+#. modules: hr_contract, mail, hr_payroll, base, hr_recruitment
 #: model:ir.model.fields,field_description:base.field_ir_act_server_sequence
 #: model:ir.model.fields,field_description:base.field_ir_act_window_view_sequence
 #: model:ir.model.fields,field_description:base.field_ir_actions_todo_sequence
@@ -41433,7 +41306,7 @@ msgstr "خادم"
 msgid "Server & Login"
 msgstr "الخادم و تسجيل الدخول"
 
-#. modules: base, fetchmail
+#. modules: fetchmail, base
 #: selection:ir.actions.server,usage:0
 #: model:ir.ui.view,arch_db:base.view_server_action_form
 #: model:ir.ui.view,arch_db:base.view_server_action_search
@@ -41504,7 +41377,7 @@ msgstr "الخدمة العسكرية"
 #. module: iap
 #: model:ir.model.fields,field_description:iap.field_iap_account_service_name
 msgid "Service Name"
-msgstr "Service Name"
+msgstr "اسم الخدمة"
 
 #. module: ressource_humaine
 #: selection:hr.employee,position_statutaire:0
@@ -41620,7 +41493,7 @@ msgstr "بتعيين قيمة سيكون هذا الإجراء متاحًا في
 msgid "Setting empty passwords is not allowed for security reasons!"
 msgstr "لا يمكن استخدام كلمات مرور فارغة لأسباب أمنية!"
 
-#. modules: hr_payroll, hr, base, hr_recruitment, base_setup, mail
+#. modules: base_setup, hr, mail, hr_payroll, base, hr_recruitment
 #. openerp-web
 #: model:ir.actions.act_window,name:base.res_config_setting_act_window
 #: model:ir.ui.menu,name:base.menu_administration
@@ -41919,7 +41792,7 @@ msgstr "أعزب"
 msgid "Sint Maarten (Dutch part)"
 msgstr "Sint Maarten (Dutch part)"
 
-#. modules: web_editor, base
+#. modules: base, web_editor
 #. openerp-web
 #: model:ir.model.fields,field_description:base.field_ir_model_fields_size
 #: code:addons/web_editor/static/src/xml/editor.xml:259
@@ -42095,7 +41968,7 @@ msgstr "ترتيب"
 msgid "Sorting field %s not found on model %s"
 msgstr "Sorting field %s not found on model %s"
 
-#. modules: hr_recruitment, utm
+#. modules: utm, hr_recruitment
 #: model:ir.model.fields,field_description:hr_recruitment.field_hr_recruitment_source_source_id
 #: model:ir.model,name:utm.model_utm_source
 #: model:ir.model.fields,field_description:utm.field_hr_applicant_source_id
@@ -42108,7 +41981,7 @@ msgstr "الأصل"
 msgid "Source Model"
 msgstr "النموذج المصدر"
 
-#. modules: hr_recruitment, utm
+#. modules: utm, hr_recruitment
 #: model:ir.model.fields,field_description:hr_recruitment.field_hr_recruitment_source_name
 #: model:ir.model.fields,field_description:utm.field_utm_source_name
 msgid "Source Name"
@@ -42323,7 +42196,7 @@ msgstr "مهم"
 msgid "Start"
 msgstr "بدء"
 
-#. modules: hr_holidays, resource, hr_contract, calendar
+#. modules: hr_contract, calendar, resource, hr_holidays
 #: model:ir.model.fields,field_description:calendar.field_calendar_event_start_date
 #: model:ir.ui.view,arch_db:calendar.view_calendar_event_tree
 #: model:ir.model.fields,field_description:hr_contract.field_hr_contract_date_start
@@ -42392,7 +42265,7 @@ msgstr "ابتداء تاريخ الإجازة حسب الشهر"
 msgid "Starting at"
 msgstr "ابتداء من"
 
-#. modules: ressource_humaine, base, mail, hr_contract
+#. modules: ressource_humaine, hr_contract, base, mail
 #: model:ir.model.fields,field_description:base.field_base_language_export_state
 #: model:ir.model.fields,field_description:base.field_res_partner_state_id
 #: model:ir.model.fields,field_description:base.field_res_users_state_id
@@ -42425,12 +42298,12 @@ msgstr "المحافظة"
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_country_state_code
 msgid "State Code"
-msgstr "State Code"
+msgstr "كود المحافظة"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_country_state_name
 msgid "State Name"
-msgstr "State Name"
+msgstr "إسم المحافظة"
 
 #. module: base
 #: model:res.country,name:base.ps
@@ -42443,7 +42316,7 @@ msgstr "الدولة الفلسطينية"
 msgid "States"
 msgstr "المحافظات"
 
-#. modules: hr_payroll, hr_holidays, hr, base, calendar, fetchmail, mail, auth_signup, hr_contract
+#. modules: hr_contract, fetchmail, hr, mail, calendar, hr_payroll, base, hr_holidays, auth_signup
 #: model:ir.model.fields,field_description:auth_signup.field_res_users_state
 #: model:ir.model.fields,field_description:base.field_base_language_install_state
 #: model:ir.model.fields,field_description:base.field_base_module_update_state
@@ -42648,7 +42521,7 @@ msgstr "حقل-فرعي"
 msgid "Sub-model"
 msgstr "النموذج الفرعي"
 
-#. modules: base, mail, calendar
+#. modules: calendar, base, mail
 #. openerp-web
 #: model:ir.ui.view,arch_db:base.res_request_link_search_view
 #: model:ir.ui.view,arch_db:calendar.view_calendar_event_tree
@@ -42794,7 +42667,7 @@ msgstr "الملخص"
 msgid "Sun"
 msgstr "أحد"
 
-#. modules: resource, calendar
+#. modules: calendar, resource
 #: selection:calendar.event,week_list:0
 #: selection:resource.calendar.attendance,dayofweek:0
 msgid "Sunday"
@@ -42991,12 +42864,13 @@ msgstr "طاولة"
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.action_employee_dashboard
 msgid "Tableau de Bord"
-msgstr "Tableau de Bord"
+msgstr "لوحة القيادة"
 
 #. module: ressource_humaine
+#: model:ir.ui.menu,name:ressource_humaine.menu_tableau_de_bord
 #: model:ir.ui.view,arch_db:ressource_humaine.dashboard_form_view
 msgid "Tableau de bord"
-msgstr "Tableau de bord"
+msgstr "لوحة القيادة"
 
 #. module: base
 #: selection:report.paperformat,format:0
@@ -43013,14 +42887,14 @@ msgstr "الوسم"
 msgid "Tag Name"
 msgstr "Tag Name"
 
-#. modules: hr, hr_recruitment, calendar
+#. modules: calendar, hr_recruitment, hr
 #: sql_constraint:calendar.event.type:0
 #: sql_constraint:hr.employee.category:0
 #: sql_constraint:hr.applicant.category:0
 msgid "Tag name already exists !"
 msgstr "هذا الوسم موجود بالفعل!"
 
-#. modules: hr, base, hr_recruitment, calendar
+#. modules: hr_recruitment, calendar, base, hr
 #: model:ir.model.fields,field_description:base.field_res_partner_category_id_893
 #: model:ir.model.fields,field_description:base.field_res_users_category_id
 #: model:ir.model.fields,field_description:calendar.field_calendar_event_categ_ids
@@ -43083,12 +42957,6 @@ msgstr "Task"
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_taux_handicap
 msgid "Taux Handicap"
 msgstr "معدل الإعاقة"
-
-#. module: hr_payroll_account
-#: model:ir.model.fields,field_description:hr_payroll_account.field_hr_payslip_line_account_tax_id
-#: model:ir.model.fields,field_description:hr_payroll_account.field_hr_salary_rule_account_tax_id
-msgid "Tax"
-msgstr "الضريبة"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_account_cash_basis_base_account
@@ -43200,11 +43068,11 @@ msgstr "قالب المستخدم عندما يقوم أحدهم بالتسجي�
 msgid "Templates"
 msgstr "قوالب"
 
-#. modules: base, ressource_humaine
+#. modules: ressource_humaine, base
 #: model:ir.module.module,shortdesc:base.module_wizard_test
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avencement_droit_test
 msgid "Test"
-msgstr "Test"
+msgstr "امتحان"
 
 #. module: fetchmail
 #: model:ir.ui.view,arch_db:fetchmail.view_email_server_form
@@ -43325,18 +43193,6 @@ msgstr "الـ"
 #, python-format
 msgid "The \"App Switcher\" action cannot be selected as home action."
 msgstr "The \"App Switcher\" action cannot be selected as home action."
-
-#. module: hr_payroll_account
-#: code:addons/hr_payroll_account/models/hr_payroll_account.py:112
-#, python-format
-msgid "The Expense Journal \"%s\" has not properly configured the Credit Account!"
-msgstr "يومية النفقات \"%s\" لم يتم إعدادها بشكل صحيح لحساب الخصم الائتمان!"
-
-#. module: hr_payroll_account
-#: code:addons/hr_payroll_account/models/hr_payroll_account.py:127
-#, python-format
-msgid "The Expense Journal \"%s\" has not properly configured the Debit Account!"
-msgstr "يومية النفقات \"%s\" لم يتم إعدادها بشكل صحيح لحساب الخصم!"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_res_country_code
@@ -43764,7 +43620,7 @@ msgstr "الخطوة التالية تعتمد على تنسيق الملف:"
 msgid "The number of days must be greater than 0."
 msgstr "عدد الأيام يجب أن يكون أكثر من 0"
 
-#. modules: ressource_humaine, hr_holidays
+#. modules: hr_holidays, ressource_humaine
 #: code:addons/hr_holidays/models/hr_holidays.py:262
 #: code:addons/ressource_humaine/models/hr_holidays_inherit.py:58
 #, python-format
@@ -43995,7 +43851,7 @@ msgstr "The value for the field '%s' already exists (this is probably '%s' in th
 msgid "The values for the fields '%s' already exist (they are probably '%s' in the current model)."
 msgstr "The values for the fields '%s' already exist (they are probably '%s' in the current model)."
 
-#. modules: base, enterprise_theme
+#. modules: enterprise_theme, base
 #: model:ir.module.category,name:base.module_category_theme
 #: model:ir.ui.view,arch_db:enterprise_theme.res_company_form
 msgid "Theme"
@@ -44324,7 +44180,7 @@ msgstr "مناقشة"
 msgid "Thu"
 msgstr "خمس"
 
-#. modules: resource, calendar
+#. modules: calendar, resource
 #: selection:calendar.event,week_list:0
 #: selection:resource.calendar.attendance,dayofweek:0
 msgid "Thursday"
@@ -44368,7 +44224,7 @@ msgstr "الجداول الزمنيه "
 msgid "Timesheets/attendances reporting"
 msgstr "سجلات الأنشطة/تقارير الحضور"
 
-#. modules: base, resource
+#. modules: resource, base
 #: model:ir.model.fields,field_description:base.field_res_partner_tz
 #: model:ir.model.fields,field_description:base.field_res_users_tz
 #: model:ir.model.fields,field_description:resource.field_resource_calendar_leaves_tz
@@ -44449,7 +44305,7 @@ msgstr "للاعتماد"
 msgid "To Date"
 msgstr "الى تاريخ"
 
-#. modules: base, hr_holidays
+#. modules: hr_holidays, base
 #: selection:ir.actions.todo,state:0
 #: model:ir.ui.view,arch_db:base.config_wizard_step_view_search
 #: model:ir.ui.view,arch_db:hr_holidays.view_hr_holidays_filter
@@ -44618,7 +44474,7 @@ msgstr "الهامش العلوي (مم)"
 msgid "Topics discussed in this group..."
 msgstr "الموضوعات المناقشة في هذه المجموعة..."
 
-#. modules: hr_payroll, web, hr_org_chart
+#. modules: web, hr_org_chart, hr_payroll
 #. openerp-web
 #: code:addons/hr_org_chart/static/src/xml/hr_org_chart.xml:145
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip_line_total
@@ -44671,7 +44527,7 @@ msgstr "واجهة شاشة اللمس للمتاجر"
 msgid "Tour name"
 msgstr "Tour name"
 
-#. modules: base, web_tour
+#. modules: web_tour, base
 #: model:ir.module.module,shortdesc:base.module_web_tour
 #: model:ir.actions.act_window,name:web_tour.edit_tour_action
 #: model:ir.model,name:web_tour.model_web_tour_tour
@@ -44743,13 +44599,13 @@ msgstr "Traitement fiscal"
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.employee_count_pie_chart
 msgid "Tranche de Salaire"
-msgstr "Tranche de Salaire"
+msgstr "شريحة الاجور"
 
 #. module: base
 #: model:ir.module.module,description:base.module_payment_transfer
 #: model:ir.module.module,shortdesc:base.module_payment_transfer
 msgid "Transfer Payment Acquirer"
-msgstr "Transfer Payment Acquirer"
+msgstr "تحويل متلقي الدفع"
 
 #. module: ressource_humaine
 #: selection:hr.employee,methode_embauche:0
@@ -44887,7 +44743,7 @@ msgid "Translation is not valid:\n"
 msgstr "الترجمة ليست سارية المفعول:\n"
 "%s"
 
-#. modules: base, web_settings_dashboard
+#. modules: web_settings_dashboard, base
 #. openerp-web
 #: model:ir.ui.menu,name:base.menu_translation
 #: model:ir.ui.view,arch_db:base.view_translation_dialog_tree
@@ -44956,7 +44812,7 @@ msgstr "محاولة إعادة الاتصال ..."
 msgid "Tue"
 msgstr "ثلا"
 
-#. modules: resource, calendar
+#. modules: calendar, resource
 #: selection:calendar.event,week_list:0
 #: selection:resource.calendar.attendance,dayofweek:0
 msgid "Tuesday"
@@ -45024,7 +44880,7 @@ msgstr "Twitter Roller"
 msgid "Two sequence object implementations are offered: Standard and 'No gap'. The later is slower than the former but forbids any gap in the sequence (while they are possible in the former)."
 msgstr "Two sequence object implementations are offered: Standard and 'No gap'. The later is slower than the former but forbids any gap in the sequence (while they are possible in the former)."
 
-#. modules: hr_holidays, base, ressource_humaine, calendar, resource, mail
+#. modules: ressource_humaine, resource, mail, calendar, base, hr_holidays
 #: model:ir.model.fields,field_description:base.field_ir_attachment_type
 #: model:ir.model.fields,field_description:base.field_ir_logging_type
 #: model:ir.model.fields,field_description:base.field_ir_model_fields_state
@@ -45049,7 +44905,7 @@ msgstr "النوع"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_absence_type_absence_id
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_type_faute
 msgid "Type Absence"
-msgstr "نوع الغياب"
+msgstr "أنواع الغيابات"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.action_rh_type_faute
@@ -45062,7 +44918,7 @@ msgstr "نوع الخطأ"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_file_type_file
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_type_file
 msgid "Type File"
-msgstr "نوع الملف"
+msgstr "أنواع الملفات"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_fin_relation_type_fin_relation_id
@@ -45074,12 +44930,12 @@ msgstr "نوع نهاية العلاقة"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_echelon_type_fonction
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_type_fonction
 msgid "Type Fonction"
-msgstr "نوع الوظيفة"
+msgstr "أنواع الوظيفة"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_formation_type_formation_id
 msgid "Type Formation"
-msgstr "نوع التكوين"
+msgstr "أنواع التكوين"
 
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.job_form
@@ -45091,13 +44947,7 @@ msgstr "نوع المنصب"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_sanction_type_sanction_id
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_type_sanction
 msgid "Type Sanction"
-msgstr " نوع العقوبة"
-
-#. module: ressource_humaine
-#: model:ir.actions.act_window,name:ressource_humaine.action_rh_type_contrat
-#: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_type_contrat
-msgid "Type contrat"
-msgstr " نوع العقد"
+msgstr "أنواع العقوبات"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.action_rh_type_file
@@ -45108,18 +44958,18 @@ msgstr " نوع الملف"
 #: model:ir.actions.act_window,name:ressource_humaine.action_rh_type_fin_relation
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_type_fin_relation
 msgid "Type fin relation"
-msgstr "نوع نهاية العلاقة"
+msgstr "أنواع نهاية العلاقة"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.action_rh_type_fonction
 msgid "Type fonction"
-msgstr "نوع الوظيفة"
+msgstr "أنواع الوظيفة"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.action_rh_type_formation
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_type_formation
 msgid "Type formation"
-msgstr "نوع التكوين"
+msgstr "أنواع التكوين"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_act_server_state
@@ -45498,7 +45348,7 @@ msgstr "قائمة غير مرتبة"
 msgid "Unpaid"
 msgstr "غير مدفوعة"
 
-#. modules: hr_holidays, hr, hr_recruitment, calendar, mail
+#. modules: mail, hr, calendar, hr_holidays, hr_recruitment
 #: model:ir.ui.view,arch_db:calendar.view_calendar_event_search
 #: model:ir.ui.view,arch_db:hr.hr_kanban_view_employees
 #: model:ir.ui.view,arch_db:hr.view_department_filter
@@ -45786,7 +45636,7 @@ msgstr "خطأ بالرفع"
 msgid "Uploading error"
 msgstr "خطأ في التحميل"
 
-#. modules: web, web_editor, document
+#. modules: web, document, web_editor
 #. openerp-web
 #: code:addons/document/static/src/js/document.js:156
 #: code:addons/web/static/src/xml/base.xml:899
@@ -45822,7 +45672,7 @@ msgstr "اوروغواي"
 msgid "Uruguay - Chart of Accounts"
 msgstr "Uruguay - Chart of Accounts"
 
-#. modules: base, decimal_precision
+#. modules: decimal_precision, base
 #: model:ir.model.fields,field_description:base.field_ir_act_server_usage
 #: model:ir.model.fields,field_description:base.field_ir_cron_usage
 #: model:ir.ui.view,arch_db:base.view_server_action_search
@@ -45989,7 +45839,7 @@ msgstr "يستخدم لطلب الأنواع الفرعية."
 msgid "Used to select automatically the right address according to the context in sales and purchases documents."
 msgstr "تستخدم للإختيار التلقائي العنوان الصحيح بناءاً علي سياق المستندات في المبيعات و المشتريات."
 
-#. modules: hr_holidays, hr, base, resource, mail
+#. modules: resource, mail, hr, base, hr_holidays
 #: model:ir.model.fields,field_description:base.field_change_password_user_user_id
 #: model:ir.model.fields,field_description:base.field_ir_default_user_id
 #: model:ir.model.fields,field_description:base.field_ir_filters_user_id
@@ -46072,13 +45922,13 @@ msgstr "User-defined Filters"
 msgid "User:"
 msgstr "المستخدم:"
 
-#. modules: base, fetchmail
+#. modules: fetchmail, base
 #: model:ir.model.fields,field_description:base.field_ir_mail_server_smtp_user
 #: model:ir.model.fields,field_description:fetchmail.field_fetchmail_server_user
 msgid "Username"
 msgstr "اسم المستخدم"
 
-#. modules: enterprise_theme, hr, base, base_setup, web_responsive, web_settings_dashboard, hr_gamification, resource, mail, bus, auth_signup, auth_crypt
+#. modules: base_setup, web_settings_dashboard, web_responsive, resource, enterprise_theme, hr, hr_gamification, mail, base, bus, auth_crypt, auth_signup
 #: model:ir.model,name:auth_crypt.model_res_users
 #: model:ir.model,name:auth_signup.model_res_users
 #: model:ir.actions.act_window,name:base.action_res_users
@@ -46557,7 +46407,7 @@ msgstr "مرئي"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_visite_medical_line_visite_medical_id
 msgid "Visite Medical"
-msgstr "زيارة طبية"
+msgstr "الزيارت الطبية"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_visite_medical_detaille_id
@@ -46579,12 +46429,12 @@ msgstr "خطوط الزيارة الطبية"
 #. module: ressource_humaine
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_visite_medicale
 msgid "Visite Medicale"
-msgstr "زيارة طبية"
+msgstr "الزيارت الطبية"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.action_rh_visite_medicale
 msgid "Visite médicale"
-msgstr "زيارة طبية"
+msgstr "الزيارت الطبية"
 
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_visite_medicale_form
@@ -46658,7 +46508,7 @@ msgstr "المخزون"
 msgid "Warehouse Management: Batch Picking"
 msgstr "إدارة المخزن: الاستلام على دفعات"
 
-#. modules: web, web_editor, base
+#. modules: web, base, web_editor
 #. openerp-web
 #: code:addons/base/ir/ir_mail_server.py:494
 #: code:addons/base/ir/ir_model.py:439
@@ -46897,7 +46747,7 @@ msgstr "Website of Partner or Company"
 msgid "Wed"
 msgstr "أرب"
 
-#. modules: resource, calendar
+#. modules: calendar, resource
 #: selection:calendar.event,week_list:0
 #: selection:resource.calendar.attendance,dayofweek:0
 msgid "Wednesday"
@@ -48018,7 +47868,7 @@ msgstr "غياب.التكوين"
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.action_rh_accident_travail
 msgid "accident_travail"
-msgstr "حادث_عمل"
+msgstr "حادث مهني"
 
 #. module: base
 #: model:ir.module.category,name:base.module_category_account
@@ -48039,7 +47889,7 @@ msgstr "اللقب %s: %s"
 msgid "all records"
 msgstr "كافة السجلات"
 
-#. modules: web_editor, base
+#. modules: base, web_editor
 #. openerp-web
 #: code:addons/base/res/res_currency.py:117
 #: code:addons/web_editor/static/src/xml/editor.xml:199
@@ -48078,7 +47928,7 @@ msgstr "تلقائي"
 #: model:ir.actions.act_window,name:ressource_humaine.action_rh_avancement
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_avancement
 msgid "avancement"
-msgstr "avancement"
+msgstr "تقدم"
 
 #. modules: web, base
 #: model:ir.model,name:base.model_base
@@ -48213,12 +48063,12 @@ msgstr "الفئة"
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.action_rh_categorie_superieure
 msgid "categorie superieure"
-msgstr "categorie superieure"
+msgstr "الفئة العليا"
 
 #. module: ressource_humaine
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_categorie_superieure
 msgid "categorie_superieure"
-msgstr "categorie_superieure"
+msgstr "الفئة العليا"
 
 #. module: base
 #: selection:ir.model.fields,ttype:0
@@ -48353,12 +48203,12 @@ msgstr "تم\n"
 #. module: ressource_humaine
 #: model:ir.model,name:ressource_humaine.model_droit_avancement
 msgid "droit.avancement"
-msgstr "droit.avancement"
+msgstr "حق.تقدم"
 
 #. module: ressource_humaine
 #: model:ir.model,name:ressource_humaine.model_droit_avencement
 msgid "droit.avencement"
-msgstr "droit.avencement"
+msgstr "حق.تقدم"
 
 #. module: ressource_humaine
 #: model:ir.model,name:ressource_humaine.model_droit_conge
@@ -48474,7 +48324,7 @@ msgstr "email@yourcompany.com"
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.action_ressource_humaine
 msgid "emloyee"
-msgstr "emloyee"
+msgstr "موظف"
 
 #. module: mail
 #. openerp-web
@@ -48616,9 +48466,8 @@ msgstr "تم فعلها"
 msgid "holidays"
 msgstr "العطل"
 
-#. modules: hr_payroll, hr_payroll_account
+#. module: hr_payroll
 #: model:ir.model,name:hr_payroll.model_hr_salary_rule
-#: model:ir.model,name:hr_payroll_account.model_hr_salary_rule
 msgid "hr.salary.rule"
 msgstr "hr.salary.rule"
 
@@ -48689,7 +48538,7 @@ msgstr "لا يمكن أن يكون الفاصل سالباً."
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_section_superieure_form
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_section_superieure_tree
 msgid "intitule"
-msgstr "intitule"
+msgstr "التسمية"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_invest
@@ -48747,7 +48596,7 @@ msgstr "ir.actions.report"
 msgid "ir.actions.server"
 msgstr "ir.actions.server"
 
-#. modules: document, web_editor, base, calendar
+#. modules: document, calendar, base, web_editor
 #: model:ir.model,name:base.model_ir_attachment
 #: model:ir.model,name:calendar.model_ir_attachment
 #: model:ir.model,name:document.model_ir_attachment
@@ -48821,13 +48670,13 @@ msgstr "ir.model.relation"
 msgid "ir.property"
 msgstr "ir.property"
 
-#. modules: web_editor, base
+#. modules: base, web_editor
 #: model:ir.model,name:base.model_ir_qweb
 #: model:ir.model,name:web_editor.model_ir_qweb
 msgid "ir.qweb"
 msgstr "ir.qweb"
 
-#. modules: web_editor, base
+#. modules: base, web_editor
 #: model:ir.model,name:base.model_ir_qweb_field
 #: model:ir.model,name:web_editor.model_ir_qweb_field
 msgid "ir.qweb.field"
@@ -48838,31 +48687,31 @@ msgstr "ir.qweb.field"
 msgid "ir.qweb.field.barcode"
 msgstr "ir.qweb.field.barcode"
 
-#. modules: web_editor, base
+#. modules: base, web_editor
 #: model:ir.model,name:base.model_ir_qweb_field_contact
 #: model:ir.model,name:web_editor.model_ir_qweb_field_contact
 msgid "ir.qweb.field.contact"
 msgstr "ir.qweb.field.contact"
 
-#. modules: web_editor, base
+#. modules: base, web_editor
 #: model:ir.model,name:base.model_ir_qweb_field_date
 #: model:ir.model,name:web_editor.model_ir_qweb_field_date
 msgid "ir.qweb.field.date"
 msgstr "ir.qweb.field.date"
 
-#. modules: web_editor, base
+#. modules: base, web_editor
 #: model:ir.model,name:base.model_ir_qweb_field_datetime
 #: model:ir.model,name:web_editor.model_ir_qweb_field_datetime
 msgid "ir.qweb.field.datetime"
 msgstr "ir.qweb.field.datetime"
 
-#. modules: web_editor, base
+#. modules: base, web_editor
 #: model:ir.model,name:base.model_ir_qweb_field_duration
 #: model:ir.model,name:web_editor.model_ir_qweb_field_duration
 msgid "ir.qweb.field.duration"
 msgstr "ir.qweb.field.duration"
 
-#. modules: web_editor, base, decimal_precision
+#. modules: decimal_precision, base, web_editor
 #: model:ir.model,name:base.model_ir_qweb_field_float
 #: model:ir.model,name:decimal_precision.model_ir_qweb_field_float
 #: model:ir.model,name:web_editor.model_ir_qweb_field_float
@@ -48874,56 +48723,56 @@ msgstr "الأشعة.الويب.حقل.عوامة"
 msgid "ir.qweb.field.float_time"
 msgstr "ir.qweb.field.float_time"
 
-#. modules: web_editor, base
+#. modules: base, web_editor
 #: model:ir.model,name:base.model_ir_qweb_field_html
 #: model:ir.model,name:web_editor.model_ir_qweb_field_html
 msgid "ir.qweb.field.html"
 msgstr "ir.qweb.field.html"
 
-#. modules: web, web_editor, base
+#. modules: web, base, web_editor
 #: model:ir.model,name:base.model_ir_qweb_field_image
 #: model:ir.model,name:web.model_ir_qweb_field_image
 #: model:ir.model,name:web_editor.model_ir_qweb_field_image
 msgid "ir.qweb.field.image"
 msgstr "ir.qweb.field.image"
 
-#. modules: web_editor, base
+#. modules: base, web_editor
 #: model:ir.model,name:base.model_ir_qweb_field_integer
 #: model:ir.model,name:web_editor.model_ir_qweb_field_integer
 msgid "ir.qweb.field.integer"
 msgstr "ir.qweb.field.integer"
 
-#. modules: web_editor, base
+#. modules: base, web_editor
 #: model:ir.model,name:base.model_ir_qweb_field_many2one
 #: model:ir.model,name:web_editor.model_ir_qweb_field_many2one
 msgid "ir.qweb.field.many2one"
 msgstr "ir.qweb.field.many2one"
 
-#. modules: web_editor, base
+#. modules: base, web_editor
 #: model:ir.model,name:base.model_ir_qweb_field_monetary
 #: model:ir.model,name:web_editor.model_ir_qweb_field_monetary
 msgid "ir.qweb.field.monetary"
 msgstr "ir.qweb.field.monetary"
 
-#. modules: web_editor, base
+#. modules: base, web_editor
 #: model:ir.model,name:base.model_ir_qweb_field_qweb
 #: model:ir.model,name:web_editor.model_ir_qweb_field_qweb
 msgid "ir.qweb.field.qweb"
 msgstr "ir.qweb.field.qweb"
 
-#. modules: web_editor, base
+#. modules: base, web_editor
 #: model:ir.model,name:base.model_ir_qweb_field_relative
 #: model:ir.model,name:web_editor.model_ir_qweb_field_relative
 msgid "ir.qweb.field.relative"
 msgstr "ir.qweb.field.relative"
 
-#. modules: web_editor, base
+#. modules: base, web_editor
 #: model:ir.model,name:base.model_ir_qweb_field_selection
 #: model:ir.model,name:web_editor.model_ir_qweb_field_selection
 msgid "ir.qweb.field.selection"
 msgstr "ir.qweb.field.selection"
 
-#. modules: web_editor, base
+#. modules: base, web_editor
 #: model:ir.model,name:base.model_ir_qweb_field_text
 #: model:ir.model,name:web_editor.model_ir_qweb_field_text
 msgid "ir.qweb.field.text"
@@ -48944,7 +48793,7 @@ msgstr "ir.sequence"
 msgid "ir.sequence.date_range"
 msgstr "ir.sequence.date_range"
 
-#. modules: web_editor, base
+#. modules: base, web_editor
 #: model:ir.model,name:base.model_ir_translation
 #: model:ir.model,name:web_editor.model_ir_translation
 msgid "ir.translation"
@@ -48955,7 +48804,7 @@ msgstr "ir.translation"
 msgid "ir.ui.menu"
 msgstr "ir.ui.menu"
 
-#. modules: web_editor, base
+#. modules: base, web_editor
 #: model:ir.model,name:base.model_ir_ui_view
 #: model:ir.model,name:web_editor.model_ir_ui_view
 msgid "ir.ui.view"
@@ -49207,14 +49056,9 @@ msgid "name"
 msgstr "إسم"
 
 #. module: ressource_humaine
-#: model:ir.actions.act_window,name:ressource_humaine.action_rh_nature_travail
-msgid "nature.travail"
-msgstr "طبيعة.العمل"
-
-#. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.action_rh_niveau_hierarchique
 msgid "niveau.hierarchique"
-msgstr "niveau.hierarchique"
+msgstr "مستوى مهني"
 
 #. module: base
 #: code:addons/base/ir/ir_fields.py:143
@@ -49493,7 +49337,7 @@ msgstr "الدقة.التكوين"
 msgid "res.config.installer"
 msgstr "الدقة.التكوين.المثبت"
 
-#. modules: hr_payroll, hr, base, hr_recruitment, base_setup, mail, auth_signup
+#. modules: base_setup, hr, mail, hr_payroll, base, auth_signup, hr_recruitment
 #: model:ir.model,name:auth_signup.model_res_config_settings
 #: model:ir.model,name:base.model_res_config_settings
 #: model:ir.model,name:base_setup.model_res_config_settings
@@ -49528,7 +49372,7 @@ msgstr "إعادة تعيين القيمة thread_id"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_ressource_humaine
 msgid "ressource_humaine"
-msgstr "ressource_humaine"
+msgstr "الموارد البشرية"
 
 #. module: mail
 #: code:addons/mail/models/mail_channel.py:277
@@ -49815,7 +49659,7 @@ msgstr "القسم"
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_niveau_hierarchique_form
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_niveau_hierarchique_tree
 msgid "section superieure"
-msgstr "section superieure"
+msgstr "القسم العالي"
 
 #. module: base
 #: selection:ir.model.fields,ttype:0
@@ -49977,7 +49821,7 @@ msgstr "صحيح"
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_echelon_form
 msgid "type fonction"
-msgstr "type fonction"
+msgstr "أنواع الوظيفة"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_university
@@ -50072,6 +49916,11 @@ msgstr "، نحـن السـيد المدير\n"
 #: model:ir.ui.view,arch_db:ressource_humaine.report_cnas_header
 msgid "التأمينات الإجتماعية ـ"
 msgstr "التأمينات الإجتماعية ـ"
+
+#. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.dashboard_form_view
+msgid "التوظيف سنويا"
+msgstr "التوظيف سنويا"
 
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.planning_conge
@@ -50172,6 +50021,16 @@ msgid "بصفتها"
 msgstr "بصفتها"
 
 #. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.dashboard_form_view
+msgid "تكلفة الاجور"
+msgstr "تكلفة الاجور"
+
+#. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.dashboard_form_view
+msgid "توزيع الموظفين"
+msgstr "توزيع الموظفين"
+
+#. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.planning_conge
 msgid "جدول يتضمن رزنامة العطلة السنوية لسنة"
 msgstr "جدول يتضمن رزنامة العطلة السنوية لسنة"
@@ -50180,6 +50039,11 @@ msgstr "جدول يتضمن رزنامة العطلة السنوية لسنة"
 #: model:ir.ui.view,arch_db:ressource_humaine.renew_contract_report
 msgid "رقم .......... المؤرخ في"
 msgstr "رقم .......... المؤرخ في"
+
+#. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.dashboard_form_view
+msgid "عدد الموظفين لكل شريحة الاجور"
+msgstr "عدد الموظفين لكل شريحة الاجور"
 
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.titre_conge
@@ -50196,6 +50060,16 @@ msgstr "ـ بناء على جدول العطلة السنوية لمستخدمي
 #: model:ir.ui.view,arch_db:ressource_humaine.renew_contract_report
 msgid "ـ و بناء على"
 msgstr "ـ و بناء على"
+
+#. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.dashboard_form_view
+msgid "قائمة الموظفين (رجال)"
+msgstr "قائمة الموظفين (رجال)"
+
+#. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.dashboard_form_view
+msgid "قائمة الموظفين (نساء)"
+msgstr "قائمة الموظفين (نساء)"
 
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.pv_instalation

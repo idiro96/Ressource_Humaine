@@ -6,9 +6,9 @@
 
 
             <tree>
-                <field name="intitule" string="intitule"/>
-                <field name="section_superieure_id" string="section superieure"/>
-                <field name="bonification_indiciaire" string="Bonification indiciaire"/>
+                <field name="intitule"/>
+                <field name="section_superieure_id"/>
+                <field name="bonification_indiciaire"/>
 
             </tree>
         </field>
@@ -21,9 +21,9 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="intitule" string="intitule"/>
-                        <field name="section_superieure_id" string="section superieure"/>
-                        <field name="bonification_indiciaire" string="Bonification indiciaire"/>
+                        <field name="intitule"/>
+                        <field name="section_superieure_id"/>
+                        <field name="bonification_indiciaire"/>
                     </group>
 
                 </sheet>

@@ -47,4 +47,3 @@ from . import promotion_ligne
 from . import avancement_ligne
 from . import type_fonction
 from . import avencement_droit
-
