@@ -10,6 +10,7 @@ class RHAvancementLine(models.Model):
     date_avancement = fields.Date()
     avancement_id = fields.Many2one('hr.avancement')
     employee_id = fields.Many2one('hr.employee')
+    type_fonction_id = fields.Many2one('rh.type.fonction')
     groupe_old_id = fields.Many2one('rh.groupe')
     categorie_old_id = fields.Many2one('rh.categorie')
     section_old_id = fields.Many2one('rh.section')

@@ -36,6 +36,6 @@
             <p class="o_view_nocontent_smiling_face">Création d'un type de file</p>
         </field>
     </record>
-            <menuitem name="Type File" id="ressource_humaine_type_file" parent="referentiel_id"
+            <menuitem name="Type File" id="ressource_humaine_type_file" parent="referentiel_id" sequence="5"
            action="action_rh_type_file"/>
 </odoo>

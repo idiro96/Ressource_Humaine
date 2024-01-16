@@ -12,30 +12,81 @@ class RHAvancement(models.Model):
     avancement_lines = fields.One2many('rh.avancement.line', inverse_name='avancement_id')
     avancement_lines_wizard = fields.One2many('rh.avancement.line.wizard', inverse_name='avancement_id')
 
+    avancement_wizard = fields.Boolean(default=True)
     # promotion_file_lines = fields.One2many('rh.file', 'promotion_id')
 
-    # @api.model
-    # def create(self, vals):
-    #
-    #     # avancement = super(RHAvancement, self).create(vals)
-    #     if self.avancement_lines_wizard:
-    #         for rec in self.avancement_lines_wizard:
-    #             print('tttttttttetste')
-    #             self.env['rh.avancement.line'].create({
-    #             'employee_id': rec.employee_id.id,
-    #             # 'avancement_id': self.id,
-    #             'categorie_new_id': rec.categorie_new_id.id,
-    #             'section_new_id': rec.section_new_id.id,
-    #             'echelon_new_id': rec.echelon_new_id.id
-    #
-    #         })
+    @api.model
+    def create(self, vals):
+        for rec2 in self:
+            rec2.avancement_wizard = False
+            print(rec2.avancement_wizard)
+            print('tttttttttetste1wizard')
+        avancement = super(RHAvancement, self).create(vals)
+        if avancement.avancement_lines_wizard and avancement.avancement_lines_wizard.ids:
+            print(avancement.avancement_lines_wizard)
+            for rec in avancement.avancement_lines_wizard:
+                if rec.employee_id.nature_travail_id.code_type_fonction == 'fonction':
+
+                    avance_line = self.env['rh.avancement.line'].create({
+                    'employee_id': rec.employee_id.id,
+                    'type_fonction_id': rec.employee_id.nature_travail_id.id,
+                    'date_avancement': avancement.date_avancement,
+                    'avancement_id': avancement.id,
+                    'groupe_old_id': rec.groupe_old_id.id,
+                    'categorie_old_id': rec.categorie_old_id.id,
+                    'echelon_old_id': rec.echelon_old_id.id,
+
+                    'groupe_new_id': None,
+                    'categorie_new_id': None,
+                    'echelon_new_id': None,
+                    })
+                elif rec.employee_id.nature_travail_id.code_type_fonction == 'fonctionsuperieure':
+
+                    avance_line = self.env['rh.avancement.line'].create({
+                        'employee_id': rec.employee_id.id,
+                        'type_fonction_id': rec.employee_id.nature_travail_id.id,
+                        'date_avancement': avancement.date_avancement,
+                        'avancement_id': avancement.id,
+                        'categorie_old_id': rec.categorie_old_id.id,
+                        'section_old_id': rec.section_old_id.id,
+                        'echelon_old_id': rec.echelon_old_id.id,
+
+                        'categorie_new_id': rec.categorie_new_id.id,
+                        'section_new_id': rec.section_new_id.id,
+                        'echelon_new_id': rec.echelon_new_id.id,
+                    })
+                elif rec.employee_id.nature_travail_id.code_type_fonction == 'postesuperieure':
+                    avance_line = self.env['rh.avancement.line'].create({
+                        'employee_id': rec.employee_id.id,
+                        'type_fonction_id': rec.employee_id.nature_travail_id.id,
+                        'date_avancement': avancement.date_avancement,
+                        'avancement_id': avancement.id,
+                        'groupe_old_id': rec.groupe_old_id.id,
+                        'categorie_old_id': rec.categorie_old_id.id,
+                        'echelon_old_id': rec.echelon_old_id.id,
+                        'categorie_superieure_old_id': rec.categorie_superieure_old_id.id,
+                        'section_superieure_old_id': rec.section_superieure_old_id.id,
+                        'niveau_hierarchique_old_id': rec.niveau_hierarchique_old_id.id,
+
+                        'groupe_new_id': rec.groupe_new_id.id,
+                        'categorie_new_id': rec.categorie_new_id.id,
+                        'echelon_new_id': rec.echelon_new_id.id,
+                        'categorie_superieure_new_id': rec.categorie_superieure_new_id.id,
+                        'section_superieure_new_id': rec.section_superieure_new_id.id,
+                        'niveau_hierarchique_new_id': rec.niveau_hierarchique_new_id.id,
+                    })
+
+        return avancement
 
     @api.onchange('date_avancement')
     def _onchange_date_to(self):
         """ Update the number_of_days. """
+        for rec1 in self:
+            rec1.avancement_wizard = True
+            print(rec1.avancement_wizard)
+            print('tttttttttetste1wizardWizard')
 
-        print('glllllllllll')
-        print('teste')
+
         # record1 = self.env['droit.avencement'].browse(self._context['active_id'])
         domain = []
         employee = self.env['hr.employee'].search([])
@@ -43,7 +94,6 @@ class RHAvancement(models.Model):
         for record in avancement_ligne_droit:
             record.unlink()
         for rec in employee:
-            print(rec.id)
 
             avancement_line = self.env['rh.avancement.line'].search(
                 [('employee_id', '=', rec.id), ('date_avancement', '<=', self.date_avancement)],
@@ -57,15 +107,53 @@ class RHAvancement(models.Model):
                     # difference = dateDebut_object - dateDebut_object2
                     print(difference)
                     print('difference')
-                    if difference >= 30:
+
+                    if difference >= 30 and rec.nature_travail_id.code_type_fonction == 'fonction':
                         self.env['rh.avancement.line.wizard'].create({
                             'employee_id': avancement_line.employee_id.id,
-                            # 'avancement_id': avancement_line.avancement_id.id,
+                            'type_fonction_id': rec.nature_travail_id.id,
+                            'groupe_old_id': avancement_line.groupe_old_id.id,
+                            'categorie_old_id': avancement_line.categorie_old_id.id,
+                            'echelon_old_id': avancement_line.echelon_old_id.id,
+
+                            'groupe_new_id': avancement_line.groupe_new_id.id,
                             'categorie_new_id': avancement_line.categorie_new_id.id,
-                            'section_new_id': avancement_line.section_new_id.id,
                             'echelon_new_id': avancement_line.echelon_new_id.id
 
                         })
+                    elif difference >= 24 and rec.nature_travail_id.code_type_fonction == 'fonctionsuperieure':
+                        self.env['rh.avancement.line.wizard'].create({
+                            'employee_id': avancement_line.employee_id.id,
+                            'type_fonction_id': rec.nature_travail_id.id,
+                            'categorie_old_id': avancement_line.categorie_old_id.id,
+                            'section_old_id': avancement_line.section_old_id.id,
+                            'echelon_old_id': avancement_line.echelon_old_id.id,
+
+
+                            'categorie_new_id': avancement_line.categorie_new_id.id,
+                            'section_new_id': avancement_line.section_new_id.id,
+                            'echelon_new_id': avancement_line.echelon_new_id.id,
+
+                        })
+                    elif difference >= 24 and rec.nature_travail_id.code_type_fonction == 'postesuperieure':
+                        self.env['rh.avancement.line.wizard'].create({
+                            'employee_id': avancement_line.employee_id.id,
+                            'type_fonction_id': rec.nature_travail_id.id,
+                            'groupe_old_id': avancement_line.groupe_old_id.id,
+                            'categorie_old_id': avancement_line.categorie_old_id.id,
+                            'echelon_old_id': avancement_line.echelon_old_id.id,
+                            'categorie_superieure_old_id': avancement_line.categorie_superieure_old_id.id,
+                            'section_superieure_old_id': avancement_line.section_superieure_old_id.id,
+                            'niveau_hierarchique_old_id': avancement_line.niveau_hierarchique_old_id.id,
+
+                            'groupe_new_id': avancement_line.groupe_new_id.id,
+                            'categorie_new_id': avancement_line.categorie_new_id.id,
+                            'echelon_new_id': avancement_line.echelon_new_id.id,
+                            'categorie_superieure_new_id': avancement_line.categorie_superieure_new_id.id,
+                            'section_superieure_new_id': avancement_line.section_superieure_new_id.id,
+                            'niveau_hierarchique_new_id': avancement_line.niveau_hierarchique_new_id.id
+                        })
+
 
         self.avancement_lines_wizard = self.env['rh.avancement.line.wizard'].search([])
 

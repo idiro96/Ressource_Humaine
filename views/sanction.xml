@@ -78,6 +78,6 @@
             <p class="o_view_nocontent_smiling_face">Create your first Sanction!</p>
         </field>
     </record>
-            <menuitem name="Sanction" id="ressource_humaine_sanction" parent="suivi_personnel_id"
+            <menuitem name="Sanction" id="ressource_humaine_sanction" parent="suivi_personnel_id" sequence="2"
            action="action_rh_sanction"/>
 </odoo>

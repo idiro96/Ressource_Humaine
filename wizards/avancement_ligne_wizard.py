@@ -10,6 +10,10 @@ class RHAvancementLine(models.TransientModel):
     date_avancement = fields.Date()
     avancement_id = fields.Many2one('hr.avancement')
     employee_id = fields.Many2one('hr.employee')
+    type_fonction_id = fields.Many2one('rh.type.fonction')
+    code_type_fonction = fields.Char(related='employee_id.nature_travail_id.code_type_fonction',
+                                     string='Code Type Fonction', store=True)
+
     groupe_old_id = fields.Many2one('rh.groupe')
     categorie_old_id = fields.Many2one('rh.categorie')
     section_old_id = fields.Many2one('rh.section')

@@ -61,6 +61,9 @@
             <p class="o_view_nocontent_smiling_face">Creation promotion!</p>
         </field>
     </record>
-            <menuitem name="promotion" id="ressource_humaine_promotion" parent="promotion_id"
-           action="action_rh_promotion"/>
+
+    <menuitem name="Promotion De Grade" id="promotion_de_grade" parent="promotion_id" sequence="1"/>
+
+    <menuitem name="promotion" id="ressource_humaine_promotion" parent="promotion_de_grade" sequence="2"
+            action="action_rh_promotion"/>
 </odoo>

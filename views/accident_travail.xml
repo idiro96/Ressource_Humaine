@@ -53,6 +53,6 @@
             <p class="o_view_nocontent_smiling_face">Création du Accident Travail</p>
         </field>
     </record>
-            <menuitem name="Accident de Travail" id="ressource_humaine_accident_travail" parent="suivi_personnel_id"
+            <menuitem name="Accident de Travail" id="ressource_humaine_accident_travail" parent="suivi_personnel_id" sequence="3"
            action="action_rh_accident_travail"/>
 </odoo>

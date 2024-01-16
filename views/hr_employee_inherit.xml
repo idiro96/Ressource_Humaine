@@ -62,19 +62,6 @@
                        position="after">
                     <field name="date_reintegration"/>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='job_id']"
-                       position="attributes">
-                    <attribute name="nolabel">1</attribute>
-                </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='job_id']" position="before">
-                    <div>
-                        <label string="منصب شغل"
-                               attrs="{'invisible':[('nature_travail_id', '!=', 1)]}"
-                               for="job_id"/>
-                        <label string="المناصب الوظيفية" attrs="{'invisible':[('nature_travail_id', '=', 1)]}"
-                               for="job_id"/>
-                    </div>
-                </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='job_id']" position="after">
                     <field name="corps_id" attrs="{'invisible': [('nature_travail_id', '=', 1)]}"/>
                 </xpath>
@@ -253,13 +240,13 @@
         <menuitem name="Ressource Humaine" id="ressource_humaine.menu_root"
                   web_icon="ressource_humaine,description/icon.png"
                   action="action_employee_dashboard"/>
-        <menuitem name="Personnel" id="employee_gestion" parent="ressource_humaine.menu_root"/>
-        <menuitem name="Suivi Personnel" id="suivi_personnel_id" parent="ressource_humaine.menu_root"/>
-        <menuitem name="Recrutement" id="recrutement_id" parent="ressource_humaine.menu_root"/>
-        <menuitem name="Formation" id="formation_id" parent="ressource_humaine.menu_root"/>
-        <menuitem name="Médecine Travail" id="medecine_travai_id" parent="ressource_humaine.menu_root"/>
-        <menuitem name="Promotion" id="promotion_id" parent="ressource_humaine.menu_root"/>
-        <menuitem name="Référentiels" id="referentiel_id" parent="ressource_humaine.menu_root"/>
+        <menuitem name="Personnel" id="employee_gestion" parent="ressource_humaine.menu_root" sequence="1"/>
+        <menuitem name="Suivi Personnel" id="suivi_personnel_id" parent="ressource_humaine.menu_root" sequence="2"/>
+        <menuitem name="Promotion" id="promotion_id" parent="ressource_humaine.menu_root" sequence="3"/>
+        <menuitem name="Formation" id="formation_id" parent="ressource_humaine.menu_root" sequence="5"/>
+        <menuitem name="Médecine Travail" id="medecine_travai_id" parent="ressource_humaine.menu_root" sequence="6"/>
+        <menuitem name="Recrutement" id="recrutement_id" parent="ressource_humaine.menu_root" sequence="7"/>
+        <menuitem name="Référentiels" id="referentiel_id" parent="ressource_humaine.menu_root" sequence="20"/>
 
         <menuitem name="Employee" id="ressource_humaine_employee" parent="employee_gestion"
                   action="action_ressource_humaine"/>
