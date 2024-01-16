@@ -137,11 +137,11 @@
         <field name="view_id" ref="dashboard_form_view"/>
     </record>
 
-    <menuitem
-            name="Tableau de bord"
-            parent="ressource_humaine.menu_root"
-            action="action_employee_dashboard"
-            sequence="30"
-            id="menu_tableau_de_bord"/>
+<!--    <menuitem-->
+<!--            name="Tableau de bord"-->
+<!--            parent="ressource_humaine.menu_root"-->
+<!--            action="action_employee_dashboard"-->
+<!--            sequence="30"-->
+<!--            id="menu_tableau_de_bord"/>-->
 
 </odoo>
