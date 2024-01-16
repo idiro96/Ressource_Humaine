@@ -102,11 +102,11 @@
                 <board style="1-1-1">
                     <column>
                         <action
-                            string="التوظيف سنويا"
-                            name="%(ressource_humaine.act_employee_recruitment)d"/>
+                                string="قائمة الموظفين (رجال)"
+                                name="%(ressource_humaine.act_male_employees)d"/>
                         <action
-                            string="عدد الموظفين لكل شريحة الاجور"
-                            name="%(ressource_humaine.act_employee_count_pie_chart)d"/>
+                                string="قائمة الموظفين (نساء)"
+                                name="%(ressource_humaine.act_female_employees)d"/>
                     </column>
                     <column>
                         <action
@@ -118,11 +118,11 @@
                     </column>
                     <column>
                         <action
-                                string="قائمة الموظفين (رجال)"
-                                name="%(ressource_humaine.act_male_employees)d"/>
+                            string="التوظيف سنويا"
+                            name="%(ressource_humaine.act_employee_recruitment)d"/>
                         <action
-                                string="قائمة الموظفين (نساء)"
-                                name="%(ressource_humaine.act_female_employees)d"/>
+                            string="عدد الموظفين لكل شريحة الاجور"
+                            name="%(ressource_humaine.act_employee_count_pie_chart)d"/>
                     </column>
                 </board>
             </form>
