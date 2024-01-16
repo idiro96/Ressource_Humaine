@@ -25,7 +25,6 @@
                         <field name="section_superieure_id"/>
                         <field name="bonification_indiciaire"/>
                     </group>
-
                 </sheet>
             </form>
         </field>
