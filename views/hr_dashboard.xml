@@ -5,7 +5,7 @@
         <field name="name">graph des Recrutements</field>
         <field name="model">hr.employee</field>
         <field name="arch" type="xml">
-            <graph string="Recrutement par an" type="bar">
+            <graph string="Recrutement par an" type="line">
                 <field name="date_entrer" interval="year"/>
                 <field name="id" type="measure"/>
             </graph>
@@ -35,10 +35,10 @@
     </record>
 
     <record id="employee_count_pie_chart" model="ir.ui.view">
-        <field name="name">Nobmbre d'employés par tranche des salaire</field>
+        <field name="name">Nombre d'employés par tranche des salaire</field>
         <field name="model">hr.contract</field>
         <field name="arch" type="xml">
-            <graph string="Nobmbre d'employés par tranche des salaires" type="pie">
+            <graph string="Nombre d'employés par tranche des salaires" type="bar">
                 <field name="wage_range" string="Tranche de Salaire"/>
                 <field name="id" type="measure" operator="count"/>
             </graph>
@@ -102,27 +102,27 @@
                 <board style="1-1-1">
                     <column>
                         <action
-                                string="Liste des Employés (Hommes)"
+                                string="قائمة الموظفين (رجال)"
                                 name="%(ressource_humaine.act_male_employees)d"/>
                         <action
-                                string="Liste des Employées (Femmes)"
+                                string="قائمة الموظفين (نساء)"
                                 name="%(ressource_humaine.act_female_employees)d"/>
                     </column>
                     <column>
                         <action
-                                string="Distribution des Employés"
+                                string="توزيع الموظفين"
                                 name="%(ressource_humaine.act_employee_distribution)d"/>
                         <action
-                            string="Nobmbre d'employés par tranche des salaire"
-                            name="%(ressource_humaine.act_employee_count_pie_chart)d"/>
+                            string="تكلفة الاجور"
+                            name="%(ressource_humaine.act_wage_graph)d"/>
                     </column>
                     <column>
                         <action
-                            string="Recrutement des Employés"
+                            string="التوظيف سنويا"
                             name="%(ressource_humaine.act_employee_recruitment)d"/>
                         <action
-                            string="Coût des Salaires"
-                            name="%(ressource_humaine.act_wage_graph)d"/>
+                            string="عدد الموظفين لكل شريحة الاجور"
+                            name="%(ressource_humaine.act_employee_count_pie_chart)d"/>
                     </column>
                 </board>
             </form>
@@ -136,5 +136,12 @@
         <field name="usage">menu</field>
         <field name="view_id" ref="dashboard_form_view"/>
     </record>
+
+<!--    <menuitem-->
+<!--            name="Tableau de bord"-->
+<!--            parent="ressource_humaine.menu_root"-->
+<!--            action="action_employee_dashboard"-->
+<!--            sequence="30"-->
+<!--            id="menu_tableau_de_bord"/>-->
 
 </odoo>

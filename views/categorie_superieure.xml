@@ -6,8 +6,8 @@
 
 
             <tree>
-                <field name="intitule" string="intitule"/>
-                <field name="description" string="Description"/>
+                <field name="intitule"/>
+                <field name="description"/>
             </tree>
         </field>
 
@@ -19,8 +19,8 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="intitule" string="intitule"/>
-                        <field name="description" string="Description"/>
+                        <field name="intitule"/>
+                        <field name="description"/>
                     </group>
 
                 </sheet>

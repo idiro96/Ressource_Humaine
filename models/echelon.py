@@ -14,8 +14,10 @@ class RHEchelon(models.Model):
     indice_echelon = fields.Integer()
     categorie_id = fields.Many2one('rh.categorie')
     groupe_id = fields.Many2one('rh.groupe',readonly=True, compute='_compute_categorie_fields')
-    type_fonction = fields.Many2one('rh.type.fonction')
+    type_fonction = fields.Many2one('rh.type.fonction', domain="[('code_type_fonction', '!=', 'contractuel')]")
     section = fields.Many2one('rh.section')
+    code_type_fonction = fields.Char(related='type_fonction.code_type_fonction',
+                                     string='Code Type Fonction', store=True)
 
     @api.depends('categorie_id')
     def _compute_categorie_fields(self):

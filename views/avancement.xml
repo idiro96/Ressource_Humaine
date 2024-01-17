@@ -27,7 +27,7 @@
                         </group>
                     </group>
                     <notebook>
-                        <page string="Liste Personnel">
+                        <page string="Liste Personnel" attrs="{'invisible': [('id', '!=', False)]}">
                             <field name="avancement_lines_wizard" widget="one2many_list">
                                 <tree editable="bottom">
                                     <field name="employee_id" readonly="1"/>
@@ -37,6 +37,7 @@
                                     <field name="section_old_id" readonly="1"/>
                                     <field name="echelon_old_id" readonly="1"/>
                                     <field name="code_type_fonction" invisible="1"/>
+                                    <field name="auto_filled_field" invisible="1"/>
                                     <field name="groupe_new_id" attrs="{'readonly': [('code_type_fonction', '=', 'fonctionsuperieure')]}">
                                             </field>
                                     <field name="categorie_new_id"/>
@@ -48,7 +49,7 @@
                     </notebook>
 
                     <notebook>
-                        <page string="Liste de Personnel">
+                        <page string="Liste de Personnel" attrs="{'invisible': [('id', '=', False)]}">
                             <field name="avancement_lines" widget="one2many_list">
                                 <tree editable="bottom">
                                     <field name="employee_id" readonly="1"/>
