@@ -154,22 +154,7 @@ class RHAvancement(models.Model):
                             'niveau_hierarchique_new_id': avancement_line.niveau_hierarchique_new_id.id
                         })
 
-
         self.avancement_lines_wizard = self.env['rh.avancement.line.wizard'].search([])
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         return {
                 'type': 'ir.actions.act_window',

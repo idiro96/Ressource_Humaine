@@ -78,7 +78,7 @@
             <p class="o_view_nocontent_smiling_face">Creation avancement!</p>
         </field>
     </record>
-    <menuitem name="Avancement" id="avancement_id" parent="promotion_id" sequence="3"/>
-    <menuitem name="avancement" id="ressource_humaine_avancement" parent="avancement_id" sequence="4"
+    <menuitem name="Avancement" id="avancement_id" parent="promotion_id" sequence="4"/>
+    <menuitem name="avancement" id="ressource_humaine_avancement" parent="avancement_id" sequence="5"
               action="action_rh_avancement"/>
 </odoo>

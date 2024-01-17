@@ -66,23 +66,20 @@ class HrEmployeInherited(models.Model):
     corps_visible = fields.Boolean(default=True)
     gender = fields.Selection(selection=[('male', 'Masculin'), ('female', 'Féminin')], readonly=False, required=True)
     place_of_birth_fr = fields.Char('Lieu de naissance', groups="hr.group_hr_user", required=True)
-
-    # @api.depends('date_entrer')
-    # def _compute_days_off(self):
-    #     for employee in self:
-    #         if employee.date_entrer:
-    #             # Assuming date_entry is a Date field in the hr.employee model
-    #             # entrer_date = fields.Date.from_string(employee.date_entrer)
-    #             # today_date = fields.Date.from_string(fields.Date.today())
-    #             # months_passed = (today_date.year - entrer_date.year) * 12 + today_date.month - entrer_date.month
-    #             # days_off = months_passed * 2.5
-    #             days_off = 0
-    #             conge_existe = self.env['rh.congedroit'].search(
-    #                     [('id_personnel', '=', employee.id)])
-    #             for conge in conge_existe:
-    #                 days_off = conge.nbr_jour_reste + days_off
-    #
-    #             employee.days_off = days_off
+    groupe_id = fields.Many2one('rh.groupe', readonly=False)
+    point_indiciare = fields.Integer()
+    indice_minimal = fields.Integer()
+    indice_base = fields.Integer()
+    bonification_indiciaire = fields.Integer()
+    categorie_id = fields.Many2one('rh.categorie')
+    categorie_superieure_id = fields.Many2one('rh.categorie.superieure')
+    echelon_id = fields.Many2one('rh.echelon')
+    niveau_hierarchique_id = fields.Many2one('rh.niveau.hierarchique')
+    section_id = fields.Many2one('rh.section')
+    section_superieure_id = fields.Many2one('rh.section.superieure')
+    grille_id = fields.Many2one('rh.grille')
+    code_type_fonction = fields.Char(related='nature_travail_id.code_type_fonction',
+                                     string='Code Type Fonction', store=True)
 
     @api.onchange('nature_travail_id')
     def _onchange_related_field_filier(self):

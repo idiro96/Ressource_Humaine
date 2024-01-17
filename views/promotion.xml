@@ -7,7 +7,8 @@
 
             <tree>
                 <field name="code"/>
-                <field name="date_examin_professionnel"/>
+                <field name="date_promotion" required="1"/>
+                <field name="date_examin_professionnel" required="1"/>
 
             </tree>
         </field>
@@ -21,23 +22,39 @@
                 <sheet>
                     <group>
                         <group>
-                <field name="code"/>
-                <field name="date_examin_professionnel"/>
+                            <field name="code"/>
+                            <field name="date_promotion" required="1"/>
+                            <field name="date_examin_professionnel" required="1"/>
                         </group>
                     </group>
-                     <notebook>
-                         <page string="Liste Employee">
-                         <field name="promotion_lines">
-                           <tree editable="bottom">
-                             <field name="employee_id"/>
-                             <field name="grade_old_id"/>
-                             <field name="grade_new_id"/>
-                             <field name="date_examin_professionnel"/>
-                             <field name="date_new_grade"/>
-                           </tree>
-                         </field>
-                       </page>
-                           <page string="Liste des Fichiers">
+                    <notebook>
+                        <page string="Liste Employee">
+                            <field name="promotion_lines_wizard">
+                                <tree editable="bottom">
+                                    <field name="employee_id" readonly="1"/>
+                                    <field name="type_fonction_id" readonly="1"/>
+                                    <field name="grade_id" readonly="1"/>
+                                    <field name="date_grade" readonly="1"/>
+                                    <field name="grade_new_id" required="1"/>
+                                    <field name="date_new_grade" readonly="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                    <notebook>
+                        <page string="Liste Employee">
+                            <field name="promotion_lines">
+                                <tree editable="bottom">
+                                    <field name="employee_id" readonly="1"/>
+                                    <field name="type_fonction_id" readonly="1"/>
+                                    <field name="grade_id" readonly="1"/>
+                                    <field name="date_grade" readonly="1"/>
+                                    <field name="grade_new_id" required="1"/>
+                                    <field name="date_new_grade" readonly="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Liste des Fichiers">
                             <field name="promotion_file_lines">
                                 <tree editable="bottom">
                                     <field name="type_file_id" domain="[('type_file', '=', 'formation')]"/>
@@ -65,5 +82,5 @@
     <menuitem name="Promotion De Grade" id="promotion_de_grade" parent="promotion_id" sequence="1"/>
 
     <menuitem name="promotion" id="ressource_humaine_promotion" parent="promotion_de_grade" sequence="2"
-            action="action_rh_promotion"/>
+              action="action_rh_promotion"/>
 </odoo>
