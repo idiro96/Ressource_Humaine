@@ -10,27 +10,64 @@ class RHAvancementLine(models.TransientModel):
     date_avancement = fields.Date()
     avancement_id = fields.Many2one('hr.avancement')
     employee_id = fields.Many2one('hr.employee')
+    type_fonction_id = fields.Many2one('rh.type.fonction')
+    code_type_fonction = fields.Char(related='employee_id.nature_travail_id.code_type_fonction',
+                                     string='Code Type Fonction', store=True)
+
     groupe_old_id = fields.Many2one('rh.groupe')
     categorie_old_id = fields.Many2one('rh.categorie')
     section_old_id = fields.Many2one('rh.section')
-    echelon_old_id = fields.Many2one('rh.echelon')
     echelon_old_id = fields.Many2one('rh.echelon')
     categorie_superieure_old_id = fields.Many2one('rh.categorie.superieure')
     section_superieure_old_id = fields.Many2one('rh.section.superieure')
     niveau_hierarchique_old_id = fields.Many2one('rh.niveau.hierarchique')
 
     groupe_new_id = fields.Many2one('rh.groupe')
-    categorie_new_id = fields.Many2one('rh.categorie')
+    categorie_new_id = fields.Many2one('rh.categorie', domain="[('groupe_id', '=', groupe_new_id), ('type_fonction_id', '=', type_fonction_id)]")
     section_new_id = fields.Many2one('rh.section')
-    echelon_new_id = fields.Many2one('rh.echelon')
-    echelon_new_id = fields.Many2one('rh.echelon')
+    echelon_new_id = fields.Many2one('rh.echelon', domain="[('categorie_id', '=', categorie_new_id)]")
     categorie_superieure_new_id = fields.Many2one('rh.categorie.superieure')
     section_superieure_new_id = fields.Many2one('rh.section.superieure')
     niveau_hierarchique_new_id = fields.Many2one('rh.niveau.hierarchique')
-
+    auto_filled_field = fields.Char(readonly=True, compute='_compute_auto_filled_field')
 
     grade_new_id = fields.Many2one('rh.grade')
     date_new_grade = fields.Date()
+
+    @api.depends('type_fonction_id')
+    def _compute_auto_filled_field(self):
+        for record in self:
+            if record.type_fonction_id:
+                # Perform any logic to compute the value for auto_filled_field
+                auto_filled_value = "Computed Value"
+                record.auto_filled_field = auto_filled_value
+            else:
+                record.auto_filled_field = False
+
+    # @api.onchange('groupe_new_id')
+    # def _onchange_groupe_type_function(self):
+    #     # Reset categorie_new_id, echelon_new_id
+    #     self.categorie_new_id = False
+    #     self.echelon_new_id = False
+    #
+    #     # Compute domain for categorie_new_id based on the available field
+    #     if self.groupe_new_id:
+    #         domain = [('groupe_id', '=', self.groupe_new_id.id)]
+    #     else:
+    #         domain = []
+    #
+    #     return {'domain': {'categorie_new_id': domain}}
+    #
+    # @api.onchange('categorie_new_id')
+    # def _onchange_categorie_new_id(self):
+    #     # Reset echelon_new_id
+    #     self.echelon_new_id = False
+    #
+    #     # Compute domain for echelon_new_id based on selected categorie_new_id
+    #     domain = [('categorie_id', '=', self.categorie_new_id.id)] if self.categorie_new_id else []
+    #     return {'domain': {'echelon_new_id': domain}}
+
+
 
 
 

@@ -69,6 +69,28 @@ class  HrContratInherited(models.Model):
                 })
                 avancement_ligne = result.env['rh.avancement.line'].create({
 
+                    'avancement_id': avancement.id,
+                    'employee_id': result.employee_id.id,
+                    'type_fonction_id': type_fonction.id,
+                    'groupe_new_id': result.groupe_id.id,
+                    'categorie_new_id': result.categorie_id.id,
+                    'echelon_new_id': result.echelon_id.id,
+                    'date_avancement': result.date_start,
+
+                    'groupe_old_id': result.groupe_id.id,
+                    'categorie_old_id': result.categorie_id.id,
+                    'echelon_old_id': result.echelon_id.id,
+
+                })
+            elif type_fonction.code_type_fonction == 'fonctionsuperieure':
+                avancement = result.env['rh.avancement'].create({
+                    'date_avancement': result.date_start,
+                })
+                avancement_ligne = result.env['rh.avancement.line'].create({
+
+                    'avancement_id': avancement.id,
+                    'employee_id': result.employee_id.id,
+                    'type_fonction_id': type_fonction.id,
                     'categorie_new_id': result.categorie_id.id,
                     'section_new_id': result.section_id.id,
                     'echelon_new_id': result.echelon_id.id,
@@ -79,12 +101,32 @@ class  HrContratInherited(models.Model):
                     'echelon_old_id': result.echelon_id.id,
 
                 })
-                print('heeeer')
-                print(result.categorie_id.id)
-                print(result.section_id.id)
-                print(result.echelon_id.id)
-                print(result.echelon_id.id)
-                print('heeeer2')
+            elif type_fonction.code_type_fonction == 'postesuperieure':
+                avancement = result.env['rh.avancement'].create({
+                    'date_avancement': result.date_start,
+                })
+                avancement_ligne = result.env['rh.avancement.line'].create({
+
+                    'avancement_id': avancement.id,
+                    'employee_id': result.employee_id.id,
+                    'type_fonction_id': type_fonction.id,
+                    'groupe_new_id': result.groupe_id.id,
+                    'categorie_new_id': result.categorie_id.id,
+                    'echelon_new_id': result.echelon_id.id,
+                    'categorie_superieure_new_id': result.categorie_superieure_id.id,
+                    'section_superieure_new_id': result.section_superieure_id.id,
+                    'niveau_hierarchique_new_id': result.niveau_hierarchique_id.id,
+                    'date_avancement': result.date_start,
+
+                    'groupe_old_id': result.groupe_id.id,
+                    'categorie_old_id': result.categorie_id.id,
+                    'echelon_old_id': result.echelon_id.id,
+                    'categorie_superieure_old_id': result.categorie_superieure_id.id,
+                    'section_superieure_old_id': result.section_superieure_id.id,
+                    'niveau_hierarchique_old_id': result.niveau_hierarchique_id.id
+
+                })
+
         return result
 
 
