@@ -27,6 +27,9 @@ class RHAvancementLine(models.Model):
     section_superieure_new_id = fields.Many2one('rh.section.superieure')
     niveau_hierarchique_new_id = fields.Many2one('rh.niveau.hierarchique')
 
+    grade_id = fields.Many2one('rh.grade')
+    job_id = fields.Many2one('hr.job')
+    date_old_avancement = fields.Date()
 
     grade_new_id = fields.Many2one('rh.grade')
     date_new_grade = fields.Date()
