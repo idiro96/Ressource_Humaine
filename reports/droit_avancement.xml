@@ -44,7 +44,7 @@
                     <br/>
                     <br/>
                     <div style="font-size: 20px; text-align: right;">
-                        ـو بمقتضى المرسوم الرئاسي رقم 07ـ304 المؤرخ في 17 رمضان عام 1428 الموافق 29 سبتمبر سنة 2007 الذي
+                        ـ بمقتضى المرسوم الرئاسي رقم 07ـ304 المؤرخ في 17 رمضان عام 1428 الموافق 29 سبتمبر سنة 2007 الذي
                         يحدد الشبكة الإستدلالية لمرتبات الموظفين و نظام دفع رواتبهم المعدل، لا سيما المواد 11،10 و 12
                     </div>
                     <br/>
@@ -52,13 +52,13 @@
                         <span>
                             /
                         </span>
-                        <t t-if="avancement.employee_id.gender == 'male'">
+                        <t t-if="avancement.avancement_lines.employee_id.gender == 'male'">
                             <span>
                                 ـ وبناء على المقرر الجماعي رقم ..... المؤرخ في ................. المتعلق بإعادة ترتيب
                                 الموظفينٖٖٖ، و المتضمن ترتيب السيد
                             </span>
                         </t>
-                        <t t-if="avancement.employee_id.gender == 'female'">
+                        <t t-if="avancement.avancement_lines.employee_id.gender == 'female'">
                             <span>
                                 ـ وبناء على المقرر الجماعي رقم ..... المؤرخ في ................. المتعلق بإعادة ترتيب
                                 الموظفينٖٖٖ، و المتضمن ترتيب السيدة
@@ -67,17 +67,48 @@
                     </div>
                     <div style="font-size: 20px; text-align: right;">
                         <span>
-                            <t t-esc="avancement.employee_id.name"/>
+                            <t t-esc="avancement.avancement_lines.employee_id.name"/>
                             في رتبة
-                            <t t-esc="avancement.employee_id.grade_id.intitule_grade"/>
+                            <t t-esc="avancement.avancement_lines.employee_id.grade_id.intitule_grade"/>
                             الصنف
-                            <t t-esc="avancement.employee_id.grade_id.intitule_grade"/>
+                            <t t-esc="avancement.avancement_lines.categorie_old_id.intitule"/>
                             الدرجة
-                            <t t-esc="avancement.employee_id.grade_id.intitule_grade"/>
+                            <t t-esc="avancement.avancement_lines.echelon_old_id.intitule"/>
                             الموافقة للرقم الاستدلالي
-                            <t t-esc="avancement.employee_id.grade_id.intitule_grade"/>
-                            ابتداء من تاريخ ...................،
+                            <t t-esc="avancement.avancement_lines.employee_id.point_indiciare"/>
+                            ابتداء من تاريخ
+                            <t t-esc="avancement.avancement_lines.employee_id.date_avancement"/>
                         </span>
+                        <br/>
+                        <br/>
+                        <div style="font-size: 20px; text-align: right;">
+                            <span>
+                                /
+                            </span>
+                            <t t-if="avancement.avancement_lines.employee_id.gender == 'male'">
+                                <span>
+                                    ـ بناء على مقرر الترقية رقم ..... المؤرخ في .............. المتضمن ترقية السيد
+                                </span>
+                            </t>
+                            <t t-if="avancement.avancement_lines.employee_id.gender == 'female'">
+                                <span>
+                                    ـ بناء على مقرر الترقية رقم ..... المؤرخ في .............. المتضمن ترقية السيدة
+                                </span>
+                            </t>
+                        </div>
+                        <div style="font-size: 20px; text-align: right;">
+                            <span>
+                                <t t-esc="avancement.avancement_lines.employee_id.name"/>
+                                في رتبة
+                                <t t-esc="avancement.avancement_lines.employee_id.grade_id.intitule_grade"/>
+                                 إلى الدرجة
+                                <t t-esc="avancement.avancement_lines.echelon_new_id.intitule"/>
+                                الرقم الاستدلالي
+                                <t t-esc="avancement.avancement_lines.employee_id.point_indiciare"/>
+                                ابتداء من
+                                <t t-esc="avancement.date_avancement"/>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </t>
