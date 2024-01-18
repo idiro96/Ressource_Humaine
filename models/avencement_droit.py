@@ -24,6 +24,10 @@ class RHAvencementDroit(models.Model):
     section_new_id = fields.Many2one('rh.section')
     echelon_new_id = fields.Many2one('rh.echelon')
 
+    grade_id = fields.Many2one('rh.grade')
+    job_id = fields.Many2one('hr.job')
+    date_old_avancement = fields.Date()
+
     sauvegarde = fields.Boolean(Default=False)
     test = fields.Char()
     date_avancement = fields.Date()

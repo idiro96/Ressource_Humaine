@@ -31,6 +31,10 @@ class RHAvancementLine(models.TransientModel):
     niveau_hierarchique_new_id = fields.Many2one('rh.niveau.hierarchique')
     auto_filled_field = fields.Char(readonly=True, compute='_compute_auto_filled_field')
 
+    grade_id = fields.Many2one('rh.grade')
+    job_id = fields.Many2one('hr.job')
+    date_old_avancement = fields.Date()
+
     grade_new_id = fields.Many2one('rh.grade')
     date_new_grade = fields.Date()
 
@@ -44,28 +48,6 @@ class RHAvancementLine(models.TransientModel):
             else:
                 record.auto_filled_field = False
 
-    # @api.onchange('groupe_new_id')
-    # def _onchange_groupe_type_function(self):
-    #     # Reset categorie_new_id, echelon_new_id
-    #     self.categorie_new_id = False
-    #     self.echelon_new_id = False
-    #
-    #     # Compute domain for categorie_new_id based on the available field
-    #     if self.groupe_new_id:
-    #         domain = [('groupe_id', '=', self.groupe_new_id.id)]
-    #     else:
-    #         domain = []
-    #
-    #     return {'domain': {'categorie_new_id': domain}}
-    #
-    # @api.onchange('categorie_new_id')
-    # def _onchange_categorie_new_id(self):
-    #     # Reset echelon_new_id
-    #     self.echelon_new_id = False
-    #
-    #     # Compute domain for echelon_new_id based on selected categorie_new_id
-    #     domain = [('categorie_id', '=', self.categorie_new_id.id)] if self.categorie_new_id else []
-    #     return {'domain': {'echelon_new_id': domain}}
 
 
 

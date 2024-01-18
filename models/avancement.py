@@ -30,6 +30,9 @@ class RHAvancement(models.Model):
                     avance_line = self.env['rh.avancement.line'].create({
                     'employee_id': rec.employee_id.id,
                     'type_fonction_id': rec.employee_id.nature_travail_id.id,
+                    'date_old_avancement': rec.date_avancement,
+                    'grade_id': rec.grade_id.id,
+                    'job_id': rec.job_id.id,
                     'date_avancement': avancement.date_avancement,
                     'avancement_id': avancement.id,
                     'groupe_old_id': rec.groupe_old_id.id,
@@ -40,11 +43,29 @@ class RHAvancement(models.Model):
                     'categorie_new_id': rec.categorie_new_id.id,
                     'echelon_new_id': rec.echelon_new_id.id,
                     })
+                    employee = self.env['hr.employee'].search(
+                    [('id', '=', rec.employee_id.id)])
+                    employee.write({
+                        'date_avancement': avancement.date_avancement,
+                    })
+                    employee.write({
+                        'groupe_id': rec.groupe_new_id.id,
+                    })
+                    employee.write({
+                        'categorie_id': rec.categorie_new_id.id,
+                    })
+                    employee.write({
+                        'echelon_id': rec.echelon_new_id.id,
+                    })
+
                 elif rec.employee_id.nature_travail_id.code_type_fonction == 'fonctionsuperieure':
 
                     avance_line = self.env['rh.avancement.line'].create({
                         'employee_id': rec.employee_id.id,
                         'type_fonction_id': rec.employee_id.nature_travail_id.id,
+                        'date_old_avancement': rec.date_avancement,
+                        'grade_id': rec.grade_id.id,
+                        'job_id': rec.job_id.id,
                         'date_avancement': avancement.date_avancement,
                         'avancement_id': avancement.id,
                         'categorie_old_id': rec.categorie_old_id.id,
@@ -55,10 +76,27 @@ class RHAvancement(models.Model):
                         'section_new_id': rec.section_new_id.id,
                         'echelon_new_id': rec.echelon_new_id.id,
                     })
+                    employee = self.env['hr.employee'].search(
+                        [('id', '=', rec.employee_id.id)])
+                    employee.write({
+                        'date_avancement': avancement.date_avancement,
+                    })
+                    employee.write({
+                        'section_new_id': rec.section_new_id.id,
+                    })
+                    employee.write({
+                        'categorie_id': rec.categorie_new_id.id,
+                    })
+                    employee.write({
+                        'echelon_id': rec.echelon_new_id.id,
+                    })
                 elif rec.employee_id.nature_travail_id.code_type_fonction == 'postesuperieure':
                     avance_line = self.env['rh.avancement.line'].create({
                         'employee_id': rec.employee_id.id,
                         'type_fonction_id': rec.employee_id.nature_travail_id.id,
+                        'date_old_avancement': rec.date_avancement,
+                        'grade_id': rec.grade_id.id,
+                        'job_id': rec.job_id.id,
                         'date_avancement': avancement.date_avancement,
                         'avancement_id': avancement.id,
                         'groupe_old_id': rec.groupe_old_id.id,
@@ -108,10 +146,12 @@ class RHAvancement(models.Model):
                     print('difference')
 
                     if avance.type_fonction_id.code_type_fonction == 'fonction':
-                        print('differenceRabah')
                         self.env['rh.avancement.line.wizard'].create({
                             'employee_id': avance.employee_id.id,
                             'type_fonction_id': avance.type_fonction_id.id,
+                            'date_old_avancement': avance.date_avancement,
+                            'grade_id': avance.grade_id.id,
+                            'job_id': avance.job_id.id,
                             'groupe_old_id': avance.groupe_old_id.id,
                             'categorie_old_id': avance.categorie_old_id.id,
                             'echelon_old_id': avance.echelon_old_id.id,
@@ -122,10 +162,12 @@ class RHAvancement(models.Model):
 
                         })
                     elif avance.type_fonction_id.code_type_fonction == 'fonctionsuperieure':
-                        print('differenceRabah2')
                         self.env['rh.avancement.line.wizard'].create({
                             'employee_id': avance.employee_id.id,
                             'type_fonction_id': avance.type_fonction_id.id,
+                            'date_old_avancement': avance.date_avancement,
+                            'grade_id': avance.grade_id.id,
+                            'job_id': avance.job_id.id,
                             'categorie_old_id': avance.categorie_old_id.id,
                             'section_old_id': avance.section_old_id.id,
                             'echelon_old_id': avance.echelon_old_id.id,
@@ -137,10 +179,12 @@ class RHAvancement(models.Model):
 
                         })
                     elif avance.type_fonction_id.code_type_fonction == 'postesuperieure':
-                        print('differenceRabah3')
                         self.env['rh.avancement.line.wizard'].create({
                             'employee_id': avance.employee_id.id,
                             'type_fonction_id': avance.type_fonction_id.id,
+                            'date_old_avancement': avance.date_avancement,
+                            'grade_id': avance.grade_id.id,
+                            'job_id': avance.job_id.id,
                             'groupe_old_id': avance.groupe_old_id.id,
                             'categorie_old_id': avance.categorie_old_id.id,
                             'echelon_old_id': avance.echelon_old_id.id,
