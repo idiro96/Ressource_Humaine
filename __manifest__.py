@@ -79,6 +79,7 @@
         'wizards/visite_medical_detaille.xml',
         'wizards/formation_detail_wizard.xml',
         'wizards/choisir_commission.xml',
+        'wizards/commission_avancement.xml',
         'reports/hr_contract.xml',
         'reports/attestation_travail.xml',
         'reports/attestation_travail_fr.xml',
