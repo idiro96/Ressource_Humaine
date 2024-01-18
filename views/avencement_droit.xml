@@ -8,8 +8,11 @@
                 <field name="type_fonction_id" readonly="1"/>
                 <field name="groupe_old_id" readonly="1"/>
                 <field name="categorie_old_id" readonly="1"/>
+                <field name="grade_id" readonly="1"/>
+                <field name="job_id" readonly="1"/>
                 <field name="section_old_id" readonly="1"/>
                 <field name="echelon_old_id" readonly="1"/>
+                <field name="date_old_avancement" readonly="1"/>
                 <field name="groupe_new_id"/>
                 <field name="categorie_new_id"/>
                 <field name="echelon_new_id"/>
