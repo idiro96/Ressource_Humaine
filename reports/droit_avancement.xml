@@ -109,6 +109,17 @@
                                 <t t-esc="avancement.date_avancement"/>
                             </span>
                         </div>
+                        <br/>
+                        <div style="font-size: 20px; text-align: right;">
+                            <span>
+                                .............
+                            </span>
+                            <span>
+                                ـ بناء على المقرر رقم ..... المؤرخ في .............. المتضمن المصادقة على جداول الترقية
+                                في
+                                الدرجات بعنوان سنة
+                            </span>
+                        </div>
                     </div>
                 </div>
             </t>
