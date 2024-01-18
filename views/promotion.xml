@@ -28,7 +28,7 @@
                         </group>
                     </group>
                     <notebook>
-                        <page string="Liste Employee">
+                        <page string="Liste Employee" attrs="{'invisible': [('id', '!=', False)]}">
                             <field name="promotion_lines_wizard">
                                 <tree editable="bottom">
                                     <field name="employee_id" readonly="1"/>
@@ -42,7 +42,7 @@
                         </page>
                     </notebook>
                     <notebook>
-                        <page string="Liste Employee">
+                        <page string="Liste Employee" attrs="{'invisible': [('id', '=', False)]}">
                             <field name="promotion_lines">
                                 <tree editable="bottom">
                                     <field name="employee_id" readonly="1"/>
@@ -54,7 +54,7 @@
                                 </tree>
                             </field>
                         </page>
-                        <page string="Liste des Fichiers">
+                        <page string="Liste des Fichiers" attrs="{'invisible': [('id', '=', False)]}">
                             <field name="promotion_file_lines">
                                 <tree editable="bottom">
                                     <field name="type_file_id" domain="[('type_file', '=', 'formation')]"/>
