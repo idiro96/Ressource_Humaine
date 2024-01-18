@@ -3,16 +3,19 @@
         <field name="name">Droit Avencement Tree</field>
         <field name="model">rh.avencement.droit</field>
         <field name="arch" type="xml">
-            <tree>
-                <field name="employee_id"/>
-                <field name="type_fonction_id"/>
-                <field name="groupe_old_id"/>
-                <field name="categorie_old_id"/>
-                <field name="section_old_id"/>
-                <field name="echelon_old_id"/>
-<!--                <field name="groupe_new_id"/>-->
-<!--                <field name="categorie_new_id"/>-->
-<!--                <field name="echelon_new_id"/>-->
+            <tree editable="bottom">
+                <field name="employee_id" readonly="1"/>
+                <field name="type_fonction_id" readonly="1"/>
+                <field name="groupe_old_id" readonly="1"/>
+                <field name="categorie_old_id" readonly="1"/>
+                <field name="section_old_id" readonly="1"/>
+                <field name="echelon_old_id" readonly="1"/>
+                <field name="groupe_new_id"/>
+                <field name="categorie_new_id"/>
+                <field name="echelon_new_id"/>
+                <field name="date_avancement" readonly="1"/>
+                <field name="sauvegarde"/>
+
             </tree>
         </field>
 
@@ -23,13 +26,13 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
-                    <field name="employee_id"/>
-                    <field name="groupe_old_id"/>
-                    <field name="categorie_old_id"/>
-                    <field name="echelon_old_id"/>
-<!--                    <field name="groupe_new_id"/>-->
-<!--                    <field name="categorie_new_id"/>-->
-<!--                    <field name="echelon_new_id"/>-->
+                    <field name="employee_id" String="employee"/>
+                    <field name="groupe_old_id" String="Ancien groupe" readonly="1"/>
+                    <field name="categorie_old_id" String="Ancien Categorie" readonly="1"/>
+                    <field name="echelon_old_id" String="Ancien Echelon" readonly="1"/>
+                    <field name="groupe_new_id" String="Nouveau groupe"/>
+                    <field name="categorie_new_id" String="Nouvelle Categorie"/>
+                    <field name="echelon_new_id" String="Nouveau Echelon"/>
                 </sheet>
             </form>
         </field>
