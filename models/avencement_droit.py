@@ -28,3 +28,21 @@ class RHAvencementDroit(models.Model):
 
     test = fields.Char()
 
+    @api.multi
+    def print_report(self):
+        return self.env.ref('ressource_humaine.action_droit_avancement_report').report_action(self)
+
+
+class DroitAvancementReport(models.AbstractModel):
+    _name = 'report.ressource_humaine.droit_avancement_report'
+
+    @api.model
+    def get_report_values(self, docids, data=None):
+        avancement = self.env['rh.avencement.droit'].browse(docids[0])
+
+        report_data = {
+            'avancement': avancement,
+            'company': self.env.user.company_id,
+        }
+
+        return report_data

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="droit_avancement_report">
+            <t t-call="web.basic_layout">
+                <t t-call="ressource_humaine.report_header_custom"/>
+                <div class="page">
+                    <strong>
+                        <div style="font-size: 20px;text-align: left;">
+                            <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/>
+                            <span style="display: inline-block;">
+                                الجزائر في
+                            </span>
+                            <span style="display: inline-block; margin-left: 499px;">
+                                <t t-esc="company.name"/>
+                            </span>
+                        </div>
+                        <br/>
+                        <br/>
+                        <div style="font-size: 20px;text-align: right;">
+                            <span>
+                                المدير العام
+                            </span>
+                        </div>
+                        <br/>
+                        <br/>
+                        <div style="font-size: 20px;text-align: right;">
+                            <span>
+                                ..............الرقم
+                            </span>
+                        </div>
+                        <br/>
+                        <br/>
+                    </strong>
+                    <br/>
+                    <br/>
+                    <div style="font-size: 30px;text-align: center;">
+                        <strong>
+                            <span>
+                                مستخرج من مقر المصادقة على جدول الترقية في الدرجات
+                            </span>
+                        </strong>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div style="font-size: 20px; text-align: right;">
+                        ـو بمقتضى المرسوم الرئاسي رقم 07ـ304 المؤرخ في 17 رمضان عام 1428 الموافق 29 سبتمبر سنة 2007 الذي
+                        يحدد الشبكة الإستدلالية لمرتبات الموظفين و نظام دفع رواتبهم المعدل، لا سيما المواد 11،10 و 12
+                    </div>
+                    <br/>
+                    <div style="font-size: 20px; text-align: right;">
+                        <span>
+                            /
+                        </span>
+                        <t t-if="avancement.employee_id.gender == 'male'">
+                            <span>
+                                ـ وبناء على المقرر الجماعي رقم ..... المؤرخ في ................. المتعلق بإعادة ترتيب
+                                الموظفينٖٖٖ، و المتضمن ترتيب السيد
+                            </span>
+                        </t>
+                        <t t-if="avancement.employee_id.gender == 'female'">
+                            <span>
+                                ـ وبناء على المقرر الجماعي رقم ..... المؤرخ في ................. المتعلق بإعادة ترتيب
+                                الموظفينٖٖٖ، و المتضمن ترتيب السيدة
+                            </span>
+                        </t>
+                    </div>
+                    <div style="font-size: 20px; text-align: right;">
+                        <span>
+                            <t t-esc="avancement.employee_id.name"/>
+                            في رتبة
+                            <t t-esc="avancement.employee_id.grade_id.intitule_grade"/>
+                            الصنف
+                            <t t-esc="avancement.employee_id.grade_id.intitule_grade"/>
+                            الدرجة
+                            <t t-esc="avancement.employee_id.grade_id.intitule_grade"/>
+                            الموافقة للرقم الاستدلالي
+                            <t t-esc="avancement.employee_id.grade_id.intitule_grade"/>
+                            ابتداء من تاريخ ...................،
+                        </span>
+                    </div>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>
