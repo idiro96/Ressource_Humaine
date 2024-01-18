@@ -200,5 +200,4 @@
         <field name="view_id" ref="dashboard_form_view"/>
     </record>
 
-
 </odoo>
