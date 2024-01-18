@@ -30,9 +30,6 @@
                 <xpath expr="//div[@name='wage']" position="attributes">
                     <attribute name="invisible">True</attribute>
                 </xpath>
-<!--                <xpath expr="//span[contains(text(), '/ month')]" position="replace">-->
-<!--                    <span>Mensuel</span>-->
-<!--                </xpath>-->
                 <xpath expr="//div[@name='wage']" position="before">
                     <field name="code_type_fonction" invisible="1"/>
                 </xpath>

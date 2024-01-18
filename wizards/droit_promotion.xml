@@ -1,0 +1,22 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="droit_promotion_wizard">
+            <field name="name">droit aux promotions</field>
+            <field name="model">droit.promotion</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                       <field name="date_promotion" string = "Date Promotion"/>
+                    </group>
+                    <footer>
+                        <button name="actualiser_droit_promotion" string="Actualiser Droit Promotion" type="object"
+                                class="btn-danger text-uppercase"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

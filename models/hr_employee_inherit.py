@@ -28,6 +28,7 @@ class HrEmployeInherited(models.Model):
     date_reintegration = fields.Date()
     activite_conjoint = fields.Boolean(default=False)
     visite_medical_detaille_id = fields.Many2one('ressource_humaine.visite.medical.detaille')
+    commission_avancement_id = fields.Many2one('ressource_humaine.commission.avancement')
     formation_detail_id = fields.Many2one('ressource_humaine.formation.detail')
 
     selection_employe = fields.Boolean('Sélection', default=False)
@@ -66,6 +67,20 @@ class HrEmployeInherited(models.Model):
     corps_visible = fields.Boolean(default=True)
     gender = fields.Selection(selection=[('male', 'Masculin'), ('female', 'Féminin')], readonly=False, required=True)
     place_of_birth_fr = fields.Char('Lieu de naissance', groups="hr.group_hr_user", required=True)
+    groupe_id = fields.Many2one('rh.groupe', readonly=False)
+    point_indiciare = fields.Integer()
+    indice_minimal = fields.Integer()
+    indice_base = fields.Integer()
+    bonification_indiciaire = fields.Integer()
+    categorie_id = fields.Many2one('rh.categorie')
+    categorie_superieure_id = fields.Many2one('rh.categorie.superieure')
+    echelon_id = fields.Many2one('rh.echelon')
+    niveau_hierarchique_id = fields.Many2one('rh.niveau.hierarchique')
+    section_id = fields.Many2one('rh.section')
+    section_superieure_id = fields.Many2one('rh.section.superieure')
+    grille_id = fields.Many2one('rh.grille')
+    code_type_fonction = fields.Char(related='nature_travail_id.code_type_fonction',
+                                     string='Code Type Fonction', store=True)
 
     @api.multi
     def calculer_age_employee(self):
@@ -115,6 +130,7 @@ class HrEmployeInherited(models.Model):
     #                 days_off = conge.nbr_jour_reste + days_off
     #
     #             employee.days_off = days_off
+
 
     @api.onchange('nature_travail_id')
     def _onchange_related_field_filier(self):

@@ -1,0 +1,41 @@
+<odoo>
+    <record id="view_rh_promotion_droit_tree" model="ir.ui.view">
+        <field name="name">Droit Promotion Tree</field>
+        <field name="model">rh.promotion.droit</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="employee_id"/>
+                <field name="type_fonction_id"/>
+                <field name="grade_id"/>
+                <field name="date_grade"/>
+            </tree>
+        </field>
+
+    </record>
+    <record id="view_rh_promotion_droit_form" model="ir.ui.view">
+        <field name="name">Droit Promotion Form</field>
+        <field name="model">rh.promotion.droit</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="employee_id"/>
+                    <field name="type_fonction_id"/>
+                    <field name="grade_id"/>
+                    <field name="date_grade"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_rh_promotion_droit_wizard" model="ir.actions.act_window">
+        <field name="name">Droit Promotion</field>
+        <field name="res_model">droit.promotion</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="ressource_humaine.droit_promotion_wizard"/>
+        <field name="target">new</field>
+    </record>
+    <menuitem name="Droit Promotion" id="ressource_humaine_droit_promotion" parent="promotion_id" sequence="3"
+              action="action_rh_promotion_droit_wizard"/>
+</odoo>
+
+

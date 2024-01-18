@@ -13,6 +13,7 @@ class RHAvancement(models.Model):
     avancement_lines_wizard = fields.One2many('rh.avancement.line.wizard', inverse_name='avancement_id')
 
     avancement_wizard = fields.Boolean(default=True)
+    choisir_commission_lines = fields.One2many('rh.avancement.commission.line', 'avancement_id')
     # promotion_file_lines = fields.One2many('rh.file', 'promotion_id')
 
     @api.model
@@ -154,22 +155,7 @@ class RHAvancement(models.Model):
                             'niveau_hierarchique_new_id': avancement_line.niveau_hierarchique_new_id.id
                         })
 
-
         self.avancement_lines_wizard = self.env['rh.avancement.line.wizard'].search([])
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         return {
                 'type': 'ir.actions.act_window',
@@ -178,5 +164,15 @@ class RHAvancement(models.Model):
                 'view_mode': 'form',
                 'res_model': 'rh.avancement',
             }
+
+    def choisir_commission(self):
+
+        return {
+            'type': 'ir.actions.act_window',
+            'target': 'new',
+            'name': 'Commission Avancement',
+            'view_mode': 'form',
+            'res_model': 'commission.avancement',
+        }
 
 
