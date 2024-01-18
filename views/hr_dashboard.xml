@@ -45,7 +45,40 @@
         </field>
     </record>
 
-<!--    <record id="act_conge" model="ir.actions.act_window">-->
+    <record id="employee_age_bar_chart" model="ir.ui.view">
+        <field name="name">Nombre d'employés par tranche d'âge</field>
+        <field name="model">hr.employee</field>
+        <field name="arch" type="xml">
+            <graph string="عدد الموظفين حسب الفئة العمرية" type="bar">
+                <field name="age_range" string="الفئة العمرية"/>
+                <field name="id" type="measure" operator="count"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="absence_graph" model="ir.ui.view">
+        <field name="name">graph des Absences</field>
+        <field name="model">rh.absence</field>
+        <field name="arch" type="xml">
+            <graph string="Absences par mois" type="bar">
+                <field name="date_debut_absence" type="row" interval="month"/>
+                <field name="nbr_jours_absence" type="measure" operator="+"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="employee_absence_graph" model="ir.ui.view">
+        <field name="name">graph des Absences par Employee</field>
+        <field name="model">rh.absence</field>
+        <field name="arch" type="xml">
+            <graph string="Absences des employés" type="pie">
+                <field name="employee_id" string="Employés"/>
+                <field name="nbr_jours_absence" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!--    <record id="act_conge" model="ir.actions.act_window">-->
 <!--        <field name="name">Planning des Congés</field>-->
 <!--        <field name="res_model">hr.holidays</field>-->
 <!--        <field name="view_mode">calendar,tree,form</field>-->
@@ -93,6 +126,27 @@
         <field name="view_id" ref="ressource_humaine.employee_count_pie_chart"/>
     </record>
 
+    <record id="act_employee_age_bar_chart" model="ir.actions.act_window">
+        <field name="name">Nombre d'employés par tranche d'âge</field>
+        <field name="res_model">hr.employee</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="ressource_humaine.employee_age_bar_chart"/>
+    </record>
+
+    <record id="act_absence" model="ir.actions.act_window">
+        <field name="name">Absences</field>
+        <field name="res_model">rh.absence</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="ressource_humaine.absence_graph"/>
+    </record>
+
+    <record id="act_employee_absence" model="ir.actions.act_window">
+        <field name="name">Absence des Employées</field>
+        <field name="res_model">rh.absence</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="ressource_humaine.employee_absence_graph"/>
+    </record>
+
     <record id="dashboard_form_view" model="ir.ui.view">
         <field name="name">Formulaire du Tableau de Bord</field>
         <field name="model">board.board</field>
@@ -113,6 +167,12 @@
                                 string="توزيع الموظفين"
                                 name="%(ressource_humaine.act_employee_distribution)d"/>
                         <action
+                            string="عدد الموظفين حسب الفئة العمرية"
+                            name="%(ressource_humaine.act_employee_age_bar_chart)d"/>
+                        <action
+                            string="الغيابات"
+                            name="%(ressource_humaine.act_absence)d"/>
+                        <action
                             string="تكلفة الاجور"
                             name="%(ressource_humaine.act_wage_graph)d"/>
                     </column>
@@ -123,6 +183,9 @@
                         <action
                             string="عدد الموظفين لكل شريحة الاجور"
                             name="%(ressource_humaine.act_employee_count_pie_chart)d"/>
+                        <action
+                            string="غيابات الموظفين"
+                            name="%(ressource_humaine.act_employee_absence)d"/>
                     </column>
                 </board>
             </form>
@@ -136,12 +199,5 @@
         <field name="usage">menu</field>
         <field name="view_id" ref="dashboard_form_view"/>
     </record>
-
-<!--    <menuitem-->
-<!--            name="Tableau de bord"-->
-<!--            parent="ressource_humaine.menu_root"-->
-<!--            action="action_employee_dashboard"-->
-<!--            sequence="30"-->
-<!--            id="menu_tableau_de_bord"/>-->
 
 </odoo>

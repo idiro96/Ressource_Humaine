@@ -18,6 +18,9 @@
         <field name="model">rh.avancement</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                    <button name="choisir_commission" type="object" string="Choisir Commission" class="oe_highlight" attrs="{'invisible': [('id', '=', False)]}"/>
+                </header>
                 <sheet>
                     <group>
                         <group>
@@ -38,10 +41,12 @@
                                     <field name="echelon_old_id" readonly="1"/>
                                     <field name="code_type_fonction" invisible="1"/>
                                     <field name="auto_filled_field" invisible="1"/>
-                                    <field name="groupe_new_id" attrs="{'readonly': [('code_type_fonction', '=', 'fonctionsuperieure')]}">
-                                            </field>
+                                    <field name="groupe_new_id"
+                                           attrs="{'readonly': [('code_type_fonction', '=', 'fonctionsuperieure')]}">
+                                    </field>
                                     <field name="categorie_new_id"/>
-                                    <field name="section_new_id" attrs="{'readonly': [('code_type_fonction', '=', 'fonction')]}"/>
+                                    <field name="section_new_id"
+                                           attrs="{'readonly': [('code_type_fonction', '=', 'fonction')]}"/>
                                     <field name="echelon_new_id"/>
                                 </tree>
                             </field>
@@ -61,6 +66,15 @@
                                     <field name="categorie_new_id" readonly="1"/>
                                     <field name="section_new_id" readonly="1"/>
                                     <field name="echelon_new_id" readonly="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Membre De Commission" attrs="{'invisible': [('id', '=', False)]}">
+                            <field name="choisir_commission_lines">
+                                <tree editable="bottom">
+                                    <field name="employee_id"/>
+                                    <field name="department_id"/>
+                                    <field name="job_id"/>
                                 </tree>
                             </field>
                         </page>

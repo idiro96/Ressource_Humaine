@@ -364,6 +364,12 @@
         <menuitem name="Employee" id="ressource_humaine_employee" parent="employee_gestion"
                   action="action_ressource_humaine"/>
 
+        <menuitem
+                name="Tableau de bord"
+                parent="ressource_humaine.menu_root"
+                action="action_employee_dashboard"
+                sequence="30"
+                id="menu_tableau_de_bord"/>
 
     </data>
 

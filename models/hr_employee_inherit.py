@@ -28,6 +28,7 @@ class HrEmployeInherited(models.Model):
     date_reintegration = fields.Date()
     activite_conjoint = fields.Boolean(default=False)
     visite_medical_detaille_id = fields.Many2one('ressource_humaine.visite.medical.detaille')
+    commission_avancement_id = fields.Many2one('ressource_humaine.commission.avancement')
     formation_detail_id = fields.Many2one('ressource_humaine.formation.detail')
 
     selection_employe = fields.Boolean('Sélection', default=False)
@@ -82,6 +83,56 @@ class HrEmployeInherited(models.Model):
     code_type_fonction = fields.Char(related='nature_travail_id.code_type_fonction',
                                      string='Code Type Fonction', store=True)
     date_avancement = fields.Date()
+
+    @api.multi
+    def calculer_age_employee(self):
+        for emp in self:
+            age = 0
+            if emp.birthday:
+                date_naiss = datetime.strptime(emp.birthday, '%Y-%m-%d')
+                aujourdhui = date.today()
+                age = aujourdhui.year - date_naiss.year - ((aujourdhui.month, aujourdhui.day) < (date_naiss.month, date_naiss.day))
+            emp.age_employee = age
+
+    age_employee = fields.Integer(string="Age", compute='calculer_age_employee')
+
+    age_range = fields.Selection([
+        ('low', '20-30'),
+        ('medium', '30-40'),
+        ('high', '40-50'),
+        ('very_high', '50+')
+    ], compute='_compute_age_range', store=True, selection_sort=False)
+
+    @api.depends('age_employee')
+    def _compute_age_range(self):
+        for rec in self:
+            if rec.age_employee < 30:
+                rec.age_range = 'low'
+            elif 30 <= rec.age_employee < 40:
+                rec.age_range = 'medium'
+            elif 40 <= rec.age_employee < 50:
+                rec.age_range = 'high'
+            else:
+                rec.age_range = 'very_high'
+
+
+    # @api.depends('date_entrer')
+    # def _compute_days_off(self):
+    #     for employee in self:
+    #         if employee.date_entrer:
+    #             # Assuming date_entry is a Date field in the hr.employee model
+    #             # entrer_date = fields.Date.from_string(employee.date_entrer)
+    #             # today_date = fields.Date.from_string(fields.Date.today())
+    #             # months_passed = (today_date.year - entrer_date.year) * 12 + today_date.month - entrer_date.month
+    #             # days_off = months_passed * 2.5
+    #             days_off = 0
+    #             conge_existe = self.env['rh.congedroit'].search(
+    #                     [('id_personnel', '=', employee.id)])
+    #             for conge in conge_existe:
+    #                 days_off = conge.nbr_jour_reste + days_off
+    #
+    #             employee.days_off = days_off
+
 
     @api.onchange('nature_travail_id')
     def _onchange_related_field_filier(self):
