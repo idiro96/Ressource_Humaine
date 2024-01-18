@@ -67,6 +67,38 @@ class HrEmployeInherited(models.Model):
     gender = fields.Selection(selection=[('male', 'Masculin'), ('female', 'Féminin')], readonly=False, required=True)
     place_of_birth_fr = fields.Char('Lieu de naissance', groups="hr.group_hr_user", required=True)
 
+    @api.multi
+    def calculer_age_employee(self):
+        for emp in self:
+            age = 0
+            if emp.birthday:
+                date_naiss = datetime.strptime(emp.birthday, '%Y-%m-%d')
+                aujourdhui = date.today()
+                age = aujourdhui.year - date_naiss.year - ((aujourdhui.month, aujourdhui.day) < (date_naiss.month, date_naiss.day))
+            emp.age_employee = age
+
+    age_employee = fields.Integer(string="Age", compute='calculer_age_employee')
+
+    age_range = fields.Selection([
+        ('low', '20-30'),
+        ('medium', '30-40'),
+        ('high', '40-50'),
+        ('very_high', '50+')
+    ], compute='_compute_age_range', store=True, selection_sort=False)
+
+    @api.depends('age_employee')
+    def _compute_age_range(self):
+        for rec in self:
+            if rec.age_employee < 30:
+                rec.age_range = 'low'
+            elif 30 <= rec.age_employee < 40:
+                rec.age_range = 'medium'
+            elif 40 <= rec.age_employee < 50:
+                rec.age_range = 'high'
+            else:
+                rec.age_range = 'very_high'
+
+
     # @api.depends('date_entrer')
     # def _compute_days_off(self):
     #     for employee in self:
