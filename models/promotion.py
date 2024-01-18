@@ -22,6 +22,7 @@ class RHPromotion(models.Model):
 
     grade_new_id = fields.Many2one('rh.grade')
     date_new_grade = fields.Date()
+    choisir_commission_lines = fields.One2many('rh.promotion.commission.line', 'promotion_id')
 
     @api.model
     def create(self, vals):
@@ -158,6 +159,15 @@ class RHPromotion(models.Model):
             'name': 'Promotion',
             'view_mode': 'form',
             'res_model': 'rh.promotion',
+        }
+    def choisir_commission(self):
+
+        return {
+            'type': 'ir.actions.act_window',
+            'target': 'new',
+            'name': 'Commission Promotion',
+            'view_mode': 'form',
+            'res_model': 'commission.promotion',
         }
 
 
