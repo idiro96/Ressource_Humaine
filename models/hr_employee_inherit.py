@@ -55,6 +55,7 @@ class HrEmployeInherited(models.Model):
                               ('detachement', 'Detachement'),],
                                 readonly=False, default='recrutement')
     ancienne_etablissement = fields.Char()
+    prenom = fields.Char()
     ancien_corps_id = fields.Many2one('rh.corps')
     ancien_grade_id = fields.Many2one('rh.grade')
     date_ancien_grade = fields.Date()
@@ -80,6 +81,7 @@ class HrEmployeInherited(models.Model):
     grille_id = fields.Many2one('rh.grille')
     code_type_fonction = fields.Char(related='nature_travail_id.code_type_fonction',
                                      string='Code Type Fonction', store=True)
+    date_avancement = fields.Date()
 
     @api.onchange('nature_travail_id')
     def _onchange_related_field_filier(self):

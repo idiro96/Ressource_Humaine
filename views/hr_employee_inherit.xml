@@ -5,6 +5,12 @@
             <field name="model">hr.employee</field>
             <field name="inherit_id" ref="hr.view_employee_tree"/>
             <field name="arch" type="xml">
+<!--                <xpath expr="//form//sheet//field[@name='name']" position="after">-->
+<!--                    <field name="prenom"></field>-->
+<!--                </xpath>-->
+                 <xpath expr="//tree//field[@name='name']" position="after">
+                    <field name="prenom"></field>
+                </xpath>
                 <xpath expr="//tree//field[@name='name']" position="after">
                     <field name="nature_travail_id"></field>
                 </xpath>
@@ -218,46 +224,106 @@
 
                 <xpath expr="//form//sheet//notebook" position="inside">
                     <page string="Information Salariale">
-                        <field name="groupe_id"/>
+                        <group>
+                            <group>
+                                <field name="date_avancement" String="Date Avancement"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="groupe_id" String="Groupe"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="categorie_id" String="Categorie"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="section_id" String="Section"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="indice_base" String="Indice base"></field>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="indice_minimal" String="Indice minimal"></field>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="echelon_id" String="echelon"></field>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="point_indiciare" String="Point indiciare"></field>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="categorie_superieure_id" String="Categorie supérieure"></field>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="section_superieure_id" String="Section supérieure"></field>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="niveau_hierarchique_id" String="Niveau Hierarchique"></field>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="bonification_indiciaire" String="Bonification indiciaire"></field>
+                            </group>
+                        </group>
 
-<!--                <xpath expr="//field[@name='groupe_id']" position="after">-->
-<!--                    <field name="categorie_id"/>-->
-<!--                </xpath>-->
-<!--                <xpath expr="//field[@name='categorie_id']" position="after">-->
-<!--                    <field name="section_id"-->
-<!--                           attrs="{'invisible': [('code_type_fonction', '!=', 'fonctionsuperieure')]}"/>-->
-<!--                </xpath>-->
-<!--                <xpath expr="//field[@name='section_id']" position="after">-->
-<!--                    <field name="indice_base"-->
-<!--                           attrs="{'invisible': ['|',('code_type_fonction', '!=', 'fonctionsuperieure'),('code_type_fonction', '!=', 'fonctionsuperieure')]}"/>-->
-<!--                </xpath>-->
-<!--                <xpath expr="//field[@name='indice_base']" position="after">-->
-<!--                    <field name="indice_minimal"-->
-<!--                           attrs="{'invisible': ['|',('code_type_fonction', '=', 'fonctionsuperieure'),('code_type_fonction', '=', 'fonction')]}"/>-->
-<!--                </xpath>-->
-<!--                <xpath expr="//field[@name='indice_minimal']" position="after">-->
-<!--                    <field name="echelon_id" attrs="{'invisible': [('code_type_fonction', '=', 'contractuel')]}"/>-->
-<!--                </xpath>-->
-<!--                <xpath expr="//field[@name='echelon_id']" position="after">-->
-<!--                    <field name="point_indiciare" attrs="{'invisible': [('code_type_fonction', '=', 'contractuel')]}"/>-->
-<!--                </xpath>-->
-<!--                <xpath expr="//field[@name='point_indiciare']" position="after">-->
-<!--                    <field name="categorie_superieure_id"-->
-<!--                           attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')]}"/>-->
-<!--                </xpath>-->
-<!--                <xpath expr="//field[@name='categorie_superieure_id']" position="after">-->
-<!--                    <field name="section_superieure_id"-->
-<!--                           attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')]}"/>-->
-<!--                </xpath>-->
-<!--                <xpath expr="//field[@name='section_superieure_id']" position="after">-->
-<!--                    <field name="niveau_hierarchique_id"-->
-<!--                           attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')]}"/>-->
-<!--                </xpath>-->
 
-<!--                <xpath expr="//field[@name='niveau_hierarchique_id']" position="after">-->
-<!--                    <field name="bonification_indiciaire"-->
-<!--                           attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')]}"/>-->
-<!--                </xpath>-->
+                        <!--                <xpath expr="//field[@name='groupe_id']" position="after">-->
+                        <!--                    <field name="categorie_id"/>-->
+                        <!--                </xpath>-->
+                        <!--                <xpath expr="//field[@name='categorie_id']" position="after">-->
+                        <!--                    <field name="section_id"-->
+                        <!--                           attrs="{'invisible': [('code_type_fonction', '!=', 'fonctionsuperieure')]}"/>-->
+                        <!--                </xpath>-->
+                        <!--                <xpath expr="//field[@name='section_id']" position="after">-->
+                        <!--                    <field name="indice_base"-->
+                        <!--                           attrs="{'invisible': ['|',('code_type_fonction', '!=', 'fonctionsuperieure'),('code_type_fonction', '!=', 'fonctionsuperieure')]}"/>-->
+                        <!--                </xpath>-->
+                        <!--                <xpath expr="//field[@name='indice_base']" position="after">-->
+                        <!--                    <field name="indice_minimal"-->
+                        <!--                           attrs="{'invisible': ['|',('code_type_fonction', '=', 'fonctionsuperieure'),('code_type_fonction', '=', 'fonction')]}"/>-->
+                        <!--                </xpath>-->
+                        <!--                <xpath expr="//field[@name='indice_minimal']" position="after">-->
+                        <!--                    <field name="echelon_id" attrs="{'invisible': [('code_type_fonction', '=', 'contractuel')]}"/>-->
+                        <!--                </xpath>-->
+                        <!--                <xpath expr="//field[@name='echelon_id']" position="after">-->
+                        <!--                    <field name="point_indiciare" attrs="{'invisible': [('code_type_fonction', '=', 'contractuel')]}"/>-->
+                        <!--                </xpath>-->
+                        <!--                <xpath expr="//field[@name='point_indiciare']" position="after">-->
+                        <!--                    <field name="categorie_superieure_id"-->
+                        <!--                           attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')]}"/>-->
+                        <!--                </xpath>-->
+                        <!--                <xpath expr="//field[@name='categorie_superieure_id']" position="after">-->
+                        <!--                    <field name="section_superieure_id"-->
+                        <!--                           attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')]}"/>-->
+                        <!--                </xpath>-->
+                        <!--                <xpath expr="//field[@name='section_superieure_id']" position="after">-->
+                        <!--                    <field name="niveau_hierarchique_id"-->
+                        <!--                           attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')]}"/>-->
+                        <!--                </xpath>-->
+
+                        <!--                <xpath expr="//field[@name='niveau_hierarchique_id']" position="after">-->
+                        <!--                    <field name="bonification_indiciaire"-->
+                        <!--                           attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')]}"/>-->
+                        <!--                </xpath>-->
                     </page>
                 </xpath>
 
@@ -267,14 +333,13 @@
         </record>
 
 
-
         <!--        <record model="ir.actions.act_window" id="action_ressource_humaine">-->
-<!--            <field name="name">employee</field>-->
-<!--            <field name="res_model">hr.employee</field>-->
-<!--            <field name="view_type">form</field>-->
-<!--            <field name="view_mode">tree,form</field>-->
-<!--            <field name="view_id" ref="hr.view_employee_tree"/>-->
-<!--        </record>-->
+        <!--            <field name="name">employee</field>-->
+        <!--            <field name="res_model">hr.employee</field>-->
+        <!--            <field name="view_type">form</field>-->
+        <!--            <field name="view_mode">tree,form</field>-->
+        <!--            <field name="view_id" ref="hr.view_employee_tree"/>-->
+        <!--        </record>-->
 
         <record id="action_ressource_humaine" model="ir.actions.act_window">
             <field name="name">emloyee</field>
