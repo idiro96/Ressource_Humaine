@@ -235,6 +235,8 @@ class DroitAvancementReport(models.AbstractModel):
         report_data = {
             'avancement': avancement,
             'company': self.env.user.company_id,
+            'avancement_lines': avancement.avancement_lines,
         }
 
         return report_data
+
