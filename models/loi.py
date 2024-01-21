@@ -10,6 +10,7 @@ class RHLoi(models.Model):
 
     code = fields.Char(readonly=True, default=lambda self: _('New'))
     intitule_loi = fields.Char()
+    description = fields.Text()
 
 
     @api.model

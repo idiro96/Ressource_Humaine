@@ -116,6 +116,25 @@ class HrEmployeInherited(models.Model):
             else:
                 rec.age_range = 'very_high'
 
+    @api.depends('date_entrer')
+    def _compute_experience(self):
+        for employee in self:
+            if employee.date_entrer:
+                date_entrer = fields.Datetime.from_string(employee.date_entrer)
+                date_now = fields.Datetime.from_string(fields.Datetime.now())
+                delta = relativedelta(date_now, date_entrer)
+
+                years = delta.years
+                months = delta.months
+                days = delta.days
+
+                employee.experience_years = years
+                employee.experience_months = months
+                employee.experience_days = days
+
+    experience_years = fields.Integer(compute="_compute_experience", store=True)
+    experience_months = fields.Integer(compute="_compute_experience", store=True)
+    experience_days = fields.Integer(compute="_compute_experience", store=True)
 
     # @api.depends('date_entrer')
     # def _compute_days_off(self):

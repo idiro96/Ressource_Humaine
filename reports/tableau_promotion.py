@@ -2,8 +2,6 @@ from odoo import models, fields, api, _
 from odoo.exceptions import UserError
 
 
-
-
 class TableauPromotionReport(models.AbstractModel):
 
     _name = 'report.ressource_humaine.tableau_promotion'
