@@ -101,7 +101,7 @@
                                 <t t-esc="avancement.avancement_lines.employee_id.name"/>
                                 في رتبة
                                 <t t-esc="avancement.avancement_lines.employee_id.grade_id.intitule_grade"/>
-                                 إلى الدرجة
+                                إلى الدرجة
                                 <t t-esc="avancement.avancement_lines.echelon_new_id.intitule"/>
                                 الرقم الاستدلالي
                                 <t t-esc="avancement.avancement_lines.employee_id.point_indiciare"/>
@@ -120,6 +120,74 @@
                                 الدرجات بعنوان سنة
                             </span>
                         </div>
+                        <br/>
+                        <div style="font-size: 20px; text-align: right;">
+                            <span>
+                                <t t-if="avancement.avancement_lines.employee_id.gender == 'male'">
+                                    ـ ترقى السيد :
+                                </t>
+                                <t t-if="avancement.avancement_lines.employee_id.gender == 'female'">
+                                    ـ ترقى السيدة :
+                                </t>
+                                <t t-esc="avancement.avancement_lines.employee_id.name"/>
+                            </span>
+                        </div>
+                        <div style="font-size: 20px; text-align: right;">
+                            <span>
+                                ـ إلى الدرجة :
+                                <t t-esc="avancement.avancement_lines.echelon_new_id.intitule"/>
+                            </span>
+                        </div>
+                        <div style="font-size: 20px; text-align: right;">
+                            <span>
+                                ................... :
+                            </span>
+                            <span>
+                                ـ وفقا للمدة
+                            </span>
+                        </div>
+                        <div style="font-size: 20px; text-align: right;">
+                            <span>
+                                ـ تاريخ الاستفادة :
+                                <t t-esc="avancement.date_avancement"/>
+                            </span>
+                        </div>
+                        <div style="font-size: 20px; text-align: right;">
+                            <spans>
+                                و يحتفظ إلى تاريخ
+                                <strong>
+                                    <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%m-%Y')"/>
+                                </strong>
+                                بأقدمية قدرها
+                                <strong>
+                                    <t t-esc="avancement.avancement_lines.employee_id.experience_years"/>
+                                    سنة /
+                                    <t t-esc="avancement.avancement_lines.employee_id.experience_months"/>
+                                    شهر /
+                                    <t t-esc="avancement.avancement_lines.employee_id.experience_days"/>
+                                    يوم
+                                </strong>
+                            </spans>
+                        </div>
+                        <br/>
+                        <table class="text-center" style="width: 40%; margin: 0 auto;">
+                            <tr>
+                                <td style="border-top: 4px solid black; border-bottom: 4px solid black; border-left: 4px solid black; border-right: 4px solid black; border-radius: 10px;">
+                                    <t t-if="avancement.avancement_lines.employee_id.gender == 'male'">
+                                        ترتب المعني في الصنف :
+                                    </t>
+                                    <t t-if="avancement.avancement_lines.employee_id.gender == 'female'">
+                                        ترتب المعنية في الصنف :
+                                    </t>
+                                    <t t-esc="avancement.avancement_lines.categorie_new_id.intitule"/>
+                                    <br/>
+                                    الدرجة :
+                                    <t t-esc="avancement.avancement_lines.echelon_new_id.intitule"/>
+                                    الرقم الاستدلالي :
+                                    <t t-esc="avancement.avancement_lines.employee_id.point_indiciare"/>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </t>
