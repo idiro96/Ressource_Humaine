@@ -13,6 +13,7 @@ class RHDroitAvencement(models.TransientModel):
     code = fields.Char()
 
 
+
     @api.multi
     def Archiver(self):
         print('glllllllllll')
@@ -106,7 +107,7 @@ class RHDroitAvencement(models.TransientModel):
             'view_mode': 'tree,form',
             'res_model': 'rh.avencement.droit',
             'type': 'ir.actions.act_window',
-            # 'domain': [('state', '=', 'reforme')],
+            'domain': [('date_avancement', '=', self.date_avancement), ('sauvegarde', '=', True)],
 
         }
 
