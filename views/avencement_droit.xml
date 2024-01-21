@@ -18,7 +18,6 @@
                 <field name="echelon_new_id"/>
                 <field name="date_avancement" readonly="1"/>
                 <field name="sauvegarde"/>
-
             </tree>
         </field>
 
