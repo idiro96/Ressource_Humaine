@@ -11,6 +11,7 @@ class RHPromotionLine(models.Model):
     date_promotion = fields.Date()
     promotion_id = fields.Many2one('hr.promotion')
     employee_id = fields.Many2one('hr.employee')
+    job_id = fields.Many2one('hr.job')
     grade_old_id = fields.Many2one('rh.grade')
     grade_id = fields.Many2one('rh.grade')
     grade_new_id = fields.Many2one('rh.grade')
