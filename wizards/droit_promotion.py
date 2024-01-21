@@ -35,7 +35,7 @@ class RHDroitPromotion(models.TransientModel):
                     difference = (dateDebut_object.year - dateDebut_object2.year) * 12 + dateDebut_object.month - dateDebut_object2.month
                     print(difference)
                     print(promo.name)
-                    if difference >= 12:
+                    if difference >= 60:
                         self.env['rh.promotion.droit'].create({
                             'employee_id': promo.id,
                             'type_fonction_id': promo.nature_travail_id.id,
