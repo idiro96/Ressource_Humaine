@@ -37,3 +37,7 @@ class RHAvencementDroit(models.Model):
     #     for rec in self:
     #         if rec.sauvegarde != False
     #     res1 = self.env['account.asset.asset'].search([('id', '=', self.id)])
+
+    @api.multi
+    def print_promotion(self):
+        return self.env.ref('ressource_humaine.action_hr_tableau_promotion').with_context(landscape=True).report_action(self)
