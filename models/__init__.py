@@ -49,5 +49,6 @@ from . import type_fonction
 from . import avencement_droit
 from . import promotion_droit
 from . import avancement_commission_line
+from . import promotion_commission_line
 
 
