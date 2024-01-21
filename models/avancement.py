@@ -41,6 +41,21 @@ class RHAvancement(models.Model):
                     'categorie_new_id': rec.categorie_new_id.id,
                     'echelon_new_id': rec.echelon_new_id.id,
                     })
+                    employee = self.env['hr.employee'].search(
+                    [('id', '=', rec.employee_id.id)])
+                    employee.write({
+                        'date_avancement': avancement.date_avancement,
+                    })
+                    employee.write({
+                        'groupe_id': rec.groupe_new_id.id,
+                    })
+                    employee.write({
+                        'categorie_id': rec.categorie_new_id.id,
+                    })
+                    employee.write({
+                        'echelon_id': rec.echelon_new_id.id,
+                    })
+
                 elif rec.employee_id.nature_travail_id.code_type_fonction == 'fonctionsuperieure':
 
                     avance_line = self.env['rh.avancement.line'].create({
@@ -55,6 +70,20 @@ class RHAvancement(models.Model):
                         'categorie_new_id': rec.categorie_new_id.id,
                         'section_new_id': rec.section_new_id.id,
                         'echelon_new_id': rec.echelon_new_id.id,
+                    })
+                    employee = self.env['hr.employee'].search(
+                        [('id', '=', rec.employee_id.id)])
+                    employee.write({
+                        'date_avancement': avancement.date_avancement,
+                    })
+                    employee.write({
+                        'section_new_id': rec.section_new_id.id,
+                    })
+                    employee.write({
+                        'categorie_id': rec.categorie_new_id.id,
+                    })
+                    employee.write({
+                        'echelon_id': rec.echelon_new_id.id,
                     })
                 elif rec.employee_id.nature_travail_id.code_type_fonction == 'postesuperieure':
                     avance_line = self.env['rh.avancement.line'].create({

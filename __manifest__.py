@@ -93,6 +93,7 @@
         'reports/pv_instalation.xml',
         'reports/planning_conge.xml',
         'reports/contract_renew.xml',
+        'reports/tableau_promotion.xml',
 
 
     ],
