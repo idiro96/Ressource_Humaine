@@ -19,6 +19,9 @@
         <field name="model">rh.promotion</field>
         <field name="arch" type="xml">
             <form>
+                 <header>
+                    <button name="choisir_commission" type="object" string="Choisir Commission" class="oe_highlight" attrs="{'invisible': [('id', '=', False)]}"/>
+                </header>
                 <sheet>
                     <group>
                         <group>
@@ -60,6 +63,15 @@
                                     <field name="type_file_id" domain="[('type_file', '=', 'formation')]"/>
                                     <field name="description_fichier"/>
                                     <field name="fichier"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Membre De Commission" attrs="{'invisible': [('id', '=', False)]}">
+                            <field name="choisir_commission_lines">
+                                <tree editable="bottom">
+                                    <field name="employee_id"/>
+                                    <field name="department_id"/>
+                                    <field name="job_id"/>
                                 </tree>
                             </field>
                         </page>

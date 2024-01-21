@@ -9,6 +9,7 @@ from . import promotion_ligne_wizard
 from . import droit_avencement
 from . import droit_promotion
 from . import commission_avancement
+from . import commission_promotion
 
 
 
