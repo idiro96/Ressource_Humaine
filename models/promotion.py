@@ -162,13 +162,14 @@ class TableauDesPromotions(models.AbstractModel):
 
     @api.model
     def get_report_values(self, docids, data=None):
-        promotion = self.env['rh.promotion'].browse(docids[0])
+        promotions = self.env['rh.promotion'].browse(docids)
 
         report_data = {
-            'promotion': promotion,
+            'promotions': promotions,
             'company': self.env.user.company_id,
-            'promotion_lines': promotion.promotion_lines,
+            'promotion_lines': promotions.mapped('promotion_lines'),
         }
 
         return report_data
+
 

@@ -85,7 +85,7 @@
                                 <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
                                     <strong>الحالة العائلية</strong>
                                 </th>
-                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;width:150px">
                                     <strong>تاريخ الميلاد</strong>
                                 </th>
                                 <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
@@ -99,9 +99,9 @@
                                 </th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <t t-set="line_count" t-value="1"/>
-                            <t t-foreach="avencement_droit" t-as="record">
+                        <t t-set="line_count" t-value="1"/>
+                        <t t-foreach="avencement_droit" t-as="record">
+                            <tbody>
                                 <td style="border:1px solid black;">
                                     &#160;
                                 </td>
@@ -109,13 +109,13 @@
                                     <span t-esc="record.date_avancement"/>
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
-<!--                                    <span t-esc="record.name"/>-->
+                                    <!--                                    <span t-esc="record.name"/>-->
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
-<!--                                    <span t-esc="record.category_id.method_progress_factor"/>-->
+                                    <!--                                    <span t-esc="record.category_id.method_progress_factor"/>-->
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
-<!--                                    <span t-esc="record.numero_inventaire"/>-->
+                                    <!--                                    <span t-esc="record.numero_inventaire"/>-->
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
                                     <span t-esc="record.echelon_new_id.intitule"/>
@@ -133,7 +133,31 @@
                                     <span t-esc="record.grade_id.intitule_grade"/>
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
-                                    <span t-esc="record.employee_id.marital"/>
+                                    <t t-if="record.employee_id.marital == 'single'">
+                                        <span>أعزب</span>
+                                    </t>
+                                    <t t-if="record.employee_id.marital == 'married'">
+                                        <t t-if="record.employee_id.gender == 'male'">
+                                            <span>متزوّج</span>
+                                        </t>
+                                        <t t-if="record.employee_id.gender == 'female'">
+                                            <span>متزوّجة</span>
+                                        </t>
+                                    </t>
+                                    <t t-if="record.employee_id.marital == 'cohabitant'">
+                                        <span>معاش قانوني</span>
+                                    </t>
+                                    <t t-if="record.employee_id.marital == 'widower'">
+                                        <span>ارمل</span>
+                                    </t>
+                                    <t t-if="record.employee_id.marital == 'divorced'">
+                                        <t t-if="record.employee_id.gender == 'male'">
+                                            <span>مطلّق</span>
+                                        </t>
+                                        <t t-if="record.employee_id.gender == 'female'">
+                                            <span>مطلّقة</span>
+                                        </t>
+                                    </t>
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
                                     <span t-esc="record.employee_id.birthday"/>
@@ -148,12 +172,11 @@
                                     <t t-esc="line_count"/>
                                 </td>
                                 <t t-set="line_count" t-value="line_count + 1"/>
-                            </t>
-                        </tbody>
+                            </tbody>
+                        </t>
                     </table>
                 </div>
             </div>
-
         </t>
     </template>
 </odoo>

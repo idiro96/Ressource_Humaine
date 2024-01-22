@@ -8,7 +8,7 @@ class TableauPromotionReport(models.AbstractModel):
 
     @api.model
     def get_report_values(self, docids, data=None):
-        avencement_droit = self.env['rh.avencement.droit'].browse(docids[0])
+        avencement_droit = self.env['rh.avencement.droit'].search([('sauvegarde', '=', True)])
 
         report_data = {
             'avencement_droit': avencement_droit,
