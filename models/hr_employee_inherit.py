@@ -82,6 +82,8 @@ class HrEmployeInherited(models.Model):
     code_type_fonction = fields.Char(related='nature_travail_id.code_type_fonction',
                                      string='Code Type Fonction', store=True)
     date_avancement = fields.Date()
+    ref = fields.Char()
+    date_ref = fields.Date()
 
     @api.multi
     def calculer_age_employee(self):
