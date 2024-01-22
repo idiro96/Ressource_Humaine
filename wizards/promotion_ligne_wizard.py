@@ -11,6 +11,7 @@ class RHPromotionLine(models.TransientModel):
     promotion_id = fields.Many2one('hr.promotion')
     employee_id = fields.Many2one('hr.employee')
     type_fonction_id = fields.Many2one('rh.type.fonction')
+    job_id = fields.Many2one('hr.job')
     code_type_fonction = fields.Char(related='employee_id.nature_travail_id.code_type_fonction',
                                      string='Code Type Fonction', store=True)
 

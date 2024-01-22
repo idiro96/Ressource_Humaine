@@ -17,6 +17,7 @@ class RHPromotion(models.Model):
     avancement_wizard = fields.Boolean(default=True)
 
     type_fonction_id = fields.Many2one('rh.type.fonction')
+    job_id = fields.Many2one('hr.job')
     grade_id = fields.Many2one('rh.grade')
     date_grade = fields.Date()
 
@@ -33,31 +34,28 @@ class RHPromotion(models.Model):
         if promotion.promotion_lines_wizard and promotion.promotion_lines_wizard.ids:
             for rec in promotion.promotion_lines_wizard:
                 if rec.employee_id.nature_travail_id.code_type_fonction == 'fonction':
-
                     promo_line = self.env['rh.promotion.line'].create({
                         'employee_id': rec.employee_id.id,
                         'type_fonction_id': rec.type_fonction_id.id,
+                        'job_id': rec.job_id.id,
                         'date_examin_professionnel': self.date_examin_professionnel,
                         'promotion_id': promotion.id,
                         'grade_id': rec.grade_id.id,
                         'date_grade': rec.date_grade,
                         'grade_new_id': rec.grade_new_id.id,
                         'date_new_grade': rec.date_new_grade
-
                     })
-
                     employee = self.env['hr.employee'].search([('id', '=', rec.employee_id.id)])
-                    corps = self.env['rh.grade'].search([('corps_id', '=', rec.grade_new_id.id)])
-                    if corps:
-                        employee.write({'corps_id': corps.id})
+                    grade = self.env['rh.grade'].search([('grade_id', '=', rec.grade_new_id.id)])
+                    if grade:
+                        employee.write({'corps_id': grade.corps_id.id})
                     employee.write({'grade_id': rec.grade_new_id.id})
                     employee.write({'date_grade': rec.date_new_grade})
-
                 elif rec.employee_id.nature_travail_id.code_type_fonction == 'fonctionsuperieure':
-
                     promo_line = self.env['rh.promotion.line'].create({
                         'employee_id': rec.employee_id.id,
                         'type_fonction_id': rec.type_fonction_id.id,
+                        'job_id': rec.job_id.id,
                         'date_examin_professionnel': self.date_examin_professionnel,
                         'promotion_id': promotion.id,
                         'grade_id': rec.grade_id.id,
@@ -67,15 +65,16 @@ class RHPromotion(models.Model):
 
                     })
                     employee = self.env['rh.employee'].search([('id', '=', rec.employee_id.id)])
-                    corps = self.env['hr.grade'].search([('corps_id', '=', rec.grade_new_id.id)])
-                    if corps:
-                        employee.write({'corps_id': corps.id})
+                    grade = self.env['rh.grade'].search([('grade_id', '=', rec.grade_new_id.id)])
+                    if grade:
+                        employee.write({'corps_id': grade.corps_id.id})
                     employee.write({'grade_id': rec.grade_new_id.id})
                     employee.write({'date_grade': rec.date_new_grade})
                 elif rec.employee_id.nature_travail_id.code_type_fonction == 'postesuperieure':
                     promo_line = self.env['rh.promotion.line'].create({
                         'employee_id': rec.employee_id.id,
                         'type_fonction_id': rec.type_fonction_id.id,
+                        'job_id': rec.job_id.id,
                         'date_examin_professionnel': self.date_examin_professionnel,
                         'promotion_id': promotion.id,
                         'grade_id': rec.grade_id.id,
@@ -85,9 +84,9 @@ class RHPromotion(models.Model):
 
                     })
                     employee = self.env['hr.employee'].search([('id', '=', rec.employee_id.id)])
-                    corps = self.env['rh.grade'].search([('corps_id', '=', rec.grade_new_id.id)])
-                    if corps:
-                        employee.write({'corps_id': corps.id})
+                    grade = self.env['rh.grade'].search([('grade_id', '=', rec.grade_new_id.id)])
+                    if grade:
+                        employee.write({'corps_id': grade.corps_id.id})
                     employee.write({'grade_id': rec.grade_new_id.id})
                     employee.write({'date_grade': rec.date_new_grade})
 
@@ -108,48 +107,33 @@ class RHPromotion(models.Model):
         promotion_ligne_droit = self.env['rh.promotion.line.wizard'].search([])
         for record in promotion_ligne_droit:
             record.unlink()
-        promotion_line = self.env['hr.employee'].search(
-                [('date_grade', '<=', self.date_promotion)],
-                order='date_grade desc')
+        # promotion_line = self.env['hr.employee'].search(
+        #         [('date_grade', '<=', self.date_promotion)],
+        #         order='date_grade desc')
+        for rec2  in self:
+            promotion_line = self.env['rh.promotion.droit'].search(
+                [('date_promotion', '=', rec2.date_promotion),('sauvegarde', '=', True)],
+                order='date_promotion desc')
         if promotion_line:
             for promo in promotion_line:
                 dateDebut_object = fields.Date.from_string(self.date_promotion)
-                dateDebut_object2 = fields.Date.from_string(promo.date_grade)
+                dateDebut_object2 = fields.Date.from_string(promo.date_promotion)
                 difference = (
                                         dateDebut_object.year - dateDebut_object2.year) * 12 + dateDebut_object.month - dateDebut_object2.month
                 print(difference)
                 print('tttttttttetste1wizardWizard')
 
-                if difference >= 12:
-                        self.env['rh.promotion.line.wizard'].create({
-                            'employee_id': promo.id,
-                            'type_fonction_id': promo.nature_travail_id.id,
+                # if difference >= 12:
+                self.env['rh.promotion.line.wizard'].create({
+                            'employee_id': promo.employee_id.id,
+                            'type_fonction_id': promo.type_fonction_id.id,
+                            'job_id': promo.job_id.id,
                             'grade_id': promo.grade_id.id,
                             'date_grade': promo.date_grade,
-                            'grade_new_id': None,
-                            'date_new_grade': self.date_promotion,
+                            'grade_new_id': promo.grade_new_id.id,
+                            'date_new_grade': promo.date_promotion,
 
                         })
-                # elif difference >= 12 and promotion_line.nature_travail_id.code_type_fonction == 'fonctionsuperieure':
-                #         self.env['rh.promotion.line.wizard'].create({
-                #             'employee_id': promotion_line.id,
-                #             'type_fonction_id': promotion_line.nature_travail_id.id,
-                #             'grade_id': promotion_line.grade_id.id,
-                #             'date_grade': promotion_line.date_grade,
-                #             'grade_new_id': None,
-                #             'date_new_grade': self.date_promotion,
-                #
-                #         })
-                # elif difference >= 12 and promotion_line.nature_travail_id.code_type_fonction == 'postesuperieure':
-                #         self.env['rh.promotion.line.wizard'].create({
-                #             'employee_id': promotion_line.id,
-                #             'type_fonction_id': promotion_line.nature_travail_id.id,
-                #             'grade_id': promotion_line.grade_id.id,
-                #             'date_grade': promotion_line.date_grade,
-                #             'grade_new_id': None,
-                #             'date_new_grade': self.date_promotion,
-                #
-                #         })
 
         self.promotion_lines_wizard = self.env['rh.promotion.line.wizard'].search([])
 
