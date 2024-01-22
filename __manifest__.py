@@ -96,6 +96,7 @@
         'reports/contract_renew.xml',
         'reports/droit_avancement.xml',
         'reports/tableau_promotion.xml',
+        'reports/tableau_des_promotions.xml',
 
 
     ],
