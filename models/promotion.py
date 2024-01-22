@@ -23,7 +23,6 @@ class RHPromotion(models.Model):
     grade_new_id = fields.Many2one('rh.grade')
     date_new_grade = fields.Date()
     choisir_commission_lines = fields.One2many('rh.promotion.commission.line', 'promotion_id')
-
     @api.model
     def create(self, vals):
         for rec2 in self:
