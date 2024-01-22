@@ -16,16 +16,13 @@ class RHAvancement(models.Model):
     # promotion_file_lines = fields.One2many('rh.file', 'promotion_id')
 
 
-    @api.model
-    def create(self, vals):
-        if vals.get('code', _('New')) == _('New'):
-             vals['code'] = self.env['ir.sequence'].next_by_code('rh.avancement.sequence') or _('New')
-        result = super(RHAvancement, self).create(vals)
-        return result
+
 
     @api.model
     def create(self, vals):
         for rec2 in self:
+
+
             rec2.avancement_wizard = False
             print(rec2.avancement_wizard)
             print('tttttttttetste1wizard')
@@ -121,7 +118,8 @@ class RHAvancement(models.Model):
                         'section_superieure_new_id': rec.section_superieure_new_id.id,
                         'niveau_hierarchique_new_id': rec.niveau_hierarchique_new_id.id,
                     })
-
+        if vals.get('code', _('New')) == _('New'):
+            vals['code'] = self.env['ir.sequence'].next_by_code('rh.avancement.sequence') or _('New')
         return avancement
 
     @api.onchange('date_avancement')
