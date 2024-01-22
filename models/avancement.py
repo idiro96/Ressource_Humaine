@@ -22,11 +22,8 @@ class RHAvancement(models.Model):
     def create(self, vals):
         for rec2 in self:
             rec2.avancement_wizard = False
-            print(rec2.avancement_wizard)
-            print('tttttttttetste1wizard')
         avancement = super(RHAvancement, self).create(vals)
         if avancement.avancement_lines_wizard and avancement.avancement_lines_wizard.ids:
-            print(avancement.avancement_lines_wizard)
             for rec in avancement.avancement_lines_wizard:
                 if rec.employee_id.nature_travail_id.code_type_fonction == 'fonction':
 
@@ -35,6 +32,8 @@ class RHAvancement(models.Model):
                     'employee_id': rec.employee_id.id,
                     'type_fonction_id': rec.employee_id.nature_travail_id.id,
                     'date_old_avancement': rec.date_avancement,
+                    'ref': rec.employee_id.ref,
+                    'date_ref': rec.employee_id.date_ref,
                     'grade_id': rec.grade_id.id,
                     'job_id': rec.job_id.id,
                     'date_avancement': avancement.date_avancement,
@@ -69,6 +68,8 @@ class RHAvancement(models.Model):
                         'code': self.env['ir.sequence'].next_by_code('rh.avancement.line.sequence'),
                         'type_fonction_id': rec.employee_id.nature_travail_id.id,
                         'date_old_avancement': rec.date_avancement,
+                        'ref': rec.employee_id.ref,
+                        'date_ref': rec.employee_id.date_ref,
                         'grade_id': rec.grade_id.id,
                         'job_id': rec.job_id.id,
                         'date_avancement': avancement.date_avancement,
@@ -101,6 +102,8 @@ class RHAvancement(models.Model):
                         'code': self.env['ir.sequence'].next_by_code('rh.avancement.line.sequence'),
                         'type_fonction_id': rec.employee_id.nature_travail_id.id,
                         'date_old_avancement': rec.date_avancement,
+                        'ref': rec.employee_id.ref,
+                        'date_ref': rec.employee_id.date_ref,
                         'grade_id': rec.grade_id.id,
                         'job_id': rec.job_id.id,
                         'date_avancement': avancement.date_avancement,
