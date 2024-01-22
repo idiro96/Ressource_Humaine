@@ -15,11 +15,17 @@ class RHAvancement(models.Model):
     choisir_commission_lines = fields.One2many('rh.avancement.commission.line', 'avancement_id')
     # promotion_file_lines = fields.One2many('rh.file', 'promotion_id')
 
+
+    @api.model
+    def create(self, vals):
+        if vals.get('code', _('New')) == _('New'):
+             vals['code'] = self.env['ir.sequence'].next_by_code('rh.avancement.sequence') or _('New')
+        result = super(RHAvancement, self).create(vals)
+        return result
+
     @api.model
     def create(self, vals):
         for rec2 in self:
-            if vals.get('code', _('New')) == _('New'):
-                vals['code'] = self.env['ir.sequence'].next_by_code('rh.avancement.sequence') or _('New')
             rec2.avancement_wizard = False
             print(rec2.avancement_wizard)
             print('tttttttttetste1wizard')
