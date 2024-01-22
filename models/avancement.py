@@ -7,7 +7,7 @@ class RHAvancement(models.Model):
     _name = 'rh.avancement'
 
     date_avancement = fields.Date()
-    code = fields.Char(readonly=True, default=lambda self: _('New'))
+    code = fields.Char(readonly=True, default=lambda self: self.env['ir.sequence'].next_by_code('rh.avancement.sequence'))
     avancement_lines = fields.One2many('rh.avancement.line', inverse_name='avancement_id')
     avancement_lines_wizard = fields.One2many('rh.avancement.line.wizard', inverse_name='avancement_id')
 
@@ -21,8 +21,6 @@ class RHAvancement(models.Model):
     @api.model
     def create(self, vals):
         for rec2 in self:
-
-
             rec2.avancement_wizard = False
             print(rec2.avancement_wizard)
             print('tttttttttetste1wizard')
@@ -33,6 +31,7 @@ class RHAvancement(models.Model):
                 if rec.employee_id.nature_travail_id.code_type_fonction == 'fonction':
 
                     avance_line = self.env['rh.avancement.line'].create({
+                    'code': self.env['ir.sequence'].next_by_code('rh.avancement.line.sequence'),
                     'employee_id': rec.employee_id.id,
                     'type_fonction_id': rec.employee_id.nature_travail_id.id,
                     'date_old_avancement': rec.date_avancement,
@@ -67,6 +66,7 @@ class RHAvancement(models.Model):
 
                     avance_line = self.env['rh.avancement.line'].create({
                         'employee_id': rec.employee_id.id,
+                        'code': self.env['ir.sequence'].next_by_code('rh.avancement.line.sequence'),
                         'type_fonction_id': rec.employee_id.nature_travail_id.id,
                         'date_old_avancement': rec.date_avancement,
                         'grade_id': rec.grade_id.id,
@@ -98,6 +98,7 @@ class RHAvancement(models.Model):
                 elif rec.employee_id.nature_travail_id.code_type_fonction == 'postesuperieure':
                     avance_line = self.env['rh.avancement.line'].create({
                         'employee_id': rec.employee_id.id,
+                        'code': self.env['ir.sequence'].next_by_code('rh.avancement.line.sequence'),
                         'type_fonction_id': rec.employee_id.nature_travail_id.id,
                         'date_old_avancement': rec.date_avancement,
                         'grade_id': rec.grade_id.id,
@@ -118,8 +119,8 @@ class RHAvancement(models.Model):
                         'section_superieure_new_id': rec.section_superieure_new_id.id,
                         'niveau_hierarchique_new_id': rec.niveau_hierarchique_new_id.id,
                     })
-        if vals.get('code', _('New')) == _('New'):
-            vals['code'] = self.env['ir.sequence'].next_by_code('rh.avancement.sequence') or _('New')
+
+            sequence = self.env['ir.sequence'].next_by_code('rh.avancement.sequence')
         return avancement
 
     @api.onchange('date_avancement')

@@ -8,6 +8,7 @@ class RHAvancementLine(models.Model):
     _name = 'rh.avancement.line'
 
     date_avancement = fields.Date()
+    code = fields.Char(readonly=True, default=lambda self: self.env['ir.sequence'].next_by_code('rh.avancement.line.sequence'))
     avancement_id = fields.Many2one('hr.avancement')
     employee_id = fields.Many2one('hr.employee')
     type_fonction_id = fields.Many2one('rh.type.fonction')

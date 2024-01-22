@@ -53,6 +53,7 @@ class RHDroitPromotion(models.TransientModel):
             'view_mode': 'tree,form',
             'res_model': 'rh.promotion.droit',
             'type': 'ir.actions.act_window',
+            'domain': [('date_new_grade', '=', self.date_promotion), ('sauvegarde', '=', True)]
             # 'domain': [('state', '=', 'reforme')],
 
         }
