@@ -56,13 +56,14 @@
                                     <field name="date_grade" readonly="1"/>
                                     <field name="grade_new_id" required="1"/>
                                     <field name="date_new_grade" readonly="1"/>
+                                    <field name="promotion_line_file_line"/>
                                 </tree>
                             </field>
                         </page>
                         <page string="Liste des Fichiers" attrs="{'invisible': [('id', '=', False)]}">
                             <field name="promotion_file_lines">
                                 <tree editable="bottom">
-                                    <field name="type_file_id" domain="[('type_file', '=', 'formation')]"/>
+                                    <field name="type_file_id" domain="[('type_file', '=', 'promotion')]"/>
                                     <field name="description_fichier"/>
                                     <field name="fichier"/>
                                 </tree>

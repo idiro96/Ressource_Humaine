@@ -18,6 +18,7 @@ class RHPromotionLine(models.Model):
     date_new_grade = fields.Date()
     date_grade = fields.Date()
     type_fonction_id = fields.Many2one('rh.type.fonction')
+    promotion_line_file_line = fields.Binary()
 
 
 

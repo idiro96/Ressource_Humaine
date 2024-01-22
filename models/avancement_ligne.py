@@ -38,6 +38,8 @@ class RHAvancementLine(models.Model):
     date_new_grade = fields.Date()
     imprimer = fields.Boolean(Default=False)
 
+    avancement_line_file_line = fields.Binary()
+
 
 
 
