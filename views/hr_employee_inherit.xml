@@ -225,64 +225,46 @@
                 <xpath expr="//form//sheet//notebook" position="inside">
                     <page string="Information Salariale">
                         <group>
-                            <group>
                                 <field name="date_avancement" String="Date Avancement"/>
-                            </group>
                         </group>
                         <group>
-                            <group>
-                                <field name="groupe_id" String="Groupe"/>
-                            </group>
+                                <field name="code_type_fonction" invisible="1"/>
                         </group>
                         <group>
-                            <group>
+                                <field name="groupe_id" String="Groupe" attrs="{'invisible': ['|', ('code_type_fonction', '=', 'fonctionsuperieure'), ('code_type_fonction', '=', 'contractuel')]}"/>
+                        </group>
+                        <group>
                                 <field name="categorie_id" String="Categorie"/>
-                            </group>
                         </group>
                         <group>
-                            <group>
-                                <field name="section_id" String="Section"/>
-                            </group>
+                                <field name="section_id" String="Section" attrs="{'invisible': [('code_type_fonction', '!=', 'fonctionsuperieure')]}"/>
                         </group>
                         <group>
-                            <group>
-                                <field name="indice_base" String="Indice base"></field>
-                            </group>
+                                <field name="indice_base" String="Indice base"  attrs="{'invisible': ['|',('code_type_fonction', '!=', 'fonctionsuperieure'),('code_type_fonction', '!=', 'fonctionsuperieure')]}"/>
                         </group>
                         <group>
-                            <group>
-                                <field name="indice_minimal" String="Indice minimal"></field>
-                            </group>
+                                <field name="indice_minimal" String="Indice minimal"  attrs="{'invisible': ['|',('code_type_fonction', '=', 'fonctionsuperieure'),('code_type_fonction', '=', 'fonction')]}"/>
                         </group>
                         <group>
-                            <group>
-                                <field name="echelon_id" String="echelon"></field>
-                            </group>
+                                <field name="echelon_id" String="echelon" attrs="{'invisible': [('code_type_fonction', '=', 'contractuel')]}" />
                         </group>
                         <group>
-                            <group>
-                                <field name="point_indiciare" String="Point indiciare"></field>
-                            </group>
+                                <field name="point_indiciare" String="Point indiciare" attrs="{'invisible': [('code_type_fonction', '=', 'contractuel')]}"/>
                         </group>
                         <group>
-                            <group>
-                                <field name="categorie_superieure_id" String="Categorie supérieure"></field>
-                            </group>
+                                <field name="categorie_superieure_id" String="Categorie supérieure" attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')]}"/>
                         </group>
                         <group>
-                            <group>
-                                <field name="section_superieure_id" String="Section supérieure"></field>
-                            </group>
+                                <field name="section_superieure_id" String="Section supérieure" attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')]}"/>
                         </group>
                         <group>
-                            <group>
-                                <field name="niveau_hierarchique_id" String="Niveau Hierarchique"></field>
-                            </group>
+                                <field name="niveau_hierarchique_id" String="Niveau Hierarchique" attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')]}" />
                         </group>
                         <group>
-                            <group>
-                                <field name="bonification_indiciaire" String="Bonification indiciaire"></field>
-                            </group>
+                                <field name="bonification_indiciaire" String="Bonification indiciaire" attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')]}"/>
+                        </group>
+                          <group>
+                                <field name="wage" String="Salaire"></field>
                         </group>
 
 

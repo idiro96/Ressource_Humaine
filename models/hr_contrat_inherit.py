@@ -59,74 +59,6 @@ class  HrContratInherited(models.Model):
 
         result = super(HrContratInherited, self).create(vals)
 
-
-
-        type_fonction = result.env['rh.type.fonction'].search([('id', '=', result.employee_id.nature_travail_id.id)])
-        if type_fonction:
-            if type_fonction.code_type_fonction == 'fonction':
-                avancement = result.env['rh.avancement'].create({
-                    'date_avancement': result.date_start,
-                })
-                avancement_ligne = result.env['rh.avancement.line'].create({
-
-                    'avancement_id': avancement.id,
-                    'employee_id': result.employee_id.id,
-                    'type_fonction_id': type_fonction.id,
-                    'groupe_new_id': result.groupe_id.id,
-                    'categorie_new_id': result.categorie_id.id,
-                    'echelon_new_id': result.echelon_id.id,
-                    'date_avancement': result.date_start,
-
-                    'groupe_old_id': result.groupe_id.id,
-                    'categorie_old_id': result.categorie_id.id,
-                    'echelon_old_id': result.echelon_id.id,
-
-                })
-            elif type_fonction.code_type_fonction == 'fonctionsuperieure':
-                avancement = result.env['rh.avancement'].create({
-                    'date_avancement': result.date_start,
-                })
-                avancement_ligne = result.env['rh.avancement.line'].create({
-
-                    'avancement_id': avancement.id,
-                    'employee_id': result.employee_id.id,
-                    'type_fonction_id': type_fonction.id,
-                    'categorie_new_id': result.categorie_id.id,
-                    'section_new_id': result.section_id.id,
-                    'echelon_new_id': result.echelon_id.id,
-                    'date_avancement': result.date_start,
-
-                    'categorie_old_id': result.categorie_id.id,
-                    'section_old_id': result.section_id.id,
-                    'echelon_old_id': result.echelon_id.id,
-
-                })
-            elif type_fonction.code_type_fonction == 'postesuperieure':
-                avancement = result.env['rh.avancement'].create({
-                    'date_avancement': result.date_start,
-                })
-                avancement_ligne = result.env['rh.avancement.line'].create({
-
-                    'avancement_id': avancement.id,
-                    'employee_id': result.employee_id.id,
-                    'type_fonction_id': type_fonction.id,
-                    'groupe_new_id': result.groupe_id.id,
-                    'categorie_new_id': result.categorie_id.id,
-                    'echelon_new_id': result.echelon_id.id,
-                    'categorie_superieure_new_id': result.categorie_superieure_id.id,
-                    'section_superieure_new_id': result.section_superieure_id.id,
-                    'niveau_hierarchique_new_id': result.niveau_hierarchique_id.id,
-                    'date_avancement': result.date_start,
-
-                    'groupe_old_id': result.groupe_id.id,
-                    'categorie_old_id': result.categorie_id.id,
-                    'echelon_old_id': result.echelon_id.id,
-                    'categorie_superieure_old_id': result.categorie_superieure_id.id,
-                    'section_superieure_old_id': result.section_superieure_id.id,
-                    'niveau_hierarchique_old_id': result.niveau_hierarchique_id.id
-
-                })
-
         return result
 
 
@@ -191,7 +123,6 @@ class  HrContratInherited(models.Model):
                 print(employee)
                 domain.append(('id', 'in', employee.ids))
             else:
-                print('benyoucef')
                 type_fonction = self.env['rh.type.fonction'].search([('code_type_fonction', '=', 'contractuel')])
                 if type_fonction.code_type_fonction == 'fonctionsuperieure':
                     rec.bool1 = False
@@ -199,10 +130,7 @@ class  HrContratInherited(models.Model):
                     rec.bool1 = True
                 # job = self.env['hr.job'].search([('nature_travail_id', '=', type_fonction.id)])
                 employee = self.env['hr.employee'].search([('nature_travail_id', '!=', type_fonction.id)])
-                # employee = self.env['hr.employee'].search([('nature_travail_id', '!=', 1)])
-                print(employee)
                 domain.append(('id', 'in', employee.ids))
-                print(domain)
         res = {'domain': {'employee_id': domain}}
 
         return res
