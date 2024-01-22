@@ -3,18 +3,20 @@
 from odoo import models, fields, api, _
 
 
-
 class RHAvancement(models.Model):
     _name = 'rh.avancement'
 
     date_avancement = fields.Date()
-    code = fields.Char()
+    code = fields.Char(readonly=True, default=lambda self: self.env['ir.sequence'].next_by_code('rh.avancement.sequence'))
     avancement_lines = fields.One2many('rh.avancement.line', inverse_name='avancement_id')
     avancement_lines_wizard = fields.One2many('rh.avancement.line.wizard', inverse_name='avancement_id')
 
     avancement_wizard = fields.Boolean(default=True)
     choisir_commission_lines = fields.One2many('rh.avancement.commission.line', 'avancement_id')
     # promotion_file_lines = fields.One2many('rh.file', 'promotion_id')
+
+
+
 
     @api.model
     def create(self, vals):
@@ -29,6 +31,7 @@ class RHAvancement(models.Model):
                 if rec.employee_id.nature_travail_id.code_type_fonction == 'fonction':
 
                     avance_line = self.env['rh.avancement.line'].create({
+                    'code': self.env['ir.sequence'].next_by_code('rh.avancement.line.sequence'),
                     'employee_id': rec.employee_id.id,
                     'type_fonction_id': rec.employee_id.nature_travail_id.id,
                     'date_old_avancement': rec.date_avancement,
@@ -63,6 +66,7 @@ class RHAvancement(models.Model):
 
                     avance_line = self.env['rh.avancement.line'].create({
                         'employee_id': rec.employee_id.id,
+                        'code': self.env['ir.sequence'].next_by_code('rh.avancement.line.sequence'),
                         'type_fonction_id': rec.employee_id.nature_travail_id.id,
                         'date_old_avancement': rec.date_avancement,
                         'grade_id': rec.grade_id.id,
@@ -94,6 +98,7 @@ class RHAvancement(models.Model):
                 elif rec.employee_id.nature_travail_id.code_type_fonction == 'postesuperieure':
                     avance_line = self.env['rh.avancement.line'].create({
                         'employee_id': rec.employee_id.id,
+                        'code': self.env['ir.sequence'].next_by_code('rh.avancement.line.sequence'),
                         'type_fonction_id': rec.employee_id.nature_travail_id.id,
                         'date_old_avancement': rec.date_avancement,
                         'grade_id': rec.grade_id.id,
@@ -115,6 +120,7 @@ class RHAvancement(models.Model):
                         'niveau_hierarchique_new_id': rec.niveau_hierarchique_new_id.id,
                     })
 
+            sequence = self.env['ir.sequence'].next_by_code('rh.avancement.sequence')
         return avancement
 
     @api.onchange('date_avancement')
@@ -221,4 +227,23 @@ class RHAvancement(models.Model):
             'res_model': 'commission.avancement',
         }
 
+    @api.multi
+    def print_report(self):
+        return self.env.ref('ressource_humaine.action_droit_avancement_report').report_action(self)
+
+
+class DroitAvancementReport(models.AbstractModel):
+    _name = 'report.ressource_humaine.droit_avancement_report'
+
+    @api.model
+    def get_report_values(self, docids, data=None):
+        avancement = self.env['rh.avancement'].browse(docids[0])
+
+        report_data = {
+            'avancement': avancement,
+            'company': self.env.user.company_id,
+            'avancement_lines': avancement.avancement_lines,
+        }
+
+        return report_data
 

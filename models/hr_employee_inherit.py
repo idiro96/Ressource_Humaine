@@ -31,11 +31,9 @@ class HrEmployeInherited(models.Model):
     commission_avancement_id = fields.Many2one('ressource_humaine.commission.avancement')
     commission_promotion_id = fields.Many2one('ressource_humaine.commission_promotion')
     formation_detail_id = fields.Many2one('ressource_humaine.formation.detail')
-
     selection_employe = fields.Boolean('Sélection', default=False)
-
-
     days_off = fields.Float(string='Total Days Off', store=True)
+    wage = fields.Float()
 
     # days_off = fields.Float(compute='_compute_days_off', store=True, translate=True)
 
@@ -116,24 +114,101 @@ class HrEmployeInherited(models.Model):
             else:
                 rec.age_range = 'very_high'
 
+    @api.depends('date_entrer')
+    def _compute_experience(self):
+        for employee in self:
+            if employee.date_entrer:
+                date_entrer = fields.Datetime.from_string(employee.date_entrer)
+                date_now = fields.Datetime.from_string(fields.Datetime.now())
+                delta = relativedelta(date_now, date_entrer)
 
-    # @api.depends('date_entrer')
-    # def _compute_days_off(self):
-    #     for employee in self:
-    #         if employee.date_entrer:
-    #             # Assuming date_entry is a Date field in the hr.employee model
-    #             # entrer_date = fields.Date.from_string(employee.date_entrer)
-    #             # today_date = fields.Date.from_string(fields.Date.today())
-    #             # months_passed = (today_date.year - entrer_date.year) * 12 + today_date.month - entrer_date.month
-    #             # days_off = months_passed * 2.5
-    #             days_off = 0
-    #             conge_existe = self.env['rh.congedroit'].search(
-    #                     [('id_personnel', '=', employee.id)])
-    #             for conge in conge_existe:
-    #                 days_off = conge.nbr_jour_reste + days_off
-    #
-    #             employee.days_off = days_off
+                years = delta.years
+                months = delta.months
+                days = delta.days
 
+                employee.experience_years = years
+                employee.experience_months = months
+                employee.experience_days = days
+
+    experience_years = fields.Integer(compute="_compute_experience", store=True)
+    experience_months = fields.Integer(compute="_compute_experience", store=True)
+    experience_days = fields.Integer(compute="_compute_experience", store=True)
+
+    @api.onchange('groupe_id')
+    def onchange_groupe(self):
+        for rec in self:
+            domain = []
+            if rec.groupe_id:
+                categorie = self.env['rh.categorie'].search([('groupe_id', '=', rec.groupe_id.id)])
+                domain.append(('id', 'in', categorie.ids))
+            else:
+                categorie = self.env['rh.categorie'].search([('groupe_id', '=', None)])
+                domain.append(('id', 'in', categorie.ids))
+
+        res = {'domain': {'categorie_id': domain}}
+        print(res)
+        return res
+
+    @api.onchange('categorie_id')
+    def onchange_categorie(self):
+        for rec in self:
+            domain = []
+            if rec.categorie_id:
+                echelon = self.env['rh.echelon'].search([('categorie_id', '=', rec.categorie_id.id)])
+                section = self.env['rh.section'].search([('categorie_id', '=', rec.categorie_id.id)])
+                type_fonction = self.env['rh.type.fonction'].search([('id', '=', rec.nature_travail_id.id)])
+                if type_fonction.code_type_fonction == 'contractuel':
+                    rec.indice_minimal = rec.categorie_id.Indice_minimal
+                    rec.wage = rec.indice_minimal * 45
+                elif type_fonction.code_type_fonction == 'fonction':
+                    domain.append(('id', 'in', echelon.ids))
+                    rec.indice_minimal = rec.categorie_id.Indice_minimal
+
+                elif type_fonction.code_type_fonction == 'postesuperieure':
+                    domain.append(('id', 'in', echelon.ids))
+                    rec.indice_minimal = rec.categorie_id.Indice_minimal
+                else:
+                    domain.append(('id', 'in', section.ids))
+
+            res = {'domain': {'echelon_id': domain}}
+
+        return res
+
+    @api.onchange('section_id')
+    def onchange_section(self):
+        domain = []
+        for rec in self:
+            if rec.section_id:
+                rec.indice_base = rec.section_id.indice_base
+                echelon = self.env['rh.echelon'].search([('section', '=', rec.section_id.id)])
+                domain.append(('id', 'in', echelon.ids))
+                rec.indice_minimal = rec.categorie_id.Indice_minimal
+            res = {'domain': {'echelon_id': domain}}
+        return res
+
+    @api.onchange('niveau_hierarchique_id')
+    def onchange_niveau_hierarchique(self):
+        for rec in self:
+            if rec.niveau_hierarchique_id:
+                type_fonction = self.env['rh.type.fonction'].search([('id', '=', rec.nature_travail_id.id)])
+                if type_fonction.code_type_fonction == 'postesuperieure':
+                    rec.bonification_indiciaire = rec.niveau_hierarchique_id.bonification_indiciaire
+                    rec.wage = (rec.indice_minimal * 45 + rec.point_indiciare * 45) + rec.bonification_indiciaire
+
+    @api.onchange('echelon_id')
+    def onchange_echelon(self):
+        for rec in self:
+            domain = []
+            if rec.echelon_id:
+                type_fonction = self.env['rh.type.fonction'].search([('id', '=', rec.nature_travail_id.id)])
+                if type_fonction.code_type_fonction == 'postesuperieure':
+                    rec.point_indiciare = rec.echelon_id.indice_echelon
+                elif type_fonction.code_type_fonction == 'fonction':
+                    rec.point_indiciare = rec.echelon_id.indice_echelon
+                    rec.wage = rec.indice_minimal * 45 + rec.point_indiciare * 45
+                else:
+                    rec.point_indiciare = rec.echelon_id.indice_echelon
+                    rec.wage = rec.indice_base * 45 + rec.point_indiciare
 
     @api.onchange('nature_travail_id')
     def _onchange_related_field_filier(self):

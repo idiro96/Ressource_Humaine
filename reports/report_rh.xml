@@ -74,13 +74,21 @@
             file="ressource_humaine.hr_contract_report"
     />
     <report
+            id="action_droit_avancement_report"
+            string="Extrait du siège approuvant le calendrier des promotions de grade"
+            model="rh.avancement"
+            report_type="qweb-html"
+            name="ressource_humaine.droit_avancement_report"
+            file="ressource_humaine.droit_avancementt_report"/>
+
+    <report
             id="action_hr_tableau_promotion"
             model="rh.avencement.droit"
             string="Tableau Promotion"
             report_type="qweb-html"
             name="ressource_humaine.tableau_promotion"
             file="ressource_humaine.tableau_promotion"
+            paperformat="ressource_humaine.paperformat_european_a4_landscape"
     />
-
 
 </odoo>

@@ -48,98 +48,103 @@
                 </div>
                 <br/>
                 <div class="row" style="margin:30;">
-                    <table border="1" class="table table-bordered"
-                           style="border-collapse: collapse; width: 100%;">
+                    <table border="1px solid black" class="table table-bordered"
+                           style="width: 100%;">
                         <thead>
                             <tr>
-                                <th style="text-align:center;font-size:18px;">
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
+                                    <strong>ملاحظة</strong>
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
                                     <strong>تاريخ سريان الترقية القادمة</strong>
                                 </th>
-                                <th style="text-align:center;font-size:18px;">
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
                                     <strong>التنقيط</strong>
                                 </th>
-                                <th style="text-align:center;font-size:18px;">
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
                                     <strong>المدة</strong>
                                 </th>
-                                <th style="text-align:center;font-size:18px;">
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
                                     <strong>عامين و نصف</strong>
                                 </th>
-                                <th style="text-align:center;font-size:18px;">
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
                                     <strong>ترقية</strong>
                                 </th>
-                                <th style="text-align:center;font-size:18px;">
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
                                     <strong>تاريخ سريان الترقيةالحالية</strong>
                                 </th>
-                                <th style="text-align:center;font-size:18px;">
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
                                     <strong>الدرجة</strong>
                                 </th>
-                                <th style="text-align:center;font-size:18px;">
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
                                     <strong>المنصب</strong>
                                 </th>
-                                <th style="text-align:center;font-size:18px;">
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
                                     <strong>الرتبة</strong>
                                 </th>
-                                <th style="text-align:center;font-size:18px;">
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
                                     <strong>الحالة العائلية</strong>
                                 </th>
-                                <th style="text-align:center;font-size:18px;">
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
                                     <strong>تاريخ الميلاد</strong>
                                 </th>
-                                <th style="text-align:center;font-size:18px;">
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
                                     <strong>اللقب</strong>
                                 </th>
-                                <th style="text-align:center;font-size:18px;">
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
                                     <strong>الإسم</strong>
                                 </th>
-                                <th style="text-align:center;font-size:18px;">
-                                    <strong>الرقم</strong>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
+                                    <strong></strong>
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
                             <t t-set="line_count" t-value="1"/>
                             <t t-foreach="avencement_droit" t-as="record">
-
-                                <td style="font-size:18px;text-align:center;">
+                                <td style="border:1px solid black;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
                                     <span t-esc="record.date_avancement"/>
                                 </td>
-                                <td style="font-size:18px;text-align:center;">
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
 <!--                                    <span t-esc="record.name"/>-->
                                 </td>
-                                <td style="font-size:18px;text-align:center;">
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
 <!--                                    <span t-esc="record.category_id.method_progress_factor"/>-->
                                 </td>
-                                <td style="font-size:18px;text-align:center;">
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
 <!--                                    <span t-esc="record.numero_inventaire"/>-->
                                 </td>
-                                <td style="font-size:18px;text-align:center;">
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
                                     <span t-esc="record.echelon_new_id.intitule"/>
                                 </td>
-                                <td style="font-size:18px;text-align:center;">
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
                                     <span t-esc="record.date_old_avancement"/>
                                 </td>
-                                <td style="font-size:18px;text-align:center;">
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
                                     <span t-esc="record.echelon_old_id.intitule"/>
                                 </td>
-                                <td style="font-size:18px;text-align:center;">
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
                                     <span t-esc="record.job_id.name"/>
                                 </td>
-                                <td style="font-size:18px;text-align:center;">
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
                                     <span t-esc="record.grade_id.intitule_grade"/>
                                 </td>
-                                <td style="font-size:18px;text-align:center;">
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
                                     <span t-esc="record.employee_id.marital"/>
                                 </td>
-                                <td style="font-size:18px;text-align:center;">
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
                                     <span t-esc="record.employee_id.birthday"/>
                                 </td>
-                                <td style="font-size:18px;text-align:center;">
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
                                     <span t-esc="record.employee_id.prenom"/>
                                 </td>
-                                <td style="font-size:18px;text-align:center;">
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
                                     <span t-esc="record.employee_id.name"/>
                                 </td>
-                                <td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
                                     <t t-esc="line_count"/>
                                 </td>
                                 <t t-set="line_count" t-value="line_count + 1"/>
