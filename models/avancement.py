@@ -20,10 +20,6 @@ class RHAvancement(models.Model):
 
     @api.model
     def create(self, vals):
-        for rec2 in self:
-            rec2.avancement_wizard = False
-            print(rec2.avancement_wizard)
-            print('tttttttttetste1wizard')
         avancement = super(RHAvancement, self).create(vals)
         if avancement.avancement_lines_wizard and avancement.avancement_lines_wizard.ids:
             print(avancement.avancement_lines_wizard)
@@ -120,7 +116,8 @@ class RHAvancement(models.Model):
                         'niveau_hierarchique_new_id': rec.niveau_hierarchique_new_id.id,
                     })
 
-            sequence = self.env['ir.sequence'].next_by_code('rh.avancement.sequence')
+                sequence = self.env['ir.sequence'].next_by_code('rh.avancement.sequence')
+                avance_line.write({'code': sequence})
         return avancement
 
     @api.onchange('date_avancement')
