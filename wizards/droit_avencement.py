@@ -107,7 +107,7 @@ class RHDroitAvencement(models.TransientModel):
             'view_mode': 'tree,form',
             'res_model': 'rh.avencement.droit',
             'type': 'ir.actions.act_window',
-            'domain': [('date_avancement', '=', self.date_avancement), ('sauvegarde', '=', True)],
+            # 'domain': [('date_avancement', '=', self.date_avancement), ('sauvegarde', '=', True)],
 
         }
 

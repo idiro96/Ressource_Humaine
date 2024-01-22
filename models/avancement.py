@@ -7,7 +7,7 @@ class RHAvancement(models.Model):
     _name = 'rh.avancement'
 
     date_avancement = fields.Date()
-    code = fields.Char()
+    code = fields.Char(readonly=True, default=lambda self: _('New'))
     avancement_lines = fields.One2many('rh.avancement.line', inverse_name='avancement_id')
     avancement_lines_wizard = fields.One2many('rh.avancement.line.wizard', inverse_name='avancement_id')
 
@@ -18,6 +18,8 @@ class RHAvancement(models.Model):
     @api.model
     def create(self, vals):
         for rec2 in self:
+            if vals.get('code', _('New')) == _('New'):
+                vals['code'] = self.env['ir.sequence'].next_by_code('rh.avancement.sequence') or _('New')
             rec2.avancement_wizard = False
             print(rec2.avancement_wizard)
             print('tttttttttetste1wizard')
