@@ -3,7 +3,6 @@
 from odoo import models, fields, api, _
 
 
-
 class RHPromotion(models.Model):
     _name = 'rh.promotion'
 
@@ -90,10 +89,7 @@ class RHPromotion(models.Model):
                     employee.write({'grade_id': rec.grade_new_id.id})
                     employee.write({'date_grade': rec.date_new_grade})
 
-
         return promotion
-
-
 
     @api.onchange('date_promotion')
     def _onchange_date_promotion(self):
@@ -144,6 +140,7 @@ class RHPromotion(models.Model):
             'view_mode': 'form',
             'res_model': 'rh.promotion',
         }
+
     def choisir_commission(self):
 
         return {
@@ -154,6 +151,25 @@ class RHPromotion(models.Model):
             'res_model': 'commission.promotion',
         }
 
+    @api.multi
+    def print_promotions(self):
+        return self.env.ref('ressource_humaine.action_hr_tableau_des_promotions').with_context(landscape=True).report_action(self)
 
+
+class TableauDesPromotions(models.AbstractModel):
+
+    _name = 'report.ressource_humaine.tableau_des_promotions'
+
+    @api.model
+    def get_report_values(self, docids, data=None):
+        promotions = self.env['rh.promotion'].browse(docids)
+
+        report_data = {
+            'promotions': promotions,
+            'company': self.env.user.company_id,
+            'promotion_lines': promotions.mapped('promotion_lines'),
+        }
+
+        return report_data
 
 

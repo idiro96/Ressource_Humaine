@@ -5083,7 +5083,7 @@ msgstr "\n"
 "\n"
 "قوائم الأسعار تدعم:\n"
 "-------------------\n"
-"    * مستويات مختلفة من الخصومات (حسب المنتج، أو الفئة، أو الخصائص)\n"
+"    * مستويات مختلفة من الخصومات (حسب المنتج، أو الصنف، أو الخصائص)\n"
 "    * احتساب الأسعار حسب معايير مختلفة:\n"
 "        * قائمة أسعار أخرى\n"
 "        * سعر التكلفة\n"
@@ -17123,7 +17123,7 @@ msgstr "حسب وسم الموظف "
 #. module: hr_holidays
 #: model:ir.model.fields,help:hr_holidays.field_hr_holidays_holiday_type
 msgid "By Employee: Allocation/Request for individual Employee, By Employee Tag: Allocation/Request for group of employees in category"
-msgstr "حسب الموظف: تخصيص/طلب للموظف الفردي، حسب علامة الموظف : تخصيص/طلب لمجموعة من الموظفين في الفئة"
+msgstr "حسب الموظف: تخصيص/طلب للموظف الفردي، حسب علامة الموظف : تخصيص/طلب لمجموعة من الموظفين في الصنف
 
 #. module: hr_recruitment
 #: model:ir.filters,name:hr_recruitment.hr_applicant_filter_job
@@ -17522,43 +17522,43 @@ msgstr "Cash Book, Day Book, Bank Book Financial Reports"
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_section_superieure_form
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_section_superieure_tree
 msgid "Categorie"
-msgstr "الفئة"
+msgstr "الصنف"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_categorie_new_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_wizard_categorie_new_id
 msgid "Categorie New"
-msgstr "الفئة الجديدة"
+msgstr "الصنف الجديد"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_categorie_old_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_wizard_categorie_old_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avencement_droit_categorie_old_id
 msgid "Categorie Old"
-msgstr "الفئة الأصلية"
+msgstr "الصنف الأصلي"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_contract_categorie_superieure_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_section_superieure_categorie_superieure_id
 msgid "Categorie Superieure"
-msgstr "الفئة العليا"
+msgstr "الصنف العالي"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_categorie_superieure_new_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_wizard_categorie_superieure_new_id
 msgid "Categorie Superieure New"
-msgstr "الفئة العليا الجديدة"
+msgstr "الصنف العالي الجديد"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_categorie_superieure_old_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_wizard_categorie_superieure_old_id
 msgid "Categorie Superieure Old"
-msgstr "الفئة العليا القديمة"
+msgstr "الصنف العالي القديم"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_groupe_categorie_lines
 msgid "Categorie lines"
-msgstr "خطوط الفئة"
+msgstr "خطوط الصنف"
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_activity_activity_category
@@ -17576,7 +17576,7 @@ msgstr "قد يؤدي التصنيف لتفعيل أفعال معينة مثل �
 #: model:ir.model.fields,field_description:mail.field_mail_activity_activity_category
 #: model:ir.model.fields,field_description:mail.field_mail_activity_type_category
 msgid "Category"
-msgstr "الفئة"
+msgstr "الصنف"
 
 #. module: hr_holidays
 #: model:ir.model.fields,help:hr_holidays.field_hr_holidays_category_id
@@ -37106,7 +37106,7 @@ msgstr "التطبيق الرئيسي"
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_partner_category_parent_id
 msgid "Parent Category"
-msgstr "الفئة الأم"
+msgstr "الصنف الأب"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_company_parent_id
@@ -43233,7 +43233,7 @@ msgstr "لا يمكن إلغاء تثبيت وحدة `القاعدة`"
 #. module: base
 #: model:ir.model.fields,help:base.field_res_partner_category_active
 msgid "The active field allows you to hide the category without removing it."
-msgstr "الحقل النشط يمكّنك من إخفاء الفئة دون حذفها."
+msgstr "الحقل النشط يمكّنك من إخفاء الصنف دون حذفها."
 
 #. module: calendar
 #. openerp-web
@@ -47319,7 +47319,7 @@ msgstr "أنت في القناة <b>#%s</b>."
 #: code:addons/base/module/module.py:432
 #, python-format
 msgid "You are trying to install incompatible modules in category \"%s\":"
-msgstr "أنت تحاول تثبيت موديول غير متوافق في الفئة \"%s\":"
+msgstr "أنت تحاول تثبيت موديول غير متوافق في الصنف \"%s\":"
 
 #. module: hr_holidays
 #: model:ir.actions.act_window,help:hr_holidays.hr_holidays_leaves_assign_legal
@@ -48058,17 +48058,17 @@ msgstr "calendar.contacts"
 #: model:ir.actions.act_window,name:ressource_humaine.action_rh_categorie
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_categorie
 msgid "categorie"
-msgstr "الفئة"
+msgstr "الصنف"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.action_rh_categorie_superieure
 msgid "categorie superieure"
-msgstr "الفئة العليا"
+msgstr "الصنف العالي"
 
 #. module: ressource_humaine
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_categorie_superieure
 msgid "categorie_superieure"
-msgstr "الفئة العليا"
+msgstr "الصنف العالي"
 
 #. module: base
 #: selection:ir.model.fields,ttype:0
