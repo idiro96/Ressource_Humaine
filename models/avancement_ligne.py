@@ -36,6 +36,7 @@ class RHAvancementLine(models.Model):
 
     grade_new_id = fields.Many2one('rh.grade')
     date_new_grade = fields.Date()
+    imprimer = fields.Boolean(Default=False)
 
 
 

@@ -241,10 +241,12 @@ class DroitAvancementReport(models.AbstractModel):
     def get_report_values(self, docids, data=None):
         avancement = self.env['rh.avancement'].browse(docids[0])
 
+        avancement_lines = avancement.avancement_lines.filtered(lambda line: line.imprimer)
+
         report_data = {
             'avancement': avancement,
             'company': self.env.user.company_id,
-            'avancement_lines': avancement.avancement_lines,
+            'avancement_lines': avancement_lines,
         }
 
         return report_data

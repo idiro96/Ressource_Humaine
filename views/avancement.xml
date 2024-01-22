@@ -72,6 +72,7 @@
                                     <field name="categorie_new_id" readonly="1"/>
                                     <field name="section_new_id" readonly="1"/>
                                     <field name="echelon_new_id" readonly="1"/>
+                                    <field name="imprimer" widget="toggle_button"/>
                                 </tree>
                             </field>
                         </page>
