@@ -8,11 +8,14 @@ class TableauPromotionReport(models.AbstractModel):
 
     @api.model
     def get_report_values(self, docids, data=None):
-        avencement_droit = self.env['rh.avencement.droit'].search([('sauvegarde', '=', True)])
+        avencement_droit = self.env['rh.avencement.droit'].browse(docids)
+
+        avencement_droit_sauvegarde = avencement_droit.filtered(lambda r: r.sauvegarde)
 
         report_data = {
-            'avencement_droit': avencement_droit,
+            'avencement_droit': avencement_droit_sauvegarde,
             'company': self.env.user.company_id,
         }
 
         return report_data
+
