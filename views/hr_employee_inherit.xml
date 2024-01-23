@@ -241,17 +241,14 @@
                 </xpath>
 
                 <xpath expr="//form//sheet//notebook" position="inside">
-<<<<<<< HEAD
                     <page name="Information Salariale">
                     </page>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page[@name='Information Salariale']" position="inside">
-=======
                     <page name="معلومات حول الراتب">
                     </page>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page[@name='معلومات حول الراتب']" position="inside">
->>>>>>> 021b60a625e170cb6ee7a72acddea09096278e86
                     <group>
                         <field name="date_avancement"/>
                         <field name="ref"/>

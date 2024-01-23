@@ -42,8 +42,7 @@
                 </div>
                 <br/>
                 <div class="row" style="margin:30;">
-                    <table border="1px solid black" class="table table-bordered"
-                           style="width: 100%;">
+                    <table style="width: 100%;">
                         <thead>
                             <tr>
                                 <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
@@ -125,6 +124,12 @@
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;background-color:#ADD8E6">
                                         <t t-esc="line_count"/>
                                     </td>
+                                    <td style="width: 110px; text-align: center; vertical-align: middle; line-height: 50px;">
+                                        <img t-if="line.image"
+                                             t-att-src="'data:image/png;base64,%s' % to_text(line.image)"
+                                             height="50" width="50"
+                                             t-att-style="'border: 3px solid #018749; border-radius: 50%;'"/>
+                                    </td>
                                 </t>
                                 <t t-if="line.gender == 'female'">
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;background-color:#FFB6C1">
@@ -163,6 +168,12 @@
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;background-color:#FFB6C1">
                                         <t t-esc="line_count"/>
+                                    </td>
+                                    <td style="width: 110px; text-align: center; vertical-align: middle; line-height: 50px;">
+                                        <img t-if="line.image"
+                                             t-att-src="'data:image/png;base64,%s' % to_text(line.image)"
+                                             height="50" width="50"
+                                             t-att-style="'border: 3px solid #018749; border-radius: 50%;'"/>
                                     </td>
                                 </t>
                                 <t t-set="line_count" t-value="line_count + 1"/>
