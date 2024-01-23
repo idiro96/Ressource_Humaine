@@ -4,6 +4,10 @@ from odoo import models, fields, api
 from datetime import datetime, date
 from dateutil.relativedelta import relativedelta
 import calendar
+from odoo.exceptions import ValidationError
+
+
+
 
 class RHDroitAvencement(models.TransientModel):
     _name = 'droit.avencement'
@@ -19,6 +23,17 @@ class RHDroitAvencement(models.TransientModel):
         print('glllllllllll')
         self.sauvegarde = True
 
+    def check_avancement_date_and_sauvegarde(self):
+        for wizard_record in self:
+            # Check if there is a corresponding record in RHAvencementDroit with sauvegarde=True
+            avencement_droit_record = self.env['rh.avencement.droit'].search([
+                ('date_avancement', '=', wizard_record.date_avancement),
+                ('code', '=', wizard_record.code),  # Assuming code is a field in RHAvencementDroit
+                ('sauvegarde', '=', True),
+            ])
+            if not avencement_droit_record:
+                raise ValidationError(
+                    "No corresponding RHAvencementDroit record found for the given date_avancement, code, and sauvegarde=True.")
 
     @api.multi
     def actualiser_droit_avencement(self):
@@ -107,7 +122,6 @@ class RHDroitAvencement(models.TransientModel):
             'view_mode': 'tree,form',
             'res_model': 'rh.avencement.droit',
             'type': 'ir.actions.act_window',
-            # 'domain': [('date_avancement', '=', self.date_avancement), ('sauvegarde', '=', True)],
 
         }
 
