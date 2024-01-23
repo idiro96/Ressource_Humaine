@@ -15,7 +15,7 @@
                     <field name="nature_travail_id"></field>
                 </xpath>
                 <xpath expr="//tree//field[@name='nature_travail_id']" position="after">
-                    <field name="date_entrer"></field>
+                    <field name="date_entrer" widget="date" options="{'datepicker': {'format': 'yyyy-mm-dd'}}"></field>
                 </xpath>
                 <xpath expr="//tree//field[@name='date_entrer']" position="after">
                     <field name="corps_id"></field>

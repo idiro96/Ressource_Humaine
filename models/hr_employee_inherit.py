@@ -4,6 +4,7 @@ from dateutil.relativedelta import relativedelta
 from odoo import models, fields, api, _
 from datetime import date, timedelta, datetime
 from dateutil.relativedelta import relativedelta
+from babel.dates import format_date, format_datetime
 import logging
 import calendar
 import time
@@ -84,6 +85,7 @@ class HrEmployeInherited(models.Model):
     date_avancement = fields.Date()
     ref = fields.Char()
     date_ref = fields.Date()
+
 
     @api.multi
     def calculer_age_employee(self):
