@@ -84,6 +84,7 @@ class HrEmployeInherited(models.Model):
     date_avancement = fields.Date()
     ref = fields.Char()
     date_ref = fields.Date()
+    date_emploi = fields.Date()
 
     @api.multi
     def calculer_age_employee(self):

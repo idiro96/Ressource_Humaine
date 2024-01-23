@@ -97,6 +97,7 @@
         'reports/droit_avancement.xml',
         'reports/tableau_promotion.xml',
         'reports/tableau_des_promotions.xml',
+        'reports/liste_employee.xml',
 
 
     ],

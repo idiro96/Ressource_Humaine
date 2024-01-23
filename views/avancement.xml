@@ -73,7 +73,7 @@
                                     <field name="section_new_id" readonly="1"/>
                                     <field name="echelon_new_id" readonly="1"/>
                                     <field name="imprimer" widget="toggle_button"/>
-                                    <field name="avancement_line_file_line"/>
+<!--                                    <field name="avancement_line_file_line"/>-->
                                 </tree>
                             </field>
                         </page>

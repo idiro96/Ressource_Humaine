@@ -69,6 +69,9 @@
                     <field name="date_reintegration"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='job_id']" position="after">
+                    <field name="date_emploi" string="Date d'emploi"/>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='date_emploi']" position="after">
                     <field name="corps_id" attrs="{'invisible': [('nature_travail_id', '=', 1)]}"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='corps_id']" position="after">

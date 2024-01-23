@@ -27,8 +27,8 @@
                             <br/>
                             <div style="font-size: 20px;text-align: right;">
                                 <span>
+                                    <t t-esc="line.code"/>
                                     الرقم
-                                <t t-esc="line.code"/>
                                 </span>
                             </div>
                             <br/>
@@ -125,15 +125,17 @@
                             </div>
                             <br/>
                             <div style="font-size: 20px; text-align: right;">
-                                <span>
-                                    ـ بناء على المقرر رقم
-                                    <t t-esc="avancement.code"/>
+                                <span style="dosplay: inline_block">
                                     المؤرخ في
                                     <t t-esc="line.date_avancement"/>
                                     المتضمن المصادقة على جداول
                                     الترقية
                                     في
                                     الدرجات بعنوان سنة
+                                </span>
+                                <span style="dosplay: inline_block">
+                                    <t t-esc="avancement.code"/>
+                                    ـ بناء على المقرر رقم
                                 </span>
                             </div>
                             <br/>

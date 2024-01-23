@@ -101,4 +101,14 @@
             paperformat="ressource_humaine.paperformat_european_a4_landscape"
     />
 
+    <report
+            id="action_liste_employee"
+            model="hr.employee"
+            string="Liste des Employés"
+            report_type="qweb-html"
+            name="ressource_humaine.liste_employee"
+            file="ressource_humaine.liste_employee"
+            paperformat="ressource_humaine.paperformat_european_a4_landscape"
+    />
+
 </odoo>
