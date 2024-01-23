@@ -44,6 +44,6 @@
             <p class="o_view_nocontent_smiling_face">Creation categorie!</p>
         </field>
     </record>
-    <menuitem name="categorie" id="ressource_humaine_categorie" parent="promotion_id" sequence="13"
+    <menuitem name="categorie" id="ressource_humaine_categorie" parent="promotion_id" sequence="15"
               action="action_rh_categorie"/>
 </odoo>

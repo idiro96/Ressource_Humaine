@@ -41,7 +41,7 @@
         <field name="view_id" ref="ressource_humaine.droit_promotion_wizard"/>
         <field name="target">new</field>
     </record>
-    <menuitem name="Droit Promotion" id="ressource_humaine_droit_promotion" parent="promotion_id" sequence="3"
+    <menuitem name="Droit Promotion" id="ressource_humaine_droit_promotion" parent="promotion_de_grade" sequence="2"
               action="action_rh_promotion_droit_wizard"/>
 </odoo>
 

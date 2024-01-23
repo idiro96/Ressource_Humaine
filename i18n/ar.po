@@ -16304,7 +16304,7 @@ msgstr "متاح للمراسلات الجماعية"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_wizard_avancement_id
 #: model:ir.ui.menu,name:ressource_humaine.avancement_id
 msgid "Avancement"
-msgstr "التقدم"
+msgstr "الترقية في الدرجة"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_avancement_lines
@@ -19497,7 +19497,7 @@ msgstr "عقد غير محدد المدة بدوام جزئي"
 #. module: ressource_humaine
 #: model:ir.ui.menu,name:ressource_humaine.menu_hr_contart
 msgid "Contrat/Decision"
-msgstr "العقد/القرار"
+msgstr "العقود/المقررات"
 
 #. module: hr_payroll
 #: model:ir.ui.view,arch_db:hr_payroll.hr_contribution_register_form
@@ -21063,7 +21063,7 @@ msgstr "تاريخ قرار العقوبة"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_date_entrer
 msgid "Date Entrer"
-msgstr "تاريخ الدخول"
+msgstr "تاريخ بداية العمل في الؤسسة"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_date_examin_professionnel
@@ -21125,7 +21125,7 @@ msgstr "التاريخ من"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_date_grade
 msgid "Date Grade"
-msgstr "تاريخ الرتبة"
+msgstr "تاريخ التعين في الرتبة"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_conjoint_date_mariage
@@ -22663,7 +22663,7 @@ msgstr "اسحب لتحركه"
 #: model:ir.actions.act_window,name:ressource_humaine.action_rh_avencement_droit_wizard
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_droit_avencement
 msgid "Droit Avencement"
-msgstr "حق التقدم"
+msgstr "إستحقاق التقدم في الدرجة"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.action_droit_conge_wizard
@@ -28575,7 +28575,7 @@ msgstr "موقع الوظيفة"
 #: model:ir.model,name:hr_recruitment.model_hr_job
 #: model:ir.model,name:ressource_humaine.model_hr_job
 msgid "Job Position"
-msgstr "المناصب الوظيفية"
+msgstr "الوظيفية"
 
 #. module: hr_recruitment
 #: model:mail.message.subtype,name:hr_recruitment.mt_department_new
@@ -38061,7 +38061,7 @@ msgstr "ترحيل قسيمة الأجور إلى المحاسبة"
 #. module: ressource_humaine
 #: model:ir.ui.menu,name:ressource_humaine.action_hr_job_id
 msgid "Postes"
-msgstr "مناصب"
+msgstr "المناصب"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_query_deluxe
@@ -38506,7 +38506,7 @@ msgstr "الترقية"
 #. module: ressource_humaine
 #: model:ir.ui.menu,name:ressource_humaine.promotion_de_grade
 msgid "Promotion De Grade"
-msgstr "ترقية الدرجة"
+msgstr " الترقية في الرتبة"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_promotion_file_lines
@@ -44930,7 +44930,7 @@ msgstr "نوع نهاية العلاقة"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_echelon_type_fonction
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_type_fonction
 msgid "Type Fonction"
-msgstr "أنواع الوظيفة"
+msgstr "أنواع الوظائف"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_formation_type_formation_id
@@ -44963,7 +44963,7 @@ msgstr "أنواع نهاية العلاقة"
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.action_rh_type_fonction
 msgid "Type fonction"
-msgstr "أنواع الوظيفة"
+msgstr "أنواع الوظائف"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.action_rh_type_formation
@@ -48203,12 +48203,12 @@ msgstr "تم\n"
 #. module: ressource_humaine
 #: model:ir.model,name:ressource_humaine.model_droit_avancement
 msgid "droit.avancement"
-msgstr "حق.تقدم"
+msgstr "حق تقدم"
 
 #. module: ressource_humaine
 #: model:ir.model,name:ressource_humaine.model_droit_avencement
 msgid "droit.avencement"
-msgstr "حق.تقدم"
+msgstr "حق تقدم"
 
 #. module: ressource_humaine
 #: model:ir.model,name:ressource_humaine.model_droit_conge
@@ -49821,7 +49821,7 @@ msgstr "صحيح"
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_echelon_form
 msgid "type fonction"
-msgstr "أنواع الوظيفة"
+msgstr "أنواع الوظائف"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_university
