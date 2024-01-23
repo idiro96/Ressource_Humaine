@@ -25,6 +25,7 @@ class HrEmployeInherited(models.Model):
     nom_fr = fields.Char()
     prenom_fr = fields.Char()
     date_entrer = fields.Date()
+    date_job_id = fields.Date()
     date_reintegration = fields.Date()
     activite_conjoint = fields.Boolean(default=False)
     visite_medical_detaille_id = fields.Many2one('ressource_humaine.visite.medical.detaille')

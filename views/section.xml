@@ -41,7 +41,7 @@
         </field>
     </record>
 
-    <menuitem name="Section" id="ressource_humaine_section" parent="promotion_id" sequence="14"
+    <menuitem name="Section" id="ressource_humaine_section" parent="promotion_id" sequence="16"
               action="action_rh_section"/>
 
 </odoo>
