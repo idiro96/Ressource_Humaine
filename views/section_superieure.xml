@@ -42,6 +42,6 @@
             <p class="o_view_nocontent_smiling_face">Creation section superieure!</p>
         </field>
     </record>
-    <menuitem name="Section superieure" id="ressource_humaine_section_superieure" parent="promotion_id" sequence="17"
+    <menuitem name="Section superieure" id="ressource_humaine_section_superieure" parent="promotion_id" sequence="19"
               action="action_rh_section_superieure"/>
 </odoo>

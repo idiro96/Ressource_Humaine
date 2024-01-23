@@ -47,8 +47,8 @@
 
         <menuitem name="Postes" id="action_hr_job_id" parent="recrutement_id"
            action="action_hr_job"/>
-        <menuitem name="Toutes les candidatures" id="crm_case_categ0_act_job_id" parent="recrutement_id"
-           action="crm_case_categ0_act_job"/>
+<!--        <menuitem name="Toutes les candidatures" id="crm_case_categ0_act_job_id" parent="recrutement_id"-->
+<!--           action="crm_case_categ0_act_job"/>-->
 >
 
 
