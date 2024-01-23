@@ -55,7 +55,7 @@
                                 <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
                                     <strong>Nom et Prénom</strong>
                                 </th>
-                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;width:150px;">
                                     <strong>تاريخ التعيين في الوظيفة</strong>
                                 </th>
                                 <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
