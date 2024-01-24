@@ -4,40 +4,39 @@
 
         <template id="hr_contract_report">
             <t t-call="web.basic_layout">
-                <t t-call="ressource_humaine.report_cnas_header"/>
-                <div class="page">
-                    <br/>
-                    <table class="" style="width:100%; color: #000099;">
-                        <tr>
-                            <td>&#160;</td>
-                            <td class="text-center"
-                                style="border:1px solid #000099; border-radius: 10px;font-size:14px;vertical-align:bottom; width:30%;"
-                                rowspan="4">
-                                <span>
-                                    خثم الهيئة
-                                </span>
-                                <br/>
-                                <span>
-                                    Cachet de la structure
-                                </span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                &#160;
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                &#160;
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                &#160;
-                            </td>
-                        </tr>
-                    </table>
+                <div class="page" t-attf-style="background-image: url('/ressource_humaine/static/src/img/doc02622320240124135400.JPG'); background-size: cover;">
+                    <span style="height: 100%;">
+                        Hello World !
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        Hello World !
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        Hello World !
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                    </span>
                 </div>
             </t>
         </template>
