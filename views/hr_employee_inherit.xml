@@ -11,20 +11,6 @@
                 <xpath expr="//tree//field[@name='name']" position="after">
                     <field name="birthday"/>
                 </xpath>
-
-                <xpath expr="//tree//field[@name='nature_travail_id']" position="after">
-                    <field name="date_entrer" widget='french'></field>
-                </xpath>
-                <xpath expr="//tree//field[@name='date_entrer']" position="after">
-                    <field name="corps_id"></field>
-                </xpath>
-                <xpath expr="//tree//field[@name='corps_id']" position="after">
-                    <field name="grade_id"></field>
-                </xpath>
-                <xpath expr="//tree//field[@name='grade_id']" position="after">
-                    <field name="date_grade" />
-                </xpath>
-
                 <xpath expr="//tree//field[@name='birthday']" position="after">
                     <field name="place_of_birth"/>
                 </xpath>

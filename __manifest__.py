@@ -47,6 +47,7 @@
         'views/cabinet_medical.xml',
         'views/grille.xml',
         'views/sanction.xml',
+        'views/assets.xml',
         'views/type_sanction.xml',
         'views/type_faute.xml',
         'views/type_absence.xml',
@@ -97,6 +98,7 @@
         'reports/droit_avancement.xml',
         'reports/tableau_promotion.xml',
         'reports/tableau_des_promotions.xml',
+        'reports/liste_employee.xml',
 
 
     ],

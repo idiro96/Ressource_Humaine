@@ -89,10 +89,7 @@
                                     <strong>تاريخ الميلاد</strong>
                                 </th>
                                 <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
-                                    <strong>اللقب</strong>
-                                </th>
-                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
-                                    <strong>الإسم</strong>
+                                    <strong>الإسم و اللقب</strong>
                                 </th>
                                 <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
                                     <strong></strong>
@@ -161,9 +158,6 @@
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
                                     <span t-esc="record.employee_id.birthday"/>
-                                </td>
-                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
-                                    <span t-esc="record.employee_id.prenom"/>
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
                                     <span t-esc="record.employee_id.name"/>
