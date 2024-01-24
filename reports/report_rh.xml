@@ -104,11 +104,20 @@
     <report
             id="action_liste_employee"
             model="hr.employee"
-            string="Liste des Employés"
+            string="العمال و الموظفين"
             report_type="qweb-html"
             name="ressource_humaine.liste_employee"
-            file="ressource_humaine.liste_employee"
+            file="العمال و الموظفين"
             paperformat="ressource_humaine.paperformat_european_a4_landscape"
+    />
+
+    <report
+            id="action_liste_employee_xlsx"
+            model="hr.employee"
+            string="العمال و الموظفين Excel"
+            report_type="xlsx"
+            name="ressource_humaine.liste_employee_xlsx"
+            file="العمال و الموظفين"
     />
 
 </odoo>
