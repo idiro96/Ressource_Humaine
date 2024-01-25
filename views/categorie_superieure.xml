@@ -19,8 +19,10 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="intitule"/>
-                        <field name="description"/>
+                        <group>
+                            <field name="intitule"/>
+                            <field name="description"/>
+                        </group>
                     </group>
 
                 </sheet>

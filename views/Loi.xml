@@ -17,9 +17,11 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="code"/>
-                        <field name="intitule_loi"/>
-                        <field name="description" string="Description"/>
+                        <group>
+                            <field name="code"/>
+                            <field name="intitule_loi"/>
+                            <field name="description"/>
+                        </group>
                     </group>
                 </sheet>
             </form>

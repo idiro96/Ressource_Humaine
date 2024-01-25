@@ -71,6 +71,7 @@ class HrEmployeInherited(models.Model):
     gender = fields.Selection(selection=[('male', 'Masculin'), ('female', 'Féminin')], readonly=False, required=True)
     nomoniation = fields.Selection(selection=[('satagiaire', 'Satagiaire'), ('nomination', 'Titulaire')], readonly=False, required=True)
     place_of_birth_fr = fields.Char('Lieu de naissance', groups="hr.group_hr_user", required=True)
+    place_of_birth_fr = fields.Char('Lieu de naissance', groups="hr.group_hr_user")
     groupe_id = fields.Many2one('rh.groupe', readonly=False)
     point_indiciare = fields.Integer()
     indice_minimal = fields.Integer()

@@ -38,15 +38,17 @@
                                    options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                         </group>
                         <group>
+                            <field name="budget_allouee_formation"/>
+                             <field name="organisme_id"
+                                   options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                             <field name="lieu_formation"/>
                             <field name="salle_formation"/>
-                            <field name="budget_allouee_formation"/>
-                            <field name="organisme_id"
-                                   options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+
+
                         </group>
                     </group>
                     <notebook>
-                        <page string="Formation Détail">
+                        <page string="قائمة المعنين بالتكوين">
                             <field name="formation_lines" widget="one2many_list">
                                 <tree editable="bottom">
                                     <field name="employee_id"/>
@@ -58,7 +60,7 @@
                                 </tree>
                             </field>
                         </page>
-                        <page string="Formation Absence">
+                        <page string="قائمة الغيابات">
                             <field name="formation_absence">
                                 <tree editable="bottom">
                                     <field name="employee_id"/>
@@ -66,7 +68,7 @@
                                 </tree>
                             </field>
                         </page>
-                        <page string="Liste des Fichiers">
+                        <page string="قائمة الملفات">
                             <field name="formation_file_lines">
                                 <tree editable="bottom">
                                     <field name="type_file_id" domain="[('type_file', '=', 'formation')]"/>

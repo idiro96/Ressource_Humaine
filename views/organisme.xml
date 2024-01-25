@@ -18,20 +18,22 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="code_organisme"/>
-                        <field name="rs_organisme"/>
-                        <field name="adresse_organisme"/>
+                        <group>
+                            <field name="code_organisme"/>
+                            <field name="rs_organisme"/>
+                            <field name="adresse_organisme"/>
+                        </group>
                     </group>
                      <notebook>
-                            <page string="Liste des Fichiers">
-                         <field name="organisme_file_lines">
-                           <tree editable="bottom">
-                             <field name="type_file_id" domain="[('type_file', '=', 'formation')]"/>
-                             <field name="description_fichier"/>
-                             <field name="fichier"/>
-                           </tree>
-                         </field>
-                       </page>
+                         <page string="قائمة الملفات">
+                             <field name="organisme_file_lines">
+                                 <tree editable="bottom">
+                                     <field name="type_file_id" domain="[('type_file', '=', 'formation')]"/>
+                                     <field name="description_fichier"/>
+                                     <field name="fichier"/>
+                                 </tree>
+                             </field>
+                         </page>
                     </notebook>
                 </sheet>
             </form>
