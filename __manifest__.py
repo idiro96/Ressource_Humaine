@@ -75,6 +75,7 @@
         'views/avancement.xml',
         'views/avencement_droit.xml',
         'views/promotion_droit.xml',
+        'views/company.xml',
         'data/sequence.xml',
         'data/type_fonction.xml',
         'wizards/visite_medical_detaille.xml',
