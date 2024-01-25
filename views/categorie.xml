@@ -22,12 +22,15 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="intitule"/>
-                        <field name="description"/>
-                        <field name="type_fonction_id"/>
-                        <field name="Indice_minimal"/>
-                        <field name="groupe_id"/>
-
+                        <group>
+                            <field name="intitule"/>
+                            <field name="type_fonction_id"/>
+                            <field name="Indice_minimal"/>
+                        </group>
+                        <group>
+                            <field name="description"/>
+                            <field name="groupe_id"/>
+                        </group>
                     </group>
 
                 </sheet>

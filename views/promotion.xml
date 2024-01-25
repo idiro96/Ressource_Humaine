@@ -31,7 +31,7 @@
                         </group>
                     </group>
                     <notebook>
-                        <page string="Liste Employee" attrs="{'invisible': [('id', '!=', False)]}">
+                        <page string="قائمة الموظفين" attrs="{'invisible': [('id', '!=', False)]}">
                             <field name="promotion_lines_wizard">
                                 <tree editable="bottom">
                                     <field name="employee_id" readonly="1"/>
@@ -60,7 +60,7 @@
                                 </tree>
                             </field>
                         </page>
-                        <page string="Liste des Fichiers" attrs="{'invisible': [('id', '=', False)]}">
+                        <page string="قائمة الملفات" attrs="{'invisible': [('id', '=', False)]}">
                             <field name="promotion_file_lines">
                                 <tree editable="bottom">
                                     <field name="type_file_id" domain="[('type_file', '=', 'promotion')]"/>
@@ -69,7 +69,7 @@
                                 </tree>
                             </field>
                         </page>
-                        <page string="Membre De Commission" attrs="{'invisible': [('id', '=', False)]}">
+                        <page string="أعضاء اللجنة" attrs="{'invisible': [('id', '=', False)]}">
                             <field name="choisir_commission_lines">
                                 <tree editable="bottom">
                                     <field name="employee_id"/>

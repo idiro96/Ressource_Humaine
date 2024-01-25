@@ -46,7 +46,7 @@
                         </group>
                     </group>
                     <notebook>
-                        <page string="Liste des Fichiers">
+                        <page string="قائمة الملفات">
                             <field name="absence_file_lines" widget="one2many_list">
                                 <tree editable="bottom">
                                     <field name="type_file_id" domain="[('type_file', '=', 'indisponibilite')]"/>

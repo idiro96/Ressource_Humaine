@@ -71,6 +71,12 @@
                             <span style="display: inline-block; font-size: 20px; margin-right: 170px; float: right;">
                                 <t t-esc="employee.birthday"/>
                             </span>
+                            <span style="display: inline-block; font-size: 20px; margin-right: 80px; float: right;">
+                                <t t-esc="employee.place_of_birth"/>
+                            </span>
+                            <span style="display: inline-block; font-size: 20px; margin-left: 300px; float: left;">
+                                <t t-esc="employee.place_of_birth_fr"/>
+                            </span>
                             <br/>
                             <br/>
                             <br/>

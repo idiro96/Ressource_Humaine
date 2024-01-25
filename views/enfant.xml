@@ -4,9 +4,8 @@
         <field name="model">rh.enfant</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="nom_enfant"/>
+                <field name="employee_id"/>
                 <field name="prenom_enfant"/>
-                 <field name="employee_id"/>
                 <field name="date_naissance_enfant"/>
                 <field name="scolarite"/>
             </tree>
@@ -22,7 +21,6 @@
                     <group>
                         <group>
                             <field name="employee_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
-                            <field name="nom_enfant"/>
                             <field name="prenom_enfant"/>
                         </group>
                         <group>
@@ -32,15 +30,15 @@
 
                     </group>
                           <notebook>
-                            <page string="Liste des Fichiers">
-                         <field name="enfant_file_lines">
-                           <tree editable="bottom">
-                             <field name="type_file_id" domain="[('type_file', '=', 'employe')]"/>
-                             <field name="description_fichier"/>
-                             <field name="fichier"/>
-                           </tree>
-                         </field>
-                       </page>
+                              <page name="liste_des_fichiers" string="قائمة الملفات">
+                                  <field name="enfant_file_lines">
+                                      <tree editable="bottom">
+                                          <field name="type_file_id" domain="[('type_file', '=', 'employe')]"/>
+                                          <field name="description_fichier"/>
+                                          <field name="fichier"/>
+                                      </tree>
+                                  </field>
+                              </page>
                     </notebook>
                 </sheet>
             </form>
@@ -56,6 +54,6 @@
             <p class="o_view_nocontent_smiling_face">Create your first conjoint!</p>
         </field>
     </record>
-            <menuitem name="Enfant" id="ressource_humaine_enfant" parent="employee_gestion"
+            <menuitem name="Enfant" id="ressource_humaine_enfant" parent="ressource_humaine_employee_info"
            action="action_rh_enfant"/>
 </odoo>

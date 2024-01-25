@@ -24,16 +24,16 @@
                         <field name="date_fin_relation"/>
                         <field name="type_fin_relation_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                     </group>
-                        <notebook>
-                            <page string="Liste des Fichiers">
-                         <field name="fin_relation_file_lines">
-                           <tree editable="bottom">
-                             <field name="type_file_id" domain="[('type_file', '=', 'finrelation')]"/>
-                             <field name="description_fichier"/>
-                             <field name="fichier"/>
-                           </tree>
-                         </field>
-                       </page>
+                    <notebook>
+                        <page string="قائمة الملفات">
+                            <field name="fin_relation_file_lines">
+                                <tree editable="bottom">
+                                    <field name="type_file_id" domain="[('type_file', '=', 'finrelation')]"/>
+                                    <field name="description_fichier"/>
+                                    <field name="fichier"/>
+                                </tree>
+                            </field>
+                        </page>
                     </notebook>
                 </sheet>
             </form>

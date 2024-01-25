@@ -20,10 +20,12 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="intitule"/>
-                        <field name="description"/>
-                        <field name="categorie_id"/>
-                        <field name="indice_base"/>
+                        <group>
+                            <field name="intitule"/>
+                            <field name="description"/>
+                            <field name="categorie_id"/>
+                            <field name="indice_base"/>
+                        </group>
                     </group>
                 </sheet>
             </form>

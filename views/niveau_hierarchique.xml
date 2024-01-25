@@ -21,9 +21,11 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="intitule"/>
-                        <field name="section_superieure_id"/>
-                        <field name="bonification_indiciaire"/>
+                        <group>
+                            <field name="intitule"/>
+                            <field name="section_superieure_id"/>
+                            <field name="bonification_indiciaire"/>
+                        </group>
                     </group>
                 </sheet>
             </form>
