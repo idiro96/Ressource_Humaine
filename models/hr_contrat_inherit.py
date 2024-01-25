@@ -242,17 +242,16 @@ class  HrContratInherited(models.Model):
             rec.corps_id = rec.employee_id.corps_id.id if rec.employee_id else False
             rec.grade_id = rec.employee_id.grade_id.id if rec.employee_id else False
 
+
 class HrContractReport(models.AbstractModel):
     _name = 'report.ressource_humaine.hr_contract_report'
 
     @api.model
     def get_report_values(self, docids, data=None):
-        # Fetch the current hr.contract record based on the provided docids
-        contract = self.env['hr.contract'].browse(docids[0])
+        employees = self.env['hr.employee'].browse(docids)
 
-        # Prepare the data you want to pass to the report template
         report_data = {
-            'contract': contract,
+            'employees': employees,
             'company': self.env.user.company_id,
         }
 
