@@ -80,6 +80,24 @@
                             <br/>
                             <br/>
                             <br/>
+                            <span style="display: inline-block; font-size: 15px; margin-right: 120px; float: right;">
+                                <t t-esc="employee.job_id.name"/>
+                            </span>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <div style="text-align: center;line-height: 0.6;font-size: 20px;margin-bottom:5px;">
+                                <span>
+                                    <t t-esc="employee.date_entrer"/>
+                                </span>
+                            </div>
+                            <div style="text-align: center;font-size: 20px;">
+                                <span>
+                                    <t t-esc="employee.date_fin_relation"/>
+                                </span>
+                            </div>
                             <br/>
                             <br/>
                             <br/>
