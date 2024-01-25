@@ -20,14 +20,14 @@
             <form>
                 <sheet>
                     <group>
-
-                        <field name="name"/>
-                        <field name="description"/>
-                        <field name="grille_id"/>
-
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="grille_id"/>
+                        </group>
                     </group>
                     <notebook>
-                         <page string="Liste Categorie">
+                         <page string="قائمة المجموعات">
                          <field name="categorie_lines">
                            <tree editable="bottom">
                              <field name="intitule"/>

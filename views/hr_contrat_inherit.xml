@@ -18,10 +18,10 @@
                     <attribute name="attrs">{'invisible': [('type','=', 'decision')]}</attribute>
                 </xpath>
                 <xpath expr="//page[@name='information']" position="attributes">
-                    <attribute name="string">Informations sur le salaire</attribute>
+                    <attribute name="string">معلومات حول الراتب</attribute>
                 </xpath>
                 <xpath expr="//group[@name='salary_and_advantages']" position="attributes">
-                    <attribute name="string">Affectation des qualifications salariales :</attribute>
+                    <attribute name="string">تصنيف الموظف :</attribute>
                 </xpath>
                 
                 <xpath expr="//label[@for='wage']" position="attributes">
@@ -37,7 +37,6 @@
                     <field name="groupe_id"
                            attrs="{'invisible': ['|', ('code_type_fonction', '=', 'fonctionsuperieure'), ('code_type_fonction', '=', 'contractuel')]}"/>
                 </xpath>
-
 
                 <xpath expr="//field[@name='groupe_id']" position="after">
                     <field name="categorie_id"/>
@@ -72,7 +71,6 @@
                     <field name="niveau_hierarchique_id"
                            attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')]}"/>
                 </xpath>
-
                 <xpath expr="//field[@name='niveau_hierarchique_id']" position="after">
                     <field name="bonification_indiciaire"
                            attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')]}"/>
@@ -83,23 +81,29 @@
                 <xpath expr="//form//group//group//field[@name='corps_id']" position="after">
                     <field name="grade_id"/>
                 </xpath>
-                <xpath expr="//page[@name='information']" position="after">
-                    <page name="grille_page"/>
-                </xpath>
-                <xpath expr="//page[@name='grille_page']" position="inside">
-                    <group name="info_grille"/>
-                </xpath>
-                <xpath expr="//group[@name='info_grille']" position="inside">
-                    <field name="grille_id"/>
-                </xpath>
-                <xpath expr="//group[@name='info_grille']" position="after">
-                    <group name="histo_grille"/>
-                </xpath>
+<!--                <xpath expr="//page[@name='information']" position="after">-->
+<!--                    <page name="grille_page"/>-->
+<!--                </xpath>-->
+<!--                <xpath expr="//page[@name='grille_page']" position="inside">-->
+<!--                    <group name="info_grille"/>-->
+<!--                </xpath>-->
+<!--                <xpath expr="//group[@name='info_grille']" position="inside">-->
+<!--                    <field name="grille_id"/>-->
+<!--                </xpath>-->
+<!--                <xpath expr="//group[@name='info_grille']" position="after">-->
+<!--                    <group name="histo_grille"/>-->
+<!--                </xpath>-->
                 <xpath expr="//form" position="attributes">
                     <attribute name="string">Current Contract</attribute>
                 </xpath>
                 <xpath expr="//field[@name='bonification_indiciaire']" position="after">
                     <field name="wage"/>
+                </xpath>
+                <xpath expr="//field[@name='struct_id']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//form//notebook//page[2]//group[2]" position="attributes">
+                    <attribute name="invisible">1</attribute>
                 </xpath>
             </field>
         </record>

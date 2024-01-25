@@ -29,15 +29,15 @@
                          </group>
                     </group>
                     <notebook>
-                            <page string="Liste des Fichiers">
-                         <field name="accident_travail_file_lines">
-                           <tree editable="bottom">
-                             <field name="type_file_id" domain="[('type_file', '=', 'accidenttravail')]"/>
-                             <field name="description_fichier"/>
-                             <field name="fichier"/>
-                           </tree>
-                         </field>
-                       </page>
+                        <page name="liste_des_fichiers" string="قائمة الملفات">
+                            <field name="accident_travail_file_lines">
+                                <tree editable="bottom">
+                                    <field name="type_file_id" domain="[('type_file', '=', 'accidenttravail')]"/>
+                                    <field name="description_fichier"/>
+                                    <field name="fichier"/>
+                                </tree>
+                            </field>
+                        </page>
                     </notebook>
                 </sheet>
             </form>

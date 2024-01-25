@@ -34,7 +34,7 @@
 
                     </group>
                      <notebook>
-                            <page string="Liste des Fichiers">
+                            <page string="قائمة الملفات">
                          <field name="cabinet_medicale_file_lines">
                            <tree editable="bottom">
                              <field name="type_file_id" domain="[('type_file', '=', 'controlemedicale')]"/>

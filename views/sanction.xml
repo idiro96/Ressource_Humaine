@@ -29,7 +29,9 @@
                 </header>
                 <sheet>
                     <group>
-                        <field name="employee_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                        <group>
+                            <field name="employee_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                        </group>
                     </group>
                     <group>
                         <group>
@@ -45,7 +47,7 @@
                         </group>
                     </group>
                     <notebook>
-                       <page string="Membre De Commission">
+                       <page string="أعضاء اللجنة">
                          <field name="choisir_commission_lines">
                            <tree editable="bottom">
                              <field name="employee_id"/>
@@ -54,7 +56,7 @@
                            </tree>
                          </field>
                        </page>
-                        <page string="Liste des Fichiers">
+                        <page string="قائمة الملفات">
                          <field name="sanction_file_lines">
                            <tree editable="bottom">
                              <field name="type_file_id" domain="[('type_file', '=', 'sanction')]"/>

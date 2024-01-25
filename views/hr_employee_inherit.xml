@@ -142,14 +142,14 @@
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='activite_conjoint']"
                        position="after">
-                    <field name="prenom_pere" required="True"/>
+                    <field name="prenom_pere"/>
                 </xpath>
 
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='prenom_pere']" position="after">
-                    <field name="nom_mere" required="True"/>
+                    <field name="nom_mere"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='nom_mere']" position="after">
-                    <field name="prenom_mere" required="True"/>
+                    <field name="prenom_mere"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='children']" position="after">
                     <field name="nom_fr" required="True"/>
@@ -176,6 +176,12 @@
 
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_entrer']" position="after">
                     <field name="days_off"/>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//field[@name='country_id']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//form//field[@name='manager']" position="attributes">
+                    <attribute name="invisible">True</attribute>
                 </xpath>
 
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='bank_account_id']"
@@ -204,7 +210,7 @@
                     <attribute name="attrs">{'invisible': True}</attribute>
                 </xpath>
                 <xpath expr="//form//sheet//notebook" position="inside">
-                    <page name="الترقيات في الدرجة">
+                    <page name="الترقيات في الدرجة" string="الترقيات في الدرجة">
                         <tree>
                             <field name="promotion_lines">
                                 <tree create="false" delete="false">
@@ -220,7 +226,7 @@
                     </page>
                 </xpath>
                 <xpath expr="//form//sheet//notebook" position="inside">
-                    <page name="الترقيات في الرتبة">
+                    <page name="الترقيات في الرتبة" string="الترقيات في الرتبة">
                         <tree>
                             <field name="avancement_lines">
                                 <tree create="false" delete="false">
@@ -241,38 +247,41 @@
                 </xpath>
 
                 <xpath expr="//form//sheet//notebook" position="inside">
-                    <page name="معلومات حول الراتب">
+                    <page name="معلومات حول الراتب" string="معلومات حول الراتب">
                     </page>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page[@name='معلومات حول الراتب']" position="inside">
                     <group>
-                        <field name="date_avancement"/>
-                        <field name="ref"/>
-                        <field name="date_ref"/>
-                        <field name="code_type_fonction" invisible="1"/>
-                        <field name="groupe_id"
-                               attrs="{'invisible': ['|', ('code_type_fonction', '=', 'fonctionsuperieure'), ('code_type_fonction', '=', 'contractuel')]}"/>
-                        <field name="categorie_id"/>
-                        <field name="section_id"
-                               attrs="{'invisible': [('code_type_fonction', '!=', 'fonctionsuperieure')]}"/>
-                        <field name="indice_base"
-                               attrs="{'invisible': ['|',('code_type_fonction', '!=', 'fonctionsuperieure'),('code_type_fonction', '!=', 'fonctionsuperieure')]}"/>
-                        <field name="indice_minimal"
-                               attrs="{'invisible': ['|',('code_type_fonction', '=', 'fonctionsuperieure'),('code_type_fonction', '=', 'fonction')]}"/>
-                        <field name="echelon_id"
-                               attrs="{'invisible': [('code_type_fonction', '=', 'contractuel')]}"/>
-                        <field name="point_indiciare"
-                               attrs="{'invisible': [('code_type_fonction', '=', 'contractuel')]}"/>
-                        <field name="categorie_superieure_id"
-                               attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')]}"/>
-                        <field name="section_superieure_id"
-                               attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')]}"/>
-                        <field name="niveau_hierarchique_id"
-                               attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')]}"/>
-                        <field name="bonification_indiciaire"
-                               attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')]}"/>
-                        <field name="wage" readonly="1"/>
+                         <group>
+                            <field name="date_avancement"/>
+                            <field name="ref"/>
+                            <field name="date_ref"/>
+                            <field name="code_type_fonction" invisible="1"/>
+                            <field name="groupe_id"
+                                   attrs="{'invisible': ['|', ('code_type_fonction', '=', 'fonctionsuperieure'), ('code_type_fonction', '=', 'contractuel')]}"/>
+                            <field name="categorie_id"/>
+                            <field name="section_id"
+                                   attrs="{'invisible': [('code_type_fonction', '!=', 'fonctionsuperieure')]}"/>
+                            <field name="indice_base"
+                                   attrs="{'invisible': ['|',('code_type_fonction', '!=', 'fonctionsuperieure'),('code_type_fonction', '!=', 'fonctionsuperieure')]}"/>
+                            <field name="indice_minimal"
+                                   attrs="{'invisible': ['|',('code_type_fonction', '=', 'fonctionsuperieure'),('code_type_fonction', '=', 'fonction')]}"/>
+                            <field name="echelon_id"
+                                   attrs="{'invisible': [('code_type_fonction', '=', 'contractuel')]}"/>
+                            <field name="point_indiciare"
+                                   attrs="{'invisible': [('code_type_fonction', '=', 'contractuel')]}"/>
+                            <field name="categorie_superieure_id"
+                                   attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')]}"/>
+                            <field name="section_superieure_id"
+                                   attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')]}"/>
+                            <field name="niveau_hierarchique_id"
+                                   attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')]}"/>
+                            <field name="bonification_indiciaire"
+                                   attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')]}"/>
+                            <field name="wage" readonly="1"/>
+                        </group>
                     </group>
+
 
                 </xpath>
 
@@ -309,7 +318,9 @@
         <menuitem name="Recrutement" id="recrutement_id" parent="ressource_humaine.menu_root" sequence="7"/>
         <menuitem name="Référentiels" id="referentiel_id" parent="ressource_humaine.menu_root" sequence="20"/>
 
-        <menuitem name="Employee" id="ressource_humaine_employee" parent="employee_gestion"
+        <menuitem name="Information Employee" id="ressource_humaine_employee_info" parent="employee_gestion"/>
+
+        <menuitem name="Employee" id="ressource_humaine_employee" parent="ressource_humaine_employee_info"
                   action="action_ressource_humaine"/>
 
         <menuitem
