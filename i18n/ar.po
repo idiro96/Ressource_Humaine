@@ -6369,11 +6369,14 @@ msgstr "بعض بيانات النموذج فارغة، لا يمكن طباعة
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_absence_formation_formation_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_file_formation_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_formation_line_formation_id
-#: model:ir.ui.menu,name:ressource_humaine.formation_id
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_formation
 #: selection:rh.type.file,type_file:0
 msgid "Formation"
 msgstr "التكوين"
+
+#: model:ir.ui.menu,name:ressource_humaine.formation_id
+msgid "Formation"
+msgstr "جدول التكوين"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_formation_formation_absence
@@ -6522,7 +6525,6 @@ msgid "Good"
 msgstr "جيد"
 
 #. module: ressource_humaine
-#: model:ir.model.fields,field_description:ressource_humaine.field_hr_contract_grade_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_grade_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_grade_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_wizard_grade_id
@@ -6532,9 +6534,16 @@ msgstr "جيد"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_grade_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_line_grade_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_line_wizard_grade_id
-#: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_grade
 msgid "Grade"
 msgstr "الرتبة السابقة"
+
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_contract_grade_id
+msgid "Grade"
+msgstr "الرتبة"
+
+#: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_grade
+msgid "Grade"
+msgstr "الرتبة"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_grade_new_id

@@ -9,13 +9,13 @@
                 <form>
 
                     <group>
-                       <field name="employee_name" string = "Employee"/>
-                       <field name="date_absence" string = "Date Absence"/>
+                       <field name="employee_name"/>
+                       <field name="date_absence"/>
                     </group>
                     <footer>
-                        <button name="absence_formation" string="Valider" type="object"
+                        <button name="absence_formation" string="تأكيد" type="object"
                                 class="btn-danger text-uppercase"/>
-                        <button string="Cancel" class="btn-default" special="cancel"/>
+                        <button string="إلغاء" class="btn-default" special="cancel"/>
                     </footer>
                 </form>
             </field>

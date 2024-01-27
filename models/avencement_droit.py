@@ -8,6 +8,7 @@ import calendar
 
 class RHAvencementDroit(models.Model):
     _name = 'rh.avencement.droit'
+    _rec_name = 'employee_id'
 
     employee_id = fields.Many2one('hr.employee')
     type_fonction_id = fields.Many2one('rh.type.fonction')

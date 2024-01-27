@@ -6,6 +6,7 @@ from odoo import models, fields, api, _
 class RHAvancement(models.Model):
     _name = 'rh.avancement'
 
+
     date_avancement = fields.Date()
     code = fields.Char(readonly=True, default=lambda self: self.env['ir.sequence'].next_by_code('rh.avancement.sequence'))
     avancement_lines = fields.One2many('rh.avancement.line', inverse_name='avancement_id')

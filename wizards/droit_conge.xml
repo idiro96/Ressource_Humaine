@@ -8,9 +8,9 @@
                 <form>
 
                     <footer>
-                        <button name="actualiserDroitConge" string="Actualiser la fiche droit aux congés" type="object"
+                        <button name="actualiserDroitConge" string="تحديث إستحقاق العطلة" type="object"
                                 class="btn-danger text-uppercase"/>
-                        <button string="Cancel" class="btn-default" special="cancel"/>
+                        <button string="إلغاء" class="btn-default" special="cancel"/>
                     </footer>
                 </form>
             </field>
