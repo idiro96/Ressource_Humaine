@@ -7,12 +7,15 @@
             <field name="arch" type="xml">
                 <form>
                     <group>
-                       <field name="date_promotion" string = "Date Promotion"/>
+                        <group>
+                            <field name="date_promotion"/>
+                        </group>
+
                     </group>
                     <footer>
-                        <button name="actualiser_droit_promotion" string="Actualiser Droit Promotion" type="object"
+                        <button name="actualiser_droit_promotion" string="تحديث إستحقاق الترقية" type="object"
                                 class="btn-danger text-uppercase"/>
-                        <button string="Cancel" class="btn-default" special="cancel"/>
+                        <button string="إلغاء" class="btn-default" special="cancel"/>
                     </footer>
                 </form>
             </field>

@@ -6,6 +6,7 @@ from odoo import models, fields, api, _
 
 class RHEnfant(models.Model):
     _name = 'rh.enfant'
+    _rec_name = 'employee_id'
 
 
     nom_enfant = fields.Char()

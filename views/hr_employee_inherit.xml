@@ -209,6 +209,32 @@
                        position="attributes">
                     <attribute name="attrs">{'invisible': True}</attribute>
                 </xpath>
+                <xpath expr="//page[@name='public']" position="attributes">
+                    <attribute name="string">معلومات العمل</attribute>
+                </xpath>
+                <xpath expr="//page[@name='personal_information']" position="attributes">
+                    <attribute name="string">معلومات خاصة</attribute>
+                </xpath>
+                <xpath expr="//group[field[@name='address_id']]" position="attributes">
+                    <attribute name="string">معلومات شخصية</attribute>
+                </xpath>
+                <xpath expr="//group[field[@name='department_id']]" position="attributes">
+                    <attribute name="string">المنصب</attribute>
+                </xpath>
+                <xpath expr="//group[field[@name='country_id']]" position="attributes">
+                    <attribute name="string">معلومات أخرى</attribute>
+                </xpath>
+                <xpath expr="//group[field[@name='address_home_id']]" position="attributes">
+                    <attribute name="string">عنوان الموظف</attribute>
+                </xpath>
+                <xpath expr="//group[field[@name='birthday']]" position="attributes">
+                    <attribute name="string">الميلاد</attribute>
+                </xpath>
+                <xpath expr="//group[field[@name='gender']]" position="attributes">
+                    <attribute name="string">الحالة</attribute>
+                </xpath>
+
+
                 <xpath expr="//form//sheet//notebook" position="inside">
                     <page name="الترقيات في الدرجة" string="الترقيات في الدرجة">
                         <tree>

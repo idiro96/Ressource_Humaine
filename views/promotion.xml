@@ -20,7 +20,7 @@
         <field name="arch" type="xml">
             <form>
                  <header>
-                    <button name="choisir_commission" type="object" string="Choisir Commission" class="oe_highlight" attrs="{'invisible': [('id', '=', False)]}"/>
+                    <button name="choisir_commission" type="object" string="إختيار اللجنة" class="oe_highlight" attrs="{'invisible': [('id', '=', False)]}"/>
                 </header>
                 <sheet>
                     <group>
@@ -46,7 +46,7 @@
                         </page>
                     </notebook>
                     <notebook>
-                        <page string="Liste Employee" attrs="{'invisible': [('id', '=', False)]}">
+                        <page string="قائمة الموظفين" attrs="{'invisible': [('id', '=', False)]}">
                             <field name="promotion_lines">
                                 <tree editable="bottom">
                                     <field name="employee_id" readonly="1"/>

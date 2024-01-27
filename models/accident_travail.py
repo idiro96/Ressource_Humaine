@@ -6,6 +6,9 @@ from odoo import models, fields, api, _
 
 class RHAccidentTravail(models.Model):
     _name = 'rh.accident.travail'
+    _rec_name = 'employee_id'
+
+
 
     date_accident_travail = fields.Date()
     description_accident_travail = fields.Text()

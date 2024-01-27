@@ -8,7 +8,7 @@
             <field name="arch" type="xml">
                 <form>
                     <group>
-                       <field name="date_visite_medicale" string = "Date Visite Medicale"/>
+                       <field name="date_visite_medicale"/>
                     </group>
 
                     <field name="employee_id_lines">
@@ -19,9 +19,9 @@
                            </tree>
                     </field>
                     <footer>
-                        <button name="detaille_viste_medical" string="Valider" type="object"
+                        <button name="detaille_viste_medical" string="تأكيد" type="object"
                                 class="btn-danger text-uppercase"/>
-                        <button string="Cancel" class="btn-default" special="cancel"/>
+                        <button string="إلغاء" class="btn-default" special="cancel"/>
                     </footer>
                 </form>
             </field>

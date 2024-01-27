@@ -7,12 +7,14 @@
             <field name="arch" type="xml">
                 <form>
                     <group>
-                       <field name="date_avancement"/>
+                        <group>
+                            <field name="date_avancement"/>
+                        </group>
                     </group>
                     <footer>
-                        <button name="actualiser_droit_avencement" string="Actualiser Droit Avencement" type="object"
+                        <button name="actualiser_droit_avencement" string="تحديث حق التقدم" type="object"
                                 class="btn-danger text-uppercase"/>
-                        <button string="Cancel" class="btn-default" special="cancel"/>
+                        <button string="إلغاء" class="btn-default" special="cancel"/>
                     </footer>
                 </form>
             </field>
