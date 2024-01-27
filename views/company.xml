@@ -9,10 +9,10 @@
                 <field name="num_adh" string="N° Adhérent"/>
             </xpath>
             <xpath expr="//form//sheet//notebook//page//group//group//div//field[@name='num_adh']" position="after">
-                <field name="raison_sociale" string="الطبيعة الإجتماعية"/>
+                <field name="raison_sociale"/>
             </xpath>
             <xpath expr="//form//sheet//notebook//page//group//group//div//field[@name='raison_sociale']" position="after">
-                <field name="raison_sociale_fr" string="Raison sociale"/>
+                <field name="raison_sociale_fr"/>
             </xpath>
         </field>
     </record>
