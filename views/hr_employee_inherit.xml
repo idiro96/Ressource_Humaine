@@ -98,11 +98,12 @@
                     <field name="grade_id" required="True"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='grade_id']" position="after">
-                    <field name="date_grade" required="True" domain="[('translatable','=',False)]"/>
+                    <field name="date_grade" required="True" context="{'lang':'fr_FR'}"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_grade']" position="after">
                     <field name="position_statutaire"/>
                 </xpath>
+
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='department_id']"
                        position="before">
                     <field name="date_entrer" required="True"/>
@@ -174,7 +175,11 @@
                     <attribute name="required">True</attribute>
                 </xpath>
 
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_entrer']" position="after">
+                  <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_entrer']" position="after">
+                    <field name="nomination"/>
+                </xpath>
+
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='nomination']" position="after">
                     <field name="days_off"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//field[@name='country_id']" position="attributes">
@@ -248,10 +253,12 @@
 
                 <xpath expr="//form//sheet//notebook" position="inside">
 
+
                     <page name="Information Salariale">
                     </page>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page[@name='Information Salariale']" position="inside">
+
 
                     <page name="معلومات حول الراتب" string="معلومات حول الراتب">
 

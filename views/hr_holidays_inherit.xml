@@ -8,9 +8,19 @@
                 <xpath expr="//tree//field[@name='holiday_type']" position="attributes">
                     <attribute name="invisible">True</attribute>
                 </xpath>
+                <xpath expr="//tree//field[@name='number_of_days']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                  <xpath expr="//tree//field[@name='number_of_days']" position="after">
+                    <field name="number_of_days_temp" invisible="0"/>
+                </xpath>
+                  <xpath expr="//tree//field[@name='number_of_days_temp']" position="after">
+                    <field name="state" invisible="0"/>
+                </xpath>
                 <xpath expr="//tree//field[@name='category_id']" position="attributes">
                     <attribute name="invisible">True</attribute>
                 </xpath>
+
                 <xpath expr="//tree//field[@name='state']" position="attributes">
                     <attribute name="invisible">True</attribute>
                 </xpath>

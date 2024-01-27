@@ -45,7 +45,7 @@ class HrEmployeInherited(models.Model):
 
     corps_id = fields.Many2one('rh.corps')
     grade_id = fields.Many2one('rh.grade')
-    date_grade = fields.Date(lang='fr_FR')
+    date_grade = fields.Date(translate=False, lang='fr_FR',)
     promotion_lines = fields.One2many('rh.promotion.line', inverse_name='employee_id')
     avancement_lines = fields.One2many('rh.avancement.line', inverse_name='employee_id')
     nature_travail_id = fields.Many2one('rh.type.fonction')
@@ -69,7 +69,7 @@ class HrEmployeInherited(models.Model):
     taux_handicap = fields.Float()
     corps_visible = fields.Boolean(default=True)
     gender = fields.Selection(selection=[('male', 'Masculin'), ('female', 'Féminin')], readonly=False, required=True)
-    nomoniation = fields.Selection(selection=[('satagiaire', 'Satagiaire'), ('nomination', 'Titulaire')], readonly=False, required=True)
+    nomination = fields.Selection(selection=[('satagiaire', 'Satagiaire'), ('nomination', 'Titulaire')], readonly=False, required=True)
     place_of_birth_fr = fields.Char('Lieu de naissance', groups="hr.group_hr_user", required=True)
     place_of_birth_fr = fields.Char('Lieu de naissance', groups="hr.group_hr_user")
     groupe_id = fields.Many2one('rh.groupe', readonly=False)
