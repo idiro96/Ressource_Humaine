@@ -4,6 +4,7 @@ from dateutil.relativedelta import relativedelta
 from odoo import models, fields, api, _
 from datetime import date, timedelta, datetime
 from dateutil.relativedelta import relativedelta
+from babel.dates import format_date, format_datetime
 import logging
 import calendar
 import time
@@ -24,6 +25,7 @@ class HrEmployeInherited(models.Model):
     prenom_mere = fields.Char()
     nom_fr = fields.Char()
     prenom_fr = fields.Char()
+
     date_entrer = fields.Date()
     date_job_id = fields.Date()
     date_reintegration = fields.Date()
@@ -43,7 +45,7 @@ class HrEmployeInherited(models.Model):
 
     corps_id = fields.Many2one('rh.corps')
     grade_id = fields.Many2one('rh.grade')
-    date_grade = fields.Date()
+    date_grade = fields.Date(translate=False, lang='fr_FR',)
     promotion_lines = fields.One2many('rh.promotion.line', inverse_name='employee_id')
     avancement_lines = fields.One2many('rh.avancement.line', inverse_name='employee_id')
     nature_travail_id = fields.Many2one('rh.type.fonction')
@@ -67,6 +69,8 @@ class HrEmployeInherited(models.Model):
     taux_handicap = fields.Float()
     corps_visible = fields.Boolean(default=True)
     gender = fields.Selection(selection=[('male', 'Masculin'), ('female', 'Féminin')], readonly=False, required=True)
+    nomination = fields.Selection(selection=[('satagiaire', 'Satagiaire'), ('nomination', 'Titulaire')], readonly=False, required=True)
+    place_of_birth_fr = fields.Char('Lieu de naissance', groups="hr.group_hr_user", required=True)
     place_of_birth_fr = fields.Char('Lieu de naissance', groups="hr.group_hr_user")
     groupe_id = fields.Many2one('rh.groupe', readonly=False)
     point_indiciare = fields.Integer()
@@ -85,6 +89,7 @@ class HrEmployeInherited(models.Model):
     date_avancement = fields.Date()
     ref = fields.Char()
     date_ref = fields.Date()
+
 
     @api.multi
     def calculer_age_employee(self):

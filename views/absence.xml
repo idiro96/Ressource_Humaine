@@ -8,7 +8,7 @@
             <tree>
                 <field name="num_reference_absence"/>
                 <field name="employee_id"/>
-                <field name="date_debut_absence"/>
+                <field name="date_debut_absence" context="{'lang': 'fr_FR'}"/>
                 <field name="date_fin_absence"/>
                 <field name="nbr_jours_absence"/>
                 <field name="nbre_heure_absence"/>

@@ -47,6 +47,7 @@
         'views/cabinet_medical.xml',
         'views/grille.xml',
         'views/sanction.xml',
+        # 'views/assets.xml',
         'views/type_sanction.xml',
         'views/type_faute.xml',
         'views/type_absence.xml',
