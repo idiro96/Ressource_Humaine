@@ -6254,7 +6254,7 @@ msgstr "مزايا إضافية ..."
 #. module: ressource_humaine
 #: model:ir.actions.report,name:ressource_humaine.action_droit_avancement_report
 msgid "Extrait du siège approuvant le calendrier des promotions de grade"
-msgstr "Extrait du siège approuvant le calendrier des promotions de grade"
+msgstr "مستخرج من مقر المصادقة على جدول الترقية في الدرجات"
 
 #. module: hr_recruitment
 #: model:ir.ui.view,arch_db:hr_recruitment.crm_case_form_view_job
@@ -10431,7 +10431,7 @@ msgstr "لوحة القيادة"
 #. module: ressource_humaine
 #: model:ir.actions.report,name:ressource_humaine.action_hr_tableau_des_promotions
 msgid "Tableau des Promotions"
-msgstr "Tableau des Promotions"
+msgstr "جدول ترقية"
 
 #. modules: hr, hr_recruitment, calendar
 #: sql_constraint:calendar.event.type:0
@@ -11896,6 +11896,11 @@ msgid "rh.nature.travail"
 msgstr "rh.nature.travail"
 
 #. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_job_poste_organique
+msgid "Poste Organique"
+msgstr "نوع المنصب"
+
+#. module: ressource_humaine
 #: model:ir.model,name:ressource_humaine.model_rh_niveau_hierarchique
 msgid "rh.niveau.hierarchique"
 msgstr "rh.niveau.hierarchique"
@@ -12405,3 +12410,39 @@ msgstr "و يحتفظ إلى تاريخ"
 msgid "يوم"
 msgstr "يوم"
 
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_res_company_num_adh
+#: model:ir.ui.view,arch_db:ressource_humaine.res_company_form
+msgid "N° Adhérent"
+msgstr "رقم العضوية"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_res_company_raison_sociale
+msgid "Raison Sociale"
+msgstr "الطبيعة الإجتماعية"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_res_company_raison_sociale_fr
+msgid "Raison Sociale Fr"
+msgstr "الطبيعة الإجتماعية بالفرنسية"
+
+#. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.res_company_form
+msgid "Raison sociale"
+msgstr "الطبيعة الإجتماعية"
+
+#. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.res_company_form
+msgid "الطبيعة الإجتماعية"
+msgstr "الطبيعة الإجتماعية"
+
+#. module: ressource_humaine
+#: model:ir.actions.report,name:ressource_humaine.action_liste_employee
+#: model:ir.ui.view,arch_db:ressource_humaine.liste_employee
+msgid "العمال و الموظفين"
+msgstr "العمال و الموظفين"
+
+#. module: ressource_humaine
+#: model:ir.actions.report,name:ressource_humaine.action_liste_employee_xlsx
+msgid "العمال و الموظفين Excel"
+msgstr "العمال و الموظفين Excel"

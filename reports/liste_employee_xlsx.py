@@ -37,7 +37,7 @@ class PatientCardXLS(models.AbstractModel):
         sheet.set_column(6, 6, 25)
         sheet.set_column(7, 7, 25)
         sheet.set_column(8, 8, 25)
-        sheet.set_column(9, 9, 20)
+        sheet.set_column(9, 9, 35)
         sheet.set_column(10, 10, 10)
         sheet.set_column(11, 11, 25)
 
@@ -70,7 +70,7 @@ class PatientCardXLS(models.AbstractModel):
                 sheet.write(row, 9, f"{employee.nom_fr} {employee.prenom_fr}" if employee.nom_fr or employee.prenom_fr else '', format3)
                 sheet.write(row, 10, '', format3)
                 sheet.write(row, 11, employee.numero_securite_social or '', format7)
-            else:
+            if employee.gender == 'female':
                 sheet.write(row, 0, index, format2)
                 sheet.write(row, 1, employee.name or '', format5)
                 sheet.write(row, 2, employee.birthday or '', format6)
@@ -80,7 +80,21 @@ class PatientCardXLS(models.AbstractModel):
                 sheet.write(row, 6, employee.date_entrer or '', format6)
                 sheet.write(row, 7, employee.date_grade or '', format6)
                 sheet.write(row, 8, employee.date_job_id or '', format6)
-                sheet.write(row, 9,f"{employee.nom_fr} {employee.prenom_fr}" if employee.nom_fr or employee.prenom_fr else '', format5)
+                sheet.write(row, 9, f"{employee.nom_fr} {employee.prenom_fr}" if employee.nom_fr or employee.prenom_fr else '', format5)
                 sheet.write(row, 10, '', format5)
+                sheet.write(row, 11, employee.numero_securite_social or '', format7)
+            if not employee.gender:
+                sheet.write(row, 0, index, format2)
+                sheet.write(row, 1, employee.name or '', format7)
+                sheet.write(row, 2, employee.birthday or '', format7)
+                sheet.write(row, 3, employee.place_of_birth or '', format7)
+                sheet.write(row, 4, employee.grade_id.intitule_grade or '', format7)
+                sheet.write(row, 5, employee.job_id.name or '', format7)
+                sheet.write(row, 6, employee.date_entrer or '', format7)
+                sheet.write(row, 7, employee.date_grade or '', format7)
+                sheet.write(row, 8, employee.date_job_id or '', format7)
+                sheet.write(row, 9, f"{employee.nom_fr} {employee.prenom_fr}" if employee.nom_fr or employee.prenom_fr else '',
+                            format7)
+                sheet.write(row, 10, '', format7)
                 sheet.write(row, 11, employee.numero_securite_social or '', format7)
             row += 1

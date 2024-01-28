@@ -65,6 +65,7 @@
 <!--                </xpath>-->
 
 
+
             </field>
         </record>
         <record model="ir.actions.act_window" id="action_hr_job">

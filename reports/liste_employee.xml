@@ -176,6 +176,51 @@
                                              t-att-style="'border: 3px solid #018749; border-radius: 50%;'"/>
                                     </td>
                                 </t>
+                                <t t-if="not line.gender">
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;">
+                                        <span t-esc="line.numero_securite_social"/>
+                                    </td>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;">
+                                        &#160;
+                                    </td>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;">
+                                        <span t-esc="line.nom_fr"/>
+                                        <span t-esc="line.prenom_fr"/>
+                                    </td>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;">
+                                        <span t-esc="line.date_job_id"/>
+                                    </td>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;">
+                                        <span t-esc="line.date_grade"/>
+                                    </td>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;">
+                                        <span t-esc="line.date_entrer"/>
+                                    </td>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;">
+                                        <span t-esc="line.job_id.name"/>
+                                    </td>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;">
+                                        <span t-esc="line.grade_id.intitule_grade"/>
+                                    </td>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;">
+                                        <span t-esc="line.place_of_birth"/>
+                                    </td>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;">
+                                        <span t-esc="line.birthday"/>
+                                    </td>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;">
+                                        <span t-esc="line.name"/>
+                                    </td>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;">
+                                        <t t-esc="line_count"/>
+                                    </td>
+                                    <td style="width: 110px; text-align: center; vertical-align: middle; line-height: 50px;">
+                                        <img t-if="line.image"
+                                             t-att-src="'data:image/png;base64,%s' % to_text(line.image)"
+                                             height="50" width="50"
+                                             t-att-style="'border: 3px solid #018749; border-radius: 50%;'"/>
+                                    </td>
+                                </t>
                                 <t t-set="line_count" t-value="line_count + 1"/>
                             </tbody>
                         </t>
