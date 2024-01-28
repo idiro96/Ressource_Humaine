@@ -81,7 +81,7 @@
                                     :و
                                 </span>
                                 <br/>
-                                <t t-if="contract.employee_id.gender == 'male'">
+                                <t t-if="not contract.employee.gender or contract.employee.gender == 'male'">
                                     <span>
                                         السيد/
                                         <t t-esc="contract.employee_id.name"/>
@@ -94,7 +94,7 @@
                                     </span>
                                 </t>
                                 <br/>
-                                <t t-if="contract.employee_id.gender == 'male'">
+                                <t t-if="not contract.employee.gender or contract.employee.gender == 'male'">
                                     <span>
                                         المولود في:
                                         &#160;<t t-esc="contract.employee_id.birthday"/>
@@ -107,7 +107,7 @@
                                     </span>
                                 </t>
                                 <br/>
-                                <t t-if="contract.employee_id.gender == 'male'">
+                                <t t-if="not contract.employee.gender or contract.employee.gender == 'male'">
                                     <span>
                                         الساكن في/
                                         &#160;<t t-esc="contract.employee_id.place_of_birth"/>
@@ -137,7 +137,7 @@
                                 <br/>
                                 <br/>
                                 <span>
-                                    <t t-if="contract.employee_id.gender == 'male'">
+                                    <t t-if="not contract.employee.gender or contract.employee.gender == 'male'">
                                         <span>
                                             المادة الأولى : يوظف السيد في منصب شغل
                                         </span>
@@ -157,7 +157,7 @@
                                     غير محدد المدة
                                 </span>
                                 <br/>
-                                <t t-if="contract.employee_id.gender == 'male'">
+                                <t t-if="not contract.employee.gender or contract.employee.gender == 'male'">
                                     <span>
                                         المـادة 02 : يعين المعني في
                                     </span>
@@ -173,7 +173,7 @@
                                        t-if="contract.employee_id.department_id.name"/>
                                 </span>
                                 <br/>
-                                <t t-if="contract.employee_id.gender == 'male'">
+                                <t t-if="not contract.employee.gender or contract.employee.gender == 'male'">
                                     <span>
                                         المـادة 03 : يصنف المعني في الصنف 1 الرقم الإستدلالي 325
                                     </span>
@@ -184,7 +184,7 @@
                                     </span>
                                 </t>
                                 <br/>
-                                <t t-if="contract.employee_id.gender == 'male'">
+                                <t t-if="not contract.employee.gender or contract.employee.gender == 'male'">
                                     <span>
                                         المـادة 04 : يستفيد المعني من العلاوات و التعويضات المنصوص عليهي في التنظيم
                                         الساري
@@ -215,7 +215,7 @@
                                      علاوة المردودة -
                                 </span>
                                 <br/>
-                                <t t-if="contract.employee_id.gender == 'male'">
+                                <t t-if="not contract.employee.gender or contract.employee.gender == 'male'">
                                     <span>
                                         المـادة 05 : زيادة على الواجبات المنصوص عليهي في المرسوم الرئاسي رقم 07-308
                                         المؤرخ
@@ -261,7 +261,7 @@
                                     </span>
                                 </div>
                                 <div style="float:right;font-size:20px;">
-                                    <t t-if="contract.employee_id.gender == 'male'">
+                                    <t t-if="not contract.employee.gender or contract.employee.gender == 'male'">
                                         <span>
                                             السيد المعني
                                         </span>
@@ -292,7 +292,7 @@
                                     </span>
                                 </div>
                                 <div style="float:right;font-size:20px;">
-                                    <t t-if="contract.employee_id.gender == 'male'">
+                                    <t t-if="not contract.employee.gender or contract.employee.gender == 'male'">
                                         <span>
                                             قرئ و صدق عليه
                                         </span>
