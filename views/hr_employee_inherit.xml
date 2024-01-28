@@ -176,7 +176,7 @@
                 </xpath>
 
                   <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_entrer']" position="after">
-                    <field name="nomination"/>
+                    <field name="nomination" string="التعين"/>
                 </xpath>
 
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='nomination']" position="after">
@@ -214,8 +214,37 @@
                        position="attributes">
                     <attribute name="attrs">{'invisible': True}</attribute>
                 </xpath>
+                <xpath expr="//page[@name='public']" position="attributes">
+                    <attribute name="string">معلومات العمل</attribute>
+                </xpath>
+                <xpath expr="//page[@name='personal_information']" position="attributes">
+                    <attribute name="string">معلومات خاصة</attribute>
+                </xpath>
+                <xpath expr="//group[field[@name='address_id']]" position="attributes">
+                    <attribute name="string">معلومات شخصية</attribute>
+                </xpath>
+                <xpath expr="//group[field[@name='department_id']]" position="attributes">
+                    <attribute name="string">المنصب</attribute>
+                </xpath>
+                <xpath expr="//group[field[@name='country_id']]" position="attributes">
+                    <attribute name="string">معلومات أخرى</attribute>
+                </xpath>
+                <xpath expr="//group[field[@name='address_home_id']]" position="attributes">
+                    <attribute name="string">عنوان الموظف</attribute>
+                </xpath>
+                <xpath expr="//group[field[@name='birthday']]" position="attributes">
+                    <attribute name="string">الميلاد</attribute>
+                </xpath>
+                <xpath expr="//group[field[@name='gender']]" position="attributes">
+                    <attribute name="string">الحالة</attribute>
+                </xpath>
+                <xpath expr="//div[@name='button_box']" position="attributes">
+                     <attribute name="invisible">True</attribute>
+                </xpath>
+
+
                 <xpath expr="//form//sheet//notebook" position="inside">
-                    <page name="الترقيات في الدرجة" string="الترقيات في الدرجة">
+                    <page name="الترقيات في الدرجة" string="الترقيات في الرتبة">
                         <tree>
                             <field name="promotion_lines">
                                 <tree create="false" delete="false">
@@ -231,7 +260,7 @@
                     </page>
                 </xpath>
                 <xpath expr="//form//sheet//notebook" position="inside">
-                    <page name="الترقيات في الرتبة" string="الترقيات في الرتبة">
+                    <page name="الترقيات في الرتبة" string="الترقيات في الدرجة">
                         <tree>
                             <field name="avancement_lines">
                                 <tree create="false" delete="false">
@@ -254,11 +283,10 @@
                 <xpath expr="//form//sheet//notebook" position="inside">
 
 
-                    <page name="Information Salariale">
+                    <page name="Information Salariale" string="معلومات حول الراتب" >
                     </page>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page[@name='Information Salariale']" position="inside">
-
 
                     <page name="معلومات حول الراتب" string="معلومات حول الراتب">
 

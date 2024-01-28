@@ -8,9 +8,9 @@
             <field name="arch" type="xml">
                 <form>
                     <group>
-                       <field name="date_debut_formation_line" string = "Date Debut"/>
-                       <field name="date_fin_formation_line" string = "Date Fin"/>
-                       <field name="groupe" string = "Groupe"/>
+                       <field name="date_debut_formation_line"/>
+                       <field name="date_fin_formation_line"/>
+                       <field name="groupe"/>
                     </group>
                     <field name="employee_id_lines">
                            <tree editable="bottom">
@@ -20,9 +20,9 @@
                            </tree>
                     </field>
                     <footer>
-                        <button name="detail_formation" string="Valider" type="object"
+                        <button name="detail_formation" string="تأكيد" type="object"
                                 class="btn-danger text-uppercase"/>
-                        <button string="Cancel" class="btn-default" special="cancel"/>
+                        <button string="إلغاء" class="btn-default" special="cancel"/>
                     </footer>
                 </form>
             </field>

@@ -15,9 +15,9 @@
                            </tree>
                     </field>
                     <footer>
-                        <button name="valider_commission" string="Valider" type="object"
+                        <button name="valider_commission" string="تأكيد" type="object"
                                 class="btn-danger text-uppercase"/>
-                        <button string="Cancel" class="btn-default" special="cancel"/>
+                        <button string="إلغاء" class="btn-default" special="cancel"/>
                     </footer>
                 </form>
             </field>

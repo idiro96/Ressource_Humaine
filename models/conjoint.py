@@ -6,6 +6,7 @@ from odoo import models, fields, api, _
 
 class RHConjoint(models.Model):
     _name = 'rh.conjoint'
+    _rec_name = 'employee_id'
 
 
     nom_conjoint = fields.Char()

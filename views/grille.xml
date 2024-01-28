@@ -20,9 +20,9 @@
         <field name="model">rh.grille</field>
         <field name="arch" type="xml">
             <form>
-                <header>
-                <button name="importation_grille" type="object" class="oe_highlight"/>
-                </header>
+<!--                <header>-->
+<!--                <button name="importation_grille" type="object" class="oe_highlight"/>-->
+<!--                </header>-->
                 <sheet>
                     <group>
                          <group>

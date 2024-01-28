@@ -19,7 +19,7 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-                    <button name="choisir_commission" type="object" string="Choisir Commission" class="oe_highlight" attrs="{'invisible': [('id', '=', False)]}"/>
+                    <button name="choisir_commission" type="object" string="إختيار اللجنة" class="oe_highlight" attrs="{'invisible': [('id', '=', False)]}"/>
                 </header>
                 <sheet>
                     <group>

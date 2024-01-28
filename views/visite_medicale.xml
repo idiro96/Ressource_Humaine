@@ -17,7 +17,7 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-                        <button name="visite_medical_detaille" type="object" string="Detaille Viste Medical" class="oe_highlight"/>
+                        <button name="visite_medical_detaille" type="object" string="معلومات عن الزيارة الطبية" class="oe_highlight"/>
                 </header>
                 <sheet>
                     <group>
