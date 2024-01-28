@@ -39,7 +39,7 @@ class RHFormation(models.Model):
         return {
         'type': 'ir.actions.act_window',
         'target': 'new',
-        'name': 'Formation detail',
+        'name': 'تفاصيل التكوين',
         'view_mode': 'form',
         'res_model': 'formation.detail',
         }

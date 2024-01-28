@@ -11,7 +11,7 @@
     <report
             id="action_attestation_travail_report"
             string="Attestation de Travail"
-            model="hr.contract"
+            model="hr.employee"
             report_type="qweb-html"
             name="ressource_humaine.attestation_travail_report"
             file="ressource_humaine.attestation_travail_report"/>
@@ -50,7 +50,7 @@
 
     <report
             id="action_attestation_travail_fr_report"
-            model="hr.contract"
+            model="hr.employee"
             string="Attestation de Travail En Français"
             report_type="qweb-html"
             name="ressource_humaine.attestation_travail_fr_report"
@@ -72,6 +72,7 @@
             report_type="qweb-html"
             name="ressource_humaine.hr_contract_report"
             file="ressource_humaine.hr_contract_report"
+            paperformat="ressource_humaine.paperformat_european_a4_portrait"
     />
     <report
             id="action_droit_avancement_report"
@@ -99,6 +100,25 @@
             name="ressource_humaine.tableau_des_promotions"
             file="ressource_humaine.tableau_des_promotions"
             paperformat="ressource_humaine.paperformat_european_a4_landscape"
+    />
+
+    <report
+            id="action_liste_employee"
+            model="hr.employee"
+            string="العمال و الموظفين"
+            report_type="qweb-html"
+            name="ressource_humaine.liste_employee"
+            file="العمال و الموظفين"
+            paperformat="ressource_humaine.paperformat_european_a4_landscape"
+    />
+
+    <report
+            id="action_liste_employee_xlsx"
+            model="hr.employee"
+            string="العمال و الموظفين Excel"
+            report_type="xlsx"
+            name="ressource_humaine.liste_employee_xlsx"
+            file="العمال و الموظفين"
     />
 
 </odoo>

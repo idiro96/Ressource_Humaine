@@ -16,7 +16,7 @@ class RHAvancement(models.Model):
     choisir_commission_lines = fields.One2many('rh.avancement.commission.line', 'avancement_id')
     # promotion_file_lines = fields.One2many('rh.file', 'promotion_id')
 
-
+    avancement_file_lines = fields.One2many('rh.file', 'avancement_id')
 
 
     @api.model
@@ -59,6 +59,8 @@ class RHAvancement(models.Model):
                     employee.write({
                         'echelon_id': rec.echelon_new_id.id,
                     })
+                    rec.employee_id.point_indiciare = rec.employee_id.echelon_id.indice_echelon
+                    rec.employee_id.wage = rec.employee_id.indice_minimal * 45 + rec.employee_id.point_indiciare * 45
 
                 elif rec.employee_id.nature_travail_id.code_type_fonction == 'fonctionsuperieure':
 
@@ -242,10 +244,12 @@ class DroitAvancementReport(models.AbstractModel):
     def get_report_values(self, docids, data=None):
         avancement = self.env['rh.avancement'].browse(docids[0])
 
+        avancement_lines = avancement.avancement_lines.filtered(lambda line: line.imprimer)
+
         report_data = {
             'avancement': avancement,
             'company': self.env.user.company_id,
-            'avancement_lines': avancement.avancement_lines,
+            'avancement_lines': avancement_lines,
         }
 
         return report_data

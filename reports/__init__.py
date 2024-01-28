@@ -6,3 +6,5 @@ from . import titre_conge
 from . import pv_instalation
 from . import contract_renew
 from . import tableau_promotion
+from . import liste_employee
+from . import liste_employee_xlsx

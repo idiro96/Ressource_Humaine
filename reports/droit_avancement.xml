@@ -27,7 +27,8 @@
                             <br/>
                             <div style="font-size: 20px;text-align: right;">
                                 <span>
-                                    ..............الرقم
+                                    <t t-esc="line.code"/>
+                                    الرقم
                                 </span>
                             </div>
                             <br/>
@@ -74,7 +75,7 @@
                             <span>
                                 <t t-esc="line.employee_id.name"/>
                                 في رتبة
-                                <t t-esc="line.employee_id.grade_id.intitule_grade"/>
+                                <t t-esc="line.grade_id.intitule_grade"/>
                                 الصنف
                                 <t t-esc="line.categorie_old_id.intitule"/>
                                 الدرجة
@@ -82,7 +83,7 @@
                                 الموافقة للرقم الاستدلالي
                                 <t t-esc="line.employee_id.point_indiciare"/>
                                 ابتداء من تاريخ
-                                <t t-esc="line.employee_id.date_avancement"/>
+                                <t t-esc="line.date_old_avancement"/>
                             </span>
                             <br/>
                             <br/>
@@ -92,12 +93,20 @@
                                 </span>
                                 <t t-if="line.employee_id.gender == 'male'">
                                     <span>
-                                        ـ بناء على مقرر الترقية رقم ..... المؤرخ في .............. المتضمن ترقية السيد
+                                        ـ بناء على مقرر الترقية رقم
+                                        <t t-esc="line.ref"/>
+                                        المؤرخ في
+                                        <t t-esc="line.date_ref"/>
+                                        المتضمن ترقية السيد
                                     </span>
                                 </t>
                                 <t t-if="line.employee_id.gender == 'female'">
                                     <span>
-                                        ـ بناء على مقرر الترقية رقم ..... المؤرخ في .............. المتضمن ترقية السيدة
+                                        ـ بناء على مقرر الترقية رقم
+                                        <t t-esc="line.ref"/>
+                                        المؤرخ في
+                                        <t t-esc="line.date_ref"/>
+                                        المتضمن ترقية السيدة
                                     </span>
                                 </t>
                             </div>
@@ -105,25 +114,28 @@
                                 <span>
                                     <t t-esc="line.employee_id.name"/>
                                     في رتبة
-                                    <t t-esc="line.employee_id.grade_id.intitule_grade"/>
+                                    <t t-esc="line.grade_id.intitule_grade"/>
                                     إلى الدرجة
-                                    <t t-esc="line.echelon_new_id.intitule"/>
+                                    <t t-esc="line.echelon_old_id.intitule"/>
                                     الرقم الاستدلالي
                                     <t t-esc="line.employee_id.point_indiciare"/>
                                     ابتداء من
-                                    <t t-esc="avancement.date_avancement"/>
+                                    <t t-esc="line.date_old_avancement"/>
                                 </span>
                             </div>
                             <br/>
                             <div style="font-size: 20px; text-align: right;">
-                                <span>
-                                    .............
-                                </span>
-                                <span>
-                                    ـ بناء على المقرر رقم ..... المؤرخ في .............. المتضمن المصادقة على جداول
+                                <span style="dosplay: inline_block">
+                                    المؤرخ في
+                                    <t t-esc="line.date_avancement"/>
+                                    المتضمن المصادقة على جداول
                                     الترقية
                                     في
                                     الدرجات بعنوان سنة
+                                </span>
+                                <span style="dosplay: inline_block">
+                                    <t t-esc="avancement.code"/>
+                                    ـ بناء على المقرر رقم
                                 </span>
                             </div>
                             <br/>

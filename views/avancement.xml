@@ -73,6 +73,8 @@
                                     <field name="categorie_new_id" readonly="1"/>
                                     <field name="section_new_id" readonly="1"/>
                                     <field name="echelon_new_id" readonly="1"/>
+                                    <field name="imprimer" widget="toggle_button"/>
+<!--                                    <field name="avancement_line_file_line"/>-->
                                 </tree>
                             </field>
                         </page>
@@ -82,6 +84,15 @@
                                     <field name="employee_id"/>
                                     <field name="department_id"/>
                                     <field name="job_id"/>
+                                </tree>
+                            </field>
+                        </page>
+                          <page string="Liste des Fichiers" attrs="{'invisible': [('id', '=', False)]}">
+                            <field name="avancement_file_lines">
+                                <tree editable="bottom">
+                                    <field name="type_file_id" domain="[('type_file', '=', 'avancement')]"/>
+                                    <field name="description_fichier"/>
+                                    <field name="fichier"/>
                                 </tree>
                             </field>
                         </page>

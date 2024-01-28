@@ -3,42 +3,133 @@
     <data>
 
         <template id="hr_contract_report">
-            <t t-call="web.basic_layout">
-                <t t-call="ressource_humaine.report_cnas_header"/>
-                <div class="page">
-                    <br/>
-                    <table class="" style="width:100%; color: #000099;">
-                        <tr>
-                            <td>&#160;</td>
-                            <td class="text-center"
-                                style="border:1px solid #000099; border-radius: 10px;font-size:14px;vertical-align:bottom; width:30%;"
-                                rowspan="4">
+            <t t-foreach="employees" t-as="employee">
+                <t t-call="web.basic_layout">
+                    <div class="page"
+                         t-attf-style="background-image: url('/ressource_humaine/static/src/img/doc02622320240124135400.JPG'); background-size: cover;">
+                        <strong>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br style="line-height: 2.5;"/>
+                            <span style="display: inline-block; font-size: 14px; margin-left: 160px;">
+                                Moulay Ahmed Medghari
+                            </span>
+                            <span style="display: inline-block; font-size: 15px; margin-right: 150px; float: right;">
+                                مولاي أحمد مدغري
+                            </span>
+                            <br/>
+                            <br/>
+                            <div style="text-align: center;">
                                 <span>
-                                    خثم الهيئة
+                                    <t t-esc="company.num_adh"/>
                                 </span>
-                                <br/>
+                            </div>
+                            <br/>
+                            <span style="display: inline-block; font-size: 14px; margin-left: 160px;">
+                                <t t-esc="company.raison_sociale_fr"/>
+                            </span>
+                            <span style="display: inline-block; font-size: 15px; margin-right: 170px; float: right;">
+                                <t t-esc="company.raison_sociale"/>
+                            </span>
+                            <br/>
+                            <span style="display: inline-block; font-size: 15px; margin-left: 115px;">
+                                <t t-esc="company.street"/>,
+                                <t t-esc="company.city"/>,
+                                <t t-esc="company.country_id.name"/>
+                            </span>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <span style="display: inline-block; font-size: 14px; margin-left: 170px;">
+                                <t t-esc="employee.nom_fr"/>
+                                <t t-esc="employee.prenom_fr"/>
+                            </span>
+                            <span style="display: inline-block; font-size: 15px; margin-right: 150px; float: right;">
+                                <t t-esc="employee.name"/>
+                            </span>
+                            <br/>
+                            <br/>
+                            <div style="text-align: center;line-height: 2;">
                                 <span>
-                                    Cachet de la structure
+                                    <t t-esc="employee.identification_id"/>
                                 </span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                &#160;
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                &#160;
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                &#160;
-                            </td>
-                        </tr>
-                    </table>
-                </div>
+                            </div>
+                            <span style="display: inline-block; font-size: 20px; margin-right: 185px; float: right;">
+                                <t t-esc="employee.birthday"/>
+                            </span>
+                            <span style="display: inline-block; font-size: 20px; margin-right: 80px; float: right;">
+                                <t t-esc="employee.place_of_birth"/>
+                            </span>
+                            <span style="display: inline-block; font-size: 20px; margin-left: 300px; float: left;">
+                                <t t-esc="employee.place_of_birth_fr"/>
+                            </span>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <span style="display: inline-block; font-size: 15px; margin-right: 120px; float: right;">
+                                <t t-esc="employee.job_id.name"/>
+                            </span>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <div style="text-align: center;line-height: 0.6;font-size: 20px;margin-bottom:5px;">
+                                <span>
+                                    <t t-esc="employee.date_entrer"/>
+                                </span>
+                            </div>
+                            <div style="text-align: center;font-size: 20px;">
+                                <span>
+                                    <t t-esc="employee.date_fin_relation"/>
+                                </span>
+                            </div>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                        </strong>
+                    </div>
+                </t>
             </t>
         </template>
 

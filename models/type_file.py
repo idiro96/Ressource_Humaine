@@ -12,7 +12,7 @@ class RHTypeFile(models.Model):
     code = fields.Char(readonly=True, default=lambda self: _('New'))
     intitule = fields.Char()
     type_file = fields.Selection(
-        [('indisponibilite', 'Indisponibilite'), ('sanction', 'Sanction'), ('formation', 'Formation'), ('finrelation', 'Fin Relation'),('accidenttravail', 'Accident Travail'),('controlemedicale', 'Contrôle Médicale'),('employe', 'Employe'),('autre', 'Autres')], default='draft')
+        [('indisponibilite', 'Indisponibilite'), ('sanction', 'Sanction'), ('formation', 'Formation'), ('finrelation', 'Fin Relation'),('accidenttravail', 'Accident Travail'),('controlemedicale', 'Contrôle Médicale'),('employe', 'Employe'),('promotion', 'Promotion'),('avancement', 'Avancement'),('autre', 'Autres')], default='draft')
 
 
 

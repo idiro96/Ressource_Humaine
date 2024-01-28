@@ -18,4 +18,6 @@ class HrJobInherited(models.Model):
     #                           ('fonctionsuperieure', 'Fonctionsuperieure'),
     #                           ], readonly=False)
     nature_travail_id = fields.Many2one('rh.type.fonction')
+    poste_organique = fields.Selection(selection=[('organique', 'منصب هيكلي'), ('squelaire', 'منصب عضوي')], readonly=False)
+
 
