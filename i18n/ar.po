@@ -11896,6 +11896,11 @@ msgid "rh.nature.travail"
 msgstr "rh.nature.travail"
 
 #. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_job_poste_organique
+msgid "Poste Organique"
+msgstr "نوع المنصب"
+
+#. module: ressource_humaine
 #: model:ir.model,name:ressource_humaine.model_rh_niveau_hierarchique
 msgid "rh.niveau.hierarchique"
 msgstr "rh.niveau.hierarchique"

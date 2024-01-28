@@ -51,7 +51,7 @@ class RHSanction(models.Model):
         return {
             'type': 'ir.actions.act_window',
             'target': 'new',
-            'name': 'Choisir Commission',
+            'name': 'إختيار اللجنة',
             'view_mode': 'form',
             'res_model': 'choisir.commission',
         }

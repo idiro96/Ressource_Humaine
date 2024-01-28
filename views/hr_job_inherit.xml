@@ -15,10 +15,10 @@
                     <attribute name="invisible">True</attribute>
                 </xpath>
                   <xpath expr="//tree//field[@name='department_id']" position="after">
-                      <field name="nature_travail_id" string="Type Poste"/>
+                      <field name="nature_travail_id"/>
                 </xpath>
                    <xpath expr="//tree//field[@name='nature_travail_id']" position="after">
-                      <field name="poste_organique" string="Nature"/>
+                      <field name="poste_organique"/>
                 </xpath>
             </field>
         </record>
@@ -28,10 +28,10 @@
             <field name="inherit_id" ref="hr.view_hr_job_form"/>
             <field name="arch" type="xml">
                  <xpath expr="//form//sheet//div[2]//field[@name='name']" position="after">
-                     <field name="nature_travail_id" string="Type Poste"/>
+                     <field name="nature_travail_id"/>
                 </xpath>
                    <xpath expr="//form//sheet//div[2]//field[@name='nature_travail_id']" position="after">
-                     <field name="poste_organique" string="Poste Organique"/>
+                     <field name="poste_organique"/>
                 </xpath>
                 <xpath expr="//form//field[@name='no_of_recruitment']" position="attributes">
                     <attribute name="invisible">True</attribute>
@@ -63,6 +63,8 @@
 <!--                     <label for="nature_poste" class="oe_edit_only"/>-->
 <!--                     <field name="nature_poste"/>-->
 <!--                </xpath>-->
+
+
 
             </field>
         </record>

@@ -30,7 +30,7 @@ class RHVisiteMedicale(models.Model):
         return {
             'type': 'ir.actions.act_window',
             'target': 'new',
-            'name': 'visite medical detaille',
+            'name': 'تفاصيل الزيارة الطبية',
             'view_mode': 'form',
             'res_model': 'visite.medical.detaille',
         }
