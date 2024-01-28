@@ -100,8 +100,12 @@
                     <field name="wage"/>
                 </xpath>
                 <xpath expr="//field[@name='struct_id']" position="attributes">
+<<<<<<< HEAD
                     <attribute name="required">False</attribute>
                     <attribute name="invisible">True</attribute>
+=======
+                    <attribute name="invisible">0</attribute>
+>>>>>>> be45477620def0b4559bcbfd0489a1587f370c5c
                 </xpath>
                 <xpath expr="//form//notebook//page[2]//group[2]" position="attributes">
                     <attribute name="invisible">1</attribute>

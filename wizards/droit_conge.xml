@@ -6,6 +6,9 @@
             <field name="model">droit.conge</field>
             <field name="arch" type="xml">
                 <form>
+                      <group>
+                            <field name="boul" string="قائمة الاستحفاقات بدون تحديث"/>
+                        </group>
 
                     <footer>
                         <button name="actualiserDroitConge" string="تحديث إستحقاق العطلة" type="object"

@@ -176,7 +176,7 @@
                 </xpath>
 
                   <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_entrer']" position="after">
-                    <field name="nomination"/>
+                    <field name="nomination" string="التعين"/>
                 </xpath>
 
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='nomination']" position="after">
@@ -244,7 +244,7 @@
 
 
                 <xpath expr="//form//sheet//notebook" position="inside">
-                    <page name="الترقيات في الدرجة" string="الترقيات في الدرجة">
+                    <page name="الترقيات في الدرجة" string="الترقيات في الرتبة">
                         <tree>
                             <field name="promotion_lines">
                                 <tree create="false" delete="false">
@@ -260,7 +260,7 @@
                     </page>
                 </xpath>
                 <xpath expr="//form//sheet//notebook" position="inside">
-                    <page name="الترقيات في الرتبة" string="الترقيات في الرتبة">
+                    <page name="الترقيات في الرتبة" string="الترقيات في الدرجة">
                         <tree>
                             <field name="avancement_lines">
                                 <tree create="false" delete="false">
@@ -282,12 +282,10 @@
 
                 <xpath expr="//form//sheet//notebook" position="inside">
 
-
-                    <page name="Information Salariale" string="معلومات حول الراتب">
+                    <page name="Information Salariale" string="معلومات حول الراتب" >
                     </page>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page[@name='Information Salariale']" position="inside">
-
 
                     <page name="معلومات حول الراتب" string="معلومات حول الراتب">
 
