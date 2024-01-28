@@ -5,13 +5,13 @@
         <field name="model">res.company</field>
         <field name="inherit_id" ref="base.view_company_form" />
         <field name="arch" type="xml">
-            <xpath expr="//form//sheet//notebook//page//group//group//div//field[@name='country_id']" position="after">
-                <field name="num_adh" string="N° Adhérent"/>
+            <xpath expr="//form//sheet//notebook//page//group//group//field[@name='report_header']" position="before">
+                <field name="num_adh"/>
             </xpath>
-            <xpath expr="//form//sheet//notebook//page//group//group//div//field[@name='num_adh']" position="after">
+            <xpath expr="//form//sheet//notebook//page//group//group//field[@name='num_adh']" position="after">
                 <field name="raison_sociale"/>
             </xpath>
-            <xpath expr="//form//sheet//notebook//page//group//group//div//field[@name='raison_sociale']" position="after">
+            <xpath expr="//form//sheet//notebook//page//group//group//field[@name='raison_sociale']" position="after">
                 <field name="raison_sociale_fr"/>
             </xpath>
         </field>

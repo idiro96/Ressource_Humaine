@@ -12409,7 +12409,7 @@ msgstr "يوم"
 #: model:ir.model.fields,field_description:ressource_humaine.field_res_company_num_adh
 #: model:ir.ui.view,arch_db:ressource_humaine.res_company_form
 msgid "N° Adhérent"
-msgstr "رقم العضو"
+msgstr "رقم العضوية"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_res_company_raison_sociale
