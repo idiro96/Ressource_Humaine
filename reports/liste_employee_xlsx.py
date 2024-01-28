@@ -67,7 +67,7 @@ class PatientCardXLS(models.AbstractModel):
                 sheet.write(row, 6, employee.date_entrer or '', format4)
                 sheet.write(row, 7, employee.date_grade or '', format4)
                 sheet.write(row, 8, employee.date_job_id or '', format4)
-                sheet.write(row, 9, f"{employee.nom_fr} {employee.prenom_fr}" if employee.nom_fr or employee.prenom_fr else '', format3)
+                sheet.write(row, 9, employee.nom_fr or '', format3)
                 sheet.write(row, 10, '', format3)
                 sheet.write(row, 11, employee.numero_securite_social or '', format7)
             if employee.gender == 'female':
@@ -80,7 +80,7 @@ class PatientCardXLS(models.AbstractModel):
                 sheet.write(row, 6, employee.date_entrer or '', format6)
                 sheet.write(row, 7, employee.date_grade or '', format6)
                 sheet.write(row, 8, employee.date_job_id or '', format6)
-                sheet.write(row, 9, f"{employee.nom_fr} {employee.prenom_fr}" if employee.nom_fr or employee.prenom_fr else '', format5)
+                sheet.write(row, 9, employee.nom_fr or '', format5)
                 sheet.write(row, 10, '', format5)
                 sheet.write(row, 11, employee.numero_securite_social or '', format7)
             if not employee.gender:
@@ -93,8 +93,7 @@ class PatientCardXLS(models.AbstractModel):
                 sheet.write(row, 6, employee.date_entrer or '', format7)
                 sheet.write(row, 7, employee.date_grade or '', format7)
                 sheet.write(row, 8, employee.date_job_id or '', format7)
-                sheet.write(row, 9, f"{employee.nom_fr} {employee.prenom_fr}" if employee.nom_fr or employee.prenom_fr else '',
-                            format7)
+                sheet.write(row, 9, employee.nom_fr or '', format7)
                 sheet.write(row, 10, '', format7)
                 sheet.write(row, 11, employee.numero_securite_social or '', format7)
             row += 1

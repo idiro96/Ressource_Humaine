@@ -38,7 +38,8 @@
             model="hr.holidays"
             report_type="qweb-html"
             name="ressource_humaine.planning_conge"
-            file="ressource_humaine.planning_conge"/>
+            file="ressource_humaine.planning_conge"
+            paperformat="ressource_humaine.paperformat_european_a4_portrait_basic"/>
 
     <report
             id="action_renew_contract_report"

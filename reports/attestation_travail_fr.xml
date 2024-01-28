@@ -64,7 +64,6 @@
                             <span style="display: inline-block">
                                 Monsieur,
                                 <t t-esc="employee.nom_fr"/>&#160;
-                                <t t-esc="employee.prenom_fr"/>&#160;
                                 né le
                                 <t t-esc="employee.birthday"/>&#160;
                             </span>
@@ -73,7 +72,6 @@
                             <span style="display: inline-block">
                                 Madame,
                                 <t t-esc="employee.nom_fr"/>&#160;
-                                <t t-esc="employee.prenom_fr"/>&#160;
                                 née le
                                 <t t-esc="employee.birthday"/>&#160;
                             </span>
