@@ -41,7 +41,7 @@
                             <t t-if="not superior_employee.name">.....................................</t>
                             <t t-esc="superior_employee.name" t-if="superior_employee.name"/>
                         </span>
-                        <t t-if="pv_insta.employee_id.gender == 'male'">
+                        <t t-if="not pv_insta.employee_id.gender or pv_insta.employee_id.gender == 'male'">
                         قـد نصـبنا السـيد
                         </t>
                         <t t-if="pv_insta.employee_id.gender == 'female'">
@@ -50,7 +50,7 @@
                         <span>
                             <t t-esc="pv_insta.employee_id.name"/>
                         </span>
-                        <t t-if="pv_insta.employee_id.gender == 'male'">
+                       <t t-if="not pv_insta.employee_id.gender or pv_insta.employee_id.gender == 'male'">
                             بصفتـه
                             <span>
                                 <t t-esc="pv_insta.employee_id.grade_id.intitule_grade"/>
@@ -93,7 +93,7 @@
                             </p>
                         </div>
                     </t>
-                    <t t-if="pv_insta.employee_id.gender == 'male'">
+                    <t t-if="not pv_insta.employee_id.gender or pv_insta.employee_id.gender == 'male'">
                         <div style="float:left;font-size:20px;">
                             <p>
                                 <strong>المعني بالأمر</strong>

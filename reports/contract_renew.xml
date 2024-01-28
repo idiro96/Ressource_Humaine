@@ -76,7 +76,7 @@
                             <t t-esc="contract.date_end"/>&#160;
                             </span>
                         </t>
-                        <t t-if="contract.employee_id.gender == 'male'">
+                        <t t-if="not contract.employee_id.gender or contract.employee_id.gender == 'male'">
                             <span>
                                   &#160;ـ و بناء على
                             <t t-esc="contract.type_id.name"/>
@@ -120,7 +120,7 @@
                                     إبتداءا من تاريخ ................
                                 </span>
                             </t>
-                            <t t-if="contract.employee_id.gender == 'male'">
+                            <t t-if="not contract.employee_id.gender or contract.employee_id.gender == 'male'">
                                 <span>
                                     يجدد عقد عمل السيد لشغل منصب عامل مهني من المستوى الأول بالتوقيت الكامل لمدة سنة
                                     واحدة،
