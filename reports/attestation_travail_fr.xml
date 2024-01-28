@@ -60,7 +60,7 @@
                         </span>
                         <br/>
                         <br/>
-                        <t t-if="employee.gender == 'male'">
+                        <t t-if="not employee.gender or employee.gender == 'male'">
                             <span style="display: inline-block">
                                 Monsieur,
                                 <t t-esc="employee.nom_fr"/>&#160;
@@ -90,7 +90,7 @@
                         </span>
                         <br/>
                         <br/>
-                        <t t-if="employee.gender == 'male'">
+                        <t t-if="not employee.gender or employee.gender == 'male'">
                             <span>
                                 Il, exerce ses fonctions en sa qualité de
                                 <t t-esc="employee.grade_id.intitule_grade_fr"/>
@@ -107,7 +107,7 @@
                     </div>
                     <br/>
                     <div style="font-size: 20px;text-align: left;">
-                        <t t-if="employee.gender == 'male'">
+                        <t t-if="not employee.gender or employee.gender == 'male'">
                             <span>
                                 Cette attestation est délivrée à l'intéressé pour servir et valoir ce que de
                                 droit

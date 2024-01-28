@@ -67,7 +67,7 @@
                                     :أشهد أن السيدة
                                 </span>
                             </t>
-                            <t t-if="employee.gender == 'male'">
+                            <t t-if="not employee.gender or employee.gender == 'male'">
                                 <span style="display: inline-block">
                                     :أشهد أن السيد
                                 </span>
@@ -80,7 +80,7 @@
                                 :المولودة بتاريخ
                             </span>
                         </t>
-                        <t t-if="employee.gender == 'male'">
+                        <t t-if="not employee.gender or employee.gender == 'male'">
                             <span>
                                 :المولود بتاريخ
                             </span>
@@ -96,7 +96,7 @@
                                 :ـ عاملة بمؤسستنا منذ تاريخ
                             </span>
                         </t>
-                        <t t-if="employee.gender == 'male'">
+                        <t t-if="not employee.gender or employee.gender == 'male'">
                             <span style="display: inline-block;">
                                 :ـ عامل بمؤسستنا منذ تاريخ
                             </span>
@@ -108,7 +108,7 @@
                                 ـ و تمارس مها مها بصفتها
                             </span>
                         </t>
-                        <t t-if="employee.gender == 'male'">
+                        <t t-if="not employee.gender or employee.gender == 'male'">
                             <span>
                                 ـ و يمارس مها مهي بصفتهي
                             </span>
@@ -134,7 +134,7 @@
                     <br/>
                     <br/>
                     <br/>
-                    <t t-if="employee.gender == 'male'">
+                    <t t-if="not employee.gender or employee.gender == 'male'">
                         <div style="font-size: 20px;text-align: right;">
                             <span>
                                 .تسلم هذه الشهادة للمعني للإدلاء بها في إطار ما يسمح به القانون
