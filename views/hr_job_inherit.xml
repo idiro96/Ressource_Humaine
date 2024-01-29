@@ -15,17 +15,10 @@
                     <attribute name="invisible">True</attribute>
                 </xpath>
                   <xpath expr="//tree//field[@name='department_id']" position="after">
-<<<<<<< HEAD
                       <field name="nature_travail_id"/>
                 </xpath>
                    <xpath expr="//tree//field[@name='nature_travail_id']" position="after">
                       <field name="poste_organique"/>
-=======
-                      <field name="nature_travail_id" string="نوع الوظيفة"/>
-                </xpath>
-                   <xpath expr="//tree//field[@name='nature_travail_id']" position="after">
-                      <field name="poste_organique" string="طبيعة المنصب"/>
->>>>>>> be45477620def0b4559bcbfd0489a1587f370c5c
                 </xpath>
             </field>
         </record>
@@ -46,10 +39,7 @@
                 <xpath expr="//form//field[@name='address_id']" position="attributes">
                     <attribute name="invisible">True</attribute>
                 </xpath>
-<<<<<<< HEAD
-=======
 
->>>>>>> be45477620def0b4559bcbfd0489a1587f370c5c
                 <xpath expr="//group[@name='recruitment']" position="attributes">
                     <attribute name="string">توظيف</attribute>
                 </xpath>
@@ -74,11 +64,7 @@
 <!--                     <label for="nature_poste" class="oe_edit_only"/>-->
 <!--                     <field name="nature_poste"/>-->
 <!--                </xpath>-->
-<<<<<<< HEAD
 
-
-=======
->>>>>>> be45477620def0b4559bcbfd0489a1587f370c5c
 
             </field>
         </record>
