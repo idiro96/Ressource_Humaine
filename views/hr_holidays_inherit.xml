@@ -51,6 +51,9 @@
                 <xpath expr="//form//field[@name='holiday_type']" position="attributes">
                     <attribute name="invisible">True</attribute>
                 </xpath>
+                <xpath expr="//form//sheet//div" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
             </field>
         </record>
         <record model="ir.actions.act_window" id="action_hr_holidays_dashboard">
