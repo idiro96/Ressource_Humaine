@@ -12450,3 +12450,34 @@ msgstr "العمال و الموظفين"
 #: model:ir.actions.report,name:ressource_humaine.action_liste_employee_xlsx
 msgid "العمال و الموظفين Excel"
 msgstr "العمال و الموظفين Excel"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_imprimer
+#: model:ir.ui.view,arch_db:ressource_humaine.view_note_conge
+msgid "Imprimer"
+msgstr "طباعة"
+
+#. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.view_note_conge
+msgid "Voulez vous imprimer La Note de Congé ?"
+msgstr "هل تريد طباعة مذكـرة مصلحية ؟"
+
+#. module: ressource_humaine
+#: model:ir.ui.menu,name:ressource_humaine.menu_note_conge
+msgid "Note Congé"
+msgstr "مذكـرة مصلحية"
+
+#. module: ressource_humaine
+#: model:ir.actions.act_window,name:ressource_humaine.note_conge_action
+msgid "Note de Congé"
+msgstr "مذكـرة مصلحية"
+
+#. module: ressource_humaine
+#: selection:hr.employee,nomination:0
+msgid "Stagiaire"
+msgstr "متدرب"
+
+#. module: ressource_humaine
+#: selection:hr.employee,nomination:0
+msgid "Titulaire"
+msgstr "مرسم"
