@@ -4,6 +4,9 @@ from dateutil.relativedelta import relativedelta
 from odoo import models, fields, api, _
 from datetime import date, timedelta, datetime
 from dateutil.relativedelta import relativedelta
+from odoo.exceptions import ValidationError
+
+
 from babel.dates import format_date, format_datetime
 import logging
 import calendar
@@ -42,6 +45,7 @@ class HrEmployeInherited(models.Model):
 
     # days_off = fields.Float(compute='_compute_days_off', store=True, translate=True)
     days_off = fields.Float(store=True)
+    jour_sup = fields.Float(store=True)
 
     corps_id = fields.Many2one('rh.corps')
     grade_id = fields.Many2one('rh.grade')
@@ -89,6 +93,13 @@ class HrEmployeInherited(models.Model):
     date_avancement = fields.Date()
     ref = fields.Char()
     date_ref = fields.Date()
+
+    @api.constrains('jour_sup')
+    def _check_jour_sup_max_value(self):
+        max_value = 12.0
+        for record in self:
+            if record.jour_sup > max_value:
+                raise ValidationError('The maximum value for jour_sup is 12.0')
 
 
     @api.multi
@@ -224,6 +235,8 @@ class HrEmployeInherited(models.Model):
         for rec in self:
             domain = []
             if rec.nature_travail_id:
+                rec.corps_id = False
+                rec.grade_id = False
                 if rec.nature_travail_id.code_type_fonction == 'contractuel':
                     corps_visible = False
                     jobs = self.env['hr.job'].search([('nature_travail_id', '=', rec.nature_travail_id.id)])
@@ -252,6 +265,7 @@ class HrEmployeInherited(models.Model):
     def _onchange_corps(self):
         print('teste')
         for rec in self:
+            rec.grade_id = False
             domain = []
             if rec.corps_id:
                 print('teste')

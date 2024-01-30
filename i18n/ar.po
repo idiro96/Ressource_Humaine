@@ -11120,7 +11120,7 @@ msgstr "بصري"
 #: model:ir.model.fields,field_description:hr_contract.field_hr_contract_wage
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_wage
 msgid "Wage"
-msgstr "الاجور"
+msgstr "الأجر القاعدي"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_contract_wage_range

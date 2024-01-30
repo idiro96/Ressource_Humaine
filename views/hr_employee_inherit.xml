@@ -92,7 +92,7 @@
                     <field name="date_reintegration"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='job_id']" position="after">
-                    <field name="corps_id" attrs="{'invisible': [('nature_travail_id', '=', 1)]}"/>
+                    <field name="corps_id" required="True" attrs="{'invisible': [('nature_travail_id', '=', 1)]}"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='corps_id']" position="after">
                     <field name="grade_id" required="True"/>
@@ -176,11 +176,14 @@
                 </xpath>
 
                   <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_entrer']" position="after">
-                    <field name="nomination" string="التعين"/>
+                    <field name="nomination"/>
                 </xpath>
 
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='nomination']" position="after">
                     <field name="days_off"/>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='days_off']" position="after">
+                    <field name="jour_sup"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//field[@name='country_id']" position="attributes">
                     <attribute name="invisible">True</attribute>
