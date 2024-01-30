@@ -12459,7 +12459,7 @@ msgstr "طباعة"
 
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.view_note_conge
-msgid "Voulez vous imprimer La Note de Congé ?"
+msgid "هل تريد طباعة مذكـرة مصلحية ؟"
 msgstr "هل تريد طباعة مذكـرة مصلحية ؟"
 
 #. module: ressource_humaine
@@ -12474,10 +12474,20 @@ msgstr "مذكـرة مصلحية"
 
 #. module: ressource_humaine
 #: selection:hr.employee,nomination:0
-msgid "Stagiaire"
+msgid "Satagiaire"
 msgstr "متدرب"
 
 #. module: ressource_humaine
 #: selection:hr.employee,nomination:0
 msgid "Titulaire"
 msgstr "مرسم"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_jour_sup
+msgid "Jour Sup"
+msgstr "أيام إضافية"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_nomination
+msgid "Nomination"
+msgstr "تعيين"
