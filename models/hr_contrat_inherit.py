@@ -58,6 +58,56 @@ class  HrContratInherited(models.Model):
             vals['name'] = self.env['ir.sequence'].next_by_code('hr.contract.inhert') or _('New')
 
         result = super(HrContratInherited, self).create(vals)
+        employee = self.env['hr.employee'].search(
+            [('id', '=', result.employee_id.id)])
+        if employee.nature_travail_id.code_type_fonction == 'fonction':
+            employee.write({
+            'date_avancement': result.date_start,
+            })
+            employee.write({
+            'groupe_id': result.groupe_id.id,
+            })
+            employee.write({
+            'categorie_id': result.categorie_id.id,
+            })
+            employee.write({
+            'echelon_id': result.echelon_id.id,
+            })
+            employee.write({
+            'ref': result.name,
+            })
+            employee.write({
+            'date_ref': result.date_start,
+            })
+            result.employee_id.point_indiciare = result.echelon_id.indice_echelon
+            result.employee_id.wage = result.indice_minimal * 45 + result.point_indiciare * 45
+            employee.write({
+                'wage': result.employee_id.wage,
+            })
+        elif employee.nature_travail_id.code_type_fonction == 'fonctionsuperieure':
+            employee.write({
+                'date_avancement': result.date_start,
+            })
+            employee.write({
+                'section_id': result.section_id.id,
+            })
+            employee.write({
+                'categorie_id': result.categorie_id.id,
+            })
+            employee.write({
+                'echelon_id': result.echelon_id.id,
+            })
+            employee.write({
+                'ref': result.name,
+            })
+            employee.write({
+                'date_ref': result.date_start,
+            })
+            result.employee_id.point_indiciare = result.echelon_id.indice_echelon
+            result.employee_id.wage = result.indice_base * 45 + result.point_indiciare
+            employee.write({
+                'wage': result.employee_id.wage,
+            })
 
         return result
 

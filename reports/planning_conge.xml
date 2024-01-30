@@ -72,12 +72,25 @@
                             </th>
                             <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
                                 <strong>الرقم</strong>
+                            <th style="text-align:center;background-color : #E9E4E4;font-size:18px;">
+                                <strong>تاريخ بداية العطلة</strong>
                             </th>
+                            <th style="text-align:center;background-color : #E9E4E4;font-size:18px;">
+                                <strong>المدة</strong>
+                            </th>
+                            <th style="text-align:center;background-color : #E9E4E4;font-size:18px;">
+                                <strong>الإسم و اللقب</strong>
+                            </th>
+<!--                            <th style="text-align:center;background-color : #E9E4E4;font-size:18px;">-->
+<!--                                <strong>الرقم</strong>-->
+<!--                            </th>-->
                         </tr>
                     </thead>
                     <t t-set="line_count" t-value="1"/>
                     <tbody>
                         <t t-foreach="employees" t-as="employee">
+                        <t t-set="line_count" t-value="1"/>
+                       <t t-foreach="employees" t-as="employee">
                             <tr>
                                 <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
                                     <!--                                    <span t-field="record.depreciation_date"/>-->
@@ -94,15 +107,25 @@
                                 <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
                                     <!--                                    <span t-esc="'%.2f'%(record.remaining_value)"/>-->
                                 </td>
+                                <td style="font-size:18px;text-align:right;">
+<!--                                    <span t-esc="'%.2f'%(record.remaining_value)"/>-->
+                                </td>
+                                  <td style="font-size:18px;text-align:right;">
+                                    <span t-field="employee.days_off"/>
+                                </td>
                                 <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
                                     <span t-field="employee.name"/>
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
                                     <strong><t t-esc="line_count"/></strong>
                                 </td>
+<!--                                <td style="font-size:18px;text-align:right;">-->
+<!--                                    <t t-esc="line_count"/>-->
+<!--                                </td>-->
                             </tr>
                             <t t-set="line_count" t-value="line_count + 1"/>
                         </t>
+                         <t t-set="line_count" t-value="line_count + 1"/>
                     </tbody>
                 </table>
             </div>

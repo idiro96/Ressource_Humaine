@@ -6525,7 +6525,6 @@ msgid "Good"
 msgstr "جيد"
 
 #. module: ressource_humaine
-#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_grade_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_grade_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_wizard_grade_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avencement_droit_grade_id
@@ -6536,6 +6535,11 @@ msgstr "جيد"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_line_wizard_grade_id
 msgid "Grade"
 msgstr "الرتبة السابقة"
+
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_grade_id
+msgid "Grade"
+msgstr "الرتبة"
+
 
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_contract_grade_id
 msgid "Grade"

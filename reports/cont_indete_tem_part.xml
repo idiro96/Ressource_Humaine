@@ -37,13 +37,13 @@
                             <br/>
                             <br/>
                             <br/>
-                            <div style="font-size: 40px;text-align: center;">
-                                <strong>
-                                    <span style="border-bottom: 5px double;">
-                                        <t t-esc="contract.type_id.name"/>
-                                    </span>
-                                </strong>
-                            </div>
+<!--                            <div style="font-size: 40px;text-align: center;">-->
+<!--                                <strong>-->
+<!--                                    <span style="border-bottom: 5px double;">-->
+<!--                                        <t t-esc="contract.type_id.name"/>-->
+<!--                                    </span>-->
+<!--                                </strong>-->
+<!--                            </div>-->
                             <br/>
                             <br/>
                             <br/>

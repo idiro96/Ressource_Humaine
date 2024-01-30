@@ -59,6 +59,12 @@ class RHAvancement(models.Model):
                     employee.write({
                         'echelon_id': rec.echelon_new_id.id,
                     })
+                    employee.write({
+                        'ref': avance_line.code,
+                    })
+                    employee.write({
+                        'date_ref': avancement.date_avancement,
+                    })
                     rec.employee_id.point_indiciare = rec.employee_id.echelon_id.indice_echelon
                     rec.employee_id.wage = rec.employee_id.indice_minimal * 45 + rec.employee_id.point_indiciare * 45
 
@@ -97,6 +103,14 @@ class RHAvancement(models.Model):
                     employee.write({
                         'echelon_id': rec.echelon_new_id.id,
                     })
+                    employee.write({
+                        'ref': avance_line.code,
+                    })
+                    employee.write({
+                        'date_ref': rec.employee_id.date_ref,
+                    })
+                    rec.employee_id.point_indiciare = rec.employee_id.echelon_id.indice_echelon
+                    rec.employee_id.wage = rec.employee_id.indice_base * 45 + rec.employee_id.point_indiciare
                 elif rec.employee_id.nature_travail_id.code_type_fonction == 'postesuperieure':
                     avance_line = self.env['rh.avancement.line'].create({
                         'employee_id': rec.employee_id.id,
