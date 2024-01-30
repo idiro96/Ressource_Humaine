@@ -42,7 +42,8 @@
                         <br/>
                         <div style="font-size: 20px;text-align: right;">
                             <span>
-                                رقم ................... /م.و.إ/أ.ع/م.ت.م.ب/2023
+                                رقم ................... /م.و.إ/أ.ع/م.ت.م.ب/
+                            <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
                             </span>
                         </div>
                     </strong>
@@ -131,6 +132,8 @@
                         <t t-if="conge.employee_id.gender == 'female'">
                             تحتفظ المعنىة بمخلف عطلة قدره
                         </t>
+                        <t t-esc="conge.employee_id.days_off"/>
+                        يوم
                     </span>
                 </div>
             </div>

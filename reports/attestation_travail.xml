@@ -34,7 +34,8 @@
                         <br/>
                         <div style="font-size: 20px;text-align: right;">
                             <span>
-                                رقم ................... /م.و.إ/أ.ع/م.ت.م.ب/2023
+                                رقم ................... /م.و.إ/أ.ع/م.ت.م.ب/
+                            <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
                             </span>
                         </div>
                     </strong>
@@ -110,7 +111,7 @@
                         </t>
                         <t t-if="not employee.gender or employee.gender == 'male'">
                             <span>
-                                ـ و يمارس مها مهي بصفتهي
+                                ـ و يمارس مها مه بصفتهي
                             </span>
                         </t>
                         <br/>

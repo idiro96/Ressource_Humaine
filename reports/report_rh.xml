@@ -19,7 +19,7 @@
     <report
             id="report_note_conge"
             string="Note Conge"
-            model="hr.holidays"
+            model="droit.avencement"
             report_type="qweb-html"
             name="ressource_humaine.note_conge"
             file="ressource_humaine.note_conge"/>

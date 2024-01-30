@@ -36,7 +36,8 @@
                         <br/>
                         <div style="font-size: 20px;text-align: left;">
                             <span>
-                                N°:.................E.N.A/S.G/S.G.R.H/2023
+                                N°:.................E.N.A/S.G/S.G.R.H/
+                                <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
                             </span>
                         </div>
                     </strong>

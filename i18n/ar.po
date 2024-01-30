@@ -8562,7 +8562,7 @@ msgstr "لقب الإبن"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_nom_fr
 msgid "Nom Fr"
-msgstr "اللقب بالفرنسية"
+msgstr "الاسم و اللقب"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_nom_mere
