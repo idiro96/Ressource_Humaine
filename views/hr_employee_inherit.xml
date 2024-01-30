@@ -33,10 +33,10 @@
                 <xpath expr="//tree//field[@name='date_job_id']" position="after">
                     <field name="nom_fr"/>
                 </xpath>
+<!--                <xpath expr="//tree//field[@name='nom_fr']" position="after">-->
+<!--                    <field name="prenom_fr"/>-->
+<!--                </xpath>-->
                 <xpath expr="//tree//field[@name='nom_fr']" position="after">
-                    <field name="prenom_fr"/>
-                </xpath>
-                <xpath expr="//tree//field[@name='prenom_fr']" position="after">
                     <field name="numero_securite_social"/>
                 </xpath>
                 <xpath expr="//tree//field[@name='work_phone']" position="attributes">
@@ -155,9 +155,9 @@
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='children']" position="after">
                     <field name="nom_fr" required="True"/>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='nom_fr']" position="after">
-                    <field name="prenom_fr" required="True"/>
-                </xpath>
+<!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='nom_fr']" position="after">-->
+<!--                    <field name="prenom_fr" required="True"/>-->
+<!--                </xpath>-->
 
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='birthday']"
                        position="attributes">

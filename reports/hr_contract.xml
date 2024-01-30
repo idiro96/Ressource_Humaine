@@ -23,7 +23,7 @@
                             <br/>
                             <br/>
                             <br/>
-                            <br style="line-height: 2.5;"/>
+                            <br style="line-height: 1.5;"/>
                             <span style="display: inline-block; font-size: 14px; margin-left: 160px;">
                                 Moulay Ahmed Medghari
                             </span>
@@ -37,7 +37,6 @@
                                     <t t-esc="company.num_adh"/>
                                 </span>
                             </div>
-                            <br/>
                             <span style="display: inline-block; font-size: 14px; margin-left: 160px;">
                                 <t t-esc="company.raison_sociale_fr"/>
                             </span>
@@ -58,7 +57,6 @@
                             <br/>
                             <span style="display: inline-block; font-size: 14px; margin-left: 170px;">
                                 <t t-esc="employee.nom_fr"/>
-                                <t t-esc="employee.prenom_fr"/>
                             </span>
                             <span style="display: inline-block; font-size: 15px; margin-right: 150px; float: right;">
                                 <t t-esc="employee.name"/>
@@ -90,7 +88,6 @@
                             <br/>
                             <br/>
                             <br/>
-                            <br/>
                             <div style="text-align: center;line-height: 0.6;font-size: 20px;margin-bottom:5px;">
                                 <span>
                                     <t t-esc="employee.date_entrer"/>
@@ -101,6 +98,76 @@
                                     <t t-esc="employee.date_fin_relation"/>
                                 </span>
                             </div>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                        </strong>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="page"
+                         t-attf-style="background-image: url('/ressource_humaine/static/src/img/doc02631020240129085045.jpg'); background-size: cover;">
+                        <strong>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
                             <br/>
                             <br/>
                             <br/>

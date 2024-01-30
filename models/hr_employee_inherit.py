@@ -24,7 +24,7 @@ class HrEmployeInherited(models.Model):
     nom_mere = fields.Char()
     prenom_mere = fields.Char()
     nom_fr = fields.Char()
-    prenom_fr = fields.Char()
+    # prenom_fr = fields.Char()
 
     date_entrer = fields.Date()
     date_job_id = fields.Date()
@@ -35,7 +35,7 @@ class HrEmployeInherited(models.Model):
     commission_promotion_id = fields.Many2one('ressource_humaine.commission_promotion')
     formation_detail_id = fields.Many2one('ressource_humaine.formation.detail')
     selection_employe = fields.Boolean('Sélection', default=False)
-    days_off = fields.Float(string='Total Days Off', store=True)
+    # days_off = fields.Float(string='Total Days Off', store=True)
     wage = fields.Float()
 
     # days_off = fields.Float(compute='_compute_days_off', store=True, translate=True)
@@ -71,7 +71,7 @@ class HrEmployeInherited(models.Model):
     gender = fields.Selection(selection=[('male', 'Masculin'), ('female', 'Féminin')], readonly=False, required=True)
     nomination = fields.Selection(selection=[('satagiaire', 'Satagiaire'), ('nomination', 'Titulaire')], readonly=False, required=True)
     place_of_birth_fr = fields.Char('Lieu de naissance', groups="hr.group_hr_user", required=True)
-    place_of_birth_fr = fields.Char('Lieu de naissance', groups="hr.group_hr_user")
+    # place_of_birth_fr = fields.Char('Lieu de naissance', groups="hr.group_hr_user")
     groupe_id = fields.Many2one('rh.groupe', readonly=False)
     point_indiciare = fields.Integer()
     indice_minimal = fields.Integer()
