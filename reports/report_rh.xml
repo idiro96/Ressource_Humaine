@@ -122,4 +122,12 @@
             file="العمال و الموظفين"
     />
 
+    <report
+            id="action_fiche_renseignement_report"
+            string="Fiche de renseignement"
+            model="hr.employee"
+            report_type="qweb-html"
+            name="ressource_humaine.fiche_renseignement_report"
+            file="ressource_humaine.fiche_renseignement_report"/>
+
 </odoo>
