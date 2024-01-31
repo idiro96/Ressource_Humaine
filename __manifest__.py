@@ -21,9 +21,9 @@
 
     # any module necessary for this one to work correctly
 
-    'depends': ['base','hr','hr_recruitment','hr_holidays','hr_payroll','board', 'web_responsive', 'enterprise_theme',
+    'depends': ['base', 'hr', 'hr_recruitment', 'hr_holidays', 'hr_payroll', 'board', 'web_responsive',
+                'enterprise_theme',
                 'web_rtl', 'website_rtl', 'report_xlsx'],
-
 
     # always loaded
     'data': [
@@ -60,8 +60,6 @@
         'views/conge_droit.xml',
         'views/cron_view.xml',
         'views/hr_job_inherit.xml',
-        'views/Loi.xml',
-        'views/filiere.xml',
         'views/groupe.xml',
         'views/categorie.xml',
         'views/categorie_superieure.xml',
@@ -70,9 +68,11 @@
         'views/section.xml',
         'views/section_superieure.xml',
         'views/type_fonction.xml',
+        'views/promotion.xml',
+        'views/Loi.xml',
+        'views/filiere.xml',
         'views/corps.xml',
         'views/grade.xml',
-        'views/promotion.xml',
         'views/avancement.xml',
         'views/avencement_droit.xml',
         'views/promotion_droit.xml',
@@ -101,7 +101,6 @@
         'reports/tableau_promotion.xml',
         'reports/tableau_des_promotions.xml',
         'reports/liste_employee.xml',
-
 
     ],
     # only loaded in demonstration mode
