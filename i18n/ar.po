@@ -8571,12 +8571,12 @@ msgstr "الاسم و اللقب"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_nom_mere
 msgid "Nom Mere"
-msgstr "إسم الأم"
+msgstr "لقب الأم"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.act_employee_age_bar_chart
 msgid "Nombre d'employés par tranche d'âge"
-msgstr "Nombre d'employés par tranche d'âge"
+msgstr "عدد الموظفين حسب الفئة العمرية"
 
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.employee_count_pie_chart

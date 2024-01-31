@@ -7,7 +7,7 @@
                 <t t-call="web.basic_layout">
                     <t t-call="ressource_humaine.report_header_custom"/>
                     <div class="page">
-                        <t t-if="contract.state== 'open'">
+<!--                        <t t-if="contract.state== 'open'">-->
                             <strong>
                                 <div style="font-size: 20px;text-align: right;">
                                     <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/>
@@ -316,8 +316,8 @@
                             <br/>
                             <br/>
                             <br/>
-                        </t>
-                    </div>
+<!--                        </t>-->
+<!--                    </div>-->
                 </t>
             <!--            </t>-->
         </template>

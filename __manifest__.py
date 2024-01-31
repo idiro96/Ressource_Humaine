@@ -21,7 +21,8 @@
 
     # any module necessary for this one to work correctly
 
-    'depends': ['base','hr','hr_recruitment','hr_holidays','hr_payroll','board'],
+    'depends': ['base','hr','hr_recruitment','hr_holidays','hr_payroll','board', 'web_responsive', 'enterprise_theme',
+                'web_rtl', 'website_rtl', 'report_xlsx'],
 
 
     # always loaded
