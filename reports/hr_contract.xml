@@ -157,7 +157,7 @@
                                     &#160;
                                 </t>
                                 <t t-if="employee.address_home_id.city">
-                                    <t t-esc="employee.address_home_id.city"/>,
+                                    <t t-esc="employee.address_home_id.city"/>
                                 </t>
                                 <t t-if="not employee.address_home_id.city">
                                     &#160;
