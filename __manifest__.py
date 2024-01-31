@@ -27,7 +27,8 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ressource_humaine_security.xml',
+        'security/ir.model.access.csv',
         # 'views/views.xml',
         # 'views/templates.xml',
         # 'views/data.xml',
@@ -101,7 +102,7 @@
         'reports/tableau_promotion.xml',
         'reports/tableau_des_promotions.xml',
         'reports/liste_employee.xml',
-        'reports/fiche_renseignement.xml',
+        # 'reports/fiche_renseignement.xml',
 
     ],
     # only loaded in demonstration mode
