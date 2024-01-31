@@ -76,8 +76,8 @@
                         <p>هل تريد طباعة مذكـرة مصلحية ؟</p>
                     </sheet>
                     <footer>
-                        <button name="note_conge" string="طباعة" type="object" class="oe_highlight"/>
                         <button string="تجاهل" class="oe_link" special="cancel"/>
+                        <button name="note_conge" string="طباعة" type="object" class="oe_highlight"/>
                     </footer>
                 </form>
             </field>
