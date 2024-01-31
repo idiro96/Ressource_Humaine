@@ -18,7 +18,7 @@
                         <div style="font-size: 20px;text-align: right;">
                             <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/>
                             <span style="display: inline-block;">
-                                 الجزائر في
+                                الجزائر في
                             </span>
                             <span style="display: inline-block;margin-left: 400px;">
                                 المدرسة الوطنية للإدارة
@@ -42,7 +42,8 @@
                         <br/>
                         <div style="font-size: 20px;text-align: right;">
                             <span>
-                                رقم ................... /م.و.إ/أ.ع/م.ت.م.ب/2023
+                                رقم ................... /م.و.إ/أ.ع/م.ت.م.ب/
+                            <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
                             </span>
                         </div>
                     </strong>
@@ -59,11 +60,13 @@
                 <div class="text-right" style="text-align:center;font-size:23px;text-align: right;">
                     <p>
                         <br/>
-                       ـ يقتضى الأمر رقم 06-03 المؤرخ في 19 جمادى الثانية عام 1427 الموافق ل 15 يوليو سنة
+                        ـ يقتضى الأمر رقم 06-03 المؤرخ في 19 جمادى الثانية عام 1427 الموافق ل 15 يوليو سنة
                         2006 المتضمن القانون الأساسي العام العمومية لاسيما المادتين 194 و 196
                         <br/>
-                        ـ ويقتضى المرسوم التنفيذي رقم 08-315 المؤرخ في 11 شوال عام 1429 الموافق 11 اكتوبر سنة 2008 والمتضمن القانون
-                        الأساسي الخاص بالموظفين المنتمين للأسلاك الخاص بالموظفين المنتمين للأسلاك الخاصة بالتربية الوطنية
+                        ـ ويقتضى المرسوم التنفيذي رقم 08-315 المؤرخ في 11 شوال عام 1429 الموافق 11 اكتوبر سنة 2008
+                        والمتضمن القانون
+                        الأساسي الخاص بالموظفين المنتمين للأسلاك الخاص بالموظفين المنتمين للأسلاك الخاصة بالتربية
+                        الوطنية
                         <br/>
                         <br/>
                         <br/>
@@ -77,76 +80,61 @@
                 </div>
                 <div style="text-align:right;font-size:23px;">
                     <strong>
-<!--                        <h3 style="padding:5px;">-->
-                            <u>
-                            :المادة الأولى</u>
-<!--                        </h3>-->
+                        <u>:المادة الأولى</u>
                     </strong>
                 </div>
+                <br/>
                 <div style="text-align: right;font-size:23px;">
-                    <p>
-                        <br/>
-                        <span style="display: inline-block;">
-                            للسيد(ة) /
-                        </span>&#160;
-                        <span style="display: inline-block;">
-                            يوما
-                        </span>&#160;
-                        <span style="display: inline-block;">
-                            (<t t-esc="conge.number_of_days_temp" t-options='{"widget": "float", "precision": 0}'/>)
-                        </span>&#160;
-                        <span style="display: inline-block;">
-                            <t t-esc="arabic_number_of_days_words"/>
-                        </span>&#160;
-                        <span style="display: inline-block;">
-                            تمنح مخلف عطلة سنوية بعنوان 2021 مدتها
-                        </span>
-                        <br/>
-                        <span style="display: inline-block;">
-                            <t t-esc="conge.employee_id.name"/>
-                        </span>
-                        <span style="display: inline-block;">
-                         : الاسم و اللقب
-                        </span>
-                        <br/>
-                        <span style="display: inline-block;">
-                            <t t-esc="conge.employee_id.grade_id.intitule_grade"/>
-                        </span>
-                        <span style="display: inline-block;">
-                         :الرتبة
-                        </span>
-                        <br/>
-                        <span style="display: inline-block;">
-                            <t t-esc="conge.employee_id.job_id.name"/>
-                        </span>
-                        <span style="display: inline-block;">
-                         :المنصب
-                        </span>
-                        <br/>
-                        <span style="display: inline-block;">
-                            <t t-esc="conge_date_to.strftime('%Y-%m-%d')"/>&#160;
-                        </span>
-                        <span style="display: inline-block;">
-                            : و يستأنف عمله يوم
-                        </span>&#160;&#160;&#160;&#160;&#160;
-                        <span style="display: inline-block;">
-                            <t t-esc="conge_date_from.strftime('%Y-%m-%d')"/>&#160;
-                        </span>
-                        <span style="display: inline-block;">
-                            :ابتداء من
-                        </span>
-                        <br/>
-                        <span style="display: inline-block;">
-                            يحتفظ المعنى(ة) بمخلف عطلة قدره
-                        </span>&#160;
-                        <span style="display: inline-block;">
-                            <u>
-                                :المادة 02
-                            </u>
-                        </span>
-                        <br/>
-                        <br/>
-                    </p>
+                    <span>
+                        تمنح مخلف عطلة سنوية بعنوان 2021 مدتها
+                        <t t-esc="arabic_number_of_days_words"/>
+                        (<t t-esc="conge.number_of_days_temp" t-options='{"widget": "float", "precision": 0}'/>)
+                        <t t-if="not conge.employee_id.gender or conge.employee_id.gender == 'male'">
+                            يوما / للسيد
+                        </t>
+                        <t t-if="conge.employee_id.gender == 'female'">
+                            يوما / للسيدة
+                        </t>
+                    </span>
+                    <br/>
+                    <span>
+                        الاسم و اللقب :
+                        <t t-esc="conge.employee_id.name"/>
+                    </span>
+                    <br/>
+                    <span>
+                        الرتبة :
+                        <t t-esc="conge.employee_id.grade_id.intitule_grade"/>
+                    </span>
+                    <br/>
+                    <span>
+                        المنصب :
+                        <t t-esc="conge.employee_id.job_id.name"/>
+                    </span>
+                    <br/>
+                    <span>
+                        ابتداء من :
+                        <t t-esc="conge_date_from.strftime('%Y-%m-%d')"/>&#160;
+                        <t t-if="not conge.employee_id.gender or conge.employee_id.gender == 'male'">
+                            و يستأنف عمله يوم :
+                        </t>
+                        <t t-if="conge.employee_id.gender == 'female'">
+                            و تستأنف عملها يوم :
+                        </t>
+                        <t t-esc="conge_date_to.strftime('%Y-%m-%d')"/>
+                    </span>
+                    <br/>
+                    <span>
+                        <u>المادة 02 :</u>
+                        <t t-if="not conge.employee_id.gender or conge.employee_id.gender == 'male'">
+                            يحتفظ المعنى بمخلف عطلة قدره
+                        </t>
+                        <t t-if="conge.employee_id.gender == 'female'">
+                            تحتفظ المعنىة بمخلف عطلة قدره
+                        </t>
+                        <t t-esc="conge.employee_id.days_off"/>
+                        يوم
+                    </span>
                 </div>
             </div>
 

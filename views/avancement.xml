@@ -87,7 +87,7 @@
                                 </tree>
                             </field>
                         </page>
-                          <page string="Liste des Fichiers" attrs="{'invisible': [('id', '=', False)]}">
+                          <page string="قائمة الملفات" attrs="{'invisible': [('id', '=', False)]}">
                             <field name="avancement_file_lines">
                                 <tree editable="bottom">
                                     <field name="type_file_id" domain="[('type_file', '=', 'avancement')]"/>

@@ -4,6 +4,9 @@ from dateutil.relativedelta import relativedelta
 from odoo import models, fields, api, _
 from datetime import date, timedelta, datetime
 from dateutil.relativedelta import relativedelta
+from odoo.exceptions import ValidationError
+
+
 from babel.dates import format_date, format_datetime
 import logging
 import calendar
@@ -24,7 +27,7 @@ class HrEmployeInherited(models.Model):
     nom_mere = fields.Char()
     prenom_mere = fields.Char()
     nom_fr = fields.Char()
-    prenom_fr = fields.Char()
+    # prenom_fr = fields.Char()
 
     date_entrer = fields.Date()
     date_job_id = fields.Date()
@@ -35,13 +38,14 @@ class HrEmployeInherited(models.Model):
     commission_promotion_id = fields.Many2one('ressource_humaine.commission_promotion')
     formation_detail_id = fields.Many2one('ressource_humaine.formation.detail')
     selection_employe = fields.Boolean('Sélection', default=False)
-    days_off = fields.Float(string='Total Days Off', store=True)
+    # days_off = fields.Float(string='Total Days Off', store=True)
     wage = fields.Float()
 
     # days_off = fields.Float(compute='_compute_days_off', store=True, translate=True)
 
     # days_off = fields.Float(compute='_compute_days_off', store=True, translate=True)
     days_off = fields.Float(store=True)
+    jour_sup = fields.Float(store=True)
 
     corps_id = fields.Many2one('rh.corps')
     grade_id = fields.Many2one('rh.grade')
@@ -71,7 +75,7 @@ class HrEmployeInherited(models.Model):
     gender = fields.Selection(selection=[('male', 'Masculin'), ('female', 'Féminin')], readonly=False, required=True)
     nomination = fields.Selection(selection=[('satagiaire', 'Satagiaire'), ('nomination', 'Titulaire')], readonly=False, required=True)
     place_of_birth_fr = fields.Char('Lieu de naissance', groups="hr.group_hr_user", required=True)
-    place_of_birth_fr = fields.Char('Lieu de naissance', groups="hr.group_hr_user")
+    # place_of_birth_fr = fields.Char('Lieu de naissance', groups="hr.group_hr_user")
     groupe_id = fields.Many2one('rh.groupe', readonly=False)
     point_indiciare = fields.Integer()
     indice_minimal = fields.Integer()
@@ -89,6 +93,13 @@ class HrEmployeInherited(models.Model):
     date_avancement = fields.Date()
     ref = fields.Char()
     date_ref = fields.Date()
+
+    @api.constrains('jour_sup')
+    def _check_jour_sup_max_value(self):
+        max_value = 12.0
+        for record in self:
+            if record.jour_sup > max_value:
+                raise ValidationError('The maximum value for jour_sup is 12.0')
 
 
     @api.multi
@@ -224,6 +235,8 @@ class HrEmployeInherited(models.Model):
         for rec in self:
             domain = []
             if rec.nature_travail_id:
+                rec.corps_id = False
+                rec.grade_id = False
                 if rec.nature_travail_id.code_type_fonction == 'contractuel':
                     corps_visible = False
                     jobs = self.env['hr.job'].search([('nature_travail_id', '=', rec.nature_travail_id.id)])
@@ -252,6 +265,7 @@ class HrEmployeInherited(models.Model):
     def _onchange_corps(self):
         print('teste')
         for rec in self:
+            rec.grade_id = False
             domain = []
             if rec.corps_id:
                 print('teste')

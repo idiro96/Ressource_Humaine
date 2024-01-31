@@ -19,6 +19,8 @@ class  HrContratInherited(models.Model):
     job_id = fields.Many2one('hr.job', readonly=True, compute='_compute_employee_fields')
     type = fields.Selection([('contrat', 'Contrat'), ('decision', 'Decision'),]
                                    , required=True, default='contrat')
+
+    date_start = fields.Date('Start Date', readonly=True, help="Start date of the contract.")
     point_indiciare = fields.Integer()
     indice_minimal = fields.Integer()
     indice_base = fields.Integer()
@@ -268,6 +270,8 @@ class  HrContratInherited(models.Model):
         for rec in self:
             domain = []
             if rec.employee_id:
+                for rec in self:
+                    self.date_start = self.employee_id.date_entrer
                 type_fonction = self.env['rh.type.fonction'].search([('id', '=', rec.employee_id.nature_travail_id.id)])
                 if type_fonction.code_type_fonction == 'contractuel':
                     categorie = self.env['rh.categorie'].search([('type_fonction_id', '=', type_fonction.id)])
