@@ -12475,7 +12475,7 @@ msgstr "مذكـرة مصلحية"
 #. module: ressource_humaine
 #: selection:hr.employee,nomination:0
 msgid "Satagiaire"
-msgstr "متدرب"
+msgstr "متربص"
 
 #. module: ressource_humaine
 #: selection:hr.employee,nomination:0
