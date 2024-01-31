@@ -282,7 +282,6 @@
 
                 <xpath expr="//form//sheet//notebook" position="inside">
 
-
                     <page name="Information Salariale" string="معلومات حول الراتب" >
                     </page>
                 </xpath>
