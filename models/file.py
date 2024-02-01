@@ -23,4 +23,5 @@ class RHFile(models.Model):
     promotion_id = fields.Many2one('rh.promotion_id')
     accident_travail_id = fields.Many2one('rh.accident_travail')
     type_file_id = fields.Many2one('rh.type.file')
+    employee_id = fields.Many2one('hr.employee')
 

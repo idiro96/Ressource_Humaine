@@ -93,6 +93,9 @@ class HrEmployeInherited(models.Model):
     date_avancement = fields.Date()
     ref = fields.Char()
     date_ref = fields.Date()
+    formation_file_lines = fields.One2many('rh.file', 'formation_id')
+    address_perso = fields.Text()
+
 
     @api.constrains('jour_sup')
     def _check_jour_sup_max_value(self):

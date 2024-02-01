@@ -9258,6 +9258,11 @@ msgstr "الخصوصية"
 msgid "Private Address"
 msgstr "العنوان الخاص"
 
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_address_perso
+msgid "Address Perso"
+msgstr "العنوان الخاص"
+
 #. module: hr
 #: model:ir.ui.view,arch_db:hr.view_employee_form
 msgid "Private Information"
