@@ -13,20 +13,28 @@
                         <br/>
                         <br/>
                         <br/>
+                        <span style="margin-left: 53px;">
+                            <img t-if="employee.image"
+                                 t-att-src="'data:image/png;base64,%s' % to_text(employee.image)"
+                                 height="188" width="188"
+                                 t-att-style="'border-radius: 30%;'"/>
+                        </span>
+                        <t t-if="not employee.image">
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                        </t>
                         <br/>
                         <br/>
                         <br/>
                         <br/>
                         <br/>
                         <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br style="line-height: 2;"/>
                         <span style="line-height: 1.5;">&#160;</span>
                         <span style="display: inline-block; font-size: 14px; margin-left: 170px;">
                             <t t-if="employee.nom_fr">
@@ -68,7 +76,8 @@
                         </span>
                         <br/>
                         <br/>
-                        <br style="line-height: 2;"/>
+                        <br/>
+                        <br/>
                         <span style="display: inline-block; font-size: 14px; margin-right: 170px;float: right;">
                             <t t-if="employee.prenom_pere">
                                 <t t-esc="employee.prenom_pere"/>
@@ -77,7 +86,6 @@
                                 &#160;
                             </t>
                         </span>
-                        <br/>
                         <br/>
                         <br/>
                         <span style="display: inline-block; font-size: 14px; margin-right: 200px;float: right;">
@@ -191,7 +199,6 @@
                 <div class="page"
                      t-attf-style="background-image: url('/ressource_humaine/static/src/img/doc02632720240129151246 (2).jpg'); background-size: cover;">
                     <strong>
-                        <br/>
                         <br/>
                         <br/>
                         <br/>

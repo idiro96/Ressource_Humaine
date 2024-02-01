@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from datetime import datetime
 
 from odoo import models, fields, api, _
 
@@ -304,7 +305,14 @@ class HrContractReport(models.AbstractModel):
     def get_report_values(self, docids, data=None):
         employees = self.env['hr.employee'].browse(docids)
 
+        employee_data = {}
+        for employee in employees:
+            date_entrer = employee.date_entrer
+            formatted_date = datetime.strptime(date_entrer, "%Y-%m-%d").strftime("%d/%m/%Y")
+            employee_data[employee.id] = formatted_date
+
         report_data = {
+            'employee_data': employee_data,
             'employees': employees,
             'company': self.env.user.company_id,
         }

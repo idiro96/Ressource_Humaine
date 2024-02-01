@@ -82,7 +82,22 @@
                             <t t-esc="employee.place_of_birth_fr"/>
                             <br/>
                             <br/>
-                            est fonctionnaire au sein de notre établissement depuis le:
+                            <t t-if="employee.gender == 'female'">
+                                <t t-if="employee.nature_travail_id.code_type_fonction == 'contractuel'">
+                                    est employée au sein de notre établissement depuis le:
+                                </t>
+                                <t t-if="not employee.nature_travail_id.code_type_fonction == 'contractuel'">
+                                    est fonctionnaire au sein de notre établissement depuis le:
+                                </t>
+                            </t>
+                            <t t-if="employee.gender == 'male'">
+                                <t t-if="employee.nature_travail_id.code_type_fonction == 'contractuel'">
+                                    est employé au sein de notre établissement depuis le:
+                                </t>
+                                <t t-if="not employee.nature_travail_id.code_type_fonction == 'contractuel'">
+                                    est fonctionnaire au sein de notre établissement depuis le:
+                                </t>
+                            </t>
                             <t t-esc="employee.date_entrer"/>&#160;
                         </span>
                         <span style="display: inline-block;">
