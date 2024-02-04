@@ -12501,3 +12501,21 @@ msgstr "تعيين"
 #: model:ir.actions.report,name:ressource_humaine.action_fiche_renseignement_report
 msgid "Fiche de renseignement"
 msgstr "بطاقة معلومات"
+
+#. module: ressource_humaine
+#: model:ir.ui.menu,name:ressource_humaine.menu_planning_conge
+msgid "Planning Congé"
+msgstr "جدول الإجازات"
+
+#. module: ressource_humaine
+#: model:ir.actions.act_window,name:ressource_humaine.planning_conge_action
+msgid "Planning des Congés"
+msgstr "جدول الإجازات"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_planning_conge_department_id
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_commission_line_department_id
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_commission_line_department_id
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_commission_line_department_id
+msgid "Department"
+msgstr "المصلحة"

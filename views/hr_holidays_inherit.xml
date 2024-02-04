@@ -93,7 +93,6 @@
             <field name="context">{}</field>
             <field name="target">new</field>
         </record>
-        >
 
         <menuitem name="Congé" id="conge_id" parent="ressource_humaine.menu_root" sequence="4"/>
         <menuitem name="Congé" id="menu_hr_holidays_root" parent="conge_id" sequence="2"

@@ -85,6 +85,7 @@
         'wizards/choisir_commission.xml',
         'wizards/commission_avancement.xml',
         'wizards/commission_promotion.xml',
+        'wizards/planning_conge.xml',
         'reports/paper_format.xml',
         'reports/hr_contract.xml',
         'reports/attestation_travail.xml',

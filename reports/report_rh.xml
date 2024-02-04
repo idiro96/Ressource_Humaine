@@ -35,7 +35,7 @@
     <report
             id="report_planning_conge"
             string="Planning Conge"
-            model="hr.holidays"
+            model="planning.conge"
             report_type="qweb-html"
             name="ressource_humaine.planning_conge"
             file="ressource_humaine.planning_conge"
