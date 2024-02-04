@@ -70,7 +70,7 @@
             id="action_hr_contract_report"
             model="hr.employee"
             string="Attestation de Travail et de Salaire"
-            report_type="qweb-html"
+            report_type="qweb-pdf"
             name="ressource_humaine.hr_contract_report"
             file="ressource_humaine.hr_contract_report"
             paperformat="ressource_humaine.paperformat_european_a4_portrait"
@@ -129,5 +129,10 @@
 <!--            report_type="qweb-html"-->
 <!--            name="ressource_humaine.fiche_renseignement_report"-->
 <!--            file="ressource_humaine.fiche_renseignement_report"/>-->
+<!--            report_type="qweb-pdf"-->
+<!--            name="ressource_humaine.fiche_renseignement_report"-->
+<!--            file="ressource_humaine.fiche_renseignement_report"-->
+<!--            paperformat="ressource_humaine.paperformat_european_a4_portrait"/>-->
+
 
 </odoo>

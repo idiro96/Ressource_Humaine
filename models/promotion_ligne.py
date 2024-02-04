@@ -11,6 +11,8 @@ class RHPromotionLine(models.Model):
     date_promotion = fields.Date()
     promotion_id = fields.Many2one('hr.promotion')
     employee_id = fields.Many2one('hr.employee')
+    birthday = fields.Date(related='employee_id.birthday')
+    marital = fields.Selection(related='employee_id.marital')
     job_id = fields.Many2one('hr.job')
     grade_old_id = fields.Many2one('rh.grade')
     grade_id = fields.Many2one('rh.grade')
@@ -19,7 +21,7 @@ class RHPromotionLine(models.Model):
     date_grade = fields.Date()
     type_fonction_id = fields.Many2one('rh.type.fonction')
     promotion_line_file_line = fields.Binary()
-
+    duree = fields.Integer()
 
 
 

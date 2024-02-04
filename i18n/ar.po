@@ -11638,7 +11638,7 @@ msgstr "né le"
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.attestation_travail_fr_report
 msgid "née le"
-msgstr "مولد(ة) في"
+msgstr "née le"
 
 #. module: hr_holidays
 #: model:ir.ui.view,arch_db:hr_holidays.report_holidayssummary
@@ -12496,3 +12496,8 @@ msgstr "أيام إضافية"
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_nomination
 msgid "Nomination"
 msgstr "تعيين"
+
+#. module: ressource_humaine
+#: model:ir.actions.report,name:ressource_humaine.action_fiche_renseignement_report
+msgid "Fiche de renseignement"
+msgstr "بطاقة معلومات"

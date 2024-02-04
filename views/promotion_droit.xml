@@ -5,11 +5,13 @@
         <field name="arch" type="xml">
             <tree editable="bottom">
                 <field name="employee_id" readonly="1"/>
-                <field name="type_fonction_id" readonly="1"/>
-                <field name="job_id" readonly="1"/>
+                <field name="birthday" readonly="1"/>
+                <field name="marital" readonly="1"/>
                 <field name="grade_id" readonly="1"/>
+                <field name="job_id" readonly="1"/>
                 <field name="date_grade" readonly="1"/>
                 <field name="grade_new_id"/>
+                <field name="duree" readonly="1"/>
                 <field name="date_new_grade" readonly="1"/>
                 <field name="sauvegarde"/>
             </tree>
