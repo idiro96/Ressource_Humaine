@@ -206,17 +206,9 @@
                             <br/>
                             <br/>
                             <div style="text-align: center;line-height: 0.6;font-size: 20px;margin-bottom:5px;">
-                                <t t-if="employee_data">
-                                    <t t-foreach="sorted_employee_data" t-as="employee_info">
-                                        <span>
-                                            <t t-esc="employee_info[1]"/>
-                                            <br/>
-                                        </span>
-                                    </t>
-                                </t>
-                                <t t-if="not employee_data">
-                                    &#160;
-                                </t>
+                                <span>
+                                    <t t-esc="employee_data.get(employee.id, '')"/>
+                                </span>
                             </div>
                             <div style="text-align: center;font-size: 20px;">
                                 <span>
@@ -260,7 +252,6 @@
                     <div class="page"
                          t-attf-style="background-image: url('/ressource_humaine/static/src/img/doc02631020240129085045.jpg'); background-size: cover;">
                         <strong>
-                            <br/>
                             <br/>
                             <br/>
                             <br/>
