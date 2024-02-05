@@ -122,13 +122,13 @@
             file="العمال و الموظفين"
     />
 
-<!--    <report-->
-<!--            id="action_fiche_renseignement_report"-->
-<!--            string="Fiche de renseignement"-->
-<!--            model="hr.employee"-->
-<!--            report_type="qweb-pdf"-->
-<!--            name="ressource_humaine.fiche_renseignement_report"-->
-<!--            file="ressource_humaine.fiche_renseignement_report"-->
-<!--            paperformat="ressource_humaine.paperformat_european_a4_portrait"/>-->
+    <report
+            id="action_fiche_renseignement_report"
+            string="Fiche de renseignement"
+            model="hr.employee"
+            report_type="qweb-pdf"
+            name="ressource_humaine.fiche_renseignement_report"
+            file="ressource_humaine.fiche_renseignement_report"
+            paperformat="ressource_humaine.paperformat_european_a4_portrait"/>
 
 </odoo>

@@ -49,14 +49,10 @@
                 </div>
                 <br/>
                 <div class="row" style="margin:30;">
-                    <table border="1px solid black" class="table table-bordered"
-                           style="width: 100%;">
+                    <table style="width: 100%;">
                         <thead>
                             <tr>
-                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
-                                    <strong>ملاحظة</strong>
-                                </th>
-                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;width:150px">
                                     <strong>تاريخ سريان الترقية القادمة</strong>
                                 </th>
                                 <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
@@ -71,9 +67,13 @@
                                 <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
                                     <strong>ترقية</strong>
                                 </th>
-                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;width:150px">
                                     <strong>تاريخ سريان الترقيةالحالية</strong>
                                 </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
+                                    <strong>الدرجة</strong>
+                                </th>
+
                                 <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
                                     <strong>المنصب</strong>
                                 </th>
@@ -89,7 +89,7 @@
                                 <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
                                     <strong>الإسم و اللقب</strong>
                                 </th>
-                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;width:25px">
                                     <strong></strong>
                                 </th>
                             </tr>
@@ -98,9 +98,6 @@
                         <t t-foreach="promotions" t-as="promotion">
                             <tbody>
                                 <t t-foreach="promotion.promotion_lines" t-as="line">
-                                    <td style="border:1px solid black;">
-                                        &#160;
-                                    </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
                                         <span t-esc="line.date_new_grade"/>
                                     </td>
@@ -120,6 +117,9 @@
                                         <span t-esc="line.date_grade"/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
+                                        <span t-esc="line.employee_id.echelon_id.intitule"/>
+                                    </td>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
                                         <span t-esc="line.job_id.name"/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
@@ -127,13 +127,18 @@
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
                                         <t t-if="line.employee_id.marital == 'single'">
-                                            <span>أعزب</span>
+                                            <t t-if="line.employee_id.gender == 'male'">
+                                                <span>أعزب</span>
+                                            </t>
+                                            <t t-if="line.employee_id.gender == 'female'">
+                                                <span>عازبة</span>
+                                            </t>
                                         </t>
                                         <t t-if="line.employee_id.marital == 'married'">
                                             <t t-if="line.employee_id.gender == 'male'">
                                                 <span>متزوّج</span>
                                             </t>
-                                            <t t-if="line.employee_id.gender == 'male'">
+                                            <t t-if="line.employee_id.gender == 'female'">
                                                 <span>متزوّجة</span>
                                             </t>
                                         </t>
@@ -141,13 +146,18 @@
                                             <span>معاش قانوني</span>
                                         </t>
                                         <t t-if="line.employee_id.marital == 'widower'">
-                                            <span>ارمل</span>
+                                            <t t-if="line.employee_id.gender == 'male'">
+                                                <span>أرمل</span>
+                                            </t>
+                                            <t t-if="line.employee_id.gender == 'female'">
+                                                <span>أرملة</span>
+                                            </t>
                                         </t>
                                         <t t-if="line.employee_id.marital == 'divorced'">
                                             <t t-if="line.employee_id.gender == 'male'">
                                                 <span>مطلّق</span>
                                             </t>
-                                            <t t-if="line.employee_id.gender == 'male'">
+                                            <t t-if="line.employee_id.gender == 'female'">
                                                 <span>مطلّقة</span>
                                             </t>
                                         </t>

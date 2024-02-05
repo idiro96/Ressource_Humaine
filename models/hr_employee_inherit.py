@@ -115,7 +115,7 @@ class HrEmployeInherited(models.Model):
                 age = aujourdhui.year - date_naiss.year - ((aujourdhui.month, aujourdhui.day) < (date_naiss.month, date_naiss.day))
             emp.age_employee = age
 
-    age_employee = fields.Integer(string="Age", compute='calculer_age_employee')
+    age_employee = fields.Integer(string="Age", compute='calculer_age_employee', store=True)
 
     age_range = fields.Selection([
         ('low', '20-30'),
