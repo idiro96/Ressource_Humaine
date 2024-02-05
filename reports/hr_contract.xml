@@ -23,6 +23,7 @@
                             <br/>
                             <br/>
                             <br/>
+                            <br/>
                             <br style="line-height: 1.5;"/>
                             <span style="display: inline-block; font-size: 14px; margin-left: 160px;">
                                 Econle Nationale d'Administration
@@ -65,7 +66,8 @@
                                 </span>
                             </t>
                             <br/>
-                            <span style="display: inline-block; font-size: 15px; margin-left: 350px;">
+                            <br/>
+                            <span style="display: inline-block; font-size: 15px; margin-left: 320px;">
                                 <t t-if="company.street">
                                     <t t-esc="company.street"/>,
                                 </t>
@@ -214,6 +216,15 @@
                             <br/>
                             <br/>
                             <div style="text-align: center;line-height: 0.6;font-size: 20px;margin-bottom:5px;">
+
+                                <t t-if="employee.date_entrer">
+
+                                            <t t-esc="employee.date_entrer"/>
+
+                                    </t>
+                                <t t-if="not employee.date_entrer">
+                                    &#160;
+                                </t>
                                 <span>
                                     <t t-if="employee_date_entrer.get(employee.id, '')">
                                         <t t-esc="employee_date_entrer.get(employee.id, '')"/>
@@ -233,6 +244,7 @@
                                     </t>
                                 </span>
                             </div>
+                            <br/>
                             <br/>
                             <br/>
                             <br/>
