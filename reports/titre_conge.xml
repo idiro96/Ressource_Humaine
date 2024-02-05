@@ -114,14 +114,14 @@
                     <br/>
                     <span>
                         ابتداء من :
-                        <t t-esc="conge_date_from.strftime('%Y-%m-%d')"/>&#160;
+                        <t t-esc="conge_date_from.strftime('%d-%m-%Y')"/>&#160;
                         <t t-if="not conge.employee_id.gender or conge.employee_id.gender == 'male'">
                             و يستأنف عمله يوم :
                         </t>
                         <t t-if="conge.employee_id.gender == 'female'">
                             و تستأنف عملها يوم :
                         </t>
-                        <t t-esc="conge_date_to.strftime('%Y-%m-%d')"/>
+                        <t t-esc="conge_date_to.strftime('%d-%m-%Y')"/>
                     </span>
                     <br/>
                     <span>

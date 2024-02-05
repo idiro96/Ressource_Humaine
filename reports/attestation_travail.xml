@@ -88,7 +88,7 @@
                                     المولود بتاريخ :
                                 </span>
                             </t>
-                            <t t-esc="employee.birthday"/>
+                            <t t-esc="formatted_date"/>
                             في
                             <t t-esc="employee.place_of_birth"/>
                         </span>

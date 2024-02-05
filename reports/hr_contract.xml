@@ -121,11 +121,19 @@
                                     </t>
                                 </span>
                             </div>
-                            <span style="display: inline-block; font-size: 20px; margin-right: 185px; float: right;">
+                            <span style="display: inline-block; font-size: 20px; margin-right: 150px; float: right;">
                                 <t t-if="employee.birthday">
                                     <t t-esc="employee.birthday"/>
                                 </t>
                                 <t t-if="not employee.birthday">
+                                    &#160;
+                                </t>
+                            </span>
+                             <span style="display: inline-block; font-size: 20px; margin-left: 135px; float: left;">
+                                <t t-if="employee_birthday.get(employee.id, '')">
+                                    <t t-esc="employee_birthday.get(employee.id, '')"/>
+                                </t>
+                                <t t-if="not employee_birthday.get(employee.id, '')">
                                     &#160;
                                 </t>
                             </span>
@@ -137,7 +145,7 @@
                                     &#160;
                                 </t>
                             </span>
-                            <span style="display: inline-block; font-size: 20px; margin-left: 300px; float: left;">
+                            <span style="display: inline-block; font-size: 20px; margin-left: 80px; float: left;">
                                 <t t-if="employee.place_of_birth_fr">
                                     <t t-esc="employee.place_of_birth_fr"/>
                                 </t>
@@ -208,6 +216,7 @@
                             <br/>
                             <br/>
                             <div style="text-align: center;line-height: 0.6;font-size: 20px;margin-bottom:5px;">
+
                                 <t t-if="employee.date_entrer">
 
                                             <t t-esc="employee.date_entrer"/>
@@ -216,13 +225,21 @@
                                 <t t-if="not employee.date_entrer">
                                     &#160;
                                 </t>
+                                <span>
+                                    <t t-if="employee_date_entrer.get(employee.id, '')">
+                                        <t t-esc="employee_date_entrer.get(employee.id, '')"/>
+                                    </t>
+                                    <t t-if="not employee_date_entrer.get(employee.id, '')">
+                                        &#160;
+                                    </t>
+                                </span>
                             </div>
                             <div style="text-align: center;font-size: 20px;">
                                 <span>
-                                    <t t-if="employee.date_fin_relation">
-                                        <t t-esc="employee.date_fin_relation"/>
+                                    <t t-if="employee_date_fin_relation.get(employee.id, '')">
+                                        <t t-esc="employee_date_fin_relation.get(employee.id, '')"/>
                                     </t>
-                                    <t t-if="not employee.date_fin_relation">
+                                    <t t-if="not employee_date_fin_relation.get(employee.id, '')">
                                         &#160;
                                     </t>
                                 </span>
@@ -260,7 +277,6 @@
                     <div class="page"
                          t-attf-style="background-image: url('/ressource_humaine/static/src/img/doc02631020240129085045.jpg'); background-size: cover;">
                         <strong>
-                            <br/>
                             <br/>
                             <br/>
                             <br/>

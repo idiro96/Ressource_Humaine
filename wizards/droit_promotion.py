@@ -32,30 +32,45 @@ class RHDroitPromotion(models.TransientModel):
             for promo in promotion_line:
                 promotion_ligne_droit2 = self.env['rh.promotion.droit'].search(
                     [('employee_id', '=', promo.id), ('date_promotion', '=', self.date_promotion)])
+                promotion_ligne_droit3 = self.env['rh.promotion.droit'].search(
+                    [('employee_id', '=', promo.id), ('sauvegarde', '=', True),],order='date_grade DESC', limit=1)
                 if not promotion_ligne_droit2:
                     dateDebut_object = fields.Date.from_string(self.date_promotion)
                     dateDebut_object2 = fields.Date.from_string(promo.date_grade)
                     difference = (dateDebut_object.year - dateDebut_object2.year) * 12 + dateDebut_object.month - dateDebut_object2.month
-                    # date_new_grade = relativedelta(months=60) + fields.Date.from_string(promo.date_grade)
-                    # dateDebut_object3 = fields.Date.from_string(date_new_grade)
-                    # duree = (dateDebut_object3.year - promo.date_grade.year) * 12 + dateDebut_object3.month - dateDebut_object2.month
-                    print(int(self.duree_promotion) * 12)
                     if difference >= int(self.duree_promotion) * 12:
-                        print('rabahni')
-                        print(difference)
-                        print(promo.name)
-                        self.env['rh.promotion.droit'].create({
-                            'employee_id': promo.id,
-                            'type_fonction_id': promo.nature_travail_id.id,
-                            'job_id': promo.job_id.id,
-                            'duree': promo.job_id.id,
-                            'date_promotion': self.date_promotion,
-                            'grade_id': promo.grade_id.id,
-                            'date_grade': promo.date_grade,
-                            'grade_new_id': promo.grade_id.id,
-                            'date_new_grade': relativedelta(months=int(self.duree_promotion) * 12) + fields.Date.from_string(promo.date_grade),
-                            'duree': int(self.duree_promotion) * 12,
-                        })
+                        if promotion_ligne_droit3:
+                            print(promotion_ligne_droit3)
+                            if promotion_ligne_droit3.date_new_grade == promotion_line.date_grade:
+                                print(promotion_ligne_droit3)
+                                self.env['rh.promotion.droit'].create({
+                                    'employee_id': promo.id,
+                                    'type_fonction_id': promo.nature_travail_id.id,
+                                    'job_id': promo.job_id.id,
+                                    'duree': promo.job_id.id,
+                                    'date_promotion': self.date_promotion,
+                                    'grade_id': promo.grade_id.id,
+                                    'date_grade': promo.date_grade,
+                                    'grade_new_id': promo.grade_id.id,
+                                    'date_new_grade': relativedelta(months=int(self.duree_promotion) * 12) + fields.Date.from_string(promo.date_grade),
+                                    'duree': int(self.duree_promotion) * 12,
+                                })
+                            else:
+                                print('employe existe')
+                        else:
+                            self.env['rh.promotion.droit'].create({
+                                'employee_id': promo.id,
+                                'type_fonction_id': promo.nature_travail_id.id,
+                                'job_id': promo.job_id.id,
+                                'duree': promo.job_id.id,
+                                'date_promotion': self.date_promotion,
+                                'grade_id': promo.grade_id.id,
+                                'date_grade': promo.date_grade,
+                                'grade_new_id': promo.grade_id.id,
+                                'date_new_grade': relativedelta(months=int(self.duree_promotion) * 12) + fields.Date.from_string(promo.date_grade),
+                                'duree': int(self.duree_promotion) * 12,
+                            })
+
 
         return {
             'name': 'Droit Promotion',
@@ -63,7 +78,7 @@ class RHDroitPromotion(models.TransientModel):
             'view_mode': 'tree,form',
             'res_model': 'rh.promotion.droit',
             'type': 'ir.actions.act_window',
-            # 'domain': [('date_new_grade', '=', self.date_promotion), ('sauvegarde', '=', True)]
+            'domain': [('date_promotion', '=', self.date_promotion),]
             # 'domain': [('state', '=', 'reforme')],
 
         }

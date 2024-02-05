@@ -35,7 +35,7 @@
     <report
             id="report_planning_conge"
             string="Planning Conge"
-            model="hr.holidays"
+            model="planning.conge"
             report_type="qweb-html"
             name="ressource_humaine.planning_conge"
             file="ressource_humaine.planning_conge"
@@ -126,9 +126,11 @@
 <!--            id="action_fiche_renseignement_report"-->
 <!--            string="Fiche de renseignement"-->
 <!--            model="hr.employee"-->
+
 <!--            report_type="qweb-html"-->
 <!--            name="ressource_humaine.fiche_renseignement_report"-->
 <!--            file="ressource_humaine.fiche_renseignement_report"/>-->
+
 <!--            report_type="qweb-pdf"-->
 <!--            name="ressource_humaine.fiche_renseignement_report"-->
 <!--            file="ressource_humaine.fiche_renseignement_report"-->
