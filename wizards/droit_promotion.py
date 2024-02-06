@@ -5,6 +5,9 @@ from datetime import datetime, date
 from dateutil.relativedelta import relativedelta
 import calendar
 
+from odoo.exceptions import UserError
+
+
 class RHDroitPromotion(models.TransientModel):
     _name = 'droit.promotion'
 
@@ -16,10 +19,19 @@ class RHDroitPromotion(models.TransientModel):
                              readonly=False, default='5 ans')
 
 
+    # @api.constrains
+    # @api.multi
+    # def unlink(self):
+    #     records = self.env['rh.promotion.droit'].browse(self._context['active_ids'])
+    #     for rec in records:
+    #         promotion_ligne = self.env['rh.promotion.ligne'].search(
+    #             [('employee_id', '=', rec.employee_id.id), ('date_grade', '=', rec.date_new_grade)])
+    #         if promotion_ligne:
+    #             raise UserError("Enregistrement déja fait, vous ne pouvez pas le supprimer")
+
     @api.multi
     def actualiser_droit_promotion(self):
 
-        employee = self.env['hr.employee'].search([])
         promotion_ligne_droit = self.env['rh.promotion.droit'].search([])
         for record in promotion_ligne_droit:
             if record.sauvegarde == False:
@@ -40,8 +52,7 @@ class RHDroitPromotion(models.TransientModel):
                     difference = (dateDebut_object.year - dateDebut_object2.year) * 12 + dateDebut_object.month - dateDebut_object2.month
                     if difference >= int(self.duree_promotion) * 12:
                         if promotion_ligne_droit3:
-                            print(promotion_ligne_droit3)
-                            if promotion_ligne_droit3.date_new_grade == promotion_line.date_grade:
+                            if fields.Date.from_string(promotion_ligne_droit3.date_new_grade) == fields.Date.from_string(promo.date_grade):
                                 print(promotion_ligne_droit3)
                                 self.env['rh.promotion.droit'].create({
                                     'employee_id': promo.id,
