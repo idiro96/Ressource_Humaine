@@ -131,4 +131,12 @@
             file="ressource_humaine.fiche_renseignement_report"
             paperformat="ressource_humaine.paperformat_european_a4_portrait"/>
 
+    <report
+            id="action_tableau_des_promotions_xlsx"
+            model="rh.promotion"
+            string="جدول ترقية Excel"
+            report_type="xlsx"
+            name="ressource_humaine.tableau_des_promotions_xlsx"
+            file="جدول ترقية"/>
+
 </odoo>

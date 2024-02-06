@@ -98,80 +98,82 @@
                         <t t-foreach="promotions" t-as="promotion">
                             <tbody>
                                 <t t-foreach="promotion.promotion_lines" t-as="line">
-                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <span t-esc="line.date_new_grade"/>
-                                    </td>
-                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
-                                        &#160;
-                                    </td>
-                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
-                                        <span t-esc="line.duree"/>
-                                    </td>
-                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
-                                        &#160;
-                                    </td>
-                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
-                                        <span t-esc="line.grade_new_id.intitule_grade"/>
-                                    </td>
-                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
-                                        <span t-esc="line.date_grade"/>
-                                    </td>
-                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
-                                        <span t-esc="line.employee_id.echelon_id.intitule"/>
-                                    </td>
-                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
-                                        <span t-esc="line.job_id.name"/>
-                                    </td>
-                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
-                                        <span t-esc="line.grade_id.intitule_grade"/>
-                                    </td>
-                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
-                                        <t t-if="line.employee_id.marital == 'single'">
-                                            <t t-if="line.employee_id.gender == 'male'">
-                                                <span>أعزب</span>
+                                    <t t-if="line.imprimer">
+                                        <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
+                                            <span t-esc="line.date_new_grade"/>
+                                        </td>
+                                        <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
+                                            &#160;
+                                        </td>
+                                        <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
+                                            <span t-esc="line.duree"/>
+                                        </td>
+                                        <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
+                                            &#160;
+                                        </td>
+                                        <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
+                                            <span t-esc="line.grade_new_id.intitule_grade"/>
+                                        </td>
+                                        <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
+                                            <span t-esc="line.date_grade"/>
+                                        </td>
+                                        <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
+                                            <span t-esc="line.employee_id.echelon_id.intitule"/>
+                                        </td>
+                                        <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
+                                            <span t-esc="line.job_id.name"/>
+                                        </td>
+                                        <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
+                                            <span t-esc="line.grade_id.intitule_grade"/>
+                                        </td>
+                                        <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
+                                            <t t-if="line.employee_id.marital == 'single'">
+                                                <t t-if="line.employee_id.gender == 'male'">
+                                                    <span>أعزب</span>
+                                                </t>
+                                                <t t-if="line.employee_id.gender == 'female'">
+                                                    <span>عازبة</span>
+                                                </t>
                                             </t>
-                                            <t t-if="line.employee_id.gender == 'female'">
-                                                <span>عازبة</span>
+                                            <t t-if="line.employee_id.marital == 'married'">
+                                                <t t-if="line.employee_id.gender == 'male'">
+                                                    <span>متزوّج</span>
+                                                </t>
+                                                <t t-if="line.employee_id.gender == 'female'">
+                                                    <span>متزوّجة</span>
+                                                </t>
                                             </t>
-                                        </t>
-                                        <t t-if="line.employee_id.marital == 'married'">
-                                            <t t-if="line.employee_id.gender == 'male'">
-                                                <span>متزوّج</span>
+                                            <t t-if="line.employee_id.marital == 'cohabitant'">
+                                                <span>معاش قانوني</span>
                                             </t>
-                                            <t t-if="line.employee_id.gender == 'female'">
-                                                <span>متزوّجة</span>
+                                            <t t-if="line.employee_id.marital == 'widower'">
+                                                <t t-if="line.employee_id.gender == 'male'">
+                                                    <span>أرمل</span>
+                                                </t>
+                                                <t t-if="line.employee_id.gender == 'female'">
+                                                    <span>أرملة</span>
+                                                </t>
                                             </t>
-                                        </t>
-                                        <t t-if="line.employee_id.marital == 'cohabitant'">
-                                            <span>معاش قانوني</span>
-                                        </t>
-                                        <t t-if="line.employee_id.marital == 'widower'">
-                                            <t t-if="line.employee_id.gender == 'male'">
-                                                <span>أرمل</span>
+                                            <t t-if="line.employee_id.marital == 'divorced'">
+                                                <t t-if="line.employee_id.gender == 'male'">
+                                                    <span>مطلّق</span>
+                                                </t>
+                                                <t t-if="line.employee_id.gender == 'female'">
+                                                    <span>مطلّقة</span>
+                                                </t>
                                             </t>
-                                            <t t-if="line.employee_id.gender == 'female'">
-                                                <span>أرملة</span>
-                                            </t>
-                                        </t>
-                                        <t t-if="line.employee_id.marital == 'divorced'">
-                                            <t t-if="line.employee_id.gender == 'male'">
-                                                <span>مطلّق</span>
-                                            </t>
-                                            <t t-if="line.employee_id.gender == 'female'">
-                                                <span>مطلّقة</span>
-                                            </t>
-                                        </t>
-                                    </td>
-                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
-                                        <span t-esc="line.employee_id.birthday"/>
-                                    </td>
-                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
-                                        <span t-esc="line.employee_id.name"/>
-                                    </td>
-                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
-                                        <t t-esc="line_count"/>
-                                    </td>
-                                    <t t-set="line_count" t-value="line_count + 1"/>
+                                        </td>
+                                        <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
+                                            <span t-esc="line.employee_id.birthday"/>
+                                        </td>
+                                        <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
+                                            <span t-esc="line.employee_id.name"/>
+                                        </td>
+                                        <td style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
+                                            <t t-esc="line_count"/>
+                                        </td>
+                                        <t t-set="line_count" t-value="line_count + 1"/>
+                                    </t>
                                 </t>
                             </tbody>
                         </t>

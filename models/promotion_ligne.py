@@ -22,6 +22,7 @@ class RHPromotionLine(models.Model):
     type_fonction_id = fields.Many2one('rh.type.fonction')
     promotion_line_file_line = fields.Binary()
     duree = fields.Integer()
+    imprimer = fields.Boolean(Default=False)
 
 
 
