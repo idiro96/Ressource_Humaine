@@ -98,7 +98,6 @@ class RHPromotion(models.Model):
         for rec1 in self:
             rec1.promotion_wizard = True
 
-        domain = []
         employee = self.env['hr.employee'].search([])
         promotion_ligne_droit = self.env['rh.promotion.line.wizard'].search([])
         for record in promotion_ligne_droit:

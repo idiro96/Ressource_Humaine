@@ -11,6 +11,8 @@ class RHAvencementDroit(models.Model):
     _rec_name = 'employee_id'
 
     employee_id = fields.Many2one('hr.employee')
+    birthday = fields.Date(related='employee_id.birthday')
+    marital = fields.Selection(related='employee_id.marital')
     type_fonction_id = fields.Many2one('rh.type.fonction')
     groupe_old_id = fields.Many2one('rh.groupe')
     categorie_old_id = fields.Many2one('rh.categorie')
@@ -28,10 +30,13 @@ class RHAvencementDroit(models.Model):
     grade_id = fields.Many2one('rh.grade')
     job_id = fields.Many2one('hr.job')
     date_old_avancement = fields.Date()
+    date_new_avancement = fields.Date()
 
     sauvegarde = fields.Boolean(Default=False)
     test = fields.Char()
     date_avancement = fields.Date()
+    duree = fields.Integer()
+    duree_lettre = fields.Selection(selection=[('inferieure', 'Inferieure'), ('moyen', 'Moyen'), ('superieure', 'Supérieure')])
     # @api.multi
     # def write(self, vals):
     #     res = super(RHAvencementDroit, self).write(vals)

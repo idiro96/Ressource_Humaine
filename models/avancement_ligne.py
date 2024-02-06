@@ -13,6 +13,8 @@ class RHAvancementLine(models.Model):
     date_ref = fields.Date()
     avancement_id = fields.Many2one('hr.avancement')
     employee_id = fields.Many2one('hr.employee')
+    birthday = fields.Date(related='employee_id.birthday')
+    marital = fields.Selection(related='employee_id.marital')
     type_fonction_id = fields.Many2one('rh.type.fonction')
     groupe_old_id = fields.Many2one('rh.groupe')
     categorie_old_id = fields.Many2one('rh.categorie')
@@ -33,6 +35,10 @@ class RHAvancementLine(models.Model):
     grade_id = fields.Many2one('rh.grade')
     job_id = fields.Many2one('hr.job')
     date_old_avancement = fields.Date()
+    date_new_avancement = fields.Date()
+    duree = fields.Integer()
+    duree_lettre = fields.Selection(
+        selection=[('inferieure', 'Inferieure'), ('moyen', 'Moyen'), ('superieure', 'Supérieure')])
 
     grade_new_id = fields.Many2one('rh.grade')
     date_new_grade = fields.Date()
