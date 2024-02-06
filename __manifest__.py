@@ -103,7 +103,7 @@
         'reports/tableau_promotion.xml',
         'reports/tableau_des_promotions.xml',
         'reports/liste_employee.xml',
-        # 'reports/fiche_renseignement.xml',
+        'reports/fiche_renseignement.xml',
 
     ],
     # only loaded in demonstration mode
