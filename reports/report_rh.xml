@@ -95,7 +95,7 @@
 
     <report
             id="action_hr_tableau_des_promotions"
-            model="rh.promotion"
+            model="rh.promotion.droit"
             string="Tableau des Promotions"
             report_type="qweb-html"
             name="ressource_humaine.tableau_des_promotions"
@@ -133,7 +133,7 @@
 
     <report
             id="action_tableau_des_promotions_xlsx"
-            model="rh.promotion"
+            model="rh.promotion.droit"
             string="جدول ترقية Excel"
             report_type="xlsx"
             name="ressource_humaine.tableau_des_promotions_xlsx"

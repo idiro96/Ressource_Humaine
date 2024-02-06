@@ -5,8 +5,8 @@ class PromotiondXLS(models.AbstractModel):
     _name = 'report.ressource_humaine.tableau_des_promotions_xlsx'
     _inherit = 'report.report_xlsx.abstract'
 
-    def generate_xlsx_report(self, workbook, data, lines):
-        promotions = self.env['rh.promotion'].search([])
+    def generate_xlsx_report(self, workbook, data, objs):
+        promotion_droit = self._get_objs_for_report(objs.ids, data)
 
         format1 = workbook.add_format(
             {'font_size': 12, 'align': 'center', 'valign': 'vcenter', 'border': 1, 'bg_color': '#D3D3D3', 'bold': True})
@@ -24,7 +24,7 @@ class PromotiondXLS(models.AbstractModel):
         sheet.right_to_left()
 
         sheet.set_row(0, 25)
-        for row_num in range(1, len(promotions) + 1):
+        for row_num in range(1, len(promotion_droit) + 1):
             sheet.set_row(row_num, 20)
 
         sheet.set_column(0, 0, 5)
@@ -56,56 +56,51 @@ class PromotiondXLS(models.AbstractModel):
         sheet.write(0, 12, 'تاريخ سريان الترقية القادمة', format1)
 
         row = 1
-        index = 1  # Initialize the index outside the loop
-
-        for promotion in promotions:
-            promotion_lines = promotion.promotion_lines
-            for line in promotion_lines:
-                if line.imprimer:
-                    sheet.write(row, 0, index, format2)
-                    sheet.write(row, 1, line.employee_id.name or '', format3)
-                    sheet.write(row, 2, line.employee_id.birthday or '', format3)
-                    if line.employee_id.marital == 'single':
-                        if line.employee_id.gender == 'male':
-                            sheet.write(row, 3, 'أعزب', format3)
-                        elif line.employee_id.gender == 'female':
-                            sheet.write(row, 3, 'عازبة', format3)
-                        else:
-                            sheet.write(row, 3, 'أعزب', format3)
-                    elif line.employee_id.marital == 'married':
-                        if line.employee_id.gender == 'male':
-                            sheet.write(row, 3, 'متزوّج', format3)
-                        elif line.employee_id.gender == 'female':
-                            sheet.write(row, 3, 'متزوّجة', format3)
-                        else:
-                            sheet.write(row, 3, 'متزوّج', format3)
-                    elif line.employee_id.marital == 'cohabitant':
-                        sheet.write(row, 3, 'معاش قانوني', format3)
-                    elif line.employee_id.marital == 'widower':
-                        if line.employee_id.gender == 'male':
-                            sheet.write(row, 3, 'أرمل', format3)
-                        elif line.employee_id.gender == 'female':
-                            sheet.write(row, 3, 'أرملة', format3)
-                        else:
-                            sheet.write(row, 3, 'أرمل', format3)
-                    elif line.employee_id.marital == 'divorced':
-                        if line.employee_id.gender == 'male':
-                            sheet.write(row, 3, 'مطلّق', format3)
-                        elif line.employee_id.gender == 'female':
-                            sheet.write(row, 3, 'مطلّقة', format3)
-                        else:
-                            sheet.write(row, 3, 'مطلّق', format3)
+        for index, line in enumerate(promotion_droit, start=1):
+            if line.sauvegarde:
+                sheet.write(row, 0, index, format2)
+                sheet.write(row, 1, line.employee_id.name or '', format3)
+                sheet.write(row, 2, line.birthday or '', format3)
+                if line.marital == 'single':
+                    if line.employee_id.gender == 'male':
+                        sheet.write(row, 3, 'أعزب', format3)
+                    elif line.employee_id.gender == 'female':
+                        sheet.write(row, 3, 'عازبة', format3)
                     else:
-                        sheet.write(row, 3, '', format3)
-                    sheet.write(row, 4, line.grade_id.intitule_grade or '', format3)
-                    sheet.write(row, 5, line.job_id.name or '', format3)
-                    sheet.write(row, 6, line.employee_id.echelon_id.intitule or '', format3)
-                    sheet.write(row, 7, line.date_grade or '', format3)
-                    sheet.write(row, 8, line.grade_new_id.intitule_grade or '', format3)
-                    sheet.write(row, 9, '', format3)
-                    sheet.write(row, 10, line.duree or '', format3)
-                    sheet.write(row, 11, '', format3)
-                    sheet.write(row, 12, line.date_new_grade or '', format3)
-                    row += 1
-                    index += 1  # Increment index only when a line is being written
+                        sheet.write(row, 3, 'أعزب', format3)
+                elif line.marital == 'married':
+                    if line.employee_id.gender == 'male':
+                        sheet.write(row, 3, 'متزوّج', format3)
+                    elif line.employee_id.gender == 'female':
+                        sheet.write(row, 3, 'متزوّجة', format3)
+                    else:
+                        sheet.write(row, 3, 'متزوّج', format3)
+                elif line.marital == 'cohabitant':
+                    sheet.write(row, 3, 'معاش قانوني', format3)
+                elif line.employee_id.marital == 'widower':
+                    if line.employee_id.gender == 'male':
+                        sheet.write(row, 3, 'أرمل', format3)
+                    elif line.employee_id.gender == 'female':
+                        sheet.write(row, 3, 'أرملة', format3)
+                    else:
+                        sheet.write(row, 3, 'أرمل', format3)
+                elif line.marital == 'divorced':
+                    if line.employee_id.gender == 'male':
+                        sheet.write(row, 3, 'مطلّق', format3)
+                    elif line.employee_id.gender == 'female':
+                        sheet.write(row, 3, 'مطلّقة', format3)
+                    else:
+                        sheet.write(row, 3, 'مطلّق', format3)
+                else:
+                    sheet.write(row, 3, '', format3)
+                sheet.write(row, 4, line.grade_id.intitule_grade or '', format3)
+                sheet.write(row, 5, line.job_id.name or '', format3)
+                sheet.write(row, 6, line.employee_id.echelon_id.intitule or '', format3)
+                sheet.write(row, 7, line.date_grade or '', format3)
+                sheet.write(row, 8, line.grade_new_id.intitule_grade or '', format3)
+                sheet.write(row, 9, '', format3)
+                sheet.write(row, 10, line.duree or '', format3)
+                sheet.write(row, 11, '', format3)
+                sheet.write(row, 12, line.date_new_grade or '', format3)
+                row += 1
 
