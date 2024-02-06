@@ -37,6 +37,8 @@ class RHAvancementLine(models.Model):
     date_old_avancement = fields.Date()
     date_new_avancement = fields.Date()
     duree = fields.Integer()
+    duree_lettre = fields.Selection(
+        selection=[('inferieure', 'Inferieure'), ('moyen', 'Moyen'), ('superieure', 'Supérieure')])
 
     grade_new_id = fields.Many2one('rh.grade')
     date_new_grade = fields.Date()

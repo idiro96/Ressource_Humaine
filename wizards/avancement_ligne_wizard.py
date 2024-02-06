@@ -41,7 +41,9 @@ class RHAvancementLine(models.TransientModel):
     grade_new_id = fields.Many2one('rh.grade')
     date_new_grade = fields.Date()
     duree = fields.Integer()
-
+    duree_lettre = fields.Selection(
+    selection=[('inferieure', 'Inferieure'), ('moyen', 'Moyen'), ('superieure', 'Supérieure')])
+    
     @api.depends('type_fonction_id')
     def _compute_auto_filled_field(self):
         for record in self:

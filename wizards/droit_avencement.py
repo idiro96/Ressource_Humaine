@@ -79,6 +79,7 @@ class RHDroitAvencement(models.TransientModel):
                                         'categorie_new_id': avance.categorie_id.id,
                                         'echelon_new_id': avance.echelon_id.id,
                                         'duree': 30,
+                                        'duree_lettre': 'superieure',
                                         'date_new_avancement': relativedelta(months=24) + fields.Date.from_string(avance.date_avancement)
                                         })
 
@@ -100,6 +101,7 @@ class RHDroitAvencement(models.TransientModel):
                                     'categorie_new_id': avance.categorie_id.id,
                                     'echelon_new_id': avance.echelon_id.id,
                                     'duree': 30,
+                                    'duree_lettre': 'superieure',
                                     'date_new_avancement': relativedelta(months=24) + fields.Date.from_string(
                                         avance.date_avancement)
                                 })
@@ -124,6 +126,7 @@ class RHDroitAvencement(models.TransientModel):
                                         'section_new_id': avance.section_id.id,
                                         'echelon_new_id': avance.echelon_id.id,
                                         'duree': 24,
+                                        'duree_lettre': 'inferieure',
                                         'date_new_avancement': relativedelta(months=24) + fields.Date.from_string(avance.date_avancement),
                                         })
                                 else:
@@ -144,6 +147,7 @@ class RHDroitAvencement(models.TransientModel):
                                     'section_new_id': avance.section_id.id,
                                     'echelon_new_id': avance.echelon_id.id,
                                     'duree': 24,
+                                    'duree_lettre': 'inferieure',
                                     'date_new_avancement': relativedelta(months=24) + fields.Date.from_string(
                                         avance.date_avancement),
                                 })

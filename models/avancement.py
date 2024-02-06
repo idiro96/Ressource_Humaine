@@ -45,6 +45,7 @@ class RHAvancement(models.Model):
                     'categorie_new_id': rec.categorie_new_id.id,
                     'echelon_new_id': rec.echelon_new_id.id,
                     'duree': rec.duree,
+                    'duree_lettre': rec.duree_lettre,
                     'date_new_avancement': rec.date_new_avancement
                     })
                     employee = self.env['hr.employee'].search(
@@ -91,6 +92,7 @@ class RHAvancement(models.Model):
                         'section_new_id': rec.section_new_id.id,
                         'echelon_new_id': rec.echelon_new_id.id,
                         'duree': rec.duree,
+                        'duree_lettre': rec.duree_lettre,
                         'date_new_avancement': rec.date_new_avancement
                     })
                     employee = self.env['hr.employee'].search(
@@ -191,6 +193,7 @@ class RHAvancement(models.Model):
                             'categorie_new_id': avance.categorie_new_id.id,
                             'echelon_new_id': avance.echelon_new_id.id,
                             'duree': avance.duree,
+                            'duree_lettre': avance.duree_lettre,
                             'date_new_avancement': avance.date_new_avancement,
 
                         })
@@ -209,6 +212,7 @@ class RHAvancement(models.Model):
                             'section_new_id': avance.section_new_id.id,
                             'echelon_new_id': avance.echelon_new_id.id,
                             'duree': avance.duree,
+                            'duree_lettre': avance.duree_lettre,
                             'date_new_avancement': avance.date_new_avancement,
 
                         })

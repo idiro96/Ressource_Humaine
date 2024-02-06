@@ -36,7 +36,7 @@ class RHAvencementDroit(models.Model):
     test = fields.Char()
     date_avancement = fields.Date()
     duree = fields.Integer()
-    # duree_lettre = fields.Selection(selection=[('inferieure', 'Inferieure'), ('moyen', 'Moyen'), ('superieure', 'Supérieure')])
+    duree_lettre = fields.Selection(selection=[('inferieure', 'Inferieure'), ('moyen', 'Moyen'), ('superieure', 'Supérieure')])
     # @api.multi
     # def write(self, vals):
     #     res = super(RHAvencementDroit, self).write(vals)
