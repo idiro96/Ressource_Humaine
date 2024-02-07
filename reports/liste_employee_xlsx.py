@@ -1,7 +1,7 @@
 from odoo import models
 
 
-class PatientCardXLS(models.AbstractModel):
+class EmployeeXLS(models.AbstractModel):
     _name = 'report.ressource_humaine.liste_employee_xlsx'
     _inherit = 'report.report_xlsx.abstract'
 

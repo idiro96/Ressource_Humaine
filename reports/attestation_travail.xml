@@ -7,12 +7,14 @@
                 <t t-call="ressource_humaine.report_header_custom"/>
                 <div class="page">
                     <strong>
-                        <div style="font-size: 20px;text-align: right;">
+                        <div style="font-size: 20px;text-align: left;">
                             <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/>
                             <span style="display: inline-block;">
                                 الجزائر في
                             </span>
-                            <span style="display: inline-block;margin-left: 400px;">
+                        </div>
+                        <div style="font-size: 20px;text-align: right;">
+                            <span>
                                 المدرسة الوطنية للإدارة
                             </span>
                         </div>
@@ -35,7 +37,7 @@
                         <div style="font-size: 20px;text-align: right;">
                             <span>
                                 رقم ................... /م.و.إ/أ.ع/م.ت.م.ب/
-                            <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
+                                <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
                             </span>
                         </div>
                     </strong>
@@ -75,17 +77,21 @@
                             </t>
                         </div>
                         <br/>
-                        <t t-esc="employee.birthday"/>
-                        <t t-if="employee.gender == 'female'">
-                            <span>
-                                :المولودة بتاريخ
-                            </span>
-                        </t>
-                        <t t-if="not employee.gender or employee.gender == 'male'">
-                            <span>
-                                :المولود بتاريخ
-                            </span>
-                        </t>
+                        <span style="font-size: 20px;text-align: right;">
+                            <t t-if="employee.gender == 'female'">
+                                <span>
+                                    :المولودة بتاريخ
+                                </span>
+                            </t>
+                            <t t-if="not employee.gender or employee.gender == 'male'">
+                                <span>
+                                    المولود بتاريخ :
+                                </span>
+                            </t>
+                            <t t-esc="formatted_date"/>
+                            في
+                            <t t-esc="employee.place_of_birth"/>
+                        </span>
                         <br/>
                         <br/>
                         <span style="display: inline-block;">
@@ -93,14 +99,28 @@
                         </span>&#160;
                         <t t-esc="employee.date_entrer"/>&#160;
                         <t t-if="employee.gender == 'female'">
-                            <span style="display: inline-block;">
-                                :ـ عاملة بمؤسستنا منذ تاريخ
-                            </span>
+                            <t t-if="employee.nature_travail_id.code_type_fonction == 'contractuel'">
+                                <span style="display: inline-block;">
+                                    :ـ عاملة بمؤسستنا منذ تاريخ
+                                </span>
+                            </t>
+                            <t t-if="not employee.nature_travail_id.code_type_fonction == 'contractuel'">
+                                <span style="display: inline-block;">
+                                    :ـ موظفة بمؤسستنا منذ تاريخ
+                                </span>
+                            </t>
                         </t>
-                        <t t-if="not employee.gender or employee.gender == 'male'">
-                            <span style="display: inline-block;">
-                                :ـ عامل بمؤسستنا منذ تاريخ
-                            </span>
+                        <t t-if="employee.gender == 'male'">
+                            <t t-if="employee.nature_travail_id.code_type_fonction == 'contractuel'">
+                                <span style="display: inline-block;">
+                                    :ـ عامل بمؤسستنا منذ تاريخ
+                                </span>
+                            </t>
+                            <t t-if="not employee.nature_travail_id.code_type_fonction == 'contractuel'">
+                                <span style="display: inline-block;">
+                                    :ـ موظف بمؤسستنا منذ تاريخ
+                                </span>
+                            </t>
                         </t>
                         <br/>
                         <br/>:
@@ -111,7 +131,7 @@
                         </t>
                         <t t-if="not employee.gender or employee.gender == 'male'">
                             <span>
-                                ـ و يمارس مها مه بصفتهي
+                                ـ و يمارس مها مه بصفته
                             </span>
                         </t>
                         <br/>

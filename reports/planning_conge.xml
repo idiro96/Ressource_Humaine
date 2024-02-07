@@ -42,7 +42,8 @@
                 <br/>
                 <div style="text-align:center;font-size: 25px">
                     <strong>
-                        الخاص بمصلحة تسيير الموارد البشرية
+                        الخاص بمصلحة
+                    <t t-esc="conge.department_id.name"/>
                     </strong>
                 </div>
             </div>
@@ -89,7 +90,7 @@
                                     <!--                                    <span t-esc="'%.2f'%(record.amount)"/>-->
                                 </td>
                                 <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
-                                    <span t-field="employee.days_off"/>
+<!--                                    <span t-field="employee.days_off"/>-->
                                 </td>
                                 <td style="font-size:18px;text-align:right;border:2px solid black;">
                                     <!--                                    <span t-esc="'%.2f'%(record.remaining_value)"/>-->

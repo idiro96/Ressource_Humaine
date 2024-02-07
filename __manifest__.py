@@ -89,7 +89,8 @@
         'wizards/commission_avancement.xml',
         'wizards/commission_promotion.xml',
         'wizards/planning_choix.xml',
-        # 'reports/reporting_print.xml',
+        'wizards/planning_conge.xml',
+        'wizards/liste_nominatife.xml',
         'reports/paper_format.xml',
         'reports/hr_contract.xml',
         'reports/attestation_travail.xml',
@@ -109,7 +110,7 @@
         'reports/liste_employee.xml',
         'reports/planning_surveillance.xml',
         'reports/liste_nominatife_employee.xml',
-        # 'reports/fiche_renseignement.xml',
+        'reports/fiche_renseignement.xml',
 
     ],
     # only loaded in demonstration mode

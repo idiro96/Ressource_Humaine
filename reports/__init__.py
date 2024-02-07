@@ -10,3 +10,5 @@ from . import liste_employee
 from . import liste_employee_xlsx
 from . import fiche_renseignement
 from . import planning_surv
+from . import tableau_des_promotions_xlsx
+

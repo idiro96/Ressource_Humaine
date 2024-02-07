@@ -41,7 +41,8 @@ class RHPromotion(models.Model):
                         'grade_id': rec.grade_id.id,
                         'date_grade': rec.date_grade,
                         'grade_new_id': rec.grade_new_id.id,
-                        'date_new_grade': rec.date_new_grade
+                        'date_new_grade': rec.date_new_grade,
+                        'duree': rec.duree,
                     })
                     employee = self.env['hr.employee'].search([('id', '=', rec.employee_id.id)])
                     grade = self.env['rh.grade'].search([('grade_id', '=', rec.grade_new_id.id)])
@@ -59,7 +60,8 @@ class RHPromotion(models.Model):
                         'grade_id': rec.grade_id.id,
                         'date_grade': rec.date_grade,
                         'grade_new_id': rec.grade_new_id.id,
-                        'date_new_grade': rec.date_new_grade
+                        'date_new_grade': rec.date_new_grade,
+                        'duree': rec.duree,
 
                     })
                     employee = self.env['rh.employee'].search([('id', '=', rec.employee_id.id)])
@@ -96,15 +98,10 @@ class RHPromotion(models.Model):
         for rec1 in self:
             rec1.promotion_wizard = True
 
-        # record1 = self.env['droit.avencement'].browse(self._context['active_id'])
-        domain = []
         employee = self.env['hr.employee'].search([])
         promotion_ligne_droit = self.env['rh.promotion.line.wizard'].search([])
         for record in promotion_ligne_droit:
             record.unlink()
-        # promotion_line = self.env['hr.employee'].search(
-        #         [('date_grade', '<=', self.date_promotion)],
-        #         order='date_grade desc')
         for rec2  in self:
             promotion_line = self.env['rh.promotion.droit'].search(
                 [('date_promotion', '=', rec2.date_promotion),('sauvegarde', '=', True)],
@@ -115,10 +112,7 @@ class RHPromotion(models.Model):
                 dateDebut_object2 = fields.Date.from_string(promo.date_promotion)
                 difference = (
                                         dateDebut_object.year - dateDebut_object2.year) * 12 + dateDebut_object.month - dateDebut_object2.month
-                print(difference)
-                print('tttttttttetste1wizardWizard')
 
-                # if difference >= 12:
                 self.env['rh.promotion.line.wizard'].create({
                             'employee_id': promo.employee_id.id,
                             'type_fonction_id': promo.type_fonction_id.id,
@@ -126,7 +120,8 @@ class RHPromotion(models.Model):
                             'grade_id': promo.grade_id.id,
                             'date_grade': promo.date_grade,
                             'grade_new_id': promo.grade_new_id.id,
-                            'date_new_grade': promo.date_promotion,
+                            'date_new_grade': promo.date_new_grade,
+                            'duree': promo.duree,
 
                         })
 
@@ -161,12 +156,13 @@ class TableauDesPromotions(models.AbstractModel):
 
     @api.model
     def get_report_values(self, docids, data=None):
-        promotions = self.env['rh.promotion'].browse(docids)
+        promotion_droit = self.env['rh.promotion.droit'].browse(docids)
+
+        promotion_droit_sauvegarde = promotion_droit.filtered(lambda r: r.sauvegarde)
 
         report_data = {
-            'promotions': promotions,
+            'promotion_droit': promotion_droit_sauvegarde,
             'company': self.env.user.company_id,
-            'promotion_lines': promotions.mapped('promotion_lines'),
         }
 
         return report_data

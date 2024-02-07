@@ -35,7 +35,7 @@
     <report
             id="report_planning_conge"
             string="Planning Conge"
-            model="hr.holidays"
+            model="planning.conge"
             report_type="qweb-html"
             name="ressource_humaine.planning_conge"
             file="ressource_humaine.planning_conge"
@@ -70,7 +70,7 @@
             id="action_hr_contract_report"
             model="hr.employee"
             string="Attestation de Travail et de Salaire"
-            report_type="qweb-html"
+            report_type="qweb-pdf"
             name="ressource_humaine.hr_contract_report"
             file="ressource_humaine.hr_contract_report"
             paperformat="ressource_humaine.paperformat_european_a4_portrait"
@@ -95,7 +95,7 @@
 
     <report
             id="action_hr_tableau_des_promotions"
-            model="rh.promotion"
+            model="rh.promotion.droit"
             string="Tableau des Promotions"
             report_type="qweb-html"
             name="ressource_humaine.tableau_des_promotions"
@@ -131,7 +131,7 @@
     />
     <report
             id="action_liste_nominatife"
-            model="hr.employee"
+            model="liste.nominatifs"
             string="                        القائمة الإسمية للموظفين و العمال المهنيين
                         و الأعوان المتعاقدين الموقوفة"
             report_type="qweb-html"
@@ -140,12 +140,21 @@
     />
 
 
-<!--    <report-->
-<!--            id="action_fiche_renseignement_report"-->
-<!--            string="Fiche de renseignement"-->
-<!--            model="hr.employee"-->
-<!--            report_type="qweb-html"-->
-<!--            name="ressource_humaine.fiche_renseignement_report"-->
-<!--            file="ressource_humaine.fiche_renseignement_report"/>-->
+    <report
+            id="action_fiche_renseignement_report"
+            string="Fiche de renseignement"
+            model="hr.employee"
+            report_type="qweb-pdf"
+            name="ressource_humaine.fiche_renseignement_report"
+            file="ressource_humaine.fiche_renseignement_report"
+            paperformat="ressource_humaine.paperformat_european_a4_portrait"/>
+
+    <report
+            id="action_tableau_des_promotions_xlsx"
+            model="rh.promotion.droit"
+            string="جدول ترقية Excel"
+            report_type="xlsx"
+            name="ressource_humaine.tableau_des_promotions_xlsx"
+            file="جدول ترقية"/>
 
 </odoo>

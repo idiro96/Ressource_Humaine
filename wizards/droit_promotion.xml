@@ -9,6 +9,7 @@
                     <group>
                         <group>
                             <field name="date_promotion"/>
+                            <field name="duree_promotion"/>
                         </group>
 
                     </group>
