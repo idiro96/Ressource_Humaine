@@ -73,58 +73,52 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
-                                    &#160;
-                                </td>
-                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
-                                    &#160;
-                                </td>
-                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
-                                    &#160;
-                                </td>
-                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
-                                    &#160;
-                                </td>
-                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
-                                    &#160;
-                                </td>
-                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
-                                    &#160;
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
-                                    &#160;
-                                </td>
-                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
-                                    &#160;
-                                </td>
-                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
-                                    &#160;
-                                </td>
-                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
-                                    &#160;
-                                </td>
-                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
-                                    &#160;
-                                </td>
-                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
-                                    &#160;
-                                </td>
-                            </tr>
+                            <t t-set="total_max1" t-value="0"/>
+                            <t t-set="total_vrai1" t-value="0"/>
+                            <t t-set="total_diff1" t-value="0"/>
+                            <t t-foreach="job_supp" t-as="line">
+                                <t t-set="total_max1" t-value="total_max1 + line.max_employee"/>
+                                <t t-set="total_vrai1" t-value="total_vrai1 + line.no_of_employee"/>
+                                <t t-set="total_diff1" t-value="total_diff1 + line.nombre_de_postes_vacants"/>
+                                <tr>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                        &#160;
+                                    </td>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                        <span t-esc="line.nombre_de_postes_vacants"/>
+                                    </td>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                        <span t-esc="line.no_of_employee"/>
+                                    </td>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                        <span t-esc="line.max_employee"/>
+                                    </td>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                        &#160;
+                                    </td>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                        <span t-esc="line.name"/>
+                                    </td>
+                                </tr>
+                            </t>
                             <tr>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
                                     &#160;
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
-                                    &#160;
+                                    <strong>
+                                        <span t-esc="total_diff1"/>
+                                    </strong>
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
-                                    &#160;
+                                    <strong>
+                                        <span t-esc="total_vrai1"/>
+                                    </strong>
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
-                                    &#160;
+                                    <strong>
+                                        <span t-esc="total_max1"/>
+                                    </strong>
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:right;font-size:15px;background-color:#D3D3D3;margin-right:15px"
                                     colspan="2">
@@ -170,58 +164,46 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
-                                    &#160;
-                                </td>
-                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
-                                    &#160;
-                                </td>
-                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
-                                    &#160;
-                                </td>
-                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
-                                    &#160;
-                                </td>
-                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
-                                    &#160;
-                                </td>
-                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
-                                    &#160;
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
-                                    &#160;
-                                </td>
-                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
-                                    &#160;
-                                </td>
-                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
-                                    &#160;
-                                </td>
-                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
-                                    &#160;
-                                </td>
-                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
-                                    &#160;
-                                </td>
-                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
-                                    &#160;
-                                </td>
-                            </tr>
+                            <t t-set="total_max2" t-value="0"/>
+                            <t t-set="total_vrai2" t-value="0"/>
+                            <t t-set="total_diff2" t-value="0"/>
+                            <t t-foreach="job_hight" t-as="line">
+                                <t t-set="total_max2" t-value="total_max2 + line.max_employee"/>
+                                <t t-set="total_vrai2" t-value="total_vrai2 + line.no_of_employee"/>
+                                <t t-set="total_diff2" t-value="total_diff2 + line.nombre_de_postes_vacants"/>
+                                <tr>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                        &#160;
+                                    </td>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                        <span t-esc="line.nombre_de_postes_vacants"/>
+                                    </td>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                        <span t-esc="line.no_of_employee"/>
+                                    </td>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                        <span t-esc="line.max_employee"/>
+                                    </td>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                        &#160;
+                                    </td>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                        <span t-esc="line.name"/>
+                                    </td>
+                                </tr>
+                            </t>
                             <tr>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
                                     &#160;
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
-                                    &#160;
+                                    <strong><span t-esc="total_diff2"/></strong>
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
-                                    &#160;
+                                    <strong><span t-esc="total_vrai2"/></strong>
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
-                                    &#160;
+                                    <strong><span t-esc="total_max2"/></strong>
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:right;font-size:15px;background-color:#D3D3D3;margin-right:15px"
                                     colspan="2">
@@ -253,13 +235,13 @@
                                     &#160;
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
-                                    &#160;
+                                    <strong><span t-esc="total_diff2"/></strong>
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
-                                    &#160;
+                                    <strong><span t-esc="total_vrai2"/></strong>
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
-                                    &#160;
+                                    <strong><span t-esc="total_max2"/></strong>
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:right;font-size:15px;background-color:#D3D3D3;margin-right:15px"
                                     colspan="2">
@@ -1080,13 +1062,13 @@
                                     &#160;
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:right;font-size:15px;;background-color:#D3D3D3;"
-                                colspan="3">
+                                    colspan="3">
                                     <strong>المجموع الجزئي</strong>
                                 </td>
                             </tr>
                             <tr>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;;background-color:#D3D3D3;"
-                                colspan="7">
+                                    colspan="7">
                                     <strong>العمال المتعاقدين بعقد محدد المدة بالتوقيت الكامل</strong>
                                 </td>
                             </tr>
@@ -1173,13 +1155,13 @@
                                     &#160;
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:right;font-size:15px;;background-color:#D3D3D3;"
-                                colspan="3">
+                                    colspan="3">
                                     <strong>المجموع الجزئي</strong>
                                 </td>
                             </tr>
                             <tr>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;;background-color:#D3D3D3;"
-                                colspan="7">
+                                    colspan="7">
                                     <strong>العمال المتعاقدين بعقد غير محدد المدة بالتوقيت الجزئي</strong>
                                 </td>
                             </tr>
@@ -1266,13 +1248,13 @@
                                     &#160;
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:right;font-size:15px;;background-color:#D3D3D3;"
-                                colspan="3">
+                                    colspan="3">
                                     <strong>المجموع الجزئي</strong>
                                 </td>
                             </tr>
                             <tr>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;;background-color:#D3D3D3;"
-                                colspan="7">
+                                    colspan="7">
                                     <strong>العمال المتعاقدين بعقد محدد المدة بالتوقيت الجزئي</strong>
                                 </td>
                             </tr>
@@ -1359,7 +1341,7 @@
                                     &#160;
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:right;font-size:15px;;background-color:#D3D3D3;"
-                                colspan="3">
+                                    colspan="3">
                                     <strong>المجموع الجزئي</strong>
                                 </td>
                             </tr>
@@ -1377,7 +1359,7 @@
                                     &#160;
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:right;font-size:15px;;background-color:#D3D3D3;"
-                                colspan="3">
+                                    colspan="3">
                                     <strong>المجموع العام للأعوان المتعاقدين</strong>
                                 </td>
                             </tr>
