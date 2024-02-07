@@ -139,7 +139,6 @@
             file="ressource_humaine.liste_nominatife_employee"
     />
 
-
     <report
             id="action_fiche_renseignement_report"
             string="Fiche de renseignement"
@@ -159,10 +158,10 @@
 
     <report
             id="action_liste_nominative"
-            string="Le statut du recensement théorique et réel"
-            model="hr.employee"
+            string="وضعية التعداد النظري و الحقيقي"
+            model="liste.nominative"
             report_type="qweb-html"
             name="ressource_humaine.liste_nominative"
-            file="ressource_humaine.liste_nominative"/>
+            file="وضعية التعداد النظري و الحقيقي"/>
 
 </odoo>
