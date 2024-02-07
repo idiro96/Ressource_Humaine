@@ -51,7 +51,7 @@ class RHDroitAvencement(models.TransientModel):
                 for avance in avancement_line:
                         avancement_ligne_droit2 = self.env['rh.avencement.droit'].search([('employee_id', '=', avance.id),('date_avancement', '=', self.date_avancement)])
                         avancement_ligne_droit3 = self.env['rh.avencement.droit'].search(
-                            [('employee_id', '=', avance.id), ('sauvegarde', '=', True), ], order='date_avancement DESC', limit=1)
+                            [('employee_id', '=', avance.id), ('sauvegarde', '=', True), ('retenue', '=', True)], order='date_avancement DESC', limit=1)
                         if not avancement_ligne_droit2:
                             dateDebut_object = fields.Date.from_string(self.date_avancement)
                             dateDebut_object2 = fields.Date.from_string(avance.date_avancement)

@@ -22,6 +22,7 @@ class RHPromotionDroit(models.Model):
     duree = fields.Integer()
 
     sauvegarde = fields.Boolean(Default=False)
+    retenue = fields.Boolean(Default=False)
 
     test = fields.Char()
 

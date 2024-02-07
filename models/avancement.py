@@ -166,7 +166,7 @@ class RHAvancement(models.Model):
             record.unlink()
         for rec2  in self:
             avancement_line = self.env['rh.avencement.droit'].search(
-                [('date_avancement', '=', rec2.date_avancement),('sauvegarde', '=', True)],
+                [('date_avancement', '=', rec2.date_avancement),('sauvegarde', '=', True),('retenue', '=', True)],
                 order='date_avancement desc')
         if avancement_line:
              for avance in avancement_line:

@@ -16,7 +16,7 @@ class RHDroitPromotion(models.TransientModel):
     code = fields.Char()
     duree_promotion = fields.Selection([('5', '5'),
                               ('7', '7'),('10', '10'),],
-                             readonly=False, default='5 ans')
+                             readonly=False)
     boul = fields.Boolean(default=False)
 
     # @api.constrains
@@ -46,7 +46,7 @@ class RHDroitPromotion(models.TransientModel):
                     promotion_ligne_droit2 = self.env['rh.promotion.droit'].search(
                         [('employee_id', '=', promo.id), ('date_promotion', '=', self.date_promotion)])
                     promotion_ligne_droit3 = self.env['rh.promotion.droit'].search(
-                        [('employee_id', '=', promo.id), ('sauvegarde', '=', True),],order='date_grade DESC', limit=1)
+                        [('employee_id', '=', promo.id), ('sauvegarde', '=', True),('retenue', '=', True)],order='date_grade DESC', limit=1)
                     if not promotion_ligne_droit2:
                         dateDebut_object = fields.Date.from_string(self.date_promotion)
                         dateDebut_object2 = fields.Date.from_string(promo.date_grade)

@@ -14,7 +14,8 @@
                 <field name="duree" readonly="1"/>
                 <field name="date_new_grade" readonly="1"/>
                 <field name="date_promotion" readonly="1"/>
-                <field name="sauvegarde"/>
+                <field name="sauvegarde" widget="toggle_button"/>
+                <field name="retenue" widget="toggle_button"/>
             </tree>
         </field>
 
