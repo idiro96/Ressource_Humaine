@@ -7,7 +7,7 @@
             <field name="arch" type="xml">
                 <form>
                       <group>
-                            <field name="boul" string="قائمة الاستحفاقات بدون تحديث"/>
+                            <field name="boul" string="قائمة الاستحقاقات بدون تحديث"/>
                         </group>
 
                     <footer>

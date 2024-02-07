@@ -95,6 +95,8 @@ class HrEmployeInherited(models.Model):
     date_ref = fields.Date()
     formation_file_lines = fields.One2many('rh.file', 'formation_id')
     address_perso = fields.Text()
+    planning_choix_id = fields.Many2one('ressource_humaine.choisir.planning')
+    emphy_id = fields.Many2one('rh.emphy')
 
 
     @api.constrains('jour_sup')

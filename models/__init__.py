@@ -51,5 +51,9 @@ from . import promotion_droit
 from . import avancement_commission_line
 from . import promotion_commission_line
 from . import company
+from . import emphy
+from . import planning_surveillance
+from . import planning_surveillance_line
+
 
 

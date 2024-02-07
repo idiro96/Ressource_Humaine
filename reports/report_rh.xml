@@ -121,6 +121,24 @@
             name="ressource_humaine.liste_employee_xlsx"
             file="العمال و الموظفين"
     />
+    <report
+            id="action_planning_surveillance"
+            model="rh.planning"
+            string="جدول المراقبة"
+            report_type="qweb-html"
+            name="ressource_humaine.planning_surveillance_report"
+            file="ressource_humaine.planning_surveillance_report"
+    />
+    <report
+            id="action_liste_nominatife"
+            model="liste.nominatifs"
+            string="                        القائمة الإسمية للموظفين و العمال المهنيين
+                        و الأعوان المتعاقدين الموقوفة"
+            report_type="qweb-html"
+            name="ressource_humaine.liste_nominatife_employee"
+            file="ressource_humaine.liste_nominatife_employee"
+    />
+
 
     <report
             id="action_fiche_renseignement_report"

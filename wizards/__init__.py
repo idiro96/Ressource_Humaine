@@ -10,7 +10,9 @@ from . import droit_avencement
 from . import droit_promotion
 from . import commission_avancement
 from . import commission_promotion
+from . import planning_choix
 from . import planning_conge
+from . import liste_nominatifs
 
 
 

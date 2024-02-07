@@ -33,6 +33,7 @@ class RHAvencementDroit(models.Model):
     date_new_avancement = fields.Date()
 
     sauvegarde = fields.Boolean(Default=False)
+    retenue = fields.Boolean(Default=False)
     test = fields.Char()
     date_avancement = fields.Date()
     duree = fields.Integer()

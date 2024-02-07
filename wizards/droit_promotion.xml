@@ -11,6 +11,9 @@
                             <field name="date_promotion"/>
                             <field name="duree_promotion"/>
                         </group>
+                        <group>
+                            <field name="boul" string="كامل قائمة الاستحقاقات"/>
+                        </group>
 
                     </group>
                     <footer>

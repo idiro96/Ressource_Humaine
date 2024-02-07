@@ -18,7 +18,9 @@
                 <field name="duree" readonly="1"/>
                 <field name="duree_lettre" readonly="1"/>
                 <field name="date_new_avancement" readonly="1"/>
-                <field name="sauvegarde"/>
+                <field name="date_avancement" readonly="1"/>
+                <field name="sauvegarde" widget="toggle_button"/>
+                <field name="retenue" widget="toggle_button"/>
             </tree>
         </field>
 
