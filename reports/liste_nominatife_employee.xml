@@ -51,10 +51,10 @@
                 <br/>
                 <center>
                     <div style="text-align:center;font-size: 40px;border:1px solid black;padding:10px; width:400px;">
-                    <strong>
-                        الوظائف العليا
-                    </strong>
-                </div>
+                        <strong>
+                            الوظائف العليا
+                        </strong>
+                    </div>
                 </center>
 
                 <div style="text-align: right;font-size:23px;">
@@ -117,38 +117,38 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!--                            <tr t-foreach="planning_surveillance_line" t-as="line">-->
-                            <tr>
-                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                    <!--                                        <span t-field="line.employee_id"/>-->
-                                </td>
-                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                    <!--                                        <span t-esc="'%.2f'%(record.depreciated_value)"/>-->
-                                </td>
-                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
-                                    <!--                                        <span t-esc="line.emphy_id.intitule_emphy"/>-->
-                                </td>
-                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                    <!--                                        <span t-field="line.employee_id"/>-->
-                                </td>
-                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                    <!--                                        <span t-esc="'%.2f'%(record.depreciated_value)"/>-->
-                                </td>
-                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
-                                    <!--                                        <span t-esc="line.emphy_id.intitule_emphy"/>-->
-                                </td>
-                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                    <!--                                        <span t-field="line.employee_id"/>-->
-                                </td>
-                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                    <!--                                        <span t-esc="'%.2f'%(record.depreciated_value)"/>-->
-                                </td>
-                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
-                                    <!--                                        <span t-esc="line.emphy_id.intitule_emphy"/>-->
-                                </td>
-                            </tr>
+                            <tr t-foreach="employees" t-as="record">
+                                <tr>
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
+                                        <!--                                                                            <span t-field="line.employee_id"/>-->
+                                    </td>
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
+                                        <!--                                        <span t-esc="'%.2f'%(record.depreciated_value)"/>-->
+                                    </td>
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
+                                        <!--                                        <span t-esc="line.emphy_id.intitule_emphy"/>-->
+                                    </td>
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
+                                        <!--                                        <span t-field="line.employee_id"/>-->
+                                    </td>
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
+                                        <!--                                        <span t-esc="'%.2f'%(record.depreciated_value)"/>-->
+                                    </td>
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
+                                        <!--                                        <span t-esc="line.emphy_id.intitule_emphy"/>-->
+                                    </td>
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
+                                        <!--                                        <span t-field="line.employee_id"/>-->
+                                    </td>
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
+<!--                                        <span t-esc="record.name"/>-->
+                                    </td>
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
+                                        <!--                                        <span t-esc="line.emphy_id.intitule_emphy"/>-->
+                                    </td>
+                                </tr>
 
-                            <!--                            </tr>-->
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -157,10 +157,10 @@
                 <br/>
                 <center>
                     <div style="text-align:center;font-size: 40px;border:1px solid black;padding:10px; width:400px;">
-                    <strong>
-                        المناصب العليا
-                    </strong>
-                </div>
+                        <strong>
+                            المناصب العليا
+                        </strong>
+                    </div>
                 </center>
                 <div style="text-align: right;font-size:23px;">
                     <span>
@@ -263,10 +263,10 @@
                 <br/>
                 <center>
                     <div style="text-align:center;font-size: 40px;border:1px solid black;padding:10px; width:400px;">
-                    <strong>
-                        الأساتذة
-                    </strong>
-                </div>
+                        <strong>
+                            الأساتذة
+                        </strong>
+                    </div>
                 </center>
                 <div style="text-align: right;font-size:23px;">
                     <span>
@@ -274,7 +274,7 @@
                     </span>
                     <br/>
                     <span>
-                        : الصنف :  قسم فرعي
+                        : الصنف : قسم فرعي
 
                     </span>
                     <br/>
@@ -368,10 +368,10 @@
                 <br/>
                 <center>
                     <div style="text-align:center;font-size: 40px;border:1px solid black;padding:10px; width:400px;">
-                    <strong>
-                        الأعوان المتعاقدين بالتوقيت الكامل  (عقد غير محدد المدة)
-                    </strong>
-                </div>
+                        <strong>
+                            الأعوان المتعاقدين بالتوقيت الكامل (عقد غير محدد المدة)
+                        </strong>
+                    </div>
                 </center>
                 <div style="text-align: right;font-size:23px;">
                     <span>
@@ -473,10 +473,10 @@
                 <br/>
                 <center>
                     <div style="text-align:center;font-size: 40px;border:1px solid black;padding:10px; width:400px;">
-                    <strong>
-                        القائمة الإسمية للوضعيات القانونية (حالات الإستيداع)
-                    </strong>
-                </div>
+                        <strong>
+                            القائمة الإسمية للوضعيات القانونية (حالات الإستيداع)
+                        </strong>
+                    </div>
                 </center>
 
                 <div style="text-align: right;font-size:23px;">
@@ -579,10 +579,10 @@
                 <br/>
                 <center>
                     <div style="text-align:center;font-size: 40px;border:1px solid black;padding:10px; width:400px;">
-                    <strong>
-                        القائمة الإسمية للوضعيات القانونية (حالات الإنتداب)
-                    </strong>
-                </div>
+                        <strong>
+                            القائمة الإسمية للوضعيات القانونية (حالات الإنتداب)
+                        </strong>
+                    </div>
                 </center>
                 <div style="text-align: right;font-size:23px;">
                     <span>
