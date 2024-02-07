@@ -139,4 +139,12 @@
             name="ressource_humaine.tableau_des_promotions_xlsx"
             file="جدول ترقية"/>
 
+    <report
+            id="action_liste_nominative"
+            string="Le statut du recensement théorique et réel"
+            model="hr.employee"
+            report_type="qweb-html"
+            name="ressource_humaine.liste_nominative"
+            file="ressource_humaine.liste_nominative"/>
+
 </odoo>

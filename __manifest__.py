@@ -104,6 +104,7 @@
         'reports/tableau_des_promotions.xml',
         'reports/liste_employee.xml',
         'reports/fiche_renseignement.xml',
+        'reports/liste_nominative.xml',
 
     ],
     # only loaded in demonstration mode

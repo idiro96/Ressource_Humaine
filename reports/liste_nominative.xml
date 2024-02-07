@@ -5,8 +5,6 @@
             <t t-call="ressource_humaine.report_header_custom"/>
             <div class="page">
                 <div class="row">
-                    <br/>
-                    <br/>
                     <strong>
                         <div style="font-size: 20px;text-align: right;">
                             <span style="display: inline-block;margin-left: 400px;">
@@ -33,15 +31,1359 @@
                 </div>
                 <br/>
                 <br/>
-                <div style="text-align:center;font-size: 30px">
+                <div style="text-align:center;font-size: 25px">
                     <strong>
+                        وضعية التعداد النظري و الحقيقي الموقوف إلى غاية
                         <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
-                        القائمة الإسمية للموظفين و العمال المهنيين
-                        و الأعوان المتعاقدينالموقوفة
-                        إلى غاية
                     </strong>
                 </div>
                 <br/>
+                <br/>
+                <div style="text-align:center;">
+                    <strong>
+                        <span style="border: 1px solid black; display: inline-block; padding: 5px; border-radius: 10px;font-size:20px">
+                            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;الوظائف العليا&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                        </span>
+                    </strong>
+                </div>
+                <br/>
+                <br/>
+                <div class="row" style="margin:0;">
+                    <table style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الملاحظات
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الشاغر
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الحقيقي
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    النظري
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الصنف/القسم/المستوى
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الوظائف العليا
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:right;font-size:15px;background-color:#D3D3D3;margin-right:15px"
+                                    colspan="2">
+                                    <strong>(1)المجموع الجزئي</strong>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br/>
+                <br/>
+                <div style="text-align:center;">
+                    <strong>
+                        <span style="border: 1px solid black; display: inline-block; padding: 5px; border-radius: 10px;font-size:20px">
+                            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;المناصب العليا ذات الطابع الهيكلي&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                        </span>
+                    </strong>
+                </div>
+                <br/>
+                <br/>
+                <div class="row" style="margin:10;">
+                    <table style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الملاحظات
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الشاغر
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الحقيقي
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    النظري
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الصنف/القسم/المستوى
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    المناصب العليا
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:right;font-size:15px;background-color:#D3D3D3;margin-right:15px"
+                                    colspan="2">
+                                    <strong>(2)المجموع الجزئي</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:right;font-size:15px;background-color:#D3D3D3;margin-right:15px"
+                                    colspan="2">
+                                    <strong>المجموع العام للمناصب العليا</strong>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br/>
+                <br/>
+                <div style="text-align:center;">
+                    <strong>
+                        <span style="border: 1px solid black; display: inline-block; padding: 5px; border-radius: 10px;font-size:20px">
+                            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; المناصب العليا ذات الطابع الوظيفي&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                        </span>
+                    </strong>
+                </div>
+                <br/>
+                <br/>
+                <div class="row" style="margin:0;">
+                    <table style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الملاحظات
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الشاغر
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الحقيقي
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    النظري
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الصنف/القسم/المستوى
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    منصب عمل
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:right;font-size:15px;background-color:#D3D3D3;margin-right:15px"
+                                    colspan="2">
+                                    <strong>مجموع المناصب العليا الوظيفة للعمال المهنيين</strong>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br/>
+                <br/>
+                <div style="text-align:center;">
+                    <strong>
+                        <span style="border: 1px solid black; display: inline-block; padding: 5px; border-radius: 10px;font-size:20px">
+                            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;سلك الأساتذة&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                        </span>
+                    </strong>
+                </div>
+                <br/>
+                <br/>
+                <div class="row" style="margin:0;">
+                    <table style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الملاحظات
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الشاغر
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الحقيقي
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    النظري
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الصنف/القسم/المستوى
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الرتبة
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:right;font-size:15px;background-color:#D3D3D3;margin-right:15px"
+                                    colspan="2">
+                                    <strong>(3)المجموع الجزئي</strong>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br/>
+                <br/>
+                <div style="text-align:center;">
+                    <strong>
+                        <span style="border: 1px solid black; display: inline-block; padding: 5px; border-radius: 10px;font-size:20px">
+                            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;موظفو التأطير&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                        </span>
+                    </strong>
+                </div>
+                <br/>
+                <br/>
+                <div class="row" style="margin:0;">
+                    <table style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الملاحظات
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الشاغر
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الحقيقي
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    النظري
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الصنف/القسم/المستوى
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الرتبة
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:right;font-size:15px;background-color:#D3D3D3;margin-right:15px"
+                                    colspan="2">
+                                    <strong>(4)المجموع الجزئي</strong>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br/>
+                <br/>
+                <div style="text-align:center;">
+                    <strong>
+                        <span style="border: 1px solid black; display: inline-block; padding: 5px; border-radius: 10px;font-size:20px">
+                            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;موظفو التطبيق&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                        </span>
+                    </strong>
+                </div>
+                <br/>
+                <br/>
+                <div class="row" style="margin:0;">
+                    <table style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الملاحظات
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الشاغر
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الحقيقي
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    النظري
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الصنف/القسم/المستوى
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الرتبة
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:right;font-size:15px;background-color:#D3D3D3;margin-right:15px"
+                                    colspan="2">
+                                    <strong>(5)المجموع الجزئي</strong>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br/>
+                <br/>
+                <div style="text-align:center;">
+                    <strong>
+                        <span style="border: 1px solid black; display: inline-block; padding: 5px; border-radius: 10px;font-size:20px">
+                            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;موظفو التحكم&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                        </span>
+                    </strong>
+                </div>
+                <br/>
+                <br/>
+                <div class="row" style="margin:0;">
+                    <table style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الملاحظات
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الشاغر
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الحقيقي
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    النظري
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الصنف/القسم/المستوى
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الرتبة
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:right;font-size:15px;background-color:#D3D3D3;margin-right:15px"
+                                    colspan="2">
+                                    <strong>(6)المجموع الجزئي</strong>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br/>
+                <br/>
+                <div style="text-align:center;">
+                    <strong>
+                        <span style="border: 1px solid black; display: inline-block; padding: 5px; border-radius: 10px;font-size:20px">
+                            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;موظفو التنفيذ&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                        </span>
+                    </strong>
+                </div>
+                <br/>
+                <br/>
+                <div style="text-align:right;">
+                    <strong>
+                        <span style="border-bottom: 1px double;">
+                            الرتب الإدارية
+                        </span>
+                    </strong>
+                </div>
+                <br/>
+                <br/>
+                <div class="row" style="margin:0;">
+                    <table style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الملاحظات
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الشاغر
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الحقيقي
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    النظري
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الصنف/القسم/المستوى
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الرتبة
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:right;font-size:15px;background-color:#D3D3D3;margin-right:15px"
+                                    colspan="2">
+                                    <strong>(7)المجموع الجزئي</strong>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br/>
+                <br/>
+                <div style="text-align:right;">
+                    <strong>
+                        <span style="border-bottom: 1px double;">
+                            العمال المهنيين
+                        </span>
+                    </strong>
+                </div>
+                <br/>
+                <br/>
+                <div class="row" style="margin:0;">
+                    <table style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الملاحظات
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الشاغر
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الحقيقي
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    النظري
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الصنف/القسم/المستوى
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الرتبة
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:right;font-size:15px;background-color:#D3D3D3;margin-right:15px"
+                                    colspan="2">
+                                    <strong>(8)المجموع الجزئي</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:right;font-size:15px;background-color:#D3D3D3;margin-right:15px"
+                                    colspan="2">
+                                    <strong>المجموع العام</strong>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br/>
+                <br/>
+                <div style="text-align:center;">
+                    <strong>
+                        <span style="border: 1px solid black; display: inline-block; padding: 5px; border-radius: 10px;font-size:20px">
+                            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;الأعوان المتعاقدين&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                        </span>
+                    </strong>
+                </div>
+                <br/>
+                <br/>
+                <div class="row" style="margin:0;">
+                    <table style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;"
+                                    colspan="7">
+                                    العمال المتعاقدين بعقد غير محدد المدة بالتوقيت الكامل
+                                </th>
+                            </tr>
+                            <tr>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الملاحظات
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الشاغر
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الحقيقي
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    النظري
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الرقم الإستدلالي
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الصنف
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    الرتبة
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:right;font-size:15px;;background-color:#D3D3D3;"
+                                colspan="3">
+                                    <strong>المجموع الجزئي</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;;background-color:#D3D3D3;"
+                                colspan="7">
+                                    <strong>العمال المتعاقدين بعقد محدد المدة بالتوقيت الكامل</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    <strong>الملاحظات</strong>
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    <strong>الشاغر</strong>
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    <strong>الحقيقي</strong>
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    <strong>النظري</strong>
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    <strong>الرقم الإستدلالي</strong>
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    <strong>الصنف</strong>
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    <strong>الرتبة</strong>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:right;font-size:15px;;background-color:#D3D3D3;"
+                                colspan="3">
+                                    <strong>المجموع الجزئي</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;;background-color:#D3D3D3;"
+                                colspan="7">
+                                    <strong>العمال المتعاقدين بعقد غير محدد المدة بالتوقيت الجزئي</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    <strong>الملاحظات</strong>
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    <strong>الشاغر</strong>
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    <strong>الحقيقي</strong>
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    <strong>النظري</strong>
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    <strong>الرقم الإستدلالي</strong>
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    <strong>الصنف</strong>
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    <strong>الرتبة</strong>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:right;font-size:15px;;background-color:#D3D3D3;"
+                                colspan="3">
+                                    <strong>المجموع الجزئي</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;;background-color:#D3D3D3;"
+                                colspan="7">
+                                    <strong>العمال المتعاقدين بعقد محدد المدة بالتوقيت الجزئي</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    <strong>الملاحظات</strong>
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    <strong>الشاغر</strong>
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    <strong>الحقيقي</strong>
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    <strong>النظري</strong>
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    <strong>الرقم الإستدلالي</strong>
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    <strong>الصنف</strong>
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:15px;">
+                                    <strong>الرتبة</strong>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:right;font-size:15px;;background-color:#D3D3D3;"
+                                colspan="3">
+                                    <strong>المجموع الجزئي</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:15px;;background-color:#D3D3D3;">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:right;font-size:15px;;background-color:#D3D3D3;"
+                                colspan="3">
+                                    <strong>المجموع العام للأعوان المتعاقدين</strong>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </t>
     </template>
