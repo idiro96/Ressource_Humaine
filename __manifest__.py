@@ -92,6 +92,7 @@
         'wizards/planning_choix.xml',
         'wizards/planning_conge.xml',
         'wizards/liste_nominatife.xml',
+        'wizards/liste_nominative.xml',
         'reports/paper_format.xml',
         'reports/hr_contract.xml',
         'reports/attestation_travail.xml',
@@ -112,6 +113,7 @@
         'reports/planning_surveillance.xml',
         'reports/liste_nominatife_employee.xml',
         'reports/fiche_renseignement.xml',
+        'reports/liste_nominative.xml',
 
     ],
     # only loaded in demonstration mode
