@@ -18,13 +18,16 @@ class PlanningCongeReport(models.AbstractModel):
     @api.model
     def get_report_values(self, docids, data=None):
         # conge = self.env['planning.conge'].browse(docids[0])
+        employee_sup = self.env['hr.employee'].search([('nature_travail_id.code_type_fonction', '=', 'postesuperieure')])
+        employee_post_sup = self.env['hr.employee'].search([('nature_travail_id.code_type_fonction', '=', 'fonctionsuperieure')])
 
         employees = self.env['hr.employee'].browse(docids[0])
 
         report_data = {
             # 'conge': conge,
             'company': self.env.user.company_id,
-            'employees': employees,
+            'employee_sup': employee_sup,
+            'employee_post_sup': employee_post_sup[0],
         }
 
         return report_data

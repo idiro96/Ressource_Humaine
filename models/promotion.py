@@ -104,7 +104,7 @@ class RHPromotion(models.Model):
             record.unlink()
         for rec2  in self:
             promotion_line = self.env['rh.promotion.droit'].search(
-                [('date_promotion', '=', rec2.date_promotion),('sauvegarde', '=', True)],
+                [('date_promotion', '=', rec2.date_promotion),('sauvegarde', '=', True),('retenue', '=', True)],
                 order='date_promotion desc')
         if promotion_line:
             for promo in promotion_line:

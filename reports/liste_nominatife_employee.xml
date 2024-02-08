@@ -40,7 +40,7 @@
                 </div>
                 <br/>
                 <br/>
-                <div style="text-align:center;font-size: 40px">
+                <div style="text-align:center;font-size: 25px">
                     <strong>
                         القائمة الإسمية للموظفين و العمال المهنيين
                         و الأعوان المتعاقدين الموقوفة
@@ -49,34 +49,40 @@
                 </div>
                 <br/>
                 <br/>
-                <center>
-                    <div style="text-align:center;font-size: 40px;border:1px solid black;padding:10px; width:400px;">
-                        <strong>
-                            الوظائف العليا
-                        </strong>
-                    </div>
-                </center>
-
+                <div style="text-align:center;">
+                    <strong>
+                        <span style="border: 1px solid black; display: inline-block; padding: 5px; border-radius: 10px;font-size:20px">
+                            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;الوظائف العليا&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                        </span>
+                    </strong>
+                </div>
                 <div style="text-align: right;font-size:23px;">
                     <span>
-                        : الوظيفة العليا
+                         الوظيفة العليا
+                        :<span t-esc="employee_sup.job_id.name"/>
                     </span>
                     <br/>
                     <span>
-                        : الصنف : القسم
+                        <span t-esc="employee_sup.categorie_superieure_id.intitule"/>
+                        : الصنف
+                        <span t-esc="employee_sup.section_superieure_id.intitule"/>
+                        : القسم
 
                     </span>
                     <br/>
                     <span>
+                        <span t-esc="employee_sup.job_id.max_employee"/>
                         : عدد المناصب المالية
 
                     </span>
                     <br/>
                     <span>
+                        <span t-esc="employee_sup.job_id.no_of_employee"/>
                         : عدد المناصب الحقيقة
                     </span>
                     <br/>
                     <span>
+                        <span t-esc="employee_sup.job_id.nombre_de_postes_vacants"/>
                         : عدد المناصب الشاغرة
                     </span>
                     <br/>
@@ -117,7 +123,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr t-foreach="employees" t-as="record">
+                            <tr t-foreach="employee_sup" t-as="line">
                                 <tr>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
                                         <!--                                                                            <span t-field="line.employee_id"/>-->
@@ -129,19 +135,19 @@
                                         <!--                                        <span t-esc="line.emphy_id.intitule_emphy"/>-->
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                        <!--                                        <span t-field="line.employee_id"/>-->
+                                        <span t-field="line.date_grade"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                        <!--                                        <span t-esc="'%.2f'%(record.depreciated_value)"/>-->
+                                        <span t-esc="line.grade_id.intitule_grade"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
-                                        <!--                                        <span t-esc="line.emphy_id.intitule_emphy"/>-->
+                                        <span t-esc="line.date_entrer"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                        <!--                                        <span t-field="line.employee_id"/>-->
+                                        <span t-field="line.birthday"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-<!--                                        <span t-esc="record.name"/>-->
+                                        <span t-esc="line.name"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
                                         <!--                                        <span t-esc="line.emphy_id.intitule_emphy"/>-->
@@ -155,33 +161,37 @@
                 <br/>
                 <br/>
                 <br/>
-                <center>
-                    <div style="text-align:center;font-size: 40px;border:1px solid black;padding:10px; width:400px;">
-                        <strong>
-                            المناصب العليا
-                        </strong>
-                    </div>
-                </center>
+                <div style="text-align:center;">
+                    <strong>
+                        <span style="border: 1px solid black; display: inline-block; padding: 5px; border-radius: 10px;font-size:20px">
+                            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;المناصب العليا&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                        </span>
+                    </strong>
+                </div>
                 <div style="text-align: right;font-size:23px;">
                     <span>
+                        <span t-esc="employee_post_sup.job_id.name" />
                         : المنصب
                     </span>
                     <br/>
-                    <span>
-                        : الصنف : القسم
-
-                    </span>
+                        <span t-esc="employee_sup.categorie_superieure_id.intitule"/>
+                        : الصنف
+                        <span t-esc="employee_sup.section_superieure_id.intitule"/>
+                        : القسم
                     <br/>
                     <span>
+                        <span t-esc="employee_sup.job_id.max_employee"/>
                         : عدد المناصب المالية
 
                     </span>
                     <br/>
                     <span>
+                        <span t-esc="employee_sup.job_id.no_of_employee"/>
                         : عدد المناصب الحقيقة
                     </span>
                     <br/>
                     <span>
+                        <span t-esc="employee_sup.job_id.nombre_de_postes_vacants"/>
                         : عدد المناصب الشاغرة
                     </span>
                     <br/>
@@ -222,7 +232,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!--                            <tr t-foreach="planning_surveillance_line" t-as="line">-->
+                            <tr t-foreach="employee_post_sup" t-as="line">
                             <tr>
                                 <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
                                     <!--                                        <span t-field="line.employee_id"/>-->
@@ -235,39 +245,39 @@
                                 </td>
 
                                 <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                    <!--                                        <span t-field="line.employee_id"/>-->
+                                    <span t-field="line.date_grade"/>
                                 </td>
                                 <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                    <!--                                        <span t-esc="'%.2f'%(record.depreciated_value)"/>-->
+                                    <span t-esc="line.grade_id.intitule_grade"/>
                                 </td>
                                 <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
-                                    <!--                                        <span t-esc="line.emphy_id.intitule_emphy"/>-->
+                                    <span t-esc="line.date_entrer"/>
                                 </td>
                                 <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                    <!--                                        <span t-field="line.employee_id"/>-->
+                                    <span t-field="line.birthday"/>
                                 </td>
                                 <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                    <!--                                        <span t-esc="'%.2f'%(record.depreciated_value)"/>-->
+                                    <span t-esc="line.name"/>
                                 </td>
                                 <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
                                     <!--                                        <span t-esc="line.emphy_id.intitule_emphy"/>-->
                                 </td>
                             </tr>
 
-                            <!--                            </tr>-->
+                            </tr>
                         </tbody>
                     </table>
                 </div>
                 <br/>
                 <br/>
                 <br/>
-                <center>
-                    <div style="text-align:center;font-size: 40px;border:1px solid black;padding:10px; width:400px;">
-                        <strong>
-                            الأساتذة
-                        </strong>
-                    </div>
-                </center>
+                <div style="text-align:center;">
+                    <strong>
+                        <span style="border: 1px solid black; display: inline-block; padding: 5px; border-radius: 10px;font-size:20px">
+                            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;الأساتذة&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                        </span>
+                    </strong>
+                </div>
                 <div style="text-align: right;font-size:23px;">
                     <span>
                         : الرتبة
@@ -366,13 +376,13 @@
                 <br/>
                 <br/>
                 <br/>
-                <center>
-                    <div style="text-align:center;font-size: 40px;border:1px solid black;padding:10px; width:400px;">
-                        <strong>
-                            الأعوان المتعاقدين بالتوقيت الكامل (عقد غير محدد المدة)
-                        </strong>
-                    </div>
-                </center>
+                <div style="text-align:center;">
+                    <strong>
+                        <span style="border: 1px solid black; display: inline-block; padding: 5px; border-radius: 10px;font-size:20px">
+                            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;الأعوان المتعاقدين بالتوقيت الكامل (عقد غير محدد المدة)&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                        </span>
+                    </strong>
+                </div>
                 <div style="text-align: right;font-size:23px;">
                     <span>
                         : المنصب
@@ -471,14 +481,13 @@
                 <br/>
                 <br/>
                 <br/>
-                <center>
-                    <div style="text-align:center;font-size: 40px;border:1px solid black;padding:10px; width:400px;">
-                        <strong>
-                            القائمة الإسمية للوضعيات القانونية (حالات الإستيداع)
-                        </strong>
-                    </div>
-                </center>
-
+                <div style="text-align:center;">
+                    <strong>
+                        <span style="border: 1px solid black; display: inline-block; padding: 5px; border-radius: 10px;font-size:20px">
+                            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;القائمة الإسمية للوضعيات القانونية (حالات الإستيداع)&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                        </span>
+                    </strong>
+                </div>
                 <div style="text-align: right;font-size:23px;">
                     <span>
                         : الوظيفة العليا
@@ -577,13 +586,13 @@
                 <br/>
                 <br/>
                 <br/>
-                <center>
-                    <div style="text-align:center;font-size: 40px;border:1px solid black;padding:10px; width:400px;">
-                        <strong>
-                            القائمة الإسمية للوضعيات القانونية (حالات الإنتداب)
-                        </strong>
-                    </div>
-                </center>
+                <div style="text-align:center;">
+                    <strong>
+                        <span style="border: 1px solid black; display: inline-block; padding: 5px; border-radius: 10px;font-size:20px">
+                            &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;القائمة الإسمية للوضعيات القانونية (حالات الإنتداب)&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                        </span>
+                    </strong>
+                </div>
                 <div style="text-align: right;font-size:23px;">
                     <span>
                         : الوظيفة العليا

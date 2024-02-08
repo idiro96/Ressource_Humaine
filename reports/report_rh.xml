@@ -139,7 +139,6 @@
             file="ressource_humaine.liste_nominatife_employee"
     />
 
-
     <report
             id="action_fiche_renseignement_report"
             string="Fiche de renseignement"
@@ -156,5 +155,13 @@
             report_type="xlsx"
             name="ressource_humaine.tableau_des_promotions_xlsx"
             file="جدول ترقية"/>
+
+    <report
+            id="action_liste_nominative"
+            string="وضعية التعداد النظري و الحقيقي"
+            model="liste.nominative"
+            report_type="qweb-html"
+            name="ressource_humaine.liste_nominative"
+            file="وضعية التعداد النظري و الحقيقي"/>
 
 </odoo>

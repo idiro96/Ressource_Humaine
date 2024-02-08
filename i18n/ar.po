@@ -5229,6 +5229,12 @@ msgstr "التاريخ من"
 msgid "Date Grade"
 msgstr "تاريخ التعيين في الرتبة السابقة"
 
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_date_grade
+msgid "Date Grade"
+msgstr "تاريخ التعيين في الرتبة "
+
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_date_job_id
 msgid "Date Job"
