@@ -75,6 +75,7 @@
         'views/filiere.xml',
         'views/corps.xml',
         'views/grade.xml',
+        'views/fiche_evaluation.xml',
         'views/avancement.xml',
         'views/avencement_droit.xml',
         'views/promotion_droit.xml',

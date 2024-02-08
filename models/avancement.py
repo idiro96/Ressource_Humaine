@@ -51,7 +51,7 @@ class RHAvancement(models.Model):
                     employee = self.env['hr.employee'].search(
                     [('id', '=', rec.employee_id.id)])
                     employee.write({
-                        'date_avancement': avancement.date_avancement,
+                        'date_avancement': avancement.date_new_avancement,
                     })
                     employee.write({
                         'groupe_id': rec.groupe_new_id.id,
@@ -98,7 +98,7 @@ class RHAvancement(models.Model):
                     employee = self.env['hr.employee'].search(
                         [('id', '=', rec.employee_id.id)])
                     employee.write({
-                        'date_avancement': avancement.date_avancement,
+                        'date_avancement': avancement.date_new_avancement,
                     })
                     employee.write({
                         'section_new_id': rec.section_new_id.id,

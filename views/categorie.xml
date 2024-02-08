@@ -11,7 +11,6 @@
                 <field name="type_fonction_id"/>
                 <field name="Indice_minimal"/>
                 <field name="groupe_id"/>
-                <field name="grade_id"/>
             </tree>
         </field>
 
@@ -27,7 +26,6 @@
                             <field name="intitule"/>
                             <field name="type_fonction_id"/>
                             <field name="Indice_minimal"/>
-                            <field name="grade_id"/>
                         </group>
                         <group>
                             <field name="description"/>

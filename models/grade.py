@@ -15,6 +15,7 @@ class RHGrade(models.Model):
     filiere_id = fields.Many2one(comodel_name='rh.filiere')
     loi_id = fields.Many2one(comodel_name='rh.loi')
     grade_id = fields.Many2one('hr.groupe')
+    categorie_id = fields.Many2one('rh.categorie')
 
 
     @api.model

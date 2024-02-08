@@ -54,6 +54,7 @@ from . import company
 from . import emphy
 from . import planning_surveillance
 from . import planning_surveillance_line
+from . import fiche_evaluation
 
 
 
