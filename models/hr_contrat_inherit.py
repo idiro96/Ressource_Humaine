@@ -170,9 +170,11 @@ class  HrContratInherited(models.Model):
             if rec.type == 'contrat':
                 print('hkf')
                 rec.bool1 = False
-                type_fonction = self.env['rh.type.fonction'].search([('code_type_fonction', '=', 'contractuel')])
-                job = self.env['hr.job'].search([('nature_travail_id', '=', type_fonction.id)])
-                employee = self.env['hr.employee'].search([('job_id', '=', job.id)])
+                # type_fonction = self.env['rh.type.fonction'].search([('code_type_fonction', '=', 'contractuel')])
+                # job = self.env['hr.job'].search([('nature_travail_id', '=', type_fonction.id)])
+                # employee = self.env['hr.employee'].search([('job_id', '=', job.id)])
+                employee = self.env['hr.employee'].search([('nature_travail_id.code_type_fonction', '=', 'contractuel')])
+
                 print(employee)
                 domain.append(('id', 'in', employee.ids))
             else:

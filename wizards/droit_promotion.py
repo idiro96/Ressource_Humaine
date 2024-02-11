@@ -37,10 +37,23 @@ class RHDroitPromotion(models.TransientModel):
             for record in promotion_ligne_droit:
                 if record.sauvegarde == False:
                     record.unlink()
-
-            promotion_line = self.env['hr.employee'].search(
-                    [('date_grade', '<=', self.date_promotion)],
+            if self.duree_promotion == '5':
+                promotion_line = self.env['hr.employee'].search(
+                        [('date_grade', '<=', self.date_promotion),('indice_minimal', '<', 821)],
+                        order='date_grade DESC')
+                print('<821')
+            elif self.duree_promotion == '7':
+                promotion_line = self.env['hr.employee'].search(
+                    [('date_grade', '<=', self.date_promotion), ('indice_minimal', '>=', 821)],
                     order='date_grade DESC')
+                print('>821')
+            else:
+                dateDebut_object10 = fields.Date.from_string(self.date_promotion) - relativedelta(months=120)
+                promotion_line = self.env['hr.employee'].search(
+                    [('date_grade', '<=', dateDebut_object10)],
+                    order='date_grade DESC')
+                print('+10')
+
             if promotion_line:
                 for promo in promotion_line:
                     promotion_ligne_droit2 = self.env['rh.promotion.droit'].search(

@@ -15,12 +15,16 @@ class ListeNominativeReport(models.AbstractModel):
     @api.model
     def get_report_values(self, docids, data=None):
         job_supp = self.env['hr.job'].search([('nature_travail_id.code_type_fonction', '=', 'postesuperieure')])
-        job_hight = self.env['hr.job'].search([('nature_travail_id.code_type_fonction', '=', 'fonctionsuperieure')])
+        job_hight_org = self.env['hr.job'].search([('nature_travail_id.code_type_fonction', '=', 'fonctionsuperieure'),
+                                                  ('poste_organique', '=', 'organique')])
+        job_hight_squ = self.env['hr.job'].search([('nature_travail_id.code_type_fonction', '=', 'fonctionsuperieure'),
+                                                   ('poste_organique', '=', 'squelaire')])
 
         report_data = {
             'company': self.env.user.company_id,
             'job_supp': job_supp,
-            'job_hight': job_hight,
+            'job_hight_org': job_hight_org,
+            'job_hight_squ': job_hight_squ,
         }
 
         return report_data

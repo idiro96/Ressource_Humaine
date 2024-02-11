@@ -9,6 +9,7 @@
                 <field name="corps_id"/>
                 <field name="filiere_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                 <field name="loi_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                <field name="categorie_id" string="Categorie"/>
             </tree>
         </field>
 
@@ -24,6 +25,7 @@
                             <field name="code"/>
                             <field name="intitule_grade"/>
                             <field name="intitule_grade_fr" string="Intitule Grade FR"/>
+                            <field name="categorie_id" string="Categorie"/>
                         </group>
                         <group>
                             <field name="loi_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
