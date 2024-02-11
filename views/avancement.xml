@@ -63,8 +63,8 @@
                                     <field name="echelon_new_id" readonly="1"/>
                                     <field name="duree" readonly="1"/>
                                     <field name="date_new_avancement" readonly="1"/>
+                                    <field name="avancement_line_file_line"/>
                                     <field name="imprimer" widget="toggle_button"/>
-<!--                                    <field name="avancement_line_file_line"/>-->
                                 </tree>
                             </field>
                         </page>
