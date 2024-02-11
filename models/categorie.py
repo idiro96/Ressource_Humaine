@@ -5,13 +5,12 @@ from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
 
 
-
 class RHCategorie(models.Model):
     _name = 'rh.categorie'
     _rec_name = 'intitule'
 
     intitule = fields.Char()
     description = fields.Char()
-    Indice_minimal= fields.Integer()
+    Indice_minimal = fields.Integer()
     groupe_id = fields.Many2one('rh.groupe')
     type_fonction_id = fields.Many2one('rh.type.fonction')
