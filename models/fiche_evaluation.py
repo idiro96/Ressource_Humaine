@@ -2,8 +2,8 @@
 import math
 
 from odoo import models, fields, api, _
-from odoo.exceptions import ValidationError
-
+from odoo.exceptions import ValidationError, UserError
+from datetime import datetime, date
 
 
 class RHFicheEvaluation(models.Model):
@@ -18,15 +18,18 @@ class RHFicheEvaluation(models.Model):
     note = fields.Integer()
     observation = fields.Char()
     fiche_evaluation_file = fields.Binary()
+    exercice = fields.Integer()
 
-    # @api.model
-    # def create(self, vals):
-    #     evalutation = super(RHFicheEvaluation, self).create(vals)
-    #     for rec in self:
-    #         vals['grade_id'] = evalutation.employee_id.grade_id
-    #         vals['job_id'] = evalutation.employee_id.job_id
-    #         vals['echelon_id'] = evalutation.employee_id.echelon_id
-    #     return evalutation
+    @api.model
+    def create(self, vals):
+        evalutation = super(RHFicheEvaluation, self).create(vals)
+
+        exer = self.env['rh.fiche.evaluation'].search([('employee_id', '=', evalutation.employee_id.id),('exercice', '=', evalutation.exercice)])
+        print(exer)
+        if exer:
+            raise UserError("L employee choisit possède déja une notation pour cet exercice")
+
+        return evalutation
 
     @api.depends('employee_id')
     def _onchange_employee_id(self):
@@ -36,4 +39,10 @@ class RHFicheEvaluation(models.Model):
             rec.echelon_id = rec.employee_id.echelon_id
 
 
+    @api.onchange('date_evaluation')
+    def _onchange_date_evaluation(self):
+        for rec in self:
+            print('teste')
+            if rec.date_evaluation:
+                rec.exercice = datetime.strptime(rec.date_evaluation, '%Y-%m-%d').year
 

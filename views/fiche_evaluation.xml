@@ -13,6 +13,7 @@
                 <field name="echelon_id" readonly="1"/>
                 <field name="note"/>
                 <field name="observation"/>
+                <field name="exercice"/>
                 <field name="fiche_evaluation_file"/>
             </tree>
         </field>
@@ -33,6 +34,7 @@
                             <field name="echelon_id" readonly="1"/>
                             <field name="note"/>
                             <field name="observation"/>
+                            <field name="exercice"/>
                             <field name="fiche_evaluation_file"/>
                         </group>
                     </group>
