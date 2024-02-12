@@ -18,7 +18,7 @@ class HrJobInherited(models.Model):
     nature_travail_id = fields.Many2one('rh.type.fonction')
     poste_organique = fields.Selection(selection=[('organique', 'منصب هيكلي'), ('squelaire', 'منصب عضوي')],
                                        readonly=False)
-    max_employee = fields.Integer(store=True)
+    max_employee = fields.Integer(default=1, store=True)
     nombre_de_postes_vacants = fields.Integer(compute='_compute_nombre_de_postes_vacants', store=True,)
 
     @api.constrains('no_of_employee', 'max_employee')

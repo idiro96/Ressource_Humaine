@@ -18,7 +18,7 @@ class RHGrade(models.Model):
     categorie_id = fields.Many2one('rh.categorie')
     employee_ids = fields.One2many('hr.employee', 'grade_id', string='Employees', groups='base.group_user')
     no_of_employee = fields.Integer(compute='_compute_employees', store=True)
-    max_employee = fields.Integer(store=True)
+    max_employee = fields.Integer(default=1, store=True)
     nombre_de_postes_vacants = fields.Integer(compute='_compute_nombre_de_postes_vacants', store=True)
 
     @api.depends('employee_ids.grade_id', 'employee_ids.active')

@@ -24,7 +24,7 @@
                     <attribute name="invisible">True</attribute>
                 </xpath>
                  <xpath expr="//tree//field[@name='no_of_employee']" position="after">
-                    <field name="max_employee" string="Nombre Maximum"/>
+                    <field name="max_employee"/>
                 </xpath>
             </field>
         </record>

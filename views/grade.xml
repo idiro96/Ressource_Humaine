@@ -11,7 +11,7 @@
                        options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                 <field name="loi_id"
                        options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
-                <field name="categorie_id" string="Categorie"/>
+                <field name="categorie_id"/>
             </tree>
         </field>
 
@@ -27,7 +27,7 @@
                             <field name="code"/>
                             <field name="intitule_grade"/>
                             <field name="intitule_grade_fr" string="Intitule Grade FR"/>
-                            <field name="categorie_id" string="Categorie"/>
+                            <field name="categorie_id"/>
                         </group>
                         <group>
                             <field name="loi_id"
@@ -36,7 +36,7 @@
                                    options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                             <field name="corps_id"
                                    options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
-                            <field name="max_employee" string="Max Employees"/>
+                            <field name="max_employee"/>
                         </group>
                     </group>
                 </sheet>
