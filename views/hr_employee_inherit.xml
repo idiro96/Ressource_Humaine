@@ -258,9 +258,10 @@
                         <tree>
                             <field name="promotion_lines">
                                 <tree create="false" delete="false">
-                                    <field name="date_examin_professionnel"/>
+                                    <field name="date_promotion"/>
                                     <field name="grade_id"/>
                                     <field name="date_grade"/>
+                                    <field name="duree"/>
                                     <field name="grade_new_id"/>
                                     <field name="date_new_grade"/>
                                 </tree>
@@ -280,6 +281,7 @@
                                     <field name="categorie_old_id"/>
                                     <field name="echelon_old_id"/>
                                     <field name="date_avancement"/>
+                                    <field name="duree"/>
                                     <field name="groupe_new_id"/>
                                     <field name="categorie_new_id"/>
                                     <field name="echelon_new_id"/>

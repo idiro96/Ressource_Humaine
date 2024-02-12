@@ -22,14 +22,25 @@ class RHFicheEvaluation(models.Model):
 
     @api.model
     def create(self, vals):
-        evalutation = super(RHFicheEvaluation, self).create(vals)
 
-        exer = self.env['rh.fiche.evaluation'].search([('employee_id', '=', evalutation.employee_id.id),('exercice', '=', evalutation.exercice)])
-        print(exer)
-        if exer:
+
+        evaluation = self.env['rh.fiche.evaluation'].search([('employee_id', '=', vals['employee_id']),('exercice', '=', vals['exercice'])])
+        print(evaluation)
+        if evaluation:
             raise UserError("L employee choisit possède déja une notation pour cet exercice")
-
+        evalutation = super(RHFicheEvaluation, self).create(vals)
         return evalutation
+
+    # @api.constrains('employee_id','exercice')
+    # def _check_contract_overlap(self):
+    #     for evaluation in self:
+    #         overlapping_evaluation = self.search([
+    #             ('employee_id', '=', evaluation.employee_id.id),
+    #             ('exercice', '=', evaluation.exercice),
+    #         ])
+    #         if overlapping_evaluation:
+    #             raise UserError("L employee choisit possède déja une notation pour cet exercice")
+
 
     @api.depends('employee_id')
     def _onchange_employee_id(self):
