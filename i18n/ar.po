@@ -20756,7 +20756,7 @@ msgstr "فقدت الاتصال بجوجل... المزامنة القادمة س
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_line_wizard_grade_id
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_grade
 msgid "Grade"
-msgstr "الرتبة السابقة"
+msgstr "الرتبة"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_grade_new_id

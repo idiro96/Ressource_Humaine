@@ -389,26 +389,26 @@
                 <div style="text-align: right;font-size:23px;">
                     <span>
                          الرتبة
-                        :<span t-esc="employee_pleintemps_indeterminee[0].grade_id.intitule_grade"/>
+                        :<span t-esc="employee_grade_a_excluded[0].grade_id.intitule_grade"/>
                     </span>
                     <br/>
 
                          الصنف
-                        :<span t-esc="employee_pleintemps_indeterminee[0].grade_id.categorie_id.intitule"/>
+                        :<span t-esc="employee_grade_a_excluded[0].grade_id.categorie_id.intitule"/>
                     <br/>
                     <span>
-                        <span t-esc="employee_pleintemps_indeterminee[0].job_id.max_employee"/>
+                        <span t-esc="employee_grade_a_excluded[0].job_id.max_employee"/>
                         : عدد المناصب المالية
 
                     </span>
                     <br/>
                     <span>
-                        <span t-esc="employee_pleintemps_indeterminee[0].job_id.no_of_employee"/>
+                        <span t-esc="employee_grade_a_excluded[0].job_id.no_of_employee"/>
                         : عدد المناصب الحقيقة
                     </span>
                     <br/>
                     <span>
-                        <span t-esc="employee_pleintemps_indeterminee[0].job_id.nombre_de_postes_vacants"/>
+                        <span t-esc="employee_grade_a_excluded[0].job_id.nombre_de_postes_vacants"/>
                         : عدد المناصب الشاغرة
                     </span>
                     <br/>
@@ -449,7 +449,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr t-foreach="employee_pleintemps_indeterminee" t-as="line">
+                            <tr t-foreach="employee_grade_a_excluded" t-as="line">
                             <tr>
                                 <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
                                     <!--                                        <span t-field="line.employee_id"/>-->
@@ -497,26 +497,26 @@
                 <div style="text-align: right;font-size:23px;">
                     <span>
                          الرتبة
-                        :<span t-esc="employee_pleintemps_indeterminee[0].grade_id.intitule_grade"/>
+                        :<span t-esc="employee_grade_b[0].grade_id.intitule_grade"/>
                     </span>
                     <br/>
 
                          الصنف
-                        :<span t-esc="employee_pleintemps_indeterminee[0].grade_id.categorie_id.intitule"/>
+                        :<span t-esc="employee_grade_b[0].grade_id.categorie_id.intitule"/>
                     <br/>
                     <span>
-                        <span t-esc="employee_pleintemps_indeterminee[0].job_id.max_employee"/>
+                        <span t-esc="employee_grade_b[0].job_id.max_employee"/>
                         : عدد المناصب المالية
 
                     </span>
                     <br/>
                     <span>
-                        <span t-esc="employee_pleintemps_indeterminee[0].job_id.no_of_employee"/>
+                        <span t-esc="employee_grade_b[0].job_id.no_of_employee"/>
                         : عدد المناصب الحقيقة
                     </span>
                     <br/>
                     <span>
-                        <span t-esc="employee_pleintemps_indeterminee[0].job_id.nombre_de_postes_vacants"/>
+                        <span t-esc="employee_grade_b[0].job_id.nombre_de_postes_vacants"/>
                         : عدد المناصب الشاغرة
                     </span>
                     <br/>
@@ -557,7 +557,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr t-foreach="employee_pleintemps_indeterminee" t-as="line">
+                            <tr t-foreach="employee_grade_b" t-as="line">
                             <tr>
                                 <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
                                     <!--                                        <span t-field="line.employee_id"/>-->
@@ -605,26 +605,26 @@
                 <div style="text-align: right;font-size:23px;">
                     <span>
                          الرتبة
-                        :<span t-esc="employee_pleintemps_indeterminee[0].grade_id.intitule_grade"/>
+                        :<span t-esc="employee_grade_c[0].grade_id.intitule_grade"/>
                     </span>
                     <br/>
 
                          الصنف
-                        :<span t-esc="employee_pleintemps_indeterminee[0].grade_id.categorie_id.intitule"/>
+                        :<span t-esc="employee_grade_c[0].grade_id.categorie_id.intitule"/>
                     <br/>
                     <span>
-                        <span t-esc="employee_pleintemps_indeterminee[0].job_id.max_employee"/>
+                        <span t-esc="employee_grade_c[0].job_id.max_employee"/>
                         : عدد المناصب المالية
 
                     </span>
                     <br/>
                     <span>
-                        <span t-esc="employee_pleintemps_indeterminee[0].job_id.no_of_employee"/>
+                        <span t-esc="employee_grade_c[0].job_id.no_of_employee"/>
                         : عدد المناصب الحقيقة
                     </span>
                     <br/>
                     <span>
-                        <span t-esc="employee_pleintemps_indeterminee[0].job_id.nombre_de_postes_vacants"/>
+                        <span t-esc="employee_grade_c[0].job_id.nombre_de_postes_vacants"/>
                         : عدد المناصب الشاغرة
                     </span>
                     <br/>
@@ -665,7 +665,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr t-foreach="employee_pleintemps_indeterminee" t-as="line">
+                            <tr t-foreach="employee_grade_c" t-as="line">
                             <tr>
                                 <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
                                     <!--                                        <span t-field="line.employee_id"/>-->
@@ -713,26 +713,26 @@
                 <div style="text-align: right;font-size:23px;">
                     <span>
                          الرتبة
-                        :<span t-esc="employee_pleintemps_indeterminee[0].grade_id.intitule_grade"/>
+                        :<span t-esc="employee_grade_d[0].grade_id.intitule_grade"/>
                     </span>
                     <br/>
 
                          الصنف
-                        :<span t-esc="employee_pleintemps_indeterminee[0].grade_id.categorie_id.intitule"/>
+                        :<span t-esc="employee_grade_d[0].grade_id.categorie_id.intitule"/>
                     <br/>
                     <span>
-                        <span t-esc="employee_pleintemps_indeterminee[0].job_id.max_employee"/>
+                        <span t-esc="employee_grade_d[0].job_id.max_employee"/>
                         : عدد المناصب المالية
 
                     </span>
                     <br/>
                     <span>
-                        <span t-esc="employee_pleintemps_indeterminee[0].job_id.no_of_employee"/>
+                        <span t-esc="employee_grade_d[0].job_id.no_of_employee"/>
                         : عدد المناصب الحقيقة
                     </span>
                     <br/>
                     <span>
-                        <span t-esc="employee_pleintemps_indeterminee[0].job_id.nombre_de_postes_vacants"/>
+                        <span t-esc="employee_grade_d[0].job_id.nombre_de_postes_vacants"/>
                         : عدد المناصب الشاغرة
                     </span>
                     <br/>
@@ -773,7 +773,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr t-foreach="employee_pleintemps_indeterminee" t-as="line">
+                            <tr t-foreach="employee_grade_d" t-as="line">
                             <tr>
                                 <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
                                     <!--                                        <span t-field="line.employee_id"/>-->
