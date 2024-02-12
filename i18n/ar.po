@@ -16836,7 +16836,7 @@ msgstr "تاريخ ميلاد الإبن/البنت"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_wizard_date_new_avancement
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avencement_droit_date_new_avancement
 msgid "Date New Avancement"
-msgstr "تاريخ سريان الترقية القديمة"
+msgstr "تاريخ سريان الترقية الحالية"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_date_new_grade
@@ -16888,7 +16888,7 @@ msgstr "إعادة الإدماج"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_planning_date_surveillance
 msgid "Date Surveillance"
-msgstr "Date Surveillance"
+msgstr "تاريخ المراقبة"
 
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip_date_to
@@ -31865,7 +31865,7 @@ msgstr "تقديم فريقك"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_planning_president_emphy
 msgid "President Emphy"
-msgstr "President Emphy"
+msgstr "رئس المدرج"
 
 #. module: mail
 #: model:ir.ui.view,arch_db:mail.email_template_form
@@ -36831,12 +36831,12 @@ msgstr "Time Picker Using Wickedpicker"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_planning_time_surveillance_end
 msgid "Time Surveillance End"
-msgstr "Time Surveillance End"
+msgstr "تاريخ نهاية المراقبة"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_planning_time_surveillance_start
 msgid "Time Surveillance Start"
-msgstr "Time Surveillance Start"
+msgstr "تاريخ بداية المراقبة"
 
 #. module: resource
 #: sql_constraint:resource.resource:0
