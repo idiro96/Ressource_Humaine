@@ -16836,7 +16836,7 @@ msgstr "تاريخ ميلاد الإبن/البنت"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_wizard_date_new_avancement
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avencement_droit_date_new_avancement
 msgid "Date New Avancement"
-msgstr "تاريخ سريان الترقية القديمة"
+msgstr "تاريخ سريان الترقية الحالية"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_date_new_grade
