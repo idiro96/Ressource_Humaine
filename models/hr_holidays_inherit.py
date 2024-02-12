@@ -9,6 +9,7 @@ class HrHolidaysInherited(models.Model):
 
     holiday_status_id = fields.Many2one("hr.holidays.status", string="Leave Type",  required=False, readonly=True,
                                         states={'draft': [('readonly', False)], 'confirm': [('readonly', False)]}, compute='_get_default_value')
+
     def _get_default_value(self):
         # You can set the default value based on your requirements
         # For example, if you want to set a specific record as default, you can use the `search` method
