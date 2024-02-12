@@ -17,6 +17,9 @@
                 <xpath expr="//field[@name='type_id']" position="attributes">
                     <attribute name="attrs">{'invisible': [('type','=', 'decision')]}</attribute>
                 </xpath>
+                <xpath expr="//field[@name='employee_id']" position="attributes">
+                    <attribute name="required">1</attribute>
+                </xpath>
                 <xpath expr="//page[@name='information']" position="attributes">
                     <attribute name="string">معلومات حول الراتب</attribute>
                 </xpath>

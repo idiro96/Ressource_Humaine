@@ -7,8 +7,10 @@
                 <field name="code"/>
                 <field name="intitule_grade"/>
                 <field name="corps_id"/>
-                <field name="filiere_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
-                <field name="loi_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                <field name="filiere_id"
+                       options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                <field name="loi_id"
+                       options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                 <field name="categorie_id" string="Categorie"/>
             </tree>
         </field>
@@ -28,9 +30,13 @@
                             <field name="categorie_id" string="Categorie"/>
                         </group>
                         <group>
-                            <field name="loi_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
-                            <field name="filiere_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
-                            <field name="corps_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                            <field name="loi_id"
+                                   options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                            <field name="filiere_id"
+                                   options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                            <field name="corps_id"
+                                   options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                            <field name="max_employee" string="Max Employees"/>
                         </group>
                     </group>
                 </sheet>
@@ -48,5 +54,5 @@
         </field>
     </record>
     <menuitem name="Grade" id="ressource_humaine_grade" parent="promotion_de_grade" sequence="7"
-           action="action_rh_grade"/>
+              action="action_rh_grade"/>
 </odoo>
