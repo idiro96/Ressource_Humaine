@@ -6,20 +6,18 @@ from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
 
 
-
-
-class  HrContratInherited(models.Model):
+class HrContratInherited(models.Model):
     _inherit = 'hr.contract'
 
-    name = fields.Char('Contract Reference', required=True,readonly=True ,default=lambda self: _('New'))
+    name = fields.Char('Contract Reference', required=True, readonly=True, default=lambda self: _('New'))
     corps_id = fields.Many2one('rh.corps', readonly=True, compute='_compute_employee_fields')
     grade_id = fields.Many2one('rh.grade', readonly=True, compute='_compute_employee_fields')
     groupe_id = fields.Many2one('rh.groupe', readonly=False)
     department_id = fields.Many2one('hr.department', readonly=True, related='employee_id.department_id',
                                     compute='_compute_employee_fields', store=True)
     job_id = fields.Many2one('hr.job', readonly=True, compute='_compute_employee_fields')
-    type = fields.Selection([('contrat', 'Contrat'), ('decision', 'Decision'),]
-                                   , required=True, default='contrat')
+    type = fields.Selection([('contrat', 'Contrat'), ('decision', 'Decision'), ]
+                            , required=True, default='contrat')
 
     date_start = fields.Date('Start Date', readonly=True, help="Start date of the contract.")
     point_indiciare = fields.Integer()
@@ -34,7 +32,8 @@ class  HrContratInherited(models.Model):
     section_superieure_id = fields.Many2one('rh.section.superieure')
     grille_id = fields.Many2one('rh.grille')
     bool1 = fields.Boolean(default=True)
-    code_type_fonction = fields.Char(related='employee_id.nature_travail_id.code_type_fonction', string='Code Type Fonction', store=True)
+    code_type_fonction = fields.Char(related='employee_id.nature_travail_id.code_type_fonction',
+                                     string='Code Type Fonction', store=True)
 
     wage_range = fields.Selection([
         ('low', '15000-30000'),
@@ -65,22 +64,22 @@ class  HrContratInherited(models.Model):
             [('id', '=', result.employee_id.id)])
         if employee.nature_travail_id.code_type_fonction == 'fonction':
             employee.write({
-            'date_avancement': result.date_start,
+                'date_avancement': result.date_start,
             })
             employee.write({
-            'groupe_id': result.groupe_id.id,
+                'groupe_id': result.groupe_id.id,
             })
             employee.write({
-            'categorie_id': result.categorie_id.id,
+                'categorie_id': result.categorie_id.id,
             })
             employee.write({
-            'echelon_id': result.echelon_id.id,
+                'echelon_id': result.echelon_id.id,
             })
             employee.write({
-            'ref': result.name,
+                'ref': result.name,
             })
             employee.write({
-            'date_ref': result.date_start,
+                'date_ref': result.date_start,
             })
             result.employee_id.point_indiciare = result.echelon_id.indice_echelon
             result.employee_id.wage = result.indice_minimal * 45 + result.point_indiciare * 45
@@ -113,7 +112,6 @@ class  HrContratInherited(models.Model):
             })
 
         return result
-
 
     @api.constrains('date_start', 'date_end', 'employee_id')
     def _check_contract_overlap(self):
@@ -173,7 +171,8 @@ class  HrContratInherited(models.Model):
                 # type_fonction = self.env['rh.type.fonction'].search([('code_type_fonction', '=', 'contractuel')])
                 # job = self.env['hr.job'].search([('nature_travail_id', '=', type_fonction.id)])
                 # employee = self.env['hr.employee'].search([('job_id', '=', job.id)])
-                employee = self.env['hr.employee'].search([('nature_travail_id.code_type_fonction', '=', 'contractuel')])
+                employee = self.env['hr.employee'].search([('nature_travail_id.code_type_fonction', '=', 'contractuel'),
+                                                           ('fin_relation', '=', False),])
 
                 print(employee)
                 domain.append(('id', 'in', employee.ids))
@@ -189,6 +188,7 @@ class  HrContratInherited(models.Model):
         res = {'domain': {'employee_id': domain}}
 
         return res
+
     @api.onchange('groupe_id')
     def onchange_groupe(self):
         for rec in self:
@@ -205,6 +205,7 @@ class  HrContratInherited(models.Model):
         res = {'domain': {'categorie_id': domain}}
         print(res)
         return res
+
     @api.onchange('categorie_id')
     def onchange_categorie(self):
         for rec in self:
@@ -245,13 +246,12 @@ class  HrContratInherited(models.Model):
 
     @api.onchange('niveau_hierarchique_id')
     def onchange_niveau_hierarchique(self):
-            for rec in self:
-                if rec.niveau_hierarchique_id:
-                    type_fonction = self.env['rh.type.fonction'].search([('id', '=', rec.employee_id.nature_travail_id.id)])
-                    if type_fonction.code_type_fonction == 'postesuperieure':
-                        rec.bonification_indiciaire = rec.niveau_hierarchique_id.bonification_indiciaire
-                        rec.wage = (rec.indice_minimal * 45 + rec.point_indiciare * 45) + rec.bonification_indiciaire
-
+        for rec in self:
+            if rec.niveau_hierarchique_id:
+                type_fonction = self.env['rh.type.fonction'].search([('id', '=', rec.employee_id.nature_travail_id.id)])
+                if type_fonction.code_type_fonction == 'postesuperieure':
+                    rec.bonification_indiciaire = rec.niveau_hierarchique_id.bonification_indiciaire
+                    rec.wage = (rec.indice_minimal * 45 + rec.point_indiciare * 45) + rec.bonification_indiciaire
 
     @api.onchange('echelon_id')
     def onchange_echelon(self):
@@ -284,7 +284,7 @@ class  HrContratInherited(models.Model):
                     domain.append(('id', 'in', categorie.ids))
                     rec.point_indiciare = rec.echelon_id.indice_echelon
                 elif type_fonction.code_type_fonction == 'fonction':
-                   domain = None
+                    domain = None
                 else:
                     domain = None
 
@@ -340,6 +340,3 @@ class HrContractReport(models.AbstractModel):
         }
 
         return report_data
-
-
-

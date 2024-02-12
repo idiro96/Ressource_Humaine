@@ -21,21 +21,66 @@ class ListeNominativeReport(models.AbstractModel):
         job_hight_squ = self.env['hr.job'].search([('nature_travail_id.code_type_fonction', '=', 'fonctionsuperieure'),
                                                    ('poste_organique', '=', 'squelaire')])
 
-        contract_jobs = self.env['hr.employee'].search([
-            ('nature_travail_id.code_type_fonction', '=', 'contractuel'),
-            ('job_id', '!=', False),
-        ])
+        pleintemps_indeterminee = self.env['hr.contract'].search(
+            [('type_id.code_type_contract', '=', 'pleintemps_indeterminee'),
+             ('employee_id.job_id', '!=', False)])
 
-        grouped_jobs = {}
-        for employee in contract_jobs:
-            job_id = employee.job_id.id
-            if job_id not in grouped_jobs:
-                grouped_jobs[job_id] = employee
+        grouped_pleintemps_indeterminee = {}
+        for contract in pleintemps_indeterminee:
+            job_id = contract.job_id.id
+            if job_id not in grouped_pleintemps_indeterminee:
+                grouped_pleintemps_indeterminee[job_id] = contract
             else:
-                if employee.create_date < grouped_jobs[job_id].create_date:
-                    grouped_jobs[job_id] = employee
+                if contract.create_date < grouped_pleintemps_indeterminee[job_id].create_date:
+                    grouped_pleintemps_indeterminee[job_id] = contract
 
-        first_records = list(grouped_jobs.values())
+        first_pleintemps_indeterminee = list(grouped_pleintemps_indeterminee.values())
+        print(first_pleintemps_indeterminee)
+
+        pleintemps_determinee = self.env['hr.contract'].search(
+            [('type_id.code_type_contract', '=', 'pleintemps_determinee'),
+             ('employee_id.job_id', '!=', False)])
+
+        grouped_pleintemps_determinee = {}
+        for contract in pleintemps_determinee:
+            job_id = contract.job_id.id
+            if job_id not in grouped_pleintemps_determinee:
+                grouped_pleintemps_determinee[job_id] = contract
+            else:
+                if contract.create_date < grouped_pleintemps_determinee[job_id].create_date:
+                    grouped_pleintemps_determinee[job_id] = contract
+
+        first_pleintemps_determinee = list(grouped_pleintemps_determinee.values())
+
+        partiel_indeterminee = self.env['hr.contract'].search(
+            [('type_id.code_type_contract', '=', 'partiel_indeterminee'),
+             ('employee_id.job_id', '!=', False)])
+
+        grouped_partiel_indeterminee = {}
+        for contract in partiel_indeterminee:
+            job_id = contract.job_id.id
+            if job_id not in grouped_partiel_indeterminee:
+                grouped_partiel_indeterminee[job_id] = contract
+            else:
+                if contract.create_date < grouped_partiel_indeterminee[job_id].create_date:
+                    grouped_partiel_indeterminee[job_id] = contract
+
+        first_partiel_indeterminee = list(grouped_partiel_indeterminee.values())
+
+        partiel_determinee = self.env['hr.contract'].search(
+            [('type_id.code_type_contract', '=', 'partiel_determinee'),
+             ('employee_id.job_id', '!=', False)])
+
+        grouped_partiel_determinee = {}
+        for contract in partiel_determinee:
+            job_id = contract.job_id.id
+            if job_id not in grouped_partiel_determinee:
+                grouped_partiel_determinee[job_id] = contract
+            else:
+                if contract.create_date < grouped_partiel_determinee[job_id].create_date:
+                    grouped_partiel_determinee[job_id] = contract
+
+        first_partiel_determinee = list(grouped_partiel_determinee.values())
 
         grade_proff = self.env['rh.grade'].search([('intitule_grade', 'ilike', 'أستاذ')])
         grade_a = self.env['rh.grade'].search([('categorie_id.groupe_id.name', 'ilike', 'المجموعة أ')])
@@ -52,7 +97,10 @@ class ListeNominativeReport(models.AbstractModel):
             'job_supp': job_supp,
             'job_hight_org': job_hight_org,
             'job_hight_squ': job_hight_squ,
-            'first_records': first_records,
+            'first_pleintemps_indeterminee': first_pleintemps_indeterminee,
+            'first_pleintemps_determinee': first_pleintemps_determinee,
+            'first_partiel_indeterminee': first_partiel_indeterminee,
+            'first_partiel_determinee': first_partiel_determinee,
             'grade_proff': grade_proff,
             'grade_a_excluded': grade_a_excluded,
             'grade_b': grade_b,

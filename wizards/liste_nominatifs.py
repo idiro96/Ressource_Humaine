@@ -21,6 +21,11 @@ class PlanningCongeReport(models.AbstractModel):
         employee_sup = self.env['hr.employee'].search([('nature_travail_id.code_type_fonction', '=', 'postesuperieure')])
         employee_post_sup = self.env['hr.employee'].search([('nature_travail_id.code_type_fonction', '=', 'fonctionsuperieure')])
         employee_enseignant = self.env['hr.employee'].search([('grade_id.intitule_grade', 'like', 	'%أستاذ%')])
+        employee_grade_a = self.env['hr.employee'].search([('grade_id.categorie_id.groupe_id.name', 'ilike', 'المجموعة أ')])
+        employee_grade_a_excluded = employee_grade_a - employee_enseignant
+        employee_grade_b = self.env['hr.employee'].search([('grade_id.categorie_id.groupe_id.name', 'ilike', 'المجموعة ب')])
+        employee_grade_c = self.env['hr.employee'].search([('grade_id.categorie_id.groupe_id.name', 'ilike', 'المجموعة ج')])
+        employee_grade_d = self.env['hr.employee'].search([('grade_id.categorie_id.groupe_id.name', 'ilike', 'المجموعة د')])
         employee_pleintemps_indeterminee = self.env['hr.contract'].search([('type_id.code_type_contract', '=', 	'pleintemps_indeterminee')])
         employee_pleintemps_determinee = self.env['hr.contract'].search([('type_id.code_type_contract', '=', 	'pleintemps_determinee')])
         employee_partiel_indeterminee = self.env['hr.contract'].search([('type_id.code_type_contract', '=', 	'partiel_indeterminee')])
@@ -34,6 +39,10 @@ class PlanningCongeReport(models.AbstractModel):
             'employee_sup': employee_sup,
             'employee_post_sup': employee_post_sup,
             'employee_enseignant': employee_enseignant,
+            'employee_grade_a_excluded': employee_grade_a_excluded,
+            'employee_grade_b': employee_grade_b,
+            'employee_grade_c': employee_grade_c,
+            'employee_grade_d': employee_grade_d,
             'employee_pleintemps_indeterminee': employee_pleintemps_indeterminee,
             'employee_pleintemps_determinee': employee_pleintemps_determinee,
             'employee_partiel_indeterminee': employee_partiel_indeterminee,
