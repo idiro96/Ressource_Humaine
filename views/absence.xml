@@ -23,9 +23,9 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-                    <button name="action_confirm" type="object" class="oe_highlight" string="Confirmer Absence"
+                    <button name="action_confirm" type="object" class="oe_highlight" string="تأكيد الغياب"
                             attrs="{'invisible': [('state', '!=', 'draft')]}"/>
-                    <button name="action_done" type="object" class="oe_highlight" string="Refuser Absence"
+                    <button name="action_done" type="object" class="oe_highlight" string=" رفض الغياب"
                             attrs="{'invisible': [('state', '!=', 'draft')]}"/>
                     <field name="state" widget="statusbar" statusbar_visible="draft,confirm,refuse"/>
                 </header>
