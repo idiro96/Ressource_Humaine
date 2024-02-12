@@ -45,7 +45,7 @@ class RHDroitAvencement(models.TransientModel):
                     record.unlink()
 
             avancement_line = self.env['hr.employee'].search(
-                    [('date_avancement', '<=', self.date_avancement)],
+                    [('date_avancement', '<=', self.date_avancement),('fin_relation', '=', False)],
                     order='date_avancement DESC')
             if avancement_line:
                 for avance in avancement_line:
@@ -78,7 +78,7 @@ class RHDroitAvencement(models.TransientModel):
                                             'echelon_new_id': avance.echelon_id.id,
                                             'duree': 30,
                                             'duree_lettre': 'superieure',
-                                            'date_new_avancement': relativedelta(months=24) + fields.Date.from_string(avance.date_avancement)
+                                            'date_new_avancement': relativedelta(months=30) + fields.Date.from_string(avance.date_avancement)
                                             })
 
                                     else:
@@ -100,7 +100,7 @@ class RHDroitAvencement(models.TransientModel):
                                         'echelon_new_id': avance.echelon_id.id,
                                         'duree': 30,
                                         'duree_lettre': 'superieure',
-                                        'date_new_avancement': relativedelta(months=24) + fields.Date.from_string(
+                                        'date_new_avancement': relativedelta(months=30) + fields.Date.from_string(
                                             avance.date_avancement)
                                     })
 
