@@ -13,6 +13,7 @@ class RHTypeFonction(models.Model):
 
     code_type_fonction = fields.Char()
     intitule_type_fonction = fields.Char()
+    date_test = fields.Char()
 
 
 
