@@ -21,21 +21,20 @@ class ListeNominativeReport(models.AbstractModel):
         job_hight_squ = self.env['hr.job'].search([('nature_travail_id.code_type_fonction', '=', 'fonctionsuperieure'),
                                                    ('poste_organique', '=', 'squelaire')])
 
-        contract_jobs = self.env['hr.employee'].search([
-            ('nature_travail_id.code_type_fonction', '=', 'contractuel'),
-            ('job_id', '!=', False),
-        ])
+        contract_jobs = self.env['hr.contract'].search([('type_id.code_type_contract', '=', 'pleintemps_indeterminee'),
+                                                        ('employee_id.job_id', '!=', False)])
 
         grouped_jobs = {}
-        for employee in contract_jobs:
-            job_id = employee.job_id.id
+        for contract in contract_jobs:
+            job_id = contract.job_id.id
             if job_id not in grouped_jobs:
-                grouped_jobs[job_id] = employee
+                grouped_jobs[job_id] = contract
             else:
-                if employee.create_date < grouped_jobs[job_id].create_date:
-                    grouped_jobs[job_id] = employee
+                if contract.create_date < grouped_jobs[job_id].create_date:
+                    grouped_jobs[job_id] = contract
 
         first_records = list(grouped_jobs.values())
+        print(first_records)
 
         grade_proff = self.env['rh.grade'].search([('intitule_grade', 'ilike', 'أستاذ')])
         grade_a = self.env['rh.grade'].search([('categorie_id.groupe_id.name', 'ilike', 'المجموعة أ')])

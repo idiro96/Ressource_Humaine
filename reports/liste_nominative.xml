@@ -1011,10 +1011,10 @@
                                         <span t-esc="line.job_id.max_employee"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:12.5%">
-                                        <span t-esc="line.grade_id.categorie_id.Indice_minimal"/>
+                                        <span t-esc="line.indice_minimal"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:12.5%">
-                                        <span t-esc="line.grade_id.categorie_id.intitule"/>
+                                        <span t-esc="line.categorie_id.intitule"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:25%">
                                         <span t-esc="line.job_id.name"/>
