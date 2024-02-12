@@ -9,10 +9,12 @@ class RHDroitConge(models.TransientModel):
     _name = 'droit.conge'
 
     boul = fields.Boolean(default=False)
+
+
     @api.multi
     def actualiserDroitConge(self):
         if self.boul == False:
-            liste_emploiyee = self.env['hr.employee'].search([('date_entrer','!=',None)])
+            liste_emploiyee = self.env['hr.employee'].search([('date_entrer','!=',None),('date_fin_relation', '=', False)])
             for empl in liste_emploiyee:
 
                 days_off = 0
@@ -26,9 +28,6 @@ class RHDroitConge(models.TransientModel):
                 jour = datetime.strptime(entrer_date1, '%Y-%m-%d').day
                 mois = datetime.strptime(entrer_date1, '%Y-%m-%d').month
                 year = datetime.strptime(entrer_date1, '%Y-%m-%d').year
-
-
-
 
 
                 debut_annee = date(dateDebut_object.year, mois, jour)

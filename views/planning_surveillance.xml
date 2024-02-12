@@ -10,6 +10,7 @@
                 <field name="date_surveillance"/>
                 <field name="time_surveillance_start"/>
                 <field name="time_surveillance_end"/>
+<!--                <field name="time_surveillance_end1" widget="timepicker" options="{'timepicker': {'stepping': 15}}"/>-->
             </tree>
         </field>
 
@@ -31,6 +32,9 @@
                             <field name="date_surveillance"/>
                             <field name="time_surveillance_start"/>
                             <field name="time_surveillance_end" widget="float_time"/>
+<!--                            <field name="time_surveillance_end1" widget="timepicker"/>-->
+
+
 
 <!--                            <field name="time_hour" />-->
 <!--                            <field name="time_minute" />-->

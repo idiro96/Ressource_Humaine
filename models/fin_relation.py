@@ -6,6 +6,8 @@ from odoo import models, fields, api, _
 
 class RHFinRelation(models.Model):
     _name = 'rh.fin.relation'
+    _rec_name = 'employee_id'
+
 
     date_fin_relation = fields.Date()
     num_decision_fin_relation = fields.Char()

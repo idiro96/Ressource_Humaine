@@ -5,6 +5,8 @@ from datetime import datetime, date
 from dateutil.relativedelta import relativedelta
 import calendar
 
+from odoo.exceptions import ValidationError
+
 
 class RHPromotionDroit(models.Model):
     _name = 'rh.promotion.droit'
@@ -26,3 +28,11 @@ class RHPromotionDroit(models.Model):
 
     test = fields.Char()
 
+
+    # def unlink(self):
+    #     record = self.env['rh.promotion.droit'].browse(self._context['active_id'])
+    #     for line in record:
+    #         if line.sauvegarde:
+    #             print('teste')
+    #             raise ValidationError("Vous ne pouvez pas supprimer cette ligne ")
+    #     # return super(RHPromotionDroit, self).unlink()
