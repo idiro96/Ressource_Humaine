@@ -138,13 +138,13 @@ class HrEmployeInherited(models.Model):
             else:
                 rec.age_range = 'very_high'
 
-    @api.depends('date_entrer')
+    @api.depends('date_avancement', 'date_ref')
     def _compute_experience(self):
         for employee in self:
-            if employee.date_entrer:
-                date_entrer = fields.Datetime.from_string(employee.date_entrer)
-                date_now = fields.Datetime.from_string(fields.Datetime.now())
-                delta = relativedelta(date_now, date_entrer)
+            if employee.date_avancement and employee.date_ref:
+                date_avancement = fields.Datetime.from_string(employee.date_avancement)
+                date_ref = fields.Datetime.from_string(employee.date_ref)
+                delta = relativedelta(date_ref, date_avancement)
 
                 years = delta.years
                 months = delta.months

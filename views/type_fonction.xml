@@ -16,11 +16,12 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
-                    <group>
-                        <field name="code_type_fonction"/>
-                        <field name="intitule_type_fonction"/>
-                        <field name="date_test" string="Date Test" widget="timepicker"/>
-                    </group>
+
+                        <group>
+                               <field name="code_type_fonction"/>
+                            <field name="intitule_type_fonction"/>
+                        </group>
+
                 </sheet>
             </form>
         </field>
@@ -35,6 +36,6 @@
             <p class="o_view_nocontent_smiling_face">Création d'un type dun fonction</p>
         </field>
     </record>
-    <menuitem name="Type Fonction" id="ressource_humaine_type_fonction" parent="recrutement_id"
-              action="action_rh_type_fonction"/>
+            <menuitem name="Type Fonction" id="ressource_humaine_type_fonction" parent="recrutement_id"
+           action="action_rh_type_fonction"/>
 </odoo>

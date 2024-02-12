@@ -11,8 +11,8 @@ class RHPlanning(models.Model):
 
     date_surveillance = fields.Date()
     president_emphy = fields.Many2one('hr.employee')
-    time_surveillance_start = fields.Datetime(widget='datetime')
-    time_surveillance_end = fields.Float(widget='time')
+    time_surveillance_start = fields.Datetime()
+    time_surveillance_end = fields.Datetime()
     planning_surveillance_line = fields.One2many('rh.planning.line', 'planning_survellance_id')
 
 
