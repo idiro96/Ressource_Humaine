@@ -21,11 +21,11 @@ class HrJobInherited(models.Model):
     max_employee = fields.Integer(default=1, store=True)
     nombre_de_postes_vacants = fields.Integer(compute='_compute_nombre_de_postes_vacants', store=True,)
 
-    @api.constrains('no_of_employee', 'max_employee')
-    def _check_max_employee_limit(self):
-        for job in self:
-            if job.no_of_employee > job.max_employee:
-                raise ValidationError("لا يجوز أن عدد الموظفين يتفوق عن الحد الأقصى المسموح به")
+    # @api.constrains('no_of_employee', 'max_employee')
+    # def _check_max_employee_limit(self):
+    #     for job in self:
+    #         if job.no_of_employee > job.max_employee:
+    #             raise ValidationError("لا يجوز أن عدد الموظفين يتفوق عن الحد الأقصى المسموح به")
 
     @api.depends('max_employee', 'no_of_employee')
     def _compute_nombre_de_postes_vacants(self):
