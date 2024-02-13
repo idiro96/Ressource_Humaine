@@ -25,6 +25,7 @@ class RHPromotion(models.Model):
     choisir_commission_lines = fields.One2many('rh.promotion.commission.line', 'promotion_id')
     @api.model
     def create(self, vals):
+        print('errrrrrrrreeeeeeeeeeeerre')
         for rec2 in self:
             rec2.avancement_wizard = False
 
