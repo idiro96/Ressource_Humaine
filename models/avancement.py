@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from datetime import datetime
 
 from odoo import models, fields, api, _
 
@@ -273,10 +274,54 @@ class DroitAvancementReport(models.AbstractModel):
 
         avancement_lines = avancement.avancement_lines.filtered(lambda line: line.imprimer)
 
+        line_date_old_avancement = {}
+        for rec in avancement_lines:
+            date_old_avancement_str = rec.date_old_avancement
+            if date_old_avancement_str:
+                formatted_date_old_avancement = datetime.strptime(date_old_avancement_str, "%Y-%m-%d").strftime(
+                    "%d-%m-%Y")
+                line_date_old_avancement[rec.id] = formatted_date_old_avancement
+            else:
+                line_date_old_avancement[rec.id] = ''
+
+        line_date_ref = {}
+        for rec in avancement_lines:
+            date_ref_str = rec.date_ref
+            if date_ref_str:
+                formatted_date_ref = datetime.strptime(date_ref_str, "%Y-%m-%d").strftime(
+                    "%d-%m-%Y")
+                line_date_ref[rec.id] = formatted_date_ref
+            else:
+                line_date_ref[rec.id] = ''
+
+        line_date_avancement = {}
+        for rec in avancement:
+            date_avancement_str = rec.date_avancement
+            if date_avancement_str:
+                formatted_date_avancement = datetime.strptime(date_avancement_str, "%Y-%m-%d").strftime(
+                    "%d-%m-%Y")
+                line_date_avancement[rec.id] = formatted_date_avancement
+            else:
+                line_date_avancement[rec.id] = ''
+
+        line_date_new_avancement = {}
+        for rec in avancement_lines:
+            date_new_avancement_str = rec.date_new_avancement
+            if date_new_avancement_str:
+                formatted_date_new_avancement = datetime.strptime(date_new_avancement_str, "%Y-%m-%d").strftime(
+                    "%d-%m-%Y")
+                line_date_new_avancement[rec.id] = formatted_date_new_avancement
+            else:
+                line_date_new_avancement[rec.id] = ''
+
         report_data = {
             'avancement': avancement,
             'company': self.env.user.company_id,
             'avancement_lines': avancement_lines,
+            'line_date_old_avancement': line_date_old_avancement,
+            'line_date_ref': line_date_ref,
+            'line_date_avancement': line_date_avancement,
+            'line_date_new_avancement': line_date_new_avancement,
         }
 
         return report_data

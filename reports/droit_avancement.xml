@@ -75,7 +75,7 @@
                                 الموافقة للرقم الاستدلالي
                                 <t t-esc="line.employee_id.point_indiciare"/>
                                 ابتداء من تاريخ
-                                <t t-esc="line.date_old_avancement"/>
+                                <t t-esc="line_date_old_avancement.get(line.id, '')"/>
                             </span>
                         </div>
                         <br/>
@@ -86,7 +86,7 @@
                                     ـ بناء على مقرر الترقية رقم
                                     <br/>
                                     المؤرخ في
-                                    <t t-esc="line.date_ref"/>
+                                    <t t-esc="line_date_ref.get(line.id, '')"/>
                                     المتضمن ترقية السيد
                                 </span>
                             </t>
@@ -96,7 +96,7 @@
                                     ـ بناء على مقرر الترقية رقم
                                     <br/>
                                     المؤرخ في
-                                    <t t-esc="line.date_ref"/>
+                                    <t t-esc="line_date_ref.get(line.id, '')"/>
                                     المتضمن ترقية السيدة
                                 </span>
                             </t>
@@ -109,7 +109,7 @@
                                 الرقم الاستدلالي
                                 <t t-esc="line.employee_id.point_indiciare"/>
                                 ابتداء من
-                                <t t-esc="line.date_old_avancement"/>
+                                <t t-esc="line_date_old_avancement.get(line.id, '')"/>
                             </span>
                         </div>
                         <br/>
@@ -119,7 +119,7 @@
                                 ـ بناء على المقرر رقم
                                 <br/>
                                 المؤرخ في
-                                <t t-esc="line.date_avancement"/>
+                                <t t-esc="line_date_avancement.get(avancement.id, '')"/>
                                 المتضمن المصادقة على جداول
                                 الترقية
                                 في
@@ -155,22 +155,22 @@
                         <div style="font-size: 20px; text-align: right;">
                             <span>
                                 ـ تاريخ الاستفادة :
-                                <t t-esc="line.date_new_avancement"/>
+                                <t t-esc="line_date_new_avancement.get(line.id, '')"/>
                             </span>
                         </div>
                         <div style="font-size: 20px; text-align: right;">
                             <spans>
                                 و يحتفظ إلى تاريخ
                                 <strong>
-                                    <t t-esc="avancement.date_avancement"/>
+                                    <t t-esc="line_date_avancement.get(avancement.id, '')"/>
                                 </strong>
                                 بأقدمية قدرها
                                 <strong>
-                                    <t t-esc="line.experience_years"/>
+                                    <t t-esc="line.time_years"/>
                                     سنة /
-                                    <t t-esc="line.experience_months"/>
+                                    <t t-esc="line.time_months"/>
                                     شهر /
-                                    <t t-esc="line.experience_days"/>
+                                    <t t-esc="line.time_days"/>
                                     يوم
                                 </strong>
                             </spans>
