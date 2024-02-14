@@ -65,7 +65,7 @@ class RHPromotion(models.Model):
                         'duree': rec.duree,
 
                     })
-                    employee = self.env['rh.employee'].search([('id', '=', rec.employee_id.id)])
+                    employee = self.env['hr.employee'].search([('id', '=', rec.employee_id.id)])
                     grade = self.env['rh.grade'].search([('grade_id', '=', rec.grade_new_id.id)])
                     if grade:
                         employee.write({'corps_id': grade.corps_id.id})
@@ -84,8 +84,10 @@ class RHPromotion(models.Model):
                         'date_new_grade': rec.date_new_grade
 
                     })
+                    print('errrrrrrrreeeeeeeeeeeerre2')
                     employee = self.env['hr.employee'].search([('id', '=', rec.employee_id.id)])
                     grade = self.env['rh.grade'].search([('grade_id', '=', rec.grade_new_id.id)])
+                    print('errrrrrrrreeeeeeeeeeeerre3')
                     if grade:
                         employee.write({'corps_id': grade.corps_id.id})
                     employee.write({'grade_id': rec.grade_new_id.id})
