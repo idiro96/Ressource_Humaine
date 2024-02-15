@@ -37,10 +37,12 @@ class RHAvancement(models.Model):
                     'job_id': rec.job_id.id,
                     'date_avancement': avancement.date_avancement,
                     'avancement_id': avancement.id,
+                    'grille_old_id': rec.grille_old_id.id,
                     'groupe_old_id': rec.groupe_old_id.id,
                     'categorie_old_id': rec.categorie_old_id.id,
                     'echelon_old_id': rec.echelon_old_id.id,
 
+                    'grille_new_id': rec.grille_new_id.id,
                     'groupe_new_id': rec.groupe_new_id.id,
                     'categorie_new_id': rec.categorie_new_id.id,
                     'echelon_new_id': rec.echelon_new_id.id,
@@ -55,6 +57,9 @@ class RHAvancement(models.Model):
                     })
                     employee.write({
                         'groupe_id': rec.groupe_new_id.id,
+                    })
+                    employee.write({
+                        'grille_id': rec.grille_new_id.id,
                     })
                     employee.write({
                         'categorie_id': rec.categorie_new_id.id,
@@ -84,10 +89,12 @@ class RHAvancement(models.Model):
                         'job_id': rec.job_id.id,
                         'date_avancement': avancement.date_avancement,
                         'avancement_id': avancement.id,
+                        'grille_old_id': rec.grille_old_id.id,
                         'categorie_old_id': rec.categorie_old_id.id,
                         'section_old_id': rec.section_old_id.id,
                         'echelon_old_id': rec.echelon_old_id.id,
 
+                        'grille_new_id': rec.grille_new_id.id,
                         'categorie_new_id': rec.categorie_new_id.id,
                         'section_new_id': rec.section_new_id.id,
                         'echelon_new_id': rec.echelon_new_id.id,
@@ -102,6 +109,9 @@ class RHAvancement(models.Model):
                     })
                     employee.write({
                         'section_new_id': rec.section_new_id.id,
+                    })
+                    employee.write({
+                        'grille_id': rec.grille_new_id.id,
                     })
                     employee.write({
                         'categorie_id': rec.categorie_new_id.id,

@@ -16,6 +16,7 @@ class RHAvancementLine(models.Model):
     birthday = fields.Date(related='employee_id.birthday')
     marital = fields.Selection(related='employee_id.marital')
     type_fonction_id = fields.Many2one('rh.type.fonction')
+    grille_old_id = fields.Many2one('rh.grille')
     groupe_old_id = fields.Many2one('rh.groupe')
     categorie_old_id = fields.Many2one('rh.categorie')
     section_old_id = fields.Many2one('rh.section')
@@ -24,6 +25,7 @@ class RHAvancementLine(models.Model):
     section_superieure_old_id = fields.Many2one('rh.section.superieure')
     niveau_hierarchique_old_id = fields.Many2one('rh.niveau.hierarchique')
 
+    grille_new_id = fields.Many2one('rh.grille')
     groupe_new_id = fields.Many2one('rh.groupe')
     categorie_new_id = fields.Many2one('rh.categorie')
     section_new_id = fields.Many2one('rh.section')

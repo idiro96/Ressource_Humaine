@@ -13,4 +13,5 @@ class RHCategorie(models.Model):
     description = fields.Char()
     Indice_minimal = fields.Integer()
     groupe_id = fields.Many2one('rh.groupe')
+    grille_id = fields.Many2one('rh.grille')
     type_fonction_id = fields.Many2one('rh.type.fonction')

@@ -11,6 +11,7 @@
                 <field name="job_id" readonly="1"/>
                 <field name="echelon_old_id" readonly="1"/>
                 <field name="date_old_avancement" readonly="1"/>
+                <field name="grille_new_id"/>
                 <field name="groupe_new_id"/>
                 <field name="categorie_new_id"/>
                 <field name="section_new_id"/>
@@ -35,6 +36,7 @@
                     <field name="groupe_old_id" String="Ancien groupe" readonly="1"/>
                     <field name="categorie_old_id" String="Ancien Categorie" readonly="1"/>
                     <field name="echelon_old_id" String="Ancien Echelon" readonly="1"/>
+                    <field name="grille_new_id"/>
                     <field name="groupe_new_id" String="Nouveau groupe"/>
                     <field name="categorie_new_id" String="Nouvelle Categorie"/>
                     <field name="echelon_new_id" String="Nouveau Echelon"/>
