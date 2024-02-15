@@ -68,8 +68,9 @@
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
                                         <span t-field="line.employee_id"/>
                                     </td>
-                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-<!--                                        <span t-esc="'%.2f'%(record.depreciated_value)"/>-->
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;border-bottom:none;border-top:none;">
+                                        <span t-esc="line.planning_survellance_id.time_surveillance_start"/>
+                                        <span t-esc="line.planning_survellance_id.time_surveillance_end"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
                                         <span t-esc="line.emphy_id.intitule_emphy"/>

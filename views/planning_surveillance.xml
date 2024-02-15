@@ -32,10 +32,6 @@
                             <field name="date_surveillance"/>
                             <field name="time_surveillance_start" widget="timepicker"/>
                             <field name="time_surveillance_end" widget="timepicker"/>
-
-<!--                            <field name="time_hour" />-->
-<!--                            <field name="time_minute" />-->
-<!--                            <field name="combined_time" />-->
                         </group>
                     </group>
                     <notebook>
