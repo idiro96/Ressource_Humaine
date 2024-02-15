@@ -21,9 +21,21 @@
                         <br/>
                         <br/>
                         <div style="font-size: 20px;text-align: right;">
-                            <span>
-                                الأمانة العامة
-                            </span>
+                            <t t-if="attestation_travail.signataire == 'sg'">
+                                <span>
+                                    الأمانة العامة
+                                </span>
+                            </t>
+                            <t t-if="attestation_travail.signataire == 'dg'">
+                                <span>
+                                    المدير العام
+                                </span>
+                            </t>
+                            <t t-if="attestation_travail.signataire == 'rl'">
+                                <span>
+                                    المكلف بالإملاء
+                                </span>
+                            </t>
                         </div>
                         <br/>
                         <br/>
@@ -35,10 +47,24 @@
                         <br/>
                         <br/>
                         <div style="font-size: 20px;text-align: right;">
-                            <span>
-                                رقم ................... /م.و.إ/أ.ع/م.ت.م.ب/
-                                <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
-                            </span>
+                            <t t-if="attestation_travail.signataire == 'sg'">
+                                <span>
+                                    رقم ................... /م.و.إ/أ.ع/م.ت.م.ب/
+                                    <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
+                                </span>
+                            </t>
+                            <t t-if="attestation_travail.signataire == 'dg'">
+                                <span>
+                                    رقم ................... /م.و.إ/م.ع/م.ت.م.ب/
+                                    <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
+                                </span>
+                            </t>
+                            <t t-if="attestation_travail.signataire == 'rl'">
+                                <span>
+                                    رقم ................... /م.و.إ/م.إ/م.ت.م.ب/
+                                    <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
+                                </span>
+                            </t>
                         </div>
                     </strong>
                     <br/>
@@ -63,7 +89,9 @@
                         <br/>
                         <div style="font-size: 20px;text-align: right;">
                             <span style="display: inline-block;">
-                                <t t-esc="employee.name"/>
+                                <strong>
+                                    <t t-esc="employee.name"/>
+                                </strong>
                             </span>
                             <t t-if="employee.gender == 'female'">
                                 <span style="display: inline-block">
@@ -88,16 +116,20 @@
                                     المولود بتاريخ :
                                 </span>
                             </t>
-                            <t t-esc="formatted_date"/>
+                            <strong>
+                                <t t-esc="formatted_date"/>
+                            </strong>
                             في
-                            <t t-esc="employee.place_of_birth"/>
+                            <strong>
+                                <t t-esc="employee.place_of_birth"/>
+                            </strong>
                         </span>
                         <br/>
                         <br/>
                         <span style="display: inline-block;">
                             .إلى غاية يومنا هذا
                         </span>&#160;
-                        <t t-esc="employee.date_entrer"/>&#160;
+                        <strong><t t-esc="employee.date_entrer"/></strong>&#160;
                         <t t-if="employee.gender == 'female'">
                             <t t-if="employee.nature_travail_id.code_type_fonction == 'contractuel'">
                                 <span style="display: inline-block;">
@@ -137,7 +169,7 @@
                         <br/>
                         <br/>
                         <span>
-                            <t t-esc="employee.grade_id.intitule_grade"/>&#160;
+                            <strong><t t-esc="employee.grade_id.intitule_grade"/></strong>&#160;
                         </span>
                     </div>
                     <br/>
