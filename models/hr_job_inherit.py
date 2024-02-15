@@ -20,6 +20,8 @@ class HrJobInherited(models.Model):
                                        readonly=False)
     max_employee = fields.Integer(default=1, store=True)
     nombre_de_postes_vacants = fields.Integer(compute='_compute_nombre_de_postes_vacants', store=True,)
+    code_type_fonction = fields.Char(related='nature_travail_id.code_type_fonction',
+                                     string='Code Type Fonction', store=True)
 
     # @api.constrains('no_of_employee', 'max_employee')
     # def _check_max_employee_limit(self):

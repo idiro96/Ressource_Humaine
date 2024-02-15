@@ -7,12 +7,11 @@ from odoo import models, fields, api, _
 class RHAvancement(models.Model):
     _name = 'rh.avancement'
 
-
     date_avancement = fields.Date()
-    code = fields.Char(readonly=True, default=lambda self: self.env['ir.sequence'].next_by_code('rh.avancement.sequence'))
+    code = fields.Char()
     avancement_lines = fields.One2many('rh.avancement.line', inverse_name='avancement_id')
     avancement_lines_wizard = fields.One2many('rh.avancement.line.wizard', inverse_name='avancement_id')
-
+    date_comission = fields.Date()
     avancement_wizard = fields.Boolean(default=True)
     choisir_commission_lines = fields.One2many('rh.avancement.commission.line', 'avancement_id')
     # promotion_file_lines = fields.One2many('rh.file', 'promotion_id')
@@ -272,7 +271,7 @@ class DroitAvancementReport(models.AbstractModel):
     def get_report_values(self, docids, data=None):
         avancement = self.env['rh.avancement'].browse(docids[0])
 
-        avancement_lines = avancement.avancement_lines.filtered(lambda line: line.imprimer)
+        avancement_lines = avancement.avancement_lines
 
         line_date_old_avancement = {}
         for rec in avancement_lines:
@@ -304,6 +303,16 @@ class DroitAvancementReport(models.AbstractModel):
             else:
                 line_date_avancement[rec.id] = ''
 
+        line_date_comission = {}
+        for rec in avancement:
+            date_comission_str = rec.date_comission
+            if date_comission_str:
+                formatted_date_comission = datetime.strptime(date_comission_str, "%Y-%m-%d").strftime(
+                    "%d-%m-%Y")
+                line_date_comission[rec.id] = formatted_date_comission
+            else:
+                line_date_comission[rec.id] = '..................'
+
         line_date_new_avancement = {}
         for rec in avancement_lines:
             date_new_avancement_str = rec.date_new_avancement
@@ -321,6 +330,7 @@ class DroitAvancementReport(models.AbstractModel):
             'line_date_old_avancement': line_date_old_avancement,
             'line_date_ref': line_date_ref,
             'line_date_avancement': line_date_avancement,
+            'line_date_comission': line_date_comission,
             'line_date_new_avancement': line_date_new_avancement,
         }
 

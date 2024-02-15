@@ -27,7 +27,7 @@
         </record>
 
         <record id="attestation_travail_action" model="ir.actions.act_window">
-            <field name="name">Attestation de Travail</field>
+            <field name="name">شهادة عمل</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">attestation.travail</field>
             <field name="view_type">form</field>

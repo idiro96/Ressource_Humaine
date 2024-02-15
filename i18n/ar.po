@@ -16708,7 +16708,7 @@ msgstr "تاريخ التطبيق المؤقت"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_wizard_date_avancement
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avencement_droit_date_avancement
 msgid "Date Avancement"
-msgstr "تاريخ الترقية"
+msgstr "تاريخ إستحقاق الترقية"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_attachment_create_date
