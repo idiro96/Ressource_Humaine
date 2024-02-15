@@ -36831,12 +36831,12 @@ msgstr "Time Picker Using Wickedpicker"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_planning_time_surveillance_end
 msgid "Time Surveillance End"
-msgstr "تاريخ نهاية المراقبة"
+msgstr "نهاية المراقبة"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_planning_time_surveillance_start
 msgid "Time Surveillance Start"
-msgstr "تاريخ بداية المراقبة"
+msgstr "بداية المراقبة"
 
 #. module: resource
 #: sql_constraint:resource.resource:0
