@@ -16,7 +16,6 @@ import time
 class HrEmployeInherited(models.Model):
     _inherit = "hr.employee"
 
-
     handicape = fields.Boolean(default=False)
     service_militaire = fields.Boolean(default=False)
     fin_relation = fields.Boolean(default=False)
@@ -28,7 +27,7 @@ class HrEmployeInherited(models.Model):
     prenom_mere = fields.Char()
     nom_fr = fields.Char()
     # prenom_fr = fields.Char()
-
+    annee_travail = fields.Float()
     date_entrer = fields.Date()
     date_job_id = fields.Date()
     date_reintegration = fields.Date()
@@ -40,7 +39,7 @@ class HrEmployeInherited(models.Model):
     selection_employe = fields.Boolean('Sélection', default=False)
     # days_off = fields.Float(string='Total Days Off', store=True)
     wage = fields.Float()
-
+    code_type_fonction = fields.Char(related='nature_travail_id.code_type_fonction', store=True)
     # days_off = fields.Float(compute='_compute_days_off', store=True, translate=True)
 
     # days_off = fields.Float(compute='_compute_days_off', store=True, translate=True)

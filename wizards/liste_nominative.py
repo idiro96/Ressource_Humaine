@@ -16,8 +16,13 @@ class ListeNominativeReport(models.AbstractModel):
     @api.model
     def get_report_values(self, docids, data=None):
         job_supp = self.env['hr.job'].search([('nature_travail_id.code_type_fonction', '=', 'postesuperieure')])
-        job_hight_org = self.env['hr.job'].search([('nature_travail_id.code_type_fonction', '=', 'fonctionsuperieure'),
-                                                   ('poste_organique', '=', 'organique')])
+        job_hight_org_1 = self.env['hr.job'].search(
+            [('nature_travail_id.code_type_fonction', '=', 'fonctionsuperieure'),
+             ('poste_organique', '=', 'organique'), ('name', 'ilike', 'مكتب')])
+        job_hight_org_2 = self.env['hr.job'].search(
+            [('nature_travail_id.code_type_fonction', '=', 'fonctionsuperieure'),
+             ('poste_organique', '=', 'organique')])
+        job_hight_org = job_hight_org_2 - job_hight_org_1
         job_hight_squ = self.env['hr.job'].search([('nature_travail_id.code_type_fonction', '=', 'fonctionsuperieure'),
                                                    ('poste_organique', '=', 'squelaire')])
 
@@ -95,6 +100,7 @@ class ListeNominativeReport(models.AbstractModel):
         report_data = {
             'company': self.env.user.company_id,
             'job_supp': job_supp,
+            'job_hight_org_1': job_hight_org_1,
             'job_hight_org': job_hight_org,
             'job_hight_squ': job_hight_squ,
             'first_pleintemps_indeterminee': first_pleintemps_indeterminee,
