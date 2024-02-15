@@ -167,14 +167,14 @@
                             <div style="font-size: 20px; text-align: right;">
                                 <span>
                                     ـ تاريخ الاستفادة :
-                                    <t t-esc="avancement.date_avancement"/>
+                                    <t t-esc="avancement_lines.date_new_avancement"/>
                                 </span>
                             </div>
                             <div style="font-size: 20px; text-align: right;">
                                 <spans>
                                     و يحتفظ إلى تاريخ
                                     <strong>
-                                        <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%m-%Y')"/>
+                                        <t t-esc="avancement.date_avancement"/>
                                     </strong>
                                     بأقدمية قدرها
                                     <strong>
