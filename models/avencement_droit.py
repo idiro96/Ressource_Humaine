@@ -22,10 +22,10 @@ class RHAvencementDroit(models.Model):
     section_superieure_old_id = fields.Many2one('rh.section.superieure')
     niveau_hierarchique_old_id = fields.Many2one('rh.niveau.hierarchique')
 
-    groupe_new_id = fields.Many2one('rh.groupe')
-    categorie_new_id = fields.Many2one('rh.categorie')
+    groupe_new_id = fields.Many2one('rh.groupe',)
+    categorie_new_id = fields.Many2one('rh.categorie', domain="[('groupe_id', '=', groupe_new_id)]")
     section_new_id = fields.Many2one('rh.section')
-    echelon_new_id = fields.Many2one('rh.echelon')
+    echelon_new_id = fields.Many2one('rh.echelon', domain="[('categorie_id', '=', categorie_new_id)]")
 
     grade_id = fields.Many2one('rh.grade')
     job_id = fields.Many2one('hr.job')
@@ -45,6 +45,22 @@ class RHAvencementDroit(models.Model):
     #         if rec.sauvegarde != False
     #     res1 = self.env['account.asset.asset'].search([('id', '=', self.id)])
 
+    @api.onchange('groupe_new_id')
+    def _onchange_groupe_new_id(self):
+        if self.groupe_new_id:
+            self.categorie_new_id = False
+            self.echelon_new_id = False
+            return {'domain': {'categorie_new_id': [('groupe_id', '=', self.groupe_new_id.id)]}}
+        else:
+            return {'domain': {'categorie_new_id': []}}
+
+    @api.onchange('categorie_new_id')
+    def _onchange_categorie_new_id(self):
+        if self.categorie_new_id:
+            self.echelon_new_id = False
+            return {'domain': {'echelon_new_id': [('categorie_id', '=', self.categorie_new_id.id)]}}
+        else:
+            return {'domain': {'echelon_new_id': []}}
     @api.multi
     def print_promotion(self):
         return self.env.ref('ressource_humaine.action_hr_tableau_promotion').with_context(landscape=True).report_action(self)
