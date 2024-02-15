@@ -107,12 +107,12 @@ class HrEmployeInherited(models.Model):
                 raise ValidationError('The maximum value for jour_sup is 12.0')
 
 
-    @api.multi
+    @api.depends('birthday')
     def calculer_age_employee(self):
         for emp in self:
             age = 0
             if emp.birthday:
-                date_naiss = datetime.strptime(emp.birthday, '%Y-%m-%d')
+                date_naiss = datetime.strptime(emp.birthday, '%Y-%m-%d').date()
                 aujourdhui = date.today()
                 age = aujourdhui.year - date_naiss.year - ((aujourdhui.month, aujourdhui.day) < (date_naiss.month, date_naiss.day))
             emp.age_employee = age
@@ -138,13 +138,14 @@ class HrEmployeInherited(models.Model):
             else:
                 rec.age_range = 'very_high'
 
-    @api.depends('date_avancement', 'date_ref')
+    @api.depends('date_entrer')
     def _compute_experience(self):
         for employee in self:
-            if employee.date_avancement and employee.date_ref:
-                date_avancement = fields.Datetime.from_string(employee.date_avancement)
-                date_ref = fields.Datetime.from_string(employee.date_ref)
-                delta = relativedelta(date_ref, date_avancement)
+            if employee.date_entrer:
+                date_entrer = fields.Datetime.from_string(employee.date_entrer)
+                date_today = datetime.now().strftime('%Y-%m-%d')
+                date_today = fields.Datetime.from_string(date_today)
+                delta = relativedelta(date_today, date_entrer)
 
                 years = delta.years
                 months = delta.months
