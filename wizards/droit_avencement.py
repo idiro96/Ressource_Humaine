@@ -79,7 +79,9 @@ class RHDroitAvencement(models.TransientModel):
                                             'echelon_new_id': avance.echelon_id.id,
                                             'duree': 30,
                                             'duree_lettre': 'superieure',
-                                            'date_new_avancement': relativedelta(months=30) + fields.Date.from_string(avance.date_avancement)
+                                            'date_new_avancement': relativedelta(months=30) + fields.Date.from_string(avance.date_avancement),
+                                            'sauvegarde': True,
+                                            'retenue': True
                                             })
 
                                     else:
@@ -103,7 +105,9 @@ class RHDroitAvencement(models.TransientModel):
                                         'duree': 30,
                                         'duree_lettre': 'superieure',
                                         'date_new_avancement': relativedelta(months=30) + fields.Date.from_string(
-                                            avance.date_avancement)
+                                            avance.date_avancement),
+                                        'sauvegarde': True,
+                                        'retenue': True
                                     })
 
                             elif difference >= 24 and avance.nature_travail_id.code_type_fonction == 'fonctionsuperieure':
@@ -129,6 +133,8 @@ class RHDroitAvencement(models.TransientModel):
                                             'duree': 24,
                                             'duree_lettre': 'inferieure',
                                             'date_new_avancement': relativedelta(months=24) + fields.Date.from_string(avance.date_avancement),
+                                            'sauvegarde': True,
+                                            'retenue': True
                                             })
                                     else:
                                         print('employe existe')
@@ -152,6 +158,8 @@ class RHDroitAvencement(models.TransientModel):
                                         'duree_lettre': 'inferieure',
                                         'date_new_avancement': relativedelta(months=24) + fields.Date.from_string(
                                             avance.date_avancement),
+                                        'sauvegarde': True,
+                                        'retenue': True
                                     })
 
                             elif difference >= 24 and avance.nature_travail_id.code_type_fonction == 'postesuperieure':

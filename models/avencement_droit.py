@@ -47,6 +47,17 @@ class RHAvencementDroit(models.Model):
     #         if rec.sauvegarde != False
     #     res1 = self.env['account.asset.asset'].search([('id', '=', self.id)])
 
+    @api.onchange('duree')
+    def _onchange_duree(self):
+        for rec in self:
+            rec.date_new_avancement = relativedelta(months=rec.duree) + fields.Date.from_string(rec.date_old_avancement)
+            if rec.duree == 30:
+                rec.duree_lettre = 'inferieure'
+            elif rec.duree == 36:
+                rec.duree_lettre = 'moyen'
+            else:
+                rec.duree_lettre = 'superieure'
+
     @api.onchange('groupe_new_id')
     def _onchange_groupe_new_id(self):
         if self.groupe_new_id:
