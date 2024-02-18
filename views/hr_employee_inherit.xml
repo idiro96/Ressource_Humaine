@@ -5,7 +5,7 @@
             <field name="model">hr.employee</field>
             <field name="inherit_id" ref="hr.view_employee_tree"/>
             <field name="arch" type="xml">
-                 <xpath expr="//tree//field[@name='name']" position="after">
+                <xpath expr="//tree//field[@name='name']" position="after">
                     <field name="prenom" invisible="1"/>
                 </xpath>
                 <xpath expr="//tree//field[@name='name']" position="after">
@@ -33,9 +33,9 @@
                 <xpath expr="//tree//field[@name='date_job_id']" position="after">
                     <field name="nom_fr"/>
                 </xpath>
-<!--                <xpath expr="//tree//field[@name='nom_fr']" position="after">-->
-<!--                    <field name="prenom_fr"/>-->
-<!--                </xpath>-->
+                <!--                <xpath expr="//tree//field[@name='nom_fr']" position="after">-->
+                <!--                    <field name="prenom_fr"/>-->
+                <!--                </xpath>-->
                 <xpath expr="//tree//field[@name='nom_fr']" position="after">
                     <field name="numero_securite_social"/>
                 </xpath>
@@ -136,7 +136,25 @@
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='methode_embauche']"
                        position="before">
-                    <field name="nature_travail_id" required="True"/>
+                    <field name="nature_travail_id" required="True"
+                           options="{'no_create': True, 'no_create_edit':True, 'no_open':True}" widget='selection'/>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='nature_travail_id']"
+                       position="before">
+                    <field name="code_type_fonction" invisible="1"/>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='nature_travail_id']"
+                       position="after">
+                    <field name="type_id"
+                           attrs="{'invisible': [('code_type_fonction', '!=', 'contractuel')]}"
+                           options="{'no_create': True, 'no_create_edit':True, 'no_open':True}" widget='selection'
+                           required="1"
+                           string="نوع العقد"/>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='type_id']"
+                       position="after">
+                    <field name="annee_travail" string="سنوات العمل"
+                           attrs="{'invisible': [('code_type_fonction', '!=', 'contractuel')]}"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='marital']" position="after">
                     <field name="activite_conjoint"/>
@@ -155,9 +173,9 @@
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='children']" position="after">
                     <field name="nom_fr" required="True"/>
                 </xpath>
-<!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='nom_fr']" position="after">-->
-<!--                    <field name="prenom_fr" required="True"/>-->
-<!--                </xpath>-->
+                <!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='nom_fr']" position="after">-->
+                <!--                    <field name="prenom_fr" required="True"/>-->
+                <!--                </xpath>-->
 
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='birthday']"
                        position="attributes">
@@ -175,7 +193,7 @@
                     <attribute name="required">True</attribute>
                 </xpath>
 
-                  <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_entrer']" position="after">
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_entrer']" position="after">
                     <field name="nomination"/>
                 </xpath>
 
@@ -241,16 +259,19 @@
                     <attribute name="string">الحالة</attribute>
                 </xpath>
                 <xpath expr="//div[@name='button_box']" position="attributes">
-                     <attribute name="invisible">True</attribute>
+                    <attribute name="invisible">True</attribute>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='address_id']" position="attributes">
-                     <attribute name="invisible">True</attribute>
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='address_id']"
+                       position="attributes">
+                    <attribute name="invisible">True</attribute>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='address_home_id']" position="after">
-                     <field name="address_perso"/>
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='address_home_id']"
+                       position="after">
+                    <field name="address_perso"/>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='address_home_id']" position="attributes">
-                     <attribute name="invisible">True</attribute>
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='address_home_id']"
+                       position="attributes">
+                    <attribute name="invisible">True</attribute>
                 </xpath>
 
                 <xpath expr="//form//sheet//notebook" position="inside">
@@ -294,7 +315,7 @@
 
                 <xpath expr="//form//sheet//notebook" position="inside">
 
-                    <page name="Information Salariale" string="معلومات حول الراتب" >
+                    <page name="Information Salariale" string="معلومات حول الراتب">
                     </page>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page[@name='Information Salariale']" position="inside">
@@ -305,7 +326,7 @@
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page[@name='معلومات حول الراتب']" position="inside">
                     <group>
-                         <group>
+                        <group>
                             <field name="date_avancement"/>
                             <field name="ref"/>
                             <field name="date_ref"/>
@@ -337,14 +358,14 @@
                 </xpath>
                 <xpath expr="//form//sheet//notebook" position="inside">
                     <page string="قائمة الملفات">
-                            <field name="formation_file_lines">
-                                <tree editable="bottom">
-                                    <field name="type_file_id"/>
-                                    <field name="description_fichier"/>
-                                    <field name="fichier"/>
-                                </tree>
-                            </field>
-                        </page>
+                        <field name="formation_file_lines">
+                            <tree editable="bottom">
+                                <field name="type_file_id"/>
+                                <field name="description_fichier"/>
+                                <field name="fichier"/>
+                            </tree>
+                        </field>
+                    </page>
                 </xpath>
 
 
@@ -386,7 +407,6 @@
 
         <menuitem name="Employee" id="ressource_humaine_employee" parent="ressource_humaine_employee_info"
                   action="action_ressource_humaine"/>
-
 
 
         <menuitem

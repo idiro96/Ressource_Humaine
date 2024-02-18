@@ -23,7 +23,7 @@
 
     'depends': ['base', 'hr', 'hr_recruitment', 'hr_holidays', 'hr_payroll', 'board', 'web_responsive',
                 'enterprise_theme',
-                'web_rtl', 'website_rtl', 'report_xlsx'],
+                'web_rtl', 'website_rtl', 'report_xlsx', 'field_timepicker'],
 
     # always loaded
     'data': [
@@ -95,6 +95,7 @@
         'wizards/planning_conge.xml',
         'wizards/liste_nominatife.xml',
         'wizards/liste_nominative.xml',
+        'wizards/attestation_travail_wizard.xml',
         'reports/paper_format.xml',
         'reports/hr_contract.xml',
         'reports/attestation_travail.xml',
@@ -118,6 +119,7 @@
         'reports/liste_nominative.xml',
         'reports/rapport_retraite_text.xml',
         'reports/attestation_de_cessation.xml',
+        'reports/planning_notice.xml',
 
     ],
     # only loaded in demonstration mode

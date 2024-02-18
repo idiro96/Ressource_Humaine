@@ -14,16 +14,16 @@
                 <xpath expr="//tree//field[@name='state']" position="attributes">
                     <attribute name="invisible">True</attribute>
                 </xpath>
-                  <xpath expr="//tree//field[@name='department_id']" position="after">
-                      <field name="nature_travail_id"/>
+                <xpath expr="//tree//field[@name='department_id']" position="after">
+                    <field name="nature_travail_id"/>
                 </xpath>
-                   <xpath expr="//tree//field[@name='nature_travail_id']" position="after">
-                      <field name="poste_organique"/>
+                <xpath expr="//tree//field[@name='nature_travail_id']" position="after">
+                    <field name="poste_organique"/>
                 </xpath>
-                 <xpath expr="//tree//field[@name='expected_employees']" position="attributes">
+                <xpath expr="//tree//field[@name='expected_employees']" position="attributes">
                     <attribute name="invisible">True</attribute>
                 </xpath>
-                 <xpath expr="//tree//field[@name='no_of_employee']" position="after">
+                <xpath expr="//tree//field[@name='no_of_employee']" position="after">
                     <field name="max_employee"/>
                 </xpath>
             </field>
@@ -33,11 +33,16 @@
             <field name="model">hr.job</field>
             <field name="inherit_id" ref="hr.view_hr_job_form"/>
             <field name="arch" type="xml">
-                 <xpath expr="//form//sheet//div[2]//field[@name='name']" position="after">
-                     <field name="nature_travail_id"/>
+                <xpath expr="//form//sheet//div[2]//field[@name='name']" position="after">
+                    <field name="nature_travail_id"
+                           options="{'no_create': True, 'no_create_edit':True, 'no_open':True}" widget='selection'/>
                 </xpath>
-                   <xpath expr="//form//sheet//div[2]//field[@name='nature_travail_id']" position="after">
-                     <field name="poste_organique"/>
+                <xpath expr="//form//sheet//div[2]//field[@name='nature_travail_id']" position="before">
+                    <field name="code_type_fonction" invisible="1"/>
+                </xpath>
+                <xpath expr="//form//sheet//div[2]//field[@name='nature_travail_id']" position="after">
+                    <field name="poste_organique"
+                           attrs="{'invisible': [('code_type_fonction', '!=', 'fonctionsuperieure')]}"/>
                 </xpath>
                 <xpath expr="//form//field[@name='no_of_recruitment']" position="attributes">
                     <attribute name="invisible">True</attribute>
@@ -59,22 +64,22 @@
                     <attribute name="string">توقيف التوظيف</attribute>
                 </xpath>
                 <xpath expr="//div[@name='button_box']" position="attributes">
-                     <attribute name="invisible">True</attribute>
+                    <attribute name="invisible">True</attribute>
                 </xpath>
                 <xpath expr="//form//sheet//group//group[@name='recruitment']" position="after">
-                     <group string="الموظفين">
-                         <field name="max_employee" sting="العدد النظري"/>
-                     </group>
+                    <group string="الموظفين">
+                        <field name="max_employee" sting="العدد النظري"/>
+                    </group>
                 </xpath>
-<!--                <xpath expr="//div[@class='oe_button_box']/button[@name='toggle_active']" position="attributes">-->
-<!--                    <attribute name="invisible">1</attribute>-->
-<!--                </xpath>-->
+                <!--                <xpath expr="//div[@class='oe_button_box']/button[@name='toggle_active']" position="attributes">-->
+                <!--                    <attribute name="invisible">1</attribute>-->
+                <!--                </xpath>-->
 
 
-<!--                <xpath expr="//form//sheet//div[2]//field[@name='nature_travail_id']" position="after">-->
-<!--                     <label for="nature_poste" class="oe_edit_only"/>-->
-<!--                     <field name="nature_poste"/>-->
-<!--                </xpath>-->
+                <!--                <xpath expr="//form//sheet//div[2]//field[@name='nature_travail_id']" position="after">-->
+                <!--                     <label for="nature_poste" class="oe_edit_only"/>-->
+                <!--                     <field name="nature_poste"/>-->
+                <!--                </xpath>-->
 
 
             </field>
@@ -97,12 +102,11 @@
         </record>
 
 
-
         <menuitem name="Postes" id="action_hr_job_id" parent="recrutement_id"
-           action="action_hr_job"/>
-<!--        <menuitem name="Toutes les candidatures" id="crm_case_categ0_act_job_id" parent="recrutement_id"-->
-<!--           action="crm_case_categ0_act_job"/>-->
->
+                  action="action_hr_job"/>
+        <!--        <menuitem name="Toutes les candidatures" id="crm_case_categ0_act_job_id" parent="recrutement_id"-->
+        <!--           action="crm_case_categ0_act_job"/>-->
+        >
 
 
     </data>

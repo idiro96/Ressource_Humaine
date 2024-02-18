@@ -299,6 +299,11 @@ class HrContratInherited(models.Model):
             rec.corps_id = rec.employee_id.corps_id.id if rec.employee_id else False
             rec.grade_id = rec.employee_id.grade_id.id if rec.employee_id else False
 
+    @api.onchange('employee_id')
+    def onchange_employee_type_id(self):
+        if self.employee_id:
+            self.type_id = self.employee_id.type_id
+
 
 class HrContractReport(models.AbstractModel):
     _name = 'report.ressource_humaine.hr_contract_report'
@@ -321,6 +326,7 @@ class HrContractReport(models.AbstractModel):
                 employee_date_fin_relation[employee.id] = formatted_date_fin_relation
             else:
                 employee_date_fin_relation[employee.id] = ''
+        print(employee_date_fin_relation)
 
         employee_birthday = {}
         for employee in employees:

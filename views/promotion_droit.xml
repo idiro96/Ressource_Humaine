@@ -11,8 +11,8 @@
                 <field name="job_id" readonly="1"/>
                 <field name="date_grade" readonly="1"/>
                 <field name="grade_new_id"/>
-                <field name="duree" readonly="1"/>
-                <field name="date_new_grade" readonly="1"/>
+                <field name="duree"/>
+                <field name="date_new_grade"/>
                 <field name="date_promotion" readonly="1"/>
                 <field name="sauvegarde" widget="toggle_button"/>
                 <field name="retenue" widget="toggle_button"/>

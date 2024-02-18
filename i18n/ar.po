@@ -14726,7 +14726,7 @@ msgstr "تاريخ التطبيق المؤقت"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_wizard_date_avancement
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avencement_droit_date_avancement
 msgid "Date Avancement"
-msgstr "تاريخ الترقية"
+msgstr "تاريخ إستحقاق الترقية"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_attachment_create_date
@@ -30489,17 +30489,30 @@ msgstr "Time Picker Using Wickedpicker"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_planning_time_surveillance_end
 msgid "Time Surveillance End"
+<<<<<<< HEAD:ressource_humaine/i18n/ar.po
 msgstr "توقيت نهاية الامتحان"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_planning_time_surveillance_end1
 msgid "Time Surveillance End1"
 msgstr "توقيت نهاية الامتحان 1"
+=======
+msgstr "نهاية المراقبة"
+>>>>>>> cf358646ae409e0d5b1666980cb860ee3f032ac3:i18n/ar.po
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_planning_time_surveillance_start
 msgid "Time Surveillance Start"
+<<<<<<< HEAD:ressource_humaine/i18n/ar.po
 msgstr "توقيت بداية الامتحان"
+=======
+msgstr "بداية المراقبة"
+
+#. module: resource
+#: sql_constraint:resource.resource:0
+msgid "Time efficiency must be strictly positive"
+msgstr "يجب أن تكون كفاءة الوقت قيمة موجبة"
+>>>>>>> cf358646ae409e0d5b1666980cb860ee3f032ac3:i18n/ar.po
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_project_timesheet_holidays

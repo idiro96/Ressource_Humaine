@@ -16,7 +16,6 @@ import time
 class HrEmployeInherited(models.Model):
     _inherit = "hr.employee"
 
-
     handicape = fields.Boolean(default=False)
     service_militaire = fields.Boolean(default=False)
     fin_relation = fields.Boolean(default=False)
@@ -28,7 +27,7 @@ class HrEmployeInherited(models.Model):
     prenom_mere = fields.Char()
     nom_fr = fields.Char()
     # prenom_fr = fields.Char()
-
+    annee_travail = fields.Float()
     date_entrer = fields.Date()
     date_job_id = fields.Date()
     date_reintegration = fields.Date()
@@ -40,9 +39,9 @@ class HrEmployeInherited(models.Model):
     selection_employe = fields.Boolean('Sélection', default=False)
     # days_off = fields.Float(string='Total Days Off', store=True)
     wage = fields.Float()
-
+    code_type_fonction = fields.Char(related='nature_travail_id.code_type_fonction', store=True)
     # days_off = fields.Float(compute='_compute_days_off', store=True, translate=True)
-
+    type_id = fields.Many2one('hr.contract.type')
     # days_off = fields.Float(compute='_compute_days_off', store=True, translate=True)
     days_off = fields.Float(store=True)
     jour_sup = fields.Float(store=True)
@@ -107,12 +106,12 @@ class HrEmployeInherited(models.Model):
                 raise ValidationError('The maximum value for jour_sup is 12.0')
 
 
-    @api.multi
+    @api.depends('birthday')
     def calculer_age_employee(self):
         for emp in self:
             age = 0
             if emp.birthday:
-                date_naiss = datetime.strptime(emp.birthday, '%Y-%m-%d')
+                date_naiss = datetime.strptime(emp.birthday, '%Y-%m-%d').date()
                 aujourdhui = date.today()
                 age = aujourdhui.year - date_naiss.year - ((aujourdhui.month, aujourdhui.day) < (date_naiss.month, date_naiss.day))
             emp.age_employee = age
@@ -138,13 +137,14 @@ class HrEmployeInherited(models.Model):
             else:
                 rec.age_range = 'very_high'
 
-    @api.depends('date_avancement', 'date_ref')
+    @api.depends('date_entrer')
     def _compute_experience(self):
         for employee in self:
-            if employee.date_avancement and employee.date_ref:
-                date_avancement = fields.Datetime.from_string(employee.date_avancement)
-                date_ref = fields.Datetime.from_string(employee.date_ref)
-                delta = relativedelta(date_ref, date_avancement)
+            if employee.date_entrer:
+                date_entrer = fields.Datetime.from_string(employee.date_entrer)
+                date_today = datetime.now().strftime('%Y-%m-%d')
+                date_today = fields.Datetime.from_string(date_today)
+                delta = relativedelta(date_today, date_entrer)
 
                 years = delta.years
                 months = delta.months

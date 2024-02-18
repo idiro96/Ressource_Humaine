@@ -15,9 +15,9 @@
                 <field name="categorie_new_id"/>
                 <field name="section_new_id"/>
                 <field name="echelon_new_id"/>
-                <field name="duree" readonly="1"/>
-                <field name="duree_lettre" readonly="1"/>
-                <field name="date_new_avancement" readonly="1"/>
+                <field name="duree"/>
+                <field name="duree_lettre"/>
+                <field name="date_new_avancement"/>
                 <field name="date_avancement" readonly="1"/>
                 <field name="sauvegarde" widget="toggle_button"/>
                 <field name="retenue" widget="toggle_button"/>

@@ -16,8 +16,13 @@ class ListeNominativeReport(models.AbstractModel):
     @api.model
     def get_report_values(self, docids, data=None):
         job_supp = self.env['hr.job'].search([('nature_travail_id.code_type_fonction', '=', 'postesuperieure')])
-        job_hight_org = self.env['hr.job'].search([('nature_travail_id.code_type_fonction', '=', 'fonctionsuperieure'),
-                                                   ('poste_organique', '=', 'organique')])
+        job_hight_org_1 = self.env['hr.job'].search(
+            [('nature_travail_id.code_type_fonction', '=', 'fonctionsuperieure'),
+             ('poste_organique', '=', 'organique'), ('name', 'ilike', 'مكتب')])
+        job_hight_org_2 = self.env['hr.job'].search(
+            [('nature_travail_id.code_type_fonction', '=', 'fonctionsuperieure'),
+             ('poste_organique', '=', 'organique')])
+        job_hight_org = job_hight_org_2 - job_hight_org_1
         job_hight_squ = self.env['hr.job'].search([('nature_travail_id.code_type_fonction', '=', 'fonctionsuperieure'),
                                                    ('poste_organique', '=', 'squelaire')])
 
@@ -89,12 +94,16 @@ class ListeNominativeReport(models.AbstractModel):
         grade_c = self.env['rh.grade'].search([('categorie_id.groupe_id.name', 'ilike', 'المجموعة ج')])
         grade_d = self.env['rh.grade'].search([('categorie_id.groupe_id.name', 'ilike', 'المجموعة د')])
         grade_d_2 = self.env['rh.grade'].search([('categorie_id.groupe_id.name', 'ilike', 'المجموعة د'),
-                                                 ('intitule_grade', 'ilike', 'مهن')])
-        grade_d_1 = grade_d - grade_d_2
+                                                 ('corps_id.intitule_corps', 'ilike', 'مهن')])
+        grade_contract = self.env['rh.grade'].search([('corps_id.intitule_corps', 'ilike', 'متعاقد')])
+        grade_d_1 = grade_d - grade_d_2 - grade_contract
+
+
 
         report_data = {
             'company': self.env.user.company_id,
             'job_supp': job_supp,
+            'job_hight_org_1': job_hight_org_1,
             'job_hight_org': job_hight_org,
             'job_hight_squ': job_hight_squ,
             'first_pleintemps_indeterminee': first_pleintemps_indeterminee,
@@ -107,6 +116,7 @@ class ListeNominativeReport(models.AbstractModel):
             'grade_c': grade_c,
             'grade_d_1': grade_d_1,
             'grade_d_2': grade_d_2,
+            'grade_contract': grade_contract,
         }
 
         return report_data
