@@ -1,0 +1,57 @@
+<odoo>
+    <record id="view_rh_avencement_droit_tree" model="ir.ui.view">
+        <field name="name">Droit Avencement Tree</field>
+        <field name="model">rh.avencement.droit</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="employee_id" readonly="1"/>
+                <field name="birthday" readonly="1"/>
+                <field name="marital" readonly="1"/>
+                <field name="grade_id" readonly="1"/>
+                <field name="job_id" readonly="1"/>
+                <field name="echelon_old_id" readonly="1"/>
+                <field name="date_old_avancement" readonly="1"/>
+                <field name="groupe_new_id"/>
+                <field name="categorie_new_id"/>
+                <field name="section_new_id"/>
+                <field name="echelon_new_id"/>
+                <field name="duree" readonly="1"/>
+                <field name="duree_lettre" readonly="1"/>
+                <field name="date_new_avancement" readonly="1"/>
+                <field name="date_avancement" readonly="1"/>
+                <field name="sauvegarde" widget="toggle_button"/>
+                <field name="retenue" widget="toggle_button"/>
+            </tree>
+        </field>
+
+    </record>
+    <record id="view_rh_avencement_droit_form" model="ir.ui.view">
+        <field name="name">Droit Avencement Form</field>
+        <field name="model">rh.avencement.droit</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="employee_id" String="employee"/>
+                    <field name="groupe_old_id" String="Ancien groupe" readonly="1"/>
+                    <field name="categorie_old_id" String="Ancien Categorie" readonly="1"/>
+                    <field name="echelon_old_id" String="Ancien Echelon" readonly="1"/>
+                    <field name="groupe_new_id" String="Nouveau groupe"/>
+                    <field name="categorie_new_id" String="Nouvelle Categorie"/>
+                    <field name="echelon_new_id" String="Nouveau Echelon"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_rh_avencement_droit_wizard" model="ir.actions.act_window">
+        <field name="name">Droit Avencement</field>
+        <field name="res_model">droit.avencement</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="ressource_humaine.droit_avencement_wizard"/>
+        <field name="target">new</field>
+    </record>
+    <menuitem name="Droit Avencement" id="ressource_humaine_droit_avencement" parent="avancement_id" sequence="9"
+              action="action_rh_avencement_droit_wizard"/>
+</odoo>
+
+
