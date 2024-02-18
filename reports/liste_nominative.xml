@@ -876,9 +876,9 @@
                             <t t-set="total_vrai10" t-value="0"/>
                             <t t-set="total_diff10" t-value="0"/>
                             <t t-foreach="grade_d_2.sorted(key=lambda x: x.intitule_grade)" t-as="line">
-                                <t t-set="total_max9" t-value="total_max10 + line.max_employee"/>
-                                <t t-set="total_vrai9" t-value="total_vrai10 + line.no_of_employee"/>
-                                <t t-set="total_diff9" t-value="total_diff10 + line.nombre_de_postes_vacants"/>
+                                <t t-set="total_max10" t-value="total_max10 + line.max_employee"/>
+                                <t t-set="total_vrai10" t-value="total_vrai10 + line.no_of_employee"/>
+                                <t t-set="total_diff10" t-value="total_diff10 + line.nombre_de_postes_vacants"/>
                                 <tr>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:12.5%">
                                         &#160;
@@ -932,17 +932,17 @@
                                 </td>
                                 <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#A9A9A9;width:12.5%">
                                     <strong>
-                                        <span t-esc="total_diff7+total_diff8+total_diff10"/>
+                                        <span t-esc="total_diff8+total_diff9+total_diff10"/>
                                     </strong>
                                 </td>
                                 <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#A9A9A9;width:12.5%">
                                     <strong>
-                                        <span t-esc="total_vrai7+total_vrai8+total_vrai10"/>
+                                        <span t-esc="total_vrai8+total_vrai9+total_vrai10"/>
                                     </strong>
                                 </td>
                                 <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#A9A9A9;width:12.5%">
                                     <strong>
-                                        <span t-esc="total_max7+total_max8+total_max10"/>
+                                        <span t-esc="total_max8+total_max9+total_max10"/>
                                     </strong>
                                 </td>
                                 <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:15px;background-color:#A9A9A9;width:50%"
@@ -1001,31 +1001,31 @@
                             <t t-set="total_max11" t-value="0"/>
                             <t t-set="total_vrai11" t-value="0"/>
                             <t t-set="total_diff11" t-value="0"/>
-                            <t t-foreach="first_pleintemps_indeterminee" t-as="line">
-                                <t t-set="total_max10" t-value="total_max11 + line.job_id.max_employee"/>
-                                <t t-set="total_vrai10" t-value="total_vrai11 + line.job_id.no_of_employee"/>
-                                <t t-set="total_diff10" t-value="total_diff11 + line.job_id.nombre_de_postes_vacants"/>
+                            <t t-foreach="grade_contract" t-as="line">
+                                <t t-set="total_max11" t-value="total_max11 + line.max_employee"/>
+                                <t t-set="total_vrai11" t-value="total_vrai11 + line.no_of_employee_cdi_plein"/>
+                                <t t-set="total_diff11" t-value="total_diff11 + line.nombre_de_postes_vacants"/>
                                 <tr>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:12.5%">
                                         &#160;
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:12.5%">
-                                        <span t-esc="line.job_id.nombre_de_postes_vacants"/>
+                                        <span t-esc="line.nombre_de_postes_vacants"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:12.5%">
-                                        <span t-esc="line.job_id.no_of_employee"/>
+                                        <span t-esc="line.no_of_employee_cdi_plein"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:12.5%">
-                                        <span t-esc="line.job_id.max_employee"/>
+                                        <span t-esc="line.max_employee"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:12.5%">
-                                        <span t-esc="line.indice_minimal"/>
+                                        <span t-esc="line.categorie_id.Indice_minimal"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:12.5%">
                                         <span t-esc="line.categorie_id.intitule"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:15px;width:25%">
-                                        <span t-esc="line.job_id.name"/>
+                                        <span t-esc="line.intitule_grade"/>
                                     </td>
                                 </tr>
                             </t>
@@ -1062,31 +1062,31 @@
                             <t t-set="total_max12" t-value="0"/>
                             <t t-set="total_vrai12" t-value="0"/>
                             <t t-set="total_diff12" t-value="0"/>
-                            <t t-foreach="first_pleintemps_determinee" t-as="line">
-                                <t t-set="total_max12" t-value="total_max12 + line.job_id.max_employee"/>
-                                <t t-set="total_vrai12" t-value="total_vrai12 + line.job_id.no_of_employee"/>
-                                <t t-set="total_diff12" t-value="total_diff12 + line.job_id.nombre_de_postes_vacants"/>
+                            <t t-foreach="grade_contract" t-as="line">
+                                <t t-set="total_max12" t-value="total_max12 + line.max_employee"/>
+                                <t t-set="total_vrai12" t-value="total_vrai12 + line.no_of_employee_cdd_plein"/>
+                                <t t-set="total_diff12" t-value="total_diff12 + line.nombre_de_postes_vacants"/>
                                 <tr>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:12.5%">
                                         &#160;
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:12.5%">
-                                        <span t-esc="line.job_id.nombre_de_postes_vacants"/>
+                                        <span t-esc="line.nombre_de_postes_vacants"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:12.5%">
-                                        <span t-esc="line.job_id.no_of_employee"/>
+                                        <span t-esc="line.no_of_employee_cdd_plein"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:12.5%">
-                                        <span t-esc="line.job_id.max_employee"/>
+                                        <span t-esc="line.max_employee"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:12.5%">
-                                        <span t-esc="line.indice_minimal"/>
+                                        <span t-esc="line.categorie_id.Indice_minimal"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:12.5%">
                                         <span t-esc="line.categorie_id.intitule"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:15px;width:25%">
-                                        <span t-esc="line.job_id.name"/>
+                                        <span t-esc="line.intitule_grade"/>
                                     </td>
                                 </tr>
                             </t>
@@ -1123,31 +1123,31 @@
                             <t t-set="total_max13" t-value="0"/>
                             <t t-set="total_vrai13" t-value="0"/>
                             <t t-set="total_diff13" t-value="0"/>
-                            <t t-foreach="first_partiel_indeterminee" t-as="line">
-                                <t t-set="total_max13" t-value="total_max13 + line.job_id.max_employee"/>
-                                <t t-set="total_vrai13" t-value="total_vrai13 + line.job_id.no_of_employee"/>
-                                <t t-set="total_diff13" t-value="total_diff13 + line.job_id.nombre_de_postes_vacants"/>
+                            <t t-foreach="grade_contract" t-as="line">
+                                <t t-set="total_max13" t-value="total_max13 + line.max_employee"/>
+                                <t t-set="total_vrai13" t-value="total_vrai13 + line.no_of_employee_cdi_partiel"/>
+                                <t t-set="total_diff13" t-value="total_diff13 + line.nombre_de_postes_vacants"/>
                                 <tr>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:12.5%">
                                         &#160;
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:12.5%">
-                                        <span t-esc="line.job_id.nombre_de_postes_vacants"/>
+                                        <span t-esc="line.nombre_de_postes_vacants"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:12.5%">
-                                        <span t-esc="line.job_id.no_of_employee"/>
+                                        <span t-esc="line.no_of_employee_cdi_partiel"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:12.5%">
-                                        <span t-esc="line.job_id.max_employee"/>
+                                        <span t-esc="line.max_employee"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:12.5%">
-                                        <span t-esc="line.indice_minimal"/>
+                                        <span t-esc="line.categorie_id.Indice_minimal"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:12.5%">
                                         <span t-esc="line.categorie_id.intitule"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:15px;width:25%">
-                                        <span t-esc="line.job_id.name"/>
+                                        <span t-esc="line.intitule_grade"/>
                                     </td>
                                 </tr>
                             </t>
@@ -1184,31 +1184,31 @@
                             <t t-set="total_max14" t-value="0"/>
                             <t t-set="total_vrai14" t-value="0"/>
                             <t t-set="total_diff14" t-value="0"/>
-                            <t t-foreach="first_partiel_determinee" t-as="line">
-                                <t t-set="total_max14" t-value="total_max14 + line.job_id.max_employee"/>
-                                <t t-set="total_vrai14" t-value="total_vrai14 + line.job_id.no_of_employee"/>
-                                <t t-set="total_diff14" t-value="total_diff14 + line.job_id.nombre_de_postes_vacants"/>
+                            <t t-foreach="grade_contract" t-as="line">
+                                <t t-set="total_max14" t-value="total_max14 + line.max_employee"/>
+                                <t t-set="total_vrai14" t-value="total_vrai14 + line.no_of_employee_cdd_partiel"/>
+                                <t t-set="total_diff14" t-value="total_diff14 + line.nombre_de_postes_vacants"/>
                                 <tr>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:12.5%">
                                         &#160;
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:12.5%">
-                                        <span t-esc="line.job_id.nombre_de_postes_vacants"/>
+                                        <span t-esc="line.nombre_de_postes_vacants"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:12.5%">
-                                        <span t-esc="line.job_id.no_of_employee"/>
+                                        <span t-esc="line.no_of_employee_cdd_partiel"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:12.5%">
-                                        <span t-esc="line.job_id.max_employee"/>
+                                        <span t-esc="line.max_employee"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:12.5%">
-                                        <span t-esc="line.indice_minimal"/>
+                                        <span t-esc="line.categorie_id.Indice_minimal"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:12.5%">
                                         <span t-esc="line.categorie_id.intitule"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:15px;width:25%">
-                                        <span t-esc="line.job_id.name"/>
+                                        <span t-esc="line.intitule_grade"/>
                                     </td>
                                 </tr>
                             </t>
@@ -1242,7 +1242,7 @@
                                 </td>
                                 <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;;background-color:#A9A9A9;width:12.5%">
                                     <strong>
-                                        <span t-esc="total_diff11+total_diff12+total_diff13+total_diff14"/>
+                                        <span t-esc="total_diff11"/>
                                     </strong>
                                 </td>
                                 <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;;background-color:#A9A9A9;width:12.5%">
@@ -1252,7 +1252,7 @@
                                 </td>
                                 <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;;background-color:#A9A9A9;width:12.5%">
                                     <strong>
-                                        <span t-esc="total_max11+total_max12+total_max13+total_max14"/>
+                                        <span t-esc="total_max11"/>
                                     </strong>
                                 </td>
                                 <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:15px;;background-color:#A9A9A9;width:50%"

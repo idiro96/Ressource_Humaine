@@ -41,7 +41,7 @@ class HrEmployeInherited(models.Model):
     wage = fields.Float()
     code_type_fonction = fields.Char(related='nature_travail_id.code_type_fonction', store=True)
     # days_off = fields.Float(compute='_compute_days_off', store=True, translate=True)
-
+    type_id = fields.Many2one('hr.contract.type')
     # days_off = fields.Float(compute='_compute_days_off', store=True, translate=True)
     days_off = fields.Float(store=True)
     jour_sup = fields.Float(store=True)

@@ -164,4 +164,12 @@
             name="ressource_humaine.liste_nominative"
             file="وضعية التعداد النظري و الحقيقي"/>
 
+    <report
+            id="action_notice_planning_surveillance"
+            string="تسخيرة"
+            model="rh.planning"
+            report_type="qweb-html"
+            name="ressource_humaine.notice_planning_surveillance_report"
+            file="تسخيرة"/>
+
 </odoo>
