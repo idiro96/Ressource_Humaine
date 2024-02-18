@@ -94,10 +94,11 @@ class ListeNominativeReport(models.AbstractModel):
         grade_c = self.env['rh.grade'].search([('categorie_id.groupe_id.name', 'ilike', 'المجموعة ج')])
         grade_d = self.env['rh.grade'].search([('categorie_id.groupe_id.name', 'ilike', 'المجموعة د')])
         grade_d_2 = self.env['rh.grade'].search([('categorie_id.groupe_id.name', 'ilike', 'المجموعة د'),
-                                                 ('intitule_grade', 'ilike', 'مهن')])
-        grade_d_1 = grade_d - grade_d_2
-
+                                                 ('corps_id.intitule_corps', 'ilike', 'مهن')])
         grade_contract = self.env['rh.grade'].search([('corps_id.intitule_corps', 'ilike', 'متعاقد')])
+        grade_d_1 = grade_d - grade_d_2 - grade_contract
+
+
 
         report_data = {
             'company': self.env.user.company_id,

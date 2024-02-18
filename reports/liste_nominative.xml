@@ -932,17 +932,17 @@
                                 </td>
                                 <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#A9A9A9;width:12.5%">
                                     <strong>
-                                        <span t-esc="total_diff8+total_diff9+total_diff10"/>
+                                        <span t-esc="total_diff9+total_diff10"/>
                                     </strong>
                                 </td>
                                 <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#A9A9A9;width:12.5%">
                                     <strong>
-                                        <span t-esc="total_vrai8+total_vrai9+total_vrai10"/>
+                                        <span t-esc="total_vrai9+total_vrai10"/>
                                     </strong>
                                 </td>
                                 <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;background-color:#A9A9A9;width:12.5%">
                                     <strong>
-                                        <span t-esc="total_max8+total_max9+total_max10"/>
+                                        <span t-esc="total_max9+total_max10"/>
                                     </strong>
                                 </td>
                                 <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:15px;background-color:#A9A9A9;width:50%"
