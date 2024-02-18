@@ -1,0 +1,12 @@
+body {
+    direction: rtl;
+}
+
+
+.nv-legend {
+    .nv-series {
+        .nv-legend-text {
+            margin-left: 8px;
+        }
+    }
+}
