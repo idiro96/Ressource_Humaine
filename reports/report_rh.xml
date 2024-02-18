@@ -164,4 +164,23 @@
             name="ressource_humaine.liste_nominative"
             file="وضعية التعداد النظري و الحقيقي"/>
 
+      <report
+            id="retraite_report"
+            model="rh.fin.relation"
+            string="retraite"
+            report_type="qweb-html"
+            name="ressource_humaine.rapport_retraite"
+            file="ressource_humaine.rapport_retraite"/>
+
+     <report
+            id="action_attestation_cessation"
+            model="hr.employee"
+            string="Attestation de cessation d'activité salariée"
+            report_type="qweb-pdf"
+            name="ressource_humaine.attestation_cessation"
+            file="ressource_humaine.attestation_cessation"
+            paperformat="ressource_humaine.paperformat_european_a4_portrait"/>
+
+
+
 </odoo>
