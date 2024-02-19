@@ -47,10 +47,13 @@
                     </strong>
                 </div>
                 <br/>
-                <div class="row" style="margin:15;">
+                <div class="row" style="margin:-15;">
                     <table style="width: 100%;">
                         <thead>
                             <tr>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;width:150px">
+                                    <strong>فرق المدة</strong>
+                                </th>
                                 <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;width:125px">
                                     <strong>تاريخ سريان الترقية القادمة</strong>
                                 </th>
@@ -96,6 +99,9 @@
                         <t t-set="line_count" t-value="1"/>
                         <t t-foreach="promotion_droit" t-as="line">
                             <tbody>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px;width:150px">
+                                    <span t-esc="line.time_difference"/>
+                                </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                     <span t-esc="line.date_new_grade"/>
                                 </td>

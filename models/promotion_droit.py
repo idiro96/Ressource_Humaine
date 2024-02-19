@@ -70,7 +70,8 @@ class RHPromotionDroit(models.Model):
                 rec.time_months = months
                 rec.time_days = days
 
-                rec.time_difference = str(years) + ' annee et ' + str(months) + ' mois et ' + str(days) + 'jours'
+                # rec.time_difference = str(years) + ' annee et ' + str(months) + ' mois et ' + str(days) + 'jours'
+                rec.time_difference = f"قدره {years} سنة و {months} شهر و {days} يوم"
                 print(rec.time_difference)
                 print('rec.time_difference')
 
