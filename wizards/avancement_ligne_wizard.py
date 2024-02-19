@@ -16,6 +16,7 @@ class RHAvancementLine(models.TransientModel):
     code_type_fonction = fields.Char(related='employee_id.nature_travail_id.code_type_fonction',
                                      string='Code Type Fonction', store=True)
 
+    grille_old_id = fields.Many2one('rh.grille')
     groupe_old_id = fields.Many2one('rh.groupe')
     categorie_old_id = fields.Many2one('rh.categorie')
     section_old_id = fields.Many2one('rh.section')
@@ -24,6 +25,7 @@ class RHAvancementLine(models.TransientModel):
     section_superieure_old_id = fields.Many2one('rh.section.superieure')
     niveau_hierarchique_old_id = fields.Many2one('rh.niveau.hierarchique')
 
+    grille_new_id = fields.Many2one('rh.grille')
     groupe_new_id = fields.Many2one('rh.groupe')
     categorie_new_id = fields.Many2one('rh.categorie', domain="[('groupe_id', '=', groupe_new_id), ('type_fonction_id', '=', type_fonction_id)]")
     section_new_id = fields.Many2one('rh.section')

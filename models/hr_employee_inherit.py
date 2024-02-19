@@ -75,6 +75,7 @@ class HrEmployeInherited(models.Model):
     nomination = fields.Selection(selection=[('satagiaire', 'Satagiaire'), ('nomination', 'Titulaire')], readonly=False, required=True)
     place_of_birth_fr = fields.Char('Lieu de naissance', groups="hr.group_hr_user", required=True)
     # place_of_birth_fr = fields.Char('Lieu de naissance', groups="hr.group_hr_user")
+    grille_id = fields.Many2one('rh.grille', readonly=False)
     groupe_id = fields.Many2one('rh.groupe', readonly=False)
     point_indiciare = fields.Integer()
     indice_minimal = fields.Integer()

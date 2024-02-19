@@ -11,6 +11,7 @@
                 <field name="type_fonction_id"/>
                 <field name="Indice_minimal"/>
                 <field name="groupe_id"/>
+                <field name="grille_id"/>
             </tree>
         </field>
 

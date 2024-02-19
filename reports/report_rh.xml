@@ -86,7 +86,7 @@
     <report
             id="action_hr_tableau_promotion"
             model="rh.avencement.droit"
-            string="جدول ترقية في الرتبة"
+            string="جدول ترقية في الدرجة"
             report_type="qweb-html"
             name="ressource_humaine.tableau_promotion"
             file="جدول ترقية في الرتبة"
@@ -96,7 +96,7 @@
     <report
             id="action_hr_tableau_des_promotions"
             model="rh.promotion.droit"
-            string="جدول ترقية في الدرجة"
+            string="جدول ترقية في الرتبة"
             report_type="qweb-html"
             name="ressource_humaine.tableau_des_promotions"
             file="جدول ترقية في الدرجة"

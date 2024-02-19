@@ -14,6 +14,8 @@ class RHAvencementDroit(models.Model):
     birthday = fields.Date(related='employee_id.birthday')
     marital = fields.Selection(related='employee_id.marital')
     type_fonction_id = fields.Many2one('rh.type.fonction')
+    grille_old_id = fields.Many2one('rh.grille')
+    grille_new_id = fields.Many2one('rh.grille')
     groupe_old_id = fields.Many2one('rh.groupe')
     categorie_old_id = fields.Many2one('rh.categorie')
     section_old_id = fields.Many2one('rh.section')
@@ -53,6 +55,16 @@ class RHAvencementDroit(models.Model):
             return {'domain': {'categorie_new_id': [('groupe_id', '=', self.groupe_new_id.id)]}}
         else:
             return {'domain': {'categorie_new_id': []}}
+
+    @api.onchange('grille_id')
+    def _onchange_grille_id(self):
+        if self.grille_id:
+            self.groupe_new_id = False
+            self.categorie_new_id = False
+            self.echelon_new_id = False
+            return {'domain': {'groupe_new_id': [('grille_id', '=', self.grille_id.id)]}}
+        else:
+            return {'domain': {'groupe_new_id': []}}
 
     @api.onchange('categorie_new_id')
     def _onchange_categorie_new_id(self):
