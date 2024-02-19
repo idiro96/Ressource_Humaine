@@ -42,7 +42,7 @@
                 <br/>
                 <div style="text-align:center;font-size: 30px">
                     <strong>
-                        <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
+                        <span t-esc="date"/>
                         جدول ترقية موظفي المدرسة الوطنية للإدارة لسنة
                     </strong>
                 </div>
