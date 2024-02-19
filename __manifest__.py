@@ -117,6 +117,8 @@
         'reports/liste_nominatife_employee.xml',
         'reports/fiche_renseignement.xml',
         'reports/liste_nominative.xml',
+        'reports/rapport_retraite_text.xml',
+        'reports/attestation_de_cessation.xml',
         'reports/planning_notice.xml',
 
     ],

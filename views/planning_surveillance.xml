@@ -6,7 +6,7 @@
 
 
             <tree>
-                <field name="president_emphy"/>
+<!--                <field name="president_emphy"/>-->
                 <field name="date_surveillance"/>
                 <field name="time_surveillance_start"/>
                 <field name="time_surveillance_end"/>
@@ -25,9 +25,9 @@
                  </header>
                 <sheet>
                     <group>
-                        <group>
-                            <field name="president_emphy"/>
-                        </group>
+<!--                        <group>-->
+<!--                            <field name="president_emphy"/>-->
+<!--                        </group>-->
                         <group>
                             <field name="date_surveillance"/>
                             <field name="time_surveillance_start" widget="timepicker"/>
