@@ -70,8 +70,7 @@
                                             <span>-</span>
                                         </t>
                                     </td>
-                                    <t t-if="compteur == 1">
-                                        <td rowspan="1000"
+                                        <td
                                             style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
                                             <span>
                                                 من
@@ -82,8 +81,6 @@
                                             </span>
                                             <t t-esc="planning.time_surveillance_end"/>
                                         </td>
-                                        <t t-set="compteur" t-value="2"/>
-                                    </t>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
                                         <span t-esc="line.emphy_id.intitule_emphy"/>
                                     </td>
