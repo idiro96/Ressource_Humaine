@@ -23,7 +23,7 @@
 
     'depends': ['base', 'hr', 'hr_recruitment', 'hr_holidays', 'hr_payroll', 'board', 'web_responsive',
                 'enterprise_theme',
-                'web_rtl', 'website_rtl', 'report_xlsx'],
+                'web_rtl', 'website_rtl', 'report_xlsx', 'field_timepicker'],
 
     # always loaded
     'data': [
@@ -117,6 +117,7 @@
         'reports/liste_nominatife_employee.xml',
         'reports/fiche_renseignement.xml',
         'reports/liste_nominative.xml',
+        'reports/planning_notice.xml',
 
     ],
     # only loaded in demonstration mode

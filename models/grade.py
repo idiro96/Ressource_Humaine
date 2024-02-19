@@ -17,6 +17,10 @@ class RHGrade(models.Model):
     grade_id = fields.Many2one('hr.groupe')
     categorie_id = fields.Many2one('rh.categorie')
     employee_ids = fields.One2many('hr.employee', 'grade_id', string='Employees', groups='base.group_user')
+    no_of_employee_cdi_plein = fields.Integer(compute='_compute_employees_contract', store=True)
+    no_of_employee_cdd_plein = fields.Integer(compute='_compute_employees_contract', store=True)
+    no_of_employee_cdi_partiel = fields.Integer(compute='_compute_employees_contract', store=True)
+    no_of_employee_cdd_partiel = fields.Integer(compute='_compute_employees_contract', store=True)
     no_of_employee = fields.Integer(compute='_compute_employees', store=True)
     max_employee = fields.Integer(default=1, store=True)
     nombre_de_postes_vacants = fields.Integer(compute='_compute_nombre_de_postes_vacants', store=True)
@@ -28,11 +32,32 @@ class RHGrade(models.Model):
         for grade in self:
             grade.no_of_employee = result.get(grade.id, 0)
 
-    # @api.constrains('no_of_employee', 'max_employee')
-    # def _check_max_employee_limit(self):
-    #     for job in self:
-    #         if job.no_of_employee > job.max_employee:
-    #             raise ValidationError("لا يجوز أن عدد الموظفين يتفوق عن الحد الأقصى المسموح به")
+    @api.depends('employee_ids.grade_id', 'employee_ids.active', 'employee_ids.type_id.code_type_contract')
+    def _compute_employees_contract(self):
+        contract_types = {
+            'pleintemps_indeterminee': 'no_of_employee_cdi_plein',
+            'pleintemps_determinee': 'no_of_employee_cdd_plein',
+            'partiel_indeterminee': 'no_of_employee_cdi_partiel',
+            'partiel_determinee': 'no_of_employee_cdd_partiel',
+        }
+
+        for contract_type, field_name in contract_types.items():
+            employee_data = self.env['hr.employee'].read_group(
+                [
+                    ('grade_id', 'in', self.ids),
+                    ('type_id.code_type_contract', '=', contract_type)
+                ],
+                ['grade_id'], ['grade_id']
+            )
+            result = dict((data['grade_id'][0], data['grade_id_count']) for data in employee_data)
+            for grade in self:
+                setattr(grade, field_name, result.get(grade.id, 0))
+
+    @api.constrains('no_of_employee', 'max_employee')
+    def _check_max_employee_limit(self):
+        for job in self:
+            if job.no_of_employee > job.max_employee:
+                raise ValidationError("لا يجوز أن عدد الموظفين يتفوق عن الحد الأقصى المسموح به")
 
     @api.depends('max_employee', 'no_of_employee')
     def _compute_nombre_de_postes_vacants(self):
