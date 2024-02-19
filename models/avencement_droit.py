@@ -91,6 +91,28 @@ class RHAvencementDroit(models.Model):
 
         return result1
 
+    @api.multi
+    def unlink(self):
+        for rec in self:
+            print('ranah')
+            record2 = self.env['rh.avancement.line'].search(
+                [('employee_id', '=', rec.employee_id.id), ('date_avancement', '=', rec.date_avancement)])
+            if record2:
+                raise UserError(
+                    "Vous ne pouvez pas supprimer un enregistrement déja validé")
+        return super(RHAvencementDroit, self).unlink()
+
+        # endroit = self.env['invest.affectation'].search([('endroit_id', '=', self.id)])
+        # if endroit:
+        #     raise UserError(
+        #         "Vous ne pouvez pas supprimer cet emplacement, car un bien est déja affecté à ce lieu")
+        #
+        # fils = self.env['invest.endroit'].search([('parent_id', '=', self.id)])
+        # if fils:
+        #     raise UserError(
+        #         "Vous ne pouvez pas supprimer cet emplacement, car ce lieu possède des ascendants")
+
+
     @api.onchange('duree')
     def _onchange_duree(self):
         for rec in self:

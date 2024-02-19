@@ -17,6 +17,8 @@ class HrEmployeInherited(models.Model):
     _inherit = "hr.employee"
 
     handicape = fields.Boolean(default=False)
+    chef_bureau = fields.Boolean(default=False)
+    niveau_hirerachique_chef_Bureau = fields.Many2one('rh.niveau.hierarchique.chef.bureau')
     service_militaire = fields.Boolean(default=False)
     fin_relation = fields.Boolean(default=False)
     date_fin_relation = fields.Date()
@@ -235,6 +237,12 @@ class HrEmployeInherited(models.Model):
                     rec.point_indiciare = rec.echelon_id.indice_echelon
                     rec.wage = rec.indice_base * 45 + rec.point_indiciare
 
+    @api.onchange('niveau_hirerachique_chef_Bureau')
+    def onchange_niveau_hirerachique_chef_Bureau(self):
+        for rec in self:
+            rec.point_indiciare = rec.echelon_id.indice_echelon
+            rec.wage = (rec.indice_minimal * 45 + rec.point_indiciare * 45) + rec.niveau_hirerachique_chef_Bureau.bonification_indiciaire
+            # rec.wage = rec.indice_base * 45 + rec.niveau_hirerachique_chef_Bureau.bonification_indiciaire
     @api.onchange('nature_travail_id')
     def _onchange_related_field_filier(self):
         print('teste')

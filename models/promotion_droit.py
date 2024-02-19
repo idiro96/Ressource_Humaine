@@ -55,6 +55,17 @@ class RHPromotionDroit(models.Model):
 
         return result
 
+    @api.multi
+    def unlink(self):
+        for rec in self:
+            print('ranah')
+            record2 = self.env['rh.promotion.line'].search(
+                [('employee_id', '=', rec.employee_id.id), ('date_promotion', '=', rec.date_promotion)])
+            if record2:
+                raise UserError(
+                    "Vous ne pouvez pas supprimer un enregistrement déja validé")
+        return super(RHPromotionDroit, self).unlink()
+
     def _compute_time(self):
         for rec in self:
             if rec.date_grade and rec.date_promotion:

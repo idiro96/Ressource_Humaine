@@ -352,6 +352,10 @@
                                    attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')]}"/>
                             <field name="bonification_indiciaire"
                                    attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')]}"/>
+                             <field name="chef_bureau"
+                                   attrs="{'invisible': [('code_type_fonction', '!=', 'fonctionsuperieure')]}"/>
+                            <field name="niveau_hirerachique_chef_Bureau"
+                                   attrs="{'invisible': [('chef_bureau', '!=', True)]}"/>
                             <field name="wage" readonly="1"/>
                         </group>
                     </group>

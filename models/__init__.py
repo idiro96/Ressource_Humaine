@@ -33,6 +33,7 @@ from . import categorie
 from . import categorie_superieure
 from . import echelon
 from . import niveau_hierarchique
+from . import niveau_hierarchique_chef_bureau
 from . import section
 from . import section_superieure
 from . import groupe

@@ -37,9 +37,9 @@ class RHPromotion(models.Model):
                         'employee_id': rec.employee_id.id,
                         'type_fonction_id': rec.type_fonction_id.id,
                         'job_id': rec.job_id.id,
-                        'date_examin_professionnel': self.date_examin_professionnel,
+                        'date_examin_professionnel': promotion.date_examin_professionnel,
                         'promotion_id': promotion.id,
-                        'date_promotion': rec.date_promotion,
+                        'date_promotion': promotion.date_promotion,
                         'grade_id': rec.grade_id.id,
                         'date_grade': rec.date_grade,
                         'grade_new_id': rec.grade_new_id.id,
@@ -59,7 +59,7 @@ class RHPromotion(models.Model):
                         'job_id': rec.job_id.id,
                         'date_examin_professionnel': self.date_examin_professionnel,
                         'promotion_id': promotion.id,
-                        'date_promotion': rec.date_promotion,
+                        'date_promotion': self.date_promotion,
                         'grade_id': rec.grade_id.id,
                         'date_grade': rec.date_grade,
                         'grade_new_id': rec.grade_new_id.id,
@@ -80,7 +80,7 @@ class RHPromotion(models.Model):
                         'job_id': rec.job_id.id,
                         'date_examin_professionnel': self.date_examin_professionnel,
                         'promotion_id': promotion.id,
-                        'date_promotion': rec.date_promotion,
+                        'date_promotion': self.date_promotion,
                         'grade_id': rec.grade_id.id,
                         'date_grade': rec.date_grade,
                         'grade_new_id': rec.grade_new_id.id,
@@ -118,18 +118,20 @@ class RHPromotion(models.Model):
                 dateDebut_object2 = fields.Date.from_string(promo.date_promotion)
                 difference = (
                                         dateDebut_object.year - dateDebut_object2.year) * 12 + dateDebut_object.month - dateDebut_object2.month
+                record2 = self.env['rh.promotion.line'].search(
+                    [('employee_id', '=', promo.employee_id.id), ('date_promotion', '=', self.date_promotion)])
+                if not record2:
+                    self.env['rh.promotion.line.wizard'].create({
+                                'employee_id': promo.employee_id.id,
+                                'type_fonction_id': promo.type_fonction_id.id,
+                                'job_id': promo.job_id.id,
+                                'grade_id': promo.grade_id.id,
+                                'date_grade': promo.date_grade,
+                                'grade_new_id': promo.grade_new_id.id,
+                                'date_new_grade': promo.date_new_grade,
+                                'duree': promo.duree,
 
-                self.env['rh.promotion.line.wizard'].create({
-                            'employee_id': promo.employee_id.id,
-                            'type_fonction_id': promo.type_fonction_id.id,
-                            'job_id': promo.job_id.id,
-                            'grade_id': promo.grade_id.id,
-                            'date_grade': promo.date_grade,
-                            'grade_new_id': promo.grade_new_id.id,
-                            'date_new_grade': promo.date_new_grade,
-                            'duree': promo.duree,
-
-                        })
+                            })
 
         self.promotion_lines_wizard = self.env['rh.promotion.line.wizard'].search([])
 
