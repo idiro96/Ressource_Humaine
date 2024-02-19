@@ -5,6 +5,8 @@ from datetime import datetime, date
 from dateutil.relativedelta import relativedelta
 import calendar
 
+from odoo.exceptions import UserError
+
 
 class RHAvencementDroit(models.Model):
     _name = 'rh.avencement.droit'
@@ -70,6 +72,24 @@ class RHAvencementDroit(models.Model):
     #     for rec in self:
     #         if rec.sauvegarde != False
     #     res1 = self.env['account.asset.asset'].search([('id', '=', self.id)])
+
+    @api.multi
+    def write(self, vals):
+        result1 = super(RHAvencementDroit, self).write(vals)
+        # record1 = self.env['rh.avancement.droit'].browse(self._context['active_ids'])
+        for rec in self:
+            print('ranah22')
+            if rec.retenue:
+                print('ranah223')
+                if not rec.sauvegarde:
+                    print('ranah224')
+                    raise UserError("confirmer d'abord le droit à l'avancement d'echelon")
+            record2 = self.env['rh.avancement.line'].search(
+                [('employee_id', '=', rec.employee_id.id), ('date_avancement', '=', rec.date_avancement)])
+            if record2:
+                raise UserError("Impossible de modifier un avancement d'echelon déja validé")
+
+        return result1
 
     @api.onchange('duree')
     def _onchange_duree(self):
