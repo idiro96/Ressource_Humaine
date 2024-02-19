@@ -40,6 +40,7 @@ class PromotiondXLS(models.AbstractModel):
         sheet.set_column(10, 10, 10)
         sheet.set_column(11, 11, 10)
         sheet.set_column(12, 12, 25)
+        sheet.set_column(13, 13, 30)
 
         sheet.write(0, 0, 'الرقم', format1)
         sheet.write(0, 1, 'الاسم و اللقب', format1)
@@ -54,6 +55,7 @@ class PromotiondXLS(models.AbstractModel):
         sheet.write(0, 10, 'المدة', format1)
         sheet.write(0, 11, 'التنقيط', format1)
         sheet.write(0, 12, 'تاريخ سريان الترقية القادمة', format1)
+        sheet.write(0, 13, 'فرق المدة', format1)
 
         row = 1
         for index, line in enumerate(promotion_droit, start=1):
@@ -102,5 +104,6 @@ class PromotiondXLS(models.AbstractModel):
                 sheet.write(row, 10, line.duree or '', format3)
                 sheet.write(row, 11, '', format3)
                 sheet.write(row, 12, line.date_new_grade or '', format3)
+                sheet.write(row, 13, line.time_difference or '', format3)
                 row += 1
 
