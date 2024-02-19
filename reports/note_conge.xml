@@ -75,7 +75,7 @@
                         <br/>
                         <br/>
                         ـ مع الإشارة أن موسم العطلة السنوية يمتد ِإلى غاية
-                        <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-08-31')"/>
+                        <span t-esc="context_timestamp(datetime.datetime.now()).strftime('31-08-%Y')"/>
                         كأقصى حد, ولا يمكن تأجيل
                         العطلة إلا بداعي ضرورة المصلحة, مع مرعاة ضمان الحد الأدنى من الخدمة على مستوى جميع المديريات و المصالح
 

@@ -70,17 +70,19 @@
                                             <span>-</span>
                                         </t>
                                     </td>
-                                        <td
+                                    <td
                                             style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
-                                            <span>
-                                                من
-                                            </span>
-                                            <t t-esc="planning.time_surveillance_start"/>
-                                            <span>
-                                                الى
-                                            </span>
-                                            <t t-esc="planning.time_surveillance_end"/>
-                                        </td>
+                                        <span>
+                                            من
+                                        </span>
+                                        <span>
+                                            <t t-esc="' : '.join(planning.time_surveillance_start.split(' : ')[::-1])"/>
+                                        </span>
+                                        <span>
+                                            الى
+                                        </span>
+                                        <t t-esc="planning.time_surveillance_end"/>
+                                    </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
                                         <span t-esc="line.emphy_id.intitule_emphy"/>
                                     </td>

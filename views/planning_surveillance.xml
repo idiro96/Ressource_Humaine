@@ -19,7 +19,7 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-                    <button name="action_planning" type="object" class="oe_highlight" string="Confirmer Planning"/>
+                    <button name="action_planning" type="object" class="oe_highlight" string="تأكيد برنامج المراقبة"/>
                 </header>
                 <sheet>
                     <group>
