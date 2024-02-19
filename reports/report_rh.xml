@@ -187,5 +187,6 @@
             model="rh.planning"
             report_type="qweb-html"
             name="ressource_humaine.notice_planning_surveillance_report"
-            file="تسخيرة"/>
+            file="ressource_humaine.notice_planning_surveillance_report"/>
+<!--            file="تسخيرة"/>-->
 </odoo>

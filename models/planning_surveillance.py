@@ -9,11 +9,9 @@ class RHPlanning(models.Model):
     _rec_name = 'date_surveillance'
 
     date_surveillance = fields.Date()
-    # president_emphy = fields.Many2one('hr.employee')
-    # president_emphy = fields.Many2one('hr.employee')
+    #president_emphy = fields.Many2one('hr.employee')
     time_surveillance_start = fields.Char()
     time_surveillance_end = fields.Char()
-
     planning_surveillance_line = fields.One2many('rh.planning.line', 'planning_survellance_id')
 
     def action_planning(self):
