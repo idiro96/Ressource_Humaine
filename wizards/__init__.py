@@ -14,6 +14,7 @@ from . import planning_choix
 from . import planning_conge
 from . import liste_nominatifs
 from . import liste_nominative
+from . import attestation_travail_wizard
 
 
 

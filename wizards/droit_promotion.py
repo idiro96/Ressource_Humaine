@@ -81,7 +81,7 @@ class RHDroitPromotion(models.TransientModel):
                                         'date_new_grade': relativedelta(months=int(self.duree_promotion) * 12) + fields.Date.from_string(promo.date_grade),
                                         'duree': int(self.duree_promotion) * 12,
                                         'sauvegarde': True,
-                                        'retenue': True
+                                        # 'retenue': True
                                     })
                                 else:
                                     print('employe existe')
@@ -99,7 +99,7 @@ class RHDroitPromotion(models.TransientModel):
                                     'date_new_grade': relativedelta(months=int(self.duree_promotion) * 12) + fields.Date.from_string(promo.date_grade),
                                     'duree': int(self.duree_promotion) * 12,
                                     'sauvegarde': True,
-                                    'retenue': True
+                                    # 'retenue': True
                                 })
 
 

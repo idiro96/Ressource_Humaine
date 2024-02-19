@@ -95,6 +95,7 @@
         'wizards/planning_conge.xml',
         'wizards/liste_nominatife.xml',
         'wizards/liste_nominative.xml',
+        'wizards/attestation_travail_wizard.xml',
         'reports/paper_format.xml',
         'reports/hr_contract.xml',
         'reports/attestation_travail.xml',

@@ -321,6 +321,7 @@ class HrContractReport(models.AbstractModel):
                 employee_date_fin_relation[employee.id] = formatted_date_fin_relation
             else:
                 employee_date_fin_relation[employee.id] = ''
+        print(employee_date_fin_relation)
 
         employee_birthday = {}
         for employee in employees:

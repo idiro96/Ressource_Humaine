@@ -40,6 +40,30 @@ class RHAvencementDroit(models.Model):
     date_avancement = fields.Date()
     duree = fields.Integer()
     duree_lettre = fields.Selection(selection=[('inferieure', 'Inferieure'), ('moyen', 'Moyen'), ('superieure', 'Supérieure')])
+    time_years = fields.Integer(compute="_compute_time", store=True)
+    time_months = fields.Integer(compute="_compute_time", store=True)
+    time_days = fields.Integer(compute="_compute_time", store=True)
+    time_difference = fields.Char(compute="_compute_time")
+    def _compute_time(self):
+        for rec in self:
+            if rec.date_old_avancement and rec.date_new_avancement:
+                date_old_avancement = fields.Datetime.from_string(rec.date_old_avancement)
+                date_new_avancement = fields.Datetime.from_string(rec.date_new_avancement)
+                delta = relativedelta(date_new_avancement, date_old_avancement)
+
+                years = delta.years
+                months = delta.months
+                days = delta.days
+
+                rec.time_years = years
+                rec.time_months = months
+                rec.time_days = days
+
+                rec.time_difference = str(years) + ' annee et ' + str(months) + ' mois et ' + str(days) + 'jours'
+                print(rec.time_difference)
+                print('rec.time_difference')
+
+
     # @api.multi
     # def write(self, vals):
     #     res = super(RHAvencementDroit, self).write(vals)

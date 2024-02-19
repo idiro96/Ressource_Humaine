@@ -12,8 +12,6 @@
                                 ALGER LE
                             </span>
                             <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%m-%Y')"/>
-                            <br/>
-                            <br/>
                         </div>
                         <br/>
                         <br/>
@@ -23,9 +21,21 @@
                             </span>
                         </div>
                         <div style="font-size: 20px;text-align: left;">
-                            <span>
-                                Secrétariat Général
-                            </span>
+                            <t t-if="attestation_travail.signataire == 'sg'">
+                                <span>
+                                    Secrétariat Général
+                                </span>
+                            </t>
+                            <t t-if="attestation_travail.signataire == 'dg'">
+                                <span>
+                                    Directeur Général
+                                </span>
+                            </t>
+                            <t t-if="attestation_travail.signataire == 'rl'">
+                                <span>
+                                    Responsable de lecture
+                                </span>
+                            </t>
                         </div>
                         <div style="font-size: 20px;text-align: left;">
                             <span>
@@ -35,10 +45,24 @@
                         <br/>
                         <br/>
                         <div style="font-size: 20px;text-align: left;">
-                            <span>
-                                N°:.................E.N.A/S.G/S.G.R.H/
-                                <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
-                            </span>
+                            <t t-if="attestation_travail.signataire == 'sg'">
+                                <span>
+                                    N°:.................E.N.A/S.G/S.G.R.H/
+                                    <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
+                                </span>
+                            </t>
+                            <t t-if="attestation_travail.signataire == 'dg'">
+                                <span>
+                                    N°:.................E.N.A/D.G/S.G.R.H/
+                                    <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
+                                </span>
+                            </t>
+                            <t t-if="attestation_travail.signataire == 'rl'">
+                                <span>
+                                    N°:.................E.N.A/R.L/S.G.R.H/
+                                    <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
+                                </span>
+                            </t>
                         </div>
                     </strong>
                     <br/>
@@ -64,22 +88,32 @@
                         <t t-if="not employee.gender or employee.gender == 'male'">
                             <span style="display: inline-block">
                                 Monsieur,
-                                <t t-esc="employee.nom_fr"/>&#160;
+                                <strong>
+                                    <t t-esc="employee.nom_fr"/>
+                                </strong>&#160;
                                 né le
-                                <t t-esc="formatted_birthday"/>&#160;
+                                <strong>
+                                    <t t-esc="formatted_birthday"/>
+                                </strong>&#160;
                             </span>
                         </t>
                         <t t-if="employee.gender == 'female'">
                             <span style="display: inline-block">
                                 Madame,
-                                <t t-esc="employee.nom_fr"/>&#160;
+                                <strong>
+                                    <t t-esc="employee.nom_fr"/>
+                                </strong>&#160;
                                 née le
-                                <t t-esc="formatted_birthday"/>&#160;
+                                <strong>
+                                    <t t-esc="formatted_birthday"/>
+                                </strong>&#160;
                             </span>
                         </t>
                         <span>
                             à
-                            <t t-esc="employee.place_of_birth_fr"/>
+                            <strong>
+                                <t t-esc="employee.place_of_birth_fr"/>
+                            </strong>
                             <br/>
                             <br/>
                             <t t-if="employee.gender == 'female'">
@@ -98,7 +132,9 @@
                                     est fonctionnaire au sein de notre établissement depuis le:
                                 </t>
                             </t>
-                            <t t-esc="formatted_date_entrer"/>&#160;
+                            <strong>
+                                <t t-esc="formatted_date_entrer"/>
+                            </strong>&#160;
                         </span>
                         <span style="display: inline-block;">
                         </span>
@@ -106,15 +142,20 @@
                         <br/>
                         <t t-if="not employee.gender or employee.gender == 'male'">
                             <span>
-                                Il, exerce ses fonctions en sa qualité de
-                                <t t-esc="employee.grade_id.intitule_grade_fr"/>
+                                Il, exerce ses fonctions en sa qualité de :
+                                <br/>
+                                <strong>
+                                    <t t-esc="employee.grade_id.intitule_grade_fr"/>
+                                </strong>
                             </span>
                         </t>
                         <t t-if="employee.gender == 'female'">
                             <span>
                                 Elle, exerce ses fonctions en sa qualité de :
                                 <br/>
-                                <t t-esc="employee.grade_id.intitule_grade_fr"/>
+                                <strong>
+                                    <t t-esc="employee.grade_id.intitule_grade_fr"/>
+                                </strong>
                             </span>
                         </t>
                         <br/>
