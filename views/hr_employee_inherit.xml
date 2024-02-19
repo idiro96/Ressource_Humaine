@@ -146,9 +146,9 @@
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='nature_travail_id']"
                        position="after">
                     <field name="type_id"
-                           attrs="{'invisible': [('code_type_fonction', '!=', 'contractuel')]}"
+                           attrs="{'invisible': [('code_type_fonction', '!=', 'contractuel')],
+                                                  'required': [('code_type_fonction', '=', 'contractuel')]}"
                            options="{'no_create': True, 'no_create_edit':True, 'no_open':True}" widget='selection'
-                           required="1"
                            string="نوع العقد"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='type_id']"
