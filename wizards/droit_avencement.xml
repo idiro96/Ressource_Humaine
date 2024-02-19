@@ -9,6 +9,7 @@
                     <group>
                         <group>
                             <field name="date_avancement"/>
+                            <field name="reclassement"/>
                             <field name="boul" string="كامل قائمة الاستحقاقات"/>
                         </group>
                     </group>

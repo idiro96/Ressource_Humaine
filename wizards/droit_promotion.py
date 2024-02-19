@@ -29,6 +29,7 @@ class RHDroitPromotion(models.TransientModel):
     #         if promotion_ligne:
     #             raise UserError("Enregistrement déja fait, vous ne pouvez pas le supprimer")
 
+
     @api.multi
     def actualiser_droit_promotion(self):
         if self.boul == False:
@@ -74,10 +75,13 @@ class RHDroitPromotion(models.TransientModel):
                                         'duree': promo.job_id.id,
                                         'date_promotion': self.date_promotion,
                                         'grade_id': promo.grade_id.id,
+                                        'categorie_id': promo.categorie_id.id,
                                         'date_grade': promo.date_grade,
                                         'grade_new_id': promo.grade_id.id,
                                         'date_new_grade': relativedelta(months=int(self.duree_promotion) * 12) + fields.Date.from_string(promo.date_grade),
                                         'duree': int(self.duree_promotion) * 12,
+                                        'sauvegarde': True,
+                                        # 'retenue': True
                                     })
                                 else:
                                     print('employe existe')
@@ -89,10 +93,13 @@ class RHDroitPromotion(models.TransientModel):
                                     'duree': promo.job_id.id,
                                     'date_promotion': self.date_promotion,
                                     'grade_id': promo.grade_id.id,
+                                    'categorie_id': promo.categorie_id.id,
                                     'date_grade': promo.date_grade,
                                     'grade_new_id': promo.grade_id.id,
                                     'date_new_grade': relativedelta(months=int(self.duree_promotion) * 12) + fields.Date.from_string(promo.date_grade),
                                     'duree': int(self.duree_promotion) * 12,
+                                    'sauvegarde': True,
+                                    # 'retenue': True
                                 })
 
 

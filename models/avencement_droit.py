@@ -5,6 +5,8 @@ from datetime import datetime, date
 from dateutil.relativedelta import relativedelta
 import calendar
 
+from odoo.exceptions import UserError
+
 
 class RHAvencementDroit(models.Model):
     _name = 'rh.avencement.droit'
@@ -40,12 +42,65 @@ class RHAvencementDroit(models.Model):
     date_avancement = fields.Date()
     duree = fields.Integer()
     duree_lettre = fields.Selection(selection=[('inferieure', 'Inferieure'), ('moyen', 'Moyen'), ('superieure', 'Supérieure')])
+    time_years = fields.Integer(compute="_compute_time", store=True)
+    time_months = fields.Integer(compute="_compute_time", store=True)
+    time_days = fields.Integer(compute="_compute_time", store=True)
+    time_difference = fields.Char(compute="_compute_time")
+    def _compute_time(self):
+        for rec in self:
+            if rec.date_old_avancement and rec.date_new_avancement:
+                date_old_avancement = fields.Datetime.from_string(rec.date_old_avancement)
+                date_new_avancement = fields.Datetime.from_string(rec.date_new_avancement)
+                delta = relativedelta(date_new_avancement, date_old_avancement)
+
+                years = delta.years
+                months = delta.months
+                days = delta.days
+
+                rec.time_years = years
+                rec.time_months = months
+                rec.time_days = days
+
+                rec.time_difference = str(years) + ' annee et ' + str(months) + ' mois et ' + str(days) + 'jours'
+                print(rec.time_difference)
+                print('rec.time_difference')
+
+
     # @api.multi
     # def write(self, vals):
     #     res = super(RHAvencementDroit, self).write(vals)
     #     for rec in self:
     #         if rec.sauvegarde != False
     #     res1 = self.env['account.asset.asset'].search([('id', '=', self.id)])
+
+    @api.multi
+    def write(self, vals):
+        result1 = super(RHAvencementDroit, self).write(vals)
+        # record1 = self.env['rh.avancement.droit'].browse(self._context['active_ids'])
+        for rec in self:
+            print('ranah22')
+            if rec.retenue:
+                print('ranah223')
+                if not rec.sauvegarde:
+                    print('ranah224')
+                    raise UserError("confirmer d'abord le droit à l'avancement d'echelon")
+            record2 = self.env['rh.avancement.line'].search(
+                [('employee_id', '=', rec.employee_id.id), ('date_avancement', '=', rec.date_avancement)])
+            if record2:
+                raise UserError("Impossible de modifier un avancement d'echelon déja validé")
+
+        return result1
+
+    @api.onchange('duree')
+    def _onchange_duree(self):
+        for rec in self:
+            rec.date_new_avancement = relativedelta(months=rec.duree) + fields.Date.from_string(rec.date_old_avancement)
+            if rec.duree == 30:
+                rec.duree_lettre = 'inferieure'
+            elif rec.duree == 36:
+                rec.duree_lettre = 'moyen'
+            else:
+                rec.duree_lettre = 'superieure'
 
     @api.onchange('groupe_new_id')
     def _onchange_groupe_new_id(self):

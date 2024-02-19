@@ -5,7 +5,7 @@ from datetime import datetime, date
 from dateutil.relativedelta import relativedelta
 import calendar
 
-from odoo.exceptions import ValidationError
+from odoo.exceptions import ValidationError, UserError
 
 
 class RHPromotionDroit(models.Model):
@@ -17,6 +17,7 @@ class RHPromotionDroit(models.Model):
     type_fonction_id = fields.Many2one('rh.type.fonction')
     job_id = fields.Many2one('hr.job')
     grade_id = fields.Many2one('rh.grade')
+    categorie_id = fields.Many2one('rh.categorie')
     grade_new_id = fields.Many2one('rh.grade')
     date_grade = fields.Date()
     date_new_grade = fields.Date()
@@ -27,7 +28,56 @@ class RHPromotionDroit(models.Model):
     retenue = fields.Boolean(Default=False)
 
     test = fields.Char()
+    time_years = fields.Integer(compute="_compute_time", store=True)
+    time_months = fields.Integer(compute="_compute_time", store=True)
+    time_days = fields.Integer(compute="_compute_time", store=True)
+    time_difference = fields.Char(compute="_compute_time")
 
+    # @api.depends('date_grade', 'date_promotion')
+
+    @api.multi
+    def write(self, vals):
+        result = super(RHPromotionDroit, self).write(vals)
+        record1 = self.env['rh.promotion.droit'].browse(self._context['active_ids'])
+        print('ranah')
+        for rec in self:
+            print('ranah1')
+            if rec.retenue:
+                if not rec.sauvegarde:
+                    raise UserError("confirmer d'abord le droit à la promotion de grade")
+            record2 = self.env['rh.promotion.line'].search([('employee_id', '=', rec.employee_id.id),('date_promotion', '=', rec.date_promotion)])
+            print('erreure')
+            print(rec.employee_id.id)
+            print(rec.date_promotion)
+            if record2:
+                raise UserError("Impossible de modifier une promotion déja validé")
+
+
+        return result
+
+    def _compute_time(self):
+        for rec in self:
+            if rec.date_grade and rec.date_promotion:
+                date_grade = fields.Datetime.from_string(rec.date_grade)
+                date_promotion = fields.Datetime.from_string(rec.date_promotion)
+                delta = relativedelta(date_promotion, date_grade)
+
+                years = delta.years
+                months = delta.months
+                days = delta.days
+
+                rec.time_years = years
+                rec.time_months = months
+                rec.time_days = days
+
+                rec.time_difference = str(years) + ' annee et ' + str(months) + ' mois et ' + str(days) + 'jours'
+                print(rec.time_difference)
+                print('rec.time_difference')
+
+    @api.onchange('duree')
+    def _onchange_duree(self):
+        for rec in self:
+            rec.date_new_grade = relativedelta(months=rec.duree) + fields.Date.from_string(rec.date_grade)
 
     # def unlink(self):
     #     record = self.env['rh.promotion.droit'].browse(self._context['active_id'])
