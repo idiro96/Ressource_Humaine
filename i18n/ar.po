@@ -10495,22 +10495,22 @@ msgstr "الغياب اليوم"
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.act_employee_absence
 msgid "Absence des Employées"
-msgstr "Absence des Employées"
+msgstr "غياب الموظفين"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.act_absence
 msgid "Absences"
-msgstr "Absences"
+msgstr "الغيابات"
 
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.employee_absence_graph
 msgid "Absences des employés"
-msgstr "Absences des employés"
+msgstr "غياب الموظفين"
 
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.absence_graph
 msgid "Absences par mois"
-msgstr "Absences par mois"
+msgstr "الغيابات شهريا"
 
 #. module: hr_holidays
 #: model:ir.ui.view,arch_db:hr_holidays.hr_department_view_kanban
@@ -11213,17 +11213,17 @@ msgstr "بعد العنوان"
 #. module: base
 #: selection:res.currency,position:0
 msgid "After Amount"
-msgstr "After Amount"
+msgstr "بعد المبلغ"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_age_employee
 msgid "Age"
-msgstr "Age"
+msgstr "العمر"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_age_range
 msgid "Age Range"
-msgstr "Age Range"
+msgstr "الفئة العمرية"
 
 #. module: base
 #: model:res.partner.industry,name:base.res_partner_industry_A
@@ -11497,7 +11497,7 @@ msgstr "أنجويلا"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_annee_travail
 msgid "Annee Travail"
-msgstr "Annee Travail"
+msgstr "سنوات العمل"
 
 #. module: hr_payroll
 #: selection:hr.contract,schedule_pay:0
@@ -11975,7 +11975,7 @@ msgstr "Authorize.Net Payment Acquirer"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_wizard_auto_filled_field
 msgid "Auto Filled Field"
-msgstr "Auto Filled Field"
+msgstr "ملف ممتلئ تلقائيا"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_act_window_auto_search
@@ -12021,7 +12021,7 @@ msgstr "Automation"
 #. module: base
 #: model:ir.ui.view,arch_db:base.user_groups_view
 msgid "Autre"
-msgstr "Autre"
+msgstr "أخر"
 
 #. module: ressource_humaine
 #: selection:rh.type.file,type_file:0
@@ -12031,7 +12031,7 @@ msgstr "أخر"
 #. module: base
 #: model:ir.ui.view,arch_db:base.user_groups_view
 msgid "Autres droits supplémentaires"
-msgstr "Autres droits supplémentaires"
+msgstr "حقوق إضافية أخرى"
 
 #. module: hr_recruitment
 #: model:ir.model.fields,field_description:hr_recruitment.field_hr_applicant_availability
@@ -12056,17 +12056,17 @@ msgstr "التقدم"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_avancement_file_lines
 msgid "Avancement File Lines"
-msgstr "Avancement File Lines"
+msgstr "خطوط ملف التقدم "
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_file_avancement_line_id
 msgid "Avancement Line"
-msgstr "Avancement Line"
+msgstr "خطوط التقدم "
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_avancement_line_file_line
 msgid "Avancement Line File Line"
-msgstr "Avancement Line File Line"
+msgstr "خطوط التقدم خط ملف "
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_avancement_lines
@@ -12083,7 +12083,7 @@ msgstr "نافذة خطوط التقدم"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_avancement_wizard
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_avancement_wizard
 msgid "Avancement Wizard"
-msgstr "Avancement Wizard"
+msgstr "نافذة التقدم"
 
 #. module: base
 #: model:res.country,name:base.az
@@ -12559,7 +12559,7 @@ msgstr "الزيادة الإستدلالية
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_contract_bool1
 msgid "Bool1"
-msgstr "Bool1"
+msgstr "1منطقي"
 
 #. module: base
 #: selection:ir.property,type:0
@@ -12597,7 +12597,7 @@ msgstr "الهامش السفلي (مم)"
 #: model:ir.model.fields,field_description:ressource_humaine.field_droit_conge_boul
 #: model:ir.model.fields,field_description:ressource_humaine.field_droit_promotion_boul
 msgid "Boul"
-msgstr "Boul"
+msgstr "منطقي"
 
 #. module: base
 #: model:res.country,name:base.bv
@@ -13001,7 +13001,7 @@ msgstr "جزر الكايمان"
 #: code:addons/ressource_humaine/reports/cont_indete_tem_part.py:12
 #, python-format
 msgid "Ce contrat n'est pas en cours. Vous ne pouvez imprimer l'attestation que pour les contrats en cours."
-msgstr "Ce contrat n'est pas en cours. Vous ne pouvez imprimer l'attestation que pour les contrats en cours."
+msgstr "هذا العقد ليس قيد التنفيذ. يمكنك طباعة الشهادة للعقود الحالية فقط."
 
 #. module: base
 #: model:res.country,name:base.cf
@@ -13316,7 +13316,7 @@ msgstr "Clean"
 #. module: base
 #: model:ir.actions.act_window,help:base.action_attachment
 msgid "Click here to attach a new document."
-msgstr "Click here to attach a new document."
+msgstr "انقر هنا لإرفاق وثيقة جديدة"
 
 #. module: base
 #: model:ir.actions.act_window,help:base.action_ui_view_custom
@@ -13530,7 +13530,7 @@ msgstr "رقم نوع العطلة"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_contract_type_code_type_contract
 msgid "Code Type Contract"
-msgstr "Code Type Contract"
+msgstr "كود نوع العقد"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_faute_code_type_faute
@@ -13685,12 +13685,12 @@ msgstr "Commercial Entity's Country"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_commission_avancement_id
 msgid "Commission Avancement"
-msgstr "Commission Avancement"
+msgstr "لجنة التقدم في الدرجة"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_commission_promotion_id
 msgid "Commission Promotion"
-msgstr "Commission Promotion"
+msgstr "لجنة التقدم في الرتبة"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_pos_data_drinks
@@ -13936,7 +13936,7 @@ msgstr "مؤكد"
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_planning_form
 msgid "Confirmer Planning"
-msgstr "Confirmer Planning"
+msgstr "تأكيد الجدول الزمني"
 
 #. module: base
 #: model:res.country,name:base.cg
@@ -14500,7 +14500,7 @@ msgstr "إنشاء مؤسسة طبية!"
 #. module: base
 #: model:ir.module.module,summary:base.module_board
 msgid "Create your custom dashboard"
-msgstr "Create your custom dashboard"
+msgstr "قم بإنشاء لوحة التحكم المخصصة الخاصة بك"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,help:ressource_humaine.action_rh_sanction
@@ -15408,7 +15408,7 @@ msgstr "تاريخ إستحقاق الترقية"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_date_comission
 msgid "Date Comission"
-msgstr "Date Comission"
+msgstr "تاريخ اللجنة"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_attachment_create_date
@@ -16589,7 +16589,7 @@ msgstr "المدة"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_wizard_duree_lettre
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avencement_droit_duree_lettre
 msgid "Duree Lettre"
-msgstr "المدة"
+msgstr "المدة بالحروف"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_droit_promotion_duree_promotion
@@ -16865,7 +16865,7 @@ msgstr "أهداف الموظفين"
 #: model:ir.model.fields,field_description:ressource_humaine.field_commission_avancement_employee_id_lines
 #: model:ir.model.fields,field_description:ressource_humaine.field_commission_promotion_employee_id_lines
 msgid "Employee Id Lines"
-msgstr "Employee Id Lines"
+msgstr "خطوط معرف الموظف"
 
 #. modules: hr_recruitment, ressource_humaine
 #: model:ir.model.fields,field_description:hr_recruitment.field_hr_applicant_employee_name
@@ -16970,7 +16970,7 @@ msgstr "الكلمات الدليلية للموظف"
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.employee_absence_graph
 msgid "Employés"
-msgstr "Employés"
+msgstr "موظفين"
 
 #. module: base
 #: code:addons/base/ir/ir_model.py:453
@@ -17311,17 +17311,17 @@ msgstr "التحقق من الصحة المصروفات، الفواتير"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_experience_days
 msgid "Experience Days"
-msgstr "Experience Days"
+msgstr "أيام الخبرة"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_experience_months
 msgid "Experience Months"
-msgstr "Experience Months"
+msgstr "أشهر الخبرة"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_experience_years
 msgid "Experience Years"
-msgstr "Experience Years"
+msgstr "سنوات الخبرة"
 
 #. module: hr_contract
 #: selection:hr.contract,state:0
@@ -18598,7 +18598,7 @@ msgstr "الرسم البياني"
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.distribution_graph
 msgid "Graph de Distribution"
-msgstr "Graph de Distribution"
+msgstr "الرسم البياني للتوزيع"
 
 #. module: base
 #: model:res.country,name:base.gr
@@ -18718,31 +18718,31 @@ msgstr "المجموعة"
 #: selection:formation.detail,groupe:0
 #: selection:rh.formation.line,groupe:0
 msgid "Groupe 1"
-msgstr "الفوج 1"
+msgstr "المجموعة 1"
 
 #. module: ressource_humaine
 #: selection:formation.detail,groupe:0
 #: selection:rh.formation.line,groupe:0
 msgid "Groupe 2"
-msgstr "الفوج 2"
+msgstr "المجموعة 2"
 
 #. module: ressource_humaine
 #: selection:formation.detail,groupe:0
 #: selection:rh.formation.line,groupe:0
 msgid "Groupe 3"
-msgstr "الفوج 3"
+msgstr "المجموعة 3"
 
 #. module: ressource_humaine
 #: selection:formation.detail,groupe:0
 #: selection:rh.formation.line,groupe:0
 msgid "Groupe 4"
-msgstr "الفوج 4"
+msgstr "المجموعة 4"
 
 #. module: ressource_humaine
 #: selection:formation.detail,groupe:0
 #: selection:rh.formation.line,groupe:0
 msgid "Groupe 5"
-msgstr "الفوج 5"
+msgstr "المجموعة 5"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_groupe_new_id
@@ -18916,7 +18916,7 @@ msgstr "الإعاقة"
 #. module: base
 #: model:ir.module.module,summary:base.module_hr_resignation
 msgid "Handle the resignation process of the employee"
-msgstr "Handle the resignation process of the employee"
+msgstr "التعامل مع عملية استقالة الموظف"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_hw_scanner
@@ -19932,7 +19932,7 @@ msgstr "معلومات عامة"
 #. module: base
 #: model:ir.ui.view,arch_db:base.view_view_search
 msgid "Inherit"
-msgstr "Inherit"
+msgstr "يرث"
 
 #. module: base
 #: model:ir.ui.view,arch_db:base.view_groups_form
@@ -20465,7 +20465,7 @@ msgstr "Jersey"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_line_wizard_job_id
 #, python-format
 msgid "Job"
-msgstr "العمل"
+msgstr "المنصب"
 
 #. module: hr_recruitment
 #: model:mail.template,subject:hr_recruitment.email_template_data_applicant_congratulations
@@ -23405,7 +23405,7 @@ msgstr "لم يُعثر على سجلات"
 #. module: web_responsive
 #: model:ir.ui.view,arch_db:web_responsive.menu
 msgid "No Search Supplied."
-msgstr "No Search Supplied."
+msgstr "لم يتم توفير أي بحث"
 
 #. module: hr_recruitment
 #: code:addons/hr_recruitment/models/hr_recruitment.py:367
@@ -27549,12 +27549,12 @@ msgstr "مخطط"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_planning_choix_id
 msgid "Planning Choix"
-msgstr "Planning Choix"
+msgstr "اختيار التخطيط"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_choisir_planning_employee_id_lines
 msgid "Planning Choix Lines"
-msgstr "Planning Choix Lines"
+msgstr "خطوط اختيار التخطيط"
 
 #. module: ressource_humaine
 #: model:ir.actions.report,name:ressource_humaine.report_planning_conge
@@ -27794,7 +27794,7 @@ msgstr "القيمة السابقة من التسجيل للمسلسل"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_prenom
 msgid "Prenom"
-msgstr "Prenom"
+msgstr "الإسم"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_conjoint_prenom_conjoint
@@ -28111,12 +28111,12 @@ msgstr "خطوط ملف الترقية"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_file_promotion_line_id
 msgid "Promotion Line"
-msgstr "Promotion Line"
+msgstr "خطوط الترقية"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_line_promotion_line_file_line
 msgid "Promotion Line File Line"
-msgstr "Promotion Line File Line"
+msgstr "خطوط الترقية خطوط ملف"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_promotion_lines
@@ -28127,7 +28127,7 @@ msgstr "خطوط الترقية"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_promotion_lines_wizard
 msgid "Promotion Lines Wizard"
-msgstr "Promotion Lines Wizard"
+msgstr "نافذة خطوط الترقية"
 
 #. module: base
 #: model:ir.ui.view,arch_db:base.view_model_fields_form
@@ -29144,7 +29144,7 @@ msgstr "الإعدادات"
 #. module: base
 #: model:res.country,name:base.re
 msgid "Réunion"
-msgstr "Réunion"
+msgstr "مقابلة"
 
 #. module: base
 #: model:res.partner.industry,full_name:base.res_partner_industry_S
@@ -30093,7 +30093,7 @@ msgstr "سيراليون"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_attestation_travail_signataire
 msgid "Signataire"
-msgstr "Signataire"
+msgstr "الممظي"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_users_signature
@@ -31726,7 +31726,7 @@ msgstr "فاصل الآلاف"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avencement_droit_time_days
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_droit_time_days
 msgid "Time Days"
-msgstr "Time Days"
+msgstr "أيام الوقت"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avencement_droit_time_difference
@@ -31744,7 +31744,7 @@ msgstr "تنسيق الوقت"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avencement_droit_time_months
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_droit_time_months
 msgid "Time Months"
-msgstr "Time Months"
+msgstr "أشهر الوقت"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_field_timepicker
@@ -31773,7 +31773,7 @@ msgstr "توقيت بداية الامتحان"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avencement_droit_time_years
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_droit_time_years
 msgid "Time Years"
-msgstr "Time Years"
+msgstr "سنوات الزمن"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_project_timesheet_holidays
@@ -33188,7 +33188,7 @@ msgstr "الاجور"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_contract_wage_range
 msgid "Wage Range"
-msgstr "Wage Range"
+msgstr "نطاق الأجور"
 
 #. module: hr_payroll
 #: selection:hr.payslip,state:0
@@ -34023,7 +34023,7 @@ msgstr "في"
 #. module: ressource_humaine
 #: model:ir.model,name:ressource_humaine.model_attestation_travail
 msgid "attestation.travail"
-msgstr "attestation.travail"
+msgstr "شهادة.العمل"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.action_rh_avancement
@@ -34970,7 +34970,7 @@ msgstr "الدقة.المستخدمين.سجل"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_ressource_humaine
 msgid "ressource_humaine"
-msgstr "ressource_humaine"
+msgstr "الموارد البشرية"
 
 #. module: hr_payroll
 #: model:ir.model.fields,help:hr_payroll.field_hr_payslip_line_amount_percentage_base
