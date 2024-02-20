@@ -12552,8 +12552,9 @@ msgstr "Bonaire, Sint Eustatius and Saba"
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_contract_bonification_indiciaire
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_bonification_indiciaire
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_niveau_hierarchique_bonification_indiciaire
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_niveau_hierarchique_chef_bureau_bonification_indiciaire
 msgid "Bonification Indiciaire"
-msgstr "الزيادة الإستدلالية"
+msgstr "الزيادة الإستدلالية
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_contract_bool1
@@ -20122,6 +20123,7 @@ msgstr "نماذج المقابلة"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_categorie_intitule
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_categorie_superieure_intitule
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_echelon_intitule
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_niveau_hierarchique_chef_bureau_intitule
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_niveau_hierarchique_intitule
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_section_intitule
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_section_superieure_intitule
@@ -23373,27 +23375,27 @@ msgstr "المستوى السلمي"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_grade_no_of_employee
 msgid "No Of Employee"
-msgstr "No Of Employee"
+msgstr "عدد الموظفين"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_grade_no_of_employee_cdd_partiel
 msgid "No Of Employee Cdd Partiel"
-msgstr "No Of Employee Cdd Partiel"
+msgstr "عدد الموظفين Cdd Partiel"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_grade_no_of_employee_cdd_plein
 msgid "No Of Employee Cdd Plein"
-msgstr "No Of Employee Cdd Plein"
+msgstr "عدد الموظفين Cdd Plein"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_grade_no_of_employee_cdi_partiel
 msgid "No Of Employee Cdi Partiel"
-msgstr "No Of Employee Cdi Partiel"
+msgstr "عدد الموظفين Cdi Partiel"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_grade_no_of_employee_cdi_plein
 msgid "No Of Employee Cdi Plein"
-msgstr "No Of Employee Cdi Plein"
+msgstr "عدد الموظفين Cdi Plein"
 
 #. module: base
 #: model:ir.ui.view,arch_db:base.res_config_settings_view_form
@@ -23481,7 +23483,7 @@ msgstr "لقب الأم"
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_job_nombre_de_postes_vacants
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_grade_nombre_de_postes_vacants
 msgid "Nombre De Postes Vacants"
-msgstr "Nombre De Postes Vacants"
+msgstr "عدد الوظائف الشاغرة"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.act_employee_age_bar_chart
@@ -36469,3 +36471,33 @@ msgstr "中国小企业会计科目表"
 #: model:ir.module.module,shortdesc:base.module_l10n_cn_standard
 msgid "会计科目表 - 中国企业会计准则"
 msgstr "会计科目表 - 中国企业会计准则"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_chef_bureau
+msgid "Chef Bureau"
+msgstr "رئيس مكتب"
+
+#. module: ressource_humaine
+#: model:ir.actions.act_window,help:ressource_humaine.action_rh_niveau_hierarchique_chef_bureau
+msgid "Creation niveau hierarchique Chef Bureau!"
+msgstr "إنشاء المستوى السلمي (رئيس مكتب) !"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_niveau_hirerachique_chef_Bureau
+msgid "Niveau Hirerachique Chef Bureau"
+msgstr "المستوى السلمي (رئيس مكتب)"
+
+#. module: ressource_humaine
+#: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_niveau_hierarchique_chef_bureau
+msgid "Niveau hierarchique Chef Bureau"
+msgstr "المستوى السلمي (رئيس مكتب)"
+
+#. module: ressource_humaine
+#: model:ir.actions.act_window,name:ressource_humaine.action_rh_niveau_hierarchique_chef_bureau
+msgid "niveau.hierarchique.chef.bureau"
+msgstr "المستوى السلمي (رئيس مكتب)"
+
+#. module: ressource_humaine
+#: model:ir.model,name:ressource_humaine.model_rh_niveau_hierarchique_chef_bureau
+msgid "rh.niveau.hierarchique.chef.bureau"
+msgstr "المستوى السلمي (رئيس مكتب)"

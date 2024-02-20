@@ -44,13 +44,13 @@ class RHPromotionDroit(models.Model):
             print('ranah1')
             if rec.retenue:
                 if not rec.sauvegarde:
-                    raise UserError("confirmer d'abord le droit à la promotion de grade")
+                    raise UserError("أكد أولا الحق في التقدم في الرتبة")
             record2 = self.env['rh.promotion.line'].search([('employee_id', '=', rec.employee_id.id),('date_promotion', '=', rec.date_promotion)])
             print('erreure')
             print(rec.employee_id.id)
             print(rec.date_promotion)
             if record2:
-                raise UserError("Impossible de modifier une promotion déja validé")
+                raise UserError("مستحيل تغيير تقدم في الرتبة اللذي تم تحققه")
 
 
         return result
@@ -63,7 +63,7 @@ class RHPromotionDroit(models.Model):
                 [('employee_id', '=', rec.employee_id.id), ('date_promotion', '=', rec.date_promotion)])
             if record2:
                 raise UserError(
-                    "Vous ne pouvez pas supprimer un enregistrement déja validé")
+                    "لا يمكنك من حذف تسجيل اللذي تم تحققه")
         return super(RHPromotionDroit, self).unlink()
 
     def _compute_time(self):

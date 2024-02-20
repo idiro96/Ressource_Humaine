@@ -84,11 +84,11 @@ class RHAvencementDroit(models.Model):
                 print('ranah223')
                 if not rec.sauvegarde:
                     print('ranah224')
-                    raise UserError("confirmer d'abord le droit à l'avancement d'echelon")
+                    raise UserError("أكد أولا الحق في التقدم في الدرجة")
             record2 = self.env['rh.avancement.line'].search(
                 [('employee_id', '=', rec.employee_id.id), ('date_avancement', '=', rec.date_avancement)])
             if record2:
-                raise UserError("Impossible de modifier un avancement d'echelon déja validé")
+                raise UserError("مستحيل تغيير تقدم في الدرجة اللذي تم تحققه")
 
         return result1
 
@@ -100,7 +100,7 @@ class RHAvencementDroit(models.Model):
                 [('employee_id', '=', rec.employee_id.id), ('date_avancement', '=', rec.date_avancement)])
             if record2:
                 raise UserError(
-                    "Vous ne pouvez pas supprimer un enregistrement déja validé")
+                    "لا يمكنك من حذف تسجيل اللذي تم تحققه")
         return super(RHAvencementDroit, self).unlink()
 
         # endroit = self.env['invest.affectation'].search([('endroit_id', '=', self.id)])
