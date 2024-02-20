@@ -3,8 +3,6 @@
         <field name="name">rh.avancement.tree</field>
         <field name="model">rh.avancement</field>
         <field name="arch" type="xml">
-
-
             <tree>
                 <field name="code"/>
                 <field name="date_avancement"/>

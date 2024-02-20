@@ -11,9 +11,10 @@
                 <field name="job_id" readonly="1"/>
                 <field name="echelon_old_id" readonly="1"/>
                 <field name="date_old_avancement" readonly="1"/>
-                <field name="groupe_new_id"/>
+                <field name="grille_new_id"/>
+                <field name="groupe_new_id" attrs="{'readonly': [('code_type_fonction', '=', 'fonctionsuperieure')]}"/>
                 <field name="categorie_new_id"/>
-                <field name="section_new_id"/>
+                <field name="section_new_id" attrs="{'readonly': [('code_type_fonction', '=', 'fonction')]}"/>
                 <field name="echelon_new_id"/>
                 <field name="duree"/>
                 <field name="duree_lettre"/>
@@ -21,6 +22,7 @@
                 <field name="date_avancement" readonly="1"/>
                 <field name="sauvegarde" widget="toggle_button"/>
                 <field name="retenue" widget="toggle_button"/>
+                <field name="code_type_fonction" invisible="1"/>
             </tree>
         </field>
 
@@ -35,6 +37,7 @@
                     <field name="groupe_old_id" String="Ancien groupe" readonly="1"/>
                     <field name="categorie_old_id" String="Ancien Categorie" readonly="1"/>
                     <field name="echelon_old_id" String="Ancien Echelon" readonly="1"/>
+                    <field name="grille_new_id"/>
                     <field name="groupe_new_id" String="Nouveau groupe"/>
                     <field name="categorie_new_id" String="Nouvelle Categorie"/>
                     <field name="echelon_new_id" String="Nouveau Echelon"/>

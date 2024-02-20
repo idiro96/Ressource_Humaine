@@ -10,12 +10,11 @@ class RHGroupe(models.Model):
     _name = 'rh.groupe'
     _rec_name = 'name'
 
-    name = fields.Char(required=True)
+    name = fields.Char()
     description = fields.Char()
-    grade_lines = fields.One2many('rh.grade', inverse_name='grade_id', string="Grade lines")
+    grade_lines = fields.One2many('rh.grade', inverse_name='grade_id')
     grille_id = fields.Many2one('rh.grille')
-
-    categorie_lines = fields.One2many('rh.categorie', inverse_name='groupe_id', string="Categorie lines")
+    categorie_lines = fields.One2many('rh.categorie', inverse_name='groupe_id')
 
 
 

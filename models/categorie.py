@@ -13,4 +13,16 @@ class RHCategorie(models.Model):
     description = fields.Char()
     Indice_minimal = fields.Integer()
     groupe_id = fields.Many2one('rh.groupe')
+    grille_id = fields.Many2one('rh.grille')
     type_fonction_id = fields.Many2one('rh.type.fonction')
+    code_type_fonction = fields.Char(related='type_fonction_id.code_type_fonction',
+                                      store=True)
+
+
+    @api.onchange('grille_id')
+    def _onchange_grille_id(self):
+        if self.grille_id:
+            self.groupe_id = False
+            return {'domain': {'groupe_id': [('grille_id', '=', self.grille_id.id)]}}
+        else:
+            return {'domain': {'groupe_id': []}}
