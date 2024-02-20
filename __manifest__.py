@@ -68,6 +68,7 @@
         'views/categorie_superieure.xml',
         'views/echelon.xml',
         'views/niveau_hierarchique.xml',
+        'views/niveau_hierarchique_chef_bureau.xml',
         'views/section.xml',
         'views/section_superieure.xml',
         'views/type_fonction.xml',
