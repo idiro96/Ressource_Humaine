@@ -23,7 +23,7 @@
 
     'depends': ['base', 'hr', 'hr_recruitment', 'hr_holidays', 'hr_payroll', 'board', 'web_responsive',
                 'enterprise_theme',
-                'web_rtl', 'website_rtl', 'report_xlsx'],
+                'web_rtl', 'website_rtl', 'report_xlsx', 'field_timepicker'],
 
     # always loaded
     'data': [
@@ -68,6 +68,7 @@
         'views/categorie_superieure.xml',
         'views/echelon.xml',
         'views/niveau_hierarchique.xml',
+        'views/niveau_hierarchique_chef_bureau.xml',
         'views/section.xml',
         'views/section_superieure.xml',
         'views/type_fonction.xml',
@@ -86,6 +87,7 @@
         'data/sequence.xml',
         'data/type_fonction.xml',
         'data/type_contract.xml',
+        'data/type_file.xml',
         'wizards/visite_medical_detaille.xml',
         'wizards/formation_detail_wizard.xml',
         'wizards/choisir_commission.xml',
@@ -95,6 +97,7 @@
         'wizards/planning_conge.xml',
         'wizards/liste_nominatife.xml',
         'wizards/liste_nominative.xml',
+        'wizards/attestation_travail_wizard.xml',
         'reports/paper_format.xml',
         'reports/hr_contract.xml',
         'reports/attestation_travail.xml',
@@ -116,6 +119,9 @@
         'reports/liste_nominatife_employee.xml',
         'reports/fiche_renseignement.xml',
         'reports/liste_nominative.xml',
+        'reports/rapport_retraite_text.xml',
+        'reports/attestation_de_cessation.xml',
+        'reports/planning_notice.xml',
 
     ],
     # only loaded in demonstration mode

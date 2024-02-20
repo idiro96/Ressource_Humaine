@@ -24,8 +24,8 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="id_personnel"/>
-                            <field name="exercice_conge"/>
+                            <field name="id_personnel" readonly="1"/>
+                            <field name="exercice_conge" readonly="1"/>
                             <field name="nbr_jour"/>
                         </group>
                         <group>

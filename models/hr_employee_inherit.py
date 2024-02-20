@@ -16,8 +16,9 @@ import time
 class HrEmployeInherited(models.Model):
     _inherit = "hr.employee"
 
-
     handicape = fields.Boolean(default=False)
+    chef_bureau = fields.Boolean(default=False)
+    niveau_hirerachique_chef_Bureau = fields.Many2one('rh.niveau.hierarchique.chef.bureau')
     service_militaire = fields.Boolean(default=False)
     fin_relation = fields.Boolean(default=False)
     date_fin_relation = fields.Date()
@@ -28,7 +29,7 @@ class HrEmployeInherited(models.Model):
     prenom_mere = fields.Char()
     nom_fr = fields.Char()
     # prenom_fr = fields.Char()
-
+    annee_travail = fields.Float()
     date_entrer = fields.Date()
     date_job_id = fields.Date()
     date_reintegration = fields.Date()
@@ -40,9 +41,9 @@ class HrEmployeInherited(models.Model):
     selection_employe = fields.Boolean('Sélection', default=False)
     # days_off = fields.Float(string='Total Days Off', store=True)
     wage = fields.Float()
-
+    code_type_fonction = fields.Char(related='nature_travail_id.code_type_fonction', store=True)
     # days_off = fields.Float(compute='_compute_days_off', store=True, translate=True)
-
+    type_id = fields.Many2one('hr.contract.type')
     # days_off = fields.Float(compute='_compute_days_off', store=True, translate=True)
     days_off = fields.Float(store=True)
     jour_sup = fields.Float(store=True)
@@ -236,6 +237,12 @@ class HrEmployeInherited(models.Model):
                     rec.point_indiciare = rec.echelon_id.indice_echelon
                     rec.wage = rec.indice_base * 45 + rec.point_indiciare
 
+    @api.onchange('niveau_hirerachique_chef_Bureau')
+    def onchange_niveau_hirerachique_chef_Bureau(self):
+        for rec in self:
+            rec.point_indiciare = rec.echelon_id.indice_echelon
+            rec.wage = (rec.indice_minimal * 45 + rec.point_indiciare * 45) + rec.niveau_hirerachique_chef_Bureau.bonification_indiciaire
+            # rec.wage = rec.indice_base * 45 + rec.niveau_hirerachique_chef_Bureau.bonification_indiciaire
     @api.onchange('nature_travail_id')
     def _onchange_related_field_filier(self):
         print('teste')

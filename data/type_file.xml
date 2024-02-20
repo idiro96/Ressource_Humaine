@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="rh_type_file_demande" model="rh.type.file">
+            <field name="intitule">طلب خطي</field>
+            <field name="intitule_fr">Demande Manuscrite</field>
+            <field name="type_file">employe</field>
+        </record>
+        <record id="rh_type_file_residense" model="rh.type.file">
+            <field name="intitule">بطاقة إقامة</field>
+            <field name="intitule_fr">Résidence</field>
+            <field name="type_file">employe</field>
+        </record>
+        <record id="rh_type_file_fiche_familiale" model="rh.type.file">
+            <field name="intitule">شهادة عائلية</field>
+            <field name="intitule_fr">Fiche Familiale</field>
+            <field name="type_file">employe</field>
+        </record>
+        <record id="rh_type_file_extrait_naissance" model="rh.type.file">
+            <field name="intitule">شهادة الميلاد</field>
+            <field name="intitule_fr">Extrait de Naissance</field>
+            <field name="type_file">employe</field>
+        </record>
+        <record id="rh_type_file_diplome" model="rh.type.file">
+            <field name="intitule">شهادة</field>
+            <field name="intitule_fr">Diplôme</field>
+            <field name="type_file">employe</field>
+        </record>
+        <record id="rh_type_file_carte_millitaire" model="rh.type.file">
+            <field name="intitule">بطاقة إعفاء من الخدمة الوطنية</field>
+            <field name="intitule_fr">Carte Millitaire</field>
+            <field name="type_file">employe</field>
+        </record>
+        <record id="rh_type_file_carte_nationale" model="rh.type.file">
+            <field name="intitule">بطاقة التعريف الوطنية</field>
+            <field name="intitule_fr">Carte Nationale</field>
+            <field name="type_file">employe</field>
+        </record>
+        <record id="rh_type_file_carte_chifa" model="rh.type.file">
+            <field name="intitule">الضمان الإجتماعي</field>
+            <field name="intitule_fr">Carte Chifa</field>
+            <field name="type_file">employe</field>
+        </record>
+        <record id="rh_type_file_photo" model="rh.type.file">
+            <field name="intitule">صورة</field>
+            <field name="intitule_fr">Photo</field>
+            <field name="type_file">employe</field>
+        </record>
+        <record id="rh_type_file_cheque_cpp" model="rh.type.file">
+            <field name="intitule">فحص CPP</field>
+            <field name="intitule_fr">Chèque CPP</field>
+            <field name="type_file">employe</field>
+        </record>
+        <record id="rh_type_file_enveloppe" model="rh.type.file">
+            <field name="intitule">ظرف</field>
+            <field name="intitule_fr">Enveloppe</field>
+            <field name="type_file">employe</field>
+        </record>
+        <record id="rh_type_file_act_marriage" model="rh.type.file">
+            <field name="intitule">شهادة الزواج</field>
+            <field name="intitule_fr">Acte de Marriage</field>
+            <field name="type_file">employe</field>
+        </record>
+
+    </data>
+</odoo>

@@ -14,7 +14,6 @@ class RHChoisirPlanning(models.TransientModel):
         record = self.env['rh.planning'].browse(self._context['active_id'])
         for line in self.employee_id_lines:
             if line.selection_employe == True:
-                print('hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh')
                 print(line.id)
                 planning_line = self.env['rh.planning.line'].create({
                     'planning_survellance_id': record.id,

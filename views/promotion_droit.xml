@@ -8,11 +8,13 @@
                 <field name="birthday" readonly="1"/>
                 <field name="marital" readonly="1"/>
                 <field name="grade_id" readonly="1"/>
+                <field name="categorie_id" readonly="1"/>
                 <field name="job_id" readonly="1"/>
                 <field name="date_grade" readonly="1"/>
                 <field name="grade_new_id"/>
                 <field name="duree"/>
                 <field name="date_new_grade"/>
+                <field name="time_difference" readonly="1"/>
                 <field name="date_promotion" readonly="1"/>
                 <field name="sauvegarde" widget="toggle_button"/>
                 <field name="retenue" widget="toggle_button"/>

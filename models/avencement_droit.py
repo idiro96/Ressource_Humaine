@@ -5,6 +5,8 @@ from datetime import datetime, date
 from dateutil.relativedelta import relativedelta
 import calendar
 
+from odoo.exceptions import UserError
+
 
 class RHAvencementDroit(models.Model):
     _name = 'rh.avencement.droit'
@@ -42,12 +44,40 @@ class RHAvencementDroit(models.Model):
     duree_lettre = fields.Selection(selection=[('inferieure', 'Inferieure'), ('moyen', 'Moyen'), ('superieure', 'Supérieure')])
     code_type_fonction = fields.Char(related='employee_id.nature_travail_id.code_type_fonction',
                                      store=True)
+
+    time_years = fields.Integer(compute="_compute_time", store=True)
+    time_months = fields.Integer(compute="_compute_time", store=True)
+    time_days = fields.Integer(compute="_compute_time", store=True)
+    time_difference = fields.Char(compute="_compute_time")
+    def _compute_time(self):
+        for rec in self:
+            if rec.date_old_avancement and rec.date_new_avancement:
+                date_old_avancement = fields.Datetime.from_string(rec.date_old_avancement)
+                date_new_avancement = fields.Datetime.from_string(rec.date_new_avancement)
+                delta = relativedelta(date_new_avancement, date_old_avancement)
+
+                years = delta.years
+                months = delta.months
+                days = delta.days
+
+                rec.time_years = years
+                rec.time_months = months
+                rec.time_days = days
+
+                # rec.time_difference = str(years) + ' annee et ' + str(months) + ' mois et ' + str(days) + 'jours'
+                rec.time_difference = f"قدره {years} سنة و {months} شهر و {days} يوم"
+                print(rec.time_difference)
+                print('rec.time_difference')
+
+
+
     # @api.multi
     # def write(self, vals):
     #     res = super(RHAvencementDroit, self).write(vals)
     #     for rec in self:
     #         if rec.sauvegarde != False
     #     res1 = self.env['account.asset.asset'].search([('id', '=', self.id)])
+
 
     @api.onchange('grille_new_id')
     def _onchange_grille_new_id(self):
@@ -61,6 +91,57 @@ class RHAvencementDroit(models.Model):
         else:
             return {'domain': {'categorie_new_id': [('grille_id', '=', self.grille_new_id.id)]}}
 
+
+    @api.multi
+    def write(self, vals):
+        result1 = super(RHAvencementDroit, self).write(vals)
+        # record1 = self.env['rh.avancement.droit'].browse(self._context['active_ids'])
+        for rec in self:
+            print('ranah22')
+            if rec.retenue:
+                print('ranah223')
+                if not rec.sauvegarde:
+                    print('ranah224')
+                    raise UserError("أكد أولا الحق في التقدم في الدرجة")
+            record2 = self.env['rh.avancement.line'].search(
+                [('employee_id', '=', rec.employee_id.id), ('date_avancement', '=', rec.date_avancement)])
+            if record2:
+                raise UserError("مستحيل تغيير تقدم في الدرجة اللذي تم تحققه")
+
+        return result1
+
+    @api.multi
+    def unlink(self):
+        for rec in self:
+            print('ranah')
+            record2 = self.env['rh.avancement.line'].search(
+                [('employee_id', '=', rec.employee_id.id), ('date_avancement', '=', rec.date_avancement)])
+            if record2:
+                raise UserError(
+                    "لا يمكنك من حذف تسجيل اللذي تم تحققه")
+        return super(RHAvencementDroit, self).unlink()
+
+        # endroit = self.env['invest.affectation'].search([('endroit_id', '=', self.id)])
+        # if endroit:
+        #     raise UserError(
+        #         "Vous ne pouvez pas supprimer cet emplacement, car un bien est déja affecté à ce lieu")
+        #
+        # fils = self.env['invest.endroit'].search([('parent_id', '=', self.id)])
+        # if fils:
+        #     raise UserError(
+        #         "Vous ne pouvez pas supprimer cet emplacement, car ce lieu possède des ascendants")
+
+
+    @api.onchange('duree')
+    def _onchange_duree(self):
+        for rec in self:
+            rec.date_new_avancement = relativedelta(months=rec.duree) + fields.Date.from_string(rec.date_old_avancement)
+            if rec.duree == 30:
+                rec.duree_lettre = 'inferieure'
+            elif rec.duree == 36:
+                rec.duree_lettre = 'moyen'
+            else:
+                rec.duree_lettre = 'superieure'
 
     @api.onchange('groupe_new_id')
     def _onchange_groupe_new_id(self):

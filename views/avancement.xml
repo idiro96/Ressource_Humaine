@@ -22,8 +22,9 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="code" readonly="1"/>
+                            <field name="code"/>
                             <field name="date_avancement"/>
+                            <field name="date_comission" string="تاريخ إجتماع اللجنة"/>
 <!--                            <field name="avancement_wizard"/>-->
                         </group>
                     </group>
@@ -62,7 +63,6 @@
                                     <field name="duree" readonly="1"/>
                                     <field name="date_new_avancement" readonly="1"/>
                                     <field name="avancement_line_file_line"/>
-                                    <field name="imprimer" widget="toggle_button"/>
                                 </tree>
                             </field>
                         </page>

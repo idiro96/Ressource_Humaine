@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="notice_planning_surveillance_report">
+        <t t-call="web.basic_layout">
+            <t t-call="ressource_humaine.report_header_custom"/>
+            <div class="page">
+                <t t-foreach="planning_surveillance_line" t-as="line">
+                    <t t-foreach="line.employee_id" t-as="emp">
+                        <!--                        <span t-field="emp.name"/>-->
+                        <!--                        <span>-</span>-->
+                        <div class="row">
+                            <strong>
+                                <div style="font-size: 20px;text-align: right;">
+                                    <span style="display: inline-block;margin-left: 400px;">
+                                        المدرسة الوطنية للإدارة
+                                    </span>
+                                </div>
+                                <br/>
+                                <br/>
+                                <div style="font-size: 20px;text-align: right;">
+                                    <span>
+                                        الأمانة العامة
+                                    </span>
+                                </div>
+                                <br/>
+                                <br/>
+                                <div style="font-size: 20px;text-align: right;">
+                                    <span>
+                                        مصلحة تسيير الموارد البشرية
+                                    </span>
+                                </div>
+                                <br/>
+                                <br/>
+                                <div style="font-size: 20px;text-align: right;">
+                                    <span>
+                                        رقم ................... /م.و.إ/أ.ع/م.ت.م.ب/
+                                        <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
+                                    </span>
+                                </div>
+                                <br/>
+                                <div style="font-size: 20px;text-align: right;margin-right:500px;">
+                                    <span>
+                                        :الإسم و اللقب
+                                    </span>
+                                    <span t-field="emp.name"/>
+                                    <br/>
+                                    <span>
+                                        :الرتبة
+                                    </span>
+                                    <span t-field="emp.grade_id"/>
+                                </div>
+                                <br/>
+                                <div style="font-size: 20px;text-align: right;">
+                                    <span>
+                                        الموضوع: تسخيرة
+                                    </span>
+                                </div>
+                            </strong>
+                            <br/>
+                            <br/>
+                            <div style="font-size: 20px;text-align: right;">
+                                <span>
+                                    في إطار تنظيم مديرية التكوين المتواصل و التعاون مسابقة على أساس الإمتحانات المهنية،
+                                    يطلب
+                                    منكم
+                                </span>
+                                <br/>
+                                <span>
+                                    :
+                                </span>
+                                <span>
+                                    الحضور من أجل المشاركة في تأطير هذه العملية و ذلك وفق الجدول التالي
+                                </span>
+                            </div>
+                            <table style="width: 100%;">
+                                <thead>
+                                    <tr>
+                                        <th style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;width:125px">
+                                            الملاحظة
+                                        </th>
+                                        <th style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;width:125px">
+                                            المدرج/القاعة
+                                        </th>
+                                        <th style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;width:125px">
+                                            التوقيت
+                                        </th>
+                                        <th style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;width:125px">
+                                            التاريخ
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+<!--                                    <t t-foreach="ref" t-as="schedule.emp">-->
+                                        <tr>
+                                            <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;"
+                                                rowspan="2">
+                                                <span t-field="line.president_emphy"/>
+                                            </td>
+                                            <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;"
+                                                rowspan="2">
+                                                <span t-field="line.emphy_id"/>
+                                            </td>
+                                            <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;">
+                                                <span t-field="planning.time_surveillance_start"/>
+                                                <span>-</span>
+                                                <span t-field="planning.time_surveillance_end"/>
+                                            </td>
+                                            <t t-foreach="ref" t-as="schedule.emp">
+                                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;">
+                                                    <span t-field="ref.date"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+<!--                                    </t>-->
+<!--                                    <tr>-->
+<!--                                        <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;"-->
+<!--                                            rowspan="2">-->
+<!--                                            <span t-field="line.president_emphy"/>-->
+<!--                                        </td>-->
+<!--                                        <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;"-->
+<!--                                            rowspan="2">-->
+<!--                                            <span t-field="line.emphy_id"/>-->
+<!--                                        </td>-->
+<!--                                        <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;">-->
+<!--                                            <span t-field="planning.time_surveillance_start"/>-->
+<!--                                            <span>-</span>-->
+<!--                                            <span t-field="planning.time_surveillance_end"/>-->
+<!--                                        </td>-->
+<!--                                        <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;">-->
+<!--                                            <span t-field="planning.date_surveillance"/>-->
+<!--                                        </td>-->
+<!--                                    </tr>-->
+<!--                                    <tr>-->
+<!--                                        <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;">-->
+<!--                                            &#160;-->
+<!--                                        </td>-->
+<!--                                        <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;">-->
+<!--                                            &#160;-->
+<!--                                        </td>-->
+<!--                                    </tr>-->
+                                </tbody>
+                            </table>
+                            <div style="font-size: 20px;text-align: right;">
+                                <span>
+                                    .عليكم الإلتحاق بقاعة الإمتحان قبل ربع ساعة على الأقل من بدء الإمتحان
+                                </span>
+                            </div>
+                        </div>
+
+                    </t>
+                </t>
+
+            </div>
+        </t>
+    </template>
+</odoo>

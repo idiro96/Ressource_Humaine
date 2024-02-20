@@ -42,20 +42,20 @@
                 <br/>
                 <div style="text-align:center;font-size: 30px">
                     <strong>
-                        <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
+                        <span t-esc="date"/>
                         جدول ترقية موظفي المدرسة الوطنية للإدارة لسنة
                     </strong>
                 </div>
                 <br/>
-                <div class="row" style="margin:30;">
+                <div class="row" style="margin:-15;">
                     <table border="1px solid black" class="table table-bordered"
                            style="width: 100%;">
                         <thead>
                             <tr>
-                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
-                                    <strong>ملاحظة</strong>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;width:150px">
+                                    <strong>فرق المدة</strong>
                                 </th>
-                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;width:150px">
                                     <strong>تاريخ سريان الترقية القادمة</strong>
                                 </th>
                                 <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
@@ -65,7 +65,7 @@
                                     <strong>المدة</strong>
                                 </th>
                                 <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
-                                    <strong>عامين و نصف</strong>
+                                    <strong>المدة</strong>
                                 </th>
                                 <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
                                     <strong>ترقية</strong>
@@ -99,20 +99,34 @@
                         <t t-set="line_count" t-value="1"/>
                         <t t-foreach="avencement_droit" t-as="record">
                             <tbody>
-                                <td style="border:1px solid black;">
-                                    &#160;
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;width:150px">
+                                    <span t-esc="record.time_difference"/>
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
-                                    <span t-esc="record.date_avancement"/>
+                                    <span t-esc="record.date_new_avancement"/>
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
                                     <!--                                    <span t-esc="record.name"/>-->
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
-                                    <!--                                    <span t-esc="record.category_id.method_progress_factor"/>-->
+                                    <span t-esc="record.duree"/>
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
-                                    <!--                                    <span t-esc="record.numero_inventaire"/>-->
+                                    <t t-if="record.duree_lettre=='inferieure'">
+                                        <span>
+                                            دنيا
+                                        </span>
+                                    </t>
+                                    <t t-if="record.duree_lettre=='moyen'">
+                                        <span>
+                                            متوسطة
+                                        </span>
+                                    </t>
+                                    <t t-if="record.duree_lettre=='superieure'">
+                                        <span>
+                                            أقصى
+                                        </span>
+                                    </t>
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
                                     <span t-esc="record.echelon_new_id.intitule"/>
