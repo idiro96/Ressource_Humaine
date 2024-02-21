@@ -184,7 +184,7 @@
     <report
             id="action_notice_planning_surveillance"
             string="تسخيرة"
-            model="rh.planning"
+            model="programme.employee"
             report_type="qweb-html"
             name="ressource_humaine.notice_planning_surveillance_report"
             file="ressource_humaine.notice_planning_surveillance_report"/>

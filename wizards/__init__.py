@@ -15,6 +15,7 @@ from . import planning_conge
 from . import liste_nominatifs
 from . import liste_nominative
 from . import attestation_travail_wizard
+from . import programme_surveillance_employee
 
 
 

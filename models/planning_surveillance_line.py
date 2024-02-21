@@ -13,5 +13,6 @@ class RHPlanningLine(models.Model):
     emphy_id = fields.Many2one('rh.emphy')
     planning_survellance_id = fields.Many2one('rh.planning')
     president_emphy = fields.Many2one('hr.employee')
-    time_surveillance_start = fields.Char()
-    time_surveillance_end = fields.Char()
+    date_examen = fields.Date(related="planning_survellance_id.date_surveillance")
+    time_start = fields.Char(related="planning_survellance_id.time_surveillance_start")
+    time_end = fields.Char(related="planning_survellance_id.time_surveillance_end")
