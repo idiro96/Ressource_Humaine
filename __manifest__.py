@@ -88,6 +88,7 @@
         'data/type_fonction.xml',
         'data/type_contract.xml',
         'data/type_file.xml',
+        'data/type_fin_relation.xml',
         'wizards/visite_medical_detaille.xml',
         'wizards/formation_detail_wizard.xml',
         'wizards/choisir_commission.xml',

@@ -53,11 +53,11 @@ class RHGrade(models.Model):
             for grade in self:
                 setattr(grade, field_name, result.get(grade.id, 0))
 
-    # @api.constrains('no_of_employee', 'max_employee')
-    # def _check_max_employee_limit(self):
-    #     for job in self:
-    #         if job.no_of_employee > job.max_employee:
-    #             raise ValidationError("لا يجوز أن عدد الموظفين يتفوق عن الحد الأقصى المسموح به")
+    @api.constrains('no_of_employee', 'max_employee')
+    def _check_max_employee_limit(self):
+        for job in self:
+            if job.no_of_employee > job.max_employee:
+                raise ValidationError("لا يجوز أن عدد الموظفين يتفوق عن الحد الأقصى المسموح به")
 
     @api.depends('max_employee', 'no_of_employee')
     def _compute_nombre_de_postes_vacants(self):

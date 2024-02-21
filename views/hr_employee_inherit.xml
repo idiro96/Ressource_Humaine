@@ -364,7 +364,7 @@
                     <page string="قائمة الملفات">
                         <field name="formation_file_lines">
                             <tree editable="bottom">
-                                <field name="type_file_id"/>
+                                <field name="type_file_id" domain="[('type_file', '=', 'employe')]"/>
                                 <field name="description_fichier"/>
                                 <field name="fichier"/>
                             </tree>
