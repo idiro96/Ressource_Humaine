@@ -12,7 +12,7 @@ class RHFinRelation(models.Model):
     date_fin_relation = fields.Date()
     num_decision_fin_relation = fields.Char()
     type_fin_relation_id = fields.Many2one('rh.type.fin.relation')
-    employee_id = fields.Many2one('hr.employee')
+    employee_id = fields.Many2one('hr.employee', domain="[('fin_relation', '=', False)]")
     fin_relation_file_lines = fields.One2many('rh.file', 'fin_relation_id')
 
     @api.constrains('employee_id', 'type_fin_relation_id')
