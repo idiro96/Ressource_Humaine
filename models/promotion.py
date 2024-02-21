@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from datetime import datetime
 
 from odoo import models, fields, api, _
 
@@ -168,9 +169,14 @@ class TableauDesPromotions(models.AbstractModel):
 
         promotion_droit_sauvegarde = promotion_droit.filtered(lambda r: r.sauvegarde)
 
+        droit_promotion = self.env['rh.promotion.droit'].browse(docids[0])
+        date_promotion = droit_promotion.date_promotion
+        formatted_date_promotion = datetime.strptime(date_promotion, "%Y-%m-%d").strftime("%Y")
+
         report_data = {
             'promotion_droit': promotion_droit_sauvegarde,
             'company': self.env.user.company_id,
+            'date': formatted_date_promotion,
         }
 
         return report_data

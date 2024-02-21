@@ -87,6 +87,7 @@
         'data/sequence.xml',
         'data/type_fonction.xml',
         'data/type_contract.xml',
+        'data/type_file.xml',
         'wizards/visite_medical_detaille.xml',
         'wizards/formation_detail_wizard.xml',
         'wizards/choisir_commission.xml',
@@ -118,6 +119,8 @@
         'reports/liste_nominatife_employee.xml',
         'reports/fiche_renseignement.xml',
         'reports/liste_nominative.xml',
+        'reports/rapport_retraite_text.xml',
+        'reports/attestation_de_cessation.xml',
         'reports/planning_notice.xml',
 
     ],

@@ -86,20 +86,20 @@
     <report
             id="action_hr_tableau_promotion"
             model="rh.avencement.droit"
-            string="Tableau Promotion"
+            string="جدول ترقية في الدرجة"
             report_type="qweb-html"
             name="ressource_humaine.tableau_promotion"
-            file="ressource_humaine.tableau_promotion"
+            file="جدول ترقية في الرتبة"
             paperformat="ressource_humaine.paperformat_european_a4_landscape"
     />
 
     <report
             id="action_hr_tableau_des_promotions"
             model="rh.promotion.droit"
-            string="Tableau des Promotions"
+            string="جدول ترقية في الرتبة"
             report_type="qweb-html"
             name="ressource_humaine.tableau_des_promotions"
-            file="ressource_humaine.tableau_des_promotions"
+            file="جدول ترقية في الدرجة"
             paperformat="ressource_humaine.paperformat_european_a4_landscape"
     />
 
@@ -151,7 +151,7 @@
     <report
             id="action_tableau_des_promotions_xlsx"
             model="rh.promotion.droit"
-            string="جدول ترقية Excel"
+            string="جدول ترقية في الرتبة Excel"
             report_type="xlsx"
             name="ressource_humaine.tableau_des_promotions_xlsx"
             file="جدول ترقية"/>
@@ -165,11 +165,36 @@
             file="وضعية التعداد النظري و الحقيقي"/>
 
     <report
+            id="retraite_report"
+            model="rh.fin.relation"
+            string="retraite"
+            report_type="qweb-html"
+            name="ressource_humaine.rapport_retraite"
+            file="ressource_humaine.rapport_retraite"/>
+
+    <report
+            id="action_attestation_cessation"
+            model="hr.employee"
+            string="Attestation de cessation d'activité salariée"
+            report_type="qweb-pdf"
+            name="ressource_humaine.attestation_cessation"
+            file="ressource_humaine.attestation_cessation"
+            paperformat="ressource_humaine.paperformat_european_a4_portrait"/>
+
+    <report
             id="action_notice_planning_surveillance"
             string="تسخيرة"
             model="rh.planning"
             report_type="qweb-html"
             name="ressource_humaine.notice_planning_surveillance_report"
-            file="تسخيرة"/>
+            file="ressource_humaine.notice_planning_surveillance_report"/>
+    <!--            file="تسخيرة"/>-->
 
+    <report
+            id="action_tableau_promotion_xlsx"
+            model="rh.avencement.droit"
+            string="جدول ترقية في الدرجة Excel"
+            report_type="xlsx"
+            name="ressource_humaine.tableau_promotion_xlsx"
+            file="جدول ترقية في الدرجة"/>
 </odoo>

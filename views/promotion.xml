@@ -61,7 +61,7 @@
                                     <field name="duree" required="1"/>
                                     <field name="date_new_grade" readonly="1"/>
                                     <field name="promotion_line_file_line"/>
-                                    <field name="imprimer" widget="toggle_button"/>
+<!--                                    <field name="imprimer" widget="toggle_button"/>-->
                                 </tree>
                             </field>
                         </page>

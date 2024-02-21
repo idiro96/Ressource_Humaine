@@ -21,20 +21,17 @@
                             </span>
                         </div>
                         <br/>
-                        <br/>
                         <div style="font-size: 20px;text-align: right;">
                             <span>
                                 الأمانة العامة
                             </span>
                         </div>
                         <br/>
-                        <br/>
                         <div style="font-size: 20px;text-align: right;">
                             <span>
                                 مصلحة تسيير الموارد البشرية
                             </span>
                         </div>
-                        <br/>
                         <br/>
                     </strong>
                 </div>
@@ -63,20 +60,34 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr t-foreach="planning_surveillance_line" t-as="line">
+                            <t t-set="compteur" t-value="1"/>
+                            <t t-set="compteur_ligne" t-value="0"/>
+                            <t t-foreach="planning_surveillance_line" t-as="line">
                                 <tr>
-                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                        <span t-field="line.employee_id"/>
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
+                                        <t t-foreach="line.employee_id" t-as="emp">
+                                            <span t-field="emp.name"/>
+                                            <span>-</span>
+                                        </t>
                                     </td>
-                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;border-bottom:none;border-top:none;">
-                                        <span t-esc="line.planning_survellance_id.time_surveillance_start"/>
-                                        <span t-esc="line.planning_survellance_id.time_surveillance_end"/>
+                                    <td
+                                            style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
+                                        <span>
+                                            من
+                                        </span>
+                                        <span>
+                                            <t t-esc="' : '.join(planning.time_surveillance_start.split(' : ')[::-1])"/>
+                                        </span>
+                                        <span>
+                                            الى
+                                        </span>
+                                        <t t-esc="planning.time_surveillance_end"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
                                         <span t-esc="line.emphy_id.intitule_emphy"/>
                                     </td>
                                 </tr>
-                            </tr>
+                            </t>
                         </tbody>
                     </table>
                 </div>
