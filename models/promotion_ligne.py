@@ -23,6 +23,7 @@ class RHPromotionLine(models.Model):
     promotion_line_file_line = fields.Binary()
     duree = fields.Integer()
     imprimer = fields.Boolean(Default=False)
+    code=fields.Char()
 
 
 

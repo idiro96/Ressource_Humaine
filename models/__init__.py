@@ -59,4 +59,3 @@ from . import fiche_evaluation
 from . import hr_contract_type_inherit
 
 
-
