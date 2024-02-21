@@ -8,7 +8,7 @@ class RHAvancementLine(models.Model):
     _name = 'rh.avancement.line'
 
     date_avancement = fields.Date()
-    code = fields.Char(readonly=True, default=lambda self: self.env['ir.sequence'].next_by_code('rh.avancement.line.sequence'))
+    code = fields.Char(readonly=False, default=lambda self: self.env['ir.sequence'].next_by_code('rh.avancement.line.sequence'))
     ref = fields.Char()
     date_ref = fields.Date()
     avancement_id = fields.Many2one('rh.avancement')

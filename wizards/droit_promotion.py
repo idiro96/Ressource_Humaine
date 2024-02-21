@@ -18,6 +18,7 @@ class RHDroitPromotion(models.TransientModel):
                               ('7', '7'),('10', '10'),],
                              readonly=False)
     boul = fields.Boolean(default=False)
+    sauvegarde = fields.Boolean(default=False)
 
     # @api.constrains
     # @api.multi
@@ -80,8 +81,8 @@ class RHDroitPromotion(models.TransientModel):
                                         'grade_new_id': promo.grade_id.id,
                                         'date_new_grade': relativedelta(months=int(self.duree_promotion) * 12) + fields.Date.from_string(promo.date_grade),
                                         'duree': int(self.duree_promotion) * 12,
-                                        'sauvegarde': True,
-                                        # 'retenue': True
+                                        'sauvegarde': self.sauvegarde,
+                                        'retenue': self.sauvegarde
                                     })
                                 else:
                                     print('employe existe')
@@ -98,8 +99,8 @@ class RHDroitPromotion(models.TransientModel):
                                     'grade_new_id': promo.grade_id.id,
                                     'date_new_grade': relativedelta(months=int(self.duree_promotion) * 12) + fields.Date.from_string(promo.date_grade),
                                     'duree': int(self.duree_promotion) * 12,
-                                    'sauvegarde': True,
-                                    # 'retenue': True
+                                    'sauvegarde': self.sauvegarde,
+                                    'retenue': self.sauvegarde
                                 })
 
 

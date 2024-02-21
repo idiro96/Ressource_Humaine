@@ -331,6 +331,7 @@
                             <field name="ref"/>
                             <field name="date_ref"/>
                             <field name="code_type_fonction" invisible="1"/>
+                            <field name="grille_id"/>
                             <field name="groupe_id"
                                    attrs="{'invisible': ['|', ('code_type_fonction', '=', 'fonctionsuperieure'), ('code_type_fonction', '=', 'contractuel')]}"/>
                             <field name="categorie_id"/>
