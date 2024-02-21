@@ -15460,7 +15460,7 @@ msgstr "تاريخ التقييم"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_date_examin_professionnel
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_line_date_examin_professionnel
 msgid "Date Examin Professionnel"
-msgstr "تاريخ الامتحان المهني"
+msgstr "تاريخ إجتماع اللجنة"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_absence_date_fin_absence
@@ -15562,7 +15562,7 @@ msgstr "تاريخ آخر ترقية في الدرجة"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_line_date_promotion
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_line_wizard_date_promotion
 msgid "Date Promotion"
-msgstr "تاريخ الترقية في الرتبة"
+msgstr "تاريخ إستحقاق الترقية في الرتبة"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_grille_date_publication_journal_officiel
