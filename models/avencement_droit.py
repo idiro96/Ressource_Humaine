@@ -42,6 +42,9 @@ class RHAvencementDroit(models.Model):
     date_avancement = fields.Date()
     duree = fields.Integer()
     duree_lettre = fields.Selection(selection=[('inferieure', 'Inferieure'), ('moyen', 'Moyen'), ('superieure', 'Supérieure')])
+    code_type_fonction = fields.Char(related='employee_id.nature_travail_id.code_type_fonction',
+                                     store=True)
+
     time_years = fields.Integer(compute="_compute_time", store=True)
     time_months = fields.Integer(compute="_compute_time", store=True)
     time_days = fields.Integer(compute="_compute_time", store=True)
@@ -67,12 +70,27 @@ class RHAvencementDroit(models.Model):
                 print('rec.time_difference')
 
 
+
     # @api.multi
     # def write(self, vals):
     #     res = super(RHAvencementDroit, self).write(vals)
     #     for rec in self:
     #         if rec.sauvegarde != False
     #     res1 = self.env['account.asset.asset'].search([('id', '=', self.id)])
+
+
+    @api.onchange('grille_new_id')
+    def _onchange_grille_new_id(self):
+        if self.grille_new_id:
+            self.groupe_new_id = False
+            self.categorie_new_id = False
+            self.section_new_id = False
+            self.echelon_new_id = False
+        if self.groupe_new_id:
+            return {'domain': {'groupe_new_id': [('grille_id', '=', self.grille_new_id.id)]}}
+        else:
+            return {'domain': {'categorie_new_id': [('grille_id', '=', self.grille_new_id.id)]}}
+
 
     @api.multi
     def write(self, vals):
@@ -129,28 +147,34 @@ class RHAvencementDroit(models.Model):
     def _onchange_groupe_new_id(self):
         if self.groupe_new_id:
             self.categorie_new_id = False
+            self.section_new_id = False
             self.echelon_new_id = False
             return {'domain': {'categorie_new_id': [('groupe_id', '=', self.groupe_new_id.id)]}}
         else:
             return {'domain': {'categorie_new_id': []}}
 
-    @api.onchange('grille_id')
-    def _onchange_grille_id(self):
-        if self.grille_id:
-            self.groupe_new_id = False
-            self.categorie_new_id = False
-            self.echelon_new_id = False
-            return {'domain': {'groupe_new_id': [('grille_id', '=', self.grille_id.id)]}}
-        else:
-            return {'domain': {'groupe_new_id': []}}
 
     @api.onchange('categorie_new_id')
     def _onchange_categorie_new_id(self):
         if self.categorie_new_id:
+            self.section_new_id = False
             self.echelon_new_id = False
+        if self.section_new_id :
+            return {'domain': {'section_new_id': [('categorie_id', '=', self.categorie_new_id.id)]}}
+        else:
             return {'domain': {'echelon_new_id': [('categorie_id', '=', self.categorie_new_id.id)]}}
+
+    @api.onchange('section_new_id')
+    def _onchange_section_new_id(self):
+        if self.section_new_id:
+            self.echelon_new_id = False
+            return {'domain': {'echelon_new_id': [('section', '=', self.section_new_id.id)]}}
+
         else:
             return {'domain': {'echelon_new_id': []}}
+
+
+
     @api.multi
     def print_promotion(self):
         return self.env.ref('ressource_humaine.action_hr_tableau_promotion').with_context(landscape=True).report_action(self)
