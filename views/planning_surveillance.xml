@@ -6,8 +6,8 @@
             <tree>
                 <!--                <field name="president_emphy"/>-->
                 <field name="date_surveillance"/>
-                <!--                <field name="time_surveillance_start"/>-->
-                <!--                <field name="time_surveillance_end"/>-->
+                <field name="time_surveillance_start"/>
+                <field name="time_surveillance_end"/>
                 <!--                <field name="time_surveillance_end1" widget="timepicker" options="{'timepicker': {'stepping': 15}}"/>-->
             </tree>
         </field>
@@ -39,8 +39,9 @@
                                     <field name="employee_id" widget="many2many_tags"/>
                                     <field name="emphy_id"/>
                                     <field name="president_emphy"/>
-                                    <field name="time_surveillance_start" widget="timepicker"/>
-                                    <field name="time_surveillance_end" widget="timepicker"/>
+<!--                                    <field name="date_examen"/>-->
+<!--                                    <field name="time_start" widget="timepicker"/>-->
+<!--                                    <field name="time_end" widget="timepicker"/>-->
                                 </tree>
                             </field>
                         </page>

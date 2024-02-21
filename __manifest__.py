@@ -34,6 +34,7 @@
         # 'views/data.xml',
         'wizards/droit_avencement.xml',
         'wizards/droit_promotion.xml',
+        'wizards/programme_surveillance_employee.xml',
         'views/hr_dashboard.xml',
         'views/templates.xml',
         'views/hr_employee_inherit.xml',

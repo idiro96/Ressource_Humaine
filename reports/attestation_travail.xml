@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-
         <template id="attestation_travail_report">
             <t t-call="web.basic_layout">
                 <t t-call="ressource_humaine.report_header_custom"/>
