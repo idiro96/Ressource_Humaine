@@ -5,16 +5,13 @@
             <t t-call="ressource_humaine.report_header_custom"/>
             <div class="page">
                 <div class="row">
-                    <div style="float:left;font-size : 20px;">
-                        <p>
-                            <strong>
-                                <!--                                <span t-field="docs.company_id.name"/>-->
-                            </strong>
-                        </p>
-                    </div>
-                    <br/>
-                    <br/>
                     <strong>
+                        <div style="font-size: 20px;text-align: left;">
+                            <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/>
+                            <span style="display: inline-block;">
+                                الجزائر في
+                            </span>
+                        </div>
                         <div style="font-size: 20px;text-align: right;">
                             <span style="display: inline-block;margin-left: 400px;">
                                 المدرسة الوطنية للإدارة
@@ -37,13 +34,16 @@
                         <br/>
                         <br/>
                         <div style="font-size: 20px;text-align: right;">
-                            <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/>
                             <span style="display: inline-block;">
-                                 الجزائر في
-                            </span>
-                            <span style="display: inline-block;margin-left: 400px;">
-                                رقم ................... /م.و.إ/أ.ع/م.ت.م.ب/
-                            <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
+                                <t t-if="code">
+                                    رقم
+                                    <t t-esc="code"/>
+                                    /م.و.إ/أ.ع/م.ت.م.ب/
+                                </t>
+                                <t t-if="not code">
+                                    رقم ................... /م.و.إ/أ.ع/م.ت.م.ب/
+                                </t>
+                                <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
                             </span>
                         </div>
                         <br/>
@@ -68,23 +68,24 @@
                     <p>
                         <br/>
                         <br/>
-                       ـ في إطار تحضير رزمانة العطلة السنوية للموظفين و العمال بعنوان سنة
+                        ـ في إطار تحضير رزمانة العطلة السنوية للموظفين و العمال بعنوان سنة
                         <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
-                         , يشرفني أن أطلب منكم موافاة مصلحة تسيير الموارد البشرية بجدول العطلة الخاص بالمستخدمين العاملين تحت إشرافكم
+                        , يشرفني أن أطلب منكم موافاة مصلحة تسيير الموارد البشرية بجدول العطلة الخاص بالمستخدمين العاملين
+                        تحت إشرافكم
 
                         <br/>
                         <br/>
                         ـ مع الإشارة أن موسم العطلة السنوية يمتد ِإلى غاية
                         <span t-esc="context_timestamp(datetime.datetime.now()).strftime('31-08-%Y')"/>
                         كأقصى حد, ولا يمكن تأجيل
-                        العطلة إلا بداعي ضرورة المصلحة, مع مرعاة ضمان الحد الأدنى من الخدمة على مستوى جميع المديريات و المصالح
+                        العطلة إلا بداعي ضرورة المصلحة, مع مرعاة ضمان الحد الأدنى من الخدمة على مستوى جميع المديريات و
+                        المصالح
 
                         <br/>
                         <br/>
                         ـو يمكن إستدعاء الموظف المتواجد في عطلة لمباشرة نشاطاته للضرورة الملحة للمصلحة
                         والتي يتم تعويضها في وقت لاحق
 
-                        <br/>
                         <br/>
                         <br/>
                         <br/>

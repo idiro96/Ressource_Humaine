@@ -7,8 +7,10 @@ from odoo.exceptions import ValidationError, UserError
 class HrHolidaysInherited(models.Model):
     _inherit = "hr.holidays"
 
-    holiday_status_id = fields.Many2one("hr.holidays.status", string="Leave Type",  required=False, readonly=True,
-                                        states={'draft': [('readonly', False)], 'confirm': [('readonly', False)]}, compute='_get_default_value')
+    holiday_status_id = fields.Many2one("hr.holidays.status", string="Leave Type", required=False, readonly=True,
+                                        states={'draft': [('readonly', False)], 'confirm': [('readonly', False)]},
+                                        compute='_get_default_value')
+    code = fields.Char()
 
     def _get_default_value(self):
         # You can set the default value based on your requirements
@@ -18,6 +20,7 @@ class HrHolidaysInherited(models.Model):
         print(default_record)
         # Return the ID of the default record
         return default_record
+
     @api.multi
     def print_conge(self):
         return self.env.ref('ressource_humaine.report_titre_conge').report_action(self)
@@ -45,19 +48,20 @@ class HrHolidaysInherited(models.Model):
         print('ici conge2')
         # Votre code supplémentaire ici
         return result
+
     @api.model
     def create(self, vals):
         holidays = super(HrHolidaysInherited, self).create(vals)
         employ = self.env['hr.employee'].search([('id', '=', holidays.employee_id.id)])
-        holiday = self.env['hr.holidays'].search([('employee_id', '=', self.employee_id.id),('state', '=', 'confirm')])
+        holiday = self.env['hr.holidays'].search([('employee_id', '=', self.employee_id.id), ('state', '=', 'confirm')])
         if employ:
-                print(holiday)
-                print(employ.days_off-holiday.number_of_days_temp)
-                if employ.days_off-holiday.number_of_days >= holidays.number_of_days_temp:
-                    pass
-                else:
-                    raise ValidationError(_('The number of remaining leaves is not sufficient for this leave type.\n'
-                                            'Please verify also the leaves waiting for validation.'))
+            print(holiday)
+            print(employ.days_off - holiday.number_of_days_temp)
+            if employ.days_off - holiday.number_of_days >= holidays.number_of_days_temp:
+                pass
+            else:
+                raise ValidationError(_('The number of remaining leaves is not sufficient for this leave type.\n'
+                                        'Please verify also the leaves waiting for validation.'))
 
         print('rrrrrrr2')
 
@@ -106,6 +110,7 @@ class HrHolidaysInherited(models.Model):
                     employ.write({'days_off': leave_days})
 
             holidays.write({'state': 'validate'})
+
     @api.multi
     def unlink(self):
         for rec in self:
@@ -113,6 +118,7 @@ class HrHolidaysInherited(models.Model):
                 raise UserError(
                     "Vous ne pouvez pas supprimer un enregistrement déja validé")
         return super(HrHolidaysInherited, self).unlink()
+
     @api.onchange('date_to')
     def _onchange_date_to(self):
         """ Update the number_of_days. """
@@ -124,3 +130,17 @@ class HrHolidaysInherited(models.Model):
             self.number_of_days_temp = difference.days + 1
         else:
             self.number_of_days_temp = 0
+
+
+class NoteCongeReport(models.AbstractModel):
+    _name = 'report.ressource_humaine.note_conge'
+
+    @api.model
+    def get_report_values(self, docids, data=None):
+        data = self.env['hr.holidays'].browse(docids[0])
+
+        report_data = {
+            'code': data.code,
+        }
+
+        return report_data
