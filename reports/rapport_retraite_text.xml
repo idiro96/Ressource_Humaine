@@ -68,10 +68,13 @@
                     </div>
                     <div style="font-size: 20px;text-align: right;">
                         <span>ـ و بناء على المقرر رقم</span>
+<!--                        <span style="display: inline-block;">-->
+<!--                            <t t-esc="promotion.code_line"/>-->
+<!--                        </span>-->
                         <span>مؤرخ في</span>
-                        <span style="display: inline-block;">
-                            <t t-esc="promotion.date_new_grade"/>
-                        </span>
+<!--                        <span style="display: inline-block;">-->
+<!--                            <t t-esc="promotion.date_new_grade"/>-->
+<!--                        </span>-->
                         <t t-if="nom_employee.employee_id.gender== 'male' ">
                             <span>المتضمن ترقية السيد</span>
                         </t>
@@ -95,9 +98,9 @@
                     </div>
                     <div style="font-size: 20px;text-align: right;">
                         <span>ـ و بناء على مقرر جماعي رقم</span>
-                        <span style="display: inline-block;">
-<!--                            <t t-esc="promotion.promotion_id.code"/>-->
-                        </span>
+<!--                        <span style="display: inline-block;">-->
+<!--                            <t t-esc="nom_employee.code_promotion"/>-->
+<!--                        </span>-->
                         <span>مؤرخ في</span>
                         <span style="display: inline-block;">
 <!--                            <t t-esc="promotion.promotion_id.date_promotion"/>-->
@@ -120,9 +123,9 @@
                             <t t-esc="nom_employee.employee_id.point_indiciare"/>
                         </span>
                         <span>إبتداء من تاريخ</span>
-                        <span style="display: inline;">
-<!--                            <t t-esc="promotion.promotion_id.date_examin_professionnel"/>-->
-                        </span>
+<!--                        <span style="display: inline;">-->
+<!--                            <t t-esc="nom_employee.date_promotion"/>-->
+<!--                        </span>-->
                     </div>
                     <div style="font-size: 20px;text-align: right;">
                         <t t-if="nom_employee.employee_id.gender== 'male' ">
