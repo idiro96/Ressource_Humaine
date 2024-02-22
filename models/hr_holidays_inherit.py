@@ -119,6 +119,13 @@ class HrHolidaysInherited(models.Model):
                     "Vous ne pouvez pas supprimer un enregistrement déja validé")
         return super(HrHolidaysInherited, self).unlink()
 
+    # @api.onchange('employee_id')
+    # def _onchange_employee_id(self):
+    #
+    #     # for rec in self:
+    #     #     droitconge = self.env['hr.department'].search([('id_personnel', '=', employ.id)])
+    #     self.department_id = self.employee_id.department_id.id
+
     @api.onchange('date_to')
     def _onchange_date_to(self):
         """ Update the number_of_days. """

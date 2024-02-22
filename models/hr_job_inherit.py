@@ -5,7 +5,7 @@ import math
 # import schedule
 
 from odoo import models, fields, api, _
-from odoo.exceptions import ValidationError
+from odoo.exceptions import ValidationError, UserError
 
 
 class HrJobInherited(models.Model):
@@ -34,3 +34,8 @@ class HrJobInherited(models.Model):
         for job in self:
             job.nombre_de_postes_vacants = job.max_employee - job.no_of_employee
 
+    @api.multi
+    def unlink(self):
+        raise UserError(
+                    "Vous ne pouvez pas supprimer cet enregistrement")
+        return super(HrJobInherited, self).unlink()
