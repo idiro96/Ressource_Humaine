@@ -131,7 +131,18 @@ class HrHolidaysInherited(models.Model):
         else:
             self.number_of_days_temp = 0
 
-
+    @api.onchange('date_from')
+    def _onchange_date_from(self):
+        """ Update the number_of_days. """
+        date_from = fields.Date.from_string(self.date_from)
+        date_to = fields.Date.from_string(self.date_to)
+        if date_to and date_from:
+            difference = date_to - date_from
+        # Compute and update the number of days
+        if (date_to and date_from) and (date_from <= date_to):
+            self.number_of_days_temp = difference.days + 1
+        else:
+            self.number_of_days_temp = 0
 class NoteCongeReport(models.AbstractModel):
     _name = 'report.ressource_humaine.note_conge'
 

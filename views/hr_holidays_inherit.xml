@@ -42,6 +42,9 @@
                 <xpath expr="//field[@name='holiday_status_id']" position="attributes">
                     <attribute name="readonly">True</attribute>
                 </xpath>
+                <xpath expr="//field[@name='holiday_status_id']" position="before">
+                    <field name="code"/>
+                </xpath>
                 <xpath expr="//field[@name='number_of_days_temp']" position="attributes">
                     <attribute name="string">المدة</attribute>
                 </xpath>

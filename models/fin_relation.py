@@ -10,7 +10,6 @@ class RHFinRelation(models.Model):
     _rec_name = 'employee_id'
 
     code_promotion = fields.Char(compute="_compute_code", store=True)
-    date_promotion = fields.Char(compute="_compute_code", store=True)
     date_fin_relation = fields.Date()
     num_decision_fin_relation = fields.Char()
     type_fin_relation_id = fields.Many2one('rh.type.fin.relation')
@@ -27,7 +26,7 @@ class RHFinRelation(models.Model):
                 promotion = self.env['rh.promotion'].search(
                 [('id', '<=', rec1.promotion_id.id)],
                 order='date_grade DESC')
-            rec.code_promotion = promotion.code
+        rec.code_promotion = promotion.code
 
     @api.constrains('employee_id', 'type_fin_relation_id')
     def _check_employee_age(self):
