@@ -27,7 +27,7 @@
                         <group>
                             <field name="code"/>
                             <field name="date_promotion" required="1"/>
-                            <field name="date_examin_professionnel" required="1"/>
+                            <field name="date_examin_professionnel"/>
                         </group>
                     </group>
                     <notebook>

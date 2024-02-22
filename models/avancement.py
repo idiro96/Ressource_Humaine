@@ -129,31 +129,6 @@ class RHAvancement(models.Model):
                     rec.employee_id.wage = rec.employee_id.indice_base * 45 + rec.employee_id.point_indiciare
                 elif rec.employee_id.nature_travail_id.code_type_fonction == 'postesuperieure':
                     print('teste')
-                    # avance_line = self.env['rh.avancement.line'].create({
-                    #     'employee_id': rec.employee_id.id,
-                    #     'code': self.env['ir.sequence'].next_by_code('rh.avancement.line.sequence'),
-                    #     'type_fonction_id': rec.employee_id.nature_travail_id.id,
-                    #     'date_old_avancement': rec.date_avancement,
-                    #     'ref': rec.employee_id.ref,
-                    #     'date_ref': rec.employee_id.date_ref,
-                    #     'grade_id': rec.grade_id.id,
-                    #     'job_id': rec.job_id.id,
-                    #     'date_avancement': avancement.date_avancement,
-                    #     'avancement_id': avancement.id,
-                    #     'groupe_old_id': rec.groupe_old_id.id,
-                    #     'categorie_old_id': rec.categorie_old_id.id,
-                    #     'echelon_old_id': rec.echelon_old_id.id,
-                    #     'categorie_superieure_old_id': rec.categorie_superieure_old_id.id,
-                    #     'section_superieure_old_id': rec.section_superieure_old_id.id,
-                    #     'niveau_hierarchique_old_id': rec.niveau_hierarchique_old_id.id,
-                    #
-                    #     'groupe_new_id': rec.groupe_new_id.id,
-                    #     'categorie_new_id': rec.categorie_new_id.id,
-                    #     'echelon_new_id': rec.echelon_new_id.id,
-                    #     'categorie_superieure_new_id': rec.categorie_superieure_new_id.id,
-                    #     'section_superieure_new_id': rec.section_superieure_new_id.id,
-                    #     'niveau_hierarchique_new_id': rec.niveau_hierarchique_new_id.id,
-                    # })
 
                 sequence = self.env['ir.sequence'].next_by_code('rh.avancement.sequence')
                 avance_line.write({'code': sequence})
@@ -164,11 +139,7 @@ class RHAvancement(models.Model):
         """ Update the number_of_days. """
         for rec1 in self:
             rec1.avancement_wizard = True
-            print(rec1.avancement_wizard)
-            print('tttttttttetste1wizardWizard')
 
-
-        # record1 = self.env['droit.avencement'].browse(self._context['active_id'])
         domain = []
         employee = self.env['hr.employee'].search([])
         avancement_ligne_droit = self.env['rh.avancement.line.wizard'].search([])
@@ -228,26 +199,6 @@ class RHAvancement(models.Model):
                         })
                     elif avance.type_fonction_id.code_type_fonction == 'postesuperieure':
                         print('teste')
-                        # self.env['rh.avancement.line.wizard'].create({
-                        #     'employee_id': avance.employee_id.id,
-                        #     'type_fonction_id': avance.type_fonction_id.id,
-                        #     'date_old_avancement': avance.date_avancement,
-                        #     'grade_id': avance.grade_id.id,
-                        #     'job_id': avance.job_id.id,
-                        #     'groupe_old_id': avance.groupe_old_id.id,
-                        #     'categorie_old_id': avance.categorie_old_id.id,
-                        #     'echelon_old_id': avance.echelon_old_id.id,
-                        #     'categorie_superieure_old_id': avance.categorie_superieure_old_id.id,
-                        #     'section_superieure_old_id': avance.section_superieure_old_id.id,
-                        #     'niveau_hierarchique_old_id': avance.niveau_hierarchique_old_id.id,
-                        #
-                        #     'groupe_new_id': avance.groupe_new_id.id,
-                        #     'categorie_new_id': avance.categorie_new_id.id,
-                        #     'echelon_new_id': avance.echelon_new_id.id,
-                        #     'categorie_superieure_new_id': avance.categorie_superieure_new_id.id,
-                        #     'section_superieure_new_id': avance.section_superieure_new_id.id,
-                        #     'niveau_hierarchique_new_id': avance.niveau_hierarchique_new_id.id
-                        # })
 
         self.avancement_lines_wizard = self.env['rh.avancement.line.wizard'].search([])
 
