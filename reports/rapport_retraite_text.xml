@@ -145,13 +145,10 @@
                             <!-- disctionnaire.field_dictionnaire.field_relation -->
                         </span>
                         <span>المؤرخة في</span>
-<<<<<<< HEAD
                         <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%m-%Y')"/>
-=======
                         <span>
                             <t t-esc="nom_employee.date_cnas"/>
                         </span>
->>>>>>> 4eafbe7f6eec449bc9091911320c1a422c7fcadb
                         <span>رقم المنحة</span>
                         <br/>
                         <span>ـ باقتراح من السيد الامين العام للمدرسة الوطنية للادارة</span>
