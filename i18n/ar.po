@@ -13499,6 +13499,7 @@ msgstr "جزر الكوكوس"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_file_code
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_fin_relation_code
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_formation_code
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_holidays_code
 msgid "Code"
 msgstr "الكود"
 
@@ -15509,7 +15510,7 @@ msgstr "التاريخ من"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_line_date_grade
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_line_wizard_date_grade
 msgid "Date Grade"
-msgstr "تاريخ التعيين في الرتبة الأصلية"
+msgstr "تاريخ التعيين في الرتبة"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_date_job_id
@@ -29454,6 +29455,8 @@ msgid "Saudi Arabia - Accounting"
 msgstr "Saudi Arabia - Accounting"
 
 #. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_droit_avencement_sauvegarde
+#: model:ir.model.fields,field_description:ressource_humaine.field_droit_promotion_sauvegarde
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avencement_droit_sauvegarde
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_droit_sauvegarde
 msgid "Sauvegarde"
@@ -36501,3 +36504,23 @@ msgstr "المستوى السلمي (رئيس مكتب)"
 #: model:ir.model,name:ressource_humaine.model_rh_niveau_hierarchique_chef_bureau
 msgid "rh.niveau.hierarchique.chef.bureau"
 msgstr "المستوى السلمي (رئيس مكتب)"
+
+#. module: ressource_humaine
+#: model:ir.actions.act_window,name:ressource_humaine.programme_action
+msgid "programme"
+msgstr "برنامج"
+
+#. module: ressource_humaine
+#: model:ir.ui.menu,name:ressource_humaine.programme_menu
+msgid "programme de surveillance pour les employees"
+msgstr "برنامج متابعة الموظفين"
+
+#. module: ressource_humaine
+#: model:ir.model,name:ressource_humaine.model_programme_employee
+msgid "programme.employee"
+msgstr "برنامج الموظفين"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_line_code_line
+msgid "Code Line"
+msgstr "خط الكود"
