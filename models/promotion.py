@@ -23,6 +23,19 @@ class RHPromotion(models.Model):
     grade_new_id = fields.Many2one('rh.grade')
     date_new_grade = fields.Date()
     choisir_commission_lines = fields.One2many('rh.promotion.commission.line', 'promotion_id')
+    date_creation = fields.Char(compute="_compute_date", store=True)
+
+    @api.depends('date_promotion')
+    def _compute_date(self):
+        for record in self:
+            if record.create_date:
+                # Convertit le champ en un objet datetime
+                datetime_object = record.create_date.split(' ')
+                # Récupère uniquement la date
+                date_creation = datetime_object[0]
+                record.date_creation = date_creation
+
+
     @api.model
     def create(self, vals):
         print('errrrrrrrreeeeeeeeeeeerre')

@@ -24,6 +24,17 @@ class RHPromotionLine(models.Model):
     duree = fields.Integer()
     imprimer = fields.Boolean(Default=False)
     code_line = fields.Char()
+    date_creation = fields.Char(compute="_compute_date", store=True)
+
+    @api.depends('code_line')
+    def _compute_date(self):
+        for record in self:
+            if record.create_date:
+                # Convertit le champ en un objet datetime
+                datetime_object = record.create_date.split(' ')
+                # Récupère uniquement la date
+                date_creation = datetime_object[0]
+                record.date_creation = date_creation
 
 
 
