@@ -28,20 +28,20 @@ class TitreCongeReport(models.AbstractModel):
         conge = self.env['hr.holidays'].browse(docids[0])
 
         contract = self.env['hr.contract'].search([('employee_id', '=', conge.employee_id.id)], limit=1)
+        conge_date_to = conge.date_to
+        formatted_conge_date_to = datetime.strptime(conge_date_to, "%Y-%m-%d %H:%M:%S").strftime("%d-%m-%Y")
+        conge_date_from = conge.date_from
+        formatted_conge_date_from = datetime.strptime(conge_date_from, "%Y-%m-%d %H:%M:%S").strftime("%d-%m-%Y")
 
-        conge_date_to = fields.Date.from_string(conge.date_to)
-        conge_date_from = fields.Date.from_string(conge.date_from)
-
-        # Convert the number of days to Arabic words
         arabic_number_of_days_words = self.number_to_arabic_words(int(conge.number_of_days_temp))
 
         report_data = {
             'conge': conge,
             'company': self.env.user.company_id,
             'contract': contract,
-            'conge_date_to': conge_date_to,
-            'conge_date_from': conge_date_from,
-            'arabic_number_of_days_words': arabic_number_of_days_words,  # Add this line
+            'conge_date_to': formatted_conge_date_to,
+            'conge_date_from': formatted_conge_date_from,
+            'arabic_number_of_days_words': arabic_number_of_days_words,
         }
 
         return report_data

@@ -26,7 +26,7 @@
                                 <t t-esc="nom_employee.num_decision_fin_relation"/>
                             </span>
                             <span>مؤرخ في</span>
-                            <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/>
+                            <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%m-%Y')"/>
                         </div>
                         <br/>
                         <div style="font-size: 20px;text-align: center;">
@@ -93,7 +93,7 @@
                         </span>
                         <span>بالمدرسة إبتداء من تاريخ</span>
                         <span style="display: inline;">
-                            <t t-esc="nom_employee.employee_id.date_grade"/>
+                            <t t-esc="date_grade"/>
                         </span>
                     </div>
                     <div style="font-size: 20px;text-align: right;">
@@ -139,7 +139,7 @@
                             <!-- disctionnaire.field_dictionnaire.field_relation -->
                         </span>
                         <span>المؤرخة في</span>
-                        <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/>
+                        <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%m-%Y')"/>
                         <span>رقم المنحة</span>
                         <br/>
                         <span>ـ باقتراح من السيد الامين العام للمدرسة الوطنية للادارة</span>

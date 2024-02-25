@@ -18,7 +18,7 @@ class RHFinRelation(models.Model):
     date_fin_relation = fields.Date()
     num_decision_fin_relation = fields.Char()
     type_fin_relation_id = fields.Many2one('rh.type.fin.relation')
-    employee_id = fields.Many2one('hr.employee')
+    employee_id = fields.Many2one('hr.employee', domain="[('fin_relation', '=', False)]")
     fin_relation_file_lines = fields.One2many('rh.file', 'fin_relation_id')
 
     @api.depends('employee_id')
@@ -26,25 +26,15 @@ class RHFinRelation(models.Model):
         for rec in self:
             promotion_line = self.env['rh.promotion.line'].search(
                 [('employee_id', '<=', rec.employee_id.id)],
-                order='date_grade DESC', limit=1)
+
+                order='date_new_grade DESC', limit=1)
             for rec1 in promotion_line:
                 promotion = self.env['rh.promotion'].search(
                 [('id', '<=', rec1.promotion_id.id)],
-                order='date_grade DESC')
-        rec.code_promotion = promotion.code
+                order='date_new_grade DESC')
+                if promotion:
+                    rec.code_promotion = promotion.code
 
-    # @api.depends('employee_id')
-    # def _compute_code(self):
-    #     for rec in self:
-    #         promotion_line = self.env['rh.promotion.line'].search(
-    #             [('employee_id', '<=', rec.employee_id.id)],
-    #             order='date_grade DESC', limit=1)
-    #         for rec1 in promotion_line:
-    #             promotion = self.env['rh.promotion'].search(
-    #             [('id', '<=', rec1.promotion_id.id)],
-    #             order='date_grade DESC')
-    #     rec.code_promotion = promotion.code
-    #     rec.date_promotion = promotion.date_promotion
 
 
     @api.constrains('employee_id', 'type_fin_relation_id')
