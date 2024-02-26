@@ -48,6 +48,9 @@
         'views/conjoint.xml',
         'views/accident_travail.xml',
         'views/enfant.xml',
+        'reports/attestation_travail.xml',
+        'reports/attestation_travail_fr.xml',
+        'views/attestation_travail_wizard.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
