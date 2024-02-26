@@ -21,7 +21,7 @@
 
     # any module necessary for this one to work correctly
 
-    'depends': ['base', 'hr', 'hr_recruitment', 'hr_holidays', 'board' ],
+    'depends': ['base', 'hr', 'hr_recruitment', 'hr_holidays', 'board'],
 
     # 'depends': ['base', 'hr'],
 
@@ -48,9 +48,12 @@
         'views/conjoint.xml',
         'views/accident_travail.xml',
         'views/enfant.xml',
-        'reports/attestation_travail.xml',
-        'reports/attestation_travail_fr.xml',
-        'views/attestation_travail_wizard.xml',
+        'wizards/attestation_travail_wizard.xml',
+        # 'reports/attestation_travail.xml',
+        # 'reports/attestation_travail_fr.xml',
+        'reports/report_rh.xml',
+        'reports/report_template_header.xml',
+
     ],
     # only loaded in demonstration mode
     'demo': [

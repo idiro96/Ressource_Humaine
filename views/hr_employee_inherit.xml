@@ -311,7 +311,7 @@
     <menuitem name="Ressource Humaine"
               id="ressource_humaine.menu_root"/>
 
-
+    <menuitem name="Reporting" id="reporting_id" parent="ressource_humaine.menu_root" sequence="10"/>
     <menuitem name="Personnel" id="employee_gestion" parent="ressource_humaine.menu_root" sequence="1"/>
     <menuitem name="Référentiels" id="referentiel_id" parent="ressource_humaine.menu_root" sequence="20"/>
     <menuitem name="Recrutement" id="recrutement_id" parent="ressource_humaine.menu_root" sequence="7"/>
@@ -321,7 +321,7 @@
     <menuitem name="Information Employee" id="ressource_humaine_employee_info" parent="employee_gestion"/>
 
     <menuitem name="Employee" id="ressource_humaine_employee" parent="ressource_humaine_employee_info"
-                  action="action_ressource_humaine"/>
+              action="action_ressource_humaine"/>
 
 
     <menuitem
