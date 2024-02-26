@@ -72,7 +72,7 @@ class RHAvancement(models.Model):
                         'ref': avance_line.code,
                     })
                     employee.write({
-                        'date_ref': avancement.date_avancement,
+                        'date_ref': avancement.date_signature,
                     })
                     rec.employee_id.point_indiciare = rec.employee_id.echelon_id.indice_echelon
                     rec.employee_id.wage = rec.employee_id.indice_minimal * 45 + rec.employee_id.point_indiciare * 45
@@ -124,7 +124,7 @@ class RHAvancement(models.Model):
                         'ref': avance_line.code,
                     })
                     employee.write({
-                        'date_ref': rec.employee_id.date_ref,
+                        'date_ref': avancement.date_signature,
                     })
                     rec.employee_id.point_indiciare = rec.employee_id.echelon_id.indice_echelon
                     rec.employee_id.wage = rec.employee_id.indice_base * 45 + rec.employee_id.point_indiciare
@@ -134,6 +134,19 @@ class RHAvancement(models.Model):
                 sequence = self.env['ir.sequence'].next_by_code('rh.avancement.sequence')
                 avance_line.write({'code': sequence})
         return avancement
+
+    @api.multi
+    def write(self, vals):
+        res = super(RHAvancement, self).write(vals)
+        res1 = self.env['rh.avancement.line'].search([('avancement_id', '=', self.id)])
+        for rec in res1:
+            employee = self.env['hr.employee'].search([('id', '=', rec.employee_id.id)])
+            employee.write({
+                'ref': rec.code,
+            })
+            employee.write({
+                'date_ref': self.date_signature,
+            })
 
     @api.onchange('date_avancement')
     def _onchange_date_to(self):
