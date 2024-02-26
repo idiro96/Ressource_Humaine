@@ -11,7 +11,6 @@
                         <!--                             <span style="display: inline-block;"> -->
                         <!--                                 الجزائر في -->
                         <!--                             </span> -->
-                        <!--                         </div> -->
                         <div style="font-size: 20px;text-align: right;">
                             <span>المدرسة الوطنية للإدارة</span>
                         </div>
@@ -62,19 +61,20 @@
                         </span>
                         <br/>
                         <span style="display: inline-block;">
+                             - و بمقتضى
                             <t t-esc="nom_employee.employee_id.grade_id.loi_id.intitule_loi"/>
                         </span>
                         <br/>
                     </div>
                     <div style="font-size: 20px;text-align: right;">
                         <span>ـ و بناء على المقرر رقم</span>
-<!--                        <span style="display: inline-block;">-->
-<!--                            <t t-esc="promotion.code_line"/>-->
-<!--                        </span>-->
+                        <span style="display: inline-block;">
+                            <t t-esc="promotion.code_line"/>
+                        </span>
                         <span>مؤرخ في</span>
-<!--                        <span style="display: inline-block;">-->
-<!--                            <t t-esc="promotion.date_new_grade"/>-->
-<!--                        </span>-->
+                        <span style="display: inline-block;">
+                            <t t-esc="promotion.date_creation"/>
+                        </span>
                         <t t-if="nom_employee.employee_id.gender== 'male' ">
                             <span>المتضمن ترقية السيد</span>
                         </t>
@@ -98,12 +98,12 @@
                     </div>
                     <div style="font-size: 20px;text-align: right;">
                         <span>ـ و بناء على مقرر جماعي رقم</span>
-<!--                        <span style="display: inline-block;">-->
-<!--                            <t t-esc="nom_employee.code_promotion"/>-->
-<!--                        </span>-->
+                        <span style="display: inline-block;">
+                            <t t-esc="nom_employee.code_promotion"/>
+                        </span>
                         <span>مؤرخ في</span>
                         <span style="display: inline-block;">
-<!--                            <t t-esc="promotion.promotion_id.date_promotion"/>-->
+                            <t t-esc="promo.date_creation"/>
                         </span>
                         <t t-if="nom_employee.employee_id.gender== 'male' ">
                             <span>المتعلق باعادة ترتيب الموظفين، و المتضمن ترتيب المعني</span>
@@ -118,14 +118,20 @@
                         <span style="display: inline-block;">
                             <t t-esc="nom_employee.employee_id.grade_id.intitule_grade"/>
                         </span>
+                        <span>
+                            من
+                        </span>
+                        <span style="display: inline-block;">
+                            <t t-esc="nom_employee.employee_id.categorie_id.intitule"/>
+                        </span>
                         <span>الرقم الاستدلالي</span>
                         <span style="display: inline-block;">
                             <t t-esc="nom_employee.employee_id.point_indiciare"/>
                         </span>
                         <span>إبتداء من تاريخ</span>
-<!--                        <span style="display: inline;">-->
-<!--                            <t t-esc="nom_employee.date_promotion"/>-->
-<!--                        </span>-->
+                        <span style="display: inline;">
+                            <t t-esc="nom_employee.date_promotion"/>
+                        </span>
                     </div>
                     <div style="font-size: 20px;text-align: right;">
                         <t t-if="nom_employee.employee_id.gender== 'male' ">
@@ -140,6 +146,9 @@
                         </span>
                         <span>المؤرخة في</span>
                         <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%m-%Y')"/>
+                        <span>
+                            <t t-esc="nom_employee.date_cnas"/>
+                        </span>
                         <span>رقم المنحة</span>
                         <br/>
                         <span>ـ باقتراح من السيد الامين العام للمدرسة الوطنية للادارة</span>

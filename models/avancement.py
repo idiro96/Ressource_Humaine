@@ -8,6 +8,7 @@ class RHAvancement(models.Model):
     _name = 'rh.avancement'
 
     date_avancement = fields.Date()
+    date_signature = fields.Date()
     code = fields.Char()
     avancement_lines = fields.One2many('rh.avancement.line', inverse_name='avancement_id')
     avancement_lines_wizard = fields.One2many('rh.avancement.line.wizard', inverse_name='avancement_id')

@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from odoo import models, api, _
+from odoo import models, api, _, fields
 
 
 class RapportRetraite(models.Model):
@@ -24,12 +24,14 @@ class RapportRetraiteReport(models.AbstractModel):
         formatted_date = datetime.strptime(date_grade, "%Y-%m-%d").strftime("%d-%m-%Y")
         # info_promotion = self.env['rh.promotion'].search([('id', '=', promotion.promotion_id)])
         # promo = self.env['rh.promotion'].search([('promotion_lines.employee_id', '=', nom_employee2.id)])
+        promo = self.env['rh.promotion'].search([('promotion_lines.employee_id', '=', nom_employee2.id)])
 
         report_data = {
             'nom_employee': nom_employee,
             'employee': employee,
             'promotion': promotion,
             'date_grade': formatted_date,
+            'promo': promo,
             'company': self.env.user.company_id,
         }
         return report_data

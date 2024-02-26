@@ -7,6 +7,8 @@
                 <field name="code"/>
                 <field name="intitule_filiere"/>
                 <field name="loi_id"/>
+                <field name="code_group"/>
+                <field name="date_code"/>
             </tree>
         </field>
 
@@ -24,6 +26,8 @@
                         </group>
                         <group>
                             <field name="loi_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                            <field name="code_group"/>
+                            <field name="date_code"/>
                         </group>
                     </group>
                 </sheet>

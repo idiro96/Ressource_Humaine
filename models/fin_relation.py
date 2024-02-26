@@ -12,14 +12,19 @@ class RHFinRelation(models.Model):
 
     code_promotion = fields.Char(compute="_compute_code", store=True)
 
+
     # code_promotion = fields.Char(compute="_compute_code", store=True)
     # date_promotion = fields.Char(compute="_compute_code", store=True)
+
+    date_promotion = fields.Char(compute="_compute_code", store=True)
 
     date_fin_relation = fields.Date()
     num_decision_fin_relation = fields.Char()
     type_fin_relation_id = fields.Many2one('rh.type.fin.relation')
     employee_id = fields.Many2one('hr.employee', domain="[('fin_relation', '=', False)]")
     fin_relation_file_lines = fields.One2many('rh.file', 'fin_relation_id')
+    description = fields.Char(related='type_fin_relation_id.description')
+    date_cnas = fields.Date()
 
     @api.depends('employee_id')
     def _compute_code(self):
@@ -34,6 +39,8 @@ class RHFinRelation(models.Model):
                 order='date_new_grade DESC')
                 if promotion:
                     rec.code_promotion = promotion.code
+                    rec.date_promotion = promotion.date_promotion
+
 
 
 
@@ -57,13 +64,13 @@ class RHFinRelation(models.Model):
         fin_relation = super(RHFinRelation, self).create(vals)
 
         employee = self.env['hr.employee'].search(
-                [('id', '=', vals['employee_id'])])
+            [('id', '=', vals['employee_id'])])
         print('qdqs')
         print(employee)
         employee.write({
-                'fin_relation': True,
-            })
+            'fin_relation': True,
+        })
         employee.write({
-                'date_fin_relation': vals['date_fin_relation'],
-            })
+            'date_fin_relation': vals['date_fin_relation'],
+        })
         return fin_relation
