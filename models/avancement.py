@@ -265,15 +265,15 @@ class DroitAvancementReport(models.AbstractModel):
             else:
                 line_date_avancement[rec.id] = ''
 
-        line_date_comission = {}
+        line_date_signature = {}
         for rec in avancement:
-            date_comission_str = rec.date_comission
-            if date_comission_str:
-                formatted_date_comission = datetime.strptime(date_comission_str, "%Y-%m-%d").strftime(
+            date_signature_str = rec.date_signature
+            if date_signature_str:
+                formatted_date_signature = datetime.strptime(date_signature_str, "%Y-%m-%d").strftime(
                     "%d-%m-%Y")
-                line_date_comission[rec.id] = formatted_date_comission
+                line_date_signature[rec.id] = formatted_date_signature
             else:
-                line_date_comission[rec.id] = '..................'
+                line_date_signature[rec.id] = '..................'
 
         line_date_new_avancement = {}
         for rec in avancement_lines:
@@ -285,6 +285,16 @@ class DroitAvancementReport(models.AbstractModel):
             else:
                 line_date_new_avancement[rec.id] = ''
 
+        line_date_code = {}
+        for rec in avancement_lines:
+            date_code_str = rec.employee_id.corps_id.filiere_id.date_code
+            if date_code_str:
+                formatted_date_code = datetime.strptime(date_code_str, "%Y-%m-%d %H:%M:%S").strftime(
+                    "%d-%m-%Y")
+                line_date_code[rec.id] = formatted_date_code
+            else:
+                line_date_code[rec.id] = ''
+
         report_data = {
             'avancement': avancement,
             'company': self.env.user.company_id,
@@ -292,8 +302,9 @@ class DroitAvancementReport(models.AbstractModel):
             'line_date_old_avancement': line_date_old_avancement,
             'line_date_ref': line_date_ref,
             'line_date_avancement': line_date_avancement,
-            'line_date_comission': line_date_comission,
+            'line_date_signature': line_date_signature,
             'line_date_new_avancement': line_date_new_avancement,
+            'line_date_code': line_date_code,
         }
 
         return report_data
