@@ -2,6 +2,8 @@
 from datetime import datetime
 
 from odoo import models, fields, api, _
+from odoo.exceptions import UserError
+
 
 class RHPromotion(models.Model):
     _name = 'rh.promotion'
@@ -72,7 +74,7 @@ class RHPromotion(models.Model):
                         'job_id': rec.job_id.id,
                         'date_examin_professionnel': self.date_examin_professionnel,
                         'promotion_id': promotion.id,
-                        'date_promotion': self.date_promotion,
+                        'date_promotion': promotion.date_promotion,
                         'grade_id': rec.grade_id.id,
                         'date_grade': rec.date_grade,
                         'grade_new_id': rec.grade_new_id.id,
@@ -93,7 +95,7 @@ class RHPromotion(models.Model):
                         'job_id': rec.job_id.id,
                         'date_examin_professionnel': self.date_examin_professionnel,
                         'promotion_id': promotion.id,
-                        'date_promotion': self.date_promotion,
+                        'date_promotion': promotion.date_promotion,
                         'grade_id': rec.grade_id.id,
                         'date_grade': rec.date_grade,
                         'grade_new_id': rec.grade_new_id.id,
@@ -108,7 +110,8 @@ class RHPromotion(models.Model):
                         employee.write({'corps_id': grade.corps_id.id})
                     employee.write({'grade_id': rec.grade_new_id.id})
                     employee.write({'date_grade': rec.date_new_grade})
-
+        else:
+            raise UserError("Vous ne pouvez pas enregistrer une liste vide")
         return promotion
 
     @api.onchange('date_promotion')
