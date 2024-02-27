@@ -3,8 +3,9 @@
     <data>
         <template id="attestation_travail_report">
             <t t-call="web.basic_layout">
-                <t t-call="ressource_humaine.report_header_custom"/>
-                <div class="page">
+                <t t-call="ressource_humaine.report_header_custom_bordered"/>
+                <div class="page" style="border-bottom: 10px double black;border-left: 10px double black;border-right: 10px double black;">
+                    <br/>
                     <strong>
                         <div style="font-size: 20px;text-align: left;">
                             <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/>
@@ -171,6 +172,11 @@
                             <strong><t t-esc="employee.grade_id.intitule_grade"/></strong>&#160;
                         </span>
                     </div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
                     <br/>
                     <br/>
                     <br/>
