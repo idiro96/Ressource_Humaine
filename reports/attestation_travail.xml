@@ -114,7 +114,7 @@
                         <span style="font-size: 20px;text-align: right;">
                             <t t-if="employee.gender == 'female'">
                                 <span>
-                                    :المولودة بتاريخ
+                                    المولودة بتاريخ :
                                 </span>
                             </t>
                             <t t-if="not employee.gender or employee.gender == 'male'">
@@ -163,24 +163,24 @@
                             </t>
                         </t>
                         <br/>
-                        <br/>:
-                        <t t-if="employee.gender == 'female'">
-                            <span>
-                                ـ و تمارس مها مها بصفتها
-                            </span>
-                        </t>
-                        <t t-if="not employee.gender or employee.gender == 'male'">
-                            <span>
-                                ـ و يمارس مها مه بصفته
-                            </span>
-                        </t>
                         <br/>
-                        <br/>
-                        <span>
+                        <span style="display: inline-block;">
                             <strong>
                                 <t t-esc="employee.grade_id.intitule_grade"/>
                             </strong>&#160;
                         </span>
+                        <t t-if="employee.gender == 'female'">
+                            <span style="display: inline-block;">
+                                :ـ و تمارس مها مها بصفتها
+                            </span>
+                        </t>
+                        <t t-if="not employee.gender or employee.gender == 'male'">
+                            <span style="display: inline-block;">
+                                :ـ و يمارس مها مه بصفته
+                            </span>
+                        </t>
+                        <br/>
+                        <br/>
                     </div>
                     <br/>
                     <br/>
