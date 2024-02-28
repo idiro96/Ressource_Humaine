@@ -163,6 +163,7 @@ class HrEmployeInherited(models.Model):
 
     @api.onchange('grille_id')
     def _onchange_grille_id(self):
+        domain = []
         if self.grille_id:
             self.groupe_id = False
             self.categorie_id = False
@@ -171,32 +172,32 @@ class HrEmployeInherited(models.Model):
         if self.groupe_id:
             return {'domain': {'groupe_id': [('grille_id', '=', self.grille_id.id)]}}
         else:
-            return {'domain': {'categorie_id': [('grille_id', '=', self.grille_id.id)]}}
-
-    @api.onchange('groupe_id')
-    def _onchange_groupe_id(self):
-        if self.groupe_id:
-            self.categorie_id = False
-            self.section_id = False
-            self.echelon_id = False
-            return {'domain': {'categorie_id': [('groupe_id', '=', self.groupe_id.id)]}}
-        else:
-            return {'domain': {'categorie_id': []}}
+            return {'domain': {'categorie_id': [('grille_id', '=', self.grille_id.id),('type_fonction_id', '=', self.nature_travail_id.id)]}}
 
     # @api.onchange('groupe_id')
-    # def onchange_groupe(self):
-    #     for rec in self:
-    #         domain = []
-    #         if rec.groupe_id:
-    #             categorie = self.env['rh.categorie'].search([('groupe_id', '=', rec.groupe_id.id)])
-    #             domain.append(('id', 'in', categorie.ids))
-    #         else:
-    #             categorie = self.env['rh.categorie'].search([('groupe_id', '=', None)])
-    #             domain.append(('id', 'in', categorie.ids))
-    #
-    #     res = {'domain': {'categorie_id': domain}}
-    #     print(res)
-    #     return res
+    # def _onchange_groupe_id(self):
+    #     if self.groupe_id:
+    #         self.categorie_id = False
+    #         self.section_id = False
+    #         self.echelon_id = False
+    #         return {'domain': {'categorie_id': [('groupe_id', '=', self.groupe_id.id)]}}
+    #     else:
+    #         return {'domain': {'categorie_id': []}}
+
+    @api.onchange('groupe_id')
+    def onchange_groupe(self):
+        for rec in self:
+            domain = []
+            if rec.groupe_id:
+                categorie = self.env['rh.categorie'].search([('groupe_id', '=', rec.groupe_id.id)])
+                domain.append(('id', 'in', categorie.ids))
+            else:
+                categorie = self.env['rh.categorie'].search([('groupe_id', '=', None)])
+                domain.append(('id', 'in', categorie.ids))
+
+        res = {'domain': {'categorie_id': domain}}
+        print(res)
+        return res
 
     @api.onchange('categorie_id')
     def onchange_categorie(self):

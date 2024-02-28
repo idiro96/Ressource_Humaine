@@ -197,4 +197,12 @@
             report_type="xlsx"
             name="ressource_humaine.tableau_promotion_xlsx"
             file="جدول ترقية في الدرجة"/>
+
+    <report
+            id="action_organization_chart"
+            model="organization.chart"
+            string="الهيكل التنظيمي"
+            report_type="qweb-html"
+            name="ressource_humaine.organization_chart_report"
+            file="الهيكل التنظيمي"/>
 </odoo>

@@ -209,6 +209,9 @@
                 <xpath expr="//form//field[@name='manager']" position="attributes">
                     <attribute name="invisible">True</attribute>
                 </xpath>
+                 <xpath expr="//form//field[@name='days_off']" position="attributes">
+                    <attribute name="readonly">True</attribute>
+                </xpath>
 
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='bank_account_id']"
                        position="after">
