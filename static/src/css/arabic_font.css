@@ -1,0 +1,8 @@
+@font-face {
+   font-family: 'Gulzar-Regular';
+   src: url('/ressource_humaine/static/src/font/Gulzar-Regular.ttf') format('truetype');
+   font-weight: bold;
+   font-style: normal;
+     }
+
+   .arabic_font {font-family: Gulzar-Regula;}
