@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <template id="assets_common_fr" name="attestation_travail_fr_report_font" inherit_id="web.report_assets_common">
-            <xpath expr="." position="inside">
-                <link href="/ressource_humaine/static/src/css/latin_font.css" rel="stylesheet"/>
-            </xpath>
-        </template>
+
         <template id="attestation_travail_fr_report">
             <t t-call="web.basic_layout">
                 <t t-call="ressource_humaine.report_header_custom_bordered"/>
-                <div class="page"
-                     style="border-bottom: 10px double black;border-left: 10px double black;border-right: 10px double black;">
+                <div class="page" style="border-bottom: 10px double black;border-left: 10px double black;border-right: 10px double black;">
                     <br/>
                     <strong>
-                        <div class="test2_font" style="font-size: 20px;text-align: right;">
+                        <div style="font-size: 20px;text-align: right;">
                             <span style="display: inline-block;">
                                 ALGER LE
                             </span>
@@ -21,12 +16,12 @@
                         </div>
                         <br/>
                         <br/>
-                        <div class="test2_font" style="font-size: 20px;text-align: left;">
+                        <div style="font-size: 20px;text-align: left;">
                             <span>
                                 Ecole Nationale d'Administration
                             </span>
                         </div>
-                        <div class="test2_font" style="font-size: 20px;text-align: left;">
+                        <div style="font-size: 20px;text-align: left;">
                             <t t-if="attestation_travail.signataire == 'sg'">
                                 <span>
                                     Secrétariat Général
@@ -43,14 +38,14 @@
                                 </span>
                             </t>
                         </div>
-                        <div class="test2_font" style="font-size: 20px;text-align: left;">
+                        <div style="font-size: 20px;text-align: left;">
                             <span>
                                 Service de la Gestion des Ressources Humaines
                             </span>
                         </div>
                         <br/>
                         <br/>
-                        <div class="test2_font" style="font-size: 20px;text-align: left;">
+                        <div style="font-size: 20px;text-align: left;">
                             <t t-if="attestation_travail.signataire == 'sg'">
                                 <span>
                                     N°:.................E.N.A/S.G/S.G.R.H/
@@ -74,7 +69,7 @@
                     <br/>
                     <br/>
                     <br/>
-                    <div class="test_font" style="font-size: 40px;text-align: center;">
+                    <div style="font-size: 40px;text-align: center;">
                         <strong>
                             <span style="border-bottom: 5px double;">
                                 ATTESTATION DE TRAVAIL
