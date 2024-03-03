@@ -209,10 +209,13 @@
                 <xpath expr="//form//field[@name='manager']" position="attributes">
                     <attribute name="invisible">True</attribute>
                 </xpath>
-
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='bank_account_id']"
                        position="after">
                     <field name="numero_securite_social"/>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='numero_securite_social']"
+                       position="after">
+                    <field name="num_national"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page[@name='hr_settings']" position="attributes">
                     <attribute name="attrs">{'invisible': True}</attribute>

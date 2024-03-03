@@ -89,9 +89,9 @@ class HrEmployeInherited(models.Model):
     niveau_hierarchique_id = fields.Many2one('rh.niveau.hierarchique')
     section_id = fields.Many2one('rh.section')
     section_superieure_id = fields.Many2one('rh.section.superieure')
-    grille_id = fields.Many2one('rh.grille')
-    code_type_fonction = fields.Char(related='nature_travail_id.code_type_fonction',
-                                     string='Code Type Fonction', store=True)
+    # grille_id = fields.Many2one('rh.grille')
+    # code_type_fonction = fields.Char(related='nature_travail_id.code_type_fonction',
+    #                                  string='Code Type Fonction', store=True)
     date_avancement = fields.Date()
     ref = fields.Char()
     date_ref = fields.Date()
@@ -99,7 +99,7 @@ class HrEmployeInherited(models.Model):
     address_perso = fields.Text()
     planning_choix_id = fields.Many2one('ressource_humaine.choisir.planning')
     emphy_id = fields.Many2one('rh.emphy')
-
+    num_national = fields.Char(help="Il s'agit du numéro d'identité nationale de l'employé")
 
     @api.constrains('jour_sup')
     def _check_jour_sup_max_value(self):

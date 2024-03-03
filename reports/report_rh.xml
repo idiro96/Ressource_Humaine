@@ -138,7 +138,7 @@
             report_type="qweb-html"
             name="ressource_humaine.liste_nominatife_employee"
             file="ressource_humaine.liste_nominatife_employee"
-    />
+            paperformat="ressource_humaine.paperformat_european_a4_landscape"/>
 
     <report
             id="action_fiche_renseignement_report"
