@@ -36,7 +36,7 @@ class RHFinRelation(models.Model):
             for rec1 in promotion_line:
                 promotion = self.env['rh.promotion'].search(
                 [('id', '<=', rec1.promotion_id.id)],
-                order='date_new_grade DESC')
+                order='date_new_grade DESC', limit=1)
                 if promotion:
                     rec.code_promotion = promotion.code
                     rec.date_promotion = promotion.date_promotion

@@ -14,7 +14,8 @@
             model="attestation.travail"
             report_type="qweb-html"
             name="ressource_humaine.attestation_travail_report"
-            file="ressource_humaine.attestation_travail_report"/>
+            file="ressource_humaine.attestation_travail_report"
+            paperformat="ressource_humaine.paperformat_european_a4_portrait_bordered"/>
 
     <report
             id="report_note_conge"
@@ -56,7 +57,7 @@
             report_type="qweb-html"
             name="ressource_humaine.attestation_travail_fr_report"
             file="ressource_humaine.attestation_travail_fr_report"
-    />
+            paperformat="ressource_humaine.paperformat_european_a4_portrait_bordered"/>
 
     <report
             id="action_cont_indete_tem_part_report"
@@ -187,8 +188,9 @@
             model="programme.employee"
             report_type="qweb-html"
             name="ressource_humaine.notice_planning_surveillance_report"
-            file="ressource_humaine.notice_planning_surveillance_report"/>
-    <!--            file="تسخيرة"/>-->
+            file="تسخيرة"/>
+    <!--            file="ressource_humaine.notice_planning_surveillance_report"/>-->
+
 
     <report
             id="action_tableau_promotion_xlsx"
@@ -204,5 +206,6 @@
             string="الهيكل التنظيمي"
             report_type="qweb-html"
             name="ressource_humaine.organization_chart_report"
-            file="الهيكل التنظيمي"/>
+            file="الهيكل التنظيمي"
+            paperformat="ressource_humaine.paperformat_european_a4_landscape"/>
 </odoo>

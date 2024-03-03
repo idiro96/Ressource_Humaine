@@ -54807,8 +54807,10 @@ msgstr "مؤسسات التكوين"
 msgid "Organisme File Lines"
 msgstr "خطوط ملف المؤسسة"
 
-#. module: hr_org_chart
+#. modules: hr_org_chart, ressource_humaine
 #: model:ir.ui.view,arch_db:hr_org_chart.hr_employee_view_form_inherit_org_chart
+#: model:ir.actions.act_window,name:ressource_humaine.organization_chart_action
+#: model:ir.ui.menu,name:ressource_humaine.organization_chart_menu
 msgid "Organization Chart"
 msgstr "الهيكل التنظيمي"
 

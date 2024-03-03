@@ -14,15 +14,15 @@ class OrganizationChartReport(models.AbstractModel):
 
     @api.model
     def get_report_values(self, docids, data=None):
-        ressource_humaine = self.env['hr.employee'].search([('department_id.name', 'ilike', 'الموارد البشرية')])
-        budget_comptabilite = self.env['hr.employee'].search([('department_id.name', 'ilike', 'الميزانية')])
-        informatique = self.env['hr.employee'].search([('department_id.name', 'ilike', 'الإعلام')])
-        mgx = self.env['hr.employee'].search([('department_id.name', 'ilike', 'الوسائل العامة')])
-        internat = self.env['hr.employee'].search([('department_id.name', 'ilike', 'النظام الداخلي')])
-        etude = self.env['hr.employee'].search([('department_id.name', 'ilike', 'الدراسات')])
-        stage = self.env['hr.employee'].search([('department_id.name', 'ilike', 'التربصات')])
-        formation = self.env['hr.employee'].search([('department_id.name', 'ilike', 'التكوين')])
-        recherche = self.env['hr.employee'].search([('department_id.name', 'ilike', 'البحث')])
+        ressource_humaine = self.env['hr.employee'].search([('department_id.complete_name', 'ilike', 'الموارد البشرية')])
+        budget_comptabilite = self.env['hr.employee'].search([('department_id.complete_name', 'ilike', 'الميزانية')])
+        informatique = self.env['hr.employee'].search([('department_id.complete_name', 'ilike', 'الإعلام')])
+        mgx = self.env['hr.employee'].search([('department_id.complete_name', 'ilike', 'الوسائل العامة')])
+        internat = self.env['hr.employee'].search([('department_id.complete_name', 'ilike', 'النظام الداخلي')])
+        etude = self.env['hr.employee'].search([('department_id.complete_name', 'ilike', 'مديرية الدراسات')])
+        stage = self.env['hr.employee'].search([('department_id.complete_name', 'ilike', 'التربصات')])
+        formation = self.env['hr.employee'].search([('department_id.complete_name', 'ilike', 'التكوين')])
+        recherche = self.env['hr.employee'].search([('department_id.complete_name', 'ilike', 'البحث')])
 
         report_data = {
             'company': self.env.user.company_id,

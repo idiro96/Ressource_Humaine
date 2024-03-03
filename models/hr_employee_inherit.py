@@ -4,8 +4,7 @@ from dateutil.relativedelta import relativedelta
 from odoo import models, fields, api, _
 from datetime import date, timedelta, datetime
 from dateutil.relativedelta import relativedelta
-from odoo.exceptions import ValidationError
-
+from odoo.exceptions import ValidationError, UserError
 
 from babel.dates import format_date, format_datetime
 import logging
@@ -63,7 +62,8 @@ class HrEmployeInherited(models.Model):
                               ('detachement', 'Detachement'),],
                                 readonly=False, default='recrutement')
     ancienne_etablissement = fields.Char()
-    prenom = fields.Char()
+    nom_ar = fields.Char()
+    prenom_ar = fields.Char()
     ancien_corps_id = fields.Many2one('rh.corps')
     ancien_grade_id = fields.Many2one('rh.grade')
     date_ancien_grade = fields.Date()
