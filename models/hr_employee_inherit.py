@@ -15,6 +15,7 @@ import time
 class HrEmployeInherited(models.Model):
     _inherit = "hr.employee"
 
+    # name = fields.Char(string="Employee Tag", required=True, compute='_compute_nom')
     handicape = fields.Boolean(default=False)
     chef_bureau = fields.Boolean(default=False)
     niveau_hirerachique_chef_Bureau = fields.Many2one('rh.niveau.hierarchique.chef.bureau')
@@ -74,7 +75,7 @@ class HrEmployeInherited(models.Model):
     taux_handicap = fields.Float()
     corps_visible = fields.Boolean(default=True)
     gender = fields.Selection(selection=[('male', 'Masculin'), ('female', 'Féminin')], readonly=False, required=True)
-    nomination = fields.Selection(selection=[('satagiaire', 'Satagiaire'), ('nomination', 'Titulaire')], readonly=False, required=True)
+    nomination = fields.Selection(selection=[('satagiaire', 'Satagiaire'), ('nomination', 'Titulaire'), ('contractuel', 'Contractuel')], readonly=False, required=True)
     place_of_birth_fr = fields.Char('Lieu de naissance', groups="hr.group_hr_user", required=True)
     # place_of_birth_fr = fields.Char('Lieu de naissance', groups="hr.group_hr_user")
     grille_id = fields.Many2one('rh.grille', readonly=False)
@@ -89,9 +90,9 @@ class HrEmployeInherited(models.Model):
     niveau_hierarchique_id = fields.Many2one('rh.niveau.hierarchique')
     section_id = fields.Many2one('rh.section')
     section_superieure_id = fields.Many2one('rh.section.superieure')
-    grille_id = fields.Many2one('rh.grille')
-    code_type_fonction = fields.Char(related='nature_travail_id.code_type_fonction',
-                                     string='Code Type Fonction', store=True)
+    # grille_id = fields.Many2one('rh.grille')
+    # code_type_fonction = fields.Char(related='nature_travail_id.code_type_fonction',
+    #                                  string='Code Type Fonction', store=True)
     date_avancement = fields.Date()
     ref = fields.Char()
     date_ref = fields.Date()
@@ -99,7 +100,7 @@ class HrEmployeInherited(models.Model):
     address_perso = fields.Text()
     planning_choix_id = fields.Many2one('ressource_humaine.choisir.planning')
     emphy_id = fields.Many2one('rh.emphy')
-
+    num_national = fields.Char(help="Il s'agit du numéro d'identité nationale de l'employé")
 
     @api.constrains('jour_sup')
     def _check_jour_sup_max_value(self):
@@ -108,6 +109,16 @@ class HrEmployeInherited(models.Model):
             if record.jour_sup > max_value:
                 raise ValidationError('The maximum value for jour_sup is 12.0')
 
+    # @api.depends('nom_ar', 'prenom_ar')
+    # def _compute_nom(self):
+    #     print('employee.name')
+    #     for employee in self:
+    #         print('employee.name')
+    #         if employee.nom_ar != '' and employee.prenom_ar != '':
+    #             print('employee.name')
+    #             print(employee.name)
+    #             employee.name = employee.nom_ar + ' ' + employee.prenom_ar
+    #             print(employee.name)
 
     @api.depends('birthday')
     def calculer_age_employee(self):

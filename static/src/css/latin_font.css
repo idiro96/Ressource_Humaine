@@ -1,0 +1,17 @@
+@font-face {
+   font-family: 'stocky';
+   src: url('/ressource_humaine/static/src/font/stocky.ttf') format('truetype');
+   font-weight: bold;
+   font-style: normal;
+     }
+
+   .test_font {font-family: stocky;}
+
+@font-face {
+   font-family: 'Sudegnakno2-LrLg';
+   src: url('/ressource_humaine/static/src/font/Sudegnakno2-LrLg.ttf') format('truetype');
+   font-weight: bold;
+   font-style: normal;
+     }
+
+   .test2_font {font-family: Sudegnakno2-LrLg;}

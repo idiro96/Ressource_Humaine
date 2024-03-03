@@ -6,3 +6,48 @@
      }
 
    .arabic_font {font-family: Gulzar-Regula;}
+
+@font-face {
+   font-family: 'HSN_Naskh';
+   src: url('/ressource_humaine/static/src/font/HSN_Naskh.ttf') format('truetype');
+   font-weight: bold;
+   font-style: normal;
+     }
+
+   .test_arabic_font {font-family: HSN_Naskh;}
+
+@font-face {
+   font-family: 'Shekari-Font';
+   src: url('/ressource_humaine/static/src/font/Shekari-Font.ttf') format('truetype');
+   font-weight: bold;
+   font-style: normal;
+     }
+
+   .test2_arabic_font {font-family: Shekari-Font;}
+
+@font-face {
+   font-family: 'FFBouya-Messy';
+   src: url('/ressource_humaine/static/src/font/FFBouya-Messy.otf') format('truetype');
+   font-weight: bold;
+   font-style: normal;
+     }
+
+   .test3_arabic_font {font-family: FFBouya-Messy;}
+
+@font-face {
+   font-family: 'alfont_com_IranNastaliq';
+   src: url('/ressource_humaine/static/src/font/alfont_com_IranNastaliq.ttf') format('truetype');
+   font-weight: bold;
+   font-style: normal;
+     }
+
+   .test4_arabic_font {font-family: alfont_com_IranNastaliq;}
+
+@font-face {
+   font-family: 'NotoNastaliqUrdu-VariableFont_wght';
+   src: url('/ressource_humaine/static/src/font/NotoNastaliqUrdu-VariableFont_wght.ttf') format('truetype');
+   font-weight: bold;
+   font-style: normal;
+     }
+
+   .test5_arabic_font {font-family: NotoNastaliqUrdu-VariableFont_wght;}

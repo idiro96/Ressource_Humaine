@@ -144,7 +144,6 @@
                         <t t-if="not employee.gender or employee.gender == 'male'">
                             <span>
                                 Il, exerce ses fonctions en sa qualité de :
-                                <br/>
                                 <strong>
                                     <t t-esc="employee.grade_id.intitule_grade_fr"/>
                                 </strong>
@@ -153,7 +152,6 @@
                         <t t-if="employee.gender == 'female'">
                             <span>
                                 Elle, exerce ses fonctions en sa qualité de :
-                                <br/>
                                 <strong>
                                     <t t-esc="employee.grade_id.intitule_grade_fr"/>
                                 </strong>

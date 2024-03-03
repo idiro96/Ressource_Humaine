@@ -45470,6 +45470,16 @@ msgstr "مكان ميلاد الزوج(ة)"
 msgid "Lieu de naissance"
 msgstr "مكان ميلاد بالفرنسية"
 
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_nome_fr
+msgid "nome"
+msgstr "الاسم"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_prenom_fr
+msgid "prenom"
+msgstr "اللقب"
+
 #. module: hr_holidays
 #: selection:hr.holidays.status,color_name:0
 msgid "Light Blue"
@@ -50215,7 +50225,7 @@ msgstr "اسم التسميات"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_nomination
 msgid "Nomination"
-msgstr "تعيين"
+msgstr "الوضعية الادارية"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_model_data_noupdate
@@ -63361,6 +63371,11 @@ msgstr "سبت"
 #: selection:hr.employee,nomination:0
 msgid "Satagiaire"
 msgstr "متربص"
+
+#. module: ressource_humaine
+#: selection:hr.employee,nomination:0
+msgid "Contractuel"
+msgstr "متعاقد"
 
 #. modules: resource, calendar
 #: selection:calendar.event,week_list:0
