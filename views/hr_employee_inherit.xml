@@ -6,7 +6,7 @@
             <field name="inherit_id" ref="hr.view_employee_tree"/>
             <field name="arch" type="xml">
                 <xpath expr="//tree//field[@name='name']" position="after">
-                    <field name="prenom" invisible="1"/>
+                    <field name="prenom_ar" invisible="1"/>
                 </xpath>
                 <xpath expr="//tree//field[@name='name']" position="after">
                     <field name="birthday"/>
@@ -171,12 +171,20 @@
                     <field name="prenom_mere"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='children']" position="after">
-                    <field name="nom_fr" required="True"/>
+                    <field name="nom_fr"/>
                 </xpath>
                 <!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='nom_fr']" position="after">-->
                 <!--                    <field name="prenom_fr" required="True"/>-->
                 <!--                </xpath>-->
 
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='birthday']"
+                       position="before">
+                    <field name="prenom_ar" string="prnom"/>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='prenom_ar']"
+                       position="before">
+                    <field name="nom_ar" required="True" string="nom"/>
+                </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='birthday']"
                        position="attributes">
                     <attribute name="required">True</attribute>
@@ -209,6 +217,11 @@
                 <xpath expr="//form//field[@name='manager']" position="attributes">
                     <attribute name="invisible">True</attribute>
                 </xpath>
+
+                 <xpath expr="//form//field[@name='days_off']" position="attributes">
+                    <attribute name="readonly">True</attribute>
+                </xpath>
+
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='bank_account_id']"
                        position="after">
                     <field name="numero_securite_social"/>
@@ -334,32 +347,32 @@
                             <field name="ref"/>
                             <field name="date_ref"/>
                             <field name="code_type_fonction" invisible="1"/>
-                            <field name="grille_id"/>
+                            <field name="grille_id" required="1"/>
                             <field name="groupe_id"
                                    attrs="{'invisible': ['|', ('code_type_fonction', '=', 'fonctionsuperieure'), ('code_type_fonction', '=', 'contractuel')]}"/>
-                            <field name="categorie_id"/>
+                            <field name="categorie_id" required="1"/>
                             <field name="section_id"
-                                   attrs="{'invisible': [('code_type_fonction', '!=', 'fonctionsuperieure')]}"/>
+                                   attrs="{'invisible': [('code_type_fonction', '!=', 'fonctionsuperieure')], 'required': [('code_type_fonction', '=', 'fonctionsuperieure')]}"/>
                             <field name="indice_base"
-                                   attrs="{'invisible': ['|',('code_type_fonction', '!=', 'fonctionsuperieure'),('code_type_fonction', '!=', 'fonctionsuperieure')]}"/>
+                                   attrs="{'invisible': ['|',('code_type_fonction', '!=', 'fonctionsuperieure'),('code_type_fonction', '!=', 'fonction')], 'required': ['|', ('code_type_fonction', '=', 'fonctionsuperieure'), ('code_type_fonction', '=', 'fonction')]}"/>
                             <field name="indice_minimal"
-                                   attrs="{'invisible': ['|',('code_type_fonction', '=', 'fonctionsuperieure'),('code_type_fonction', '=', 'fonction')]}"/>
+                                   attrs="{'invisible': ['|',('code_type_fonction', '=', 'fonctionsuperieure'),('code_type_fonction', '=', 'fonction')], 'required': ['|', ('code_type_fonction', '!=', 'fonctionsuperieure'), ('code_type_fonction', '!=', 'fonction')]}"/>
                             <field name="echelon_id"
-                                   attrs="{'invisible': [('code_type_fonction', '=', 'contractuel')]}"/>
+                                   attrs="{'invisible': [('code_type_fonction', '=', 'contractuel')], 'required': [('code_type_fonction', '!=', 'contractuel')]}"/>
                             <field name="point_indiciare"
-                                   attrs="{'invisible': [('code_type_fonction', '=', 'contractuel')]}"/>
+                                   attrs="{'invisible': [('code_type_fonction', '=', 'contractuel')], 'required': [('code_type_fonction', '!=', 'contractuel')]}"/>
                             <field name="categorie_superieure_id"
-                                   attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')]}"/>
+                                   attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')], 'required': [('code_type_fonction', '=', 'postesuperieure')]}"/>
                             <field name="section_superieure_id"
-                                   attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')]}"/>
+                                   attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')], 'required': [('code_type_fonction', '=', 'postesuperieure')]}"/>
                             <field name="niveau_hierarchique_id"
-                                   attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')]}"/>
+                                   attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')], 'required': [('code_type_fonction', '=', 'postesuperieure')]}"/>
                             <field name="bonification_indiciaire"
-                                   attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')]}"/>
-                             <field name="chef_bureau"
-                                   attrs="{'invisible': [('code_type_fonction', '!=', 'fonctionsuperieure')]}"/>
+                                   attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')], 'required': [('code_type_fonction', '=', 'postesuperieure')]}"/>
+                            <field name="chef_bureau"
+                                   attrs="{'invisible': [('code_type_fonction', '!=', 'fonctionsuperieure')], 'required': [('code_type_fonction', '=', 'fonctionsuperieure')]}"/>
                             <field name="niveau_hirerachique_chef_Bureau"
-                                   attrs="{'invisible': [('chef_bureau', '!=', True)]}"/>
+                                   attrs="{'invisible': [('chef_bureau', '!=', True)], 'required': [('chef_bureau', '=', 'True')]}"/>
                             <field name="wage" readonly="1"/>
                         </group>
                     </group>
