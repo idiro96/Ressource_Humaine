@@ -173,21 +173,7 @@ class PlanningCongeReport(models.AbstractModel):
                      'promotion_lines_cdi_partiel': None,
                      'promotion_lines_cdd_partiel': None})
 
-        employee_grade_d = self.env['hr.employee'].search(
-            [('grade_id.categorie_id.groupe_id.name', 'ilike', 'المجموعة د')])
-        employee_pleintemps_indeterminee = self.env['hr.contract'].search(
-            [('type_id.code_type_contract', '=', 'pleintemps_indeterminee')])
-        employee_pleintemps_determinee = self.env['hr.contract'].search(
-            [('type_id.code_type_contract', '=', 'pleintemps_determinee')])
-        employee_partiel_indeterminee = self.env['hr.contract'].search(
-            [('type_id.code_type_contract', '=', 'partiel_indeterminee')])
-        employee_partiel_determinee = self.env['hr.contract'].search(
-            [('type_id.code_type_contract', '=', 'partiel_determinee')])
-
-        employees = self.env['hr.employee'].browse(docids[0])
-
         report_data = {
-            'company': self.env.user.company_id,
             'job_sup': supp_employees,
             'job_hight': hight_employees,
             'grade_enseignant': enseignant_employees,
@@ -197,11 +183,6 @@ class PlanningCongeReport(models.AbstractModel):
             'grade_d_filtered': grade_d_filtered_employees,
             'grade_ing': grade_ing_employees,
             'grade_contract': grade_contract_employees,
-            'employee_grade_d': employee_grade_d,
-            'employee_pleintemps_indeterminee': employee_pleintemps_indeterminee,
-            'employee_pleintemps_determinee': employee_pleintemps_determinee,
-            'employee_partiel_indeterminee': employee_partiel_indeterminee,
-            'employee_partiel_determinee': employee_partiel_determinee,
         }
 
         return report_data
