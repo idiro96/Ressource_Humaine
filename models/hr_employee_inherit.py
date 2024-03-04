@@ -6,7 +6,6 @@ from datetime import date, timedelta, datetime
 from dateutil.relativedelta import relativedelta
 from odoo.exceptions import ValidationError
 
-
 from babel.dates import format_date, format_datetime
 import logging
 import calendar
@@ -50,31 +49,33 @@ class HrEmployeInherited(models.Model):
 
     corps_id = fields.Many2one('rh.corps')
     grade_id = fields.Many2one('rh.grade')
-    date_grade = fields.Date(translate=False, lang='fr_FR',)
+    date_grade = fields.Date(translate=False, lang='fr_FR', )
     promotion_lines = fields.One2many('rh.promotion.line', inverse_name='employee_id')
     avancement_lines = fields.One2many('rh.avancement.line', inverse_name='employee_id')
     nature_travail_id = fields.Many2one('rh.type.fonction')
     position_statutaire = fields.Selection([('activite', 'Activite'),
-                              ('detachement', 'Detachement'),
-                              ('horscadre', 'Horscadre'),('miseendisponibilite', 'Miseendisponibilite'),('servicenationale', 'Servicenationale'),],
-                                readonly=False, default='activite')
+                                            ('detachement', 'Detachement'),
+                                            ('horscadre', 'Horscadre'), ('miseendisponibilite', 'Miseendisponibilite'),
+                                            ('servicenationale', 'Servicenationale'), ],
+                                           readonly=False, default='activite')
     methode_embauche = fields.Selection([('recrutement', 'Recrutement'),
-                              ('transfert', 'Transfert'),
-                              ('detachement', 'Detachement'),],
-                                readonly=False, default='recrutement')
+                                         ('transfert', 'Transfert'),
+                                         ('detachement', 'Detachement'), ],
+                                        readonly=False, default='recrutement')
     ancienne_etablissement = fields.Char()
     prenom = fields.Char()
     ancien_corps_id = fields.Many2one('rh.corps')
     ancien_grade_id = fields.Many2one('rh.grade')
     date_ancien_grade = fields.Date()
     nature_handicap = fields.Selection([('audio', 'Audio'),
-                              ('visuel', 'Visuel'),
-                              ('cinetique', 'Cinetique')],
-                              readonly=False,default='audio')
+                                        ('visuel', 'Visuel'),
+                                        ('cinetique', 'Cinetique')],
+                                       readonly=False, default='audio')
     taux_handicap = fields.Float()
     corps_visible = fields.Boolean(default=True)
     gender = fields.Selection(selection=[('male', 'Masculin'), ('female', 'Féminin')], readonly=False, required=True)
-    nomination = fields.Selection(selection=[('satagiaire', 'Satagiaire'), ('nomination', 'Titulaire')], readonly=False, required=True)
+    nomination = fields.Selection(selection=[('satagiaire', 'Satagiaire'), ('nomination', 'Titulaire'), ('contractuel', 'Contractuel')],
+                                  readonly=False, required=True)
     place_of_birth_fr = fields.Char('Lieu de naissance', groups="hr.group_hr_user", required=True)
     # place_of_birth_fr = fields.Char('Lieu de naissance', groups="hr.group_hr_user")
     grille_id = fields.Many2one('rh.grille', readonly=False)
@@ -108,7 +109,6 @@ class HrEmployeInherited(models.Model):
             if record.jour_sup > max_value:
                 raise ValidationError('The maximum value for jour_sup is 12.0')
 
-
     @api.depends('birthday')
     def calculer_age_employee(self):
         for emp in self:
@@ -116,7 +116,8 @@ class HrEmployeInherited(models.Model):
             if emp.birthday:
                 date_naiss = datetime.strptime(emp.birthday, '%Y-%m-%d').date()
                 aujourdhui = date.today()
-                age = aujourdhui.year - date_naiss.year - ((aujourdhui.month, aujourdhui.day) < (date_naiss.month, date_naiss.day))
+                age = aujourdhui.year - date_naiss.year - (
+                            (aujourdhui.month, aujourdhui.day) < (date_naiss.month, date_naiss.day))
             emp.age_employee = age
 
     age_employee = fields.Integer(string="Age", compute='calculer_age_employee', store=True)
@@ -241,8 +242,10 @@ class HrEmployeInherited(models.Model):
     def onchange_niveau_hirerachique_chef_Bureau(self):
         for rec in self:
             rec.point_indiciare = rec.echelon_id.indice_echelon
-            rec.wage = (rec.indice_minimal * 45 + rec.point_indiciare * 45) + rec.niveau_hirerachique_chef_Bureau.bonification_indiciaire
+            rec.wage = (
+                                   rec.indice_minimal * 45 + rec.point_indiciare * 45) + rec.niveau_hirerachique_chef_Bureau.bonification_indiciaire
             # rec.wage = rec.indice_base * 45 + rec.niveau_hirerachique_chef_Bureau.bonification_indiciaire
+
     @api.onchange('nature_travail_id')
     def _onchange_related_field_filier(self):
         print('teste')
@@ -292,7 +295,13 @@ class HrEmployeInherited(models.Model):
         print(res)
         return res
 
+    @api.onchange('nature_travail_id')
+    def _onchange_nature_travail_id(self):
+        domain = []
+        if self.nature_travail_id:
+            if self.nature_travail_id.code_type_fonction == 'contractuel':
+                domain = [('intitule_corps', 'ilike', 'متعاقد')]
+            else:
+                domain = [('intitule_corps', 'not ilike', 'متعاقد')]
 
-
-
-    
+        return {'domain': {'corps_id': domain}}
