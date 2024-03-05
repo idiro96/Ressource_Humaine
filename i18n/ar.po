@@ -51067,7 +51067,7 @@ msgstr "أهداف"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_fiche_evaluation_observation
 msgid "Observation"
-msgstr "Observation"
+msgstr "ملاحظة"
 
 #. module: account
 #: selection:res.company,fiscalyear_last_month:0
@@ -81001,7 +81001,7 @@ msgstr "لا"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_programme_employee_employee_id
 msgid "nom de l'employee"
-msgstr "nom de l'employee"
+msgstr "لقب الموظف"
 
 #. module: web
 #. openerp-web
@@ -82347,7 +82347,7 @@ msgstr "tx_values: قيم المعاملة"
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.programme_employee_form
 msgid "un nom"
-msgstr "un nom"
+msgstr "لقب"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
@@ -83633,3 +83633,13 @@ msgstr "会计科目表 - 中国企业会计准则"
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_num_national
 msgid "Num National"
 msgstr "الرقم التسلسلي"
+
+#. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.employee_form
+msgid "prnom"
+msgstr "الإسم"
+
+#. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.employee_form
+msgid "nom"
+msgstr "اللقب"
