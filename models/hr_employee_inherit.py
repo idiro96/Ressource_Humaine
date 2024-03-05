@@ -204,6 +204,7 @@ class HrEmployeInherited(models.Model):
     def onchange_groupe(self):
         for rec in self:
             domain = []
+            self.categorie_id = None
             if rec.groupe_id:
                 categorie = self.env['rh.categorie'].search([('groupe_id', '=', rec.groupe_id.id)])
                 domain.append(('id', 'in', categorie.ids))
@@ -215,11 +216,40 @@ class HrEmployeInherited(models.Model):
         print(res)
         return res
 
+    # @api.constrains('categorie_id')
+    # def _contraint_categorie_id(self):
+    #     for rec in self:
+    #         if rec.categorie_id:
+    #             groupe = self.env['rh.groupe'].search([('id', '=', rec.categorie_id.groupe_id.id)])
+    #             if rec.groupe_id.id != groupe.id:
+    #                 rec.categorie_id = None
+    #             # categorie = self.env['rh.categorie'].search([('id', '=', rec.categorie_id.id)])
+
+
     @api.onchange('categorie_id')
     def onchange_categorie(self):
+        res = None
         if self.categorie_id:
+            if self.grille_id:
+                type_fonction = self.env['rh.type.fonction'].search([('id', '=', self.nature_travail_id.id)])
+                if type_fonction.code_type_fonction == 'contractuel':
+                    if self.categorie_id.grille_id.id != self.grille_id.id:
+                        self.categorie_id = None
+                elif type_fonction.code_type_fonction == 'fonction':
+                    if self.groupe_id:
+                        if self.categorie_id.groupe_id.id != self.groupe_id.id:
+                            self.categorie_id = None
+                elif type_fonction.code_type_fonction == 'postesuperieure':
+                    if self.groupe_id:
+                        if self.categorie_id.groupe_id.id != self.groupe_id.id:
+                            self.categorie_id = None
+                elif type_fonction.code_type_fonction == 'fonctionsuperieure':
+                    if self.categorie_id.grille_id.id != self.grille_id.id:
+                        self.categorie_id = None
+
             self.section_id = False
             self.echelon_id = False
+        print('rabah3')
         for rec in self:
             domain = []
             if rec.categorie_id:
@@ -232,21 +262,26 @@ class HrEmployeInherited(models.Model):
                 elif type_fonction.code_type_fonction == 'fonction':
                     domain.append(('id', 'in', echelon.ids))
                     rec.indice_minimal = rec.categorie_id.Indice_minimal
-
+                    res = {'domain': {'echelon_id': domain}}
                 elif type_fonction.code_type_fonction == 'postesuperieure':
                     domain.append(('id', 'in', echelon.ids))
                     rec.indice_minimal = rec.categorie_id.Indice_minimal
+                    res = {'domain': {'echelon_id': domain}}
                 else:
                     domain.append(('id', 'in', section.ids))
-
-            res = {'domain': {'echelon_id': domain}}
+                    res = {'domain': {'section_id': domain}}
 
         return res
 
     @api.onchange('section_id')
     def onchange_section(self):
         domain = []
+        res = None
         if self.section_id:
+            if self.categorie_id:
+                type_fonction = self.env['rh.type.fonction'].search([('id', '=', self.nature_travail_id.id)])
+                if self.section_id.categorie_id.id != self.categorie_id.id:
+                    self.section_id = None
             self.echelon_id = False
         for rec in self:
             if rec.section_id:
@@ -254,7 +289,9 @@ class HrEmployeInherited(models.Model):
                 echelon = self.env['rh.echelon'].search([('section', '=', rec.section_id.id)])
                 domain.append(('id', 'in', echelon.ids))
                 rec.indice_minimal = rec.categorie_id.Indice_minimal
-            res = {'domain': {'echelon_id': domain}}
+                res = {'domain': {'echelon_id': domain}}
+                print('hello')
+                print(echelon)
         return res
 
     @api.onchange('niveau_hierarchique_id')
@@ -270,6 +307,17 @@ class HrEmployeInherited(models.Model):
     def onchange_echelon(self):
         for rec in self:
             domain = []
+            if rec.echelon_id:
+                echelon = self.env['rh.echelon'].search([('id', '=', rec.echelon_id.id)])
+                section = echelon.section
+                if rec.section_id:
+                    if section.id != rec.section_id.id:
+                            rec.echelon_id = None
+                            print('echelon.section')
+                            print(echelon.section)
+                else:
+                    if rec.echelon_id.categorie_id.id != rec.categorie_id.id:
+                        rec.echelon_id = None
             if rec.echelon_id:
                 type_fonction = self.env['rh.type.fonction'].search([('id', '=', rec.nature_travail_id.id)])
                 if type_fonction.code_type_fonction == 'postesuperieure':
