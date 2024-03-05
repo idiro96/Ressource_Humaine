@@ -216,15 +216,6 @@ class HrEmployeInherited(models.Model):
         print(res)
         return res
 
-    # @api.constrains('categorie_id')
-    # def _contraint_categorie_id(self):
-    #     for rec in self:
-    #         if rec.categorie_id:
-    #             groupe = self.env['rh.groupe'].search([('id', '=', rec.categorie_id.groupe_id.id)])
-    #             if rec.groupe_id.id != groupe.id:
-    #                 rec.categorie_id = None
-    #             # categorie = self.env['rh.categorie'].search([('id', '=', rec.categorie_id.id)])
-
 
     @api.onchange('categorie_id')
     def onchange_categorie(self):
