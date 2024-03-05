@@ -37566,7 +37566,7 @@ msgstr "الرتبة"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_groupe_grade_lines
 msgid "Grade Lines"
-msgstr "Grade Lines"
+msgstr "خطوط الرتبة"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_grade_new_id
@@ -50225,7 +50225,7 @@ msgstr "اسم التسميات"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_nomination
 msgid "Nomination"
-msgstr "الوضعية الادارية"
+msgstr "الوضعية الإدارية"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_model_data_noupdate
@@ -58065,7 +58065,7 @@ msgstr "القيمة السابقة من التسجيل للمسلسل"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_prenom
 msgid "Prenom"
-msgstr "Prenom"
+msgstr "الإسم"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_conjoint_prenom_conjoint
@@ -83629,3 +83629,7 @@ msgstr "中国小企业会计科目表"
 msgid "会计科目表 - 中国企业会计准则"
 msgstr "会计科目表 - 中国企业会计准则"
 
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_num_national
+msgid "Num National"
+msgstr "الرقم التسلسلي"

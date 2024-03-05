@@ -2,12 +2,9 @@ from odoo import models, fields, api, _
 
 
 class ListeNominatifs(models.TransientModel):
-
     _name = 'liste.nominatifs'
 
-
     @api.multi
-
     def print_report(self):
         return self.env.ref('ressource_humaine.action_liste_nominatife').report_action(self)
 
@@ -42,41 +39,150 @@ class PlanningCongeReport(models.AbstractModel):
         grade_enseignant = self.env['rh.grade'].search([('intitule_grade', 'ilike', '%أستاذ%')])
         enseignant_employees = []
         for grade in grade_enseignant:
-            employees = self.env['hr.employee'].search([('grade_id', '=', grade.id)])
+            employees = self.env['hr.employee'].search(
+                [('grade_id', '=', grade.id), ('nature_travail_id.code_type_fonction', '!=', 'postesuperieure'),
+                 ('nature_travail_id.code_type_fonction', '!=', 'fonctionsuperieure')])
             promotion_lines = self.env['rh.promotion.line'].search([('employee_id', 'in', employees.ids)],
                                                                    order='date_new_grade DESC', limit=1)
             if promotion_lines:
-                enseignant_employees.append({'grade': grade, 'employees': employees, 'promotion_lines': promotion_lines})
+                enseignant_employees.append(
+                    {'grade': grade, 'employees': employees, 'promotion_lines': promotion_lines})
             else:
                 enseignant_employees.append({'grade': grade, 'employees': employees, 'promotion_lines': None})
 
-        employee_enseignant = self.env['hr.employee'].search([('grade_id.intitule_grade', 'ilike', '%أستاذ%')])
-        employee_grade_a = self.env['hr.employee'].search([('grade_id.categorie_id.groupe_id.name', 'ilike', 'المجموعة أ')])
-        employee_grade_a_excluded = employee_grade_a - employee_enseignant
-        employee_grade_b = self.env['hr.employee'].search([('grade_id.categorie_id.groupe_id.name', 'ilike', 'المجموعة ب')])
-        employee_grade_c = self.env['hr.employee'].search([('grade_id.categorie_id.groupe_id.name', 'ilike', 'المجموعة ج')])
-        employee_grade_d = self.env['hr.employee'].search([('grade_id.categorie_id.groupe_id.name', 'ilike', 'المجموعة د')])
-        employee_pleintemps_indeterminee = self.env['hr.contract'].search([('type_id.code_type_contract', '=', 	'pleintemps_indeterminee')])
-        employee_pleintemps_determinee = self.env['hr.contract'].search([('type_id.code_type_contract', '=', 	'pleintemps_determinee')])
-        employee_partiel_indeterminee = self.env['hr.contract'].search([('type_id.code_type_contract', '=', 	'partiel_indeterminee')])
-        employee_partiel_determinee = self.env['hr.contract'].search([('type_id.code_type_contract', '=', 	'partiel_determinee')])
+        grade_a = self.env['rh.grade'].search([('categorie_id.groupe_id.name', 'ilike', '%المجموعة أ%')])
+        grade_a_excluded = grade_a - grade_enseignant
+        grade_a_employees = []
+        for grade in grade_a_excluded:
+            employees = self.env['hr.employee'].search(
+                [('grade_id', '=', grade.id), ('nature_travail_id.code_type_fonction', '!=', 'postesuperieure'),
+                 ('nature_travail_id.code_type_fonction', '!=', 'fonctionsuperieure')])
+            promotion_lines = self.env['rh.promotion.line'].search([('employee_id', 'in', employees.ids)],
+                                                                   order='date_new_grade DESC', limit=1)
+            if promotion_lines:
+                grade_a_employees.append(
+                    {'grade': grade, 'employees': employees, 'promotion_lines': promotion_lines})
+            else:
+                grade_a_employees.append({'grade': grade, 'employees': employees, 'promotion_lines': None})
 
-        employees = self.env['hr.employee'].browse(docids[0])
+        grade_b = self.env['rh.grade'].search([('categorie_id.groupe_id.name', 'ilike', '%المجموعة ب%')])
+        grade_b_employees = []
+        for grade in grade_b:
+            employees = self.env['hr.employee'].search(
+                [('grade_id', '=', grade.id), ('nature_travail_id.code_type_fonction', '!=', 'postesuperieure'),
+                 ('nature_travail_id.code_type_fonction', '!=', 'fonctionsuperieure')])
+            promotion_lines = self.env['rh.promotion.line'].search([('employee_id', 'in', employees.ids)],
+                                                                   order='date_new_grade DESC', limit=1)
+            if promotion_lines:
+                grade_b_employees.append(
+                    {'grade': grade, 'employees': employees, 'promotion_lines': promotion_lines})
+            else:
+                grade_b_employees.append({'grade': grade, 'employees': employees, 'promotion_lines': None})
+
+        grade_c = self.env['rh.grade'].search([('categorie_id.groupe_id.name', 'ilike', '%المجموعة ج%')])
+        grade_c_employees = []
+        for grade in grade_c:
+            employees = self.env['hr.employee'].search(
+                [('grade_id', '=', grade.id), ('nature_travail_id.code_type_fonction', '!=', 'postesuperieure'),
+                 ('nature_travail_id.code_type_fonction', '!=', 'fonctionsuperieure')])
+            promotion_lines = self.env['rh.promotion.line'].search([('employee_id', 'in', employees.ids)],
+                                                                   order='date_new_grade DESC', limit=1)
+            if promotion_lines:
+                grade_c_employees.append(
+                    {'grade': grade, 'employees': employees, 'promotion_lines': promotion_lines})
+            else:
+                grade_c_employees.append({'grade': grade, 'employees': employees, 'promotion_lines': None})
+
+        grade_d = self.env['rh.grade'].search([('categorie_id.groupe_id.name', 'ilike', '%المجموعة د%')])
+        grade_ing = self.env['rh.grade'].search([('categorie_id.groupe_id.name', 'ilike', '%المجموعة د%'),
+                                                 ('corps_id.intitule_corps', 'ilike', '%مهن%')])
+        grade_contract = self.env['rh.grade'].search([('corps_id.intitule_corps', 'ilike', '%متعاقد%')])
+        grade_d_filtered = grade_d - grade_ing - grade_contract
+        grade_d_filtered_employees = []
+        for grade in grade_d_filtered:
+            employees = self.env['hr.employee'].search(
+                [('grade_id', '=', grade.id), ('nature_travail_id.code_type_fonction', '!=', 'postesuperieure'),
+                 ('nature_travail_id.code_type_fonction', '!=', 'fonctionsuperieure')])
+            promotion_lines = self.env['rh.promotion.line'].search([('employee_id', 'in', employees.ids)],
+                                                                   order='date_new_grade DESC', limit=1)
+            if promotion_lines:
+                grade_d_filtered_employees.append(
+                    {'grade': grade, 'employees': employees, 'promotion_lines': promotion_lines})
+            else:
+                grade_d_filtered_employees.append({'grade': grade, 'employees': employees, 'promotion_lines': None})
+
+        grade_ing_employees = []
+        for grade in grade_ing:
+            employees = self.env['hr.employee'].search(
+                [('grade_id', '=', grade.id), ('nature_travail_id.code_type_fonction', '!=', 'postesuperieure'),
+                 ('nature_travail_id.code_type_fonction', '!=', 'fonctionsuperieure')])
+            promotion_lines = self.env['rh.promotion.line'].search([('employee_id', 'in', employees.ids)],
+                                                                   order='date_new_grade DESC', limit=1)
+            if promotion_lines:
+                grade_ing_employees.append(
+                    {'grade': grade, 'employees': employees, 'promotion_lines': promotion_lines})
+            else:
+                grade_ing_employees.append({'grade': grade, 'employees': employees, 'promotion_lines': None})
+
+        grade_contract_employees = []
+        for grade in grade_contract:
+            employees_cdi_plein = self.env['hr.employee'].search(
+                [('grade_id', '=', grade.id), ('nature_travail_id.code_type_fonction', '=', 'contractuel'),
+                 ('type_id.code_type_contract', '=', 'pleintemps_indeterminee')])
+            promotion_lines_cdi_plein = self.env['rh.promotion.line'].search(
+                [('employee_id', 'in', employees_cdi_plein.ids)],
+                order='date_new_grade DESC', limit=1)
+            employees_cdd_plein = self.env['hr.employee'].search(
+                [('grade_id', '=', grade.id), ('nature_travail_id.code_type_fonction', '=', 'contractuel'),
+                 ('type_id.code_type_contract', '=', 'pleintemps_determinee')])
+            promotion_lines_cdd_plein = self.env['rh.promotion.line'].search(
+                [('employee_id', 'in', employees_cdd_plein.ids)],
+                order='date_new_grade DESC', limit=1)
+            employees_cdi_partiel = self.env['hr.employee'].search(
+                [('grade_id', '=', grade.id), ('nature_travail_id.code_type_fonction', '=', 'contractuel'),
+                 ('type_id.code_type_contract', '=', 'partiel_indeterminee')])
+            promotion_lines_cdi_partiel = self.env['rh.promotion.line'].search(
+                [('employee_id', 'in', employees_cdi_partiel.ids)],
+                order='date_new_grade DESC', limit=1)
+            employees_cdd_partiel = self.env['hr.employee'].search(
+                [('grade_id', '=', grade.id), ('nature_travail_id.code_type_fonction', '=', 'contractuel'),
+                 ('type_id.code_type_contract', '=', 'partiel_determinee')])
+            promotion_lines_cdd_partiel = self.env['rh.promotion.line'].search(
+                [('employee_id', 'in', employees_cdd_partiel.ids)],
+                order='date_new_grade DESC', limit=1)
+            if promotion_lines_cdi_plein and promotion_lines_cdd_plein and promotion_lines_cdi_partiel and promotion_lines_cdd_partiel:
+                grade_contract_employees.append(
+                    {'grade': grade,
+                     'employees_cdi_plein': employees_cdi_plein,
+                     'employees_cdd_plein': employees_cdd_plein,
+                     'employees_cdi_partiel': employees_cdi_partiel,
+                     'employees_cdd_partiel': employees_cdd_partiel,
+                     'promotion_lines_cdi_plein': promotion_lines_cdi_plein,
+                     'promotion_lines_cdd_plein': promotion_lines_cdd_plein,
+                     'promotion_lines_cdi_partiel': promotion_lines_cdi_partiel,
+                     'promotion_lines_cdd_partiel': promotion_lines_cdd_partiel})
+            else:
+                grade_contract_employees.append(
+                    {'grade': grade,
+                     'employees_cdi_plein': employees_cdi_plein,
+                     'employees_cdd_plein': employees_cdd_plein,
+                     'employees_cdi_partiel': employees_cdi_partiel,
+                     'employees_cdd_partiel': employees_cdd_partiel,
+                     'promotion_lines_cdi_plein': None,
+                     'promotion_lines_cdd_plein': None,
+                     'promotion_lines_cdi_partiel': None,
+                     'promotion_lines_cdd_partiel': None})
 
         report_data = {
-            'company': self.env.user.company_id,
             'job_sup': supp_employees,
             'job_hight': hight_employees,
             'grade_enseignant': enseignant_employees,
-            'employee_enseignant': employee_enseignant,
-            'employee_grade_a_excluded': employee_grade_a_excluded,
-            'employee_grade_b': employee_grade_b,
-            'employee_grade_c': employee_grade_c,
-            'employee_grade_d': employee_grade_d,
-            'employee_pleintemps_indeterminee': employee_pleintemps_indeterminee,
-            'employee_pleintemps_determinee': employee_pleintemps_determinee,
-            'employee_partiel_indeterminee': employee_partiel_indeterminee,
-            'employee_partiel_determinee': employee_partiel_determinee,
+            'grade_a': grade_a_employees,
+            'grade_b': grade_b_employees,
+            'grade_c': grade_c_employees,
+            'grade_d_filtered': grade_d_filtered_employees,
+            'grade_ing': grade_ing_employees,
+            'grade_contract': grade_contract_employees,
         }
 
         return report_data
