@@ -217,10 +217,7 @@
                 <xpath expr="//form//sheet//notebook//page[@name='hr_settings']" position="attributes">
                     <attribute name="attrs">{'invisible': True}</attribute>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page[@name='personal_information']//group//group[@name='work_permit']"
-                       position="attributes">
-                    <attribute name="attrs">{'invisible': True}</attribute>
-                </xpath>
+
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='passport_id']"
                        position="attributes">
                     <attribute name="attrs">{'invisible': True}</attribute>
@@ -372,8 +369,6 @@
                         </field>
                     </page>
                 </xpath>
-
-
             </field>
 
         </record>
@@ -424,3 +419,9 @@
     </data>
 
 </odoo>
+
+
+
+
+
+

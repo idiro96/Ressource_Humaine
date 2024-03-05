@@ -6,8 +6,8 @@
         <field name="arch" type="xml">
             <form string="un nom">
                 <groupe>
-                    <field name="employee_id"/>
-                    <field name="numero"/>
+                    <field name="employee_id" string="nom de l'employee"/>
+                    <field name="numero" string="numero"/>
                 </groupe>
                 <footer>
                     <button string="تجاهل" class="oe_link" special="cancel"/>

@@ -14,8 +14,7 @@ class RHAvancement(models.Model):
     date_comission = fields.Date()
     avancement_wizard = fields.Boolean(default=True)
     choisir_commission_lines = fields.One2many('rh.avancement.commission.line', 'avancement_id')
-    # promotion_file_lines = fields.One2many('rh.file', 'promotion_id')
-
+    promotion_file_lines = fields.One2many('rh.file', 'promotion_id')
     avancement_file_lines = fields.One2many('rh.file', 'avancement_id')
 
 
