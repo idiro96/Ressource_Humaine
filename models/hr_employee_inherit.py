@@ -188,7 +188,7 @@ class HrEmployeInherited(models.Model):
         if self.groupe_id:
             return {'domain': {'groupe_id': [('grille_id', '=', self.grille_id.id)]}}
         else:
-            return {'domain': {'categorie_id': [('grille_id', '=', self.grille_id.id),('type_fonction_id', '=', self.nature_travail_id.id)]}}
+            return {'domain': {'categorie_id': [('grille_id', '=', self.grille_id.id)]}}
 
     # @api.onchange('groupe_id')
     # def _onchange_groupe_id(self):
