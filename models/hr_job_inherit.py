@@ -5,7 +5,7 @@ import math
 # import schedule
 
 from odoo import models, fields, api, _
-from odoo.exceptions import ValidationError
+from odoo.exceptions import ValidationError, UserError
 
 
 class HrJobInherited(models.Model):
@@ -23,14 +23,19 @@ class HrJobInherited(models.Model):
     code_type_fonction = fields.Char(related='nature_travail_id.code_type_fonction',
                                      string='Code Type Fonction', store=True)
 
-    @api.constrains('no_of_employee', 'max_employee')
-    def _check_max_employee_limit(self):
-        for job in self:
-            if job.no_of_employee > job.max_employee:
-                raise ValidationError("لا يجوز أن عدد الموظفين يتفوق عن الحد الأقصى المسموح به")
+    # @api.constrains('no_of_employee', 'max_employee')
+    # def _check_max_employee_limit(self):
+    #     for job in self:
+    #         if job.no_of_employee > job.max_employee:
+    #             raise ValidationError("لا يجوز أن عدد الموظفين يتفوق عن الحد الأقصى المسموح به")
 
     @api.depends('max_employee', 'no_of_employee')
     def _compute_nombre_de_postes_vacants(self):
         for job in self:
             job.nombre_de_postes_vacants = job.max_employee - job.no_of_employee
 
+    @api.multi
+    def unlink(self):
+        raise UserError(
+                    "Vous ne pouvez pas supprimer cet enregistrement")
+        return super(HrJobInherited, self).unlink()

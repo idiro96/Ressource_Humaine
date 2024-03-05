@@ -42,8 +42,14 @@
                 <xpath expr="//field[@name='holiday_status_id']" position="attributes">
                     <attribute name="readonly">True</attribute>
                 </xpath>
+                <xpath expr="//field[@name='holiday_status_id']" position="before">
+                    <field name="code"/>
+                </xpath>
                 <xpath expr="//field[@name='number_of_days_temp']" position="attributes">
                     <attribute name="string">المدة</attribute>
+                </xpath>
+                <xpath expr="//field[@name='department_id']" position="attributes">
+                    <attribute name="readonly">True</attribute>
                 </xpath>
                 <xpath expr="//header/button[@name='print_conge']" position="before">
                     <button name="note_conge" type="object" string="Imprimer Note de congé" class="oe_highlight"

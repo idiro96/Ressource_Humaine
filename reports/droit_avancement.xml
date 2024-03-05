@@ -56,7 +56,21 @@
                         <br/>
                         <div style="font-size: 20px; text-align: right;">
                             <span>
-                                ـ وبناء على المقرر الجماعي رقم ..... المؤرخ في ................. المتعلق بإعادة
+                                <t t-if="not line.employee_id.corps_id.filiere_id.code_group">
+                                    ـ وبناء على المقرر الجماعي رقم.....
+                                </t>
+                                <t t-if="line.employee_id.corps_id.filiere_id.code_group">
+                                    ـ وبناء على المقرر الجماعي رقم
+                                    <t t-esc="line.employee_id.corps_id.filiere_id.code_group"/>
+                                </t>
+                                <t t-if="not line.employee_id.corps_id.filiere_id.code_group">
+                                    المؤرخ في .................
+                                </t>
+                                <t t-if="line.employee_id.corps_id.filiere_id.code_group">
+                                    المؤرخ في
+                                    <t t-esc="line_date_code.get(line.id, '')"/>
+                                </t>
+                                المتعلق بإعادة
                                 ترتيب
                                 الموظفين، و المتضمن ترتيب
                             </span>
@@ -75,7 +89,7 @@
                                 الدرجة
                                 <t t-esc="line.echelon_old_id.intitule"/>
                                 الموافقة للرقم الاستدلالي
-                                <t t-esc="line.employee_id.point_indiciare"/>
+                                <t t-esc="line.echelon_old_id.indice_echelon+line.categorie_old_id.Indice_minimal"/>
                                 ابتداء من تاريخ
                                 <t t-esc="line_date_old_avancement.get(line.id, '')"/>
                             </span>
@@ -109,7 +123,7 @@
                                 إلى الدرجة
                                 <t t-esc="line.echelon_old_id.intitule"/>
                                 الرقم الاستدلالي
-                                <t t-esc="line.employee_id.point_indiciare"/>
+                                <t t-esc="line.echelon_old_id.indice_echelon+line.categorie_old_id.Indice_minimal"/>
                                 ابتداء من
                                 <t t-esc="line_date_old_avancement.get(line.id, '')"/>
                             </span>
@@ -117,11 +131,21 @@
                         <br/>
                         <div style="font-size: 20px; text-align: right;">
                             <span>
-                                <t t-esc="avancement.code"/>
-                                ـ بناء على المقرر رقم
+                                <t t-if="avancement.code">
+                                    <t t-esc="avancement.code"/>
+                                    ـ بناء على المقرر رقم
+                                </t>
+                                <t t-if="not avancement.code">
+                                    .....ـ بناء على المقرر رقم
+                                </t>
                                 <br/>
-                                المؤرخ في
-                                <t t-esc="line_date_comission.get(avancement.id, '')"/>
+                                <t t-if="line_date_signature.get(avancement.id, '')">
+                                    المؤرخ في
+                                    <t t-esc="line_date_signature.get(avancement.id, '')"/>
+                                </t>
+                                <t t-if="not line_date_signature.get(avancement.id, '')">
+                                    المؤرخ في..................
+                                </t>
                                 المتضمن المصادقة على جداول
                                 الترقية
                                 في
@@ -201,7 +225,7 @@
                                     الدرجة :
                                     <t t-esc="line.echelon_new_id.intitule"/>
                                     الرقم الاستدلالي :
-                                    <t t-esc="line.employee_id.point_indiciare"/>
+                                    <t t-esc="line.echelon_new_id.indice_echelon+line.categorie_new_id.Indice_minimal"/>
                                 </span>
                             </strong>
                         </div>

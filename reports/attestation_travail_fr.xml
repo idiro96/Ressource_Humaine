@@ -4,8 +4,9 @@
 
         <template id="attestation_travail_fr_report">
             <t t-call="web.basic_layout">
-                <t t-call="ressource_humaine.report_header_custom"/>
-                <div class="page">
+                <t t-call="ressource_humaine.report_header_custom_bordered"/>
+                <div class="page" style="border-bottom: 10px double black;border-left: 10px double black;border-right: 10px double black;">
+                    <br/>
                     <strong>
                         <div style="font-size: 20px;text-align: right;">
                             <span style="display: inline-block;">
@@ -143,7 +144,6 @@
                         <t t-if="not employee.gender or employee.gender == 'male'">
                             <span>
                                 Il, exerce ses fonctions en sa qualité de :
-                                <br/>
                                 <strong>
                                     <t t-esc="employee.grade_id.intitule_grade_fr"/>
                                 </strong>
@@ -152,12 +152,17 @@
                         <t t-if="employee.gender == 'female'">
                             <span>
                                 Elle, exerce ses fonctions en sa qualité de :
-                                <br/>
                                 <strong>
                                     <t t-esc="employee.grade_id.intitule_grade_fr"/>
                                 </strong>
                             </span>
                         </t>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
                         <br/>
                         <br/>
                         <br/>

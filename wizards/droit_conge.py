@@ -8,7 +8,7 @@ import calendar
 class RHDroitConge(models.TransientModel):
     _name = 'droit.conge'
 
-    boul = fields.Boolean(default=False)
+    boul = fields.Boolean(default=True)
 
 
     @api.multi
@@ -124,24 +124,58 @@ class RHDroitConge(models.TransientModel):
                 for cong in conge_empl_total:
                     jour_reste = cong.nbr_jour_reste + jour_reste
                 empl.write({'days_off': jour_reste})
+            current_date2 = datetime.now().date()
+            mois2 = current_date2.month
+            year2 = current_date2.year
+            if mois2 >= 7 and mois2 <= 12:
+                year2 = year2
+                year_suivant2 = year2 + 1
+            else:
+                year2 = year2 - 1
+                year_suivant2 = year2 + 1
 
+            anne_encours2 = str(year2) + '/' + str(year_suivant2)
+            year3 = year2 - 1
+            year_suivant3 = year_suivant2 - 1
+            anne_encours3 = str(year3) + '/' + str(year_suivant3)
+            year4 = year3 - 1
+            year_suivant4 = year_suivant3 - 1
+            anne_encours4 = str(year4) + '/' + str(year_suivant4)
             return {
                 'name': 'Droit Conge',
                 'view_type': 'form',
                 'view_mode': 'tree,form',
                 'res_model': 'rh.congedroit',
                 'type': 'ir.actions.act_window',
-                # 'domain': [('state', '=', 'reforme')],
+                'domain': ['|', ('exercice_conge', '=', anne_encours2), '|', ('exercice_conge', '=', anne_encours3),
+                           ('exercice_conge', '=', anne_encours4)],
 
             }
         else:
+            current_date2 = datetime.now().date()
+            mois2 = current_date2.month
+            year2 = current_date2.year
+            if mois2 >= 7 and mois2 <= 12:
+                year2 = year2
+                year_suivant2 = year2 + 1
+            else:
+                year2 = year2 - 1
+                year_suivant2 = year2 + 1
+
+            anne_encours2 = str(year2) + '/' + str(year_suivant2)
+            year3 = year2-1
+            year_suivant3 = year_suivant2-1
+            anne_encours3 = str(year3) + '/' + str(year_suivant3)
+            year4 = year3 - 1
+            year_suivant4 = year_suivant3 - 1
+            anne_encours4 = str(year4) + '/' + str(year_suivant4)
             return {
                 'name': 'Droit Conge',
                 'view_type': 'form',
                 'view_mode': 'tree,form',
                 'res_model': 'rh.congedroit',
                 'type': 'ir.actions.act_window',
-                # 'domain': [('state', '=', 'reforme')],
+                'domain': ['|',('exercice_conge', '=',anne_encours2),'|',('exercice_conge', '=',anne_encours3),('exercice_conge', '=',anne_encours4)],
 
             }
 

@@ -100,6 +100,7 @@
         'wizards/liste_nominative.xml',
         'wizards/attestation_travail_wizard.xml',
         'wizards/programme_surveillance_employee.xml',
+        'wizards/organization_chart.xml',
         'reports/paper_format.xml',
         'reports/hr_contract.xml',
         'reports/attestation_travail.xml',
@@ -124,6 +125,7 @@
         'reports/rapport_retraite_text.xml',
         'reports/attestation_de_cessation.xml',
         'reports/planning_notice.xml',
+        'reports/organization_chart.xml',
 
     ],
     # only loaded in demonstration mode

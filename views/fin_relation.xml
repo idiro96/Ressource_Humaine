@@ -27,7 +27,8 @@
                             <field name="description" invisible="1"/>
                             <field name="type_fin_relation_id"
                                    options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
-                            <field name="date_cnas" attrs="{'invisible': [('description', '!=', 'إحالة التقاعد')]}"/>
+                            <field name="date_cnas" attrs="{'invisible': [('description', '!=', 'إحالة التقاعد')]}"
+                            string="CNAS تاريخ"/>
                         </group>
 
                     </group>

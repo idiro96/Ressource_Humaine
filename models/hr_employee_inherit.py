@@ -4,8 +4,7 @@ from dateutil.relativedelta import relativedelta
 from odoo import models, fields, api, _
 from datetime import date, timedelta, datetime
 from dateutil.relativedelta import relativedelta
-from odoo.exceptions import ValidationError
-
+from odoo.exceptions import ValidationError, UserError
 
 from babel.dates import format_date, format_datetime
 import logging
@@ -16,6 +15,7 @@ import time
 class HrEmployeInherited(models.Model):
     _inherit = "hr.employee"
 
+    # name = fields.Char(string="Employee Tag", required=True, compute='_compute_nom')
     handicape = fields.Boolean(default=False)
     chef_bureau = fields.Boolean(default=False)
     niveau_hirerachique_chef_Bureau = fields.Many2one('rh.niveau.hierarchique.chef.bureau')
@@ -63,7 +63,8 @@ class HrEmployeInherited(models.Model):
                               ('detachement', 'Detachement'),],
                                 readonly=False, default='recrutement')
     ancienne_etablissement = fields.Char()
-    prenom = fields.Char()
+    nom_ar = fields.Char()
+    prenom_ar = fields.Char()
     ancien_corps_id = fields.Many2one('rh.corps')
     ancien_grade_id = fields.Many2one('rh.grade')
     date_ancien_grade = fields.Date()
@@ -74,7 +75,7 @@ class HrEmployeInherited(models.Model):
     taux_handicap = fields.Float()
     corps_visible = fields.Boolean(default=True)
     gender = fields.Selection(selection=[('male', 'Masculin'), ('female', 'Féminin')], readonly=False, required=True)
-    nomination = fields.Selection(selection=[('satagiaire', 'Satagiaire'), ('nomination', 'Titulaire')], readonly=False, required=True)
+    nomination = fields.Selection(selection=[('satagiaire', 'Satagiaire'), ('nomination', 'Titulaire'), ('contractuel', 'Contractuel')], readonly=False, required=True)
     place_of_birth_fr = fields.Char('Lieu de naissance', groups="hr.group_hr_user", required=True)
     # place_of_birth_fr = fields.Char('Lieu de naissance', groups="hr.group_hr_user")
     grille_id = fields.Many2one('rh.grille', readonly=False)
@@ -89,9 +90,9 @@ class HrEmployeInherited(models.Model):
     niveau_hierarchique_id = fields.Many2one('rh.niveau.hierarchique')
     section_id = fields.Many2one('rh.section')
     section_superieure_id = fields.Many2one('rh.section.superieure')
-    grille_id = fields.Many2one('rh.grille')
-    code_type_fonction = fields.Char(related='nature_travail_id.code_type_fonction',
-                                     string='Code Type Fonction', store=True)
+    # grille_id = fields.Many2one('rh.grille')
+    # code_type_fonction = fields.Char(related='nature_travail_id.code_type_fonction',
+    #                                  string='Code Type Fonction', store=True)
     date_avancement = fields.Date()
     ref = fields.Char()
     date_ref = fields.Date()
@@ -99,7 +100,7 @@ class HrEmployeInherited(models.Model):
     address_perso = fields.Text()
     planning_choix_id = fields.Many2one('ressource_humaine.choisir.planning')
     emphy_id = fields.Many2one('rh.emphy')
-
+    num_national = fields.Char(help="Il s'agit du numéro d'identité nationale de l'employé")
 
     @api.constrains('jour_sup')
     def _check_jour_sup_max_value(self):
@@ -108,6 +109,16 @@ class HrEmployeInherited(models.Model):
             if record.jour_sup > max_value:
                 raise ValidationError('The maximum value for jour_sup is 12.0')
 
+    # @api.depends('nom_ar', 'prenom_ar')
+    # def _compute_nom(self):
+    #     print('employee.name')
+    #     for employee in self:
+    #         print('employee.name')
+    #         if employee.nom_ar != '' and employee.prenom_ar != '':
+    #             print('employee.name')
+    #             print(employee.name)
+    #             employee.name = employee.nom_ar + ' ' + employee.prenom_ar
+    #             print(employee.name)
 
     @api.depends('birthday')
     def calculer_age_employee(self):
@@ -161,6 +172,29 @@ class HrEmployeInherited(models.Model):
     experience_months = fields.Integer(compute="_compute_experience", store=True)
     experience_days = fields.Integer(compute="_compute_experience", store=True)
 
+    @api.onchange('grille_id')
+    def _onchange_grille_id(self):
+        domain = []
+        if self.grille_id:
+            self.groupe_id = False
+            self.categorie_id = False
+            self.section_id = False
+            self.echelon_id = False
+        if self.groupe_id:
+            return {'domain': {'groupe_id': [('grille_id', '=', self.grille_id.id)]}}
+        else:
+            return {'domain': {'categorie_id': [('grille_id', '=', self.grille_id.id),('type_fonction_id', '=', self.nature_travail_id.id)]}}
+
+    # @api.onchange('groupe_id')
+    # def _onchange_groupe_id(self):
+    #     if self.groupe_id:
+    #         self.categorie_id = False
+    #         self.section_id = False
+    #         self.echelon_id = False
+    #         return {'domain': {'categorie_id': [('groupe_id', '=', self.groupe_id.id)]}}
+    #     else:
+    #         return {'domain': {'categorie_id': []}}
+
     @api.onchange('groupe_id')
     def onchange_groupe(self):
         for rec in self:
@@ -178,6 +212,9 @@ class HrEmployeInherited(models.Model):
 
     @api.onchange('categorie_id')
     def onchange_categorie(self):
+        if self.categorie_id:
+            self.section_id = False
+            self.echelon_id = False
         for rec in self:
             domain = []
             if rec.categorie_id:
@@ -204,6 +241,8 @@ class HrEmployeInherited(models.Model):
     @api.onchange('section_id')
     def onchange_section(self):
         domain = []
+        if self.section_id:
+            self.echelon_id = False
         for rec in self:
             if rec.section_id:
                 rec.indice_base = rec.section_id.indice_base
