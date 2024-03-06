@@ -91,32 +91,71 @@
                         <div style="font-size: 20px; text-align: right;">
                         <span style="display: inline-block;">
                              - وبناء على المقرر رقم
-                            <t t-esc="line.promotion_id.ref_ouverture_examin"/>
+                            <t t-esc="promotion.ref_ouverture_examin"/>
 المؤرخ في
-                            <t t-esc="line.promotion_id.date_ref_ouverture_examin"/>
+                            <t t-esc="promotion.date_ref_ouverture_examin"/>
                             فتح امتحان مهني للإتحاق
                         </span>
                         </div>
                         <br/>
+
+                        <br/>
+
+                        <div style="font-size: 20px; text-align: right;">
+                            <t t-if="line.employee_id.gender == 'male'">
+                                <span>
+                                    <t t-esc="line.ref_promotion"/>
+                                    ـ بناء على مقرر الترقية رقم
+                                    <br/>
+                                    المؤرخ في
+                                    <t t-esc="line.date_ref_promotion"/>
+                                    المتضمن ترقية السيد
+                                </span>
+                            </t>
+
+<!--                                <span>-->
+<!--                                    <t t-esc="line.code_line"/>-->
+<!--                                    ـ بناء على مقرر الترقية رقم-->
+<!--                                    <br/>-->
+<!--                                    المؤرخ في-->
+<!--&lt;!&ndash;                                    <t t-esc="line_date_ref.get(line.id, '')"/>&ndash;&gt;-->
+<!--                                    المتضمن ترقية-->
+<!--                                </span>-->
+                                  <t t-if="line.employee_id.gender == 'male'">
+                                السيد
+                            </t>
+                            <t t-if="line.employee_id.gender == 'female'">
+                               السيدة
+                            </t>
+                            <span>
+                                <t t-esc="line.employee_id.name"/>
+
+                                عن طريق الترقية الإختيارية في سلك
+                                <t t-esc="line.grade_id.corps_id.intitule_corps"/>
+                                في رتبة
+                                <t t-esc="line.grade_id.intitule_grade"/>
+                                ابتداء من
+                                <t t-esc="line.date_grade"/>
+                            </span>
+                        </div>
+                        <br/>
                         <div style="font-size: 20px; text-align: right;">
                             <span>
-                                <t t-if="not line.employee_id.corps_id.filiere_id.code_group">
-                                    ـ وبناء على المقرر الجماعي رقم.....
+                                <t t-if="not line.employee_id.ref">
+                                    ـ وبناء على المقرر رقم.....
                                 </t>
-                                <t t-if="line.employee_id.corps_id.filiere_id.code_group">
-                                    ـ وبناء على المقرر الجماعي رقم
-                                    <t t-esc="line.employee_id.corps_id.filiere_id.code_group"/>
+                                <t t-if="line.employee_id.ref">
+                                    ـ وبناء على المقرر رقم
+                                    <t t-esc="line.employee_id.ref"/>
                                 </t>
-                                <t t-if="not line.employee_id.corps_id.filiere_id.code_group">
+                                <t t-if="not line.employee_id.date_ref">
                                     المؤرخ في .................
                                 </t>
-                                <t t-if="line.employee_id.corps_id.filiere_id.code_group">
+                                <t t-if="line.employee_id.date_ref">
                                     المؤرخ في
-<!--                                    <t t-esc="line_date_code.get(line.id, '')"/>-->
+                                    <t t-esc="line.employee_id.date_ref"/>
                                 </t>
-                                المتعلق بإعادة
-                                ترتيب
-                                الموظفين، و المتضمن ترتيب
+                                المتضمن ترقية
                             </span>
                             <t t-if="line.employee_id.gender == 'male'">
                                 السيد
@@ -126,53 +165,16 @@
                             </t>
                             <span>
                                 <t t-esc="line.employee_id.name"/>
-                                في رتبة
-<!--                                <t t-esc="line.grade_id.intitule_grade"/>-->
-                                الصنف
-<!--                                <t t-esc="line.categorie_old_id.intitule"/>-->
+                                في الصنف
+                                <t t-esc="line.employee_id.categorie_id.intitule"/>
                                 الدرجة
-<!--                                <t t-esc="line.echelon_old_id.intitule"/>-->
+                                <t t-esc="line.employee_id.echelon_id.intitule"/>
                                 الموافقة للرقم الاستدلالي
-<!--                                <t t-esc="line.echelon_old_id.indice_echelon+line.categorie_old_id.Indice_minimal"/>-->
+                                <t t-esc="line.employee_id.echelon_id.indice_echelon+line.employee_id.categorie_id.Indice_minimal"/>
                                 ابتداء من تاريخ
-<!--                                <t t-esc="line_date_old_avancement.get(line.id, '')"/>-->
+                                <t t-esc="line.employee_id.date_avancement"/>
                             </span>
                         </div>
-                        <br/>
-                        <div style="font-size: 20px; text-align: right;">
-                            <t t-if="line.employee_id.gender == 'male'">
-                                <span>
-<!--                                    <t t-esc="line.ref"/>-->
-                                    ـ بناء على مقرر الترقية رقم
-                                    <br/>
-                                    المؤرخ في
-<!--                                    <t t-esc="line_date_ref.get(line.id, '')"/>-->
-                                    المتضمن ترقية السيد
-                                </span>
-                            </t>
-                            <t t-if="line.employee_id.gender == 'female'">
-                                <span>
-                                    <t t-esc="line.code_line"/>
-                                    ـ بناء على مقرر الترقية رقم
-                                    <br/>
-                                    المؤرخ في
-<!--                                    <t t-esc="line_date_ref.get(line.id, '')"/>-->
-                                    المتضمن ترقية السيدة
-                                </span>
-                            </t>
-                            <span>
-                                <t t-esc="line.employee_id.name"/>
-                                في رتبة
-<!--                                <t t-esc="line.grade_id.intitule_grade"/>-->
-                                إلى الدرجة
-<!--                                <t t-esc="line.echelon_old_id.intitule"/>-->
-                                الرقم الاستدلالي
-<!--                                <t t-esc="line.echelon_old_id.indice_echelon+line.categorie_old_id.Indice_minimal"/>-->
-                                ابتداء من
-<!--                                <t t-esc="line_date_old_avancement.get(line.id, '')"/>-->
-                            </span>
-                        </div>
-                        <br/>
                         <div style="font-size: 20px; text-align: right;">
                             <span>
                                 <t t-if="promotion.code">
