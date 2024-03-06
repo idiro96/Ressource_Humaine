@@ -179,11 +179,11 @@
 
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='birthday']"
                        position="before">
-                    <field name="prenom_ar" string="prnom"/>
+                    <field name="prenom_ar"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='prenom_ar']"
                        position="before">
-                    <field name="nom_ar" required="True" string="nom"/>
+                    <field name="nom_ar" required="True"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='birthday']"
                        position="attributes">

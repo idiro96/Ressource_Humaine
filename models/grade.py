@@ -25,20 +25,21 @@ class RHGrade(models.Model):
     max_employee = fields.Integer(default=10, store=True)
     nombre_de_postes_vacants = fields.Integer(compute='_compute_nombre_de_postes_vacants', store=True)
 
-    @api.depends('employee_ids.grade_id', 'employee_ids.active', 'employee_ids.nature_travail_id')
+    @api.depends('employee_ids.grade_id', 'employee_ids.active', 'employee_ids.nature_travail_id',
+                 'employee_ids.methode_embauche')
     def _compute_employees(self):
-        employee_data = self.env['hr.employee'].read_group(
-            [
-                ('grade_id', 'in', self.ids),
-                ('nature_travail_id.code_type_fonction', '!=', 'postesuperieure'),
-                ('nature_travail_id.code_type_fonction', '!=', 'fonctionsuperieure'),
-            ],
-            ['grade_id'],
-            ['grade_id']
-        )
-        result = dict((data['grade_id'][0], data['grade_id_count']) for data in employee_data)
         for grade in self:
-            grade.no_of_employee = result.get(grade.id, 0)
+            query = """
+                SELECT grade_id, COUNT(*) AS grade_id_count
+                FROM hr_employee
+                WHERE grade_id = %s AND 
+                      nature_travail_id IN (SELECT id FROM rh_type_fonction WHERE code_type_fonction NOT IN ('postesuperieure', 'fonctionsuperieure')) AND
+                      methode_embauche = %s
+                GROUP BY grade_id
+            """
+            self.env.cr.execute(query, (grade.id, 'recrutement'))
+            result = self.env.cr.dictfetchone()
+            grade.no_of_employee = result.get('grade_id_count', 0)
 
     @api.depends('employee_ids.grade_id', 'employee_ids.active', 'employee_ids.type_id.code_type_contract')
     def _compute_employees_contract(self):

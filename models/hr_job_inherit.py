@@ -22,6 +22,8 @@ class HrJobInherited(models.Model):
     nombre_de_postes_vacants = fields.Integer(compute='_compute_nombre_de_postes_vacants', store=True, )
     code_type_fonction = fields.Char(related='nature_travail_id.code_type_fonction',
                                      string='Code Type Fonction', store=True)
+    methode_embauche = fields.Selection([('recrutement', 'Recrutement'), ('transfert', 'Transfert'),
+                                         ('detachement', 'Detachement'), ], related='employee_ids.methode_embauche')
 
     # @api.constrains('no_of_employee', 'max_employee')
     # def _check_max_employee_limit(self):
@@ -43,8 +45,32 @@ class HrJobInherited(models.Model):
     @api.depends('no_of_recruitment', 'employee_ids.job_id', 'employee_ids.active', 'employee_ids.methode_embauche')
     def _compute_employees(self):
         for job in self:
-            if job.employee_ids.methode_embauche == 'recrutement':
-                employee_data = self.env['hr.employee'].read_group([('job_id', 'in', job.ids)], ['job_id'], ['job_id'])
-                result = dict((data['job_id'][0], data['job_id_count']) for data in employee_data)
-                job.no_of_employee = result.get(job.id, 0)
-                job.expected_employees = result.get(job.id, 0) + job.no_of_recruitment
+            # Updated query to consider all values of 'methode_embauche'
+            query = """
+                    SELECT job_id, COUNT(*) AS job_id_count
+                    FROM hr_employee
+                    WHERE job_id = %s AND methode_embauche = %s
+                    GROUP BY job_id
+                """
+            self.env.cr.execute(query, (job.id, 'recrutement'))
+            result = self.env.cr.dictfetchone()
+            job.no_of_employee = result.get('job_id_count', 0)
+            job.expected_employees = result.get('job_id_count', 0) + job.no_of_recruitment
+
+    @api.multi
+    def _update_employee_count(self, old_methode_embauche, new_methode_embauche):
+        query = """
+                UPDATE hr_employee
+                SET job_id = %s
+                WHERE job_id = %s AND methode_embauche = %s
+            """
+        for job in self:
+            self.env.cr.execute(query, (job.id, job.id, old_methode_embauche))
+            self.env.cr.execute(query, (job.id, job.id, new_methode_embauche))
+
+    @api.onchange('methode_embauche')
+    def _onchange_methode_embauche(self):
+        old_methode_embauche = self._origin.methode_embauche
+        new_methode_embauche = self.methode_embauche
+        if old_methode_embauche != new_methode_embauche:
+            self._update_employee_count(old_methode_embauche, new_methode_embauche)
