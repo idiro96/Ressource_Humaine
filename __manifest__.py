@@ -101,6 +101,7 @@
         'wizards/attestation_travail_wizard.xml',
         'wizards/programme_surveillance_employee.xml',
         'wizards/organization_chart.xml',
+        'wizards/arret_salaire.xml',
         'reports/paper_format.xml',
         'reports/hr_contract.xml',
         'reports/attestation_travail.xml',
@@ -128,7 +129,7 @@
         'reports/planning_notice.xml',
         'reports/organization_chart.xml',
         'reports/no_background_cnas.xml',
-
+        'reports/arret_salaire_rapport.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

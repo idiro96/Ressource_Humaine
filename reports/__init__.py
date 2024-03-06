@@ -15,4 +15,5 @@ from . import attestation_de_cessation
 from . import rapport_retraite_text
 from . import planning_notice
 from . import no_background_cnas
+from . import arret_salaire_rapport
 
