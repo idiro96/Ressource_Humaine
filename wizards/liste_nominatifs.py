@@ -174,6 +174,8 @@ class PlanningCongeReport(models.AbstractModel):
                      'promotion_lines_cdi_partiel': None,
                      'promotion_lines_cdd_partiel': None})
 
+        employees_detachement = self.env['hr.employee'].search('position_statutaire', '=', 'detachement')
+
         report_data = {
             'job_sup': supp_employees,
             'job_hight': hight_employees,
@@ -184,6 +186,7 @@ class PlanningCongeReport(models.AbstractModel):
             'grade_d_filtered': grade_d_filtered_employees,
             'grade_ing': grade_ing_employees,
             'grade_contract': grade_contract_employees,
+            'employees_detachement': employees_detachement,
         }
 
         return report_data
