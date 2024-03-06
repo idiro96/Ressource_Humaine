@@ -39,9 +39,14 @@ class RHGrade(models.Model):
             """
             self.env.cr.execute(query, (grade.id, 'recrutement'))
             result = self.env.cr.dictfetchone()
-            grade.no_of_employee = result.get('grade_id_count', 0)
 
-    @api.depends('employee_ids.grade_id', 'employee_ids.active', 'employee_ids.type_id.code_type_contract')
+            if result:
+                grade.no_of_employee = result.get('grade_id_count', 0)
+            else:
+                grade.no_of_employee = 0
+
+    @api.depends('employee_ids.grade_id', 'employee_ids.active', 'employee_ids.type_id.code_type_contract',
+                 'employee_ids.methode_embauche')
     def _compute_employees_contract(self):
         contract_types = {
             'pleintemps_indeterminee': 'no_of_employee_cdi_plein',
@@ -54,7 +59,8 @@ class RHGrade(models.Model):
             employee_data = self.env['hr.employee'].read_group(
                 [
                     ('grade_id', 'in', self.ids),
-                    ('type_id.code_type_contract', '=', contract_type)
+                    ('type_id.code_type_contract', '=', contract_type),
+                    ('methode_embauche', '=', 'recrutement')
                 ],
                 ['grade_id'], ['grade_id']
             )

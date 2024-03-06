@@ -208,4 +208,13 @@
             name="ressource_humaine.organization_chart_report"
             file="الهيكل التنظيمي"
             paperformat="ressource_humaine.paperformat_european_a4_landscape"/>
+
+    <report
+            id="action_no_background_cnas"
+            model="hr.employee"
+            string="Attestation de Travail et de Salaire (sans fond)"
+            report_type="qweb-pdf"
+            name="ressource_humaine.no_background_cnas_report"
+            file="ressource_humaine.no_background_cnas_report"
+            paperformat="ressource_humaine.paperformat_european_a4_portrait"/>
 </odoo>

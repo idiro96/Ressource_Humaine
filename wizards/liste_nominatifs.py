@@ -17,7 +17,7 @@ class PlanningCongeReport(models.AbstractModel):
         job_sup = self.env['hr.job'].search([('nature_travail_id.code_type_fonction', '=', 'postesuperieure')])
         supp_employees = []
         for job in job_sup:
-            employees = self.env['hr.employee'].search([('job_id', '=', job.id)])
+            employees = self.env['hr.employee'].search([('job_id', '=', job.id), ('position_statutaire', '=', 'activite')])
             promotion_lines = self.env['rh.promotion.line'].search([('employee_id', 'in', employees.ids)],
                                                                    order='date_new_grade DESC', limit=1)
             if promotion_lines:
@@ -28,7 +28,7 @@ class PlanningCongeReport(models.AbstractModel):
         job_hight = self.env['hr.job'].search([('nature_travail_id.code_type_fonction', '=', 'fonctionsuperieure')])
         hight_employees = []
         for job in job_hight:
-            employees = self.env['hr.employee'].search([('job_id', '=', job.id)])
+            employees = self.env['hr.employee'].search([('job_id', '=', job.id), ('position_statutaire', '=', 'activite')])
             promotion_lines = self.env['rh.promotion.line'].search([('employee_id', 'in', employees.ids)],
                                                                    order='date_new_grade DESC', limit=1)
             if promotion_lines:
@@ -41,7 +41,7 @@ class PlanningCongeReport(models.AbstractModel):
         for grade in grade_enseignant:
             employees = self.env['hr.employee'].search(
                 [('grade_id', '=', grade.id), ('nature_travail_id.code_type_fonction', '!=', 'postesuperieure'),
-                 ('nature_travail_id.code_type_fonction', '!=', 'fonctionsuperieure')])
+                 ('nature_travail_id.code_type_fonction', '!=', 'fonctionsuperieure'), ('position_statutaire', '=', 'activite')])
             promotion_lines = self.env['rh.promotion.line'].search([('employee_id', 'in', employees.ids)],
                                                                    order='date_new_grade DESC', limit=1)
             if promotion_lines:
@@ -56,7 +56,7 @@ class PlanningCongeReport(models.AbstractModel):
         for grade in grade_a_excluded:
             employees = self.env['hr.employee'].search(
                 [('grade_id', '=', grade.id), ('nature_travail_id.code_type_fonction', '!=', 'postesuperieure'),
-                 ('nature_travail_id.code_type_fonction', '!=', 'fonctionsuperieure')])
+                 ('nature_travail_id.code_type_fonction', '!=', 'fonctionsuperieure'), ('position_statutaire', '=', 'activite')])
             promotion_lines = self.env['rh.promotion.line'].search([('employee_id', 'in', employees.ids)],
                                                                    order='date_new_grade DESC', limit=1)
             if promotion_lines:
@@ -70,7 +70,7 @@ class PlanningCongeReport(models.AbstractModel):
         for grade in grade_b:
             employees = self.env['hr.employee'].search(
                 [('grade_id', '=', grade.id), ('nature_travail_id.code_type_fonction', '!=', 'postesuperieure'),
-                 ('nature_travail_id.code_type_fonction', '!=', 'fonctionsuperieure')])
+                 ('nature_travail_id.code_type_fonction', '!=', 'fonctionsuperieure'), ('position_statutaire', '=', 'activite')])
             promotion_lines = self.env['rh.promotion.line'].search([('employee_id', 'in', employees.ids)],
                                                                    order='date_new_grade DESC', limit=1)
             if promotion_lines:
@@ -84,7 +84,8 @@ class PlanningCongeReport(models.AbstractModel):
         for grade in grade_c:
             employees = self.env['hr.employee'].search(
                 [('grade_id', '=', grade.id), ('nature_travail_id.code_type_fonction', '!=', 'postesuperieure'),
-                 ('nature_travail_id.code_type_fonction', '!=', 'fonctionsuperieure')])
+                 ('nature_travail_id.code_type_fonction', '!=', 'fonctionsuperieure'), ('position_statutaire', '=', 'activite')
+                 ])
             promotion_lines = self.env['rh.promotion.line'].search([('employee_id', 'in', employees.ids)],
                                                                    order='date_new_grade DESC', limit=1)
             if promotion_lines:
@@ -97,12 +98,12 @@ class PlanningCongeReport(models.AbstractModel):
         grade_ing = self.env['rh.grade'].search([('categorie_id.groupe_id.name', 'ilike', '%المجموعة د%'),
                                                  ('corps_id.intitule_corps', 'ilike', '%مهن%')])
         grade_contract = self.env['rh.grade'].search([('corps_id.intitule_corps', 'ilike', '%متعاقد%')])
-        grade_d_filtered = grade_d - grade_ing - grade_contract
+        grade_d_filtered = grade_d - grade_ing
         grade_d_filtered_employees = []
         for grade in grade_d_filtered:
             employees = self.env['hr.employee'].search(
                 [('grade_id', '=', grade.id), ('nature_travail_id.code_type_fonction', '!=', 'postesuperieure'),
-                 ('nature_travail_id.code_type_fonction', '!=', 'fonctionsuperieure')])
+                 ('nature_travail_id.code_type_fonction', '!=', 'fonctionsuperieure'), ('position_statutaire', '=', 'activite')])
             promotion_lines = self.env['rh.promotion.line'].search([('employee_id', 'in', employees.ids)],
                                                                    order='date_new_grade DESC', limit=1)
             if promotion_lines:
@@ -115,7 +116,7 @@ class PlanningCongeReport(models.AbstractModel):
         for grade in grade_ing:
             employees = self.env['hr.employee'].search(
                 [('grade_id', '=', grade.id), ('nature_travail_id.code_type_fonction', '!=', 'postesuperieure'),
-                 ('nature_travail_id.code_type_fonction', '!=', 'fonctionsuperieure')])
+                 ('nature_travail_id.code_type_fonction', '!=', 'fonctionsuperieure'), ('position_statutaire', '=', 'activite')])
             promotion_lines = self.env['rh.promotion.line'].search([('employee_id', 'in', employees.ids)],
                                                                    order='date_new_grade DESC', limit=1)
             if promotion_lines:
@@ -128,25 +129,25 @@ class PlanningCongeReport(models.AbstractModel):
         for grade in grade_contract:
             employees_cdi_plein = self.env['hr.employee'].search(
                 [('grade_id', '=', grade.id), ('nature_travail_id.code_type_fonction', '=', 'contractuel'),
-                 ('type_id.code_type_contract', '=', 'pleintemps_indeterminee')])
+                 ('type_id.code_type_contract', '=', 'pleintemps_indeterminee'), ('position_statutaire', '=', 'activite')])
             promotion_lines_cdi_plein = self.env['rh.promotion.line'].search(
                 [('employee_id', 'in', employees_cdi_plein.ids)],
                 order='date_new_grade DESC', limit=1)
             employees_cdd_plein = self.env['hr.employee'].search(
                 [('grade_id', '=', grade.id), ('nature_travail_id.code_type_fonction', '=', 'contractuel'),
-                 ('type_id.code_type_contract', '=', 'pleintemps_determinee')])
+                 ('type_id.code_type_contract', '=', 'pleintemps_determinee'), ('position_statutaire', '=', 'activite')])
             promotion_lines_cdd_plein = self.env['rh.promotion.line'].search(
                 [('employee_id', 'in', employees_cdd_plein.ids)],
                 order='date_new_grade DESC', limit=1)
             employees_cdi_partiel = self.env['hr.employee'].search(
                 [('grade_id', '=', grade.id), ('nature_travail_id.code_type_fonction', '=', 'contractuel'),
-                 ('type_id.code_type_contract', '=', 'partiel_indeterminee')])
+                 ('type_id.code_type_contract', '=', 'partiel_indeterminee'), ('position_statutaire', '=', 'activite')])
             promotion_lines_cdi_partiel = self.env['rh.promotion.line'].search(
                 [('employee_id', 'in', employees_cdi_partiel.ids)],
                 order='date_new_grade DESC', limit=1)
             employees_cdd_partiel = self.env['hr.employee'].search(
                 [('grade_id', '=', grade.id), ('nature_travail_id.code_type_fonction', '=', 'contractuel'),
-                 ('type_id.code_type_contract', '=', 'partiel_determinee')])
+                 ('type_id.code_type_contract', '=', 'partiel_determinee'), ('position_statutaire', '=', 'activite')])
             promotion_lines_cdd_partiel = self.env['rh.promotion.line'].search(
                 [('employee_id', 'in', employees_cdd_partiel.ids)],
                 order='date_new_grade DESC', limit=1)

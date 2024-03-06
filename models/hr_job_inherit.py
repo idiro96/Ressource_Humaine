@@ -52,10 +52,14 @@ class HrJobInherited(models.Model):
                     WHERE job_id = %s AND methode_embauche = %s
                     GROUP BY job_id
                 """
-            self.env.cr.execute(query, (job.id, 'recrutement'))
+            job_id = job.id if job.id else None  # Use None if job.id is None (NewId)
+            self.env.cr.execute(query, (job_id, 'recrutement'))
             result = self.env.cr.dictfetchone()
-            job.no_of_employee = result.get('job_id_count', 0)
-            job.expected_employees = result.get('job_id_count', 0) + job.no_of_recruitment
+
+            if result is not None:
+                job.no_of_employee = result.get('job_id_count', 0)
+            else:
+                job.no_of_employee = 0
 
     @api.multi
     def _update_employee_count(self, old_methode_embauche, new_methode_embauche):
