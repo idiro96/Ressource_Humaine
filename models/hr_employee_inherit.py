@@ -25,6 +25,8 @@ class HrEmployeInherited(models.Model):
     date_fin_relation = fields.Date()
     date_debut_emploi = fields.Date()
     numero_securite_social = fields.Char()
+    ref_promotion = fields.Char()
+    date_ref_promotion = fields.Date()
     prenom_pere = fields.Char()
     nom_mere = fields.Char()
     prenom_mere = fields.Char()
@@ -188,7 +190,7 @@ class HrEmployeInherited(models.Model):
         if self.groupe_id:
             return {'domain': {'groupe_id': [('grille_id', '=', self.grille_id.id)]}}
         else:
-            return {'domain': {'categorie_id': [('grille_id', '=', self.grille_id.id),('type_fonction_id', '=', self.nature_travail_id.id)]}}
+            return {'domain': {'categorie_id': [('grille_id', '=', self.grille_id.id)]}}
 
     # @api.onchange('groupe_id')
     # def _onchange_groupe_id(self):
@@ -215,15 +217,6 @@ class HrEmployeInherited(models.Model):
         res = {'domain': {'categorie_id': domain}}
         print(res)
         return res
-
-    # @api.constrains('categorie_id')
-    # def _contraint_categorie_id(self):
-    #     for rec in self:
-    #         if rec.categorie_id:
-    #             groupe = self.env['rh.groupe'].search([('id', '=', rec.categorie_id.groupe_id.id)])
-    #             if rec.groupe_id.id != groupe.id:
-    #                 rec.categorie_id = None
-    #             # categorie = self.env['rh.categorie'].search([('id', '=', rec.categorie_id.id)])
 
 
     @api.onchange('categorie_id')

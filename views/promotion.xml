@@ -9,7 +9,6 @@
                 <field name="code"/>
                 <field name="date_promotion" required="1"/>
                 <field name="date_examin_professionnel"/>
-
             </tree>
         </field>
 
@@ -28,6 +27,11 @@
                             <field name="code"/>
                             <field name="date_promotion" required="1"/>
                             <field name="date_examin_professionnel"/>
+                            <field name="date_signature"/>
+                        </group>
+                         <group>
+                          <field name="ref_ouverture_examin"/>
+                            <field name="date_ref_ouverture_examin"/>
                         </group>
                     </group>
                     <notebook>
