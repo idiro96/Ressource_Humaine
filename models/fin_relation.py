@@ -74,3 +74,13 @@ class RHFinRelation(models.Model):
             'date_fin_relation': vals['date_fin_relation'],
         })
         return fin_relation
+
+    def action_arret_de_salaire(self):
+        print()
+        return {
+            'type': 'ir.actions.act_window',
+            'target': 'new',
+            'name': 'decision arret salaire',
+            'view_mode': 'form',
+            'res_model': 'arret.salaire',
+        }
