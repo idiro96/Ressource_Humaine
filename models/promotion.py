@@ -63,6 +63,8 @@ class RHPromotion(models.Model):
                         'grade_new_id': rec.grade_new_id.id,
                         'date_new_grade': rec.date_new_grade,
                         'duree': rec.duree,
+                        'ref_promotion': rec.employee_id.ref_promotion,
+                        'date_ref_promotion': rec.employee_id.date_ref_promotion
                     })
                     employee = self.env['hr.employee'].search([('id', '=', rec.employee_id.id)])
                     grade = self.env['rh.grade'].search([('grade_id', '=', rec.grade_new_id.id)])
@@ -70,6 +72,8 @@ class RHPromotion(models.Model):
                         employee.write({'corps_id': grade.corps_id.id})
                     employee.write({'grade_id': rec.grade_new_id.id})
                     employee.write({'date_grade': rec.date_new_grade})
+                    employee.write({'ref_promotion': self.ref_ouverture_examin})
+                    employee.write({'date_ref_promotion': self.date_ref_ouverture_examin})
                 elif rec.employee_id.nature_travail_id.code_type_fonction == 'fonctionsuperieure':
                     promo_line = self.env['rh.promotion.line'].create({
                         'employee_id': rec.employee_id.id,
@@ -83,6 +87,8 @@ class RHPromotion(models.Model):
                         'grade_new_id': rec.grade_new_id.id,
                         'date_new_grade': rec.date_new_grade,
                         'duree': rec.duree,
+                        'ref_promotion': rec.employee_id.ref_promotion,
+                        'date_ref_promotion': rec.employee_id.date_ref_promotion,
 
                     })
                     employee = self.env['hr.employee'].search([('id', '=', rec.employee_id.id)])
@@ -91,6 +97,8 @@ class RHPromotion(models.Model):
                         employee.write({'corps_id': grade.corps_id.id})
                     employee.write({'grade_id': rec.grade_new_id.id})
                     employee.write({'date_grade': rec.date_new_grade})
+                    employee.write({'ref_promotion': self.ref_ouverture_examin})
+                    employee.write({'date_ref_promotion': self.date_ref_ouverture_examin})
                 elif rec.employee_id.nature_travail_id.code_type_fonction == 'postesuperieure':
                     promo_line = self.env['rh.promotion.line'].create({
                         'employee_id': rec.employee_id.id,
@@ -102,7 +110,9 @@ class RHPromotion(models.Model):
                         'grade_id': rec.grade_id.id,
                         'date_grade': rec.date_grade,
                         'grade_new_id': rec.grade_new_id.id,
-                        'date_new_grade': rec.date_new_grade
+                        'date_new_grade': rec.date_new_grade,
+                        'ref_promotion': rec.employee_id.ref_promotion,
+                        'date_ref_promotion': rec.employee_id.date_ref_promotion
 
                     })
                     print('errrrrrrrreeeeeeeeeeeerre2')
@@ -113,6 +123,8 @@ class RHPromotion(models.Model):
                         employee.write({'corps_id': grade.corps_id.id})
                     employee.write({'grade_id': rec.grade_new_id.id})
                     employee.write({'date_grade': rec.date_new_grade})
+                    employee.write({'ref_promotion': self.ref_ouverture_examin})
+                    employee.write({'date_ref_promotion': self.date_ref_ouverture_examin})
         else:
             raise UserError("Vous ne pouvez pas enregistrer une liste vide")
         return promotion

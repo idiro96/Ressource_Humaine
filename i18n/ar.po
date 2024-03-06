@@ -83667,13 +83667,18 @@ msgstr "رقم فتح الامتحان"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_date_ref_promotion
-msgid "Date Ref Promotion"
+msgid "date_promotion"
 msgstr "تاريخ رقم الترقية"
 
 #. module: ressource_humaine
-#: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_date_ref_ouverture_examin
-msgid "Date Ref Ouverture Examin"
-msgstr "تاريخ رقم فتح الامتحان"
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_ref_ouverture_examin
+msgid "Ref Ouverture Examin"
+msgstr "رقم فتح الامتحان"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_date_signature
+msgid "Date Signature"
+msgstr "تاريخ الإمضاء"
 
 #. module: ressource_humaine
 #: model:ir.actions.report,name:ressource_humaine.action_no_background_cnas

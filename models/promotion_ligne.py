@@ -25,6 +25,8 @@ class RHPromotionLine(models.Model):
     imprimer = fields.Boolean(Default=False)
     code_line = fields.Char()
     date_creation = fields.Char(compute="_compute_date", store=True)
+    ref_promotion = fields.Char()
+    date_ref_promotion = fields.Date()
 
     @api.depends('code_line')
     def _compute_date(self):
