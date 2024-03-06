@@ -10,7 +10,10 @@ class RHPromotion(models.Model):
 
     date_examin_professionnel= fields.Date()
     date_promotion = fields.Date()
+    date_signature = fields.Date()
     code = fields.Char()
+    ref_ouverture_examin = fields.Char()
+    date_ref_ouverture_examin = fields.Date()
     promotion_lines = fields.One2many('rh.promotion.line', inverse_name='promotion_id')
     promotion_file_lines = fields.One2many('rh.file', 'promotion_id')
     promotion_lines_wizard = fields.One2many('rh.promotion.line.wizard', inverse_name='promotion_id')
@@ -196,4 +199,87 @@ class TableauDesPromotions(models.AbstractModel):
 
         return report_data
 
+
+class DroitPromotionReport(models.AbstractModel):
+    _name = 'report.ressource_humaine.droit_promotion_report'
+
+    @api.model
+    def get_report_values(self, docids, data=None):
+        promotion = self.env['rh.promotion'].browse(docids[0])
+
+        promotion_lines = promotion.promotion_lines
+
+        line_date_old_promotion = {}
+        for rec in promotion_lines:
+            date_old_promotion_str = rec.date_grade
+            if date_old_promotion_str:
+                formatted_date_old_promotion = datetime.strptime(date_old_promotion_str, "%Y-%m-%d").strftime(
+                    "%d-%m-%Y")
+                line_date_old_promotion[rec.id] = formatted_date_old_promotion
+            else:
+                line_date_old_promotion[rec.id] = ''
+
+        line_date_ref = {}
+        # for rec in promotion_lines:
+        #     date_ref_str = rec.date_ref
+        #     if date_ref_str:
+        #         formatted_date_ref = datetime.strptime(date_ref_str, "%Y-%m-%d").strftime(
+        #             "%d-%m-%Y")
+        #         line_date_ref[rec.id] = formatted_date_ref
+        #     else:
+        #         line_date_ref[rec.id] = ''
+
+        line_date_promotion = {}
+        for rec in promotion:
+            date_promotion_str = rec.date_promotion
+            if date_promotion_str:
+                formatted_date_promotion = datetime.strptime(date_promotion_str, "%Y-%m-%d").strftime(
+                    "%d-%m-%Y")
+                line_date_promotion[rec.id] = formatted_date_promotion
+            else:
+                line_date_promotion[rec.id] = ''
+
+        line_date_signature = {}
+        for rec in promotion:
+            date_signature_str = rec.date_signature
+            if date_signature_str:
+                formatted_date_signature = datetime.strptime(date_signature_str, "%Y-%m-%d").strftime(
+                    "%d-%m-%Y")
+                line_date_signature[rec.id] = formatted_date_signature
+            else:
+                line_date_signature[rec.id] = '..................'
+
+        line_date_new_promotion = {}
+        for rec in promotion_lines:
+            date_new_promotion_str = rec.date_new_grade
+            if date_new_promotion_str:
+                formatted_date_new_promotion = datetime.strptime(date_new_promotion_str, "%Y-%m-%d").strftime(
+                    "%d-%m-%Y")
+                line_date_new_promotion[rec.id] = formatted_date_new_promotion
+            else:
+                line_date_new_promotion[rec.id] = ''
+
+        line_date_code = {}
+        for rec in promotion_lines:
+            date_code_str = rec.employee_id.corps_id.filiere_id.date_code
+            if date_code_str:
+                formatted_date_code = datetime.strptime(date_code_str, "%Y-%m-%d").strftime(
+                    "%d-%m-%Y")
+                line_date_code[rec.id] = formatted_date_code
+            else:
+                line_date_code[rec.id] = ''
+
+        report_data = {
+            'promotion': promotion,
+            'company': self.env.user.company_id,
+            'promotion_lines': promotion_lines,
+            'line_date_old_promotion': line_date_old_promotion,
+            'line_date_ref': line_date_ref,
+            'line_date_promotion': line_date_promotion,
+            'line_date_signature': line_date_signature,
+            'line_date_new_promotion': line_date_new_promotion,
+            'line_date_code': line_date_code,
+        }
+
+        return report_data
 

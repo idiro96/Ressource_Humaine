@@ -25,6 +25,8 @@ class HrEmployeInherited(models.Model):
     date_fin_relation = fields.Date()
     date_debut_emploi = fields.Date()
     numero_securite_social = fields.Char()
+    ref_promotion = fields.Char()
+    date_ref_promotion = fields.Date()
     prenom_pere = fields.Char()
     nom_mere = fields.Char()
     prenom_mere = fields.Char()
