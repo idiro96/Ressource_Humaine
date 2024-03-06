@@ -83,7 +83,7 @@
             report_type="qweb-html"
             name="ressource_humaine.droit_avancement_report"
             file="ressource_humaine.droit_avancementt_report"/>
-     <report
+    <report
             id="action_droit_promotion_report"
             string="Extrait du siège approuvant le calendrier des promotions de grade"
             model="rh.promotion"
@@ -217,12 +217,20 @@
             paperformat="ressource_humaine.paperformat_european_a4_landscape"/>
 
     <report
-        id="action_arret_retraite"
-        model="arret.salaire"
-        string=" مقرر توقيف الراتب الشهري"
-        report_type="qweb-html"
-        name="ressource_humaine.arret_salaire_rapport"
-        file="ressource_humaine.arret_salaire_rapport"/>
+            id="action_no_background_cnas"
+            model="hr.employee"
+            string="Attestation de Travail et de Salaire (sans fond)"
+            report_type="qweb-pdf"
+            name="ressource_humaine.no_background_cnas_report"
+            file="ressource_humaine.no_background_cnas_report"
+            paperformat="ressource_humaine.paperformat_european_a4_portrait"/>
 
+    <report
+            id="action_arret_retraite"
+            model="arret.salaire"
+            string=" مقرر توقيف الراتب الشهري"
+            report_type="qweb-html"
+            name="ressource_humaine.arret_salaire_rapport"
+            file="ressource_humaine.arret_salaire_rapport"/>
 
 </odoo>

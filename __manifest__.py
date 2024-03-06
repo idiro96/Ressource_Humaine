@@ -128,8 +128,8 @@
         'reports/attestation_de_cessation.xml',
         'reports/planning_notice.xml',
         'reports/organization_chart.xml',
+        'reports/no_background_cnas.xml',
         'reports/arret_salaire_rapport.xml',
-
     ],
     # only loaded in demonstration mode
     'demo': [
