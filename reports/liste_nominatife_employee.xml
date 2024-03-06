@@ -1454,40 +1454,40 @@
                     </strong>
                 </div>
                 <t t-foreach="grade_ing" t-as="grade_data">
-                    <br/>
-                    <br/>
-                    <div style="text-align: right;font-size:23px;">
-                        <t t-if="grade_data.get('grade')">
-                            <span>
-                                الرتبة
-                                :
-                                <span t-esc="grade_data['grade'].intitule_grade"/>
-                            </span>
-                            <br/>
-                            <span>
-                                الصنف:
-                                <span t-esc="grade_data['grade'].categorie_id.intitule"/>
-                            </span>
-                            <br/>
-                            <span>
-                                <span t-esc="grade_data['grade'].max_employee"/>
-                                : عدد المناصب المالية
-                            </span>
-                            <br/>
-                            <span>
-                                <span t-esc="grade_data['grade'].no_of_employee"/>
-                                : عدد المناصب الحقيقة
-                            </span>
-                            <br/>
-                            <span>
-                                <span t-esc="grade_data['grade'].nombre_de_postes_vacants"/>
-                                : عدد المناصب الشاغرة
-                            </span>
-                        </t>
-                        <br/>
-                        <br/>
-                    </div>
                     <t t-if="grade_data['employees']">
+                        <br/>
+                        <br/>
+                        <div style="text-align: right;font-size:23px;">
+                            <t t-if="grade_data.get('grade')">
+                                <span>
+                                    الرتبة
+                                    :
+                                    <span t-esc="grade_data['grade'].intitule_grade"/>
+                                </span>
+                                <br/>
+                                <span>
+                                    الصنف:
+                                    <span t-esc="grade_data['grade'].categorie_id.intitule"/>
+                                </span>
+                                <br/>
+                                <span>
+                                    <span t-esc="grade_data['grade'].max_employee"/>
+                                    : عدد المناصب المالية
+                                </span>
+                                <br/>
+                                <span>
+                                    <span t-esc="grade_data['grade'].no_of_employee"/>
+                                    : عدد المناصب الحقيقة
+                                </span>
+                                <br/>
+                                <span>
+                                    <span t-esc="grade_data['grade'].nombre_de_postes_vacants"/>
+                                    : عدد المناصب الشاغرة
+                                </span>
+                            </t>
+                            <br/>
+                            <br/>
+                        </div>
                         <div class="row" style="margin:15;">
                             <table style="width: 100%;">
                                 <thead>
@@ -1526,17 +1526,69 @@
                                         <t t-set="promotion_line"
                                            t-value="grade_data['promotion_lines'] and grade_data['promotion_lines'].filtered(lambda r: r.employee_id.id == employee.id) or None"/>
                                         <tr>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
-                                                <!--                                                                            <span t-field="line.employee_id"/>-->
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                                <!--                                                                            <span t-field="line.employee_id"/>-->
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
-                                                <t t-if="employee.position_statutaire == 'detachement'">
-                                                    <span>منتدب</span>
-                                                </t>
-                                                <t t-if="not employee.position_statutaire or employee.position_statutaire != 'detachement'">
+                                            <t t-if="employee.methode_embauche == 'recrutement'">
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
+                                                    <!--                                                                            <span t-field="line.employee_id"/>-->
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
+                                                    <!--                                                                            <span t-field="line.employee_id"/>-->
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
+                                                    <t t-if="employee.position_statutaire == 'detachement'">
+                                                        <span>منتدب</span>
+                                                    </t>
+                                                    <t t-if="not employee.position_statutaire or employee.position_statutaire != 'detachement'">
+                                                        <t t-if="employee.nomination == 'satagiaire'">
+                                                            <span>متربص</span>
+                                                        </t>
+                                                        <t t-if="employee.nomination == 'nomination'">
+                                                            <span>مرسم</span>
+                                                        </t>
+                                                        <t t-if="employee.nomination == 'contractuel'">
+                                                            <span>متعاقد</span>
+                                                        </t>
+                                                        <t t-if="not employee.nomination">
+                                                            <span>غير محدد</span>
+                                                        </t>
+                                                    </t>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
+                                                    <t t-if="promotion_line">
+                                                        <span t-esc="promotion_line.date_new_grade"/>
+                                                    </t>
+                                                    <t t-if="not promotion_line">
+                                                        <span t-esc="employee.date_grade"/>
+                                                    </t>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
+                                                    <t t-if="promotion_line">
+                                                        <span t-esc="promotion_line.grade_id.intitule_grade"/>
+                                                    </t>
+                                                    <t t-if="not promotion_line">
+                                                        <span t-esc="employee.grade_id.intitule_grade"/>
+                                                    </t>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
+                                                    <span t-esc="employee.date_entrer"/>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
+                                                    <span t-field="employee.birthday"/>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
+                                                    <span t-esc="employee.name"/>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
+                                                    <span t-esc="employee.numero_securite_social"/>
+                                                </td>
+                                            </t>
+                                            <t t-if="employee.methode_embauche != 'recrutement'">
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <!--                                                                            <span t-field="line.employee_id"/>-->
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <!--                                                                            <span t-field="line.employee_id"/>-->
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px;background-color:#90EE90">
                                                     <t t-if="employee.nomination == 'satagiaire'">
                                                         <span>متربص</span>
                                                     </t>
@@ -1549,36 +1601,36 @@
                                                     <t t-if="not employee.nomination">
                                                         <span>غير محدد</span>
                                                     </t>
-                                                </t>
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                                <t t-if="promotion_line">
-                                                    <span t-esc="promotion_line.date_new_grade"/>
-                                                </t>
-                                                <t t-if="not promotion_line">
-                                                    <span t-esc="employee.date_grade"/>
-                                                </t>
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
-                                                <t t-if="promotion_line">
-                                                    <span t-esc="promotion_line.grade_id.intitule_grade"/>
-                                                </t>
-                                                <t t-if="not promotion_line">
-                                                    <span t-esc="employee.grade_id.intitule_grade"/>
-                                                </t>
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                                <span t-esc="employee.date_entrer"/>
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                                <span t-field="employee.birthday"/>
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
-                                                <span t-esc="employee.name"/>
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                                <span t-esc="employee.numero_securite_social"/>
-                                            </td>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <t t-if="promotion_line">
+                                                        <span t-esc="promotion_line.date_new_grade"/>
+                                                    </t>
+                                                    <t t-if="not promotion_line">
+                                                        <span t-esc="employee.date_grade"/>
+                                                    </t>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <t t-if="promotion_line">
+                                                        <span t-esc="promotion_line.grade_id.intitule_grade"/>
+                                                    </t>
+                                                    <t t-if="not promotion_line">
+                                                        <span t-esc="employee.grade_id.intitule_grade"/>
+                                                    </t>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <span t-esc="employee.date_entrer"/>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <span t-field="employee.birthday"/>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <span t-esc="employee.name"/>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <span t-esc="employee.numero_securite_social"/>
+                                                </td>
+                                            </t>
                                         </tr>
                                     </t>
                                 </tbody>
@@ -1598,40 +1650,40 @@
                     </strong>
                 </div>
                 <t t-foreach="grade_contract" t-as="grade_data">
-                    <br/>
-                    <br/>
-                    <div style="text-align: right;font-size:23px;">
-                        <t t-if="grade_data.get('grade')">
-                            <span>
-                                الرتبة
-                                :
-                                <span t-esc="grade_data['grade'].intitule_grade"/>
-                            </span>
-                            <br/>
-                            <span>
-                                الصنف:
-                                <span t-esc="grade_data['grade'].categorie_id.intitule"/>
-                            </span>
-                            <br/>
-                            <span>
-                                <span t-esc="grade_data['grade'].max_employee"/>
-                                : عدد المناصب المالية
-                            </span>
-                            <br/>
-                            <span>
-                                <span t-esc="grade_data['grade'].no_of_employee_cdi_plein"/>
-                                : عدد المناصب الحقيقة
-                            </span>
-                            <br/>
-                            <span>
-                                <span t-esc="grade_data['grade'].nombre_de_postes_vacants"/>
-                                : عدد المناصب الشاغرة
-                            </span>
-                        </t>
-                        <br/>
-                        <br/>
-                    </div>
                     <t t-if="grade_data['employees_cdi_plein']">
+                        <br/>
+                        <br/>
+                        <div style="text-align: right;font-size:23px;">
+                            <t t-if="grade_data.get('grade')">
+                                <span>
+                                    الرتبة
+                                    :
+                                    <span t-esc="grade_data['grade'].intitule_grade"/>
+                                </span>
+                                <br/>
+                                <span>
+                                    الصنف:
+                                    <span t-esc="grade_data['grade'].categorie_id.intitule"/>
+                                </span>
+                                <br/>
+                                <span>
+                                    <span t-esc="grade_data['grade'].max_employee"/>
+                                    : عدد المناصب المالية
+                                </span>
+                                <br/>
+                                <span>
+                                    <span t-esc="grade_data['grade'].no_of_employee_cdi_plein"/>
+                                    : عدد المناصب الحقيقة
+                                </span>
+                                <br/>
+                                <span>
+                                    <span t-esc="grade_data['grade'].nombre_de_postes_vacants"/>
+                                    : عدد المناصب الشاغرة
+                                </span>
+                            </t>
+                            <br/>
+                            <br/>
+                        </div>
                         <div class="row" style="margin:15;">
                             <table style="width: 100%;">
                                 <thead>
@@ -1670,17 +1722,69 @@
                                         <t t-set="promotion_line"
                                            t-value="grade_data['promotion_lines_cdi_plein'] and grade_data['promotion_lines_cdi_plein'].filtered(lambda r: r.employee_id.id == employee.id) or None"/>
                                         <tr>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
-                                                <!--                                                                            <span t-field="line.employee_id"/>-->
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                                <!--                                                                            <span t-field="line.employee_id"/>-->
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
-                                                <t t-if="employee.position_statutaire == 'detachement'">
-                                                    <span>منتدب</span>
-                                                </t>
-                                                <t t-if="not employee.position_statutaire or employee.position_statutaire != 'detachement'">
+                                            <t t-if="employee.methode_embauche == 'recrutement'">
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
+                                                    <!--                                                                            <span t-field="line.employee_id"/>-->
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
+                                                    <!--                                                                            <span t-field="line.employee_id"/>-->
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
+                                                    <t t-if="employee.position_statutaire == 'detachement'">
+                                                        <span>منتدب</span>
+                                                    </t>
+                                                    <t t-if="not employee.position_statutaire or employee.position_statutaire != 'detachement'">
+                                                        <t t-if="employee.nomination == 'satagiaire'">
+                                                            <span>متربص</span>
+                                                        </t>
+                                                        <t t-if="employee.nomination == 'nomination'">
+                                                            <span>مرسم</span>
+                                                        </t>
+                                                        <t t-if="employee.nomination == 'contractuel'">
+                                                            <span>متعاقد</span>
+                                                        </t>
+                                                        <t t-if="not employee.nomination">
+                                                            <span>غير محدد</span>
+                                                        </t>
+                                                    </t>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
+                                                    <t t-if="promotion_line">
+                                                        <span t-esc="promotion_line.date_new_grade"/>
+                                                    </t>
+                                                    <t t-if="not promotion_line">
+                                                        <span t-esc="employee.date_grade"/>
+                                                    </t>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
+                                                    <t t-if="promotion_line">
+                                                        <span t-esc="promotion_line.grade_id.intitule_grade"/>
+                                                    </t>
+                                                    <t t-if="not promotion_line">
+                                                        <span t-esc="employee.grade_id.intitule_grade"/>
+                                                    </t>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
+                                                    <span t-esc="employee.date_entrer"/>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
+                                                    <span t-field="employee.birthday"/>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
+                                                    <span t-esc="employee.name"/>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
+                                                    <span t-esc="employee.numero_securite_social"/>
+                                                </td>
+                                            </t>
+                                            <t t-if="employee.methode_embauche != 'recrutement'">
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <!--                                                                            <span t-field="line.employee_id"/>-->
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <!--                                                                            <span t-field="line.employee_id"/>-->
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px;background-color:#90EE90">
                                                     <t t-if="employee.nomination == 'satagiaire'">
                                                         <span>متربص</span>
                                                     </t>
@@ -1693,36 +1797,36 @@
                                                     <t t-if="not employee.nomination">
                                                         <span>غير محدد</span>
                                                     </t>
-                                                </t>
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                                <t t-if="promotion_line">
-                                                    <span t-esc="promotion_line.date_new_grade"/>
-                                                </t>
-                                                <t t-if="not promotion_line">
-                                                    <span t-esc="employee.date_grade"/>
-                                                </t>
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
-                                                <t t-if="promotion_line">
-                                                    <span t-esc="promotion_line.grade_id.intitule_grade"/>
-                                                </t>
-                                                <t t-if="not promotion_line">
-                                                    <span t-esc="employee.grade_id.intitule_grade"/>
-                                                </t>
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                                <span t-esc="employee.date_entrer"/>
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                                <span t-field="employee.birthday"/>
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
-                                                <span t-esc="employee.name"/>
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                                <span t-esc="employee.numero_securite_social"/>
-                                            </td>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <t t-if="promotion_line">
+                                                        <span t-esc="promotion_line.date_new_grade"/>
+                                                    </t>
+                                                    <t t-if="not promotion_line">
+                                                        <span t-esc="employee.date_grade"/>
+                                                    </t>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <t t-if="promotion_line">
+                                                        <span t-esc="promotion_line.grade_id.intitule_grade"/>
+                                                    </t>
+                                                    <t t-if="not promotion_line">
+                                                        <span t-esc="employee.grade_id.intitule_grade"/>
+                                                    </t>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <span t-esc="employee.date_entrer"/>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <span t-field="employee.birthday"/>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <span t-esc="employee.name"/>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <span t-esc="employee.numero_securite_social"/>
+                                                </td>
+                                            </t>
                                         </tr>
                                     </t>
                                 </tbody>
@@ -1742,40 +1846,40 @@
                     </strong>
                 </div>
                 <t t-foreach="grade_contract" t-as="grade_data">
-                    <br/>
-                    <br/>
-                    <div style="text-align: right;font-size:23px;">
-                        <t t-if="grade_data.get('grade')">
-                            <span>
-                                الرتبة
-                                :
-                                <span t-esc="grade_data['grade'].intitule_grade"/>
-                            </span>
-                            <br/>
-                            <span>
-                                الصنف:
-                                <span t-esc="grade_data['grade'].categorie_id.intitule"/>
-                            </span>
-                            <br/>
-                            <span>
-                                <span t-esc="grade_data['grade'].max_employee"/>
-                                : عدد المناصب المالية
-                            </span>
-                            <br/>
-                            <span>
-                                <span t-esc="grade_data['grade'].no_of_employee_cdd_plein"/>
-                                : عدد المناصب الحقيقة
-                            </span>
-                            <br/>
-                            <span>
-                                <span t-esc="grade_data['grade'].nombre_de_postes_vacants"/>
-                                : عدد المناصب الشاغرة
-                            </span>
-                        </t>
-                        <br/>
-                        <br/>
-                    </div>
                     <t t-if="grade_data['employees_cdd_plein']">
+                        <br/>
+                        <br/>
+                        <div style="text-align: right;font-size:23px;">
+                            <t t-if="grade_data.get('grade')">
+                                <span>
+                                    الرتبة
+                                    :
+                                    <span t-esc="grade_data['grade'].intitule_grade"/>
+                                </span>
+                                <br/>
+                                <span>
+                                    الصنف:
+                                    <span t-esc="grade_data['grade'].categorie_id.intitule"/>
+                                </span>
+                                <br/>
+                                <span>
+                                    <span t-esc="grade_data['grade'].max_employee"/>
+                                    : عدد المناصب المالية
+                                </span>
+                                <br/>
+                                <span>
+                                    <span t-esc="grade_data['grade'].no_of_employee_cdd_plein"/>
+                                    : عدد المناصب الحقيقة
+                                </span>
+                                <br/>
+                                <span>
+                                    <span t-esc="grade_data['grade'].nombre_de_postes_vacants"/>
+                                    : عدد المناصب الشاغرة
+                                </span>
+                            </t>
+                            <br/>
+                            <br/>
+                        </div>
                         <div class="row" style="margin:15;">
                             <table style="width: 100%;">
                                 <thead>
@@ -1814,17 +1918,69 @@
                                         <t t-set="promotion_line"
                                            t-value="grade_data['promotion_lines_cdd_plein'] and grade_data['promotion_lines_cdd_plein'].filtered(lambda r: r.employee_id.id == employee.id) or None"/>
                                         <tr>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
-                                                <!--                                                                            <span t-field="line.employee_id"/>-->
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                                <!--                                                                            <span t-field="line.employee_id"/>-->
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
-                                                <t t-if="employee.position_statutaire == 'detachement'">
-                                                    <span>منتدب</span>
-                                                </t>
-                                                <t t-if="not employee.position_statutaire or employee.position_statutaire != 'detachement'">
+                                            <t t-if="employee.methode_embauche == 'recrutement'">
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
+                                                    <!--                                                                            <span t-field="line.employee_id"/>-->
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
+                                                    <!--                                                                            <span t-field="line.employee_id"/>-->
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
+                                                    <t t-if="employee.position_statutaire == 'detachement'">
+                                                        <span>منتدب</span>
+                                                    </t>
+                                                    <t t-if="not employee.position_statutaire or employee.position_statutaire != 'detachement'">
+                                                        <t t-if="employee.nomination == 'satagiaire'">
+                                                            <span>متربص</span>
+                                                        </t>
+                                                        <t t-if="employee.nomination == 'nomination'">
+                                                            <span>مرسم</span>
+                                                        </t>
+                                                        <t t-if="employee.nomination == 'contractuel'">
+                                                            <span>متعاقد</span>
+                                                        </t>
+                                                        <t t-if="not employee.nomination">
+                                                            <span>غير محدد</span>
+                                                        </t>
+                                                    </t>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
+                                                    <t t-if="promotion_line">
+                                                        <span t-esc="promotion_line.date_new_grade"/>
+                                                    </t>
+                                                    <t t-if="not promotion_line">
+                                                        <span t-esc="employee.date_grade"/>
+                                                    </t>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
+                                                    <t t-if="promotion_line">
+                                                        <span t-esc="promotion_line.grade_id.intitule_grade"/>
+                                                    </t>
+                                                    <t t-if="not promotion_line">
+                                                        <span t-esc="employee.grade_id.intitule_grade"/>
+                                                    </t>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
+                                                    <span t-esc="employee.date_entrer"/>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
+                                                    <span t-field="employee.birthday"/>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
+                                                    <span t-esc="employee.name"/>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
+                                                    <span t-esc="employee.numero_securite_social"/>
+                                                </td>
+                                            </t>
+                                            <t t-if="employee.methode_embauche != 'recrutement'">
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <!--                                                                            <span t-field="line.employee_id"/>-->
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <!--                                                                            <span t-field="line.employee_id"/>-->
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px;background-color:#90EE90">
                                                     <t t-if="employee.nomination == 'satagiaire'">
                                                         <span>متربص</span>
                                                     </t>
@@ -1837,36 +1993,36 @@
                                                     <t t-if="not employee.nomination">
                                                         <span>غير محدد</span>
                                                     </t>
-                                                </t>
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                                <t t-if="promotion_line">
-                                                    <span t-esc="promotion_line.date_new_grade"/>
-                                                </t>
-                                                <t t-if="not promotion_line">
-                                                    <span t-esc="employee.date_grade"/>
-                                                </t>
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
-                                                <t t-if="promotion_line">
-                                                    <span t-esc="promotion_line.grade_id.intitule_grade"/>
-                                                </t>
-                                                <t t-if="not promotion_line">
-                                                    <span t-esc="employee.grade_id.intitule_grade"/>
-                                                </t>
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                                <span t-esc="employee.date_entrer"/>
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                                <span t-field="employee.birthday"/>
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
-                                                <span t-esc="employee.name"/>
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                                <span t-esc="employee.numero_securite_social"/>
-                                            </td>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <t t-if="promotion_line">
+                                                        <span t-esc="promotion_line.date_new_grade"/>
+                                                    </t>
+                                                    <t t-if="not promotion_line">
+                                                        <span t-esc="employee.date_grade"/>
+                                                    </t>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <t t-if="promotion_line">
+                                                        <span t-esc="promotion_line.grade_id.intitule_grade"/>
+                                                    </t>
+                                                    <t t-if="not promotion_line">
+                                                        <span t-esc="employee.grade_id.intitule_grade"/>
+                                                    </t>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <span t-esc="employee.date_entrer"/>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <span t-field="employee.birthday"/>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <span t-esc="employee.name"/>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <span t-esc="employee.numero_securite_social"/>
+                                                </td>
+                                            </t>
                                         </tr>
                                     </t>
                                 </tbody>
@@ -1886,40 +2042,40 @@
                     </strong>
                 </div>
                 <t t-foreach="grade_contract" t-as="grade_data">
-                    <br/>
-                    <br/>
-                    <div style="text-align: right;font-size:23px;">
-                        <t t-if="grade_data.get('grade')">
-                            <span>
-                                الرتبة
-                                :
-                                <span t-esc="grade_data['grade'].intitule_grade"/>
-                            </span>
-                            <br/>
-                            <span>
-                                الصنف:
-                                <span t-esc="grade_data['grade'].categorie_id.intitule"/>
-                            </span>
-                            <br/>
-                            <span>
-                                <span t-esc="grade_data['grade'].max_employee"/>
-                                : عدد المناصب المالية
-                            </span>
-                            <br/>
-                            <span>
-                                <span t-esc="grade_data['grade'].no_of_employee_cdi_partiel"/>
-                                : عدد المناصب الحقيقة
-                            </span>
-                            <br/>
-                            <span>
-                                <span t-esc="grade_data['grade'].nombre_de_postes_vacants"/>
-                                : عدد المناصب الشاغرة
-                            </span>
-                        </t>
-                        <br/>
-                        <br/>
-                    </div>
                     <t t-if="grade_data['employees_cdi_partiel']">
+                        <br/>
+                        <br/>
+                        <div style="text-align: right;font-size:23px;">
+                            <t t-if="grade_data.get('grade')">
+                                <span>
+                                    الرتبة
+                                    :
+                                    <span t-esc="grade_data['grade'].intitule_grade"/>
+                                </span>
+                                <br/>
+                                <span>
+                                    الصنف:
+                                    <span t-esc="grade_data['grade'].categorie_id.intitule"/>
+                                </span>
+                                <br/>
+                                <span>
+                                    <span t-esc="grade_data['grade'].max_employee"/>
+                                    : عدد المناصب المالية
+                                </span>
+                                <br/>
+                                <span>
+                                    <span t-esc="grade_data['grade'].no_of_employee_cdi_partiel"/>
+                                    : عدد المناصب الحقيقة
+                                </span>
+                                <br/>
+                                <span>
+                                    <span t-esc="grade_data['grade'].nombre_de_postes_vacants"/>
+                                    : عدد المناصب الشاغرة
+                                </span>
+                            </t>
+                            <br/>
+                            <br/>
+                        </div>
                         <div class="row" style="margin:15;">
                             <table style="width: 100%;">
                                 <thead>
@@ -1958,17 +2114,69 @@
                                         <t t-set="promotion_line"
                                            t-value="grade_data['promotion_lines_cdi_partiel'] and grade_data['promotion_lines_cdi_partiel'].filtered(lambda r: r.employee_id.id == employee.id) or None"/>
                                         <tr>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
-                                                <!--                                                                            <span t-field="line.employee_id"/>-->
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                                <!--                                                                            <span t-field="line.employee_id"/>-->
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
-                                                <t t-if="employee.position_statutaire == 'detachement'">
-                                                    <span>منتدب</span>
-                                                </t>
-                                                <t t-if="not employee.position_statutaire or employee.position_statutaire != 'detachement'">
+                                            <t t-if="employee.methode_embauche == 'recrutement'">
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
+                                                    <!--                                                                            <span t-field="line.employee_id"/>-->
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
+                                                    <!--                                                                            <span t-field="line.employee_id"/>-->
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
+                                                    <t t-if="employee.position_statutaire == 'detachement'">
+                                                        <span>منتدب</span>
+                                                    </t>
+                                                    <t t-if="not employee.position_statutaire or employee.position_statutaire != 'detachement'">
+                                                        <t t-if="employee.nomination == 'satagiaire'">
+                                                            <span>متربص</span>
+                                                        </t>
+                                                        <t t-if="employee.nomination == 'nomination'">
+                                                            <span>مرسم</span>
+                                                        </t>
+                                                        <t t-if="employee.nomination == 'contractuel'">
+                                                            <span>متعاقد</span>
+                                                        </t>
+                                                        <t t-if="not employee.nomination">
+                                                            <span>غير محدد</span>
+                                                        </t>
+                                                    </t>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
+                                                    <t t-if="promotion_line">
+                                                        <span t-esc="promotion_line.date_new_grade"/>
+                                                    </t>
+                                                    <t t-if="not promotion_line">
+                                                        <span t-esc="employee.date_grade"/>
+                                                    </t>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
+                                                    <t t-if="promotion_line">
+                                                        <span t-esc="promotion_line.grade_id.intitule_grade"/>
+                                                    </t>
+                                                    <t t-if="not promotion_line">
+                                                        <span t-esc="employee.grade_id.intitule_grade"/>
+                                                    </t>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
+                                                    <span t-esc="employee.date_entrer"/>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
+                                                    <span t-field="employee.birthday"/>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
+                                                    <span t-esc="employee.name"/>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
+                                                    <span t-esc="employee.numero_securite_social"/>
+                                                </td>
+                                            </t>
+                                            <t t-if="employee.methode_embauche != 'recrutement'">
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <!--                                                                            <span t-field="line.employee_id"/>-->
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <!--                                                                            <span t-field="line.employee_id"/>-->
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px;background-color:#90EE90">
                                                     <t t-if="employee.nomination == 'satagiaire'">
                                                         <span>متربص</span>
                                                     </t>
@@ -1981,36 +2189,36 @@
                                                     <t t-if="not employee.nomination">
                                                         <span>غير محدد</span>
                                                     </t>
-                                                </t>
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                                <t t-if="promotion_line">
-                                                    <span t-esc="promotion_line.date_new_grade"/>
-                                                </t>
-                                                <t t-if="not promotion_line">
-                                                    <span t-esc="employee.date_grade"/>
-                                                </t>
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
-                                                <t t-if="promotion_line">
-                                                    <span t-esc="promotion_line.grade_id.intitule_grade"/>
-                                                </t>
-                                                <t t-if="not promotion_line">
-                                                    <span t-esc="employee.grade_id.intitule_grade"/>
-                                                </t>
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                                <span t-esc="employee.date_entrer"/>
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                                <span t-field="employee.birthday"/>
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
-                                                <span t-esc="employee.name"/>
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                                <span t-esc="employee.numero_securite_social"/>
-                                            </td>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <t t-if="promotion_line">
+                                                        <span t-esc="promotion_line.date_new_grade"/>
+                                                    </t>
+                                                    <t t-if="not promotion_line">
+                                                        <span t-esc="employee.date_grade"/>
+                                                    </t>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <t t-if="promotion_line">
+                                                        <span t-esc="promotion_line.grade_id.intitule_grade"/>
+                                                    </t>
+                                                    <t t-if="not promotion_line">
+                                                        <span t-esc="employee.grade_id.intitule_grade"/>
+                                                    </t>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <span t-esc="employee.date_entrer"/>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <span t-field="employee.birthday"/>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <span t-esc="employee.name"/>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <span t-esc="employee.numero_securite_social"/>
+                                                </td>
+                                            </t>
                                         </tr>
                                     </t>
                                 </tbody>
@@ -2030,40 +2238,40 @@
                     </strong>
                 </div>
                 <t t-foreach="grade_contract" t-as="grade_data">
-                    <br/>
-                    <br/>
-                    <div style="text-align: right;font-size:23px;">
-                        <t t-if="grade_data.get('grade')">
-                            <span>
-                                الرتبة
-                                :
-                                <span t-esc="grade_data['grade'].intitule_grade"/>
-                            </span>
-                            <br/>
-                            <span>
-                                الصنف:
-                                <span t-esc="grade_data['grade'].categorie_id.intitule"/>
-                            </span>
-                            <br/>
-                            <span>
-                                <span t-esc="grade_data['grade'].max_employee"/>
-                                : عدد المناصب المالية
-                            </span>
-                            <br/>
-                            <span>
-                                <span t-esc="grade_data['grade'].no_of_employee_cdd_partiel"/>
-                                : عدد المناصب الحقيقة
-                            </span>
-                            <br/>
-                            <span>
-                                <span t-esc="grade_data['grade'].nombre_de_postes_vacants"/>
-                                : عدد المناصب الشاغرة
-                            </span>
-                        </t>
-                        <br/>
-                        <br/>
-                    </div>
                     <t t-if="grade_data['employees_cdd_partiel']">
+                        <br/>
+                        <br/>
+                        <div style="text-align: right;font-size:23px;">
+                            <t t-if="grade_data.get('grade')">
+                                <span>
+                                    الرتبة
+                                    :
+                                    <span t-esc="grade_data['grade'].intitule_grade"/>
+                                </span>
+                                <br/>
+                                <span>
+                                    الصنف:
+                                    <span t-esc="grade_data['grade'].categorie_id.intitule"/>
+                                </span>
+                                <br/>
+                                <span>
+                                    <span t-esc="grade_data['grade'].max_employee"/>
+                                    : عدد المناصب المالية
+                                </span>
+                                <br/>
+                                <span>
+                                    <span t-esc="grade_data['grade'].no_of_employee_cdd_partiel"/>
+                                    : عدد المناصب الحقيقة
+                                </span>
+                                <br/>
+                                <span>
+                                    <span t-esc="grade_data['grade'].nombre_de_postes_vacants"/>
+                                    : عدد المناصب الشاغرة
+                                </span>
+                            </t>
+                            <br/>
+                            <br/>
+                        </div>
                         <div class="row" style="margin:15;">
                             <table style="width: 100%;">
                                 <thead>
@@ -2102,17 +2310,69 @@
                                         <t t-set="promotion_line"
                                            t-value="grade_data['promotion_lines_cdd_partiel'] and grade_data['promotion_lines_cdd_partiel'].filtered(lambda r: r.employee_id.id == employee.id) or None"/>
                                         <tr>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
-                                                <!--                                                                            <span t-field="line.employee_id"/>-->
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                                <!--                                                                            <span t-field="line.employee_id"/>-->
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
-                                                <t t-if="employee.position_statutaire == 'detachement'">
-                                                    <span>منتدب</span>
-                                                </t>
-                                                <t t-if="not employee.position_statutaire or employee.position_statutaire != 'detachement'">
+                                            <t t-if="employee.methode_embauche == 'recrutement'">
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
+                                                    <!--                                                                            <span t-field="line.employee_id"/>-->
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
+                                                    <!--                                                                            <span t-field="line.employee_id"/>-->
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
+                                                    <t t-if="employee.position_statutaire == 'detachement'">
+                                                        <span>منتدب</span>
+                                                    </t>
+                                                    <t t-if="not employee.position_statutaire or employee.position_statutaire != 'detachement'">
+                                                        <t t-if="employee.nomination == 'satagiaire'">
+                                                            <span>متربص</span>
+                                                        </t>
+                                                        <t t-if="employee.nomination == 'nomination'">
+                                                            <span>مرسم</span>
+                                                        </t>
+                                                        <t t-if="employee.nomination == 'contractuel'">
+                                                            <span>متعاقد</span>
+                                                        </t>
+                                                        <t t-if="not employee.nomination">
+                                                            <span>غير محدد</span>
+                                                        </t>
+                                                    </t>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
+                                                    <t t-if="promotion_line">
+                                                        <span t-esc="promotion_line.date_new_grade"/>
+                                                    </t>
+                                                    <t t-if="not promotion_line">
+                                                        <span t-esc="employee.date_grade"/>
+                                                    </t>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
+                                                    <t t-if="promotion_line">
+                                                        <span t-esc="promotion_line.grade_id.intitule_grade"/>
+                                                    </t>
+                                                    <t t-if="not promotion_line">
+                                                        <span t-esc="employee.grade_id.intitule_grade"/>
+                                                    </t>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
+                                                    <span t-esc="employee.date_entrer"/>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
+                                                    <span t-field="employee.birthday"/>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
+                                                    <span t-esc="employee.name"/>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
+                                                    <span t-esc="employee.numero_securite_social"/>
+                                                </td>
+                                            </t>
+                                            <t t-if="employee.methode_embauche != 'recrutement'">
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <!--                                                                            <span t-field="line.employee_id"/>-->
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <!--                                                                            <span t-field="line.employee_id"/>-->
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px;background-color:#90EE90">
                                                     <t t-if="employee.nomination == 'satagiaire'">
                                                         <span>متربص</span>
                                                     </t>
@@ -2125,36 +2385,36 @@
                                                     <t t-if="not employee.nomination">
                                                         <span>غير محدد</span>
                                                     </t>
-                                                </t>
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                                <t t-if="promotion_line">
-                                                    <span t-esc="promotion_line.date_new_grade"/>
-                                                </t>
-                                                <t t-if="not promotion_line">
-                                                    <span t-esc="employee.date_grade"/>
-                                                </t>
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
-                                                <t t-if="promotion_line">
-                                                    <span t-esc="promotion_line.grade_id.intitule_grade"/>
-                                                </t>
-                                                <t t-if="not promotion_line">
-                                                    <span t-esc="employee.grade_id.intitule_grade"/>
-                                                </t>
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                                <span t-esc="employee.date_entrer"/>
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                                <span t-field="employee.birthday"/>
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
-                                                <span t-esc="employee.name"/>
-                                            </td>
-                                            <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                                <span t-esc="employee.numero_securite_social"/>
-                                            </td>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <t t-if="promotion_line">
+                                                        <span t-esc="promotion_line.date_new_grade"/>
+                                                    </t>
+                                                    <t t-if="not promotion_line">
+                                                        <span t-esc="employee.date_grade"/>
+                                                    </t>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <t t-if="promotion_line">
+                                                        <span t-esc="promotion_line.grade_id.intitule_grade"/>
+                                                    </t>
+                                                    <t t-if="not promotion_line">
+                                                        <span t-esc="employee.grade_id.intitule_grade"/>
+                                                    </t>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <span t-esc="employee.date_entrer"/>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <span t-field="employee.birthday"/>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <span t-esc="employee.name"/>
+                                                </td>
+                                                <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px;background-color:#90EE90">
+                                                    <span t-esc="employee.numero_securite_social"/>
+                                                </td>
+                                            </t>
                                         </tr>
                                     </t>
                                 </tbody>

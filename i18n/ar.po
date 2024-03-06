@@ -18564,12 +18564,12 @@ msgstr "العمر"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_fin_relation_age_female
 msgid "Age Female"
-msgstr "Age Female"
+msgstr "العمر أنثى"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_fin_relation_age_male
 msgid "Age Male"
-msgstr "Age Male"
+msgstr "العمر ذكر"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_age_range
@@ -23474,7 +23474,7 @@ msgstr "فئة"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_groupe_categorie_lines
 msgid "Categorie Lines"
-msgstr "Categorie Lines"
+msgstr "خطوط فئة"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_categorie_new_id
@@ -25100,7 +25100,7 @@ msgstr "بادئة الكود"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_fin_relation_code_promotion
 msgid "Code Promotion"
-msgstr "Code Promotion"
+msgstr "كود الترقية"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_sanction_code_sanction
@@ -81000,6 +81000,7 @@ msgstr "لا"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_programme_employee_employee_id
+#: model:ir.ui.view,arch_db:ressource_humaine.programme_employee_form
 msgid "nom de l'employee"
 msgstr "لقب الموظف"
 
@@ -83643,3 +83644,38 @@ msgstr "الإسم"
 #: model:ir.ui.view,arch_db:ressource_humaine.employee_form
 msgid "nom"
 msgstr "اللقب"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_nom_ar
+msgid "Nom Ar"
+msgstr "اللقب"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_prenom_ar
+msgid "Prenom Ar"
+msgstr "الإسم"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_ref_promotion
+msgid "Ref Promotion"
+msgstr "رقم الترقية"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_ref_ouverture_examin
+msgid "Ref Ouverture Examin"
+msgstr "رقم فتح الامتحان"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_date_ref_promotion
+msgid "Date Ref Promotion"
+msgstr "تاريخ رقم الترقية"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_date_ref_ouverture_examin
+msgid "Date Ref Ouverture Examin"
+msgstr "تاريخ رقم فتح الامتحان"
+
+#. module: ressource_humaine
+#: model:ir.actions.report,name:ressource_humaine.action_no_background_cnas
+msgid "Attestation de Travail et de Salaire (sans fond)"
+msgstr "شهادة العمل و الأجر (بدون خلفية)"
