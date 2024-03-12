@@ -7,8 +7,8 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="employee_id" string="nom de l'employee"/>
-                        <field name="numero" string="numero"/>
+                        <field name="employee_id"/>
+                        <field name="numero"/>
                     </group>
                 </sheet>
                 <footer>

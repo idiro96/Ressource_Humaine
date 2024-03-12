@@ -17762,7 +17762,7 @@ msgstr "النطاق النشط"
 #. module: ressource_humaine
 #: selection:hr.employee,position_statutaire:0
 msgid "Activite"
-msgstr "القيام بالخدمة"
+msgstr "حالة الخدمة"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_activite_conjoint
@@ -20625,11 +20625,13 @@ msgstr "الحضور"
 
 #. module: ressource_humaine
 #: model:ir.actions.report,name:ressource_humaine.action_attestation_travail_report
+#: model:ir.actions.report,name:ressource_humaine.action_employee_attestation_travail_report
 msgid "Attestation de Travail"
 msgstr "شهادة عمل"
 
 #. module: ressource_humaine
 #: model:ir.actions.report,name:ressource_humaine.action_attestation_travail_fr_report
+#: model:ir.actions.report,name:ressource_humaine.action_employee_attestation_travail_fr_report
 msgid "Attestation de Travail En Français"
 msgstr "شهادة عمل بالفرنسية"
 
@@ -31244,7 +31246,7 @@ msgstr "مسار الوجهة"
 #: selection:hr.employee,methode_embauche:0
 #: selection:hr.employee,position_statutaire:0
 msgid "Detachement"
-msgstr "الانتداب"
+msgstr "الإنتداب"
 
 #. module: stock
 #: code:addons/stock/models/stock_move.py:471
@@ -38699,7 +38701,7 @@ msgstr "أفقي"
 #. module: ressource_humaine
 #: selection:hr.employee,position_statutaire:0
 msgid "Horscadre"
-msgstr "خارج الايطار"
+msgstr "خارج الإطار"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_mail_server_smtp_host
@@ -47999,7 +48001,7 @@ msgstr "عمليات متنوعة"
 #. module: ressource_humaine
 #: selection:hr.employee,position_statutaire:0
 msgid "Miseendisponibilite"
-msgstr "الاحالة على الاستدعاء"
+msgstr "الإستيداع"
 
 #. module: base
 #: model:res.partner.title,name:base.res_partner_title_miss
@@ -57882,7 +57884,7 @@ msgstr "منصب"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_position_statutaire
 msgid "Position Statutaire"
-msgstr "الوضعية القانونية"
+msgstr "الوضعيات القانونية الاساسية للموظف"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.quant_search_view
@@ -61845,7 +61847,7 @@ msgstr "تم الإبلاغ عنها في إيصالات المرتب الأخي
 #: model:ir.ui.view,arch_db:sale.view_order_form
 #: model:ir.ui.menu,name:stock.menu_warehouse_report
 msgid "Reporting"
-msgstr "اعداد التقرير "
+msgstr "إعداد الحصائي "
 
 #. modules: base, hr_recruitment
 #: model:ir.actions.act_window,name:base.ir_action_report
@@ -65035,7 +65037,7 @@ msgstr "الخدمة"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_service_militaire
 msgid "Service Militaire"
-msgstr "الخدمة العسكرية"
+msgstr "الخدمة الوطنية"
 
 #. module: iap
 #: model:ir.model.fields,field_description:iap.field_iap_account_service_name
@@ -65045,7 +65047,7 @@ msgstr "اسم الخدمة"
 #. module: ressource_humaine
 #: selection:hr.employee,position_statutaire:0
 msgid "Servicenationale"
-msgstr "الخدمة الوطنية"
+msgstr "تحت التصرف"
 
 #. modules: sale, product
 #: model:ir.ui.view,arch_db:product.product_template_search_view
@@ -81002,7 +81004,7 @@ msgstr "لا"
 #: model:ir.model.fields,field_description:ressource_humaine.field_programme_employee_employee_id
 #: model:ir.ui.view,arch_db:ressource_humaine.programme_employee_form
 msgid "nom de l'employee"
-msgstr "لقب الموظف"
+msgstr "الموظف"
 
 #. module: web
 #. openerp-web
@@ -81056,8 +81058,9 @@ msgstr "الآن"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_programme_employee_numero
+#: model:ir.ui.view,arch_db:ressource_humaine.programme_employee_form
 msgid "numero"
-msgstr "numero"
+msgstr "رقم"
 
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.attestation_travail_fr_report

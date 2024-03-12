@@ -15,3 +15,12 @@
      }
 
    .test2_font {font-family: Sudegnakno2-LrLg;}
+
+@font-face {
+   font-family: 'times new roman';
+   src: url('/ressource_humaine/static/src/font/times new roman.ttf') format('truetype');
+   font-weight: bold;
+   font-style: normal;
+     }
+
+   .times_new_roman {font-family: times new roman;}

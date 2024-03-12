@@ -22,6 +22,7 @@ access_rh_echelon,access.rh.echelon,model_rh_echelon,group_rh_absence,1,1,1,1
 access_rh_enfant,access.rh.enfant,model_rh_enfant,group_rh_absence,1,1,1,1
 access_rh_file,access.rh.file,model_rh_file,group_rh_absence,1,1,1,1
 access_rh_filiere,access.rh.filiere,model_rh_filiere,group_rh_absence,1,1,1,1
+access_rh_niveau_hierarchique_chef_bureau,access.rh.niveau.hierarchique.chef.bureau,model_rh_niveau_hierarchique_chef_bureau,group_rh_absence,1,1,1,1
 access_rh_fin_relation,access.rh.fin.relation,model_rh_fin_relation,group_rh_absence,1,1,1,1
 
 

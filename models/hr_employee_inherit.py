@@ -79,8 +79,9 @@ class HrEmployeInherited(models.Model):
     taux_handicap = fields.Float()
     corps_visible = fields.Boolean(default=True)
     gender = fields.Selection(selection=[('male', 'Masculin'), ('female', 'Féminin')], readonly=False, required=True)
-    nomination = fields.Selection(selection=[('satagiaire', 'Satagiaire'), ('nomination', 'Titulaire'), ('contractuel', 'Contractuel')],
-                                  readonly=False, required=True)
+    nomination = fields.Selection(
+        selection=[('satagiaire', 'Satagiaire'), ('nomination', 'Titulaire'), ('contractuel', 'Contractuel')],
+        readonly=False, required=True)
     place_of_birth_fr = fields.Char('Lieu de naissance', groups="hr.group_hr_user", required=True)
     # place_of_birth_fr = fields.Char('Lieu de naissance', groups="hr.group_hr_user")
     grille_id = fields.Many2one('rh.grille', readonly=False)
@@ -106,6 +107,12 @@ class HrEmployeInherited(models.Model):
     planning_choix_id = fields.Many2one('ressource_humaine.choisir.planning')
     emphy_id = fields.Many2one('rh.emphy')
     num_national = fields.Char(help="Il s'agit du numéro d'identité nationale de l'employé")
+    marital = fields.Selection([
+        ('single', 'Single'),
+        ('married', 'Married'),
+        ('widower', 'Widower'),
+        ('divorced', 'Divorced')
+    ], string='Marital Status', groups="hr.group_hr_user", default='single')
 
     @api.constrains('jour_sup')
     def _check_jour_sup_max_value(self):
@@ -113,7 +120,6 @@ class HrEmployeInherited(models.Model):
         for record in self:
             if record.jour_sup > max_value:
                 raise ValidationError('The maximum value for jour_sup is 12.0')
-
 
     # @api.depends('nom_ar', 'prenom_ar')
     # def _compute_nom(self):
@@ -134,7 +140,7 @@ class HrEmployeInherited(models.Model):
                 date_naiss = datetime.strptime(emp.birthday, '%Y-%m-%d').date()
                 aujourdhui = date.today()
                 age = aujourdhui.year - date_naiss.year - (
-                            (aujourdhui.month, aujourdhui.day) < (date_naiss.month, date_naiss.day))
+                        (aujourdhui.month, aujourdhui.day) < (date_naiss.month, date_naiss.day))
             emp.age_employee = age
 
     age_employee = fields.Integer(string="Age", compute='calculer_age_employee', store=True)
@@ -217,7 +223,6 @@ class HrEmployeInherited(models.Model):
         res = {'domain': {'categorie_id': domain}}
         print(res)
         return res
-
 
     @api.onchange('categorie_id')
     def onchange_categorie(self):
@@ -305,9 +310,9 @@ class HrEmployeInherited(models.Model):
                 section = echelon.section
                 if rec.section_id:
                     if section.id != rec.section_id.id:
-                            rec.echelon_id = None
-                            print('echelon.section')
-                            print(echelon.section)
+                        rec.echelon_id = None
+                        print('echelon.section')
+                        print(echelon.section)
                 else:
                     if rec.echelon_id.categorie_id.id != rec.categorie_id.id:
                         rec.echelon_id = None
@@ -327,7 +332,7 @@ class HrEmployeInherited(models.Model):
         for rec in self:
             rec.point_indiciare = rec.echelon_id.indice_echelon
             rec.wage = (
-                                   rec.indice_minimal * 45 + rec.point_indiciare * 45) + rec.niveau_hirerachique_chef_Bureau.bonification_indiciaire
+                               rec.indice_minimal * 45 + rec.point_indiciare * 45) + rec.niveau_hirerachique_chef_Bureau.bonification_indiciaire
             # rec.wage = rec.indice_base * 45 + rec.niveau_hirerachique_chef_Bureau.bonification_indiciaire
 
     @api.onchange('nature_travail_id')
@@ -379,13 +384,14 @@ class HrEmployeInherited(models.Model):
         print(res)
         return res
 
-    @api.onchange('nature_travail_id')
-    def _onchange_nature_travail_id(self):
-        domain = []
-        if self.nature_travail_id:
-            if self.nature_travail_id.code_type_fonction == 'contractuel':
-                domain = [('intitule_corps', 'ilike', 'متعاقد')]
-            else:
-                domain = [('intitule_corps', 'not ilike', 'متعاقد')]
+    # @api.onchange('nature_travail_id')
+    # def _onchange_nature_travail_id(self):
+    #     domain = []
+    #     if self.nature_travail_id:
+    #         if self.nature_travail_id.code_type_fonction == 'contractuel':
+    #             domain = [('intitule_corps', 'ilike', 'متعاقد')]
+    #         else:
+    #             domain = [('intitule_corps', 'not ilike', 'متعاقد')]
+    #
+    #     return {'domain': {'corps_id': domain}}
 
-        return {'domain': {'corps_id': domain}}

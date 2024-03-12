@@ -3,16 +3,16 @@ from datetime import datetime
 from odoo import models, fields, api, _
 
 
-class AttestationTravail(models.Model):
+class EmployeeAttestationTravail(models.Model):
     _inherit = 'hr.employee'
 
     @api.multi
     def print_report(self):
-        return self.env.ref('ressource_humaine.action_attestation_travail_report').report_action(self)
+        return self.env.ref('ressource_humaine.action_employee_attestation_travail_report').report_action(self)
 
 
-class AttestationTravailReport(models.AbstractModel):
-    _name = 'report.ressource_humaine.attestation_travail_report'
+class EmployeeAttestationTravailReport(models.AbstractModel):
+    _name = 'report.ressource_humaine.employee_attestation_travail_report'
 
     @api.model
     def get_report_values(self, docids, data=None):

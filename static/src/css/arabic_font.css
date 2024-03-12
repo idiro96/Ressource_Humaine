@@ -51,3 +51,21 @@
      }
 
    .test5_arabic_font {font-family: NotoNastaliqUrdu-VariableFont_wght;}
+
+@font-face {
+   font-family: 'mohammad-bold-art-1';
+   src: url('/ressource_humaine/static/src/font/mohammad-bold-art-1.ttf') format('truetype');
+   font-weight: bold;
+   font-style: normal;
+     }
+
+   .mohammad_font {font-family: mohammad-bold-art-1.ttf;}
+
+@font-face {
+   font-family: 'Mohammad-Bold-normal';
+   src: url('/ressource_humaine/static/src/font/Mohammad-Bold-normal.ttf') format('truetype');
+   font-weight: bold;
+   font-style: normal;
+     }
+
+   .normal_mohammad_font {font-family: Mohammad-Bold-normal.ttf;}
