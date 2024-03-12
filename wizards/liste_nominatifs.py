@@ -187,6 +187,12 @@ class PlanningCongeReport(models.AbstractModel):
 
         employees_detachement = self.env['hr.employee'].search([('position_statutaire', '=', 'detachement'),
                                                                 ('fin_relation', '=', False)])
+        employees_horscadre = self.env['hr.employee'].search([('position_statutaire', '=', 'horscadre'),
+                                                                ('fin_relation', '=', False)])
+        employees_miseendisponibilite = self.env['hr.employee'].search([('position_statutaire', '=', 'miseendisponibilite'),
+                                                              ('fin_relation', '=', False)])
+        employees_servicenationale = self.env['hr.employee'].search([('position_statutaire', '=', 'servicenationale'),
+                                                              ('fin_relation', '=', False)])
 
         report_data = {
             'job_sup': supp_employees,
@@ -199,6 +205,9 @@ class PlanningCongeReport(models.AbstractModel):
             'grade_ing': grade_ing_employees,
             'grade_contract': grade_contract_employees,
             'employees_detachement': employees_detachement,
+            'employees_horscadre': employees_horscadre,
+            'employees_miseendisponibilite': employees_miseendisponibilite,
+            'employees_servicenationale': employees_servicenationale,
         }
 
         return report_data

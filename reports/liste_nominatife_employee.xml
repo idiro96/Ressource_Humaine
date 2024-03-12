@@ -1840,6 +1840,7 @@
                                     منصب شغل
                                     :
                                     <span t-esc="grade_data['grade'].intitule_grade"/>
+                                    بالتوقيت الكامل غير محدد المدة
                                 </span>
                                 <br/>
                                 <span>
@@ -2057,6 +2058,7 @@
                                     منصب شغل
                                     :
                                     <span t-esc="grade_data['grade'].intitule_grade"/>
+                                    بالتوقيت الكامل محدد المدة
                                 </span>
                                 <br/>
                                 <span>
@@ -2274,6 +2276,7 @@
                                     منصب شغل
                                     :
                                     <span t-esc="grade_data['grade'].intitule_grade"/>
+                                    بالتوقيت الجزئي غير محدد المدة
                                 </span>
                                 <br/>
                                 <span>
@@ -2491,6 +2494,7 @@
                                     منصب شغل
                                     :
                                     <span t-esc="grade_data['grade'].intitule_grade"/>
+                                    بالتوقيت الجزئي محدد المدة
                                 </span>
                                 <br/>
                                 <span>
@@ -2696,7 +2700,7 @@
                             <span style="display: inline-block;">
                                 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(القائمة الإسمية للوضعيات القانونية
                                 (حالات
-                                الإستيداع&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                خارج الإطار&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
                             </span>
                         </strong>
                     </div>
@@ -2705,77 +2709,97 @@
                         <table style="width: 100%;">
                             <thead>
                                 <tr>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
                                         <strong>السبب و عدد المرات</strong>
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px;width:12%">
                                         <strong>تاريخ الإياب</strong>
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px;width:12%">
                                         <strong>تاريخ الذهاب</strong>
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
                                         <strong>رقم و تاريخ تأشيرة للمراقب المالي</strong>
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
                                         <strong>المدة</strong>
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
                                         <strong>الرتبة</strong>
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px;width:12%">
                                         <strong>تاريخ الميلاد</strong>
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
                                         <strong>الإسم و اللقب</strong>
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
                                         <strong>الرقم التسلسلي</strong>
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <!--                            <tr t-foreach="planning_surveillance_line" t-as="line">-->
-                                <tr>
-                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                        <!--                                        <span t-field="line.employee_id"/>-->
-                                    </td>
-                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                        <!--                                        <span t-esc="'%.2f'%(record.depreciated_value)"/>-->
-                                    </td>
-                                    <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
-                                        <!--                                        <span t-esc="line.emphy_id.intitule_emphy"/>-->
-                                    </td>
-                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                        <!--                                        <span t-field="line.employee_id"/>-->
-                                    </td>
-                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                        <!--                                        <span t-esc="'%.2f'%(record.depreciated_value)"/>-->
-                                    </td>
-                                    <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
-                                        <!--                                        <span t-esc="line.emphy_id.intitule_emphy"/>-->
-                                    </td>
-                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                        <!--                                        <span t-field="line.employee_id"/>-->
-                                    </td>
-                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                        <!--                                        <span t-esc="'%.2f'%(record.depreciated_value)"/>-->
-                                    </td>
-                                    <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
-                                        <!--                                        <span t-esc="line.emphy_id.intitule_emphy"/>-->
-                                    </td>
-                                </tr>
-                                <!--                            </tr>-->
+                                <t t-set="line_count" t-value="1"/>
+                                <t t-foreach="employees_horscadre" t-as="employee">
+                                    <tr>
+                                        <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
+                                            <!--                                        <span t-field="line.employee_id"/>-->
+                                        </td>
+                                        <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
+                                            <!--                                        <span t-esc="'%.2f'%(record.depreciated_value)"/>-->
+                                        </td>
+                                        <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
+                                            <!--                                        <span t-esc="line.emphy_id.intitule_emphy"/>-->
+                                        </td>
+                                        <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
+                                            <!--                                        <span t-field="line.employee_id"/>-->
+                                        </td>
+                                        <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
+                                            <!--                                        <span t-esc="'%.2f'%(record.depreciated_value)"/>-->
+                                        </td>
+                                        <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
+                                            <span t-esc="employee.grade_id.intitule_grade"/>
+                                        </td>
+                                        <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
+                                            <span t-esc="employee.birthday"/>
+                                        </td>
+                                        <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
+                                            <span t-esc="employee.name"/>
+                                        </td>
+                                        <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
+                                            <span t-esc="line_count"/>
+                                        </td>
+                                    </tr>
+                                    <t t-set="line_count" t-value="line_count + 1"/>
+                                </t>
                             </tbody>
                         </table>
                     </div>
                     <div style="page-break-before: always;"></div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
                     <div style="text-align:center;font-size: 25px;border: 3px solid black; border-radius: 50%;padding: 35px;background-color:#D3D3D3">
                         <strong>
                             <span style="display: inline-block;">
-                                &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;القائمة الإسمية للوضعيات القانونية
+                                &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(القائمة الإسمية للوضعيات القانونية
                                 (حالات
-                                الإنتداب)&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                                الإنتداب&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
                             </span>
                         </strong>
                     </div>
@@ -2784,31 +2808,31 @@
                         <table style="width: 100%;">
                             <thead>
                                 <tr>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
                                         <strong>السبب و عدد المرات</strong>
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px;width:12%">
                                         <strong>تاريخ الإياب</strong>
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px;width:12%">
                                         <strong>تاريخ الذهاب</strong>
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
                                         <strong>رقم و تاريخ تأشيرة للمراقب المالي</strong>
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
                                         <strong>المدة</strong>
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
                                         <strong>الرتبة</strong>
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px;width:12%">
                                         <strong>تاريخ الميلاد</strong>
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
                                         <strong>الإسم و اللقب</strong>
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
                                         <strong>الرقم التسلسلي</strong>
                                     </th>
                                 </tr>
@@ -2839,7 +2863,205 @@
                                             <span t-esc="employee.birthday"/>
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                           <span t-esc="employee.name"/>
+                                            <span t-esc="employee.name"/>
+                                        </td>
+                                        <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
+                                            <span t-esc="line_count"/>
+                                        </td>
+                                    </tr>
+                                    <t t-set="line_count" t-value="line_count + 1"/>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="page-break-before: always;"></div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <div style="text-align:center;font-size: 25px;border: 3px solid black; border-radius: 50%;padding: 35px;background-color:#D3D3D3">
+                        <strong>
+                            <span style="display: inline-block;">
+                                &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(القائمة الإسمية للوضعيات القانونية
+                                (حالات
+                                الإستيداع&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                            </span>
+                        </strong>
+                    </div>
+                    <div style="page-break-before: always;"></div>
+                    <div class="row" style="margin:30;">
+                        <table style="width: 100%;">
+                            <thead>
+                                <tr>
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
+                                        <strong>السبب و عدد المرات</strong>
+                                    </th>
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px;width:12%">
+                                        <strong>تاريخ الإياب</strong>
+                                    </th>
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px;width:12%">
+                                        <strong>تاريخ الذهاب</strong>
+                                    </th>
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
+                                        <strong>رقم و تاريخ تأشيرة للمراقب المالي</strong>
+                                    </th>
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
+                                        <strong>المدة</strong>
+                                    </th>
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
+                                        <strong>الرتبة</strong>
+                                    </th>
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px;width:12%">
+                                        <strong>تاريخ الميلاد</strong>
+                                    </th>
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
+                                        <strong>الإسم و اللقب</strong>
+                                    </th>
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
+                                        <strong>الرقم التسلسلي</strong>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="line_count" t-value="1"/>
+                                <t t-foreach="employees_miseendisponibilite" t-as="employee">
+                                    <tr>
+                                        <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
+                                            <!--                                        <span t-field="line.employee_id"/>-->
+                                        </td>
+                                        <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
+                                            <!--                                        <span t-esc="'%.2f'%(record.depreciated_value)"/>-->
+                                        </td>
+                                        <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
+                                            <!--                                        <span t-esc="line.emphy_id.intitule_emphy"/>-->
+                                        </td>
+                                        <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
+                                            <!--                                        <span t-field="line.employee_id"/>-->
+                                        </td>
+                                        <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
+                                            <!--                                        <span t-esc="'%.2f'%(record.depreciated_value)"/>-->
+                                        </td>
+                                        <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
+                                            <span t-esc="employee.grade_id.intitule_grade"/>
+                                        </td>
+                                        <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
+                                            <span t-esc="employee.birthday"/>
+                                        </td>
+                                        <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
+                                            <span t-esc="employee.name"/>
+                                        </td>
+                                        <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
+                                            <span t-esc="line_count"/>
+                                        </td>
+                                    </tr>
+                                    <t t-set="line_count" t-value="line_count + 1"/>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="page-break-before: always;"></div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <div style="text-align:center;font-size: 25px;border: 3px solid black; border-radius: 50%;padding: 35px;background-color:#D3D3D3">
+                        <strong>
+                            <span style="display: inline-block;">
+                                &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(القائمة الإسمية للوضعيات القانونية
+                                (حالات
+                                تحت التصرف&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                            </span>
+                        </strong>
+                    </div>
+                    <div style="page-break-before: always;"></div>
+                    <div class="row" style="margin:30;">
+                        <table style="width: 100%;">
+                            <thead>
+                                <tr>
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
+                                        <strong>السبب و عدد المرات</strong>
+                                    </th>
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px;width:12%">
+                                        <strong>تاريخ الإياب</strong>
+                                    </th>
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px;width:12%">
+                                        <strong>تاريخ الذهاب</strong>
+                                    </th>
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
+                                        <strong>رقم و تاريخ تأشيرة للمراقب المالي</strong>
+                                    </th>
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
+                                        <strong>المدة</strong>
+                                    </th>
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
+                                        <strong>الرتبة</strong>
+                                    </th>
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px;width:12%">
+                                        <strong>تاريخ الميلاد</strong>
+                                    </th>
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
+                                        <strong>الإسم و اللقب</strong>
+                                    </th>
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
+                                        <strong>الرقم التسلسلي</strong>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="line_count" t-value="1"/>
+                                <t t-foreach="employees_servicenationale" t-as="employee">
+                                    <tr>
+                                        <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
+                                            <!--                                        <span t-field="line.employee_id"/>-->
+                                        </td>
+                                        <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
+                                            <!--                                        <span t-esc="'%.2f'%(record.depreciated_value)"/>-->
+                                        </td>
+                                        <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
+                                            <!--                                        <span t-esc="line.emphy_id.intitule_emphy"/>-->
+                                        </td>
+                                        <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
+                                            <!--                                        <span t-field="line.employee_id"/>-->
+                                        </td>
+                                        <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
+                                            <!--                                        <span t-esc="'%.2f'%(record.depreciated_value)"/>-->
+                                        </td>
+                                        <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
+                                            <span t-esc="employee.grade_id.intitule_grade"/>
+                                        </td>
+                                        <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
+                                            <span t-esc="employee.birthday"/>
+                                        </td>
+                                        <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
+                                            <span t-esc="employee.name"/>
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
                                             <span t-esc="line_count"/>
@@ -2854,7 +3076,6 @@
                 <div class="footer">
                     <div class="row" style="font-size:18;">
                         <div class="col-xs-6 text-right">
-                            Page
                             <span class="page"/>
                         </div>
                     </div>

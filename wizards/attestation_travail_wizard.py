@@ -35,9 +35,12 @@ class AttestationTravailReport(models.AbstractModel):
         attestation_travail = self.env['attestation.travail'].browse(docids[0])
         birthday = attestation_travail.employee_id.birthday
         formatted_date = datetime.strptime(birthday, "%Y-%m-%d").strftime("%d-%m-%Y")
+        date_entrer = attestation_travail.employee_id.date_entrer
+        formatted_date_entrer = datetime.strptime(date_entrer, "%Y-%m-%d").strftime("%d-%m-%Y")
 
         report_data = {
             'formatted_date': formatted_date,
+            'date_entrer': formatted_date_entrer,
             'attestation_travail': attestation_travail,
             'employee': attestation_travail.employee_id,
             'company': self.env.user.company_id,
