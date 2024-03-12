@@ -59,7 +59,7 @@
    font-style: normal;
      }
 
-   .mohammad_font {font-family: mohammad-bold-art-1.ttf;}
+   .mohammad_font {font-family: mohammad-bold-art-1;}
 
 @font-face {
    font-family: 'Mohammad-Bold-normal';
@@ -68,4 +68,27 @@
    font-style: normal;
      }
 
-   .normal_mohammad_font {font-family: Mohammad-Bold-normal.ttf;}
+   .normal_mohammad_font {font-family: Mohammad-Bold-normal;}
+
+@font-face {
+   font-family: 'Diwani Letter';
+   src: url('/ressource_humaine/static/src/font/Diwani Letter.ttf') format('truetype');
+   font-weight: bold;
+   font-style: normal;
+     }
+
+   .Diwani_Letter {font-family: Diwani Letter;}
+
+@font-face {
+        font-family: 'Arabic_Typesetting';
+        src: url('/ressource_humaine/static/src/font/Arabic_Typesetting.ttf') format('truetype');
+        font-weight: bold;
+        font-style: normal;
+    }
+
+    .arabic_typesetting {font-family: Arabic_Typesetting;}
+
+    .stretched-text {
+        font-family: Arabic_Typesetting;
+        transform: scaleX(2);
+    }

@@ -9,20 +9,19 @@
                      style="border-bottom: 10px double black;border-left: 10px double black;border-right: 10px double black;">
                     <br/>
                     <strong>
-                        <div style="font-size: 20px;text-align: right;">
+                        <div style="font-size: 20px;text-align: right;margin-right:125px;">
                             <span style="display: inline-block;">
                                 ALGER LE
                             </span>
-                            <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%m-%Y')"/>
                         </div>
                         <br/>
                         <br/>
-                        <div style="font-size: 20px;text-align: left;">
+                        <div style="font-size: 20px;text-align: left;margin-left:15px;">
                             <span>
                                 Ecole Nationale d'Administration
                             </span>
                         </div>
-                        <div style="font-size: 20px;text-align: left;">
+                        <div style="font-size: 20px;text-align: left;margin-left:15px;">
                             <t t-if="attestation_travail.signataire == 'sg'">
                                 <span>
                                     Secrétariat Général
@@ -35,18 +34,18 @@
                             </t>
                             <t t-if="attestation_travail.signataire == 'rl'">
                                 <span>
-                                    Responsable de lecture
+                                    <t t-esc="attestation_travail.input"/>
                                 </span>
                             </t>
                         </div>
-                        <div style="font-size: 20px;text-align: left;">
+                        <div style="font-size: 20px;text-align: left;margin-left:15px;">
                             <span>
                                 Service de la Gestion des Ressources Humaines
                             </span>
                         </div>
                         <br/>
                         <br/>
-                        <div style="font-size: 20px;text-align: left;">
+                        <div style="font-size: 20px;text-align: left;margin-left:15px;">
                             <t t-if="attestation_travail.signataire == 'sg'">
                                 <span>
                                     N°:.................E.N.A/S.G/S.G.R.H/
@@ -70,7 +69,7 @@
                     <br/>
                     <br/>
                     <br/>
-                    <div style="font-size: 40px;text-align: center;">
+                    <div style="font-size: 34px;text-align: center;">
                         <strong>
                             <span style="border-bottom: 5px double;">
                                 ATTESTATION DE TRAVAIL
@@ -81,7 +80,7 @@
                     <br/>
                     <br/>
                     <br/>
-                    <div style="font-size: 20px;text-align: left;">
+                    <div style="font-size: 18px;text-align: left;margin-left:15px;">
                         <span>
                             Le Directeur Général de l'Ecole Nationale d'Administration, atteste que:
                         </span>
@@ -174,9 +173,11 @@
                         <br/>
                         <br/>
                         <br/>
+                        <br/>
+                        <br/>
                     </div>
                     <br/>
-                    <div style="font-size: 20px;text-align: left;">
+                    <div style="font-size:18px;text-align: left;margin-left:15px;">
                         <t t-if="not employee.gender or employee.gender == 'male'">
                             <span>
                                 Cette attestation est délivrée à l'intéressé pour servir et valoir ce que de
@@ -190,6 +191,8 @@
                             </span>
                         </t>
                     </div>
+                    <br/>
+                    <br/>
                 </div>
             </t>
         </template>
@@ -201,32 +204,31 @@
                      style="border-bottom: 10px double black;border-left: 10px double black;border-right: 10px double black;">
                     <br/>
                     <strong>
-                        <div style="font-size: 20px;text-align: right;">
+                        <div style="font-size: 20px;text-align: right;margin-right:125px;">
                             <span style="display: inline-block;">
                                 ALGER LE
                             </span>
-                            <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%m-%Y')"/>
                         </div>
                         <br/>
                         <br/>
-                        <div style="font-size: 20px;text-align: left;">
+                        <div style="font-size: 20px;text-align: left;margin-left:15px;">
                             <span>
                                 Ecole Nationale d'Administration
                             </span>
                         </div>
-                        <div style="font-size: 20px;text-align: left;">
+                        <div style="font-size: 20px;text-align: left;margin-left:15px;">
                             <span>
                                 Secrétariat Général
                             </span>
                         </div>
-                        <div style="font-size: 20px;text-align: left;">
+                        <div style="font-size: 20px;text-align: left;margin-left:15px;">
                             <span>
                                 Service de la Gestion des Ressources Humaines
                             </span>
                         </div>
                         <br/>
                         <br/>
-                        <div style="font-size: 20px;text-align: left;">
+                        <div style="font-size: 20px;text-align: left;margin-left:15px;">
                             <span>
                                 N°:.................E.N.A/S.G/S.G.R.H/
                                 <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
@@ -236,7 +238,7 @@
                     <br/>
                     <br/>
                     <br/>
-                    <div style="font-size: 40px;text-align: center;">
+                    <div style="font-size: 34px;text-align: center;">
                         <strong>
                             <span style="border-bottom: 5px double;">
                                 ATTESTATION DE TRAVAIL
@@ -247,7 +249,7 @@
                     <br/>
                     <br/>
                     <br/>
-                    <div style="font-size: 20px;text-align: left;">
+                    <div style="font-size: 18px;text-align: left;margin-left:15px;">
                         <span>
                             Le Directeur Général de l'Ecole Nationale d'Administration, atteste que:
                         </span>
@@ -340,9 +342,11 @@
                         <br/>
                         <br/>
                         <br/>
+                        <br/>
+                        <br/>
                     </div>
                     <br/>
-                    <div style="font-size: 20px;text-align: left;">
+                    <div style="font-size:18px;text-align: left;margin-left:15px;">
                         <t t-if="not employee.gender or employee.gender == 'male'">
                             <span>
                                 Cette attestation est délivrée à l'intéressé pour servir et valoir ce que de
@@ -356,6 +360,8 @@
                             </span>
                         </t>
                     </div>
+                    <br/>
+                    <br/>
                 </div>
             </t>
         </template>

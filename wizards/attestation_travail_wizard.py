@@ -10,6 +10,7 @@ class AttestationTravail(models.TransientModel):
 
     signataire = fields.Selection([('sg', 'الأمانة العامة'), ('dg', 'المدير العام'), ('rl', 'المكلف بالإملاء')], default='sg')
     language = fields.Selection([('ar', 'العربية'), ('fr', 'الفرنسية')], default='ar')
+    input = fields.Char(placeholder='مزهوده عبد المليك')
 
     @api.model
     def _domain_employee_id(self):
