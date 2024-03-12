@@ -1,6 +1,5 @@
 <odoo>
     <data>
-
         <record id="view_attestation_travail" model="ir.ui.view">
             <field name="name">attestation.travail.form</field>
             <field name="model">attestation.travail</field>
