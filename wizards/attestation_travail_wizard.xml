@@ -15,7 +15,8 @@
                             <group>
                                 <field name="language" string="اللّغة"/>
                                 <field name="input"
-                                       attrs="{'invisible': [('signataire', '!=', 'rl')]}"
+                                       attrs="{'invisible': [('signataire', '!=', 'rl')],
+                                       'required': [('signataire', '=', 'rl')]}"
                                        string="الإسم"/>
                             </group>
                         </group>

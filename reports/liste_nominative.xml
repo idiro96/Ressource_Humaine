@@ -77,27 +77,31 @@
                             <t t-set="total_vrai1" t-value="0"/>
                             <t t-set="total_diff1" t-value="0"/>
                             <t t-foreach="job_supp" t-as="line">
-                                <t t-set="total_max1" t-value="total_max1 + line.max_employee"/>
-                                <t t-set="total_vrai1" t-value="total_vrai1 + line.no_of_employee"/>
-                                <t t-set="total_diff1" t-value="total_diff1 + line.nombre_de_postes_vacants"/>
+                                <t t-set="employee_count" t-value="0"/>
+                                    <t t-foreach="line['employees']" t-as="employee">
+                                        <t t-set="employee_count" t-value="employee_count +1"/>
+                                    </t>
+                                <t t-set="total_max1" t-value="total_max1 + line['job'].max_employee"/>
+                                <t t-set="total_vrai1" t-value="total_vrai1 + employee_count"/>
+                                <t t-set="total_diff1" t-value="total_diff1 + (line['job'].max_employee - employee_count)"/>
                                 <tr>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:12.5%">
                                         &#160;
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:12.5%">
-                                        <span t-esc="line.nombre_de_postes_vacants"/>
+                                        <span t-esc="line['job'].max_employee - employee_count"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:12.5%">
-                                        <span t-esc="line.no_of_employee"/>
+                                        <span t-esc="employee_count"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:12.5%">
-                                        <span t-esc="line.max_employee"/>
+                                        <span t-esc="line['job'].max_employee"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:25%">
                                         &#160;
                                     </td>
                                     <td style="border:2px solid black;vertical-align:center;text-align:right;font-size:15px;width:25%">
-                                        <span t-esc="line.name"/>
+                                        <span t-esc="line['job'].name"/>
                                     </td>
                                 </tr>
                             </t>
@@ -168,27 +172,31 @@
                             <t t-set="total_vrai2" t-value="0"/>
                             <t t-set="total_diff2" t-value="0"/>
                             <t t-foreach="job_hight_org" t-as="line">
-                                <t t-set="total_max2" t-value="total_max2 + line.max_employee"/>
-                                <t t-set="total_vrai2" t-value="total_vrai2 + line.no_of_employee"/>
-                                <t t-set="total_diff2" t-value="total_diff2 + line.nombre_de_postes_vacants"/>
+                                <t t-set="employee_count" t-value="0"/>
+                                    <t t-foreach="line['employees']" t-as="employee">
+                                        <t t-set="employee_count" t-value="employee_count +1"/>
+                                    </t>
+                                <t t-set="total_max2" t-value="total_max2 + line['job'].max_employee"/>
+                                <t t-set="total_vrai2" t-value="total_vrai2 + employee_count"/>
+                                <t t-set="total_diff2" t-value="total_diff2 + (line['job'].max_employee - employee_count)"/>
                                 <tr>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:12.5%">
                                         &#160;
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:12.5%">
-                                        <span t-esc="line.nombre_de_postes_vacants"/>
+                                        <span t-esc="line['job'].max_employee - employee_count"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:12.5%">
-                                        <span t-esc="line.no_of_employee"/>
+                                        <span t-esc="employee_count"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:12.5%">
-                                        <span t-esc="line.max_employee"/>
+                                        <span t-esc="line['job'].max_employee"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:25%">
                                         &#160;
                                     </td>
                                     <td style="border:2px solid black;vertical-align:center;text-align:right;font-size:15px;width:25%">
-                                        <span t-esc="line.name"/>
+                                        <span t-esc="line['job'].name"/>
                                     </td>
                                 </tr>
                             </t>
@@ -220,27 +228,31 @@
                             <t t-set="total_vrai3" t-value="0"/>
                             <t t-set="total_diff3" t-value="0"/>
                             <t t-foreach="job_hight_org_1" t-as="line">
-                                <t t-set="total_max3" t-value="total_max3 + line.max_employee"/>
-                                <t t-set="total_vrai3" t-value="total_vrai3 + line.no_of_employee"/>
-                                <t t-set="total_diff3" t-value="total_diff3 + line.nombre_de_postes_vacants"/>
+                                <t t-set="employee_count" t-value="0"/>
+                                    <t t-foreach="line['employees']" t-as="employee">
+                                        <t t-set="employee_count" t-value="employee_count +1"/>
+                                    </t>
+                                <t t-set="total_max3" t-value="total_max3 + line['job'].max_employee"/>
+                                <t t-set="total_vrai3" t-value="total_vrai3 + employee_count"/>
+                                <t t-set="total_diff3" t-value="total_diff3 + (line['job'].max_employee - employee_count)"/>
                                 <tr>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:12.5%">
                                         &#160;
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:12.5%">
-                                        <span t-esc="line.nombre_de_postes_vacants"/>
+                                        <span t-esc="line['job'].max_employee - employee_count"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:12.5%">
-                                        <span t-esc="line.no_of_employee"/>
+                                        <span t-esc="employee_count"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:12.5%">
-                                        <span t-esc="line.max_employee"/>
+                                        <span t-esc="line['job'].max_employee"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:15px;width:25%">
                                         &#160;
                                     </td>
                                     <td style="border:2px solid black;vertical-align:center;text-align:right;font-size:15px;width:25%">
-                                        <span t-esc="line.name"/>
+                                        <span t-esc="line['job'].name"/>
                                     </td>
                                 </tr>
                             </t>

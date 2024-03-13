@@ -159,12 +159,12 @@
                         <br/>
                         <t t-if="employee.gender == 'female'">
                             <span>
-                                ـ و تمارس مها مها بصفتها :
+                                ـ و تمارس مهامها بصفتها :
                             </span>
                         </t>
                         <t t-if="not employee.gender or employee.gender == 'male'">
                             <span>
-                                ـ و يمارس مها مه بصفته :
+                                ـ و يمارس مهامه بصفته :
                             </span>
                         </t>
                         <span>
@@ -321,12 +321,12 @@
                         <br/>
                         <t t-if="employee.gender == 'female'">
                             <span>
-                                ـ و تمارس مها مها بصفتها :
+                                ـ و تمارس مهامها بصفتها :
                             </span>
                         </t>
                         <t t-if="not employee.gender or employee.gender == 'male'">
                             <span>
-                                ـ و يمارس مها مه بصفته :
+                                ـ و يمارس مهامه بصفته :
                             </span>
                         </t>
                         <span>

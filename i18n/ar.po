@@ -61847,7 +61847,7 @@ msgstr "تم الإبلاغ عنها في إيصالات المرتب الأخي
 #: model:ir.ui.view,arch_db:sale.view_order_form
 #: model:ir.ui.menu,name:stock.menu_warehouse_report
 msgid "Reporting"
-msgstr "إعداد الحصائي "
+msgstr "إعداد الحصائل "
 
 #. modules: base, hr_recruitment
 #: model:ir.actions.act_window,name:base.ir_action_report
@@ -62878,7 +62878,7 @@ msgstr "Saint Vincent and the Grenadines"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_grille_salaire
 msgid "Salaire"
-msgstr "الاجور"
+msgstr "الأجر القاعدي"
 
 #. module: hr_payroll
 #: model:ir.ui.view,arch_db:hr_payroll.hr_salary_rule_category_form
@@ -75807,7 +75807,7 @@ msgstr "WMS Landed Costs"
 #: model:ir.model.fields,field_description:hr_contract.field_hr_contract_wage
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_wage
 msgid "Wage"
-msgstr "الاجور"
+msgstr "الأجر القاعدي"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_contract_wage_range
