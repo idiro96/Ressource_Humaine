@@ -193,7 +193,9 @@ class HrEmployeInherited(models.Model):
             self.categorie_id = False
             self.section_id = False
             self.echelon_id = False
-        if self.groupe_id:
+        # if self.groupe_id:
+        type_fonction = self.env['rh.type.fonction'].search([('id', '=', self.nature_travail_id.id)])
+        if type_fonction.code_type_fonction != 'fonctionsuperieure':
             return {'domain': {'groupe_id': [('grille_id', '=', self.grille_id.id)]}}
         else:
             return {'domain': {'categorie_id': [('grille_id', '=', self.grille_id.id)]}}
