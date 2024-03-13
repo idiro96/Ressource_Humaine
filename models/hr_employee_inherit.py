@@ -187,18 +187,24 @@ class HrEmployeInherited(models.Model):
 
     @api.onchange('grille_id')
     def _onchange_grille_id(self):
-        domain = []
-        if self.grille_id:
-            self.groupe_id = False
-            self.categorie_id = False
-            self.section_id = False
-            self.echelon_id = False
-        # if self.groupe_id:
-        type_fonction = self.env['rh.type.fonction'].search([('id', '=', self.nature_travail_id.id)])
-        if type_fonction.code_type_fonction != 'fonctionsuperieure':
-            return {'domain': {'groupe_id': [('grille_id', '=', self.grille_id.id)]}}
-        else:
-            return {'domain': {'categorie_id': [('grille_id', '=', self.grille_id.id)]}}
+        for rec in self:
+            domain = []
+            if self.grille_id:
+                self.groupe_id = False
+                self.categorie_id = False
+                self.section_id = False
+                self.echelon_id = False
+            # if self.groupe_id:
+            type_fonction = self.env['rh.type.fonction'].search([('id', '=', self.nature_travail_id.id)])
+            print(type_fonction.code_type_fonction)
+            if type_fonction.code_type_fonction != 'fonctionsuperieure':
+                if type_fonction.code_type_fonction == 'contractuel':
+                    return {'domain': {'categorie_id': [('grille_id', '=', self.grille_id.id),(('type_fonction_id', '=', self.nature_travail_id.id))]}}
+                elif type_fonction.code_type_fonction != 'contractuel':
+                    return {'domain': {'groupe_id': [('grille_id', '=', self.grille_id.id)]}}
+            elif type_fonction.code_type_fonction == 'fonctionsuperieure':
+                print('dfs2')
+                return {'domain': {'categorie_id': [('grille_id', '=', self.grille_id.id),(('type_fonction_id', '=', self.nature_travail_id.id))]}}
 
     # @api.onchange('groupe_id')
     # def _onchange_groupe_id(self):
