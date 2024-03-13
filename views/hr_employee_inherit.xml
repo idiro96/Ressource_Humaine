@@ -358,9 +358,9 @@
                             <field name="section_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
                                    attrs="{'invisible': [('code_type_fonction', '!=', 'fonctionsuperieure')], 'required': [('code_type_fonction', '=', 'fonctionsuperieure')]}"/>
                             <field name="indice_base" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
-                                   attrs="{'invisible': ['|',('code_type_fonction', '!=', 'fonctionsuperieure'),('code_type_fonction', '!=', 'fonction')], 'required': ['|', ('code_type_fonction', '=', 'fonctionsuperieure'), ('code_type_fonction', '=', 'fonction')]}"/>
+                                   attrs="{'readonly': ['|', ('code_type_fonction', '=', 'fonctionsuperieure'), ('code_type_fonction', '=', 'fonction')]}"/>
                             <field name="indice_minimal" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
-                                   attrs="{'invisible': ['|',('code_type_fonction', '=', 'fonctionsuperieure'),('code_type_fonction', '=', 'fonction')], 'required': ['|', ('code_type_fonction', '!=', 'fonctionsuperieure'), ('code_type_fonction', '!=', 'fonction')]}"/>
+                                   attrs="{'readonly': ['|', ('code_type_fonction', '!=', 'fonctionsuperieure'), ('code_type_fonction', '!=', 'fonction')]}"/>
                             <field name="echelon_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
                                    attrs="{'invisible': [('code_type_fonction', '=', 'contractuel')], 'required': [('code_type_fonction', '!=', 'contractuel')]}"/>
                             <field name="point_indiciare" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
