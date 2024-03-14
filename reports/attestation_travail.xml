@@ -76,7 +76,7 @@
                     <br/>
                     <br/>
                     <br/>
-                    <div class="stretched-text"
+                    <div class="texte-en-gras"
                          style="font-size: 60px; text-align: center;">
                         <strong>
                             <span style="border-bottom: 5px double;">
@@ -102,7 +102,7 @@
                                 أشهد أن السيد:
                             </span>
                         </t>
-                        <span>
+                        <span class="texte-en-gras">
                             <strong>
                                 <t t-esc="employee.name"/>
                             </strong>
@@ -118,11 +118,11 @@
                                 المولود بتاريخ :
                             </span>
                         </t>
-                        <strong>
+                        <strong class="texte-en-gras">
                             <t t-esc="formatted_date"/>
                         </strong>
                         في
-                        <strong>
+                        <strong class="texte-en-gras">
                             <t t-esc="employee.place_of_birth"/>
                         </strong>
                         <br/>
@@ -150,7 +150,7 @@
                                 </span>
                             </t>
                         </t>
-                        <strong>
+                        <strong class="texte-en-gras">
                             <t t-esc="date_entrer"/>
                         </strong>
                         <span>
@@ -168,7 +168,7 @@
                             </span>
                         </t>
                         <span>
-                            <strong>
+                            <strong class="texte-en-gras">
                                 <t t-esc="employee.grade_id.intitule_grade"/>
                             </strong>
                         </span>
@@ -238,7 +238,7 @@
                     <br/>
                     <br/>
                     <br/>
-                    <div class="stretched-text"
+                    <div class="texte-en-gras"
                          style="font-size: 60px; text-align: center;">
                         <strong>
                             <span style="border-bottom: 5px double;">
@@ -264,7 +264,7 @@
                                 أشهد أن السيد:
                             </span>
                         </t>
-                        <span>
+                        <span class="texte-en-gras">
                             <strong>
                                 <t t-esc="employee.name"/>
                             </strong>
@@ -280,11 +280,11 @@
                                 المولود بتاريخ :
                             </span>
                         </t>
-                        <strong>
+                        <strong class="texte-en-gras">
                             <t t-esc="formatted_date"/>
                         </strong>
                         في
-                        <strong>
+                        <strong class="texte-en-gras">
                             <t t-esc="employee.place_of_birth"/>
                         </strong>
                         <br/>
@@ -312,7 +312,7 @@
                                 </span>
                             </t>
                         </t>
-                        <strong>
+                        <strong class="texte-en-gras">
                             <t t-esc="date_entrer"/>
                         </strong>
                         <span>
@@ -329,7 +329,7 @@
                                 ـ و يمارس مهامه بصفته :
                             </span>
                         </t>
-                        <span>
+                        <span class="texte-en-gras">
                             <strong>
                                 <t t-esc="employee.grade_id.intitule_grade"/>
                             </strong>

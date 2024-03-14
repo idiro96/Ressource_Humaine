@@ -134,6 +134,10 @@ class PlanningCongeReport(models.AbstractModel):
 
         grade_contract_employees = []
         for grade in grade_contract:
+            employees_contract = self.env['hr.employee'].search(
+                [('grade_id', '=', grade.id), ('nature_travail_id.code_type_fonction', '=', 'contractuel'),
+                 ('position_statutaire', '=', 'activite'),
+                 ('fin_relation', '=', False)])
             employees_cdi_plein = self.env['hr.employee'].search(
                 [('grade_id', '=', grade.id), ('nature_travail_id.code_type_fonction', '=', 'contractuel'),
                  ('type_id.code_type_contract', '=', 'pleintemps_indeterminee'), ('position_statutaire', '=', 'activite'),
@@ -165,6 +169,7 @@ class PlanningCongeReport(models.AbstractModel):
             if promotion_lines_cdi_plein and promotion_lines_cdd_plein and promotion_lines_cdi_partiel and promotion_lines_cdd_partiel:
                 grade_contract_employees.append(
                     {'grade': grade,
+                     'employees_contract': employees_contract,
                      'employees_cdi_plein': employees_cdi_plein,
                      'employees_cdd_plein': employees_cdd_plein,
                      'employees_cdi_partiel': employees_cdi_partiel,
@@ -176,6 +181,7 @@ class PlanningCongeReport(models.AbstractModel):
             else:
                 grade_contract_employees.append(
                     {'grade': grade,
+                     'employees_contract': employees_contract,
                      'employees_cdi_plein': employees_cdi_plein,
                      'employees_cdd_plein': employees_cdd_plein,
                      'employees_cdi_partiel': employees_cdi_partiel,
@@ -195,6 +201,8 @@ class PlanningCongeReport(models.AbstractModel):
                                                               ('fin_relation', '=', False)])
 
         report_data = {
+            'doc_ids': docids,
+            'is_first_page': True,
             'job_sup': supp_employees,
             'job_hight': hight_employees,
             'grade_enseignant': enseignant_employees,

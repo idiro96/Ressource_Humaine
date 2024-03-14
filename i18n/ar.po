@@ -83636,7 +83636,7 @@ msgstr "会计科目表 - 中国企业会计准则"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_num_national
 msgid "Num National"
-msgstr "الرقم التسلسلي"
+msgstr "رقم التعريف الوطني"
 
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.employee_form
