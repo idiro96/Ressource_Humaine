@@ -9496,7 +9496,7 @@ msgstr "<b>لا يوجد موديل الموقع الإلكتروني !</b>"
 #. module: payment
 #: model:ir.ui.view,arch_db:payment.pay
 msgid "<b>Reference:</b>"
-msgstr "<b>رقم الإشارة:</b>"
+msgstr "<b>رقم التأشيرة:</b>"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.snippet_options
@@ -14284,7 +14284,7 @@ msgstr "<strong>Reference your images...</strong><br/>\n"
 #: model:ir.ui.view,arch_db:account.portal_invoice_report
 #: model:ir.ui.view,arch_db:account.report_invoice_document
 msgid "<strong>Reference:</strong>"
-msgstr "<strong>رقم الإشارة:</strong>"
+msgstr "<strong>رقم التأشيرة:</strong>"
 
 #. module: hr_payroll
 #: model:ir.ui.view,arch_db:hr_payroll.report_payslip
@@ -29522,7 +29522,7 @@ msgstr "تاريخ بداية الغياب"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_date_debut_emploi
 msgid "Date Debut Emploi"
-msgstr "تاريخ بداية الوظيفة"
+msgstr "تاريخ بداية العمل"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_formation_date_debut_formation
@@ -60987,7 +60987,7 @@ msgstr "Reduce the time and resources spent on support"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_ref
 #, python-format
 msgid "Ref"
-msgstr "رقم الإشارة"
+msgstr "رقم التأشيرة"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_sanction_ref_pv_sanction

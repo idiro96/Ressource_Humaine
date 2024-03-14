@@ -136,10 +136,10 @@
                         <br/>
                         <br/>
                         <span style="font-size: 14px; margin-right: 300px;float: right;">
-                            <t t-if="employee.service_militaire">
+                            <t t-if="employee.position_statutaire = 'servicenationale'">
                                 تحت التصرف
                             </t>
-                            <t t-if="not employee.service_militaire">
+                            <t t-if="not employee.position_statutaire = 'servicenationale'">
                                 معفى
                             </t>
                         </span>

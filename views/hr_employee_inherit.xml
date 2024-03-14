@@ -75,11 +75,10 @@
                     <field name="taux_handicap"
                            attrs="{'invisible': [('handicape', '=', False)]}"/>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='bank_account_id']"
-                       position="after">
-                    <field name="service_militaire"/>
-                </xpath>
-
+<!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='bank_account_id']"-->
+<!--                       position="after">-->
+<!--                    <field name="service_militaire"/>-->
+<!--                </xpath>-->
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='resource_calendar_id']"
                        position="after">
                     <field name="fin_relation"/>
@@ -163,10 +162,10 @@
                     <field name="annee_travail" string="سنوات العمل"
                            attrs="{'invisible': [('code_type_fonction', '!=', 'contractuel')]}"/>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='marital']" position="after">
-                    <field name="activite_conjoint"/>
-                </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='activite_conjoint']"
+<!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='marital']" position="after">-->
+<!--                    <field name="activite_conjoint"/>-->
+<!--                </xpath>-->
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='marital']"
                        position="after">
                     <field name="prenom_pere"/>
                 </xpath>
