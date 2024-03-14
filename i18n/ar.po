@@ -83687,3 +83687,14 @@ msgstr "تاريخ الإمضاء"
 #: model:ir.actions.report,name:ressource_humaine.action_no_background_cnas
 msgid "Attestation de Travail et de Salaire (sans fond)"
 msgstr "شهادة العمل و الأجر (بدون خلفية)"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_date_ref_ouverture_examin
+msgid "Date Ref Ouverture Examin"
+msgstr "التاريخ المرجع بفتح الإمتحان"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_date_ref_promotion
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_line_date_ref_promotion
+msgid "Date Ref Promotion"
+msgstr "التاريخ المرجع بالترقية"

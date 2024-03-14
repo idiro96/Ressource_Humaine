@@ -76,6 +76,7 @@
                             </span>
                         </div>
                     </div>
+                    <div class="" style="border-bottom: 3px solid black;margin-left:40px;margin-right:40px"></div>
                 </div>
             </div>
         </template>

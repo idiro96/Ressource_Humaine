@@ -18,6 +18,7 @@
                     <br/>
                     <br/>
                     <br/>
+                    <br/>
                     <strong>
                         <div class="Diwani_Letter" style="font-size: 32px;text-align: right;">
                             <span style="margin-right:15px;word-spacing: 9px;">
@@ -199,6 +200,7 @@
                 <t t-call="ressource_humaine.report_header_custom_bordered"/>
                 <div class="page"
                      style="border-bottom: 10px double black;border-left: 10px double black;border-right: 10px double black;">
+                    <br/>
                     <br/>
                     <br/>
                     <br/>
