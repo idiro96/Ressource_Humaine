@@ -56,7 +56,7 @@
                                 </t>
                             </span>
                         </div>
-                        <div style="font-size: 20px; text-align: center;margin-right: 300px;">
+                        <div style="font-size: 20px; text-align: center;margin-right: 330px;">
                             <span>
                                 <t t-if="employee.place_of_birth">
                                     <t t-esc="employee.place_of_birth"/>
@@ -66,43 +66,45 @@
                                 </t>
                             </span>
                         </div>
-                        <br/>
-                        <span style="display: inline-block; font-size: 20px; margin-right: 210px;float: right;">
-                            <t t-if="employee.birthday">
-                                <t t-esc="employee.birthday"/>
-                            </t>
-                            <t t-if="not employee.birthday">
-                                &#160;
-                            </t>
-                        </span>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <span style="display: inline-block; font-size: 14px; margin-right: 170px;float: right;">
-                            <t t-if="employee.prenom_pere">
-                                <t t-esc="employee.prenom_pere"/>
-                            </t>
-                            <t t-if="not employee.prenom_pere">
-                                &#160;
-                            </t>
-                        </span>
+                        <div style="font-size: 20px; text-align: center;margin-left: 330px;">
+                            <span>
+                                <t t-if="employee.birthday">
+                                    <t t-esc="employee.birthday"/>
+                                </t>
+                                <t t-if="not employee.birthday">
+                                    &#160;
+                                </t>
+                            </span>
+                        </div>
                         <br/>
                         <br/>
-                        <span style="display: inline-block; font-size: 14px; margin-right: 200px;float: right;">
-                            <t t-if="employee.nom_mere">
-                                <t t-esc="employee.nom_mere"/>
-                            </t>
-                            <t t-if="not employee.nom_mere">
-                                &#160;
-                            </t>
-                            <t t-if="employee.prenom_mere">
-                                <t t-esc="employee.prenom_mere"/>
-                            </t>
-                            <t t-if="not employee.prenom_mere">
-                                &#160;
-                            </t>
-                        </span>
+                        <div style="font-size: 20px; text-align: center;margin-left: 330px;">
+                            <span>
+                                <t t-if="employee.prenom_pere">
+                                    <t t-esc="employee.prenom_pere"/>
+                                </t>
+                                <t t-if="not employee.prenom_pere">
+                                    &#160;
+                                </t>
+                            </span>
+                        </div>
+                        <br/>
+                        <div style="font-size: 20px; text-align: center;margin-left: 330px;">
+                            <span>
+                                <t t-if="employee.nom_mere">
+                                    <t t-esc="employee.nom_mere"/>
+                                </t>
+                                <t t-if="not employee.nom_mere">
+                                    &#160;
+                                </t>
+                                <t t-if="employee.prenom_mere">
+                                    <t t-esc="employee.prenom_mere"/>
+                                </t>
+                                <t t-if="not employee.prenom_mere">
+                                    &#160;
+                                </t>
+                            </span>
+                        </div>
                         <br/>
                         <br/>
                         <span style="font-size: 14px; margin-right: 210px;float: right;">
@@ -136,10 +138,10 @@
                         <br/>
                         <br/>
                         <span style="font-size: 14px; margin-right: 300px;float: right;">
-                            <t t-if="employee.position_statutaire = 'servicenationale'">
+                            <t t-if="employee.position_statutaire == 'servicenationale'">
                                 تحت التصرف
                             </t>
-                            <t t-if="not employee.position_statutaire = 'servicenationale'">
+                            <t t-if="not employee.position_statutaire == 'servicenationale'">
                                 معفى
                             </t>
                         </span>
@@ -183,6 +185,8 @@
                                 &#160;
                             </t>
                         </span>
+                        <br/>
+                        <br/>
                         <br/>
                         <br/>
                         <br/>
