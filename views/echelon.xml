@@ -12,6 +12,7 @@
                 <field name="section"/>
                 <field name="indice_echelon" required="1"/>
                 <field name="groupe_id"/>
+                <field name="grille_id"/>
             </tree>
         </field>
 
@@ -32,6 +33,7 @@
                                                          ('code_type_fonction', '=', 'fonction')],'required': ['|',('code_type_fonction', '=', 'fonctionsuperieure')]}"/>
                             <field name="indice_echelon" required="1"/>
                             <field name="groupe_id" readonly="True"/>
+                            <field name="grille_id" readonly="True"/>
                         </group>
                     </group>
                 </sheet>

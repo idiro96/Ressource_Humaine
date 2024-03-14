@@ -81,16 +81,35 @@ class RHAvencementDroit(models.Model):
 
     @api.onchange('grille_new_id')
     def _onchange_grille_new_id(self):
-        if self.grille_new_id:
-            self.groupe_new_id = False
-            self.categorie_new_id = False
-            self.section_new_id = False
-            self.echelon_new_id = False
-        if self.groupe_new_id:
-            return {'domain': {'groupe_new_id': [('grille_id', '=', self.grille_new_id.id)]}}
-        else:
-            return {'domain': {'categorie_new_id': [('grille_id', '=', self.grille_new_id.id)]}}
-
+        # if self.grille_new_id:
+        #     self.groupe_new_id = False
+        #     self.categorie_new_id = False
+        #     self.section_new_id = False
+        #     self.echelon_new_id = False
+        # if self.groupe_new_id:
+        #     return {'domain': {'groupe_new_id': [('grille_id', '=', self.grille_new_id.id)]}}
+        # else:
+        #     return {'domain': {'categorie_new_id': [('grille_id', '=', self.grille_new_id.id)]}}
+        for rec in self:
+            domain = []
+            if self.grille_new_id:
+                self.groupe_new_id = False
+                self.categorie_new_id = False
+                self.section_new_id = False
+                self.echelon_new_id = False
+            # if self.groupe_id:
+            type_fonction = self.env['rh.type.fonction'].search([('id', '=', self.nature_travail_id.id)])
+            print(type_fonction.code_type_fonction)
+            if type_fonction.code_type_fonction != 'fonctionsuperieure':
+                if type_fonction.code_type_fonction == 'contractuel':
+                    return {'domain': {'categorie_id': [('grille_id', '=', self.grille_new_id.id),
+                                                        (('type_fonction_id', '=', self.nature_travail_id.id))]}}
+                elif type_fonction.code_type_fonction != 'contractuel':
+                    return {'domain': {'groupe_id': [('grille_id', '=', self.grille_new_id.id)]}}
+            elif type_fonction.code_type_fonction == 'fonctionsuperieure':
+                print('dfs2')
+                return {'domain': {'categorie_id': [('grille_id', '=', self.grille_new_id.id),
+                                                    (('type_fonction_id', '=', self.nature_travail_id.id))]}}
 
     @api.multi
     def write(self, vals):
