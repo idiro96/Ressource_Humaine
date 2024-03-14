@@ -56,6 +56,7 @@
                                 </t>
                             </span>
                         </div>
+                        <br/>
                         <div style="font-size: 20px; text-align: center;margin-right: 330px;">
                             <span>
                                 <t t-if="employee.place_of_birth">
@@ -127,7 +128,6 @@
                                 &#160;
                             </t>
                         </span>
-                        <br/>
                         <br/>
                         <br/>
                         <br/>
