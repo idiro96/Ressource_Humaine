@@ -107,7 +107,7 @@ class ListeNominativeReport(models.AbstractModel):
                  ('fin_relation', '=', False)])
             grade_d_2_employees.append({'grade': grade, 'employees': employees})
 
-        grade_contract = self.env['rh.grade'].search([('corps_id.intitule_corps', 'ilike', 'متعاقد')])
+        grade_contract = self.env['rh.grade'].search(['|', ('corps_id.intitule_corps', 'ilike', 'متعاقد'), ('corps_id.intitule_corps', 'ilike', 'سيار')])
         grade_contract_employees = []
         for grade in grade_contract:
             employees_contract = self.env['hr.employee'].search(

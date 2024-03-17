@@ -55,7 +55,7 @@
                 <br/>
                 <br/>
                 <br/>
-                <div style="text-align:center;font-size: 25px;border: 3px solid black; border-radius: 50%;padding: 35px;background-color:#D3D3D3">
+                <div class="arabic_typesetting_A">
                     <strong>
                         القائمة الإسمية للموظفين و العمال المهنيين و الأعوان المتعاقدين الموقوفة إلى غاية
                     </strong>
@@ -83,7 +83,7 @@
                 <br/>
                 <br/>
                 <br/>
-                <div style="text-align:center;font-size: 25px;border: 3px solid black; border-radius: 50%;padding: 35px;background-color:#D3D3D3">
+                <div class="arabic_typesetting_A">
                     <strong>
                         <span style="display: inline-block;">
                             &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;الوظائف العليا&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
@@ -107,10 +107,11 @@
                                         <span t-esc="job_data['employees'][0].categorie_superieure_id.intitule"/>
                                     </t>
                                     <t t-if="not job_data['employees'][0].categorie_superieure_id">
+                                        <t t-set="found_employee" t-value="False"/>
                                         <t t-foreach="job_data['employees']" t-as="employee">
-                                            <t t-if="employee.categorie_superieure_id">
+                                            <t t-if="not found_employee and employee.categorie_superieure_id">
+                                                <t t-set="found_employee" t-value="True"/>
                                                 <span t-esc="employee.categorie_superieure_id.intitule"/>
-                                                <t t-break="true"/>
                                             </t>
                                         </t>
                                     </t>
@@ -119,10 +120,11 @@
                                         <span t-esc="job_data['employees'][0].section_superieure_id.intitule"/>
                                     </t>
                                     <t t-if="not job_data['employees'][0].section_superieure_id">
+                                        <t t-set="found_employee" t-value="False"/>
                                         <t t-foreach="job_data['employees']" t-as="employee">
-                                            <t t-if="employee.section_superieure_id">
+                                            <t t-if="not found_employee and employee.section_superieure_id">
+                                                <t t-set="found_employee" t-value="True"/>
                                                 <span t-esc="employee.section_superieure_id.intitule"/>
-                                                <t t-break="true"/>
                                             </t>
                                         </t>
                                     </t>
@@ -203,17 +205,37 @@
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <t t-if="employee.methode_embauche == 'detachement'">
-                                                <span>منتدب</span>
+                                                <t t-if="employee.gender == 'male'">
+                                                    <span>منتدب</span>
+                                                </t>
+                                                <t t-if="employee.gender == 'female'">
+                                                    <span>منتدبة</span>
+                                                </t>
                                             </t>
                                             <t t-if="not employee.methode_embauche == 'detachement'">
                                                 <t t-if="employee.nomination == 'satagiaire'">
-                                                    <span>متربص</span>
+                                                    <t t-if="employee.gender == 'male'">
+                                                        <span>متربص</span>
+                                                    </t>
+                                                    <t t-if="employee.gender == 'female'">
+                                                        <span>متربصة</span>
+                                                    </t>
                                                 </t>
                                                 <t t-if="employee.nomination == 'nomination'">
-                                                    <span>مرسم</span>
+                                                    <t t-if="employee.gender == 'male'">
+                                                        <span>مرسم</span>
+                                                    </t>
+                                                    <t t-if="employee.gender == 'female'">
+                                                        <span>مرسمة</span>
+                                                    </t>
                                                 </t>
                                                 <t t-if="employee.nomination == 'contractuel'">
-                                                    <span>متعاقد</span>
+                                                    <t t-if="employee.gender == 'male'">
+                                                        <span>متعاقد</span>
+                                                    </t>
+                                                    <t t-if="employee.gender == 'female'">
+                                                        <span>متعاقدة</span>
+                                                    </t>
                                                 </t>
                                                 <t t-if="not employee.nomination">
                                                     <span>غير محدد</span>
@@ -275,7 +297,7 @@
                 <br/>
                 <br/>
                 <br/>
-                <div style="text-align:center;font-size: 25px;border: 3px solid black; border-radius: 50%;padding: 35px;background-color:#D3D3D3">
+                <div class="arabic_typesetting_A">
                     <strong>
                         <span style="display: inline-block;">
                             &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;المناصب العليا&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
@@ -287,7 +309,7 @@
                     <div style="text-align: right;font-size:23px;">
                         <t t-if="job_data.get('job')">
                             <span>
-                                الوظيفة العليا
+                                المنصب العالي
                                 :
                                 <span t-esc="job_data['job'].name"/>
                             </span>
@@ -299,22 +321,26 @@
                                         <span t-esc="job_data['employees'][0].categorie_id.intitule"/>
                                     </t>
                                     <t t-if="not job_data['employees'][0].categorie_id">
+                                        <t t-set="found_employee" t-value="False"/>
                                         <t t-foreach="job_data['employees']" t-as="employee">
-                                            <t t-if="employee.categorie_id">
+                                            <t t-if="not found_employee and employee.categorie_id">
+                                                <t t-set="found_employee" t-value="True"/>
                                                 <span t-esc="employee.categorie_id.intitule"/>
-                                                <t t-break="true"/>
                                             </t>
                                         </t>
                                     </t>
-                                    القسم:
-                                    <t t-if="job_data['employees'][0].section_id">
-                                        <span t-esc="job_data['employees'][0].section_id.intitule"/>
-                                    </t>
-                                    <t t-if="not job_data['employees'][0].section_id">
-                                        <t t-foreach="job_data['employees']" t-as="employee">
-                                            <t t-if="employee.section_id">
-                                                <span t-esc="employee.section_id.intitule"/>
-                                                <t t-break="true"/>
+                                    <t t-if="not ('رئيس' in job_data['job'].name and 'مكتب' in job_data['job'].name)">
+                                        القسم:
+                                        <t t-if="job_data['employees'][0].section_id">
+                                            <span t-esc="job_data['employees'][0].section_id.intitule"/>
+                                        </t>
+                                        <t t-if="not job_data['employees'][0].section_id">
+                                            <t t-set="found_employee" t-value="False"/>
+                                            <t t-foreach="job_data['employees']" t-as="employee">
+                                                <t t-if="not found_employee and employee.section_id">
+                                                    <t t-set="found_employee" t-value="True"/>
+                                                    <span t-esc="employee.section_id.intitule"/>
+                                                </t>
                                             </t>
                                         </t>
                                     </t>
@@ -322,7 +348,12 @@
                             </t>
                             <t t-if="not job_data['employees']">
                                 <span>
-                                    :الصنف:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;القسم
+                                    <t t-if="not ('رئيس' in job_data['job'].name and 'مكتب' in job_data['job'].name)">
+                                        :الصنف:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;القسم
+                                    </t>
+                                    <t t-if="'رئيس' in job_data['job'].name and 'مكتب' in job_data['job'].name">
+                                        الصنف:
+                                    </t>
                                 </span>
                             </t>
                             <br/>
@@ -362,24 +393,42 @@
                                             <strong>الملاحظات</strong>
                                         </th>
                                     </t>
+                                    <t t-if="not ('رئيس' in job_data['job'].name and 'مكتب' in job_data['job'].name)">
+                                        <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;width:12%;padding:14px">
+                                            <strong>رقم و تاريخ آخر تأشيرة للمراقب المالي</strong>
+                                        </th>
+                                    </t>
+                                    <t t-if="not ('رئيس' in job_data['job'].name and 'مكتب' in job_data['job'].name)">
+                                        <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
+                                            <strong>الوضعية الإدارية</strong>
+                                        </th>
+                                    </t>
                                     <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;width:12%;padding:14px">
-                                        <strong>رقم و تاريخ آخر تأشيرة للمراقب المالي</strong>
+                                        <t t-if="'رئيس' in job_data['job'].name and 'مكتب' in job_data['job'].name">
+                                            <strong>تاريخ التعيين في المنصب العالي</strong>
+                                        </t>
+                                        <t t-if="not ('رئيس' in job_data['job'].name and 'مكتب' in job_data['job'].name)">
+                                            <strong>تاريخ التعيين في الرتبة الحالية</strong>
+                                        </t>
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
-                                        <strong>الوضعية الإدارية</strong>
-                                    </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;width:12%;padding:14px">
-                                        <strong>تاريخ التعيين في الرتبة الحالية</strong>
-                                    </th>
+                                    <t t-if="'رئيس' in job_data['job'].name and 'مكتب' in job_data['job'].name">
+                                        <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
+                                            <strong>إسم المكتب</strong>
+                                        </th>
+                                    </t>
                                     <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
                                         <strong>الرتبة الأصلية</strong>
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;width:12%;padding:14px">
-                                        <strong>تاريخ أول توظيف</strong>
-                                    </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;width:12%;padding:14px">
-                                        <strong>تاريخ الميلاد</strong>
-                                    </th>
+                                    <t t-if="not ('رئيس' in job_data['job'].name and 'مكتب' in job_data['job'].name)">
+                                        <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;width:12%;padding:14px">
+                                            <strong>تاريخ أول توظيف</strong>
+                                        </th>
+                                    </t>
+                                    <t t-if="not ('رئيس' in job_data['job'].name and 'مكتب' in job_data['job'].name)">
+                                        <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;width:12%;padding:14px">
+                                            <strong>تاريخ الميلاد</strong>
+                                        </th>
+                                    </t>
                                     <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
                                         <strong>الإسم و اللقب</strong>
                                     </th>
@@ -399,28 +448,52 @@
                                                 <span t-esc="employee.department_id.name"/>
                                             </t>
                                         </td>
-                                        <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                            <!--                                                                            <span t-field="line.employee_id"/>-->
-                                        </td>
-                                        <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
-                                            <t t-if="employee.methode_embauche == 'detachement'">
-                                                <span>منتدب</span>
-                                            </t>
-                                            <t t-if="not employee.methode_embauche == 'detachement'">
-                                                <t t-if="employee.nomination == 'satagiaire'">
-                                                    <span>متربص</span>
+                                        <t t-if="not ('رئيس' in job_data['job'].name and 'مكتب' in job_data['job'].name)">
+                                            <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
+                                                <!--                                                                            <span t-field="line.employee_id"/>-->
+                                            </td>
+                                        </t>
+                                        <t t-if="not ('رئيس' in job_data['job'].name and 'مكتب' in job_data['job'].name)">
+                                            <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
+                                                <t t-if="employee.methode_embauche == 'detachement'">
+                                                    <t t-if="employee.gender == 'male'">
+                                                        <span>منتدب</span>
+                                                    </t>
+                                                    <t t-if="employee.gender == 'female'">
+                                                        <span>منتدبة</span>
+                                                    </t>
                                                 </t>
-                                                <t t-if="employee.nomination == 'nomination'">
-                                                    <span>مرسم</span>
+                                                <t t-if="not employee.methode_embauche == 'detachement'">
+                                                    <t t-if="employee.nomination == 'satagiaire'">
+                                                        <t t-if="employee.gender == 'male'">
+                                                            <span>متربص</span>
+                                                        </t>
+                                                        <t t-if="employee.gender == 'female'">
+                                                            <span>متربصة</span>
+                                                        </t>
+                                                    </t>
+                                                    <t t-if="employee.nomination == 'nomination'">
+                                                        <t t-if="employee.gender == 'male'">
+                                                            <span>مرسم</span>
+                                                        </t>
+                                                        <t t-if="employee.gender == 'female'">
+                                                            <span>مرسمة</span>
+                                                        </t>
+                                                    </t>
+                                                    <t t-if="employee.nomination == 'contractuel'">
+                                                        <t t-if="employee.gender == 'male'">
+                                                            <span>متعاقد</span>
+                                                        </t>
+                                                        <t t-if="employee.gender == 'female'">
+                                                            <span>متعاقدة</span>
+                                                        </t>
+                                                    </t>
+                                                    <t t-if="not employee.nomination">
+                                                        <span>غير محدد</span>
+                                                    </t>
                                                 </t>
-                                                <t t-if="employee.nomination == 'contractuel'">
-                                                    <span>متعاقد</span>
-                                                </t>
-                                                <t t-if="not employee.nomination">
-                                                    <span>غير محدد</span>
-                                                </t>
-                                            </t>
-                                        </td>
+                                            </td>
+                                        </t>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
                                             <t t-if="promotion_line">
                                                 <span t-esc="promotion_line.date_new_grade"/>
@@ -429,6 +502,11 @@
                                                 <span t-esc="employee.date_grade"/>
                                             </t>
                                         </td>
+                                        <t t-if="'رئيس' in job_data['job'].name and 'مكتب' in job_data['job'].name">
+                                            <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
+                                                <span t-esc="employee.department_id.name"/>
+                                            </td>
+                                        </t>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <t t-if="promotion_line">
                                                 <span t-esc="promotion_line.grade_id.intitule_grade"/>
@@ -437,12 +515,16 @@
                                                 <span t-esc="employee.grade_id.intitule_grade"/>
                                             </t>
                                         </td>
-                                        <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                            <span t-esc="employee.date_entrer"/>
-                                        </td>
-                                        <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                            <span t-field="employee.birthday"/>
-                                        </td>
+                                        <t t-if="not ('رئيس' in job_data['job'].name and 'مكتب' in job_data['job'].name)">
+                                            <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
+                                                <span t-esc="employee.date_entrer"/>
+                                            </td>
+                                        </t>
+                                        <t t-if="not ('رئيس' in job_data['job'].name and 'مكتب' in job_data['job'].name)">
+                                            <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
+                                                <span t-field="employee.birthday"/>
+                                            </td>
+                                        </t>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <span t-esc="employee.name"/>
                                         </td>
@@ -476,7 +558,7 @@
                 <br/>
                 <br/>
                 <br/>
-                <div style="text-align:center;font-size: 25px;border: 3px solid black; border-radius: 50%;padding: 35px;background-color:#D3D3D3">
+                <div class="arabic_typesetting_A">
                     <strong>
                         <span style="display: inline-block;">
                             &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;الأساتذة&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
@@ -494,7 +576,7 @@
                             </span>
                             <br/>
                             <span>
-                                القسم:
+                                الصنف:
                                 <span t-esc="grade_data['grade'].categorie_id.intitule"/>
                             </span>
                             <br/>
@@ -567,17 +649,37 @@
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <t t-if="employee.methode_embauche == 'detachement'">
-                                                <span>منتدب</span>
+                                                <t t-if="employee.gender == 'male'">
+                                                    <span>منتدب</span>
+                                                </t>
+                                                <t t-if="employee.gender == 'female'">
+                                                    <span>منتدبة</span>
+                                                </t>
                                             </t>
                                             <t t-if="not employee.methode_embauche == 'detachement'">
                                                 <t t-if="employee.nomination == 'satagiaire'">
-                                                    <span>متربص</span>
+                                                    <t t-if="employee.gender == 'male'">
+                                                        <span>متربص</span>
+                                                    </t>
+                                                    <t t-if="employee.gender == 'female'">
+                                                        <span>متربصة</span>
+                                                    </t>
                                                 </t>
                                                 <t t-if="employee.nomination == 'nomination'">
-                                                    <span>مرسم</span>
+                                                    <t t-if="employee.gender == 'male'">
+                                                        <span>مرسم</span>
+                                                    </t>
+                                                    <t t-if="employee.gender == 'female'">
+                                                        <span>مرسمة</span>
+                                                    </t>
                                                 </t>
                                                 <t t-if="employee.nomination == 'contractuel'">
-                                                    <span>متعاقد</span>
+                                                    <t t-if="employee.gender == 'male'">
+                                                        <span>متعاقد</span>
+                                                    </t>
+                                                    <t t-if="employee.gender == 'female'">
+                                                        <span>متعاقدة</span>
+                                                    </t>
                                                 </t>
                                                 <t t-if="not employee.nomination">
                                                     <span>غير محدد</span>
@@ -639,7 +741,7 @@
                 <br/>
                 <br/>
                 <br/>
-                <div style="text-align:center;font-size: 25px;border: 3px solid black; border-radius: 50%;padding: 35px;background-color:#D3D3D3">
+                <div class="arabic_typesetting_A">
                     <strong>
                         <span style="display: inline-block;">
                             &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;موظفو التأطير&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
@@ -730,17 +832,37 @@
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <t t-if="employee.methode_embauche == 'detachement'">
-                                                <span>منتدب</span>
+                                                <t t-if="employee.gender == 'male'">
+                                                    <span>منتدب</span>
+                                                </t>
+                                                <t t-if="employee.gender == 'female'">
+                                                    <span>منتدبة</span>
+                                                </t>
                                             </t>
                                             <t t-if="not employee.methode_embauche == 'detachement'">
                                                 <t t-if="employee.nomination == 'satagiaire'">
-                                                    <span>متربص</span>
+                                                    <t t-if="employee.gender == 'male'">
+                                                        <span>متربص</span>
+                                                    </t>
+                                                    <t t-if="employee.gender == 'female'">
+                                                        <span>متربصة</span>
+                                                    </t>
                                                 </t>
                                                 <t t-if="employee.nomination == 'nomination'">
-                                                    <span>مرسم</span>
+                                                    <t t-if="employee.gender == 'male'">
+                                                        <span>مرسم</span>
+                                                    </t>
+                                                    <t t-if="employee.gender == 'female'">
+                                                        <span>مرسمة</span>
+                                                    </t>
                                                 </t>
                                                 <t t-if="employee.nomination == 'contractuel'">
-                                                    <span>متعاقد</span>
+                                                    <t t-if="employee.gender == 'male'">
+                                                        <span>متعاقد</span>
+                                                    </t>
+                                                    <t t-if="employee.gender == 'female'">
+                                                        <span>متعاقدة</span>
+                                                    </t>
                                                 </t>
                                                 <t t-if="not employee.nomination">
                                                     <span>غير محدد</span>
@@ -802,7 +924,7 @@
                 <br/>
                 <br/>
                 <br/>
-                <div style="text-align:center;font-size: 25px;border: 3px solid black; border-radius: 50%;padding: 35px;background-color:#D3D3D3">
+                <div class="arabic_typesetting_A">
                     <strong>
                         <span style="display: inline-block;">
                             &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;موظفو التطبيق&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
@@ -893,17 +1015,37 @@
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <t t-if="employee.methode_embauche == 'detachement'">
-                                                <span>منتدب</span>
+                                                <t t-if="employee.gender == 'male'">
+                                                    <span>منتدب</span>
+                                                </t>
+                                                <t t-if="employee.gender == 'female'">
+                                                    <span>منتدبة</span>
+                                                </t>
                                             </t>
                                             <t t-if="not employee.methode_embauche == 'detachement'">
                                                 <t t-if="employee.nomination == 'satagiaire'">
-                                                    <span>متربص</span>
+                                                    <t t-if="employee.gender == 'male'">
+                                                        <span>متربص</span>
+                                                    </t>
+                                                    <t t-if="employee.gender == 'female'">
+                                                        <span>متربصة</span>
+                                                    </t>
                                                 </t>
                                                 <t t-if="employee.nomination == 'nomination'">
-                                                    <span>مرسم</span>
+                                                    <t t-if="employee.gender == 'male'">
+                                                        <span>مرسم</span>
+                                                    </t>
+                                                    <t t-if="employee.gender == 'female'">
+                                                        <span>مرسمة</span>
+                                                    </t>
                                                 </t>
                                                 <t t-if="employee.nomination == 'contractuel'">
-                                                    <span>متعاقد</span>
+                                                    <t t-if="employee.gender == 'male'">
+                                                        <span>متعاقد</span>
+                                                    </t>
+                                                    <t t-if="employee.gender == 'female'">
+                                                        <span>متعاقدة</span>
+                                                    </t>
                                                 </t>
                                                 <t t-if="not employee.nomination">
                                                     <span>غير محدد</span>
@@ -965,7 +1107,7 @@
                 <br/>
                 <br/>
                 <br/>
-                <div style="text-align:center;font-size: 25px;border: 3px solid black; border-radius: 50%;padding: 35px;background-color:#D3D3D3">
+                <div class="arabic_typesetting_A">
                     <strong>
                         <span style="display: inline-block;">
                             &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;مظوفو التحكم&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
@@ -1056,17 +1198,37 @@
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <t t-if="employee.methode_embauche == 'detachement'">
-                                                <span>منتدب</span>
+                                                <t t-if="employee.gender == 'male'">
+                                                    <span>منتدب</span>
+                                                </t>
+                                                <t t-if="employee.gender == 'female'">
+                                                    <span>منتدبة</span>
+                                                </t>
                                             </t>
                                             <t t-if="not employee.methode_embauche == 'detachement'">
                                                 <t t-if="employee.nomination == 'satagiaire'">
-                                                    <span>متربص</span>
+                                                    <t t-if="employee.gender == 'male'">
+                                                        <span>متربص</span>
+                                                    </t>
+                                                    <t t-if="employee.gender == 'female'">
+                                                        <span>متربصة</span>
+                                                    </t>
                                                 </t>
                                                 <t t-if="employee.nomination == 'nomination'">
-                                                    <span>مرسم</span>
+                                                    <t t-if="employee.gender == 'male'">
+                                                        <span>مرسم</span>
+                                                    </t>
+                                                    <t t-if="employee.gender == 'female'">
+                                                        <span>مرسمة</span>
+                                                    </t>
                                                 </t>
                                                 <t t-if="employee.nomination == 'contractuel'">
-                                                    <span>متعاقد</span>
+                                                    <t t-if="employee.gender == 'male'">
+                                                        <span>متعاقد</span>
+                                                    </t>
+                                                    <t t-if="employee.gender == 'female'">
+                                                        <span>متعاقدة</span>
+                                                    </t>
                                                 </t>
                                                 <t t-if="not employee.nomination">
                                                     <span>غير محدد</span>
@@ -1128,7 +1290,7 @@
                 <br/>
                 <br/>
                 <br/>
-                <div style="text-align:center;font-size: 25px;border: 3px solid black; border-radius: 50%;padding: 35px;background-color:#D3D3D3">
+                <div class="arabic_typesetting_A">
                     <strong>
                         <span style="display: inline-block;">
                             &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;مظوفو التنفيذ&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
@@ -1219,17 +1381,37 @@
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <t t-if="employee.methode_embauche == 'detachement'">
-                                                <span>منتدب</span>
+                                                <t t-if="employee.gender == 'male'">
+                                                    <span>منتدب</span>
+                                                </t>
+                                                <t t-if="employee.gender == 'female'">
+                                                    <span>منتدبة</span>
+                                                </t>
                                             </t>
                                             <t t-if="not employee.methode_embauche == 'detachement'">
                                                 <t t-if="employee.nomination == 'satagiaire'">
-                                                    <span>متربص</span>
+                                                    <t t-if="employee.gender == 'male'">
+                                                        <span>متربص</span>
+                                                    </t>
+                                                    <t t-if="employee.gender == 'female'">
+                                                        <span>متربصة</span>
+                                                    </t>
                                                 </t>
                                                 <t t-if="employee.nomination == 'nomination'">
-                                                    <span>مرسم</span>
+                                                    <t t-if="employee.gender == 'male'">
+                                                        <span>مرسم</span>
+                                                    </t>
+                                                    <t t-if="employee.gender == 'female'">
+                                                        <span>مرسمة</span>
+                                                    </t>
                                                 </t>
                                                 <t t-if="employee.nomination == 'contractuel'">
-                                                    <span>متعاقد</span>
+                                                    <t t-if="employee.gender == 'male'">
+                                                        <span>متعاقد</span>
+                                                    </t>
+                                                    <t t-if="employee.gender == 'female'">
+                                                        <span>متعاقدة</span>
+                                                    </t>
                                                 </t>
                                                 <t t-if="not employee.nomination">
                                                     <span>غير محدد</span>
@@ -1291,7 +1473,7 @@
                 <br/>
                 <br/>
                 <br/>
-                <div style="text-align:center;font-size: 25px;border: 3px solid black; border-radius: 50%;padding: 35px;background-color:#D3D3D3">
+                <div class="arabic_typesetting_A">
                     <strong>
                         <span style="display: inline-block;">
                             &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;العمال المهنين&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
@@ -1382,17 +1564,37 @@
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <t t-if="employee.methode_embauche == 'detachement'">
-                                                <span>منتدب</span>
+                                                <t t-if="employee.gender == 'male'">
+                                                    <span>منتدب</span>
+                                                </t>
+                                                <t t-if="employee.gender == 'female'">
+                                                    <span>منتدبة</span>
+                                                </t>
                                             </t>
                                             <t t-if="not employee.methode_embauche == 'detachement'">
                                                 <t t-if="employee.nomination == 'satagiaire'">
-                                                    <span>متربص</span>
+                                                    <t t-if="employee.gender == 'male'">
+                                                        <span>متربص</span>
+                                                    </t>
+                                                    <t t-if="employee.gender == 'female'">
+                                                        <span>متربصة</span>
+                                                    </t>
                                                 </t>
                                                 <t t-if="employee.nomination == 'nomination'">
-                                                    <span>مرسم</span>
+                                                    <t t-if="employee.gender == 'male'">
+                                                        <span>مرسم</span>
+                                                    </t>
+                                                    <t t-if="employee.gender == 'female'">
+                                                        <span>مرسمة</span>
+                                                    </t>
                                                 </t>
                                                 <t t-if="employee.nomination == 'contractuel'">
-                                                    <span>متعاقد</span>
+                                                    <t t-if="employee.gender == 'male'">
+                                                        <span>متعاقد</span>
+                                                    </t>
+                                                    <t t-if="employee.gender == 'female'">
+                                                        <span>متعاقدة</span>
+                                                    </t>
                                                 </t>
                                                 <t t-if="not employee.nomination">
                                                     <span>غير محدد</span>
@@ -1454,7 +1656,7 @@
                 <br/>
                 <br/>
                 <br/>
-                <div style="text-align:center;font-size: 25px;border: 3px solid black; border-radius: 50%;padding: 35px;background-color:#D3D3D3">
+                <div class="arabic_typesetting_A">
                     <strong>
                         <span style="display: inline-block;">
                             &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(العمال المتعاقدين بالتوقيت الكامل (عقد
@@ -1552,17 +1754,37 @@
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <t t-if="employee.methode_embauche == 'detachement'">
-                                                <span>منتدب</span>
+                                                <t t-if="employee.gender == 'male'">
+                                                    <span>منتدب</span>
+                                                </t>
+                                                <t t-if="employee.gender == 'female'">
+                                                    <span>منتدبة</span>
+                                                </t>
                                             </t>
                                             <t t-if="not employee.methode_embauche == 'detachement'">
                                                 <t t-if="employee.nomination == 'satagiaire'">
-                                                    <span>متربص</span>
+                                                    <t t-if="employee.gender == 'male'">
+                                                        <span>متربص</span>
+                                                    </t>
+                                                    <t t-if="employee.gender == 'female'">
+                                                        <span>متربصة</span>
+                                                    </t>
                                                 </t>
                                                 <t t-if="employee.nomination == 'nomination'">
-                                                    <span>مرسم</span>
+                                                    <t t-if="employee.gender == 'male'">
+                                                        <span>مرسم</span>
+                                                    </t>
+                                                    <t t-if="employee.gender == 'female'">
+                                                        <span>مرسمة</span>
+                                                    </t>
                                                 </t>
                                                 <t t-if="employee.nomination == 'contractuel'">
-                                                    <span>متعاقد</span>
+                                                    <t t-if="employee.gender == 'male'">
+                                                        <span>متعاقد</span>
+                                                    </t>
+                                                    <t t-if="employee.gender == 'female'">
+                                                        <span>متعاقدة</span>
+                                                    </t>
                                                 </t>
                                                 <t t-if="not employee.nomination">
                                                     <span>غير محدد</span>
@@ -1624,7 +1846,7 @@
                 <br/>
                 <br/>
                 <br/>
-                <div style="text-align:center;font-size: 25px;border: 3px solid black; border-radius: 50%;padding: 35px;background-color:#D3D3D3">
+                <div class="arabic_typesetting_A">
                     <strong>
                         <span style="display: inline-block;">
                             &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(العمال المتعاقدين بالتوقيت الكامل (عقد
@@ -1722,17 +1944,37 @@
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <t t-if="employee.methode_embauche == 'detachement'">
-                                                <span>منتدب</span>
+                                                <t t-if="employee.gender == 'male'">
+                                                    <span>منتدب</span>
+                                                </t>
+                                                <t t-if="employee.gender == 'female'">
+                                                    <span>منتدبة</span>
+                                                </t>
                                             </t>
                                             <t t-if="not employee.methode_embauche == 'detachement'">
                                                 <t t-if="employee.nomination == 'satagiaire'">
-                                                    <span>متربص</span>
+                                                    <t t-if="employee.gender == 'male'">
+                                                        <span>متربص</span>
+                                                    </t>
+                                                    <t t-if="employee.gender == 'female'">
+                                                        <span>متربصة</span>
+                                                    </t>
                                                 </t>
                                                 <t t-if="employee.nomination == 'nomination'">
-                                                    <span>مرسم</span>
+                                                    <t t-if="employee.gender == 'male'">
+                                                        <span>مرسم</span>
+                                                    </t>
+                                                    <t t-if="employee.gender == 'female'">
+                                                        <span>مرسمة</span>
+                                                    </t>
                                                 </t>
                                                 <t t-if="employee.nomination == 'contractuel'">
-                                                    <span>متعاقد</span>
+                                                    <t t-if="employee.gender == 'male'">
+                                                        <span>متعاقد</span>
+                                                    </t>
+                                                    <t t-if="employee.gender == 'female'">
+                                                        <span>متعاقدة</span>
+                                                    </t>
                                                 </t>
                                                 <t t-if="not employee.nomination">
                                                     <span>غير محدد</span>
@@ -1794,7 +2036,7 @@
                 <br/>
                 <br/>
                 <br/>
-                <div style="text-align:center;font-size: 25px;border: 3px solid black; border-radius: 50%;padding: 35px;background-color:#D3D3D3">
+                <div class="arabic_typesetting_A">
                     <strong>
                         <span style="display: inline-block;">
                             &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(العمال المتعاقدين بالتوقيت الجزئي(عقد
@@ -1892,17 +2134,37 @@
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <t t-if="employee.methode_embauche == 'detachement'">
-                                                <span>منتدب</span>
+                                                <t t-if="employee.gender == 'male'">
+                                                    <span>منتدب</span>
+                                                </t>
+                                                <t t-if="employee.gender == 'female'">
+                                                    <span>منتدبة</span>
+                                                </t>
                                             </t>
                                             <t t-if="not employee.methode_embauche == 'detachement'">
                                                 <t t-if="employee.nomination == 'satagiaire'">
-                                                    <span>متربص</span>
+                                                    <t t-if="employee.gender == 'male'">
+                                                        <span>متربص</span>
+                                                    </t>
+                                                    <t t-if="employee.gender == 'female'">
+                                                        <span>متربصة</span>
+                                                    </t>
                                                 </t>
                                                 <t t-if="employee.nomination == 'nomination'">
-                                                    <span>مرسم</span>
+                                                    <t t-if="employee.gender == 'male'">
+                                                        <span>مرسم</span>
+                                                    </t>
+                                                    <t t-if="employee.gender == 'female'">
+                                                        <span>مرسمة</span>
+                                                    </t>
                                                 </t>
                                                 <t t-if="employee.nomination == 'contractuel'">
-                                                    <span>متعاقد</span>
+                                                    <t t-if="employee.gender == 'male'">
+                                                        <span>متعاقد</span>
+                                                    </t>
+                                                    <t t-if="employee.gender == 'female'">
+                                                        <span>متعاقدة</span>
+                                                    </t>
                                                 </t>
                                                 <t t-if="not employee.nomination">
                                                     <span>غير محدد</span>
@@ -1964,7 +2226,7 @@
                 <br/>
                 <br/>
                 <br/>
-                <div style="text-align:center;font-size: 25px;border: 3px solid black; border-radius: 50%;padding: 35px;background-color:#D3D3D3">
+                <div class="arabic_typesetting_A">
                     <strong>
                         <span style="display: inline-block;">
                             &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(العمال المتعاقدين بالتوقيت الجزئي(عقد
@@ -2062,17 +2324,37 @@
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <t t-if="employee.methode_embauche == 'detachement'">
-                                                <span>منتدب</span>
+                                                <t t-if="employee.gender == 'male'">
+                                                    <span>منتدب</span>
+                                                </t>
+                                                <t t-if="employee.gender == 'female'">
+                                                    <span>منتدبة</span>
+                                                </t>
                                             </t>
                                             <t t-if="not employee.methode_embauche == 'detachement'">
                                                 <t t-if="employee.nomination == 'satagiaire'">
-                                                    <span>متربص</span>
+                                                    <t t-if="employee.gender == 'male'">
+                                                        <span>متربص</span>
+                                                    </t>
+                                                    <t t-if="employee.gender == 'female'">
+                                                        <span>متربصة</span>
+                                                    </t>
                                                 </t>
                                                 <t t-if="employee.nomination == 'nomination'">
-                                                    <span>مرسم</span>
+                                                    <t t-if="employee.gender == 'male'">
+                                                        <span>مرسم</span>
+                                                    </t>
+                                                    <t t-if="employee.gender == 'female'">
+                                                        <span>مرسمة</span>
+                                                    </t>
                                                 </t>
                                                 <t t-if="employee.nomination == 'contractuel'">
-                                                    <span>متعاقد</span>
+                                                    <t t-if="employee.gender == 'male'">
+                                                        <span>متعاقد</span>
+                                                    </t>
+                                                    <t t-if="employee.gender == 'female'">
+                                                        <span>متعاقدة</span>
+                                                    </t>
                                                 </t>
                                                 <t t-if="not employee.nomination">
                                                     <span>غير محدد</span>
@@ -2134,7 +2416,7 @@
                 <br/>
                 <br/>
                 <br/>
-                <div style="text-align:center;font-size: 25px;border: 3px solid black; border-radius: 50%;padding: 35px;background-color:#D3D3D3">
+                <div class="arabic_typesetting_A">
                     <strong>
                         <span style="display: inline-block;">
                             &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(القائمة الإسمية للوضعيات القانونية
@@ -2233,7 +2515,7 @@
                 <br/>
                 <br/>
                 <br/>
-                <div style="text-align:center;font-size: 25px;border: 3px solid black; border-radius: 50%;padding: 35px;background-color:#D3D3D3">
+                <div class="arabic_typesetting_A">
                     <strong>
                         <span style="display: inline-block;">
                             &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(القائمة الإسمية للوضعيات القانونية
@@ -2332,7 +2614,7 @@
                 <br/>
                 <br/>
                 <br/>
-                <div style="text-align:center;font-size: 25px;border: 3px solid black; border-radius: 50%;padding: 35px;background-color:#D3D3D3">
+                <div class="arabic_typesetting_A">
                     <strong>
                         <span style="display: inline-block;">
                             &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(القائمة الإسمية للوضعيات القانونية
@@ -2431,7 +2713,7 @@
                 <br/>
                 <br/>
                 <br/>
-                <div style="text-align:center;font-size: 25px;border: 3px solid black; border-radius: 50%;padding: 35px;background-color:#D3D3D3">
+                <div class="arabic_typesetting_A">
                     <strong>
                         <span style="display: inline-block;">
                             &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(القائمة الإسمية للوضعيات القانونية
