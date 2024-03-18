@@ -19,7 +19,8 @@ class OrganizationChartReport(models.AbstractModel):
         informatique = self.env['hr.employee'].search([('department_id.complete_name', 'ilike', 'الإعلام')])
         mgx = self.env['hr.employee'].search([('department_id.complete_name', 'ilike', 'الوسائل العامة')])
         internat = self.env['hr.employee'].search([('department_id.complete_name', 'ilike', 'النظام الداخلي')])
-        etude = self.env['hr.employee'].search([('department_id.complete_name', 'ilike', 'مديرية الدراسات')])
+        etude = self.env['hr.employee'].search(['|', ('department_id.complete_name', 'ilike', '%مديرية الدراسات%'),
+                                                ('department_id.complete_name', 'ilike', '%مديرية الدرسات%')])
         stage = self.env['hr.employee'].search([('department_id.complete_name', 'ilike', 'التربصات')])
         formation = self.env['hr.employee'].search([('department_id.complete_name', 'ilike', 'التكوين')])
         recherche = self.env['hr.employee'].search([('department_id.complete_name', 'ilike', 'البحث')])
