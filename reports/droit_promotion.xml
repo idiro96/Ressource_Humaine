@@ -98,17 +98,8 @@
                                     <t t-esc="promotion.date_ref_ouverture_examin"/>
                                 </span>
                                 فتح امتحان مهني للإتحاق
+                                <t t-esc="promotion.employee_id.grade"/>
                             </spans>
-                            <div style="font-size: 20px; text-align: right;">
-                                <span style="display: inline-block;">
-                                    - وبناء على المقرر رقم
-                                    <t t-esc="promotion.ref_ouverture_examin"/>
-                                    المؤرخ في
-                                    <t t-esc="promotion.date_ref_ouverture_examin"/>
-                                    فتح امتحان مهني للإتحاق برتبة
-                                    <t t-esc="promotion.employee_id.grade"/>
-                                </span>
-                            </div>
                             <div class="arabic_typesetting" style="font-size: 30px; text-align: right;">
                                 <t t-if="line.employee_id.gender == 'male'">
                                     <spans>
