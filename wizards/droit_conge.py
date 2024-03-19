@@ -67,7 +67,9 @@ class RHDroitConge(models.TransientModel):
 
                     conge_existe = self.env['rh.congedroit'].search(
                             [('exercice_conge', '=', anne_encours), ('id_personnel', '=', empl.id)])
+
                     if conge_existe:
+                                days_off = conge_existe.nbr_jour
                                 print("exercice existe déja")
                                 month_now = current_date.month
                                 print('ra')
@@ -77,6 +79,7 @@ class RHDroitConge(models.TransientModel):
                                 print(conge_existe)
                                 conge_existe_month = self.env['rh.conge_droit_month'].search([('id_conge_droit', '=', conge_existe.id),('month', '=', month_now)])
                                 print(conge_existe_month)
+
                                 if not conge_existe_month:
                                         days_off = days_off + 2.5
                                         conge_existe.write({'nbr_jour': days_off})
@@ -86,6 +89,7 @@ class RHDroitConge(models.TransientModel):
                                                             'month': month_now,
                                                         })
                                         print('rabah')
+
                     else:
 
                         if ((jour > 15) and (current_date == debut_annee)):

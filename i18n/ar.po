@@ -22250,7 +22250,7 @@ msgstr "Bonaire, Sint Eustatius and Saba"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_niveau_hierarchique_bonification_indiciaire
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_niveau_hierarchique_chef_bureau_bonification_indiciaire
 msgid "Bonification Indiciaire"
-msgstr "الزيادة الإستدلالي"
+msgstr "الزيادة الإستدلالية"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_contract_bool1
@@ -57740,6 +57740,11 @@ msgstr "بالإضافة إلى الإيرادات الأخرى"
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_point_indiciare
 msgid "Point Indiciare"
 msgstr "الرقم الإستدلالي"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_total_indice
+msgid "Total Indice"
+msgstr "المجموع"
 
 #. module: base
 #: model:ir.module.category,name:base.module_category_sales_point_of_sale

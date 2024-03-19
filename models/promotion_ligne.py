@@ -9,7 +9,7 @@ class RHPromotionLine(models.Model):
 
     date_examin_professionnel = fields.Date()
     date_promotion = fields.Date()
-    promotion_id = fields.Many2one('hr.promotion')
+    promotion_id = fields.Many2one('rh.promotion')
     employee_id = fields.Many2one('hr.employee')
     birthday = fields.Date(related='employee_id.birthday')
     marital = fields.Selection(related='employee_id.marital')
