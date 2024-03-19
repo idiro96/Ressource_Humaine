@@ -102,7 +102,7 @@ class PlanningCongeReport(models.AbstractModel):
         grade_d = self.env['rh.grade'].search([('categorie_id.groupe_id.name', 'ilike', '%المجموعة د%')])
         grade_ing = self.env['rh.grade'].search([('categorie_id.groupe_id.name', 'ilike', '%المجموعة د%'),
                                                  ('corps_id.intitule_corps', 'ilike', '%مهن%')])
-        grade_contract = self.env['rh.grade'].search([('corps_id.intitule_corps', 'ilike', '%متعاقد%')])
+        grade_contract = self.env['rh.grade'].search(['|', ('corps_id.intitule_corps', 'ilike', '%متعاقد%'), ('corps_id.intitule_corps', 'ilike', '%سيار%')])
         grade_d_filtered = grade_d - grade_ing
         grade_d_filtered_employees = []
         for grade in grade_d_filtered:

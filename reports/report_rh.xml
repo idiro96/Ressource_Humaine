@@ -170,7 +170,8 @@
             model="liste.nominative"
             report_type="qweb-html"
             name="ressource_humaine.liste_nominative"
-            file="وضعية التعداد النظري و الحقيقي"/>
+            file="وضعية التعداد النظري و الحقيقي"
+            paperformat="ressource_humaine.paperformat_european_a4_portrait_bordered"/>
 
     <report
             id="retraite_report"

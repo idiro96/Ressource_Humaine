@@ -94,7 +94,8 @@
                             <t t-esc="promotion.ref_ouverture_examin"/>
 المؤرخ في
                             <t t-esc="promotion.date_ref_ouverture_examin"/>
-                            فتح امتحان مهني للإتحاق
+                            فتح امتحان مهني للإتحاق برتبة
+                             <t t-esc="promotion.employee_id.grade"/>
                         </span>
                         </div>
                         <br/>
