@@ -90,12 +90,12 @@
                         </div>
                         <div style="font-size: 20px; text-align: right;">
                         <span style="display: inline-block;">
-                             - وبناء على المقرر رقم
+                              وبناء على المقرر رقم
                             <t t-esc="promotion.ref_ouverture_examin"/>
 المؤرخ في
                             <t t-esc="promotion.date_ref_ouverture_examin"/>
                             فتح امتحان مهني للإتحاق برتبة
-                             <t t-esc="promotion.employee_id.grade"/>
+                             <t t-esc="line.employee_id.grade_id.intitule_grade"/>
                         </span>
                         </div>
                         <br/>
@@ -107,6 +107,7 @@
                                 <span>
                                     <t t-esc="line.ref_promotion"/>
                                     ـ بناء على مقرر الترقية رقم
+<!--                                     <t t-esc="line.grade_id.intitule_grade"/>-->
                                     <br/>
                                     المؤرخ في
                                     <t t-esc="line.date_ref_promotion"/>
