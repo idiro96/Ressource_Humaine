@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <template id="assets_common_ar" name="attestation_travail_report_font" inherit_id="web.report_assets_common">
+        <template id="header_assets_common_ar" name="header_arabic_font" inherit_id="web.report_assets_common">
             <xpath expr="." position="inside">
                 <link href="/ressource_humaine/static/src/css/arabic_font.css" rel="stylesheet"/>
+            </xpath>
+        </template>
+        <template id="header_assets_common_fr" name="header_latin_font" inherit_id="web.report_assets_common">
+            <xpath expr="." position="inside">
+                <link href="/ressource_humaine/static/src/css/latin_font.css" rel="stylesheet"/>
             </xpath>
         </template>
         <template id="attestation_travail_report">

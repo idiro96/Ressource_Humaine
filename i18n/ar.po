@@ -23471,12 +23471,12 @@ msgstr "دليل المنتجات"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_droit_categorie_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_section_categorie_id
 msgid "Categorie"
-msgstr "فئة"
+msgstr "الصنف"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_groupe_categorie_lines
 msgid "Categorie Lines"
-msgstr "خطوط فئة"
+msgstr "خطوط الصنف"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_categorie_new_id
@@ -28358,12 +28358,12 @@ msgstr "إنشاء تقدم !"
 #. module: ressource_humaine
 #: model:ir.actions.act_window,help:ressource_humaine.action_rh_categorie_superieure
 msgid "Creation categorie superieure!"
-msgstr "إنشاء فئة عليا!"
+msgstr "إنشاء صنف علي!"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,help:ressource_humaine.action_rh_categorie
 msgid "Creation categorie!"
-msgstr "!إنشاء فئة"
+msgstr "!إنشاء صنف"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,help:ressource_humaine.action_rh_echelon
@@ -37725,6 +37725,7 @@ msgstr "الشبكة"
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_contract_grille_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_grille_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_categorie_grille_id
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_echelon_grille_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_groupe_grille_id
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_grille
 msgid "Grille"
