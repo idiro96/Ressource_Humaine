@@ -114,6 +114,24 @@ class HrEmployeInherited(models.Model):
         ('widower', 'Widower'),
         ('divorced', 'Divorced')
     ], string='Marital Status', groups="hr.group_hr_user", default='single')
+    wage_range = fields.Selection([
+        ('low', '15000-30000'),
+        ('medium', '30000-50000'),
+        ('high', '50000-100000'),
+        ('very_high', '100000+')
+    ], compute='_compute_wage_range', store=True)
+
+    @api.depends('wage')
+    def _compute_wage_range(self):
+        for rec in self:
+            if rec.wage < 30000:
+                rec.wage_range = 'low'
+            elif 30000 <= rec.wage < 50000:
+                rec.wage_range = 'medium'
+            elif 50000 <= rec.wage < 100000:
+                rec.wage_range = 'high'
+            else:
+                rec.wage_range = 'very_high'
 
     @api.constrains('jour_sup')
     def _check_jour_sup_max_value(self):
