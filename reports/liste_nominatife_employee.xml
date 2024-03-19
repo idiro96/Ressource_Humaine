@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <template id="header_assets_common_ar" name="header_arabic_font" inherit_id="web.report_assets_common">
+        <xpath expr="." position="inside">
+            <link href="/ressource_humaine/static/src/css/arabic_font.css" rel="stylesheet"/>
+        </xpath>
+    </template>
+    <template id="header_assets_common_fr" name="header_latin_font" inherit_id="web.report_assets_common">
+        <xpath expr="." position="inside">
+            <link href="/ressource_humaine/static/src/css/latin_font.css" rel="stylesheet"/>
+        </xpath>
+    </template>
     <template id="liste_nominatife_employee">
         <t t-call="web.basic_layout">
             <div class="page">
@@ -319,31 +329,11 @@
                                             </t>
                                         </t>
                                     </t>
-                                    <t t-if="not ('رئيس' in job_data['job'].name and 'مكتب' in job_data['job'].name)">
-                                        القسم:
-                                        <t t-if="job_data['employees'][0].section_id">
-                                            <span t-esc="job_data['employees'][0].section_id.intitule"/>
-                                        </t>
-                                        <t t-if="not job_data['employees'][0].section_id">
-                                            <t t-set="found_employee" t-value="False"/>
-                                            <t t-foreach="job_data['employees']" t-as="employee">
-                                                <t t-if="not found_employee and employee.section_id">
-                                                    <t t-set="found_employee" t-value="True"/>
-                                                    <span t-esc="employee.section_id.intitule"/>
-                                                </t>
-                                            </t>
-                                        </t>
-                                    </t>
                                 </span>
                             </t>
                             <t t-if="not job_data['employees']">
                                 <span>
-                                    <t t-if="not ('رئيس' in job_data['job'].name and 'مكتب' in job_data['job'].name)">
-                                        :الصنف:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;القسم
-                                    </t>
-                                    <t t-if="'رئيس' in job_data['job'].name and 'مكتب' in job_data['job'].name">
-                                        الصنف:
-                                    </t>
+                                    الصنف:
                                 </span>
                             </t>
                             <br/>
@@ -2220,7 +2210,7 @@
                     <strong>
                         <span>
                             العمال المتعاقدين بالتوقيت الجزئي
-                           <br/>
+                            <br/>
                             (عقد محدد المدة)
                         </span>
                     </strong>
@@ -2607,7 +2597,7 @@
                 <div class="arabic_typesetting_A">
                     <strong>
                         <span>
-                           القائمة الإسمية للوضعيات القانونية
+                            القائمة الإسمية للوضعيات القانونية
                             <br/>
                             (حالات الإستيداع)
                         </span>

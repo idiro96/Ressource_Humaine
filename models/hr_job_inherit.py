@@ -41,3 +41,9 @@ class HrJobInherited(models.Model):
         raise UserError(
             "Vous ne pouvez pas supprimer cet enregistrement")
         return super(HrJobInherited, self).unlink()
+
+
+class CustomDepartment(models.Model):
+    _inherit = 'hr.department'
+
+    _rec_name = 'name'

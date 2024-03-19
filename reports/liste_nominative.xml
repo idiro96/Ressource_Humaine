@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <template id="header_assets_common_ar" name="header_arabic_font" inherit_id="web.report_assets_common">
+        <xpath expr="." position="inside">
+            <link href="/ressource_humaine/static/src/css/arabic_font.css" rel="stylesheet"/>
+        </xpath>
+    </template>
+    <template id="header_assets_common_fr" name="header_latin_font" inherit_id="web.report_assets_common">
+        <xpath expr="." position="inside">
+            <link href="/ressource_humaine/static/src/css/latin_font.css" rel="stylesheet"/>
+        </xpath>
+    </template>
     <template id="liste_nominative">
         <t t-call="web.basic_layout">
             <div class="page">
@@ -57,7 +67,10 @@
                 <div class="texte-en-gras" style="text-align:center;font-size: 35px">
                     <strong>
                         وضعية التعداد النظري و الحقيقي الموقوف إلى غاية
-                        <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
+                    </strong>
+                    <br/>
+                    <strong>
+                        ......./12/31
                     </strong>
                 </div>
                 <br/>
@@ -1119,7 +1132,7 @@
                         </tbody>
                     </table>
                 </div>
-                <br/>
+                <div style="page-break-before: always;"></div>
                 <div class="texte-en-gras" style="text-align:center;">
                     <strong>
                         <span style="border-bottom: 5px double;font-size:30px">
@@ -1157,7 +1170,7 @@
                                     الصنف
                                 </th>
                                 <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:23px;width:25%">
-                                    الرتبة
+                                    منصب شغل
                                 </th>
                             </tr>
                         </thead>
