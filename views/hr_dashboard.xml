@@ -3,7 +3,6 @@
     <template id="dashboard_css" name="dashboard_css_template" inherit_id="web.assets_backend">
         <xpath expr="." position="inside">
             <link href="/ressource_humaine/static/src/css/custom.css" rel="stylesheet"/>
-            <script type="text/javascript" src='/ressource_humaine/static/src/js/dashboard.js'/>
         </xpath>
     </template>
 
