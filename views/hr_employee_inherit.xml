@@ -320,6 +320,7 @@
                                     <field name="groupe_old_id"/>
                                     <field name="categorie_old_id"/>
                                     <field name="echelon_old_id"/>
+                                    <field name="date_new_avancement"/>
                                     <field name="date_avancement"/>
                                     <field name="duree"/>
                                     <field name="groupe_new_id"/>
