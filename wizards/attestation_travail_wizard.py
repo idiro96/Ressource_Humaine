@@ -34,9 +34,9 @@ class AttestationTravailReport(models.AbstractModel):
     def get_report_values(self, docids, data=None):
         attestation_travail = self.env['attestation.travail'].browse(docids[0])
         birthday = attestation_travail.employee_id.birthday
-        formatted_date = datetime.strptime(birthday, "%Y-%m-%d").strftime("%d-%m-%Y")
+        formatted_date = datetime.strptime(birthday, "%Y-%m-%d").strftime("%Y/%m/%d")
         date_entrer = attestation_travail.employee_id.date_entrer
-        formatted_date_entrer = datetime.strptime(date_entrer, "%Y-%m-%d").strftime("%d-%m-%Y")
+        formatted_date_entrer = datetime.strptime(date_entrer, "%Y-%m-%d").strftime("%Y/%m/%d")
 
         report_data = {
             'formatted_date': formatted_date,
@@ -57,8 +57,8 @@ class AttestationTravailFrReport(models.AbstractModel):
         attestation_travail = self.env['attestation.travail'].browse(docids[0])
         birthday = attestation_travail.employee_id.birthday
         date_entrer = attestation_travail.employee_id.date_entrer
-        formatted_birthday = datetime.strptime(birthday, "%Y-%m-%d").strftime("%d-%m-%Y")
-        formatted_date_entrer = datetime.strptime(date_entrer, "%Y-%m-%d").strftime("%d-%m-%Y")
+        formatted_birthday = datetime.strptime(birthday, "%Y-%m-%d").strftime("%d/%m/%Y")
+        formatted_date_entrer = datetime.strptime(date_entrer, "%Y-%m-%d").strftime("%d/%m/%Y")
 
         report_data = {
             'attestation_travail': attestation_travail,

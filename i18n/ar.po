@@ -12948,12 +12948,12 @@ msgstr "<strong>\n"
 #: model:ir.ui.view,arch_db:ressource_humaine.droit_avancement_report
 msgid "<strong>\n"
 "                                <span>\n"
-"                                    مستخرج من مقر المصادقة على جدول الترقية في الدرجات\n"
+"                                    مستخرج من مقرر المصادقة على جدول الترقية في الدرجات\n"
 "                                </span>\n"
 "                            </strong>"
 msgstr "<strong>\n"
 "                                <span>\n"
-"                                    مستخرج من مقر المصادقة على جدول الترقية في الدرجات\n"
+"                                    مستخرج من مقرر المصادقة على جدول الترقية في الدرجات\n"
 "                                </span>\n"
 "                            </strong>"
 
@@ -34813,7 +34813,7 @@ msgstr "استخراج وتحليل بيانات أودو من جدول بيان
 #. module: ressource_humaine
 #: model:ir.actions.report,name:ressource_humaine.action_droit_avancement_report
 msgid "Extrait du siège approuvant le calendrier des promotions de grade"
-msgstr "مستخرج من مقر المصادقة على جدول الترقية في الدرجات"
+msgstr "مستخرج من مقرر المصادقة على جدول الترقية في الدرجات"
 
 #. module: base
 #: model:res.partner.industry,name:base.res_partner_industry_U

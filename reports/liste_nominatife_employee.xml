@@ -61,7 +61,7 @@
                     </strong>
                     <br/>
                     <strong>
-                        ......./12/....
+                        ......./12/31
                     </strong>
                 </div>
                 <div style="page-break-before: always;"></div>
@@ -105,6 +105,9 @@
                                     الصنف:
                                     <t t-if="job_data['employees'][0].categorie_superieure_id">
                                         <span t-esc="job_data['employees'][0].categorie_superieure_id.intitule"/>
+                                        <span style="color: white;">
+                                            أ
+                                        </span>
                                     </t>
                                     <t t-if="not job_data['employees'][0].categorie_superieure_id">
                                         <t t-set="found_employee" t-value="False"/>
@@ -112,12 +115,18 @@
                                             <t t-if="not found_employee and employee.categorie_superieure_id">
                                                 <t t-set="found_employee" t-value="True"/>
                                                 <span t-esc="employee.categorie_superieure_id.intitule"/>
+                                                <span style="color: white;">
+                                                    أ
+                                                </span>
                                             </t>
                                         </t>
                                     </t>
                                     القسم:
                                     <t t-if="job_data['employees'][0].section_superieure_id">
                                         <span t-esc="job_data['employees'][0].section_superieure_id.intitule"/>
+                                        <span style="color: white;">
+                                            أ
+                                        </span>
                                     </t>
                                     <t t-if="not job_data['employees'][0].section_superieure_id">
                                         <t t-set="found_employee" t-value="False"/>
@@ -125,6 +134,9 @@
                                             <t t-if="not found_employee and employee.section_superieure_id">
                                                 <t t-set="found_employee" t-value="True"/>
                                                 <span t-esc="employee.section_superieure_id.intitule"/>
+                                                <span style="color: white;">
+                                                    أ
+                                                </span>
                                             </t>
                                         </t>
                                     </t>
@@ -262,7 +274,7 @@
                                             <span t-esc="employee.date_entrer"/>
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                            <span t-field="employee.birthday"/>
+                                            <span t-esc="employee.birthday"/>
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <span t-esc="employee.name"/>
@@ -319,6 +331,9 @@
                                     الصنف:
                                     <t t-if="job_data['employees'][0].categorie_id">
                                         <span t-esc="job_data['employees'][0].categorie_id.intitule"/>
+                                        <span style="color: white;">
+                                            أ
+                                        </span>
                                     </t>
                                     <t t-if="not job_data['employees'][0].categorie_id">
                                         <t t-set="found_employee" t-value="False"/>
@@ -326,6 +341,9 @@
                                             <t t-if="not found_employee and employee.categorie_id">
                                                 <t t-set="found_employee" t-value="True"/>
                                                 <span t-esc="employee.categorie_id.intitule"/>
+                                                <span style="color: white;">
+                                                    أ
+                                                </span>
                                             </t>
                                         </t>
                                     </t>
@@ -334,6 +352,9 @@
                             <t t-if="not job_data['employees']">
                                 <span>
                                     الصنف:
+                                </span>
+                                <span style="color: white;">
+                                    أ
                                 </span>
                             </t>
                             <br/>

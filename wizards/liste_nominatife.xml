@@ -14,7 +14,7 @@
                     </sheet>
                     <footer>
                         <button string="تجاهل" class="oe_link" special="cancel"/>
-                        <button name="print_report" string="طباعة" type="object" class="oe_highlight"/>
+                        <button name="print_liste" string="طباعة" type="object" class="oe_highlight"/>
                     </footer>
                 </form>
             </field>
