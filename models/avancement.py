@@ -99,7 +99,7 @@ class RHAvancement(models.Model):
                         'employee_id': rec.employee_id.id,
                         'code': self.env['ir.sequence'].next_by_code('rh.avancement.line.sequence'),
                         'type_fonction_id': rec.employee_id.nature_travail_id.id,
-                        'date_old_avancement': rec.date_avancement,
+                        'date_old_avancement': rec.date_old_avancement,
                         'ref': rec.employee_id.ref,
                         'date_ref': rec.employee_id.date_ref,
                         'grade_id': rec.grade_id.id,
