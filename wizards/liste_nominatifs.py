@@ -5,7 +5,7 @@ class ListeNominatifs(models.TransientModel):
     _name = 'liste.nominatifs'
 
     @api.multi
-    def print_report(self):
+    def print_liste(self):
         return self.env.ref('ressource_humaine.action_liste_nominatife').report_action(self)
 
 
@@ -26,7 +26,7 @@ class PlanningCongeReport(models.AbstractModel):
             else:
                 supp_employees.append({'job': job, 'employees': employees, 'promotion_lines': None})
 
-        job_hight = self.env['hr.job'].search([('nature_travail_id.code_type_fonction', '=', 'fonctionsuperieure')])
+        job_hight = self.env['hr.job'].search([('nature_travail_id.code_type_fonction', '=', 'fonctionsupérieure')])
         hight_employees = []
         for job in job_hight:
             employees = self.env['hr.employee'].search([('job_id', '=', job.id), ('position_statutaire', '=', 'activite'),

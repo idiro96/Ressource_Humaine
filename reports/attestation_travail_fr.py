@@ -20,8 +20,8 @@ class EmployeeAttestationTravailFrReport(models.AbstractModel):
         employee = self.env['hr.employee'].browse(docids[0])
         birthday = employee.birthday
         date_entrer = employee.date_entrer
-        formatted_birthday = datetime.strptime(birthday, "%Y-%m-%d").strftime("%d-%m-%Y")
-        formatted_date_entrer = datetime.strptime(date_entrer, "%Y-%m-%d").strftime("%d-%m-%Y")
+        formatted_birthday = datetime.strptime(birthday, "%Y-%m-%d").strftime("%d/%m/%Y")
+        formatted_date_entrer = datetime.strptime(date_entrer, "%Y-%m-%d").strftime("%d/%m/%Y")
 
         report_data = {
             'formatted_date_entrer': formatted_date_entrer,
