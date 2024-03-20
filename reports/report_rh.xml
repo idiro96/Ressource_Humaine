@@ -82,7 +82,7 @@
             model="rh.avancement"
             report_type="qweb-html"
             name="ressource_humaine.droit_avancement_report"
-            file="ressource_humaine.droit_avancementt_report"/>
+            file="مستخرج من مقرر المصادقة على جدول الترقية في الدرجات"/>
     <report
             id="action_droit_promotion_report"
             string="Extrait du siège approuvant le calendrier des promotions de grade par examains professionnel"

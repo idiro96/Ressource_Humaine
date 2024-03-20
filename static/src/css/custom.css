@@ -15,3 +15,12 @@
 .nv-axisMax-y text {
     transform: translateX(-33px);
 }
+.nv-bar.positive {
+    fill: #018749 !important;
+    stroke: #018749 !important;
+}
+/*.nv-group.nv-series-0 path,
+.nv-group.nv-series-0 rect,
+.nv-group.nv-series-0 circle {
+    stroke: #018749 !important;
+}*/

@@ -46,7 +46,7 @@
                         <div class="texte-en-gras" style="font-size: 30px;text-align: center;word-spacing: 5px;">
                             <strong>
                                 <span>
-                                    مستخرج من مقر المصادقة على جدول الترقية في الدرجات
+                                    مستخرج من مقرر المصادقة على جدول الترقية في الدرجات
                                 </span>
                             </strong>
                         </div>
@@ -116,11 +116,10 @@
                         <div class="arabic_typesetting" style="font-size: 30px; text-align: right;">
                             <t t-if="line.employee_id.gender == 'male'">
                                 <spans>
+                                    ـ بناء على مقرر الترقية رقم
                                     <span class="texte-en-gras">
                                         <t t-esc="line.ref"/>
                                     </span>
-                                    ـ بناء على مقرر الترقية رقم
-                                    <br/>
                                     المؤرخ في
                                     <span class="texte-en-gras">
                                         <t t-esc="line_date_ref.get(line.id, '')"/>
@@ -130,12 +129,10 @@
                             </t>
                             <t t-if="line.employee_id.gender == 'female'">
                                 <spans>
+                                    ـ بناء على مقرر الترقية رقم
                                     <span class="texte-en-gras">
                                         <t t-esc="line.ref"/>
                                     </span>
-                                    ـ بناء على مقرر الترقية رقم
-                                    <br/>
-                                    المؤرخ في
                                     <span class="texte-en-gras">
                                         <t t-esc="line_date_ref.get(line.id, '')"/>
                                     </span>
@@ -167,15 +164,14 @@
                         <div class="arabic_typesetting" style="font-size: 30px; text-align: right;">
                             <spans>
                                 <t t-if="avancement.code">
+                                    ـ بناء على المقرر رقم
                                     <span class="texte-en-gras">
                                         <t t-esc="avancement.code"/>
                                     </span>
-                                    ـ بناء على المقرر رقم
                                 </t>
                                 <t t-if="not avancement.code">
                                     .....ـ بناء على المقرر رقم
                                 </t>
-                                <br/>
                                 <t t-if="line_date_signature.get(avancement.id, '')">
                                     المؤرخ في
                                     <span class="texte-en-gras">
@@ -185,16 +181,16 @@
                                 <t t-if="not line_date_signature.get(avancement.id, '')">
                                     المؤرخ في..................
                                 </t>
-                                المتضمن المصادقة على جداول
-                                الترقية
-                                في
-                                الدرجات بعنوان سنة
+                                المتضمن المصادقة على جداول الترقية في الدرجات بعنوان سنة................
+                            <span style="color: white;">
+                                سنة
+                            </span>
                             </spans>
                         </div>
                         <div class="arabic_typesetting" style="font-size: 30px; text-align: right;">
                             <spans>
                                 <t t-if="line.employee_id.gender == 'male'">
-                                    ـ ترقى السيد :
+                                    ـ يرقى السيد :
                                 </t>
                                 <t t-if="line.employee_id.gender == 'female'">
                                     ـ ترقى السيدة :
@@ -268,7 +264,7 @@
                             <strong>
                                 <span style="border: 3px solid black; display: inline-block; padding: 5px; border-radius: 10px;">
                                     <t t-if="line.employee_id.gender == 'male'">
-                                        ترتب المعني في الصنف :
+                                        يرتب المعني في الصنف :
                                     </t>
                                     <t t-if="line.employee_id.gender == 'female'">
                                         ترتب المعنية في الصنف :
