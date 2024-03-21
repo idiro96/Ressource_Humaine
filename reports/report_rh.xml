@@ -82,7 +82,7 @@
             model="rh.avancement"
             report_type="qweb-html"
             name="ressource_humaine.droit_avancement_report"
-            file="ressource_humaine.droit_avancementt_report"/>
+            file="مستخرج من مقرر المصادقة على جدول الترقية في الدرجات"/>
     <report
             id="action_droit_promotion_report"
             string="Extrait du siège approuvant le calendrier des promotions de grade"
@@ -170,7 +170,8 @@
             model="liste.nominative"
             report_type="qweb-html"
             name="ressource_humaine.liste_nominative"
-            file="وضعية التعداد النظري و الحقيقي"/>
+            file="وضعية التعداد النظري و الحقيقي"
+            paperformat="ressource_humaine.paperformat_european_a4_portrait_bordered"/>
 
     <report
             id="retraite_report"

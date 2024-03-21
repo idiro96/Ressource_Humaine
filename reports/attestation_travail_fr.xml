@@ -1,24 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-
+        <template id="header_assets_common_ar" name="header_arabic_font" inherit_id="web.report_assets_common">
+            <xpath expr="." position="inside">
+                <link href="/ressource_humaine/static/src/css/arabic_font.css" rel="stylesheet"/>
+            </xpath>
+        </template>
+        <template id="header_assets_common_fr" name="header_latin_font" inherit_id="web.report_assets_common">
+            <xpath expr="." position="inside">
+                <link href="/ressource_humaine/static/src/css/latin_font.css" rel="stylesheet"/>
+            </xpath>
+        </template>
         <template id="attestation_travail_fr_report">
             <t t-call="web.basic_layout">
                 <t t-call="ressource_humaine.report_header_custom_bordered"/>
                 <div class="page"
                      style="border-bottom: 10px double black;border-left: 10px double black;border-right: 10px double black;">
                     <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
                     <strong>
-                        <div style="font-size: 20px;text-align: right;margin-right:125px;">
-                            <span style="display: inline-block;">
-                                ALGER LE
-                            </span>
-                        </div>
-                        <br/>
-                        <br/>
-                        <div style="font-size: 20px;text-align: left;margin-left:15px;">
-                            <span>
+                        <div style="font-size: 20px;text-align: left;">
+                            <span style="margin-left:15px;">
                                 Ecole Nationale d'Administration
+                            </span>
+                            <span style="margin-left:250px;">
+                                ALGER LE
                             </span>
                         </div>
                         <div style="font-size: 20px;text-align: left;margin-left:15px;">
@@ -91,11 +103,11 @@
                                 Monsieur,
                                 <strong>
                                     <t t-esc="employee.nom_fr"/>
-                                </strong>&#160;
+                                </strong>
                                 né le
                                 <strong>
                                     <t t-esc="formatted_birthday"/>
-                                </strong>&#160;
+                                </strong>
                             </span>
                         </t>
                         <t t-if="employee.gender == 'female'">
@@ -103,17 +115,17 @@
                                 Madame,
                                 <strong>
                                     <t t-esc="employee.nom_fr"/>
-                                </strong>&#160;
+                                </strong>
                                 née le
                                 <strong>
                                     <t t-esc="formatted_birthday"/>
-                                </strong>&#160;
+                                </strong>
                             </span>
                         </t>
                         <span>
                             à
                             <strong>
-                                <t t-esc="employee.place_of_birth_fr"/>
+                                <t t-esc="employee.place_of_birth_fr"/>.
                             </strong>
                             <br/>
                             <br/>
@@ -134,8 +146,8 @@
                                 </t>
                             </t>
                             <strong>
-                                <t t-esc="formatted_date_entrer"/>
-                            </strong>&#160;
+                                <t t-esc="formatted_date_entrer"/>.
+                            </strong>
                         </span>
                         <span style="display: inline-block;">
                         </span>
@@ -145,7 +157,7 @@
                             <span>
                                 Il, exerce ses fonctions en sa qualité de :
                                 <strong>
-                                    <t t-esc="employee.grade_id.intitule_grade_fr"/>
+                                    <t t-esc="employee.grade_id.intitule_grade_fr"/>.
                                 </strong>
                             </span>
                         </t>
@@ -153,7 +165,7 @@
                             <span>
                                 Elle, exerce ses fonctions en sa qualité de :
                                 <strong>
-                                    <t t-esc="employee.grade_id.intitule_grade_fr"/>
+                                    <t t-esc="employee.grade_id.intitule_grade_fr"/>.
                                 </strong>
                             </span>
                         </t>
@@ -181,13 +193,13 @@
                         <t t-if="not employee.gender or employee.gender == 'male'">
                             <span>
                                 Cette attestation est délivrée à l'intéressé pour servir et valoir ce que de
-                                droit
+                                droit.
                             </span>
                         </t>
                         <t t-if="employee.gender == 'female'">
                             <span>
                                 Cette attestation est délivrée à l'intéressée pour servir et valoir ce que de
-                                droit
+                                droit.
                             </span>
                         </t>
                     </div>
@@ -202,18 +214,13 @@
                 <t t-call="ressource_humaine.report_header_custom_bordered"/>
                 <div class="page"
                      style="border-bottom: 10px double black;border-left: 10px double black;border-right: 10px double black;">
-                    <br/>
                     <strong>
-                        <div style="font-size: 20px;text-align: right;margin-right:125px;">
-                            <span style="display: inline-block;">
-                                ALGER LE
-                            </span>
-                        </div>
-                        <br/>
-                        <br/>
-                        <div style="font-size: 20px;text-align: left;margin-left:15px;">
-                            <span>
+                        <div style="font-size: 20px;text-align: left;">
+                            <span style="margin-left:15px;">
                                 Ecole Nationale d'Administration
+                            </span>
+                            <span style="margin-left:250px;">
+                                ALGER LE
                             </span>
                         </div>
                         <div style="font-size: 20px;text-align: left;margin-left:15px;">
@@ -260,11 +267,11 @@
                                 Monsieur,
                                 <strong>
                                     <t t-esc="employee.nom_fr"/>
-                                </strong>&#160;
+                                </strong>
                                 né le
                                 <strong>
                                     <t t-esc="formatted_birthday"/>
-                                </strong>&#160;
+                                </strong>
                             </span>
                         </t>
                         <t t-if="employee.gender == 'female'">
@@ -272,17 +279,17 @@
                                 Madame,
                                 <strong>
                                     <t t-esc="employee.nom_fr"/>
-                                </strong>&#160;
+                                </strong>
                                 née le
                                 <strong>
                                     <t t-esc="formatted_birthday"/>
-                                </strong>&#160;
+                                </strong>
                             </span>
                         </t>
                         <span>
                             à
                             <strong>
-                                <t t-esc="employee.place_of_birth_fr"/>
+                                <t t-esc="employee.place_of_birth_fr"/>.
                             </strong>
                             <br/>
                             <br/>
@@ -303,8 +310,8 @@
                                 </t>
                             </t>
                             <strong>
-                                <t t-esc="formatted_date_entrer"/>
-                            </strong>&#160;
+                                <t t-esc="formatted_date_entrer"/>.
+                            </strong>
                         </span>
                         <span style="display: inline-block;">
                         </span>
@@ -314,7 +321,7 @@
                             <span>
                                 Il, exerce ses fonctions en sa qualité de :
                                 <strong>
-                                    <t t-esc="employee.grade_id.intitule_grade_fr"/>
+                                    <t t-esc="employee.grade_id.intitule_grade_fr"/>.
                                 </strong>
                             </span>
                         </t>
@@ -322,7 +329,7 @@
                             <span>
                                 Elle, exerce ses fonctions en sa qualité de :
                                 <strong>
-                                    <t t-esc="employee.grade_id.intitule_grade_fr"/>
+                                    <t t-esc="employee.grade_id.intitule_grade_fr"/>.
                                 </strong>
                             </span>
                         </t>
@@ -350,13 +357,13 @@
                         <t t-if="not employee.gender or employee.gender == 'male'">
                             <span>
                                 Cette attestation est délivrée à l'intéressé pour servir et valoir ce que de
-                                droit
+                                droit.
                             </span>
                         </t>
                         <t t-if="employee.gender == 'female'">
                             <span>
                                 Cette attestation est délivrée à l'intéressée pour servir et valoir ce que de
-                                droit
+                                droit.
                             </span>
                         </t>
                     </div>

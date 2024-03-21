@@ -9496,7 +9496,7 @@ msgstr "<b>لا يوجد موديل الموقع الإلكتروني !</b>"
 #. module: payment
 #: model:ir.ui.view,arch_db:payment.pay
 msgid "<b>Reference:</b>"
-msgstr "<b>رقم الإشارة:</b>"
+msgstr "<b>رقم التأشيرة:</b>"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.snippet_options
@@ -12948,12 +12948,12 @@ msgstr "<strong>\n"
 #: model:ir.ui.view,arch_db:ressource_humaine.droit_avancement_report
 msgid "<strong>\n"
 "                                <span>\n"
-"                                    مستخرج من مقر المصادقة على جدول الترقية في الدرجات\n"
+"                                    مستخرج من مقرر المصادقة على جدول الترقية في الدرجات\n"
 "                                </span>\n"
 "                            </strong>"
 msgstr "<strong>\n"
 "                                <span>\n"
-"                                    مستخرج من مقر المصادقة على جدول الترقية في الدرجات\n"
+"                                    مستخرج من مقرر المصادقة على جدول الترقية في الدرجات\n"
 "                                </span>\n"
 "                            </strong>"
 
@@ -14284,7 +14284,7 @@ msgstr "<strong>Reference your images...</strong><br/>\n"
 #: model:ir.ui.view,arch_db:account.portal_invoice_report
 #: model:ir.ui.view,arch_db:account.report_invoice_document
 msgid "<strong>Reference:</strong>"
-msgstr "<strong>رقم الإشارة:</strong>"
+msgstr "<strong>رقم التأشيرة:</strong>"
 
 #. module: hr_payroll
 #: model:ir.ui.view,arch_db:hr_payroll.report_payslip
@@ -22250,7 +22250,7 @@ msgstr "Bonaire, Sint Eustatius and Saba"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_niveau_hierarchique_bonification_indiciaire
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_niveau_hierarchique_chef_bureau_bonification_indiciaire
 msgid "Bonification Indiciaire"
-msgstr "الزيادة الإستدلالي"
+msgstr "الزيادة الإستدلالية"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_contract_bool1
@@ -23471,12 +23471,12 @@ msgstr "دليل المنتجات"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_droit_categorie_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_section_categorie_id
 msgid "Categorie"
-msgstr "فئة"
+msgstr "الصنف"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_groupe_categorie_lines
 msgid "Categorie Lines"
-msgstr "خطوط فئة"
+msgstr "خطوط الصنف"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_categorie_new_id
@@ -28358,12 +28358,12 @@ msgstr "إنشاء تقدم !"
 #. module: ressource_humaine
 #: model:ir.actions.act_window,help:ressource_humaine.action_rh_categorie_superieure
 msgid "Creation categorie superieure!"
-msgstr "إنشاء فئة عليا!"
+msgstr "إنشاء صنف علي!"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,help:ressource_humaine.action_rh_categorie
 msgid "Creation categorie!"
-msgstr "!إنشاء فئة"
+msgstr "!إنشاء صنف"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,help:ressource_humaine.action_rh_echelon
@@ -29522,7 +29522,7 @@ msgstr "تاريخ بداية الغياب"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_date_debut_emploi
 msgid "Date Debut Emploi"
-msgstr "تاريخ بداية الوظيفة"
+msgstr "تاريخ بداية العمل"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_formation_date_debut_formation
@@ -34813,7 +34813,7 @@ msgstr "استخراج وتحليل بيانات أودو من جدول بيان
 #. module: ressource_humaine
 #: model:ir.actions.report,name:ressource_humaine.action_droit_avancement_report
 msgid "Extrait du siège approuvant le calendrier des promotions de grade"
-msgstr "مستخرج من مقر المصادقة على جدول الترقية في الدرجات"
+msgstr "مستخرج من مقرر المصادقة على جدول الترقية في الدرجات"
 
 #. module: base
 #: model:res.partner.industry,name:base.res_partner_industry_U
@@ -37725,6 +37725,7 @@ msgstr "الشبكة"
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_contract_grille_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_grille_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_categorie_grille_id
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_echelon_grille_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_groupe_grille_id
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_grille
 msgid "Grille"
@@ -57740,6 +57741,11 @@ msgstr "بالإضافة إلى الإيرادات الأخرى"
 msgid "Point Indiciare"
 msgstr "الرقم الإستدلالي"
 
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_total_indice
+msgid "Total Indice"
+msgstr "المجموع"
+
 #. module: base
 #: model:ir.module.category,name:base.module_category_sales_point_of_sale
 msgid "Point Of Sale"
@@ -60987,7 +60993,7 @@ msgstr "Reduce the time and resources spent on support"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_ref
 #, python-format
 msgid "Ref"
-msgstr "رقم الإشارة"
+msgstr "رقم التأشيرة"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_sanction_ref_pv_sanction
@@ -83636,7 +83642,7 @@ msgstr "会计科目表 - 中国企业会计准则"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_num_national
 msgid "Num National"
-msgstr "الرقم التسلسلي"
+msgstr "رقم التعريف الوطني"
 
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.employee_form
@@ -83687,3 +83693,14 @@ msgstr "تاريخ الإمضاء"
 #: model:ir.actions.report,name:ressource_humaine.action_no_background_cnas
 msgid "Attestation de Travail et de Salaire (sans fond)"
 msgstr "شهادة العمل و الأجر (بدون خلفية)"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_date_ref_ouverture_examin
+msgid "Date Ref Ouverture Examin"
+msgstr "التاريخ المرجع بفتح الإمتحان"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_date_ref_promotion
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_line_date_ref_promotion
+msgid "Date Ref Promotion"
+msgstr "التاريخ المرجع بالترقية"

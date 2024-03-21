@@ -43,7 +43,7 @@ class HrEmployeInherited(models.Model):
     formation_detail_id = fields.Many2one('ressource_humaine.formation.detail')
     selection_employe = fields.Boolean('Sélection', default=False)
     # days_off = fields.Float(string='Total Days Off', store=True)
-    wage = fields.Float()
+    wage = fields.Float(store=True)
     code_type_fonction = fields.Char(related='nature_travail_id.code_type_fonction', store=True)
     # days_off = fields.Float(compute='_compute_days_off', store=True, translate=True)
     type_id = fields.Many2one('hr.contract.type')
@@ -87,9 +87,10 @@ class HrEmployeInherited(models.Model):
     grille_id = fields.Many2one('rh.grille', readonly=False)
     groupe_id = fields.Many2one('rh.groupe', readonly=False)
     point_indiciare = fields.Integer()
-    indice_minimal = fields.Integer()
-    indice_base = fields.Integer()
-    bonification_indiciaire = fields.Integer()
+    indice_minimal = fields.Integer(store=True)
+    indice_base = fields.Integer(store=True, default=0)
+    total_indice = fields.Integer(store=True)
+    bonification_indiciaire = fields.Integer(store=True)
     categorie_id = fields.Many2one('rh.categorie')
     categorie_superieure_id = fields.Many2one('rh.categorie.superieure')
     echelon_id = fields.Many2one('rh.echelon')
@@ -113,6 +114,24 @@ class HrEmployeInherited(models.Model):
         ('widower', 'Widower'),
         ('divorced', 'Divorced')
     ], string='Marital Status', groups="hr.group_hr_user", default='single')
+    wage_range = fields.Selection([
+        ('low', '15000-30000'),
+        ('medium', '30000-50000'),
+        ('high', '50000-100000'),
+        ('very_high', '100000+')
+    ], compute='_compute_wage_range', store=True)
+
+    @api.depends('wage')
+    def _compute_wage_range(self):
+        for rec in self:
+            if rec.wage < 30000:
+                rec.wage_range = 'low'
+            elif 30000 <= rec.wage < 50000:
+                rec.wage_range = 'medium'
+            elif 50000 <= rec.wage < 100000:
+                rec.wage_range = 'high'
+            else:
+                rec.wage_range = 'very_high'
 
     @api.constrains('jour_sup')
     def _check_jour_sup_max_value(self):
@@ -187,18 +206,24 @@ class HrEmployeInherited(models.Model):
 
     @api.onchange('grille_id')
     def _onchange_grille_id(self):
-        domain = []
-        if self.grille_id:
-            self.groupe_id = False
-            self.categorie_id = False
-            self.section_id = False
-            self.echelon_id = False
-        # if self.groupe_id:
-        type_fonction = self.env['rh.type.fonction'].search([('id', '=', self.nature_travail_id.id)])
-        if type_fonction.code_type_fonction != 'fonctionsuperieure':
-            return {'domain': {'groupe_id': [('grille_id', '=', self.grille_id.id)]}}
-        else:
-            return {'domain': {'categorie_id': [('grille_id', '=', self.grille_id.id)]}}
+        for rec in self:
+            domain = []
+            if self.grille_id:
+                self.groupe_id = False
+                self.categorie_id = False
+                self.section_id = False
+                self.echelon_id = False
+            # if self.groupe_id:
+            type_fonction = self.env['rh.type.fonction'].search([('id', '=', self.nature_travail_id.id)])
+            print(type_fonction.code_type_fonction)
+            if type_fonction.code_type_fonction != 'fonctionsuperieure':
+                if type_fonction.code_type_fonction == 'contractuel':
+                    return {'domain': {'categorie_id': [('grille_id', '=', self.grille_id.id),(('type_fonction_id', '=', self.nature_travail_id.id))]}}
+                elif type_fonction.code_type_fonction != 'contractuel':
+                    return {'domain': {'groupe_id': [('grille_id', '=', self.grille_id.id)]}}
+            elif type_fonction.code_type_fonction == 'fonctionsuperieure':
+                print('dfs2')
+                return {'domain': {'categorie_id': [('grille_id', '=', self.grille_id.id),(('type_fonction_id', '=', self.nature_travail_id.id))]}}
 
     # @api.onchange('groupe_id')
     # def _onchange_groupe_id(self):
@@ -257,24 +282,33 @@ class HrEmployeInherited(models.Model):
                 section = self.env['rh.section'].search([('categorie_id', '=', rec.categorie_id.id)])
                 type_fonction = self.env['rh.type.fonction'].search([('id', '=', rec.nature_travail_id.id)])
                 if type_fonction.code_type_fonction == 'contractuel':
-                    rec.indice_minimal = rec.categorie_id.Indice_minimal
-                    rec.wage = rec.indice_minimal * 45
+                    self.indice_minimal = rec.categorie_id.Indice_minimal
+                    self.wage = rec.indice_minimal * 45
+                    self.point_indiciare = 0
+                    self.indice_base = 0
+                    self.total_indice = rec.indice_minimal
                 elif type_fonction.code_type_fonction == 'fonction':
+                    rec.total_indice = rec.indice_minimal + rec.point_indiciare
                     domain.append(('id', 'in', echelon.ids))
+                    self.indice_base = 0
                     rec.indice_minimal = rec.categorie_id.Indice_minimal
                     res = {'domain': {'echelon_id': domain}}
                 elif type_fonction.code_type_fonction == 'postesuperieure':
+                    rec.total_indice = rec.indice_minimal + rec.point_indiciare
                     domain.append(('id', 'in', echelon.ids))
+                    self.indice_base = 0
                     rec.indice_minimal = rec.categorie_id.Indice_minimal
                     res = {'domain': {'echelon_id': domain}}
                 else:
                     domain.append(('id', 'in', section.ids))
                     res = {'domain': {'section_id': domain}}
+                    self.total_indice = rec.indice_base + rec.point_indiciare
 
         return res
 
     @api.onchange('section_id')
     def onchange_section(self):
+        self.total_indice = self.indice_base + self.indice_minimal + self.point_indiciare
         domain = []
         res = None
         if self.section_id:
@@ -288,10 +322,13 @@ class HrEmployeInherited(models.Model):
                 rec.indice_base = rec.section_id.indice_base
                 echelon = self.env['rh.echelon'].search([('section', '=', rec.section_id.id)])
                 domain.append(('id', 'in', echelon.ids))
+                self.point_indiciare = 0
+                self.indice_minimal = 0
                 rec.indice_minimal = rec.categorie_id.Indice_minimal
                 res = {'domain': {'echelon_id': domain}}
                 print('hello')
                 print(echelon)
+                self.total_indice = rec.indice_base + rec.point_indiciare
         return res
 
     @api.onchange('niveau_hierarchique_id')
@@ -305,6 +342,7 @@ class HrEmployeInherited(models.Model):
 
     @api.onchange('echelon_id')
     def onchange_echelon(self):
+        # self.total_indice = self.indice_base + self.indice_minimal + self.point_indiciare
         for rec in self:
             domain = []
             if rec.echelon_id:
@@ -313,8 +351,6 @@ class HrEmployeInherited(models.Model):
                 if rec.section_id:
                     if section.id != rec.section_id.id:
                         rec.echelon_id = None
-                        print('echelon.section')
-                        print(echelon.section)
                 else:
                     if rec.echelon_id.categorie_id.id != rec.categorie_id.id:
                         rec.echelon_id = None
@@ -322,20 +358,22 @@ class HrEmployeInherited(models.Model):
                 type_fonction = self.env['rh.type.fonction'].search([('id', '=', rec.nature_travail_id.id)])
                 if type_fonction.code_type_fonction == 'postesuperieure':
                     rec.point_indiciare = rec.echelon_id.indice_echelon
+                    rec.total_indice = rec.indice_minimal + rec.point_indiciare
                 elif type_fonction.code_type_fonction == 'fonction':
                     rec.point_indiciare = rec.echelon_id.indice_echelon
                     rec.wage = rec.indice_minimal * 45 + rec.point_indiciare * 45
+                    self.total_indice = rec.indice_minimal + rec.point_indiciare
                 else:
                     rec.point_indiciare = rec.echelon_id.indice_echelon
                     rec.wage = rec.indice_base * 45 + rec.point_indiciare
+                    self.total_indice = rec.indice_base + rec.point_indiciare
 
     @api.onchange('niveau_hirerachique_chef_Bureau')
     def onchange_niveau_hirerachique_chef_Bureau(self):
         for rec in self:
             rec.point_indiciare = rec.echelon_id.indice_echelon
-            rec.wage = (
-                               rec.indice_minimal * 45 + rec.point_indiciare * 45) + rec.niveau_hirerachique_chef_Bureau.bonification_indiciaire
-            # rec.wage = rec.indice_base * 45 + rec.niveau_hirerachique_chef_Bureau.bonification_indiciaire
+            rec.bonification_indiciaire = rec.niveau_hirerachique_chef_Bureau.bonification_indiciaire
+            rec.wage = (rec.indice_minimal * 45 + rec.point_indiciare * 45) + rec.niveau_hirerachique_chef_Bureau.bonification_indiciaire
 
     @api.onchange('nature_travail_id')
     def _onchange_related_field_filier(self):
@@ -386,14 +424,4 @@ class HrEmployeInherited(models.Model):
         print(res)
         return res
 
-    # @api.onchange('nature_travail_id')
-    # def _onchange_nature_travail_id(self):
-    #     domain = []
-    #     if self.nature_travail_id:
-    #         if self.nature_travail_id.code_type_fonction == 'contractuel':
-    #             domain = [('intitule_corps', 'ilike', 'متعاقد')]
-    #         else:
-    #             domain = [('intitule_corps', 'not ilike', 'متعاقد')]
-    #
-    #     return {'domain': {'corps_id': domain}}
 

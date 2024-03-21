@@ -77,8 +77,22 @@ class RHAvancement(models.Model):
                         'date_ref': avancement.date_signature,
                     })
                     rec.employee_id.point_indiciare = rec.employee_id.echelon_id.indice_echelon
-                    rec.employee_id.wage = rec.employee_id.indice_minimal * 45 + rec.employee_id.point_indiciare * 45
+                    employee.write({
+                        'point_indiciare': rec.employee_id.point_indiciare,
+                    })
+                    rec.employee_id.indice_minimal = rec.employee_id.categorie_id.Indice_minimal
+                    employee.write({
+                        'indice_minimal': rec.employee_id.indice_minimal,
+                    })
+                    rec.employee_id.total_indice = rec.employee_id.point_indiciare + rec.employee_id.indice_minimal
+                    employee.write({
+                        'total_indice': rec.employee_id.total_indice,
+                    })
 
+                    rec.employee_id.wage = rec.employee_id.indice_minimal * 45 + rec.employee_id.point_indiciare * 45
+                    employee.write({
+                        'wage': rec.employee_id.wage,
+                    })
                 elif rec.employee_id.nature_travail_id.code_type_fonction == 'fonctionsuperieure':
 
                     avance_line = self.env['rh.avancement.line'].create({
@@ -123,15 +137,31 @@ class RHAvancement(models.Model):
                         'echelon_id': rec.echelon_new_id.id,
                     })
                     employee.write({
+                        'section_id': rec.section_new_id.id,
+                    })
+                    employee.write({
                         'ref': avance_line.code,
                     })
-                    print('icii')
-                    print(avance_line.code)
                     employee.write({
                         'date_ref': avancement.date_signature,
                     })
                     rec.employee_id.point_indiciare = rec.employee_id.echelon_id.indice_echelon
+                    employee.write({
+                        'point_indiciare': rec.employee_id.point_indiciare,
+                    })
+                    rec.employee_id.indice_base = rec.employee_id.section_id.indice_base
+                    employee.write({
+                        'indice_base': rec.employee_id.indice_base,
+                    })
+                    rec.employee_id.total_indice = rec.employee_id.section_id.indice_base + rec.employee_id.point_indiciare
+                    employee.write({
+                        'total_indice': rec.employee_id.total_indice,
+                    })
+
                     rec.employee_id.wage = rec.employee_id.indice_base * 45 + rec.employee_id.point_indiciare
+                    employee.write({
+                        'wage': rec.employee_id.wage,
+                    })
                 elif rec.employee_id.nature_travail_id.code_type_fonction == 'postesuperieure':
                     print('teste')
 
@@ -189,9 +219,11 @@ class RHAvancement(models.Model):
                                 'date_avancement': avance.date_avancement,
                                 'grade_id': avance.grade_id.id,
                                 'job_id': avance.job_id.id,
+                                'grille_old_id': avance.grille_old_id.id,
                                 'groupe_old_id': avance.groupe_old_id.id,
                                 'categorie_old_id': avance.categorie_old_id.id,
                                 'echelon_old_id': avance.echelon_old_id.id,
+                                'grille_new_id': avance.grille_new_id.id,
                                 'groupe_new_id': avance.groupe_new_id.id,
                                 'categorie_new_id': avance.categorie_new_id.id,
                                 'echelon_new_id': avance.echelon_new_id.id,
@@ -208,9 +240,12 @@ class RHAvancement(models.Model):
                                 'date_avancement': avance.date_avancement,
                                 'grade_id': avance.grade_id.id,
                                 'job_id': avance.job_id.id,
+                                'grille_old_id': avance.grille_old_id.id,
                                 'categorie_old_id': avance.categorie_old_id.id,
                                 'section_old_id': avance.section_old_id.id,
                                 'echelon_old_id': avance.echelon_old_id.id,
+
+                                'grille_new_id': avance.grille_new_id.id,
                                 'categorie_new_id': avance.categorie_new_id.id,
                                 'section_new_id': avance.section_new_id.id,
                                 'echelon_new_id': avance.echelon_new_id.id,

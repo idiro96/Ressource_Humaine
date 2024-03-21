@@ -107,9 +107,13 @@ class ListeNominativeReport(models.AbstractModel):
                  ('fin_relation', '=', False)])
             grade_d_2_employees.append({'grade': grade, 'employees': employees})
 
-        grade_contract = self.env['rh.grade'].search([('corps_id.intitule_corps', 'ilike', 'متعاقد')])
+        grade_contract = self.env['rh.grade'].search(['|', ('corps_id.intitule_corps', 'ilike', 'متعاقد'), ('corps_id.intitule_corps', 'ilike', 'سيار')])
         grade_contract_employees = []
         for grade in grade_contract:
+            employees_contract = self.env['hr.employee'].search(
+                [('grade_id', '=', grade.id), ('nature_travail_id.code_type_fonction', '=', 'contractuel'),
+                 ('position_statutaire', '=', 'activite'),
+                 ('fin_relation', '=', False)])
             employees_cdi_plein = self.env['hr.employee'].search(
                 [('grade_id', '=', grade.id), ('nature_travail_id.code_type_fonction', '=', 'contractuel'),
                  ('type_id.code_type_contract', '=', 'pleintemps_indeterminee'),
@@ -129,6 +133,7 @@ class ListeNominativeReport(models.AbstractModel):
                  ('fin_relation', '=', False)])
             grade_contract_employees.append(
                 {'grade': grade,
+                 'employees_contract': employees_contract,
                  'employees_cdi_plein': employees_cdi_plein,
                  'employees_cdd_plein': employees_cdd_plein,
                  'employees_cdi_partiel': employees_cdi_partiel,
@@ -149,14 +154,14 @@ class ListeNominativeReport(models.AbstractModel):
             'job_supp': supp_employees,
             'job_hight_org_1': hight_org_1_employees,
             'job_hight_org': hight_org_employees,
-            'job_hight_squ': job_hight_squ,
-            'grade_proff': grade_proff,
-            'grade_a_excluded': grade_a_excluded,
-            'grade_b': grade_b,
-            'grade_c': grade_c,
-            'grade_d_1': grade_d_1,
-            'grade_d_2': grade_d_2,
-            'grade_contract': grade_contract,
+            'job_hight_squ': hight_squ_employees,
+            'grade_proff': proff_employees,
+            'grade_a_excluded': grade_a_excluded_employees,
+            'grade_b': grade_b_employees,
+            'grade_c': grade_c_employees,
+            'grade_d_1': grade_d_1_employees,
+            'grade_d_2': grade_d_2_employees,
+            'grade_contract': grade_contract_employees,
         }
 
         return report_data
