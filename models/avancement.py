@@ -11,6 +11,9 @@ class RHAvancement(models.Model):
     date_avancement = fields.Date()
     date_signature = fields.Date()
     code = fields.Char()
+    code_decision_groupe = fields.Char()
+    date_decision_groupe = fields.Date()
+    date_effet_decision_groupe = fields.Date()
     avancement_lines = fields.One2many('rh.avancement.line', inverse_name='avancement_id')
     avancement_lines_wizard = fields.One2many('rh.avancement.line.wizard', inverse_name='avancement_id')
     date_comission = fields.Date()
@@ -177,12 +180,13 @@ class RHAvancement(models.Model):
         res1 = self.env['rh.avancement.line'].search([('avancement_id', '=', self.id)])
         for rec in res1:
             employee = self.env['hr.employee'].search([('id', '=', rec.employee_id.id)])
-            employee.write({
-                'ref': rec.code,
-            })
-            employee.write({
-                'date_ref': self.date_signature,
-            })
+            if rec.date_new_avancement == employee.date_avancement:
+                employee.write({
+                    'ref': rec.code,
+                })
+                employee.write({
+                    'date_ref': self.date_signature,
+                })
 
     @api.onchange('date_avancement')
     def _onchange_date_to(self):
@@ -282,6 +286,7 @@ class RHAvancement(models.Model):
         return self.env.ref('ressource_humaine.action_droit_avancement_report').report_action(self)
 
 
+
 class DroitAvancementReport(models.AbstractModel):
     _name = 'report.ressource_humaine.droit_avancement_report'
 
@@ -290,6 +295,41 @@ class DroitAvancementReport(models.AbstractModel):
         avancement = self.env['rh.avancement'].browse(docids[0])
 
         avancement_lines = avancement.avancement_lines
+        avance = []
+        avance_first= []
+        avance_next= []
+        derniere_grille = []
+        for rec in avancement_lines:
+            employe_avancement_lines = self.env['rh.avancement.line'].search([('employee_id', '=', rec.employee_id.id),('date_avancement', '<=', avancement.date_avancement)],order='date_avancement desc', limit=2)
+            avancement_lines_grille = self.env['rh.avancement.line'].search([('employee_id', '=', rec.employee_id.id),('date_avancement', '<=', avancement.date_avancement)],order='date_avancement desc')
+            if avancement_lines_grille:
+                for rec1 in avancement_lines_grille:
+                    avancement_lines_grille3 = self.env['rh.avancement.line'].search(
+                        [('employee_id', '=', rec.employee_id.id),
+                         ('grille_old_id', '=', rec.grille_old_id.id),
+                         ('date_avancement', '<=', avancement.date_avancement)], order='date_avancement desc')
+                    if rec.grille_old_id.id != rec1.grille_old_id.id:
+                          if not avancement_lines_grille3[-1] in derniere_grille:
+                            derniere_grille.append(avancement_lines_grille3[-1])
+                            print(avancement_lines_grille[0].echelon_old_id.intitule)
+                if not employe_avancement_lines[-1] in derniere_grille and not avancement_lines_grille3[-1] in derniere_grille:
+                    derniere_grille.append(avancement_lines_grille[-1])
+
+
+            if employe_avancement_lines:
+                # print(employe_avancement_lines[0])
+                # print(employe_avancement_lines[1])
+                # print(rec.employee_id)
+                # print(employe_avancement_lines[1].employee_id)
+                # print(employe_avancement_lines[1].echelon_new_id.intitule)
+                if len(employe_avancement_lines) == 1:
+                    avance.append(employe_avancement_lines[0])
+                    avance_first.append(employe_avancement_lines[0])
+                else:
+                    avance.append(employe_avancement_lines[1])
+                    avance_next.append(employe_avancement_lines[0])
+
+
 
         line_date_old_avancement = {}
         for rec in avancement_lines:
@@ -300,6 +340,16 @@ class DroitAvancementReport(models.AbstractModel):
                 line_date_old_avancement[rec.id] = formatted_date_old_avancement
             else:
                 line_date_old_avancement[rec.id] = ''
+
+        line_date_old_avancement1 = {}
+        for rec in avancement_lines_grille:
+            date_old_avancement_str = rec.date_old_avancement
+            if date_old_avancement_str:
+                formatted_date_old_avancement = datetime.strptime(date_old_avancement_str, "%Y-%m-%d").strftime(
+                    "%d-%m-%Y")
+                line_date_old_avancement1[rec.id] = formatted_date_old_avancement
+            else:
+                line_date_old_avancement1[rec.id] = ''
 
         line_date_ref = {}
         for rec in avancement_lines:
@@ -320,6 +370,30 @@ class DroitAvancementReport(models.AbstractModel):
                 line_date_avancement[rec.id] = formatted_date_avancement
             else:
                 line_date_avancement[rec.id] = ''
+
+        line_date_decision_groupe = {}
+        for rec in avancement:
+            date_decision_groupe_str = rec.date_decision_groupe
+            print('date:')
+
+            if date_decision_groupe_str:
+                formatted_date_decision_groupe = datetime.strptime(date_decision_groupe_str, "%Y-%m-%d").strftime(
+                    "%d-%m-%Y")
+                line_date_decision_groupe[rec.id] = formatted_date_decision_groupe
+            else:
+                line_date_decision_groupe[rec.id] = ''
+
+        line_date_effet_decision_groupe = {}
+        for rec in avancement:
+            date_effet_decision_groupe_str = rec.date_effet_decision_groupe
+            print('date:')
+
+            if date_decision_groupe_str:
+                formatted_date_effet_decision_groupe = datetime.strptime(date_effet_decision_groupe_str, "%Y-%m-%d").strftime(
+                    "%d-%m-%Y")
+                line_date_effet_decision_groupe[rec.id] = formatted_date_effet_decision_groupe
+            else:
+                line_date_effet_decision_groupe[rec.id] = ''
 
         line_date_signature = {}
         for rec in avancement:
@@ -355,9 +429,16 @@ class DroitAvancementReport(models.AbstractModel):
             'avancement': avancement,
             'company': self.env.user.company_id,
             'avancement_lines': avancement_lines,
+            'avancement_old': avance,
+            'avance_first': avance_first,
+            'avance_next': avance_next,
+            'grille_old': derniere_grille,
+            'line_date_old_avancement1': line_date_old_avancement1,
             'line_date_old_avancement': line_date_old_avancement,
             'line_date_ref': line_date_ref,
             'line_date_avancement': line_date_avancement,
+            'line_date_decision_groupe': line_date_decision_groupe,
+            'line_date_effet_decision_groupe': line_date_effet_decision_groupe,
             'line_date_signature': line_date_signature,
             'line_date_new_avancement': line_date_new_avancement,
             'line_date_code': line_date_code,
