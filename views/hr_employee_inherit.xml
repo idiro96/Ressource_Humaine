@@ -315,15 +315,16 @@
                         <tree>
                             <field name="avancement_lines">
                                 <tree create="false" delete="false">
+                                    <field name="grade_id"/>
                                     <field name="date_old_avancement"/>
                                     <field name="ref"/>
-                                    <field name="groupe_old_id"/>
+                                    <field name="grille_old_id"/>
                                     <field name="categorie_old_id"/>
                                     <field name="echelon_old_id"/>
                                     <field name="date_new_avancement"/>
                                     <field name="date_avancement"/>
                                     <field name="duree"/>
-                                    <field name="groupe_new_id"/>
+                                    <field name="grille_new_id"/>
                                     <field name="categorie_new_id"/>
                                     <field name="echelon_new_id"/>
                                 </tree>
