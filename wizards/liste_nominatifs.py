@@ -5,7 +5,7 @@ class ListeNominatifs(models.TransientModel):
     _name = 'liste.nominatifs'
 
     @api.multi
-    def print_liste(self):
+    def print_report(self):
         return self.env.ref('ressource_humaine.action_liste_nominatife').report_action(self)
 
 
@@ -26,17 +26,31 @@ class PlanningCongeReport(models.AbstractModel):
             else:
                 supp_employees.append({'job': job, 'employees': employees, 'promotion_lines': None})
 
-        job_hight = self.env['hr.job'].search([('nature_travail_id.code_type_fonction', '=', 'fonctionsupérieure')])
-        hight_employees = []
-        for job in job_hight:
+        job_hight_org = self.env['hr.job'].search([('nature_travail_id.code_type_fonction', '=', 'fonctionsuperieure'),
+                                               ('poste_organique', '=', 'organique')])
+        hight_org_employees = []
+        for job in job_hight_org:
             employees = self.env['hr.employee'].search([('job_id', '=', job.id), ('position_statutaire', '=', 'activite'),
                                                         ('fin_relation', '=', False)])
             promotion_lines = self.env['rh.promotion.line'].search([('employee_id', 'in', employees.ids)],
                                                                    order='date_new_grade DESC', limit=1)
             if promotion_lines:
-                hight_employees.append({'job': job, 'employees': employees, 'promotion_lines': promotion_lines})
+                hight_org_employees.append({'job': job, 'employees': employees, 'promotion_lines': promotion_lines})
             else:
-                hight_employees.append({'job': job, 'employees': employees, 'promotion_lines': None})
+                hight_org_employees.append({'job': job, 'employees': employees, 'promotion_lines': None})
+
+        job_hight_squ = self.env['hr.job'].search([('nature_travail_id.code_type_fonction', '=', 'fonctionsuperieure'),
+                                                   ('poste_organique', '=', 'squelaire')])
+
+        squ_employees = self.env['hr.employee'].search(
+                [('job_id.poste_organique', '=', 'squelaire'), ('position_statutaire', '=', 'activite'),
+                 ('fin_relation', '=', False)])
+        squ_employees_promotion_mapping = {}
+        for employee in squ_employees:
+            promotion_line = self.env['rh.promotion.line'].search([
+                ('employee_id', '=', employee.id)
+            ], order='date_new_grade DESC', limit=1)
+            squ_employees_promotion_mapping[employee] = promotion_line
 
         grade_enseignant = self.env['rh.grade'].search([('intitule_grade', 'ilike', '%أستاذ%')])
         enseignant_employees = []
@@ -202,9 +216,11 @@ class PlanningCongeReport(models.AbstractModel):
 
         report_data = {
             'doc_ids': docids,
-            'is_first_page': True,
             'job_sup': supp_employees,
-            'job_hight': hight_employees,
+            'job_hight_org': hight_org_employees,
+            'job_hight_squ': job_hight_squ,
+            'squ_employees': squ_employees,
+            'squ_employees_promotion_mapping': squ_employees_promotion_mapping,
             'grade_enseignant': enseignant_employees,
             'grade_a': grade_a_employees,
             'grade_b': grade_b_employees,

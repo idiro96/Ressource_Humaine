@@ -29494,6 +29494,21 @@ msgid "Date Cnas"
 msgstr "Date Cnas"
 
 #. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_code_decision_groupe
+msgid "Date Decision Groupe"
+msgstr "رقم المقرر الجماعي"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_date_decision_groupe
+msgid "Date Decision Groupe"
+msgstr "تاريخ امضاء المقرر"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_date_effet_decision_groupe
+msgid "Date Effet Decision Groupe"
+msgstr "   تاريخ سريان المقرر الجماعي"
+
+#. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_filiere_date_code
 msgid "Date Code"
 msgstr "تاريخ الكود"
@@ -77162,7 +77177,7 @@ msgstr "رقم تصريح العمل"
 #. module: hr
 #: model:ir.model.fields,field_description:hr.field_hr_employee_work_phone
 msgid "Work Phone"
-msgstr "هاتف العمل"
+msgstr "هاتف"
 
 #. module: resource
 #: model:ir.ui.view,arch_db:resource.resource_calendar_form

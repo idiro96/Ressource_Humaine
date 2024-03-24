@@ -274,7 +274,7 @@
                                             <span t-esc="employee.date_entrer"/>
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                            <span t-esc="employee.birthday"/>
+                                            <span t-field="employee.birthday"/>
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <span t-esc="employee.name"/>
@@ -317,44 +317,85 @@
                     </strong>
                 </div>
                 <div style="page-break-before: always;"></div>
-                <t t-foreach="job_hight" t-as="job_data">
+                <t t-foreach="job_hight_org" t-as="job_data">
                     <div style="text-align: right;font-size:23px;">
                         <t t-if="job_data.get('job')">
                             <span>
-                                المنصب العالي
-                                :
+                                المنصب:
                                 <span t-esc="job_data['job'].name"/>
                             </span>
                             <br/>
                             <t t-if="job_data['employees']">
                                 <span>
                                     الصنف:
-                                    <t t-if="job_data['employees'][0].categorie_id">
-                                        <span t-esc="job_data['employees'][0].categorie_id.intitule"/>
-                                        <span style="color: white;">
-                                            أ
-                                        </span>
-                                    </t>
-                                    <t t-if="not job_data['employees'][0].categorie_id">
-                                        <t t-set="found_employee" t-value="False"/>
-                                        <t t-foreach="job_data['employees']" t-as="employee">
-                                            <t t-if="not found_employee and employee.categorie_id">
-                                                <t t-set="found_employee" t-value="True"/>
-                                                <span t-esc="employee.categorie_id.intitule"/>
-                                                <span style="color: white;">
-                                                    أ
-                                                </span>
+                                    <t t-if="not ('رئيس' in job_data['job'].name and 'مكتب' in job_data['job'].name)">
+                                        <t t-if="job_data['employees'][0].categorie_id">
+                                            <span t-esc="job_data['employees'][0].categorie_id.intitule"/>
+                                            <span style="color: white;">
+                                                أ
+                                            </span>
+                                        </t>
+                                        <t t-if="not job_data['employees'][0].categorie_id">
+                                            <t t-set="found_employee" t-value="False"/>
+                                            <t t-foreach="job_data['employees']" t-as="employee">
+                                                <t t-if="not found_employee and employee.categorie_id">
+                                                    <t t-set="found_employee" t-value="True"/>
+                                                    <span t-esc="employee.categorie_id.intitule"/>
+                                                </t>
                                             </t>
+                                            <span style="color: white;">
+                                                أ
+                                            </span>
+                                        </t>
+                                        القسم:
+                                        <t t-if="job_data['employees'][0].section_id">
+                                            <span t-esc="job_data['employees'][0].section_id.intitule"/>
+                                            <span style="color: white;">
+                                                أ
+                                            </span>
+                                        </t>
+                                        <t t-if="not job_data['employees'][0].section_id">
+                                            <t t-set="found_employee" t-value="False"/>
+                                            <t t-foreach="job_data['employees']" t-as="employee">
+                                                <t t-if="not found_employee and employee.section_id">
+                                                    <t t-set="found_employee" t-value="True"/>
+                                                    <span t-esc="employee.section_id.intitule"/>
+                                                </t>
+                                            </t>
+                                            <span style="color: white;">
+                                                أ
+                                            </span>
+                                        </t>
+                                    </t>
+                                    <t t-if="'رئيس' in job_data['job'].name and 'مكتب' in job_data['job'].name">
+                                        <t t-if="job_data['employees'][0].bonification_indiciaire">
+                                            زائد
+                                            <span t-esc="job_data['employees'][0].bonification_indiciaire"/>
+                                            نقطة إستدلالية
+                                            <span style="color: white;">
+                                                أ
+                                            </span>
+                                        </t>
+                                        <t t-if="not job_data['employees'][0].bonification_indiciaire">
+                                            <t t-set="found_employee" t-value="False"/>
+                                            <t t-foreach="job_data['employees']" t-as="employee">
+                                                <t t-if="not found_employee and employee.bonification_indiciaire">
+                                                    <t t-set="found_employee" t-value="True"/>
+                                                    زائد
+                                                    <span t-esc="employee.bonification_indiciaire"/>
+                                                    نقطة إستدلالية
+                                                </t>
+                                            </t>
+                                            <span style="color: white;">
+                                                أ
+                                            </span>
                                         </t>
                                     </t>
                                 </span>
                             </t>
                             <t t-if="not job_data['employees']">
                                 <span>
-                                    الصنف:
-                                </span>
-                                <span style="color: white;">
-                                    أ
+                                    :الصنف:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;القسم
                                 </span>
                             </t>
                             <br/>
@@ -540,6 +581,109 @@
                     </div>
                     <div style="page-break-before: always;"></div>
                 </t>
+                <div style="text-align: right;font-size:23px;">
+                    <span>
+                        المنصب: المناصب العليا ذات الطابع الوظيفي
+                    </span>
+                    <br/>
+                    <span>
+                        الصنف:
+                        <t t-set="found_bonus" t-value="False"/>
+                        <t t-foreach="squ_employees" t-as="employee">
+                            <t t-if="not found_bonus and employee.bonification_indiciaire">
+                                زائد
+                                <span t-esc="employee.bonification_indiciaire"/>
+                                نقطة إستدلالية
+                                <span style="color: white;">أ</span>
+                                <t t-set="found_bonus" t-value="True"/>
+                            </t>
+                        </t>
+                        <t t-if="not found_bonus">
+                            زائد 100 نقطة إستدلالية
+                        </t>
+                    </span>
+                    <br/>
+                    <t t-set="max_employee" t-value="len(job_hight_squ)"/>
+                    <span>
+                        عدد المناصب المالية:
+                        <span t-esc="max_employee"/>
+                    </span>
+                    <br/>
+                    <t t-set="employee_count" t-value="len(squ_employees)"/>
+                    <span>
+                        عدد المناصب الحقيقة:
+                        <span t-esc="employee_count"/>
+                    </span>
+                    <br/>
+                    <span>
+                        عدد المناصب الشاغرة:
+                        <span t-esc="max_employee - employee_count"/>
+                    </span>
+                    <br/>
+                    <br/>
+                </div>
+                <div class="row" style="margin:15;">
+                    <table style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
+                                    <strong>الملاحظات</strong>
+                                </th>
+                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;width:12%;padding:14px">
+                                    <strong>تاريخ التعيين في المنصب العالي</strong>
+                                </th>
+                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
+                                    <strong>الوظيفة</strong>
+                                </th>
+                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
+                                    <strong>الرتبة الأصلية</strong>
+                                </th>
+                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
+                                    <strong>الإسم و اللقب</strong>
+                                </th>
+                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
+                                    <strong>الرقم التسلسلي</strong>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-set="line_count" t-value="1"/>
+                            <t t-foreach="squ_employees" t-as="employee">
+                                <tr>
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
+                                        <!--                                                                            <span t-field="line.employee_id"/>-->
+                                    </td>
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
+                                        <t t-if="squ_employees_promotion_mapping[employee]">
+                                            <span t-esc="squ_employees_promotion_mapping[employee].date_new_grade"/>
+                                        </t>
+                                        <t t-if="not squ_employees_promotion_mapping[employee]">
+                                            <span t-esc="employee.date_grade"/>
+                                        </t>
+                                    </td>
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
+                                        <span t-esc="employee.job_id.name"/>
+                                    </td>
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
+                                        <t t-if="squ_employees_promotion_mapping[employee]">
+                                            <span t-esc="squ_employees_promotion_mapping[employee].grade_id.intitule_grade"/>
+                                        </t>
+                                        <t t-if="not squ_employees_promotion_mapping[employee]">
+                                            <span t-esc="employee.grade_id.intitule_grade"/>
+                                        </t>
+                                    </td>
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
+                                        <span t-esc="employee.name"/>
+                                    </td>
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
+                                        <span t-esc="line_count"/>
+                                    </td>
+                                </tr>
+                                <t t-set="line_count" t-value="line_count + 1"/>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
                 <div style="page-break-before: always;"></div>
                 <br/>
                 <br/>
