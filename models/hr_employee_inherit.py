@@ -31,7 +31,7 @@ class HrEmployeInherited(models.Model):
     nom_mere = fields.Char()
     prenom_mere = fields.Char()
     nom_fr = fields.Char()
-    # prenom_fr = fields.Char()
+    prenom_fr = fields.Char()
     annee_travail = fields.Float()
     date_entrer = fields.Date()
     date_job_id = fields.Date()
