@@ -77162,7 +77162,7 @@ msgstr "رقم تصريح العمل"
 #. module: hr
 #: model:ir.model.fields,field_description:hr.field_hr_employee_work_phone
 msgid "Work Phone"
-msgstr "هاتف العمل"
+msgstr "هاتف"
 
 #. module: resource
 #: model:ir.ui.view,arch_db:resource.resource_calendar_form

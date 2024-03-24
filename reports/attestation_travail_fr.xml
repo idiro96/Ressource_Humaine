@@ -214,6 +214,14 @@
                 <t t-call="ressource_humaine.report_header_custom_bordered"/>
                 <div class="page"
                      style="border-bottom: 10px double black;border-left: 10px double black;border-right: 10px double black;">
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
                     <strong>
                         <div style="font-size: 20px;text-align: left;">
                             <span style="margin-left:15px;">
