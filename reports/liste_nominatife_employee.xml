@@ -718,6 +718,7 @@
                                 الرتبة
                                 :
                                 <span t-esc="grade_data['grade'].intitule_grade"/>
+                                <span style="color: white;">أ</span>
                             </span>
                             <br/>
                             <span>
@@ -1811,13 +1812,13 @@
                     </strong>
                 </div>
                 <div style="page-break-before: always;"></div>
-                <t t-foreach="grade_contract" t-as="grade_data">
+                <t t-foreach="grade_cdi_plein" t-as="grade_data">
                     <div style="text-align: right;font-size:23px;">
                         <t t-if="grade_data.get('grade')">
                             <span>
                                 منصب شغل
                                 :
-                                <span t-esc="grade_data['grade'].intitule_grade"/>
+                                <span t-esc="grade_data['grade'].description"/>
                                 بالتوقيت الكامل غير محدد المدة
                             </span>
                             <br/>
@@ -1832,20 +1833,12 @@
                             </span>
                             <br/>
                             <span>
-                                <t t-set="employee_contract" t-value="0"/>
-                                <t t-set="employee_count" t-value="0"/>
-                                <t t-foreach="grade_data['employees_contract']" t-as="employee">
-                                    <t t-set="employee_contract" t-value="employee_contract + 1"/>
-                                </t>
-                                <t t-foreach="grade_data['employees_cdi_plein']" t-as="employee">
-                                    <t t-set="employee_count" t-value="employee_count +1"/>
-                                </t>
-                                <span t-esc="employee_count"/>
+                                <span t-esc="len(grade_data['employees'])"/>
                                 : عدد المناصب الحقيقة
                             </span>
                             <br/>
                             <span>
-                                <span t-esc="grade_data['grade'].max_employee - employee_contract"/>
+                                <span t-esc="grade_data['grade'].max_employee - len(grade_data['employees'])"/>
                                 : عدد المناصب الشاغرة
                             </span>
                         </t>
@@ -1887,9 +1880,9 @@
                             </thead>
                             <tbody>
                                 <t t-set="line_count" t-value="1"/>
-                                <t t-foreach="grade_data['employees_cdi_plein']" t-as="employee">
+                                <t t-foreach="grade_data['employees']" t-as="employee">
                                     <t t-set="promotion_line"
-                                       t-value="grade_data['promotion_lines_cdi_plein'] and grade_data['promotion_lines_cdi_plein'].filtered(lambda r: r.employee_id.id == employee.id) or None"/>
+                                       t-value="grade_data['promotion_lines'] and grade_data['promotion_lines'].filtered(lambda r: r.employee_id.id == employee.id) or None"/>
                                     <tr>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <!--                                                                            <span t-field="line.employee_id"/>-->
@@ -1949,7 +1942,7 @@
                                                 <span t-esc="promotion_line.grade_id.intitule_grade"/>
                                             </t>
                                             <t t-if="not promotion_line">
-                                                <span t-esc="employee.grade_id.intitule_grade"/>
+                                                <span t-esc="employee.grade_id.description"/>
                                             </t>
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
@@ -2001,14 +1994,14 @@
                     </strong>
                 </div>
                 <div style="page-break-before: always;"></div>
-                <t t-foreach="grade_contract" t-as="grade_data">
+                <t t-foreach="grade_cdd_plein" t-as="grade_data">
                     <div style="text-align: right;font-size:23px;">
                         <t t-if="grade_data.get('grade')">
                             <span>
                                 منصب شغل
                                 :
-                                <span t-esc="grade_data['grade'].intitule_grade"/>
-                                بالتوقيت الكامل محدد المدة
+                                <span t-esc="grade_data['grade'].description"/>
+                                بالتوقيت الكامل غير محدد المدة
                             </span>
                             <br/>
                             <span>
@@ -2022,20 +2015,12 @@
                             </span>
                             <br/>
                             <span>
-                                <t t-set="employee_contract" t-value="0"/>
-                                <t t-set="employee_count" t-value="0"/>
-                                <t t-foreach="grade_data['employees_contract']" t-as="employee">
-                                    <t t-set="employee_contract" t-value="employee_contract + 1"/>
-                                </t>
-                                <t t-foreach="grade_data['employees_cdd_plein']" t-as="employee">
-                                    <t t-set="employee_count" t-value="employee_count +1"/>
-                                </t>
-                                <span t-esc="employee_count"/>
+                                <span t-esc="len(grade_data['employees'])"/>
                                 : عدد المناصب الحقيقة
                             </span>
                             <br/>
                             <span>
-                                <span t-esc="grade_data['grade'].max_employee - employee_contract"/>
+                                <span t-esc="grade_data['grade'].max_employee - len(grade_data['employees'])"/>
                                 : عدد المناصب الشاغرة
                             </span>
                         </t>
@@ -2077,9 +2062,9 @@
                             </thead>
                             <tbody>
                                 <t t-set="line_count" t-value="1"/>
-                                <t t-foreach="grade_data['employees_cdd_plein']" t-as="employee">
+                                <t t-foreach="grade_data['employees']" t-as="employee">
                                     <t t-set="promotion_line"
-                                       t-value="grade_data['promotion_lines_cdd_plein'] and grade_data['promotion_lines_cdd_plein'].filtered(lambda r: r.employee_id.id == employee.id) or None"/>
+                                       t-value="grade_data['promotion_lines'] and grade_data['promotion_lines'].filtered(lambda r: r.employee_id.id == employee.id) or None"/>
                                     <tr>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <!--                                                                            <span t-field="line.employee_id"/>-->
@@ -2139,7 +2124,7 @@
                                                 <span t-esc="promotion_line.grade_id.intitule_grade"/>
                                             </t>
                                             <t t-if="not promotion_line">
-                                                <span t-esc="employee.grade_id.intitule_grade"/>
+                                                <span t-esc="employee.grade_id.description"/>
                                             </t>
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
@@ -2191,14 +2176,14 @@
                     </strong>
                 </div>
                 <div style="page-break-before: always;"></div>
-                <t t-foreach="grade_contract" t-as="grade_data">
+                <t t-foreach="grade_cdi_partiel" t-as="grade_data">
                     <div style="text-align: right;font-size:23px;">
                         <t t-if="grade_data.get('grade')">
                             <span>
                                 منصب شغل
                                 :
-                                <span t-esc="grade_data['grade'].intitule_grade"/>
-                                بالتوقيت الجزئي غير محدد المدة
+                                <span t-esc="grade_data['grade'].description"/>
+                                بالتوقيت الكامل غير محدد المدة
                             </span>
                             <br/>
                             <span>
@@ -2212,20 +2197,12 @@
                             </span>
                             <br/>
                             <span>
-                                <t t-set="employee_contract" t-value="0"/>
-                                <t t-set="employee_count" t-value="0"/>
-                                <t t-foreach="grade_data['employees_contract']" t-as="employee">
-                                    <t t-set="employee_contract" t-value="employee_contract + 1"/>
-                                </t>
-                                <t t-foreach="grade_data['employees_cdi_partiel']" t-as="employee">
-                                    <t t-set="employee_count" t-value="employee_count +1"/>
-                                </t>
-                                <span t-esc="employee_count"/>
+                                <span t-esc="len(grade_data['employees'])"/>
                                 : عدد المناصب الحقيقة
                             </span>
                             <br/>
                             <span>
-                                <span t-esc="grade_data['grade'].max_employee - employee_contract"/>
+                                <span t-esc="grade_data['grade'].max_employee - len(grade_data['employees'])"/>
                                 : عدد المناصب الشاغرة
                             </span>
                         </t>
@@ -2267,9 +2244,9 @@
                             </thead>
                             <tbody>
                                 <t t-set="line_count" t-value="1"/>
-                                <t t-foreach="grade_data['employees_cdi_partiel']" t-as="employee">
+                                <t t-foreach="grade_data['employees']" t-as="employee">
                                     <t t-set="promotion_line"
-                                       t-value="grade_data['promotion_lines_cdi_partiel'] and grade_data['promotion_lines_cdi_partiel'].filtered(lambda r: r.employee_id.id == employee.id) or None"/>
+                                       t-value="grade_data['promotion_lines'] and grade_data['promotion_lines'].filtered(lambda r: r.employee_id.id == employee.id) or None"/>
                                     <tr>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <!--                                                                            <span t-field="line.employee_id"/>-->
@@ -2329,7 +2306,7 @@
                                                 <span t-esc="promotion_line.grade_id.intitule_grade"/>
                                             </t>
                                             <t t-if="not promotion_line">
-                                                <span t-esc="employee.grade_id.intitule_grade"/>
+                                                <span t-esc="employee.grade_id.description"/>
                                             </t>
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
@@ -2381,14 +2358,14 @@
                     </strong>
                 </div>
                 <div style="page-break-before: always;"></div>
-                <t t-foreach="grade_contract" t-as="grade_data">
+                <t t-foreach="grade_cdd_partiel" t-as="grade_data">
                     <div style="text-align: right;font-size:23px;">
                         <t t-if="grade_data.get('grade')">
                             <span>
                                 منصب شغل
                                 :
-                                <span t-esc="grade_data['grade'].intitule_grade"/>
-                                بالتوقيت الجزئي محدد المدة
+                                <span t-esc="grade_data['grade'].description"/>
+                                بالتوقيت الكامل غير محدد المدة
                             </span>
                             <br/>
                             <span>
@@ -2402,20 +2379,12 @@
                             </span>
                             <br/>
                             <span>
-                                <t t-set="employee_contract" t-value="0"/>
-                                <t t-set="employee_count" t-value="0"/>
-                                <t t-foreach="grade_data['employees_contract']" t-as="employee">
-                                    <t t-set="employee_contract" t-value="employee_contract + 1"/>
-                                </t>
-                                <t t-foreach="grade_data['employees_cdd_partiel']" t-as="employee">
-                                    <t t-set="employee_count" t-value="employee_count +1"/>
-                                </t>
-                                <span t-esc="employee_count"/>
+                                <span t-esc="len(grade_data['employees'])"/>
                                 : عدد المناصب الحقيقة
                             </span>
                             <br/>
                             <span>
-                                <span t-esc="grade_data['grade'].max_employee - employee_contract"/>
+                                <span t-esc="grade_data['grade'].max_employee - len(grade_data['employees'])"/>
                                 : عدد المناصب الشاغرة
                             </span>
                         </t>
@@ -2457,9 +2426,9 @@
                             </thead>
                             <tbody>
                                 <t t-set="line_count" t-value="1"/>
-                                <t t-foreach="grade_data['employees_cdd_partiel']" t-as="employee">
+                                <t t-foreach="grade_data['employees']" t-as="employee">
                                     <t t-set="promotion_line"
-                                       t-value="grade_data['promotion_lines_cdd_partiel'] and grade_data['promotion_lines_cdd_partiel'].filtered(lambda r: r.employee_id.id == employee.id) or None"/>
+                                       t-value="grade_data['promotion_lines'] and grade_data['promotion_lines'].filtered(lambda r: r.employee_id.id == employee.id) or None"/>
                                     <tr>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <!--                                                                            <span t-field="line.employee_id"/>-->
@@ -2519,7 +2488,7 @@
                                                 <span t-esc="promotion_line.grade_id.intitule_grade"/>
                                             </t>
                                             <t t-if="not promotion_line">
-                                                <span t-esc="employee.grade_id.intitule_grade"/>
+                                                <span t-esc="employee.grade_id.description"/>
                                             </t>
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
