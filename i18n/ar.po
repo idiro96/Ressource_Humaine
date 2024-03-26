@@ -29494,7 +29494,8 @@ msgid "Date Cnas"
 msgstr "Date Cnas"
 
 #. module: ressource_humaine
-#: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_code_decision_groupe
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_date_decision_groupe
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_date_decision_groupe
 msgid "Date Decision Groupe"
 msgstr "رقم المقرر الجماعي"
 
@@ -29505,8 +29506,9 @@ msgstr "تاريخ امضاء المقرر"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_date_effet_decision_groupe
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_date_effet_decision_groupe
 msgid "Date Effet Decision Groupe"
-msgstr "   تاريخ سريان المقرر الجماعي"
+msgstr "تاريخ سريان المقرر الجماعي"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_filiere_date_code
@@ -83720,3 +83722,9 @@ msgstr "التاريخ المرجع بفتح الإمتحان"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_line_date_ref_promotion
 msgid "Date Ref Promotion"
 msgstr "التاريخ المرجع بالترقية"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_code_decision_groupe
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_code_decision_groupe
+msgid "Code Decision Groupe"
+msgstr "رمز قرار المجموعة"
