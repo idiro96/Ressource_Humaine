@@ -187,7 +187,6 @@
                                                     <t t-esc="av_precedent.echelon_new_id.indice_echelon + av_precedent.categorie_new_id.Indice_minimal"/>
                                                 </span>
                                              </t>
-
                                     </t>
                                 </t>
                             </t>

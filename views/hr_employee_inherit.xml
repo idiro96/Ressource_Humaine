@@ -75,10 +75,10 @@
                     <field name="taux_handicap"
                            attrs="{'invisible': [('handicape', '=', False)]}"/>
                 </xpath>
-<!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='bank_account_id']"-->
-<!--                       position="after">-->
-<!--                    <field name="service_militaire"/>-->
-<!--                </xpath>-->
+                <!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='bank_account_id']"-->
+                <!--                       position="after">-->
+                <!--                    <field name="service_militaire"/>-->
+                <!--                </xpath>-->
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='resource_calendar_id']"
                        position="after">
                     <field name="fin_relation"/>
@@ -100,13 +100,16 @@
                 <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='grade_id']" position="after">
                     <field name="date_grade" required="True" context="{'lang':'fr_FR'}"/>
                 </xpath>
-                 <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='date_grade']" position="after">
-                    <field name="ref_promotion"  context="{'lang':'fr_FR'}"/>
+                <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='date_grade']"
+                       position="after">
+                    <field name="ref_promotion" context="{'lang':'fr_FR'}"/>
                 </xpath>
-                 <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='ref_promotion']" position="after">
+                <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='ref_promotion']"
+                       position="after">
                     <field name="date_ref_promotion" context="{'lang':'fr_FR'}"/>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_ref_promotion']" position="after">
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_ref_promotion']"
+                       position="after">
                     <field name="position_statutaire"/>
                 </xpath>
 
@@ -162,9 +165,9 @@
                     <field name="annee_travail" string="سنوات العمل"
                            attrs="{'invisible': [('code_type_fonction', '!=', 'contractuel')]}"/>
                 </xpath>
-<!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='marital']" position="after">-->
-<!--                    <field name="activite_conjoint"/>-->
-<!--                </xpath>-->
+                <!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='marital']" position="after">-->
+                <!--                    <field name="activite_conjoint"/>-->
+                <!--                </xpath>-->
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='marital']"
                        position="after">
                     <field name="prenom_pere"/>
@@ -179,10 +182,9 @@
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='children']" position="after">
                     <field name="nom_fr"/>
                 </xpath>
-                <!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='nom_fr']" position="after">-->
-                <!--                    <field name="prenom_fr" required="True"/>-->
-                <!--                </xpath>-->
-
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='nom_fr']" position="after">
+                    <field name="prenom_fr"/>
+                </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='birthday']"
                        position="before">
                     <field name="prenom_ar"/>
@@ -224,7 +226,7 @@
                     <attribute name="invisible">True</attribute>
                 </xpath>
 
-                 <xpath expr="//form//field[@name='days_off']" position="attributes">
+                <xpath expr="//form//field[@name='days_off']" position="attributes">
                     <attribute name="readonly">True</attribute>
                 </xpath>
 
@@ -352,34 +354,50 @@
                             <field name="ref"/>
                             <field name="date_ref"/>
                             <field name="code_type_fonction" invisible="1"/>
-                            <field name="grille_id" required="1" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
-                            <field name="groupe_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
+                            <field name="grille_id" required="1"
+                                   options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                            <field name="groupe_id"
+                                   options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
                                    attrs="{'invisible': ['|', ('code_type_fonction', '=', 'fonctionsuperieure'), ('code_type_fonction', '=', 'contractuel')],'required': ['|', ('code_type_fonction', '=', 'fonction'), ('code_type_fonction', '=', 'postesuperieure')]}"/>
-                            <field name="categorie_id" required="1" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
-                            <field name="section_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
+                            <field name="categorie_id" required="1"
+                                   options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                            <field name="section_id"
+                                   options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
                                    attrs="{'invisible': [('code_type_fonction', '!=', 'fonctionsuperieure')], 'required': [('code_type_fonction', '=', 'fonctionsuperieure')]}"/>
-                            <field name="indice_base" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
-                                  />
-                            <field name="indice_minimal" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
-                                  />
-                            <field name="echelon_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
+                            <field name="indice_base"
+                                   options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
+                            />
+                            <field name="indice_minimal"
+                                   options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
+                            />
+                            <field name="echelon_id"
+                                   options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
                                    attrs="{'invisible': [('code_type_fonction', '=', 'contractuel')], 'required': [('code_type_fonction', '!=', 'contractuel')]}"/>
-                            <field name="point_indiciare" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
-                                  />
-                            <field name="total_indice" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
-                                   />
-                            <field name="categorie_superieure_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
+                            <field name="point_indiciare"
+                                   options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
+                            />
+                            <field name="total_indice"
+                                   options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
+                            />
+                            <field name="categorie_superieure_id"
+                                   options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
                                    attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')], 'required': [('code_type_fonction', '=', 'postesuperieure')]}"/>
-                            <field name="section_superieure_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
+                            <field name="section_superieure_id"
+                                   options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
                                    attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')], 'required': [('code_type_fonction', '=', 'postesuperieure')]}"/>
-                            <field name="niveau_hierarchique_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
+                            <field name="niveau_hierarchique_id"
+                                   options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
                                    attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')], 'required': [('code_type_fonction', '=', 'postesuperieure')]}"/>
-                            <field name="bonification_indiciaire" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
+                            <field name="bonification_indiciaire"
+                                   options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
                                    attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')], 'required': [('code_type_fonction', '=', 'postesuperieure')]}"/>
-                            <field name="chef_bureau" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
-                            <field name="niveau_hirerachique_chef_Bureau" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
+                            <field name="chef_bureau"
+                                   options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                            <field name="niveau_hirerachique_chef_Bureau"
+                                   options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
                                    attrs="{'invisible': [('chef_bureau', '!=', True)], 'required': [('chef_bureau', '=', 'True')]}"/>
-                              <field name="bonification_indiciaire" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
+                            <field name="bonification_indiciaire"
+                                   options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
                                    attrs="{'invisible': [('chef_bureau', '!=', True)], 'required': [('chef_bureau', '=', 'True')]}"/>
 
                             <field name="wage"/>

@@ -27,8 +27,13 @@
                             <field name="date_signature"/>
                         </group>
                          <group>
-                          <field name="ref_ouverture_examin"/>
+                            <field name="ref_ouverture_examin"/>
                             <field name="date_ref_ouverture_examin"/>
+                        </group>
+                           <group>
+                            <field name="code_decision_groupe"/>
+                            <field name="date_decision_groupe"/>
+                            <field name="date_effet_decision_groupe"/>
                         </group>
                     </group>
                     <notebook>
