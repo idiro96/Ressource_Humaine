@@ -31082,6 +31082,7 @@ msgstr "اشرح لماذا قمت بأخد نقود من الماكينة:"
 #: model:ir.model.fields,field_description:website_mail.field_mail_compose_message_description
 #: model:ir.model.fields,field_description:website_mail.field_mail_mail_description
 #: model:ir.model.fields,field_description:website_mail.field_mail_message_description
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_grade_description
 #, python-format
 msgid "Description"
 msgstr "الوصف"
