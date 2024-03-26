@@ -156,7 +156,6 @@ class RHAvancement(models.Model):
                     employee.write({
                         'total_indice': rec.employee_id.total_indice,
                     })
-
                     rec.employee_id.wage = rec.employee_id.indice_base * 45 + rec.employee_id.point_indiciare
                     employee.write({
                         'wage': rec.employee_id.wage,
