@@ -6,7 +6,7 @@ class EmployeeXLS(models.AbstractModel):
     _inherit = 'report.report_xlsx.abstract'
 
     def generate_xlsx_report(self, workbook, data, lines):
-        employees = self.env['hr.employee'].search([])
+        employees = self.env['hr.employee'].search([('fin_relation', '=', False)])
 
         format1 = workbook.add_format({'font_size': 12, 'align': 'center', 'valign': 'vcenter', 'border': 2, 'bg_color': '#D3D3D3', 'bold': True})
         format1.set_text_wrap()

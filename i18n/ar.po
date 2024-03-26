@@ -29486,12 +29486,12 @@ msgstr "تاريخ الموافقة"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_wizard_date_avancement
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avencement_droit_date_avancement
 msgid "Date Avancement"
-msgstr "تاريخ إستحقاق الترقية"
+msgstr "تاريخ الإستفادة"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_fin_relation_date_cnas
 msgid "Date Cnas"
-msgstr "Date Cnas"
+msgstr "تاريخ Cnas"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_date_decision_groupe
@@ -42930,7 +42930,7 @@ msgstr "موقع الوظيفة"
 #: model:ir.model,name:hr_recruitment.model_hr_job
 #: model:ir.model,name:ressource_humaine.model_hr_job
 msgid "Job Position"
-msgstr "المناصب الوظيفية"
+msgstr "المناصب العليا"
 
 #. module: hr_recruitment
 #: model:mail.message.subtype,name:hr_recruitment.mt_department_new
@@ -83710,7 +83710,7 @@ msgstr "الإسم"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_ref_promotion
 msgid "Ref Promotion"
-msgstr "رقم الترقية"
+msgstr "رقم مقرر الترقية"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_ref_ouverture_examin
@@ -83720,7 +83720,7 @@ msgstr "رقم فتح الامتحان"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_date_ref_promotion
 msgid "date_promotion"
-msgstr "تاريخ رقم الترقية"
+msgstr "تاريخ مقرر الترقية"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_ref_ouverture_examin
