@@ -77,6 +77,9 @@ class RHPromotion(models.Model):
                     employee.write({'date_grade': rec.date_new_grade})
                     employee.write({'ref_promotion': self.ref_ouverture_examin})
                     employee.write({'date_ref_promotion': self.date_ref_ouverture_examin})
+                    if rec.duree == 120:
+                        employee.write({'promotion_dix': True})
+
                 elif rec.employee_id.nature_travail_id.code_type_fonction == 'fonctionsuperieure':
                     promo_line = self.env['rh.promotion.line'].create({
                         'employee_id': rec.employee_id.id,
@@ -102,6 +105,8 @@ class RHPromotion(models.Model):
                     employee.write({'date_grade': rec.date_new_grade})
                     employee.write({'ref_promotion': self.ref_ouverture_examin})
                     employee.write({'date_ref_promotion': self.date_ref_ouverture_examin})
+                    if rec.duree == 120:
+                        employee.write({'promotion_dix': True})
                 elif rec.employee_id.nature_travail_id.code_type_fonction == 'postesuperieure':
                     promo_line = self.env['rh.promotion.line'].create({
                         'employee_id': rec.employee_id.id,
@@ -128,6 +133,8 @@ class RHPromotion(models.Model):
                     employee.write({'date_grade': rec.date_new_grade})
                     employee.write({'ref_promotion': self.ref_ouverture_examin})
                     employee.write({'date_ref_promotion': self.date_ref_ouverture_examin})
+                    if rec.duree == 120:
+                        employee.write({'promotion_dix': True})
         else:
             raise UserError("Vous ne pouvez pas enregistrer une liste vide")
         return promotion
