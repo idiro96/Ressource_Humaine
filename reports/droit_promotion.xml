@@ -19,7 +19,7 @@
                         <strong>
                             <div class="Diwani_Letter" style="font-size: 30px;text-align: right;">
                                 <span style="word-spacing: 9px;">
-                                    المدرسة الوطنية للإدارة '' مولاي أحمد مدغري''
+                                    المدرسة الوطنية للإدارة
                                 </span>
                             </div>
                             <br/>
@@ -291,19 +291,21 @@
                                     </br>
                                     <br>
                                     </br>
-                                           <span class="texte-en-gras">
-                                           يقرر
-                                        </span>
-                                    <br>
-                                    </br>
-                                    <br>
-                                    </br>
+
                                 </spans>
                             </div>
+                             <div class="texte-en-gras"  style="font-size: 30px; text-align: center;">
+                                           يقرر
+                                    <br>
+                                    </br>
+                                    <br>
+                                    </br>
+                             </div>
                             <div class="arabic_typesetting" style="font-size: 30px; text-align: right;">
-                                <span>
+                                <spans>
+                                    <span class="texte-en-gras">
                                         المادة الاأولى :
-
+                                    </span>
                                     <t t-if="line.employee_id.gender == 'male'">
                                         ـ يرقى السيد
                                     </t>
@@ -314,7 +316,7 @@
                                         <t t-esc="line.employee_id.name"/>
                                     </span>
                                     في سللك
-                                </span>
+                                </spans>
                                  <span class="texte-en-gras">
                                             <t t-esc="line.grade_id.corps_id.intitule_corps"/>
                                         </span>
@@ -335,8 +337,9 @@
                             </div>
                             <div class="arabic_typesetting" style="font-size: 30px; text-align: right;">
                                 <span>
+                                    <span class="texte-en-gras">
                                         المادة 02 :
-
+                                    </span>
                                     <t t-if="line.employee_id.gender == 'male'">
                                         يعاد ترتيب المعني عند نفس التاريخ في الصنف
                                     </t>
@@ -357,7 +360,10 @@
                                 </span>
                             </div>
                             <div class="arabic_typesetting" style="font-size: 30px; text-align: right;">
-                                        المادة 03 :
+
+                                 <span class="texte-en-gras">
+                                    المادة 03 :
+                                </span>
                              يكلف السيد الأمين العام للمدرسة بتنفيذ هذا المقرر الذي سينشر في سجل المقررات الإدارية للمدرسة الوطنية للإدارة
 
                             </div>
