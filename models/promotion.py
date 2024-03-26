@@ -135,8 +135,8 @@ class RHPromotion(models.Model):
     @api.onchange('date_promotion')
     def _onchange_date_promotion(self):
         """ Update the number_of_days. """
-        for rec1 in self:
-            rec1.promotion_wizard = True
+        # for rec1 in self:
+        #     rec1.promotion_wizard = True
 
         employee = self.env['hr.employee'].search([])
         promotion_ligne_droit = self.env['rh.promotion.line.wizard'].search([])
