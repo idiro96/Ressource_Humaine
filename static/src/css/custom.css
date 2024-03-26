@@ -25,6 +25,6 @@
     stroke: #018749 !important;
 }*/
 
-/*.o_org_chart_entry.o_org_chart_entry_self.media .media-left {
-  transform: scaleX(-1);
-}*/
+#o_employee_right {
+    direction: ltr;
+}
