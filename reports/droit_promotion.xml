@@ -192,9 +192,16 @@
                                                     <t t-esc="av.echelon_new_id[0].intitule"/>
                                                 </span>
                                                 الموافقة للرقم الاستدلالي
-                                                <span class="texte-en-gras">
-                                                    <t t-esc="av.echelon_new_id.indice_echelon + av.categorie_new_id.Indice_minimal"/>
-                                                </span>
+                                                <t t-if="line.ancien_index == 0">
+                                                    <span class="texte-en-gras">
+                                                        <t t-esc="av.echelon_new_id.indice_echelon + av.categorie_new_id.Indice_minimal"/>
+                                                    </span>
+                                                </t>
+                                                 <t t-if="line.ancien_index != 0">
+                                                    <span class="texte-en-gras">
+                                                        <t t-esc="line.ancien_index"/>
+                                                    </span>
+                                                </t>
                                                   ابتداء من تاريخ
                                                 <span class="texte-en-gras" style="white-space: nowrap;">
                                                     <t t-esc="line_date_new_avancement_av.get(av.id, '')"/>
