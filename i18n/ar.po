@@ -29491,7 +29491,7 @@ msgstr "تاريخ الإستفادة"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_fin_relation_date_cnas
 msgid "Date Cnas"
-msgstr "تاريخ Cnas"
+msgstr "Date Cnas"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_date_decision_groupe
@@ -83753,3 +83753,8 @@ msgstr "التاريخ المرجع بالترقية"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_code_decision_groupe
 msgid "Code Decision Groupe"
 msgstr "رمز قرار المجموعة"
+
+#. module: ressource_humaine
+#: model:ir.actions.report,name:ressource_humaine.action_droit_promotion_report
+msgid "Extrait du siège approuvant le calendrier des promotions de grade par examains professionnel"
+msgstr "Extrait du siège approuvant le calendrier des promotions de grade par examains professionnel"
