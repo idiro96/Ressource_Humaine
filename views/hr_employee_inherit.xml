@@ -294,6 +294,9 @@
                        position="attributes">
                     <attribute name="invisible">True</attribute>
                 </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group[@name='work_permit']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
 
                 <xpath expr="//form//sheet//notebook" position="inside">
                     <page name="الترقيات في الدرجة" string="الترقيات في الرتبة">
