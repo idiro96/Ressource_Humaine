@@ -94,7 +94,7 @@
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;background-color:#ADD8E6">
                                         <span t-esc="line.nom_fr"/>
-<!--                                        <span t-esc="line.prenom_fr"/>-->
+                                        <!--                                        <span t-esc="line.prenom_fr"/>-->
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;background-color:#ADD8E6">
                                         <span t-esc="line.date_job_id"/>
@@ -109,7 +109,12 @@
                                         <span t-esc="line.job_id.name"/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;background-color:#ADD8E6">
-                                        <span t-esc="line.grade_id.intitule_grade"/>
+                                        <t t-if="line.grade_id.description">
+                                            <span t-esc="line.grade_id.description"/>
+                                        </t>
+                                        <t t-if="not line.grade_id.description">
+                                            <span t-esc="line.grade_id.intitule_grade"/>
+                                        </t>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;background-color:#ADD8E6">
                                         <span t-esc="line.place_of_birth"/>
@@ -139,7 +144,7 @@
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;background-color:#FFB6C1">
                                         <span t-esc="line.nom_fr"/>
-<!--                                        <span t-esc="line.prenom_fr"/>-->
+                                        <!--                                        <span t-esc="line.prenom_fr"/>-->
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;background-color:#FFB6C1">
                                         <span t-esc="line.date_job_id"/>
@@ -154,7 +159,12 @@
                                         <span t-esc="line.job_id.name"/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;background-color:#FFB6C1">
-                                        <span t-esc="line.grade_id.intitule_grade"/>
+                                        <t t-if="line.grade_id.description">
+                                            <span t-esc="line.grade_id.description"/>
+                                        </t>
+                                        <t t-if="not line.grade_id.description">
+                                            <span t-esc="line.grade_id.intitule_grade"/>
+                                        </t>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;background-color:#FFB6C1">
                                         <span t-esc="line.place_of_birth"/>
@@ -184,7 +194,7 @@
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;">
                                         <span t-esc="line.nom_fr"/>
-<!--                                        <span t-esc="line.prenom_fr"/>-->
+                                        <!--                                        <span t-esc="line.prenom_fr"/>-->
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;">
                                         <span t-esc="line.date_job_id"/>
@@ -199,7 +209,12 @@
                                         <span t-esc="line.job_id.name"/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;">
-                                        <span t-esc="line.grade_id.intitule_grade"/>
+                                        <t t-if="line.grade_id.description">
+                                            <span t-esc="line.grade_id.description"/>
+                                        </t>
+                                        <t t-if="not line.grade_id.description">
+                                            <span t-esc="line.grade_id.intitule_grade"/>
+                                        </t>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;">
                                         <span t-esc="line.place_of_birth"/>

@@ -83757,4 +83757,4 @@ msgstr "رمز قرار المجموعة"
 #. module: ressource_humaine
 #: model:ir.actions.report,name:ressource_humaine.action_droit_promotion_report
 msgid "Extrait du siège approuvant le calendrier des promotions de grade par examains professionnel"
-msgstr "Extrait du siège approuvant le calendrier des promotions de grade par examains professionnel"
+msgstr "مقرر يتضمن الالتحاق برتبة أعلى عن طريق الامتحان المهني"
