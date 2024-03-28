@@ -131,12 +131,14 @@ class HrEmployeInherited(models.Model):
         for rec in self:
             conge = self.env['hr.holidays'].search([('employee_id', '=', rec.id)], order='date_from desc', limit=1)
             if conge:
-                formatted_date_debut = datetime.strptime(conge.date_from, "%Y-%m-%d %H:%M:%S").strftime("%Y-%m-%d")
-                rec.date_debut_conge = formatted_date_debut
+                if conge.date_from:
+                    formatted_date_debut = datetime.strptime(conge.date_from, "%Y-%m-%d %H:%M:%S").strftime("%Y-%m-%d")
+                    rec.date_debut_conge = formatted_date_debut
                 print(rec.date_debut_conge)
-                formatted_date_fin = datetime.strptime(conge.date_to, "%Y-%m-%d %H:%M:%S").strftime("%Y-%m-%d")
-                rec.date_fin_conge = conge.date_to
-                print(rec.date_debut_conge)
+                if conge.date_to:
+                    formatted_date_fin = datetime.strptime(conge.date_to, "%Y-%m-%d %H:%M:%S").strftime("%Y-%m-%d")
+                    rec.date_fin_conge = conge.date_to
+                    print(rec.date_debut_conge)
 
     @api.depends('wage')
     def _compute_wage_range(self):

@@ -10,7 +10,7 @@ class RHPlanningLine(models.Model):
 
     # employee_id = fields.Many2many('hr.employee', domain="[('fin_relation', '=', False)] & [('date_debut_conge', '!=', False),('date_debut_conge','>','date_examen')] | [('date_fin_conge', '!=', False),('date_fin_conge','>','date_examen')] ")
     employee_id = fields.Many2many('hr.employee')
-                                   # domain="[('fin_relation', '=', False), '|', '&', ('date_debut_conge', '!=', False), ('date_debut_conge', '>', date_examen), '&', ('date_fin_conge', '!=', False), ('date_fin_conge', '>', date_examen)]")
+    # domain="[('fin_relation', '=', False), '|', '&', ('date_debut_conge', '!=', False), ('date_debut_conge', '>', date_examen), '&', ('date_fin_conge', '!=', False), ('date_fin_conge', '>', date_examen)]")
     # employee_id = fields.Many2many('hr.employee',
     #                                domain=[['fin_relation', '=', False], '|', '&', ('fin_relation', '=', False), '|',
     #                                        '&', ('date_debut_conge', '!=', False),
@@ -30,46 +30,43 @@ class RHPlanningLine(models.Model):
     filtered_employee_ids = fields.Many2many('hr.employee', compute='_compute_filtered_employees',
                                              string="Filtered Employees")
 
-
-
-    @api.onchange('date_examen')
-    def onchange_date(self):
-        employee = self.env['hr.employee'].search([('fin_relation', '=', False)])
-
-        domain=[]
-        for emp in employee:
-            print(emp.name)
-            conges = self.env['hr.holidays'].search([('employee_id', '=', emp.id)])
-            if conges:
-                print('lemployee a des conges')
-                for conge in conges:
-                    print('1er congee de lemployee')
-                    date_debut_conge = datetime.strptime(conge.date_from, "%Y-%m-%d %H:%M:%S").strftime("%Y-%m-%d")
-                    # date_debut_conge=con.date_from.strptime('%y-%m-%d')
-                    # print("date_debut_conge")
-                    print(date_debut_conge)
-                    date_fin_conge = datetime.strptime(conge.date_to, "%Y-%m-%d %H:%M:%S").strftime("%Y-%m-%d")
-                    # # date_fin_conge=con.date_to.strftime('%y-%m-%d')
-                    # print("date_fin_conge")
-                    print(date_fin_conge)
-                    print("record.date_examen")
-                    print(self.planning_survellance_id.date_surveillance)
-                    if date_debut_conge > self.planning_survellance_id.date_surveillance or date_fin_conge < self.planning_survellance_id.date_surveillance:
-                        print('lemployee libre')
-                        # domain.append('|')
-                        domain.append(('id', '=', emp.id))
-                        break
-            else:
-                print('lemployee na pas de conges')
-                # domain.append('|')
-                domain.append(('id', '=', emp.id))
-
-        # variable=self.env['hr.employee'].search(domain)
-        print(domain)
-
-        return {'domain': {'employee_id': domain}}
-                        # date_debut_conge <= self.date_examen <= date_fin_conge:
-
+    # @api.onchange('date_examen')
+    # def onchange_date(self):
+    #     employee = self.env['hr.employee'].search([('fin_relation', '=', False)])
+    #
+    #     domain=[]
+    #     for emp in employee:
+    #         print(emp.name)
+    #         conges = self.env['hr.holidays'].search([('employee_id', '=', emp.id)])
+    #         if conges:
+    #             print('lemployee a des conges')
+    #             for conge in conges:
+    #                 print('1er congee de lemployee')
+    #                 date_debut_conge = datetime.strptime(conge.date_from, "%Y-%m-%d %H:%M:%S").strftime("%Y-%m-%d")
+    #                 # date_debut_conge=con.date_from.strptime('%y-%m-%d')
+    #                 # print("date_debut_conge")
+    #                 print(date_debut_conge)
+    #                 date_fin_conge = datetime.strptime(conge.date_to, "%Y-%m-%d %H:%M:%S").strftime("%Y-%m-%d")
+    #                 # # date_fin_conge=con.date_to.strftime('%y-%m-%d')
+    #                 # print("date_fin_conge")
+    #                 print(date_fin_conge)
+    #                 print("record.date_examen")
+    #                 print(self.planning_survellance_id.date_surveillance)
+    #                 if date_debut_conge > self.planning_survellance_id.date_surveillance or date_fin_conge < self.planning_survellance_id.date_surveillance:
+    #                     print('lemployee libre')
+    #                     # domain.append('|')
+    #                     domain.append(('id', '=', emp.id))
+    #                     break
+    #         else:
+    #             print('lemployee na pas de conges')
+    #             # domain.append('|')
+    #             domain.append(('id', '=', emp.id))
+    #
+    #     # variable=self.env['hr.employee'].search(domain)
+    #     print(domain)
+    #
+    #     return {'domain': {'employee_id': domain}}
+    # date_debut_conge <= self.date_examen <= date_fin_conge:
 
     # @api.depends('date_examen')
     # def _compute_filtered_employees(self):
@@ -130,3 +127,20 @@ class RHPlanningLine(models.Model):
     #                     print("l'employee n'a pas de conge ni fin de relation")
     #
     #         record.filtered_employee_ids = employee
+
+    @api.onchange('date_examen')
+    def onchange_date(self):
+        domain = []
+        for emp in self.env['hr.employee'].search([('fin_relation', '=', False)]):
+            conges = self.env['hr.holidays'].search([('employee_id', '=', emp.id)])
+            if conges:
+                for conge in conges:
+                    date_debut_conge = datetime.strptime(conge.date_from, "%Y-%m-%d %H:%M:%S").strftime("%Y-%m-%d")
+                    date_fin_conge = datetime.strptime(conge.date_to, "%Y-%m-%d %H:%M:%S").strftime("%Y-%m-%d")
+                    if date_debut_conge > self.planning_survellance_id.date_surveillance or date_fin_conge < self.planning_survellance_id.date_surveillance:
+                        domain.append(emp.id)
+                        break
+            else:
+                domain.append(emp.id)
+
+        return {'domain': {'employee_id': [('id', 'in', domain)]}}
