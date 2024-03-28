@@ -14,6 +14,7 @@ class RHPlanning(models.Model):
     time_surveillance_end = fields.Char()
     planning_surveillance_line = fields.One2many('rh.planning.line', 'planning_survellance_id')
 
+
     def action_planning(self):
         print()
         return {

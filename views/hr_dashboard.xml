@@ -22,7 +22,7 @@
         <field name="model">hr.employee</field>
         <field name="arch" type="xml">
             <graph string="Graph de Distribution" type="pie">
-                <field name="gender" string="Genre"/>
+                <field name="gender" string="Genre" />
                 <field name="id" type="measure"/>
             </graph>
         </field>

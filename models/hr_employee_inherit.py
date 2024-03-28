@@ -54,7 +54,7 @@ class HrEmployeInherited(models.Model):
 
     corps_id = fields.Many2one('rh.corps')
     grade_id = fields.Many2one('rh.grade')
-    date_grade = fields.Date(translate=False, lang='fr_FR', )
+    date_grade = fields.Date(translate=False, lang='fr_FR')
     promotion_lines = fields.One2many('rh.promotion.line', inverse_name='employee_id')
     avancement_lines = fields.One2many('rh.avancement.line', inverse_name='employee_id')
     nature_travail_id = fields.Many2one('rh.type.fonction')
@@ -121,6 +121,22 @@ class HrEmployeInherited(models.Model):
         ('high', '50000-100000'),
         ('very_high', '100000+')
     ], compute='_compute_wage_range', store=True)
+
+    planning_survellance_id = fields.Many2one('rh.planning')
+    date_debut_conge = fields.Date(compute='_compute_date_conge', store=True)
+    date_fin_conge = fields.Date(compute='_compute_date_conge', store=True)
+
+    @api.onchange('days_off')
+    def _compute_date_conge(self):
+        for rec in self:
+            conge = self.env['hr.holidays'].search([('employee_id', '=', rec.id)], order='date_from desc', limit=1)
+            if conge:
+                formatted_date_debut = datetime.strptime(conge.date_from, "%Y-%m-%d %H:%M:%S").strftime("%Y-%m-%d")
+                rec.date_debut_conge = formatted_date_debut
+                print(rec.date_debut_conge)
+                formatted_date_fin = datetime.strptime(conge.date_to, "%Y-%m-%d %H:%M:%S").strftime("%Y-%m-%d")
+                rec.date_fin_conge = conge.date_to
+                print(rec.date_debut_conge)
 
     @api.depends('wage')
     def _compute_wage_range(self):
@@ -219,12 +235,14 @@ class HrEmployeInherited(models.Model):
             print(type_fonction.code_type_fonction)
             if type_fonction.code_type_fonction != 'fonctionsuperieure':
                 if type_fonction.code_type_fonction == 'contractuel':
-                    return {'domain': {'categorie_id': [('grille_id', '=', self.grille_id.id),(('type_fonction_id', '=', self.nature_travail_id.id))]}}
+                    return {'domain': {'categorie_id': [('grille_id', '=', self.grille_id.id),
+                                                        (('type_fonction_id', '=', self.nature_travail_id.id))]}}
                 elif type_fonction.code_type_fonction != 'contractuel':
                     return {'domain': {'groupe_id': [('grille_id', '=', self.grille_id.id)]}}
             elif type_fonction.code_type_fonction == 'fonctionsuperieure':
                 print('dfs2')
-                return {'domain': {'categorie_id': [('grille_id', '=', self.grille_id.id),(('type_fonction_id', '=', self.nature_travail_id.id))]}}
+                return {'domain': {'categorie_id': [('grille_id', '=', self.grille_id.id),
+                                                    (('type_fonction_id', '=', self.nature_travail_id.id))]}}
 
     # @api.onchange('groupe_id')
     # def _onchange_groupe_id(self):
@@ -374,7 +392,8 @@ class HrEmployeInherited(models.Model):
         for rec in self:
             rec.point_indiciare = rec.echelon_id.indice_echelon
             rec.bonification_indiciaire = rec.niveau_hirerachique_chef_Bureau.bonification_indiciaire
-            rec.wage = (rec.indice_minimal * 45 + rec.point_indiciare * 45) + rec.niveau_hirerachique_chef_Bureau.bonification_indiciaire
+            rec.wage = (
+                                   rec.indice_minimal * 45 + rec.point_indiciare * 45) + rec.niveau_hirerachique_chef_Bureau.bonification_indiciaire
 
     @api.onchange('nature_travail_id')
     def _onchange_related_field_filier(self):
@@ -424,5 +443,3 @@ class HrEmployeInherited(models.Model):
         res = {'domain': {'grade_id': domain}}
         print(res)
         return res
-
-

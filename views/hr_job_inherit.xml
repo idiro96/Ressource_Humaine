@@ -39,6 +39,7 @@
                 <xpath expr="//form//field[@name='no_of_recruitment']" position="before">
                     <field name="code_type_fonction" invisible="1"/>
                 </xpath>
+
                 <xpath expr="//form//field[@name='no_of_recruitment']" position="attributes">
                     <attribute name="invisible">True</attribute>
                 </xpath>
