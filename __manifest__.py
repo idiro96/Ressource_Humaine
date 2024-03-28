@@ -132,9 +132,9 @@
         'reports/arret_salaire_rapport.xml',
         'reports/fiche_evaluation.xml',
     ],
+
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
-
     ],
 }
