@@ -232,9 +232,13 @@
 
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='bank_account_id']"
                        position="after">
+                    <field name="compte_ccp"/>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='compte_ccp']"
+                       position="after">
                     <field name="numero_securite_social"/>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='numero_securite_social']"
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='compte_ccp']"
                        position="after">
                     <field name="num_national"/>
                 </xpath>
@@ -292,6 +296,9 @@
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='address_home_id']"
                        position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group[@name='work_permit']" position="attributes">
                     <attribute name="invisible">True</attribute>
                 </xpath>
 
@@ -411,6 +418,23 @@
                                 <field name="type_file_id" domain="[('type_file', '=', 'employe')]"/>
                                 <field name="description_fichier"/>
                                 <field name="fichier"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+                    <xpath expr="//form//sheet//notebook" position="inside">
+                    <page string="السيرة السابقة">
+                        <field name="historique_employee_lines">
+                            <tree editable="bottom">
+                                <field name="du"/>
+                                <field name="au"/>
+                                <field name="grade"/>
+                                <field name="poste"/>
+                                <field name="categorie"/>
+                                <field name="echelon"/>
+                                <field name="point_indiciaire"/>
+                                <field name="structure"/>
+                                <field name="document_file_line"/>
                             </tree>
                         </field>
                     </page>
