@@ -83833,3 +83833,8 @@ msgstr "مجلد"
 #: selection:hr.employee,service_militaire:0
 msgid "Exempté"
 msgstr "معفى"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_fin_relation_date_decision_fin_relation
+msgid "Date Decision Fin Relation"
+msgstr "تاريخ المقرر"

@@ -4,7 +4,7 @@
         <field name="model">rh.absence</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="num_reference_absence"/>
+<!--                <field name="num_reference_absence"/>-->
                 <field name="employee_id"/>
                 <field name="date_debut_absence" context="{'lang': 'fr_FR'}"/>
                 <field name="date_fin_absence"/>
@@ -32,7 +32,7 @@
                         <group>
                             <field name="employee_id"
                                    options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
-                            <field name="num_reference_absence"/>
+<!--                            <field name="num_reference_absence"/>-->
                             <field name="date_debut_absence"/>
                             <field name="date_fin_absence"/>
                         </group>
