@@ -37782,6 +37782,51 @@ msgid "Grille New"
 msgstr "الشبكة الجديدة"
 
 #. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_employee_document_file_line
+msgid "Document File Line"
+msgstr "تحميل الملف"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_employee_du
+msgid "Du"
+msgstr "تاريخ البداية"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_employee_au
+msgid "Au"
+msgstr "تاريخ النهاية"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_employee_grade
+msgid "Grade"
+msgstr "الرتبة"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_employee_poste
+msgid "Poste"
+msgstr "المنصب"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_employee_categorie
+msgid "Categorie"
+msgstr "الصنف"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_employee_echelon
+msgid "Echelon"
+msgstr "الدرجة"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_employee_point_indiciaire
+msgid "Point Indiciaire"
+msgstr "الرقم الإستدلالي"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_employee_structure
+msgid "Structure"
+msgstr "المصلحة"
+
+#. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_grille_old_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_wizard_grille_old_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avencement_droit_grille_old_id
@@ -50903,6 +50948,11 @@ msgstr "عدد المستخدمين"
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_numero_securite_social
 msgid "Numero Securite Social"
 msgstr "رقم الضمان الاجتماعي"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_compte_ccp
+msgid "Numero Securite Social"
+msgstr "رقم حساب CCP"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_res_company_num_adh

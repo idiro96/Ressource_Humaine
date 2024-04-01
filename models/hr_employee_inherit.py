@@ -29,6 +29,7 @@ class HrEmployeInherited(models.Model):
     ref_promotion = fields.Char()
     date_ref_promotion = fields.Date()
     prenom_pere = fields.Char()
+    compte_ccp = fields.Char()
     nom_mere = fields.Char()
     prenom_mere = fields.Char()
     nom_fr = fields.Char()
@@ -56,6 +57,7 @@ class HrEmployeInherited(models.Model):
     date_grade = fields.Date(translate=False, lang='fr_FR')
     promotion_lines = fields.One2many('rh.promotion.line', inverse_name='employee_id')
     avancement_lines = fields.One2many('rh.avancement.line', inverse_name='employee_id')
+    historique_employee_lines = fields.One2many('rh.historique.employee', inverse_name='employee_id')
     nature_travail_id = fields.Many2one('rh.type.fonction')
     position_statutaire = fields.Selection([('activite', 'Activite'),
                                             ('detachement', 'Detachement'),
