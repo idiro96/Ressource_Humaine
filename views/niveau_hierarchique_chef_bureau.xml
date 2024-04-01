@@ -6,6 +6,7 @@
 
 
             <tree>
+                <field name="grille_id"/>
                 <field name="intitule"/>
                 <field name="bonification_indiciaire"/>
 
@@ -21,6 +22,7 @@
                 <sheet>
                     <group>
                         <group>
+                            <field name="grille_id"/>
                             <field name="intitule"/>
                             <field name="bonification_indiciaire"/>
                         </group>

@@ -234,6 +234,8 @@ class HrEmployeInherited(models.Model):
                 self.categorie_id = False
                 self.section_id = False
                 self.echelon_id = False
+                self.niveau_hirerachique_chef_Bureau = False
+                self.chef_Bureau = False
             # if self.groupe_id:
             type_fonction = self.env['rh.type.fonction'].search([('id', '=', self.nature_travail_id.id)])
             print(type_fonction.code_type_fonction)
@@ -248,15 +250,6 @@ class HrEmployeInherited(models.Model):
                 return {'domain': {'categorie_id': [('grille_id', '=', self.grille_id.id),
                                                     (('type_fonction_id', '=', self.nature_travail_id.id))]}}
 
-    # @api.onchange('groupe_id')
-    # def _onchange_groupe_id(self):
-    #     if self.groupe_id:
-    #         self.categorie_id = False
-    #         self.section_id = False
-    #         self.echelon_id = False
-    #         return {'domain': {'categorie_id': [('groupe_id', '=', self.groupe_id.id)]}}
-    #     else:
-    #         return {'domain': {'categorie_id': []}}
 
     @api.onchange('groupe_id')
     def onchange_groupe(self):
@@ -271,6 +264,18 @@ class HrEmployeInherited(models.Model):
                 domain.append(('id', 'in', categorie.ids))
 
         res = {'domain': {'categorie_id': domain}}
+        print(res)
+        return res
+
+    @api.onchange('chef_bureau')
+    def onchange_chef_bureau(self):
+        for rec in self:
+            domain = []
+            if rec.grille_id:
+                chef_bureau = self.env['rh.niveau.hierarchique.chef.bureau'].search([('grille_id', '=', rec.grille_id.id)])
+                domain.append(('id', 'in', chef_bureau.ids))
+
+        res = {'domain': {'niveau_hirerachique_chef_Bureau': domain}}
         print(res)
         return res
 

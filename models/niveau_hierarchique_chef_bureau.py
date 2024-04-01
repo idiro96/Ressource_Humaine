@@ -12,6 +12,7 @@ class RHNiveauHierarchiqueCheBureau(models.Model):
 
     intitule = fields.Char()
     bonification_indiciaire = fields.Integer()
+    grille_id = fields.Many2one('rh.grille', readonly=False)
 
 
 
