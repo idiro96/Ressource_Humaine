@@ -11,8 +11,8 @@
         </xpath>
     </template>
     <template id="liste_nominatife_employee">
-<!--        <link href="/ressource_humaine/static/src/css/arabic_font.css" rel="stylesheet"/>-->
-<!--        <link href="/ressource_humaine/static/src/css/latin_font.css" rel="stylesheet"/>-->
+        <!--        <link href="/ressource_humaine/static/src/css/arabic_font.css" rel="stylesheet"/>-->
+        <!--        <link href="/ressource_humaine/static/src/css/latin_font.css" rel="stylesheet"/>-->
         <t t-call="web.basic_layout">
             <div class="page">
                 <div class="row">
@@ -539,11 +539,16 @@
                                             </td>
                                         </t>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                            <t t-if="promotion_line">
-                                                <span t-esc="promotion_line.date_new_grade"/>
+                                            <t t-if="'رئيس' in job_data['job'].name and 'مكتب' in job_data['job'].name">
+                                                <span t-esc="employee.date_job_id"/>
                                             </t>
-                                            <t t-if="not promotion_line">
-                                                <span t-esc="employee.date_grade"/>
+                                            <t t-if="not ('رئيس' in job_data['job'].name and 'مكتب' in job_data['job'].name)">
+                                                <t t-if="promotion_line">
+                                                    <span t-esc="promotion_line.date_new_grade"/>
+                                                </t>
+                                                <t t-if="not promotion_line">
+                                                    <span t-esc="employee.date_grade"/>
+                                                </t>
                                             </t>
                                         </td>
                                         <t t-if="'رئيس' in job_data['job'].name and 'مكتب' in job_data['job'].name">
@@ -656,12 +661,7 @@
                                         <!--                                                                            <span t-field="line.employee_id"/>-->
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                        <t t-if="squ_employees_promotion_mapping[employee]">
-                                            <span t-esc="squ_employees_promotion_mapping[employee].date_new_grade"/>
-                                        </t>
-                                        <t t-if="not squ_employees_promotion_mapping[employee]">
-                                            <span t-esc="employee.date_grade"/>
-                                        </t>
+                                            <span t-esc="employee.date_job_id"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                         <span t-esc="employee.job_id.name"/>
@@ -2537,7 +2537,7 @@
                         <span>
                             القائمة الإسمية للوضعيات القانونية
                             <br/>
-                            (حالات خارج الإطار)
+                            (حالات الإستيداع)
                         </span>
                     </strong>
                 </div>
@@ -2577,7 +2577,7 @@
                         </thead>
                         <tbody>
                             <t t-set="line_count" t-value="1"/>
-                            <t t-foreach="employees_horscadre" t-as="employee">
+                            <t t-foreach="employees_miseendisponibilite" t-as="employee">
                                 <tr>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
                                         <!--                                        <span t-field="line.employee_id"/>-->
@@ -2735,7 +2735,7 @@
                         <span>
                             القائمة الإسمية للوضعيات القانونية
                             <br/>
-                            (حالات الإستيداع)
+                            (حالات خارج الإطار)
                         </span>
                     </strong>
                 </div>
@@ -2775,7 +2775,7 @@
                         </thead>
                         <tbody>
                             <t t-set="line_count" t-value="1"/>
-                            <t t-foreach="employees_miseendisponibilite" t-as="employee">
+                            <t t-foreach="employees_horscadre" t-as="employee">
                                 <tr>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
                                         <!--                                        <span t-field="line.employee_id"/>-->

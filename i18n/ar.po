@@ -29672,7 +29672,7 @@ msgstr "تاريخ التعيين في الرتبة"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_date_job_id
 msgid "Date Job"
-msgstr "تاريخ التعيين في الوظيفة"
+msgstr "تاريخ التعيين في المنصب العالي"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_conjoint_date_mariage
@@ -83758,3 +83758,18 @@ msgstr "رقم المقرر الجماعي"
 #: model:ir.actions.report,name:ressource_humaine.action_droit_promotion_report
 msgid "Extrait du siège approuvant le calendrier des promotions de grade par examains professionnel"
 msgstr "مقرر يتضمن الالتحاق برتبة أعلى عن طريق الامتحان المهني"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_num_date
+msgid "Num Date"
+msgstr "رقم و تاريخ أخر تأشيرة للمراقب المالي"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_date_depart
+msgid "Date Depart"
+msgstr "تاريخ الذهاب"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_date_retour
+msgid "Date Retour"
+msgstr "تاريخ الإياب"
