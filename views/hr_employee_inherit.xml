@@ -75,10 +75,6 @@
                     <field name="taux_handicap"
                            attrs="{'invisible': [('handicape', '=', False)]}"/>
                 </xpath>
-                <!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='bank_account_id']"-->
-                <!--                       position="after">-->
-                <!--                    <field name="service_militaire"/>-->
-                <!--                </xpath>-->
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='resource_calendar_id']"
                        position="after">
                     <field name="fin_relation"/>
@@ -92,6 +88,10 @@
                     <field name="date_reintegration"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='job_id']" position="after">
+                    <field name="date_job_id"/>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='date_job_id']"
+                       position="after">
                     <field name="corps_id" required="True"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='corps_id']" position="after">
@@ -112,12 +112,20 @@
                        position="after">
                     <field name="position_statutaire"/>
                 </xpath>
-
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='position_statutaire']"
+                       position="after">
+                    <field name="date_depart"
+                           attrs="{'invisible': [('position_statutaire', '=', 'activite')]}"/>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_depart']"
+                       position="after">
+                    <field name="date_retour"
+                           attrs="{'invisible': [('position_statutaire', '=', 'activite')]}"/>
+                </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='department_id']"
                        position="before">
                     <field name="date_entrer" required="True"/>
                 </xpath>
-
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_entrer']" position="before">
                     <field name="date_ancien_grade" attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}"/>
                 </xpath>
@@ -133,7 +141,6 @@
                        attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}" position="before">
                     <field name="date_debut_emploi" attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}"/>
                 </xpath>
-
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_debut_emploi']"
                        position="before">
                     <field name="ancienne_etablissement"
@@ -226,9 +233,9 @@
                     <attribute name="invisible">True</attribute>
                 </xpath>
 
-<!--                <xpath expr="//form//field[@name='days_off']" position="attributes">-->
-<!--                    <attribute name="readonly">True</attribute>-->
-<!--                </xpath>-->
+                <!--                <xpath expr="//form//field[@name='days_off']" position="attributes">-->
+                <!--                    <attribute name="readonly">True</attribute>-->
+                <!--                </xpath>-->
 
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='bank_account_id']"
                        position="after">
@@ -236,11 +243,20 @@
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='compte_ccp']"
                        position="after">
+                    <field name="num_national"/>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='num_national']"
+                       position="after">
                     <field name="numero_securite_social"/>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='compte_ccp']"
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='numero_securite_social']"
                        position="after">
-                    <field name="num_national"/>
+                    <field name="num_date"/>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='num_date']"
+                       position="after">
+                    <field name="service_militaire"
+                           attrs="{'invisible': [('gender', '!=', 'male')]}"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page[@name='hr_settings']" position="attributes">
                     <attribute name="attrs">{'invisible': True}</attribute>

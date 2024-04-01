@@ -16,6 +16,7 @@ class RHGrade(models.Model):
     loi_id = fields.Many2one(comodel_name='rh.loi')
     grade_id = fields.Many2one('hr.groupe')
     categorie_id = fields.Many2one('rh.categorie')
+    intitule = fields.Char(related='categorie_id.intitule', store=True)
     employee_ids = fields.One2many('hr.employee', 'grade_id', string='Employees', groups='base.group_user')
     no_of_employee_cdi_plein = fields.Integer(compute='_compute_employees_contract', store=True)
     no_of_employee_cdd_plein = fields.Integer(compute='_compute_employees_contract', store=True)

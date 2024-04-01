@@ -21,7 +21,7 @@ class HrEmployeInherited(models.Model):
     promotion_dix = fields.Boolean(default=False)
     chef_bureau = fields.Boolean(default=False)
     niveau_hirerachique_chef_Bureau = fields.Many2one('rh.niveau.hierarchique.chef.bureau')
-    service_militaire = fields.Boolean(default=False)
+    service_militaire = fields.Selection([('field', 'Dossier'), ('exempted', 'Exempté')], readonly=False)
     fin_relation = fields.Boolean(default=False)
     date_fin_relation = fields.Date()
     date_debut_emploi = fields.Date()
@@ -52,7 +52,6 @@ class HrEmployeInherited(models.Model):
     # days_off = fields.Float(compute='_compute_days_off', store=True, translate=True)
     days_off = fields.Float(store=True)
     jour_sup = fields.Float(store=True)
-
     corps_id = fields.Many2one('rh.corps')
     grade_id = fields.Many2one('rh.grade')
     date_grade = fields.Date(translate=False, lang='fr_FR')
@@ -123,10 +122,13 @@ class HrEmployeInherited(models.Model):
         ('high', '50000-100000'),
         ('very_high', '100000+')
     ], compute='_compute_wage_range', store=True)
-
     planning_survellance_id = fields.Many2one('rh.planning')
     date_debut_conge = fields.Date(compute='_compute_date_conge', store=True)
     date_fin_conge = fields.Date(compute='_compute_date_conge', store=True)
+    num_date = fields.Char()
+    date_depart = fields.Date()
+    date_retour = fields.Date()
+    intitule = fields.Char(related='grade_id.categorie_id.intitule', store=True)
 
     @api.onchange('days_off')
     def _compute_date_conge(self):
@@ -402,7 +404,7 @@ class HrEmployeInherited(models.Model):
             rec.point_indiciare = rec.echelon_id.indice_echelon
             rec.bonification_indiciaire = rec.niveau_hirerachique_chef_Bureau.bonification_indiciaire
             rec.wage = (
-                                   rec.indice_minimal * 45 + rec.point_indiciare * 45) + rec.niveau_hirerachique_chef_Bureau.bonification_indiciaire
+                               rec.indice_minimal * 45 + rec.point_indiciare * 45) + rec.niveau_hirerachique_chef_Bureau.bonification_indiciaire
 
     @api.onchange('nature_travail_id')
     def _onchange_related_field_filier(self):
