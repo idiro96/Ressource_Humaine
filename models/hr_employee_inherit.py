@@ -128,6 +128,7 @@ class HrEmployeInherited(models.Model):
     num_date = fields.Char()
     date_depart = fields.Date()
     date_retour = fields.Date()
+    intitule = fields.Char(related='grade_id.categorie_id.intitule', store=True)
 
     @api.onchange('days_off')
     def _compute_date_conge(self):

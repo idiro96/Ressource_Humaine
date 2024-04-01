@@ -27,21 +27,18 @@ class PlanningCongeReport(models.AbstractModel):
             else:
                 supp_employees.append({'job': job, 'employees': employees, 'promotion_lines': None})
 
-        # Retrieve hr.job records excluding those containing "رئيس" in their name
         job_hight_org_normal = self.env['hr.job'].search([
             ('nature_travail_id.code_type_fonction', '=', 'fonctionsuperieure'),
             ('poste_organique', '=', 'organique'),
-            ('name', 'not ilike', '%رئيس%')  # Exclude records containing "رئيس" in their name
+            ('name', 'not ilike', '%رئيس%')
         ], order='name')
 
-        # Retrieve hr.job records containing "رئيس" in their name
         job_hight_org_rass = self.env['hr.job'].search([
             ('nature_travail_id.code_type_fonction', '=', 'fonctionsuperieure'),
             ('poste_organique', '=', 'organique'),
-            ('name', 'ilike', '%رئيس%')  # Include only records containing "رئيس" in their name
+            ('name', 'ilike', '%رئيس%')
         ], order='name')
 
-        # Concatenate the two lists, with those containing "رئيس" appearing last
         job_hight_org = job_hight_org_normal + job_hight_org_rass
 
         hight_org_employees = []

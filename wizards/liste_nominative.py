@@ -25,7 +25,7 @@ class ListeNominativeReport(models.AbstractModel):
 
         job_hight_org_1 = self.env['hr.job'].search(
             [('nature_travail_id.code_type_fonction', '=', 'fonctionsuperieure'),
-             ('poste_organique', '=', 'organique'), ('name', 'ilike', 'مكتب')])
+             ('poste_organique', '=', 'organique'), ('name', 'ilike', 'مكتب')], order='name')
         hight_org_1_employees = []
         for job in job_hight_org_1:
             employees = self.env['hr.employee'].search(
@@ -35,7 +35,7 @@ class ListeNominativeReport(models.AbstractModel):
 
         job_hight_org_2 = self.env['hr.job'].search(
             [('nature_travail_id.code_type_fonction', '=', 'fonctionsuperieure'),
-             ('poste_organique', '=', 'organique')])
+             ('poste_organique', '=', 'organique')], order='name')
 
         job_hight_org = job_hight_org_2 - job_hight_org_1
         hight_org_employees = []
@@ -46,7 +46,7 @@ class ListeNominativeReport(models.AbstractModel):
             hight_org_employees.append({'job': job, 'employees': employees})
 
         job_hight_squ = self.env['hr.job'].search([('nature_travail_id.code_type_fonction', '=', 'fonctionsuperieure'),
-                                                   ('poste_organique', '=', 'squelaire')])
+                                                   ('poste_organique', '=', 'squelaire')], order='name')
         hight_squ_employees = []
         for job in job_hight_squ:
             employees = self.env['hr.employee'].search(
@@ -54,7 +54,7 @@ class ListeNominativeReport(models.AbstractModel):
                  ('fin_relation', '=', False)])
             hight_squ_employees.append({'job': job, 'employees': employees})
 
-        grade_proff = self.env['rh.grade'].search([('intitule_grade', 'ilike', 'أستاذ')])
+        grade_proff = self.env['rh.grade'].search([('intitule_grade', 'ilike', 'أستاذ')], order='intitule desc')
         proff_employees = []
         for grade in grade_proff:
             employees = self.env['hr.employee'].search(
@@ -63,9 +63,9 @@ class ListeNominativeReport(models.AbstractModel):
                  ('position_statutaire', '=', 'activite'),
                  ('fin_relation', '=', False)])
             proff_employees.append({'grade': grade, 'employees': employees})
-        proff_employees.sort(key=lambda x: x['grade'].categorie_id.intitule, reverse=True)
+        # proff_employees.sort(key=lambda x: x['grade'].categorie_id.intitule, reverse=True)
 
-        grade_a = self.env['rh.grade'].search([('categorie_id.groupe_id.name', 'ilike', 'المجموعة أ')])
+        grade_a = self.env['rh.grade'].search([('categorie_id.groupe_id.name', 'ilike', 'المجموعة أ')], order='intitule desc')
         grade_a_excluded = grade_a - grade_proff
         grade_a_excluded_employees = []
         for grade in grade_a_excluded:
@@ -75,9 +75,10 @@ class ListeNominativeReport(models.AbstractModel):
                  ('position_statutaire', '=', 'activite'),
                  ('fin_relation', '=', False)])
             grade_a_excluded_employees.append({'grade': grade, 'employees': employees})
-        grade_a_excluded_employees.sort(key=lambda x: x['grade'].categorie_id.intitule, reverse=True)
+        # grade_a_excluded_employees.sort(key=lambda x: x['grade'].categorie_id.intitule, reverse=True)
 
-        grade_b = self.env['rh.grade'].search([('categorie_id.groupe_id.name', 'ilike', 'المجموعة ب')])
+        grade_b_raw = self.env['rh.grade'].search([('categorie_id.groupe_id.name', 'ilike', 'المجموعة ب')])
+        grade_b = sorted(grade_b_raw, key=lambda x: int(x.intitule), reverse=True)
         grade_b_employees = []
         for grade in grade_b:
             employees = self.env['hr.employee'].search(
@@ -86,9 +87,9 @@ class ListeNominativeReport(models.AbstractModel):
                  ('position_statutaire', '=', 'activite'),
                  ('fin_relation', '=', False)])
             grade_b_employees.append({'grade': grade, 'employees': employees})
-        grade_b_employees.sort(key=lambda x: x['grade'].categorie_id.intitule, reverse=True)
+        # grade_b_employees.sort(key=lambda x: x['grade'].categorie_id.intitule, reverse=True)
 
-        grade_c = self.env['rh.grade'].search([('categorie_id.groupe_id.name', 'ilike', 'المجموعة ج')])
+        grade_c = self.env['rh.grade'].search([('categorie_id.groupe_id.name', 'ilike', 'المجموعة ج')], order='intitule desc')
         grade_c_employees = []
         for grade in grade_c:
             employees = self.env['hr.employee'].search(
@@ -97,11 +98,11 @@ class ListeNominativeReport(models.AbstractModel):
                  ('position_statutaire', '=', 'activite'),
                  ('fin_relation', '=', False)])
             grade_c_employees.append({'grade': grade, 'employees': employees})
-        grade_c_employees.sort(key=lambda x: x['grade'].categorie_id.intitule, reverse=True)
+        # grade_c_employees.sort(key=lambda x: x['grade'].categorie_id.intitule, reverse=True)
 
-        grade_d = self.env['rh.grade'].search([('categorie_id.groupe_id.name', 'ilike', 'المجموعة د')])
+        grade_d = self.env['rh.grade'].search([('categorie_id.groupe_id.name', 'ilike', 'المجموعة د')], order='intitule desc')
         grade_d_2 = self.env['rh.grade'].search([('categorie_id.groupe_id.name', 'ilike', 'المجموعة د'),
-                                                 ('corps_id.intitule_corps', 'ilike', 'مهن')])
+                                                 ('corps_id.intitule_corps', 'ilike', 'مهن')], order='intitule desc')
         grade_d_2_employees = []
         for grade in grade_d_2:
             employees = self.env['hr.employee'].search(
@@ -110,11 +111,11 @@ class ListeNominativeReport(models.AbstractModel):
                  ('position_statutaire', '=', 'activite'),
                  ('fin_relation', '=', False)])
             grade_d_2_employees.append({'grade': grade, 'employees': employees})
-        grade_d_2_employees.sort(key=lambda x: x['grade'].categorie_id.intitule, reverse=True)
+        # grade_d_2_employees.sort(key=lambda x: x['grade'].categorie_id.intitule, reverse=True)
 
         grade_cdi_plein = self.env['rh.grade'].search(['|', ('corps_id.intitule_corps', 'ilike', 'متعاقد'),
                                                        ('corps_id.intitule_corps', 'ilike', 'سيار'),
-                                                       ('intitule_grade', 'ilike', '%غير محدد%كامل%')])
+                                                       ('intitule_grade', 'ilike', '%غير محدد%كامل%')], order='intitule desc')
         employees_cdi_plein = []
         for grade in grade_cdi_plein:
             employees = self.env['hr.employee'].search(
@@ -123,12 +124,12 @@ class ListeNominativeReport(models.AbstractModel):
                  ('type_id.code_type_contract', '=', 'pleintemps_indeterminee'),
                  ('fin_relation', '=', False)])
             employees_cdi_plein.append({'grade': grade, 'employees': employees})
-        employees_cdi_plein.sort(key=lambda x: x['grade'].categorie_id.intitule, reverse=True)
+        # employees_cdi_plein.sort(key=lambda x: x['grade'].categorie_id.intitule, reverse=True)
 
         grade_cdd_plein = self.env['rh.grade'].search(['|', ('corps_id.intitule_corps', 'ilike', 'متعاقد'),
                                                        ('corps_id.intitule_corps', 'ilike', 'سيار'),
                                                        ('intitule_grade', 'ilike', '%محدد%كامل%'),
-                                                       ('intitule_grade', 'not ilike', '%غير%')])
+                                                       ('intitule_grade', 'not ilike', '%غير%')], order='intitule desc')
         employees_cdd_plein = []
         for grade in grade_cdd_plein:
             employees = self.env['hr.employee'].search(
@@ -137,11 +138,11 @@ class ListeNominativeReport(models.AbstractModel):
                  ('type_id.code_type_contract', '=', 'pleintemps_determinee'),
                  ('fin_relation', '=', False)])
             employees_cdd_plein.append({'grade': grade, 'employees': employees})
-        employees_cdd_plein.sort(key=lambda x: x['grade'].categorie_id.intitule, reverse=True)
+        # employees_cdd_plein.sort(key=lambda x: x['grade'].categorie_id.intitule, reverse=True)
 
         grade_cdi_partiel = self.env['rh.grade'].search(['|', ('corps_id.intitule_corps', 'ilike', 'متعاقد'),
                                                          ('corps_id.intitule_corps', 'ilike', 'سيار'),
-                                                         ('intitule_grade', 'ilike', '%غير محدد%جزئي%')])
+                                                         ('intitule_grade', 'ilike', '%غير محدد%جزئي%')], order='intitule desc')
         employees_cdi_partiel = []
         for grade in grade_cdi_partiel:
             employees = self.env['hr.employee'].search(
@@ -150,12 +151,12 @@ class ListeNominativeReport(models.AbstractModel):
                  ('type_id.code_type_contract', '=', 'partiel_indeterminee'),
                  ('fin_relation', '=', False)])
             employees_cdi_partiel.append({'grade': grade, 'employees': employees})
-        employees_cdi_partiel.sort(key=lambda x: x['grade'].categorie_id.intitule, reverse=True)
+        # employees_cdi_partiel.sort(key=lambda x: x['grade'].categorie_id.intitule, reverse=True)
 
         grade_cdd_partiel = self.env['rh.grade'].search(['|', ('corps_id.intitule_corps', 'ilike', 'متعاقد'),
                                                          ('corps_id.intitule_corps', 'ilike', 'سيار'),
                                                          ('intitule_grade', 'ilike', '%محدد%جزئي%'),
-                                                         ('intitule_grade', 'not ilike', '%غير%')])
+                                                         ('intitule_grade', 'not ilike', '%غير%')], order='intitule desc')
         employees_cdd_partiel = []
         for grade in grade_cdd_partiel:
             employees = self.env['hr.employee'].search(
@@ -164,7 +165,7 @@ class ListeNominativeReport(models.AbstractModel):
                  ('type_id.code_type_contract', '=', 'partiel_determinee'),
                  ('fin_relation', '=', False)])
             employees_cdd_partiel.append({'grade': grade, 'employees': employees})
-        employees_cdd_partiel.sort(key=lambda x: x['grade'].categorie_id.intitule, reverse=True)
+        # employees_cdd_partiel.sort(key=lambda x: x['grade'].categorie_id.intitule, reverse=True)
 
         grade_d_1 = grade_d - grade_d_2
         grade_d_1_employees = []
@@ -175,7 +176,7 @@ class ListeNominativeReport(models.AbstractModel):
                  ('position_statutaire', '=', 'activite'),
                  ('fin_relation', '=', False)])
             grade_d_1_employees.append({'grade': grade, 'employees': employees})
-        grade_d_1_employees.sort(key=lambda x: x['grade'].categorie_id.intitule, reverse=True)
+        # grade_d_1_employees.sort(key=lambda x: x['grade'].categorie_id.intitule, reverse=True)
 
         report_data = {
             'company': self.env.user.company_id,
