@@ -83823,3 +83823,13 @@ msgstr "تاريخ الذهاب"
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_date_retour
 msgid "Date Retour"
 msgstr "تاريخ الإياب"
+
+#. module: ressource_humaine
+#: selection:hr.employee,service_militaire:0
+msgid "Dossier"
+msgstr "مجلد"
+
+#. module: ressource_humaine
+#: selection:hr.employee,service_militaire:0
+msgid "Exempté"
+msgstr "معفى"
