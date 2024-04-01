@@ -32,7 +32,7 @@
                         <div class="Diwani_Letter" style="font-size: 32px;text-align: right;word-spacing: 9px;margin-right:15px">
                             <span>
                                 رقم .........../م.و.إ/أ.ع/م.ت.م.ب/
-                            <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
+<!--                            <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>-->
                             </span>
                         </div>
                     </strong>

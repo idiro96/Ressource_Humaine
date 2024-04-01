@@ -8,7 +8,7 @@ from odoo.exceptions import UserError
 class RHPromotion(models.Model):
     _name = 'rh.promotion'
 
-    date_examin_professionnel= fields.Date()
+    date_examin_professionnel = fields.Date()
     date_promotion = fields.Date()
     date_signature = fields.Date()
     code = fields.Char()

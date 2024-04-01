@@ -47,3 +47,6 @@ class CustomDepartment(models.Model):
     _inherit = 'hr.department'
 
     _rec_name = 'name'
+
+    # employee_id = fields.Many2one('hr.employee')
+    # fin_relation = fields.Boolean(related='employee_id.fin_relation')

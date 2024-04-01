@@ -28,6 +28,9 @@ class HrEmployeInherited(models.Model):
     numero_securite_social = fields.Char()
     ref_promotion = fields.Char()
     date_ref_promotion = fields.Date()
+    ref_nomination = fields.Char()
+    date_nomination = fields.Date()
+    date_ref_nomination = fields.Date()
     prenom_pere = fields.Char()
     nom_mere = fields.Char()
     prenom_mere = fields.Char()
@@ -122,23 +125,18 @@ class HrEmployeInherited(models.Model):
         ('very_high', '100000+')
     ], compute='_compute_wage_range', store=True)
 
-    planning_survellance_id = fields.Many2one('rh.planning')
-    date_debut_conge = fields.Date(compute='_compute_date_conge', store=True)
-    date_fin_conge = fields.Date(compute='_compute_date_conge', store=True)
 
-    @api.onchange('days_off')
-    def _compute_date_conge(self):
-        for rec in self:
-            conge = self.env['hr.holidays'].search([('employee_id', '=', rec.id)], order='date_from desc', limit=1)
-            if conge:
-                if conge.date_from:
-                    formatted_date_debut = datetime.strptime(conge.date_from, "%Y-%m-%d %H:%M:%S").strftime("%Y-%m-%d")
-                    rec.date_debut_conge = formatted_date_debut
-                print(rec.date_debut_conge)
-                if conge.date_to:
-                    formatted_date_fin = datetime.strptime(conge.date_to, "%Y-%m-%d %H:%M:%S").strftime("%Y-%m-%d")
-                    rec.date_fin_conge = conge.date_to
-                    print(rec.date_debut_conge)
+
+    @api.onchange('fin_relation')
+    def _onchange_fin_relation(self):
+        print('in compute fin relation function')
+        if self.fin_relation:
+            print('in if')
+            self.parent_id = [(5, 0, 0)]
+        else:
+            print('in else')
+            self.parent_id = self.department_id.manager_id
+
 
     @api.depends('wage')
     def _compute_wage_range(self):

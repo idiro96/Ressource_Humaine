@@ -57,6 +57,17 @@
                 </xpath>
             </field>
         </record>
+<!--        <record model="ir.ui.view" id="organization_chart">-->
+<!--            <field name="name">departement_organization_inherit</field>-->
+<!--            <field name="model">hr.employee</field>-->
+<!--            <field name="inherit_id" ref="hr_org_chart.hr_employee_view_form_inherit_org_chart"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <xpath expr="//field[@name='child_ids']" position="attributes">-->
+<!--                    <attribute name="attrs">{'invisible': [('fin_relation', '=', True)]}</attribute>-->
+<!--&lt;!&ndash;                    <attribute name="invisible">True</attribute>&ndash;&gt;-->
+<!--                </xpath>-->
+<!--            </field>-->
+<!--        </record>-->
         <record model="ir.ui.view" id="employee_form">
             <field name="name">employee inherit</field>
             <field name="model">hr.employee</field>
@@ -83,6 +94,10 @@
                        position="after">
                     <field name="fin_relation"/>
                 </xpath>
+
+<!--                <xpath expr="//field[@name='child_ids']" position="attributes">-->
+<!--                    <field name="invisible">True</field>-->
+<!--                </xpath>-->
 
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='fin_relation']" position="after">
                     <field name="date_fin_relation"/>
@@ -212,7 +227,15 @@
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_entrer']" position="after">
                     <field name="nomination"/>
                 </xpath>
-
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='nomination']" position="after">
+                    <field name="ref_nomination" string="رقم مقرر التعيين"/>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='ref_nomination']" position="after">
+                    <field name="date_ref_nomination" string="تاريخ مقرر التعيين"/>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_ref_nomination']" position="after">
+                    <field name="date_nomination" string="تاريخ التعيين"/>
+                </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='nomination']" position="after">
                     <field name="days_off"/>
                 </xpath>
@@ -226,9 +249,9 @@
                     <attribute name="invisible">True</attribute>
                 </xpath>
 
-<!--                <xpath expr="//form//field[@name='days_off']" position="attributes">-->
-<!--                    <attribute name="readonly">True</attribute>-->
-<!--                </xpath>-->
+                <xpath expr="//form//field[@name='days_off']" position="attributes">
+                    <attribute name="readonly">True</attribute>
+                </xpath>
 
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='bank_account_id']"
                        position="after">
@@ -362,7 +385,7 @@
                             <field name="groupe_id"
                                    options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
                                    attrs="{'invisible': ['|', ('code_type_fonction', '=', 'fonctionsuperieure'), ('code_type_fonction', '=', 'contractuel')],'required': ['|', ('code_type_fonction', '=', 'fonction'), ('code_type_fonction', '=', 'postesuperieure')]}"/>
-                            <field name="categorie_id" required="1"
+                            <field name="categorie_id" required="0"
                                    options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                             <field name="section_id"
                                    options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
