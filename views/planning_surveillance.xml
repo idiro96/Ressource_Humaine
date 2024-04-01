@@ -36,12 +36,13 @@
                         <page string="قائمة المراقبون">
                             <field name="planning_surveillance_line" widget="one2many_list">
                                 <tree editable="bottom">
+                                    <field name="date_examen" invisible="1"/>
                                     <field name="employee_id" widget="many2many_tags"/>
                                     <field name="emphy_id"/>
                                     <field name="president_emphy"/>
-<!--                                    <field name="date_examen"/>-->
-<!--                                    <field name="time_start" widget="timepicker"/>-->
-<!--                                    <field name="time_end" widget="timepicker"/>-->
+                                    <!--                                    <field name="date_examen"/>-->
+                                    <!--                                    <field name="time_start" widget="timepicker"/>-->
+                                    <!--                                    <field name="time_end" widget="timepicker"/>-->
                                 </tree>
                             </field>
                         </page>
