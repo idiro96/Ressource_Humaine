@@ -58,3 +58,5 @@ class CustomDepartment(models.Model):
     #             ('fin_relation', '=', False)
     #         ])
     #     employees.write({'parent_id': manager_id})
+    # employee_id = fields.Many2one('hr.employee')
+    # fin_relation = fields.Boolean(related='employee_id.fin_relation')

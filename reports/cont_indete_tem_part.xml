@@ -10,7 +10,7 @@
 <!--                        <t t-if="contract.state== 'open'">-->
                             <strong>
                                 <div style="font-size: 20px;text-align: right;">
-                                    <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/>
+<!--                                    <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/>-->
                                     <span style="display: inline-block;">
                                         الجزائر في
                                     </span>

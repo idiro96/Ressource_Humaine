@@ -36,7 +36,7 @@
                         <div class="texte-en-gras" style="font-size: 30px;text-align: center;word-spacing: 5px;">
                             <strong>
                                 <span>
-                                    مفرر رقم
+                                    مقرر رقم
                                      <span class="texte-en-gras">
                                             <t t-esc="line.code_line"/>
                                         </span>

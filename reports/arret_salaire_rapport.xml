@@ -20,7 +20,7 @@
                                 <t t-esc="decision.numero_decision_arret"/>
                             </span>
                             <span>مؤرخ في</span>
-                            <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%m-%Y')"/>
+<!--                            <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%m-%Y')"/>-->
                         </div>
                         <br/>
                         <div style="font-size: 20px;text-align: center;">

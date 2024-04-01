@@ -35,14 +35,14 @@
                                     رقم
                                     <t t-esc="code"/>
                                     /م.و.إ/أ.ع/م.ت.م.ب/
-                                    <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
+<!--                                    <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>-->
                                     <span style="margin-right:260px">
                                         الجزائر في،
                                     </span>
                                 </t>
                                 <t t-if="not code">
                                     رقم .........../م.و.إ/أ.ع/م.ت.م.ب/
-                                <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
+<!--                                <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>-->
                                 <span style="margin-right:200px">
                                     الجزائر في،
                                 </span>
