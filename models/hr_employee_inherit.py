@@ -132,6 +132,8 @@ class HrEmployeInherited(models.Model):
     date_depart = fields.Date()
     date_retour = fields.Date()
     intitule = fields.Char(related='grade_id.categorie_id.intitule', store=True)
+    cause = fields.Char()
+    duree = fields.Char()
 
     @api.onchange('fin_relation')
     def _onchange_fin_relation(self):

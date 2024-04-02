@@ -204,7 +204,7 @@
                                             <!--                                                                            <span t-field="line.employee_id"/>-->
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                            <!--                                                                            <span t-field="line.employee_id"/>-->
+                                            <span t-field="employee.num_date"/>
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <t t-if="employee.methode_embauche == 'detachement'">
@@ -479,7 +479,7 @@
                                         </td>
                                         <t t-if="not ('رئيس' in job_data['job'].name and 'مكتب' in job_data['job'].name)">
                                             <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                                <!--                                                                            <span t-field="line.employee_id"/>-->
+                                                <span t-field="employee.num_date"/>
                                             </td>
                                         </t>
                                         <t t-if="not ('رئيس' in job_data['job'].name and 'مكتب' in job_data['job'].name)">
@@ -646,7 +646,7 @@
                                         <!--                                                                            <span t-field="line.employee_id"/>-->
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                            <span t-esc="employee.date_job_id"/>
+                                        <span t-esc="employee.date_job_id"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                         <span t-esc="employee.job_id.name"/>
@@ -774,7 +774,7 @@
                                             <!--                                                                            <span t-field="line.employee_id"/>-->
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                            <!--                                                                            <span t-field="line.employee_id"/>-->
+                                            <span t-field="employee.num_date"/>
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <t t-if="employee.methode_embauche == 'detachement'">
@@ -953,7 +953,7 @@
                                             <!--                                                                            <span t-field="line.employee_id"/>-->
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                            <!--                                                                            <span t-field="line.employee_id"/>-->
+                                            <span t-field="employee.num_date"/>
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <t t-if="employee.methode_embauche == 'detachement'">
@@ -1132,7 +1132,7 @@
                                             <!--                                                                            <span t-field="line.employee_id"/>-->
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                            <!--                                                                            <span t-field="line.employee_id"/>-->
+                                            <span t-field="employee.num_date"/>
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <t t-if="employee.methode_embauche == 'detachement'">
@@ -1311,7 +1311,7 @@
                                             <!--                                                                            <span t-field="line.employee_id"/>-->
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                            <!--                                                                            <span t-field="line.employee_id"/>-->
+                                            <span t-field="employee.num_date"/>
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <t t-if="employee.methode_embauche == 'detachement'">
@@ -1490,7 +1490,7 @@
                                             <!--                                                                            <span t-field="line.employee_id"/>-->
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                            <!--                                                                            <span t-field="line.employee_id"/>-->
+                                            <span t-field="employee.num_date"/>
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <t t-if="employee.methode_embauche == 'detachement'">
@@ -1669,7 +1669,7 @@
                                             <!--                                                                            <span t-field="line.employee_id"/>-->
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                            <!--                                                                            <span t-field="line.employee_id"/>-->
+                                            <span t-field="employee.num_date"/>
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <t t-if="employee.methode_embauche == 'detachement'">
@@ -1845,7 +1845,7 @@
                                             <!--                                                                            <span t-field="line.employee_id"/>-->
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                            <!--                                                                            <span t-field="line.employee_id"/>-->
+                                            <span t-field="employee.num_date"/>
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <t t-if="employee.methode_embauche == 'detachement'">
@@ -2021,7 +2021,7 @@
                                             <!--                                                                            <span t-field="line.employee_id"/>-->
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                            <!--                                                                            <span t-field="line.employee_id"/>-->
+                                            <span t-field="employee.num_date"/>
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <t t-if="employee.methode_embauche == 'detachement'">
@@ -2197,7 +2197,7 @@
                                             <!--                                                                            <span t-field="line.employee_id"/>-->
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                            <!--                                                                            <span t-field="line.employee_id"/>-->
+                                            <span t-field="employee.num_date"/>
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <t t-if="employee.methode_embauche == 'detachement'">
@@ -2373,7 +2373,7 @@
                                             <!--                                                                            <span t-field="line.employee_id"/>-->
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                            <!--                                                                            <span t-field="line.employee_id"/>-->
+                                            <span t-field="employee.num_date"/>
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <t t-if="employee.methode_embauche == 'detachement'">
@@ -2514,13 +2514,18 @@
                                         <!--                                        <span t-field="line.employee_id"/>-->
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                        <!--                                        <span t-esc="'%.2f'%(record.depreciated_value)"/>-->
+                                        <t t-if="employee.date_retour">
+                                            <span t-field="employee.date_retour"/>
+                                        </t>
+                                        <t t-if="not employee.date_retour">
+                                            <span>إلى غاية إنهاء المهام</span>
+                                        </t>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
-                                        <!--                                        <span t-esc="line.emphy_id.intitule_emphy"/>-->
+                                        <span t-field="employee.date_depart"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                        <!--                                        <span t-field="line.employee_id"/>-->
+                                        <span t-field="employee.num_date"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
                                         <!--                                        <span t-esc="'%.2f'%(record.depreciated_value)"/>-->
@@ -2528,7 +2533,7 @@
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
                                         <span t-esc="employee.grade_id.intitule_grade"/>
                                     </td>
-                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:centert;font-size:18px;">
                                         <span t-esc="employee.birthday"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
@@ -2607,13 +2612,18 @@
                                         <!--                                        <span t-field="line.employee_id"/>-->
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                        <!--                                        <span t-esc="'%.2f'%(record.depreciated_value)"/>-->
+                                        <t t-if="employee.date_retour">
+                                            <span t-field="employee.date_retour"/>
+                                        </t>
+                                        <t t-if="not employee.date_retour">
+                                            <span>إلى غاية إنهاء المهام</span>
+                                        </t>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
-                                        <!--                                        <span t-esc="line.emphy_id.intitule_emphy"/>-->
+                                        <span t-field="employee.date_depart"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                        <!--                                        <span t-field="line.employee_id"/>-->
+                                        <span t-field="employee.num_date"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
                                         <!--                                        <span t-esc="'%.2f'%(record.depreciated_value)"/>-->

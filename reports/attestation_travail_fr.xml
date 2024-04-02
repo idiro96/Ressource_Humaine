@@ -24,7 +24,7 @@
                     <br/>
                     <br/>
                     <br/>
-                    <strong>
+                    <strong class="monotype_corsiva">
                         <div style="font-size: 20px;text-align: left;">
                             <span style="margin-left:15px;">
                                 Ecole Nationale d'Administration
@@ -33,7 +33,7 @@
                                 ALGER LE
                             </span>
                         </div>
-                        <div style="font-family : 'Monotype Corsiva' ; font-size: 20px;text-align: left;margin-left:15px;">
+                        <div style="font-size: 20px;text-align: left;margin-left:15px;">
                             <t t-if="attestation_travail.signataire == 'sg'">
                                 <span>
                                     Secrétariat Général
