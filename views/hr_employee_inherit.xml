@@ -57,17 +57,6 @@
                 </xpath>
             </field>
         </record>
-        <!--        <record model="ir.ui.view" id="organization_chart">-->
-        <!--            <field name="name">departement_organization_inherit</field>-->
-        <!--            <field name="model">hr.employee</field>-->
-        <!--            <field name="inherit_id" ref="hr_org_chart.hr_employee_view_form_inherit_org_chart"/>-->
-        <!--            <field name="arch" type="xml">-->
-        <!--                <xpath expr="//field[@name='child_ids']" position="attributes">-->
-        <!--                    <attribute name="attrs">{'invisible': [('fin_relation', '=', True)]}</attribute>-->
-        <!--&lt;!&ndash;                    <attribute name="invisible">True</attribute>&ndash;&gt;-->
-        <!--                </xpath>-->
-        <!--            </field>-->
-        <!--        </record>-->
         <record model="ir.ui.view" id="employee_form">
             <field name="name">employee inherit</field>
             <field name="model">hr.employee</field>
@@ -86,107 +75,118 @@
                     <field name="taux_handicap"
                            attrs="{'invisible': [('handicape', '=', False)]}"/>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='resource_calendar_id']"
-                       position="after">
-                    <field name="fin_relation"/>
-                </xpath>
-
-                <!--                <xpath expr="//field[@name='child_ids']" position="attributes">-->
-                <!--                    <field name="invisible">True</field>-->
-                <!--                </xpath>-->
-
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='fin_relation']" position="after">
-                    <field name="date_fin_relation"/>
-                </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_fin_relation']"
-                       position="after">
-                    <field name="date_reintegration"/>
-                </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='job_id']" position="after">
-                    <field name="date_job_id"/>
-                </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='date_job_id']"
-                       position="after">
-                    <field name="corps_id" required="True"/>
-                </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='corps_id']" position="after">
-                    <field name="grade_id" required="True"/>
-                </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='grade_id']" position="after">
-                    <field name="date_grade" required="True" context="{'lang':'fr_FR'}"/>
-                </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='date_grade']"
-                       position="after">
-                    <field name="ref_promotion" context="{'lang':'fr_FR'}"/>
-                </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='ref_promotion']"
-                       position="after">
-                    <field name="date_ref_promotion" context="{'lang':'fr_FR'}"/>
-                </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_ref_promotion']"
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='work_phone']"
                        position="after">
                     <field name="position_statutaire"/>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='position_statutaire']"
+                <xpath expr="//field[@name='position_statutaire']"
                        position="after">
                     <field name="date_depart"
                            attrs="{'invisible': [('position_statutaire', '=', 'activite')]}"/>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_depart']"
+                <xpath expr="//field[@name='date_depart']"
                        position="after">
                     <field name="date_retour"
                            attrs="{'invisible': [('position_statutaire', '=', 'activite')]}"/>
+                </xpath>
+                <xpath expr="//field[@name='date_retour']" position="after">
+                    <field name="days_off"/>
+                </xpath>
+                <xpath expr="//field[@name='days_off']" position="after">
+                    <field name="jour_sup"/>
+                </xpath>
+                <xpath expr="//field[@name='resource_calendar_id']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//field[@name='jour_sup']" position="after">
+                    <field name="resource_calendar_id"/>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='job_id']" position="after">
+                    <field name="date_job_id"/>
+                </xpath>
+                <xpath expr="//group[field[@name='date_job_id']]"
+                       position="after">
+                    <group name="info grade" string="معلومات حول الرتبة">
+                        <field name="corps_id" required="True"/>
+                    </group>
+                </xpath>
+                <xpath expr="//field[@name='corps_id']" position="after">
+                    <field name="grade_id" required="True"/>
+                </xpath>
+                <xpath expr="//field[@name='grade_id']" position="after">
+                    <field name="date_grade" required="True" context="{'lang':'fr_FR'}"/>
+                </xpath>
+                <xpath expr="//field[@name='date_grade']"
+                       position="after">
+                    <field name="ref_promotion" context="{'lang':'fr_FR'}"/>
+                </xpath>
+                <xpath expr="//field[@name='ref_promotion']"
+                       position="after">
+                    <field name="date_ref_promotion" context="{'lang':'fr_FR'}"/>
+                </xpath>
+                <xpath expr="//field[@name='date_ref_promotion']"
+                       position="after">
+                    <field name="fin_relation"/>
+                </xpath>
+                <xpath expr="//field[@name='fin_relation']" position="after">
+                    <field name="date_fin_relation" attrs="{'invisible': [('fin_relation', '=', False)]}"/>
+                </xpath>
+                <xpath expr="//field[@name='date_fin_relation']" position="after">
+                    <field name="reintegration"/>
+                </xpath>
+                <xpath expr="//field[@name='reintegration']" position="after">
+                    <field name="date_reintegration" attrs="{'invisible': [('reintegration', '=', False)]}"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='department_id']"
                        position="before">
                     <field name="date_entrer" required="True"/>
                 </xpath>
-<!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_entrer']" position="before">-->
-<!--                    <field name="date_ancien_grade" attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}"/>-->
-<!--                </xpath>-->
-<!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_ancien_grade']"-->
-<!--                       position="before">-->
-<!--                    <field name="ancien_grade_id" attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}"/>-->
-<!--                </xpath>-->
-<!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='ancien_grade_id']"-->
-<!--                       position="before">-->
-<!--                    <field name="ancien_corps_id" attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}"/>-->
-<!--                </xpath>-->
-<!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='ancien_corps_id']"-->
-<!--                       attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}" position="before">-->
-<!--                    <field name="date_debut_emploi" attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}"/>-->
-<!--                </xpath>-->
-<!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_debut_emploi']"-->
-<!--                       position="before">-->
-<!--                    <field name="ancienne_etablissement"-->
-<!--                           attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}"/>-->
-<!--                </xpath>-->
-<!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='ancienne_etablissement']"-->
-<!--                       position="before">-->
-<!--                    <field name="methode_embauche" required="True"/>-->
-<!--                </xpath>-->
-<!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='methode_embauche']"-->
-<!--                       position="before">-->
-<!--                    <field name="nature_travail_id" required="True"-->
-<!--                           options="{'no_create': True, 'no_create_edit':True, 'no_open':True}" widget='selection'/>-->
-<!--                </xpath>-->
-<!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='nature_travail_id']"-->
-<!--                       position="before">-->
-<!--                    <field name="code_type_fonction" invisible="1"/>-->
-<!--                </xpath>-->
-<!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='nature_travail_id']"-->
-<!--                       position="after">-->
-<!--                    <field name="type_id"-->
-<!--                           attrs="{'invisible': [('code_type_fonction', '!=', 'contractuel')],-->
-<!--                                                  'required': [('code_type_fonction', '=', 'contractuel')]}"-->
-<!--                           options="{'no_create': True, 'no_create_edit':True, 'no_open':True}" widget='selection'-->
-<!--                           string="نوع العقد"/>-->
-<!--                </xpath>-->
-<!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='type_id']"-->
-<!--                       position="after">-->
-<!--                    <field name="annee_travail" string="سنوات العمل"-->
-<!--                           attrs="{'invisible': [('code_type_fonction', '!=', 'contractuel')]}"/>-->
-<!--                </xpath>-->
+                <!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_entrer']" position="before">-->
+                <!--                    <field name="date_ancien_grade" attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}"/>-->
+                <!--                </xpath>-->
+                <!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_ancien_grade']"-->
+                <!--                       position="before">-->
+                <!--                    <field name="ancien_grade_id" attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}"/>-->
+                <!--                </xpath>-->
+                <!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='ancien_grade_id']"-->
+                <!--                       position="before">-->
+                <!--                    <field name="ancien_corps_id" attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}"/>-->
+                <!--                </xpath>-->
+                <!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='ancien_corps_id']"-->
+                <!--                       attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}" position="before">-->
+                <!--                    <field name="date_debut_emploi" attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}"/>-->
+                <!--                </xpath>-->
+                <!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_debut_emploi']"-->
+                <!--                       position="before">-->
+                <!--                    <field name="ancienne_etablissement"-->
+                <!--                           attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}"/>-->
+                <!--                </xpath>-->
+                <!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='ancienne_etablissement']"-->
+                <!--                       position="before">-->
+                <!--                    <field name="methode_embauche" required="True"/>-->
+                <!--                </xpath>-->
+                <!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='methode_embauche']"-->
+                <!--                       position="before">-->
+                <!--                    <field name="nature_travail_id" required="True"-->
+                <!--                           options="{'no_create': True, 'no_create_edit':True, 'no_open':True}" widget='selection'/>-->
+                <!--                </xpath>-->
+                <!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='nature_travail_id']"-->
+                <!--                       position="before">-->
+                <!--                    <field name="code_type_fonction" invisible="1"/>-->
+                <!--                </xpath>-->
+                <!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='nature_travail_id']"-->
+                <!--                       position="after">-->
+                <!--                    <field name="type_id"-->
+                <!--                           attrs="{'invisible': [('code_type_fonction', '!=', 'contractuel')],-->
+                <!--                                                  'required': [('code_type_fonction', '=', 'contractuel')]}"-->
+                <!--                           options="{'no_create': True, 'no_create_edit':True, 'no_open':True}" widget='selection'-->
+                <!--                           string="نوع العقد"/>-->
+                <!--                </xpath>-->
+                <!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='type_id']"-->
+                <!--                       position="after">-->
+                <!--                    <field name="annee_travail" string="سنوات العمل"-->
+                <!--                           attrs="{'invisible': [('code_type_fonction', '!=', 'contractuel')]}"/>-->
+                <!--                </xpath>-->
                 <!--                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='marital']" position="after">-->
                 <!--                    <field name="activite_conjoint"/>-->
                 <!--                </xpath>-->
@@ -235,22 +235,20 @@
                     <field name="nomination"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='nomination']" position="after">
-                    <field name="ref_nomination" string="رقم مقرر التعيين"/>
+                    <field name="ref_nomination" attrs="{'invisible': [('nomination', '!=', 'nomination')]}"
+                           string="رقم مقرر التعيين"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='ref_nomination']"
                        position="after">
-                    <field name="date_ref_nomination" string="تاريخ مقرر التعيين"/>
+                    <field name="date_ref_nomination" attrs="{'invisible': [('nomination', '!=', 'nomination')]}"
+                           string="تاريخ مقرر التعيين"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_ref_nomination']"
                        position="after">
-                    <field name="date_nomination" string="تاريخ التعيين"/>
+                    <field name="date_nomination" attrs="{'invisible': [('nomination', '!=', 'nomination')]}"
+                           string="تاريخ التعيين"/>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='nomination']" position="after">
-                    <field name="days_off"/>
-                </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='days_off']" position="after">
-                    <field name="jour_sup"/>
-                </xpath>
+
                 <xpath expr="//form//sheet//notebook//field[@name='country_id']" position="attributes">
                     <attribute name="invisible">True</attribute>
                 </xpath>
@@ -310,10 +308,10 @@
                     <attribute name="string">معلومات خاصة</attribute>
                 </xpath>
                 <xpath expr="//group[field[@name='address_id']]" position="attributes">
-                    <attribute name="string">معلومات شخصية</attribute>
+                    <attribute name="string">معلومات عامة</attribute>
                 </xpath>
                 <xpath expr="//group[field[@name='department_id']]" position="attributes">
-                    <attribute name="string">المنصب</attribute>
+                    <attribute name="string">معلومات حول المنصب</attribute>
                 </xpath>
                 <xpath expr="//group[field[@name='country_id']]" position="attributes">
                     <attribute name="string">معلومات أخرى</attribute>
@@ -349,21 +347,25 @@
                     <group string="التوظيف" name="recruitment">
                         <field name="code_type_fonction" invisible="1"/>
                         <field name="nature_travail_id" required="True"
-                           options="{'no_create': True, 'no_create_edit':True, 'no_open':True}" widget='selection'/>
+                               options="{'no_create': True, 'no_create_edit':True, 'no_open':True}" widget='selection'/>
                         <field name="type_id"
-                           attrs="{'invisible': [('code_type_fonction', '!=', 'contractuel')],
+                               attrs="{'invisible': [('code_type_fonction', '!=', 'contractuel')],
                                                   'required': [('code_type_fonction', '=', 'contractuel')]}"
-                           options="{'no_create': True, 'no_create_edit':True, 'no_open':True}" widget='selection'
-                           string="نوع العقد"/>
+                               options="{'no_create': True, 'no_create_edit':True, 'no_open':True}" widget='selection'
+                               string="نوع العقد"/>
                         <field name="annee_travail" string="سنوات العمل"
-                           attrs="{'invisible': [('code_type_fonction', '!=', 'contractuel')]}"/>
+                               attrs="{'invisible': [('code_type_fonction', '!=', 'contractuel')]}"/>
                         <field name="methode_embauche" required="True"/>
                         <field name="ancienne_etablissement"
-                           attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}"/>
-                        <field name="date_debut_emploi" attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}"/>
-                        <field name="ancien_corps_id" attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}"/>
-                        <field name="ancien_grade_id" attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}"/>
-                        <field name="date_ancien_grade" attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}"/>
+                               attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}"/>
+                        <field name="date_debut_emploi"
+                               attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}"/>
+                        <field name="ancien_corps_id"
+                               attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}"/>
+                        <field name="ancien_grade_id"
+                               attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}"/>
+                        <field name="date_ancien_grade"
+                               attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}"/>
                     </group>
                 </xpath>
 

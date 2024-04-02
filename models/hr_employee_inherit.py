@@ -40,6 +40,7 @@ class HrEmployeInherited(models.Model):
     annee_travail = fields.Float()
     date_entrer = fields.Date()
     date_job_id = fields.Date()
+    reintegration = fields.Boolean(default=False)
     date_reintegration = fields.Date()
     activite_conjoint = fields.Boolean(default=False)
     visite_medical_detaille_id = fields.Many2one('ressource_humaine.visite.medical.detaille')
