@@ -3,6 +3,7 @@
 from . import models
 from . import hr_employee_inherit
 from . import conjoint
+from . import historique_employee
 from . import hr_contrat_inherit
 from . import fin_relation
 from . import type_fin_relation

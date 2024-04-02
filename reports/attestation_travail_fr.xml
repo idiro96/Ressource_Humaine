@@ -22,18 +22,21 @@
                     <br/>
                     <br/>
                     <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
                     <strong class="monotype_corsiva">
-                        <br/>
-                        <br/>
-                        <div style="text-align: left;">
-                            <span style="font-size: 24px;margin-left:15px;">
+                        <div style="font-size: 20px;text-align: left;">
+                            <span style="margin-left:15px;">
                                 Ecole Nationale d'Administration
                             </span>
                             <span style="font-size: 22px;margin-left:250px;">
                                 ALGER LE : ..............
                             </span>
                         </div>
-                        <div style="font-size: 24px;text-align: left;margin-left:15px;">
+                        <div style="font-size: 20px;text-align: left;margin-left:15px;">
+
                             <t t-if="attestation_travail.signataire == 'sg'">
                                 <span>
                                     Secrétariat Général

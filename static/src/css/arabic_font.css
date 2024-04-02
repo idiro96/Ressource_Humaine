@@ -98,11 +98,16 @@
     .arabic_typesetting_A {
     font-family: Arabic_Typesetting;
     text-align: center;
-    font-size: 37px;
-    font-weight: bold; /* Ajout de la propriété font-weight pour mettre le texte en gras */
-    border: 3px solid black;
+    font-size: 90px;
+    width: 85%;
+    margin: 0 auto; /* Center the container horizontally */
+    font-weight: bold;
+    border: 5px solid black;
     border-radius: 50%;
-    padding: 35px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
     background-color: #D3D3D3;
     -webkit-text-stroke-width: 1px; /* Adds a stroke around the text */
     -webkit-text-stroke-color: black; /* Color of the stroke */

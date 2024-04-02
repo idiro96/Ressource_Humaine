@@ -9,9 +9,7 @@ class RHFinRelation(models.Model):
     _name = 'rh.fin.relation'
     _rec_name = 'employee_id'
 
-
     code_promotion = fields.Char(compute="_compute_code", store=True)
-
 
     # code_promotion = fields.Char(compute="_compute_code", store=True)
     # date_promotion = fields.Char(compute="_compute_code", store=True)
@@ -25,6 +23,7 @@ class RHFinRelation(models.Model):
     fin_relation_file_lines = fields.One2many('rh.file', 'fin_relation_id')
     description = fields.Char(related='type_fin_relation_id.description')
     date_cnas = fields.Date()
+    date_decision_fin_relation = fields.Date()
 
     @api.depends('employee_id')
     def _compute_code(self):
@@ -35,15 +34,12 @@ class RHFinRelation(models.Model):
             for rec1 in promotion_line:
 
                 promotion = self.env['rh.promotion'].search(
-                [('id', '<=', rec1.promotion_id.id)],
-                order='date_new_grade DESC', limit=1)
+                    [('id', '<=', rec1.promotion_id.id)],
+                    order='date_new_grade DESC', limit=1)
 
                 if promotion:
                     rec.code_promotion = promotion.code
                     rec.date_promotion = promotion.date_promotion
-
-
-
 
     @api.constrains('employee_id', 'type_fin_relation_id')
     def _check_employee_age(self):

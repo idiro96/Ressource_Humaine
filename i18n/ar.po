@@ -29672,7 +29672,7 @@ msgstr "تاريخ التعيين في الرتبة"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_date_job_id
 msgid "Date Job"
-msgstr "تاريخ التعيين في الوظيفة"
+msgstr "تاريخ التعيين في المنصب العالي"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_conjoint_date_mariage
@@ -37780,6 +37780,51 @@ msgstr "رقم الشبكة الإستدلالية"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avencement_droit_grille_new_id
 msgid "Grille New"
 msgstr "الشبكة الجديدة"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_employee_document_file_line
+msgid "Document File Line"
+msgstr "تحميل الملف"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_employee_du
+msgid "Du"
+msgstr "تاريخ البداية"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_employee_au
+msgid "Au"
+msgstr "تاريخ النهاية"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_employee_grade
+msgid "Grade"
+msgstr "الرتبة"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_employee_poste
+msgid "Poste"
+msgstr "المنصب"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_employee_categorie
+msgid "Categorie"
+msgstr "الصنف"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_employee_echelon
+msgid "Echelon"
+msgstr "الدرجة"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_employee_point_indiciaire
+msgid "Point Indiciaire"
+msgstr "الرقم الإستدلالي"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_employee_structure
+msgid "Structure"
+msgstr "المصلحة"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_grille_old_id
@@ -50903,6 +50948,11 @@ msgstr "عدد المستخدمين"
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_numero_securite_social
 msgid "Numero Securite Social"
 msgstr "رقم الضمان الاجتماعي"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_compte_ccp
+msgid "Numero Securite Social"
+msgstr "رقم حساب CCP"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_res_company_num_adh
@@ -83758,3 +83808,33 @@ msgstr "رقم المقرر الجماعي"
 #: model:ir.actions.report,name:ressource_humaine.action_droit_promotion_report
 msgid "Extrait du siège approuvant le calendrier des promotions de grade par examains professionnel"
 msgstr "مقرر يتضمن الالتحاق برتبة أعلى عن طريق الامتحان المهني"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_num_date
+msgid "Num Date"
+msgstr "رقم و تاريخ أخر تأشيرة للمراقب المالي"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_date_depart
+msgid "Date Depart"
+msgstr "تاريخ الذهاب"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_date_retour
+msgid "Date Retour"
+msgstr "تاريخ الإياب"
+
+#. module: ressource_humaine
+#: selection:hr.employee,service_militaire:0
+msgid "Dossier"
+msgstr "مجلد"
+
+#. module: ressource_humaine
+#: selection:hr.employee,service_militaire:0
+msgid "Exempté"
+msgstr "معفى"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_fin_relation_date_decision_fin_relation
+msgid "Date Decision Fin Relation"
+msgstr "تاريخ المقرر"

@@ -21,7 +21,7 @@ class HrEmployeInherited(models.Model):
     promotion_dix = fields.Boolean(default=False)
     chef_bureau = fields.Boolean(default=False)
     niveau_hirerachique_chef_Bureau = fields.Many2one('rh.niveau.hierarchique.chef.bureau')
-    service_militaire = fields.Boolean(default=False)
+    service_militaire = fields.Selection([('field', 'Dossier'), ('exempted', 'Exempté')], readonly=False)
     fin_relation = fields.Boolean(default=False)
     date_fin_relation = fields.Date()
     date_debut_emploi = fields.Date()
@@ -32,6 +32,7 @@ class HrEmployeInherited(models.Model):
     date_nomination = fields.Date()
     date_ref_nomination = fields.Date()
     prenom_pere = fields.Char()
+    compte_ccp = fields.Char()
     nom_mere = fields.Char()
     prenom_mere = fields.Char()
     nom_fr = fields.Char()
@@ -54,12 +55,12 @@ class HrEmployeInherited(models.Model):
     # days_off = fields.Float(compute='_compute_days_off', store=True, translate=True)
     days_off = fields.Float(store=True)
     jour_sup = fields.Float(store=True)
-
     corps_id = fields.Many2one('rh.corps')
     grade_id = fields.Many2one('rh.grade')
     date_grade = fields.Date(translate=False, lang='fr_FR')
     promotion_lines = fields.One2many('rh.promotion.line', inverse_name='employee_id')
     avancement_lines = fields.One2many('rh.avancement.line', inverse_name='employee_id')
+    historique_employee_lines = fields.One2many('rh.historique.employee', inverse_name='employee_id')
     nature_travail_id = fields.Many2one('rh.type.fonction')
     position_statutaire = fields.Selection([('activite', 'Activite'),
                                             ('detachement', 'Detachement'),
@@ -124,8 +125,15 @@ class HrEmployeInherited(models.Model):
         ('high', '50000-100000'),
         ('very_high', '100000+')
     ], compute='_compute_wage_range', store=True)
-
-
+    planning_survellance_id = fields.Many2one('rh.planning')
+    date_debut_conge = fields.Date(compute='_compute_date_conge', store=True)
+    date_fin_conge = fields.Date(compute='_compute_date_conge', store=True)
+    num_date = fields.Char()
+    date_depart = fields.Date()
+    date_retour = fields.Date()
+    intitule = fields.Char(related='grade_id.categorie_id.intitule', store=True)
+    cause = fields.Char()
+    duree = fields.Char()
 
     @api.onchange('fin_relation')
     def _onchange_fin_relation(self):
@@ -136,7 +144,6 @@ class HrEmployeInherited(models.Model):
         else:
             print('in else')
             self.parent_id = self.department_id.manager_id
-
 
     @api.depends('wage')
     def _compute_wage_range(self):
@@ -230,6 +237,8 @@ class HrEmployeInherited(models.Model):
                 self.categorie_id = False
                 self.section_id = False
                 self.echelon_id = False
+                self.niveau_hirerachique_chef_Bureau = False
+                self.chef_Bureau = False
             # if self.groupe_id:
             type_fonction = self.env['rh.type.fonction'].search([('id', '=', self.nature_travail_id.id)])
             print(type_fonction.code_type_fonction)
@@ -244,15 +253,6 @@ class HrEmployeInherited(models.Model):
                 return {'domain': {'categorie_id': [('grille_id', '=', self.grille_id.id),
                                                     (('type_fonction_id', '=', self.nature_travail_id.id))]}}
 
-    # @api.onchange('groupe_id')
-    # def _onchange_groupe_id(self):
-    #     if self.groupe_id:
-    #         self.categorie_id = False
-    #         self.section_id = False
-    #         self.echelon_id = False
-    #         return {'domain': {'categorie_id': [('groupe_id', '=', self.groupe_id.id)]}}
-    #     else:
-    #         return {'domain': {'categorie_id': []}}
 
     @api.onchange('groupe_id')
     def onchange_groupe(self):
@@ -267,6 +267,18 @@ class HrEmployeInherited(models.Model):
                 domain.append(('id', 'in', categorie.ids))
 
         res = {'domain': {'categorie_id': domain}}
+        print(res)
+        return res
+
+    @api.onchange('chef_bureau')
+    def onchange_chef_bureau(self):
+        for rec in self:
+            domain = []
+            if rec.grille_id:
+                chef_bureau = self.env['rh.niveau.hierarchique.chef.bureau'].search([('grille_id', '=', rec.grille_id.id)])
+                domain.append(('id', 'in', chef_bureau.ids))
+
+        res = {'domain': {'niveau_hirerachique_chef_Bureau': domain}}
         print(res)
         return res
 
@@ -393,7 +405,7 @@ class HrEmployeInherited(models.Model):
             rec.point_indiciare = rec.echelon_id.indice_echelon
             rec.bonification_indiciaire = rec.niveau_hirerachique_chef_Bureau.bonification_indiciaire
             rec.wage = (
-                                   rec.indice_minimal * 45 + rec.point_indiciare * 45) + rec.niveau_hirerachique_chef_Bureau.bonification_indiciaire
+                               rec.indice_minimal * 45 + rec.point_indiciare * 45) + rec.niveau_hirerachique_chef_Bureau.bonification_indiciaire
 
     @api.onchange('nature_travail_id')
     def _onchange_related_field_filier(self):

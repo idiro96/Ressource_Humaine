@@ -11,8 +11,8 @@
         </xpath>
     </template>
     <template id="liste_nominatife_employee">
-<!--        <link href="/ressource_humaine/static/src/css/arabic_font.css" rel="stylesheet"/>-->
-<!--        <link href="/ressource_humaine/static/src/css/latin_font.css" rel="stylesheet"/>-->
+        <!--        <link href="/ressource_humaine/static/src/css/arabic_font.css" rel="stylesheet"/>-->
+        <!--        <link href="/ressource_humaine/static/src/css/latin_font.css" rel="stylesheet"/>-->
         <t t-call="web.basic_layout">
             <div class="page">
                 <div class="row">
@@ -50,13 +50,6 @@
                 <br/>
                 <br/>
                 <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
                 <div class="arabic_typesetting_A">
                     <strong>
                         القائمة الإسمية للموظفين و العمال المهنيين و الأعوان المتعاقدين الموقوفة إلى غاية
@@ -67,10 +60,6 @@
                     </strong>
                 </div>
                 <div style="page-break-before: always;"></div>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
                 <br/>
                 <br/>
                 <br/>
@@ -215,7 +204,7 @@
                                             <!--                                                                            <span t-field="line.employee_id"/>-->
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                            <!--                                                                            <span t-field="line.employee_id"/>-->
+                                            <span t-field="employee.num_date"/>
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <t t-if="employee.methode_embauche == 'detachement'">
@@ -293,10 +282,6 @@
                     <div style="page-break-before: always;"></div>
                 </t>
                 <div style="page-break-before: always;"></div>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
                 <br/>
                 <br/>
                 <br/>
@@ -494,7 +479,7 @@
                                         </td>
                                         <t t-if="not ('رئيس' in job_data['job'].name and 'مكتب' in job_data['job'].name)">
                                             <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                                <!--                                                                            <span t-field="line.employee_id"/>-->
+                                                <span t-field="employee.num_date"/>
                                             </td>
                                         </t>
                                         <t t-if="not ('رئيس' in job_data['job'].name and 'مكتب' in job_data['job'].name)">
@@ -539,11 +524,16 @@
                                             </td>
                                         </t>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                            <t t-if="promotion_line">
-                                                <span t-esc="promotion_line.date_new_grade"/>
+                                            <t t-if="'رئيس' in job_data['job'].name and 'مكتب' in job_data['job'].name">
+                                                <span t-esc="employee.date_job_id"/>
                                             </t>
-                                            <t t-if="not promotion_line">
-                                                <span t-esc="employee.date_grade"/>
+                                            <t t-if="not ('رئيس' in job_data['job'].name and 'مكتب' in job_data['job'].name)">
+                                                <t t-if="promotion_line">
+                                                    <span t-esc="promotion_line.date_new_grade"/>
+                                                </t>
+                                                <t t-if="not promotion_line">
+                                                    <span t-esc="employee.date_grade"/>
+                                                </t>
                                             </t>
                                         </td>
                                         <t t-if="'رئيس' in job_data['job'].name and 'مكتب' in job_data['job'].name">
@@ -656,12 +646,7 @@
                                         <!--                                                                            <span t-field="line.employee_id"/>-->
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                        <t t-if="squ_employees_promotion_mapping[employee]">
-                                            <span t-esc="squ_employees_promotion_mapping[employee].date_new_grade"/>
-                                        </t>
-                                        <t t-if="not squ_employees_promotion_mapping[employee]">
-                                            <span t-esc="employee.date_grade"/>
-                                        </t>
+                                        <span t-esc="employee.date_job_id"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                         <span t-esc="employee.job_id.name"/>
@@ -687,10 +672,6 @@
                     </table>
                 </div>
                 <div style="page-break-before: always;"></div>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
                 <br/>
                 <br/>
                 <br/>
@@ -793,7 +774,7 @@
                                             <!--                                                                            <span t-field="line.employee_id"/>-->
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                            <!--                                                                            <span t-field="line.employee_id"/>-->
+                                            <span t-field="employee.num_date"/>
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <t t-if="employee.methode_embauche == 'detachement'">
@@ -871,10 +852,6 @@
                     <div style="page-break-before: always;"></div>
                 </t>
                 <div style="page-break-before: always;"></div>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
                 <br/>
                 <br/>
                 <br/>
@@ -976,7 +953,7 @@
                                             <!--                                                                            <span t-field="line.employee_id"/>-->
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                            <!--                                                                            <span t-field="line.employee_id"/>-->
+                                            <span t-field="employee.num_date"/>
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <t t-if="employee.methode_embauche == 'detachement'">
@@ -1054,10 +1031,6 @@
                     <div style="page-break-before: always;"></div>
                 </t>
                 <div style="page-break-before: always;"></div>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
                 <br/>
                 <br/>
                 <br/>
@@ -1159,7 +1132,7 @@
                                             <!--                                                                            <span t-field="line.employee_id"/>-->
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                            <!--                                                                            <span t-field="line.employee_id"/>-->
+                                            <span t-field="employee.num_date"/>
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <t t-if="employee.methode_embauche == 'detachement'">
@@ -1237,10 +1210,6 @@
                     <div style="page-break-before: always;"></div>
                 </t>
                 <div style="page-break-before: always;"></div>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
                 <br/>
                 <br/>
                 <br/>
@@ -1342,7 +1311,7 @@
                                             <!--                                                                            <span t-field="line.employee_id"/>-->
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                            <!--                                                                            <span t-field="line.employee_id"/>-->
+                                            <span t-field="employee.num_date"/>
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <t t-if="employee.methode_embauche == 'detachement'">
@@ -1420,10 +1389,6 @@
                     <div style="page-break-before: always;"></div>
                 </t>
                 <div style="page-break-before: always;"></div>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
                 <br/>
                 <br/>
                 <br/>
@@ -1525,7 +1490,7 @@
                                             <!--                                                                            <span t-field="line.employee_id"/>-->
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                            <!--                                                                            <span t-field="line.employee_id"/>-->
+                                            <span t-field="employee.num_date"/>
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <t t-if="employee.methode_embauche == 'detachement'">
@@ -1603,10 +1568,6 @@
                     <div style="page-break-before: always;"></div>
                 </t>
                 <div style="page-break-before: always;"></div>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
                 <br/>
                 <br/>
                 <br/>
@@ -1708,7 +1669,7 @@
                                             <!--                                                                            <span t-field="line.employee_id"/>-->
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                            <!--                                                                            <span t-field="line.employee_id"/>-->
+                                            <span t-field="employee.num_date"/>
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <t t-if="employee.methode_embauche == 'detachement'">
@@ -1786,12 +1747,6 @@
                     <div style="page-break-before: always;"></div>
                 </t>
                 <div style="page-break-before: always;"></div>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
                 <br/>
                 <br/>
                 <br/>
@@ -1890,7 +1845,7 @@
                                             <!--                                                                            <span t-field="line.employee_id"/>-->
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                            <!--                                                                            <span t-field="line.employee_id"/>-->
+                                            <span t-field="employee.num_date"/>
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <t t-if="employee.methode_embauche == 'detachement'">
@@ -1968,12 +1923,6 @@
                     <div style="page-break-before: always;"></div>
                 </t>
                 <div style="page-break-before: always;"></div>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
                 <br/>
                 <br/>
                 <br/>
@@ -2072,7 +2021,7 @@
                                             <!--                                                                            <span t-field="line.employee_id"/>-->
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                            <!--                                                                            <span t-field="line.employee_id"/>-->
+                                            <span t-field="employee.num_date"/>
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <t t-if="employee.methode_embauche == 'detachement'">
@@ -2150,12 +2099,6 @@
                     <div style="page-break-before: always;"></div>
                 </t>
                 <div style="page-break-before: always;"></div>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
                 <br/>
                 <br/>
                 <br/>
@@ -2254,7 +2197,7 @@
                                             <!--                                                                            <span t-field="line.employee_id"/>-->
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                            <!--                                                                            <span t-field="line.employee_id"/>-->
+                                            <span t-field="employee.num_date"/>
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <t t-if="employee.methode_embauche == 'detachement'">
@@ -2332,12 +2275,6 @@
                     <div style="page-break-before: always;"></div>
                 </t>
                 <div style="page-break-before: always;"></div>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
                 <br/>
                 <br/>
                 <br/>
@@ -2436,7 +2373,7 @@
                                             <!--                                                                            <span t-field="line.employee_id"/>-->
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;padding:14px">
-                                            <!--                                                                            <span t-field="line.employee_id"/>-->
+                                            <span t-field="employee.num_date"/>
                                         </td>
                                         <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding:14px">
                                             <t t-if="employee.methode_embauche == 'detachement'">
@@ -2520,6 +2457,196 @@
                 <br/>
                 <br/>
                 <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <div class="arabic_typesetting_A">
+                    <strong>
+                        <span>
+                            القائمة الإسمية للوضعيات القانونية
+                            <br/>
+                            (حالات الإستيداع)
+                        </span>
+                    </strong>
+                </div>
+                <div style="page-break-before: always;"></div>
+                <div class="row" style="margin:30;">
+                    <table style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
+                                    <strong>السبب و عدد المرات</strong>
+                                </th>
+                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px;width:12%">
+                                    <strong>تاريخ الإياب</strong>
+                                </th>
+                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px;width:12%">
+                                    <strong>تاريخ الذهاب</strong>
+                                </th>
+                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
+                                    <strong>رقم و تاريخ تأشيرة للمراقب المالي</strong>
+                                </th>
+                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
+                                    <strong>المدة</strong>
+                                </th>
+                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px;width:10%">
+                                    <strong>الرتبة</strong>
+                                </th>
+                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px;width:12%">
+                                    <strong>تاريخ الميلاد</strong>
+                                </th>
+                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
+                                    <strong>الإسم و اللقب</strong>
+                                </th>
+                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
+                                    <strong>الرقم التسلسلي</strong>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-set="line_count" t-value="1"/>
+                            <t t-foreach="employees_miseendisponibilite" t-as="employee">
+                                <tr>
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
+                                        <!--                                        <span t-field="line.employee_id"/>-->
+                                    </td>
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
+                                        <t t-if="employee.date_retour">
+                                            <span t-field="employee.date_retour"/>
+                                        </t>
+                                        <t t-if="not employee.date_retour">
+                                            <span>إلى غاية إنهاء المهام</span>
+                                        </t>
+                                    </td>
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
+                                        <span t-field="employee.date_depart"/>
+                                    </td>
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
+                                        <span t-field="employee.num_date"/>
+                                    </td>
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
+                                        <!--                                        <span t-esc="'%.2f'%(record.depreciated_value)"/>-->
+                                    </td>
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
+                                        <span t-esc="employee.grade_id.intitule_grade"/>
+                                    </td>
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:centert;font-size:18px;">
+                                        <span t-esc="employee.birthday"/>
+                                    </td>
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
+                                        <span t-esc="employee.name"/>
+                                    </td>
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
+                                        <span t-esc="line_count"/>
+                                    </td>
+                                </tr>
+                                <t t-set="line_count" t-value="line_count + 1"/>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="page-break-before: always;"></div>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <div class="arabic_typesetting_A">
+                    <strong>
+                        <span>
+                            القائمة الإسمية للوضعيات القانونية
+                            <br/>
+                            (حالات الإنتداب)
+                        </span>
+                    </strong>
+                </div>
+                <div style="page-break-before: always;"></div>
+                <div class="row" style="margin:30;">
+                    <table style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
+                                    <strong>السبب و عدد المرات</strong>
+                                </th>
+                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px;width:12%">
+                                    <strong>تاريخ الإياب</strong>
+                                </th>
+                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px;width:12%">
+                                    <strong>تاريخ الذهاب</strong>
+                                </th>
+                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
+                                    <strong>رقم و تاريخ تأشيرة للمراقب المالي</strong>
+                                </th>
+                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
+                                    <strong>المدة</strong>
+                                </th>
+                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px;width:10%">
+                                    <strong>الرتبة</strong>
+                                </th>
+                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px;width:12%">
+                                    <strong>تاريخ الميلاد</strong>
+                                </th>
+                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
+                                    <strong>الإسم و اللقب</strong>
+                                </th>
+                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
+                                    <strong>الرقم التسلسلي</strong>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-set="line_count" t-value="1"/>
+                            <t t-foreach="employees_detachement" t-as="employee">
+                                <tr>
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
+                                        <!--                                        <span t-field="line.employee_id"/>-->
+                                    </td>
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
+                                        <t t-if="employee.date_retour">
+                                            <span t-field="employee.date_retour"/>
+                                        </t>
+                                        <t t-if="not employee.date_retour">
+                                            <span>إلى غاية إنهاء المهام</span>
+                                        </t>
+                                    </td>
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
+                                        <span t-field="employee.date_depart"/>
+                                    </td>
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
+                                        <span t-field="employee.num_date"/>
+                                    </td>
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
+                                        <!--                                        <span t-esc="'%.2f'%(record.depreciated_value)"/>-->
+                                    </td>
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
+                                        <span t-esc="employee.grade_id.intitule_grade"/>
+                                    </td>
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
+                                        <span t-esc="employee.birthday"/>
+                                    </td>
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
+                                        <span t-esc="employee.name"/>
+                                    </td>
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
+                                        <span t-esc="line_count"/>
+                                    </td>
+                                </tr>
+                                <t t-set="line_count" t-value="line_count + 1"/>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="page-break-before: always;"></div>
                 <br/>
                 <br/>
                 <br/>
@@ -2613,210 +2740,6 @@
                     </table>
                 </div>
                 <div style="page-break-before: always;"></div>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <div class="arabic_typesetting_A">
-                    <strong>
-                        <span>
-                            القائمة الإسمية للوضعيات القانونية
-                            <br/>
-                            (حالات الإنتداب)
-                        </span>
-                    </strong>
-                </div>
-                <div style="page-break-before: always;"></div>
-                <div class="row" style="margin:30;">
-                    <table style="width: 100%;">
-                        <thead>
-                            <tr>
-                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
-                                    <strong>السبب و عدد المرات</strong>
-                                </th>
-                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px;width:12%">
-                                    <strong>تاريخ الإياب</strong>
-                                </th>
-                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px;width:12%">
-                                    <strong>تاريخ الذهاب</strong>
-                                </th>
-                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
-                                    <strong>رقم و تاريخ تأشيرة للمراقب المالي</strong>
-                                </th>
-                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
-                                    <strong>المدة</strong>
-                                </th>
-                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px;width:10%">
-                                    <strong>الرتبة</strong>
-                                </th>
-                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px;width:12%">
-                                    <strong>تاريخ الميلاد</strong>
-                                </th>
-                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
-                                    <strong>الإسم و اللقب</strong>
-                                </th>
-                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
-                                    <strong>الرقم التسلسلي</strong>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <t t-set="line_count" t-value="1"/>
-                            <t t-foreach="employees_detachement" t-as="employee">
-                                <tr>
-                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                        <!--                                        <span t-field="line.employee_id"/>-->
-                                    </td>
-                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                        <!--                                        <span t-esc="'%.2f'%(record.depreciated_value)"/>-->
-                                    </td>
-                                    <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
-                                        <!--                                        <span t-esc="line.emphy_id.intitule_emphy"/>-->
-                                    </td>
-                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                        <!--                                        <span t-field="line.employee_id"/>-->
-                                    </td>
-                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                        <!--                                        <span t-esc="'%.2f'%(record.depreciated_value)"/>-->
-                                    </td>
-                                    <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
-                                        <span t-esc="employee.grade_id.intitule_grade"/>
-                                    </td>
-                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                        <span t-esc="employee.birthday"/>
-                                    </td>
-                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                        <span t-esc="employee.name"/>
-                                    </td>
-                                    <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
-                                        <span t-esc="line_count"/>
-                                    </td>
-                                </tr>
-                                <t t-set="line_count" t-value="line_count + 1"/>
-                            </t>
-                        </tbody>
-                    </table>
-                </div>
-                <div style="page-break-before: always;"></div>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <div class="arabic_typesetting_A">
-                    <strong>
-                        <span>
-                            القائمة الإسمية للوضعيات القانونية
-                            <br/>
-                            (حالات الإستيداع)
-                        </span>
-                    </strong>
-                </div>
-                <div style="page-break-before: always;"></div>
-                <div class="row" style="margin:30;">
-                    <table style="width: 100%;">
-                        <thead>
-                            <tr>
-                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
-                                    <strong>السبب و عدد المرات</strong>
-                                </th>
-                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px;width:12%">
-                                    <strong>تاريخ الإياب</strong>
-                                </th>
-                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px;width:12%">
-                                    <strong>تاريخ الذهاب</strong>
-                                </th>
-                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
-                                    <strong>رقم و تاريخ تأشيرة للمراقب المالي</strong>
-                                </th>
-                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
-                                    <strong>المدة</strong>
-                                </th>
-                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px;width:10%">
-                                    <strong>الرتبة</strong>
-                                </th>
-                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px;width:12%">
-                                    <strong>تاريخ الميلاد</strong>
-                                </th>
-                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
-                                    <strong>الإسم و اللقب</strong>
-                                </th>
-                                <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;padding:14px">
-                                    <strong>الرقم التسلسلي</strong>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <t t-set="line_count" t-value="1"/>
-                            <t t-foreach="employees_miseendisponibilite" t-as="employee">
-                                <tr>
-                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                        <!--                                        <span t-field="line.employee_id"/>-->
-                                    </td>
-                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                        <!--                                        <span t-esc="'%.2f'%(record.depreciated_value)"/>-->
-                                    </td>
-                                    <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
-                                        <!--                                        <span t-esc="line.emphy_id.intitule_emphy"/>-->
-                                    </td>
-                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                        <!--                                        <span t-field="line.employee_id"/>-->
-                                    </td>
-                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                        <!--                                        <span t-esc="'%.2f'%(record.depreciated_value)"/>-->
-                                    </td>
-                                    <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
-                                        <span t-esc="employee.grade_id.intitule_grade"/>
-                                    </td>
-                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                        <span t-esc="employee.birthday"/>
-                                    </td>
-                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                        <span t-esc="employee.name"/>
-                                    </td>
-                                    <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
-                                        <span t-esc="line_count"/>
-                                    </td>
-                                </tr>
-                                <t t-set="line_count" t-value="line_count + 1"/>
-                            </t>
-                        </tbody>
-                    </table>
-                </div>
-                <div style="page-break-before: always;"></div>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
                 <br/>
                 <br/>
                 <br/>
