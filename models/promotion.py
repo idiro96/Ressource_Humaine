@@ -65,9 +65,15 @@ class RHPromotion(models.Model):
                         'date_grade': rec.date_grade,
                         'grade_new_id': rec.grade_new_id.id,
                         'date_new_grade': rec.date_new_grade,
+                        'categorie_id': rec.employee_id.categorie_id.id,
+                        'echelon_id': rec.employee_id.echelon_id.id,
+                        'employee_index': rec.employee_id.total_indice,
+                        'date_avancement': rec.employee_id.date_avancement,
+                        'ref': rec.employee_id.ref,
+                        'date_ref': rec.employee_id.date_ref,
                         'duree': rec.duree,
                         'ref_promotion': rec.employee_id.ref_promotion,
-                        'date_ref_promotion': rec.employee_id.date_ref_promotion
+                        'date_ref_promotion': rec.employee_id.date_ref_promotion,
                     })
                     employee = self.env['hr.employee'].search([('id', '=', rec.employee_id.id)])
                     grade = self.env['rh.grade'].search([('grade_id', '=', rec.grade_new_id.id)])
@@ -79,6 +85,10 @@ class RHPromotion(models.Model):
                     employee.write({'date_ref_promotion': self.date_ref_ouverture_examin})
                     if rec.duree == 120:
                         employee.write({'promotion_dix': True})
+                    promotion_droit = self.env['rh.promotion.droit'].search(
+                        [('employee_id', '=', rec.employee_id.id), ('date_promotion', '=', promotion.date_promotion)])
+                    if promotion_droit:
+                        promotion_droit.write({'valider': True})
 
                 elif rec.employee_id.nature_travail_id.code_type_fonction == 'fonctionsuperieure':
                     promo_line = self.env['rh.promotion.line'].create({
@@ -92,6 +102,13 @@ class RHPromotion(models.Model):
                         'date_grade': rec.date_grade,
                         'grade_new_id': rec.grade_new_id.id,
                         'date_new_grade': rec.date_new_grade,
+                        'categorie_id': rec.employee_id.categorie_id.id,
+                        'section_id': rec.employee_id.section_id.id,
+                        'echelon_id': rec.employee_id.echelon_id.id,
+                        'employee_index': rec.employee_id.total_indice,
+                        'date_avancement': rec.employee_id.date_avancement,
+                        'ref': rec.employee_id.ref,
+                        'date_ref': rec.employee_id.date_ref,
                         'duree': rec.duree,
                         'ref_promotion': rec.employee_id.ref_promotion,
                         'date_ref_promotion': rec.employee_id.date_ref_promotion,
@@ -107,6 +124,12 @@ class RHPromotion(models.Model):
                     employee.write({'date_ref_promotion': self.date_ref_ouverture_examin})
                     if rec.duree == 120:
                         employee.write({'promotion_dix': True})
+                    # promotion_droit = self.env['rh.promotion.droit'].search(
+                    #     [('employee_id', '=', rec.employee_id.id), ('date_promotion', '=', promotion.date_promotion)])
+                    # if promotion_droit:
+                    #     print('valider: True')
+                    #     promotion_droit.write({'valider': True})
+
                 elif rec.employee_id.nature_travail_id.code_type_fonction == 'postesuperieure':
                     promo_line = self.env['rh.promotion.line'].create({
                         'employee_id': rec.employee_id.id,
