@@ -17,10 +17,16 @@ class EmployeeAttestationTravailReport(models.AbstractModel):
     @api.model
     def get_report_values(self, docids, data=None):
         employee = self.env['hr.employee'].browse(docids[0])
-        report_birthday = employee.birthday
-        formatted_date = datetime.strptime(report_birthday, "%Y-%m-%d").strftime("%Y/%m/%d")
-        date_entrer = employee.date_entrer
-        formatted_date_entrer = datetime.strptime(date_entrer, "%Y-%m-%d").strftime("%Y/%m/%d")
+
+        formatted_date_entrer = None
+        formatted_date = None
+
+        if employee.birthday:
+            report_birthday = employee.birthday
+            formatted_date = datetime.strptime(report_birthday, "%Y-%m-%d").strftime("%Y/%m/%d")
+        if employee.date_entrer:
+            date_entrer = employee.date_entrer
+            formatted_date_entrer = datetime.strptime(date_entrer, "%Y-%m-%d").strftime("%Y/%m/%d")
 
         report_data = {
             'date_entrer': formatted_date_entrer,

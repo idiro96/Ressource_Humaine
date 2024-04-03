@@ -97,29 +97,29 @@
                 <xpath expr="//field[@name='position_statutaire']"
                        position="after">
                     <label for="duree" string="المدة"
-                           attrs="{'invisible': [('position_statutaire', '=', 'activite')]}"/>
+                           attrs="{'invisible': ['|', ('position_statutaire', '=', 'activite'), ('position_statutaire', '=', False)]}"/>
                     <div style="display: inline-block;">
                         <div style="display: inline-block;">
-                            <field name="date_depart" attrs="{'invisible': [('position_statutaire', '=', 'activite')]}"
+                            <field name="date_depart" attrs="{'invisible': ['|', ('position_statutaire', '=', 'activite'), ('position_statutaire', '=', False)]}"
                                    class="oe_inline" style="max-width: 130px;"/>
                             <label string="-" class="oe_inline"
-                                   attrs="{'invisible': [('position_statutaire', '=', 'activite')]}"/>
-                            <field name="date_retour" attrs="{'invisible': [('position_statutaire', '=', 'activite')]}"
+                                   attrs="{'invisible': ['|', ('position_statutaire', '=', 'activite'), ('position_statutaire', '=', False)]}"/>
+                            <field name="date_retour" attrs="{'invisible': ['|', ('position_statutaire', '=', 'activite'), ('position_statutaire', '=', False)]}"
                                    class="oe_inline" style="max-width: 130px;"/>
                         </div>
                     </div>
                     <field name="duree"
-                           attrs="{'invisible': [('position_statutaire', '=', 'activite')]}" class="oe_inline"
+                           attrs="{'invisible': ['|', ('position_statutaire', '=', 'activite'), ('position_statutaire', '=', False)]}" class="oe_inline"
                            string="" placeholder="إلى غاية إنهاء المهام"/>
                     <field name="cause"
-                           attrs="{'invisible': [('position_statutaire', '=', 'activite')]}"/>
+                           attrs="{'invisible': ['|', ('position_statutaire', '=', 'activite'), ('position_statutaire', '=', False)]}"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='job_id']" position="after">
                     <field name="date_job_id"/>
                 </xpath>
                 <xpath expr="//group[field[@name='date_job_id']]"
                        position="after">
-                    <group name="info grade" string="معلومات حول الرتبة">
+                    <group name="info grade" string="الرتبة">
                         <field name="corps_id" required="True"/>
                     </group>
                 </xpath>
@@ -144,12 +144,12 @@
                 <xpath expr="//field[@name='fin_relation']" position="after">
                     <field name="date_fin_relation" attrs="{'invisible': [('fin_relation', '=', False)]}"/>
                 </xpath>
-                <xpath expr="//field[@name='date_fin_relation']" position="after">
-                    <field name="reintegration"/>
-                </xpath>
-                <xpath expr="//field[@name='reintegration']" position="after">
-                    <field name="date_reintegration" attrs="{'invisible': [('reintegration', '=', False)]}"/>
-                </xpath>
+<!--                <xpath expr="//field[@name='date_fin_relation']" position="after">-->
+<!--                    <field name="reintegration" attrs="{'invisible': [('fin_relation', '=', False)]}"/>-->
+<!--                </xpath>-->
+<!--                <xpath expr="//field[@name='reintegration']" position="after">-->
+<!--                    <field name="date_reintegration" attrs="{'invisible': [('reintegration', '=', False)]}"/>-->
+<!--                </xpath>-->
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='department_id']"
                        position="before">
                     <field name="date_entrer" required="True"/>
@@ -324,7 +324,7 @@
                     <attribute name="string">معلومات عامة</attribute>
                 </xpath>
                 <xpath expr="//group[field[@name='department_id']]" position="attributes">
-                    <attribute name="string">معلومات حول المنصب</attribute>
+                    <attribute name="string">المنصب</attribute>
                 </xpath>
                 <xpath expr="//group[field[@name='country_id']]" position="attributes">
                     <attribute name="string">معلومات أخرى</attribute>
@@ -437,7 +437,7 @@
                 <xpath expr="//form//sheet//notebook//page[@name='معلومات حول الراتب']" position="inside">
                     <group>
                         <group>
-                            <field name="date_avancement"/>
+                            <field name="date_avancement" help="تاريخ الإستفادة في الترقية في الدرجة"/>
                             <field name="ref" help="رقم مقرر آخر ترقية"/>
                             <field name="date_ref"/>
                             <field name="code_type_fonction" invisible="1"/>
