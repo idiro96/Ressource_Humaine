@@ -28,8 +28,16 @@
                         <!--                        </group>-->
                         <group>
                             <field name="date_surveillance"/>
-                            <field name="time_surveillance_start" widget="timepicker"/>
-                            <field name="time_surveillance_end" widget="timepicker"/>
+                            <label string="التوقيت"/>
+                            <div>
+                                <div>
+                                    <field name="time_surveillance_start" widget="timepicker" class="oe_inline"/>
+                                    <label string="&#160;&#160;&#160;&#160;&#160;" class="oe_inline"/>
+                                    <field name="time_surveillance_end" widget="timepicker" class="oe_inline"/>
+                                </div>
+                            </div>
+<!--                            <field name="time_surveillance_start" widget="timepicker"/>-->
+<!--                            <field name="time_surveillance_end" widget="timepicker"/>-->
                         </group>
                     </group>
                     <notebook>
