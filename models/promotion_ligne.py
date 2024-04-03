@@ -28,7 +28,13 @@ class RHPromotionLine(models.Model):
     ref_promotion = fields.Char()
     date_ref_promotion = fields.Date()
     ancien_index = fields.Integer()
-
+    categorie_id = fields.Many2one('rh.categorie')
+    section_id = fields.Many2one('rh.section')
+    echelon_id = fields.Many2one('rh.echelon')
+    employee_index = fields.Integer()
+    date_avancement = fields.Date()
+    ref = fields.Char()
+    date_ref = fields.Date()
     @api.depends('code_line')
     def _compute_date(self):
         for record in self:

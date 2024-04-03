@@ -260,4 +260,14 @@
             report_type="qweb-html"
             name="ressource_humaine.fiche_evaluation_report"
             file="ressource_humaine.fiche_evaluation_report"/>
+
+    <report
+            id="action_promotion_report"
+            string="مقرر الترقية في الرتبة عن طريق الترقية الاختيارية"
+            model="rh.promotion"
+            report_type="qweb-html"
+            name="ressource_humaine.promotion_report"
+            file="ressource_humaine.promotion_report"/>
+
+
 </odoo>

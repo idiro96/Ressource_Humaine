@@ -35,7 +35,7 @@
                             <span t-field="employee.numero"/>
                             <span>
                                 /م.و.إ/أ.ع/م.ت.م.ب/
-                                <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
+<!--                                <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>-->
                             </span>
                         </div>
                         <br/>

@@ -34,28 +34,66 @@ class RHDroitPromotion(models.TransientModel):
     @api.multi
     def actualiser_droit_promotion(self):
         if self.boul == False:
-
+            promotion_line1 = None
+            promotion_line2 = None
+            promotion_line = None
+            promotion_ligne3 = None
             promotion_ligne_droit = self.env['rh.promotion.droit'].search([])
             for record in promotion_ligne_droit:
                 if record.sauvegarde == False:
                     record.unlink()
+            nature_travail = self.env['rh.type.fonction'].search([('code_type_fonction', '=', 'fonction')])
+            nature_travail_superieure = self.env['rh.type.fonction'].search([('code_type_fonction', '=', 'fonctionsuperieure')])
             if self.duree_promotion == '5':
-                promotion_line = self.env['hr.employee'].search(
-                        [('date_grade', '<=', self.date_promotion),('indice_minimal', '<', 821),('fin_relation', '=', False)],
+                promotion_line1 = self.env['hr.employee'].search(
+                        [('date_grade', '<=', self.date_promotion),('indice_minimal', '<', 821),('nature_travail_id', '=', nature_travail.id),('fin_relation', '=', False)],
                         order='date_grade DESC')
                 print('<821')
             elif self.duree_promotion == '7':
-                promotion_line = self.env['hr.employee'].search(
-                    [('date_grade', '<=', self.date_promotion), ('indice_minimal', '>=', 821),('fin_relation', '=', False)],
+                promotion_line1 = self.env['hr.employee'].search(
+                    [('date_grade', '<=', self.date_promotion), ('indice_minimal', '>=', 821),('nature_travail_id', '=', nature_travail.id),('fin_relation', '=', False)],
                     order='date_grade DESC')
                 print('>821')
             else:
                 dateDebut_object10 = fields.Date.from_string(self.date_promotion) - relativedelta(months=120)
-                promotion_line = self.env['hr.employee'].search(
-                    [('date_grade', '<=', dateDebut_object10),('fin_relation', '=', False),('promotion_dix', '=', False)],
+                promotion_line1 = self.env['hr.employee'].search(
+                    [('date_grade', '<=', dateDebut_object10),('fin_relation', '=', False),('nature_travail_id', '=', nature_travail.id),('promotion_dix', '=', False)],
                     order='date_grade DESC')
                 print('+10')
 
+            if self.duree_promotion == '5':
+                promotion_line2 = self.env['hr.employee'].search(
+                        [('date_grade', '<=', self.date_promotion),('point_indiciare', '<', 4275),('nature_travail_id', '=', nature_travail_superieure.id),('fin_relation', '=', False)],
+                        order='date_grade DESC')
+                print('<821')
+            elif self.duree_promotion == '7':
+                promotion_line2 = self.env['hr.employee'].search(
+                    [('date_grade', '<=', self.date_promotion), ('point_indiciare', '>=', 4275),('nature_travail_id', '=', nature_travail_superieure.id),('fin_relation', '=', False)],
+                    order='date_grade DESC')
+                print('>821')
+            else:
+                dateDebut_object10 = fields.Date.from_string(self.date_promotion) - relativedelta(months=120)
+                promotion_line2 = self.env['hr.employee'].search(
+                    [('date_grade', '<=', dateDebut_object10),('fin_relation', '=', False),('nature_travail_id', '=', nature_travail_superieure.id),('promotion_dix', '=', False)],
+                    order='date_grade DESC')
+            if  promotion_line1 and promotion_line2:
+                promotion_line = promotion_line1 + promotion_line2
+            if  promotion_line1 and not promotion_line2:
+                promotion_line = promotion_line1
+            if  not promotion_line1 and promotion_line2:
+                promotion_line = promotion_line2
+            promotion_ligne3 = promotion_line
+            if promotion_line:
+                for rec in promotion_line:
+                    print(rec.name)
+                    promotion_ligne2 = self.env['rh.promotion.line'].search(
+                    [('employee_id', '=', rec.id), ('date_promotion', '=', self.date_promotion)])
+                    if promotion_ligne2:
+                        promotion_ligne3 = promotion_ligne3 - rec
+
+
+            if promotion_ligne3:
+                promotion_line = promotion_ligne3
             if promotion_line:
                 for promo in promotion_line:
                     promotion_ligne_droit2 = self.env['rh.promotion.droit'].search(
@@ -110,8 +148,7 @@ class RHDroitPromotion(models.TransientModel):
                 'view_mode': 'tree,form',
                 'res_model': 'rh.promotion.droit',
                 'type': 'ir.actions.act_window',
-                'domain': [('date_promotion', '=', self.date_promotion),]
-                # 'domain': [('state', '=', 'reforme')],
+                'domain': [('date_promotion', '=', self.date_promotion),('valider', '=', False)]
 
             }
         else:
@@ -122,7 +159,6 @@ class RHDroitPromotion(models.TransientModel):
                 'res_model': 'rh.promotion.droit',
                 'type': 'ir.actions.act_window',
                 'domain': [('sauvegarde', '=', True)]
-                # 'domain': [('state', '=', 'reforme')],
 
             }
 

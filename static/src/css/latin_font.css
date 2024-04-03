@@ -24,3 +24,22 @@
      }
 
    .times_new_roman {font-family: times new roman;}
+
+
+@font-face {
+   font-family: 'Monotype Corsiva';
+   src: url('/ressource_humaine/static/src/font/Monotype Corsiva.ttf') format('truetype');
+   font-weight: bold;
+   font-style: normal;
+   }
+
+   .monotype_corsiva {font-family: Monotype Corsiva;}
+
+@font-face {
+   font-family: 'Century';
+   src: url('/ressource_humaine/static/src/font/CENTURY.ttf') format('truetype');
+   font-weight: bold;
+   font-style: normal;
+   }
+
+   .Century {font-family: Century;}

@@ -26,6 +26,7 @@ class RHPromotionDroit(models.Model):
 
     sauvegarde = fields.Boolean(Default=False)
     retenue = fields.Boolean(Default=False)
+    valider = fields.Boolean(Default=False)
 
     test = fields.Char()
     time_years = fields.Integer(compute="_compute_time", store=True)
@@ -38,7 +39,7 @@ class RHPromotionDroit(models.Model):
     @api.multi
     def write(self, vals):
         result = super(RHPromotionDroit, self).write(vals)
-        record1 = self.env['rh.promotion.droit'].browse(self._context['active_ids'])
+        # record1 = self.env['rh.promotion.droit'].browse(self._context['active_ids'])
         print('ranah')
         for rec in self:
             print('ranah1')
@@ -50,9 +51,8 @@ class RHPromotionDroit(models.Model):
             print(rec.employee_id.id)
             print(rec.date_promotion)
             if record2:
-                raise UserError("مستحيل تغيير تقدم في الرتبة اللذي تم تحققه")
-
-
+                if rec.valider:
+                    raise UserError("مستحيل تغيير تقدم في الرتبة اللذي تم تحققه")
         return result
 
     @api.multi

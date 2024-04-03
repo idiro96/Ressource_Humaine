@@ -20,7 +20,6 @@
     stroke: #018749 !important;
 }
 
-
 /*.nv-group.nv-series-0 path,
 .nv-group.nv-series-0 rect,
 .nv-group.nv-series-0 circle {
@@ -29,4 +28,8 @@
 
 #o_employee_right {
     direction: ltr;
+}
+
+.o_data_cell {
+  direction: ltr;
 }

@@ -11,7 +11,7 @@
                 <link href="/ressource_humaine/static/src/css/latin_font.css" rel="stylesheet"/>
             </xpath>
         </template>
-        <template id="droit_promotion_report">
+        <template id="promotion_report">
             <t t-call="web.basic_layout">
                 <t t-foreach="promotion_lines" t-as="line">
                     <t t-call="ressource_humaine.report_header_custom"/>
@@ -37,10 +37,10 @@
                             <strong>
                                 <span>
                                     مقرر رقم
-                                     <span class="texte-en-gras">
-                                            <t t-esc="line.code_line"/>
-                                        </span>
-                                       <t t-if="not promotion.date_signature">
+                                    <span class="texte-en-gras">
+                                        <t t-esc="line.code_line"/>
+                                    </span>
+                                    <t t-if="not promotion.date_signature">
                                         المؤرخ في .................
                                     </t>
                                     <t t-if="promotion.date_signature">
@@ -53,25 +53,20 @@
 
                             </strong>
                         </div>
-                           <div class="texte-en-gras" style="font-size: 30px;text-align: center;word-spacing: 5px;">
+                        <div class="texte-en-gras" style="font-size: 30px;text-align: center;word-spacing: 5px;">
                             <strong>
                                 <span>
-                                    يتضمن الالتحاق برتبة أعلى عن طريق الامتحان المهني
+                                    يتضمن الالتحاق برتبة أعلى عن طريق الترقية الاختيارية
                                 </span>
                             </strong>
                         </div>
                         <br/>
                         <div class="arabic_typesetting" style="font-size: 30px; text-align: right;">
                             إن السيد المدير العام للمدرسة الوطنية للادارة
-
                         </div>
                         <div class="arabic_typesetting" style="font-size: 30px; text-align: right;">
                             ـ بمقتضى الأمر رقم 06ـ03 المؤرخ في 19 جمادى عام 1427 الموافق 15 يوليو سنة 2006
                             المتضمن القانون الأساسي العام للوظيفة العمومية ، المتمم
-                        </div>
-                        <div class="arabic_typesetting" style="font-size: 30px; text-align: right;">
-                            ـ بمقتضى المرسوم رقم 64ـ155 المؤرخ في 8 يوليو عام 1964
-                            المتضمن ا إنشاء المدرسة الوطنية للإدارة ، المعدل
                         </div>
                         <div class="arabic_typesetting" style="font-size: 30px; text-align: right;">
                             ـ بمقتضى المرسوم الرئاسي رقم 07ـ304 المؤرخ في 17 رمضان عام 1428 الموافق 29 سبتمبر سنة 2007
@@ -84,44 +79,46 @@
                             أعوان الإدارة المركزية و الولايات و البلديات و المؤسسات العمومية ذات الطابع الإداري
                         </div>
                         <div class="arabic_typesetting" style="font-size: 30px; text-align: right;">
+                            ـ و بمقتضى المرسوم التنفيذي رقم 06ـ419 المؤرخ في أول ذي القعدة عام 1427 الموافق ل22 نوفمبر
+                            2006 المتضمن تنظيم المدرسةالوطنية للإدارة و سيرها، المعدل و المتمم
+                        </div>
+                        <div class="arabic_typesetting" style="font-size: 30px; text-align: right;">
                             <span>
                                 ـ و بمقتضى
                                 <t t-esc="line.employee_id.grade_id.loi_id.intitule_loi"/>
                             </span>
                         </div>
-                        <div class="arabic_typesetting" style="font-size: 30px; text-align: right;">
-                            ـ بمقتضى المرسوم التنفيذي رقم 12ـ194 المؤرخ في 25 أفريل سنة 2012
-                            يحدد كيفيات تنظيم المسابقات و الامتحانات و الفحوص المهنية في المؤسسات والإدارات العمومية و
-                            إجرائها
-                        </div>
-
-                        <div style="font-size: 20px; text-align: right;">
-                        <span style="display: inline-block;">
-                              وبناء على المقرر رقم
-                            <t t-esc="promotion.ref_ouverture_examin"/>
-المؤرخ في
-                              <t t-esc="line_date_ref_ouverture_examin.get(promotion.id, '')"/>
-                            فتح امتحان مهني للإتحاق برتبة
-                             <t t-esc="line.employee_id.grade_id.intitule_grade"/>
-                        </span>
-                        </div>
+                        <!--                        <div style="font-size: 20px; text-align: right;">-->
+                        <!--                            <span style="display: inline-block;">-->
+                        <!--                                وبناء على المقرر رقم-->
+                        <!--                                <t t-esc="promotion.ref_ouverture_examin"/>-->
+                        <!--                                المؤرخ في-->
+                        <!--                                <t t-esc="line_date_ref_ouverture_examin.get(promotion.id, '')"/>-->
+                        <!--                                فتح امتحان مهني للإتحاق برتبة-->
+                        <!--                                <t t-esc="line.employee_id.grade_id.intitule_grade"/>-->
+                        <!--                            </span>-->
+                        <!--                        </div>-->
                         <br/>
 
 
                         <div class="arabic_typesetting" style="font-size: 30px; text-align: right;">
-
+                            <!--                            <div class="arabic_typesetting" style="font-size: 30px; text-align: right;">-->
+                            <!--                                <span>-->
+                            <!--                                    -->
+                            <!--                                </span>-->
+                            <!--                            </div>-->
                             <div class="arabic_typesetting" style="font-size: 30px; text-align: right;">
-                                    <spans>
-                                        ـ بناء على مقرر رقم
-                                        <span class="texte-en-gras">
-                                            <t t-esc="line.ref_promotion"/>
-                                        </span>
-                                        المؤرخ في
-                                        <span class="texte-en-gras">
-                                            <t t-esc="line_date_ref_promotion.get(line.id, '')"/>
-                                        </span>
-                                        المتضمن ترقية
-                                    </spans>
+                                <spans>
+                                    ـ بناء على مقرر رقم
+                                    <span class="texte-en-gras">
+                                        <t t-esc="line.ref_promotion"/>
+                                    </span>
+                                    المؤرخ في
+                                    <span class="texte-en-gras">
+                                        <t t-esc="line_date_ref_promotion.get(line.id, '')"/>
+                                    </span>
+                                    المتضمن ترقية
+                                </spans>
                                 <t t-if="line.employee_id.gender == 'male'">
                                     السيد
                                 </t>
@@ -146,9 +143,42 @@
                                     </span>
                                 </spans>
                             </div>
-                              <br/>
                             <div class="arabic_typesetting" style="font-size: 30px; text-align: right;">
-                                <t t-if="avance">
+                                <spans>
+                                    ـ بناء على مقرر رقم
+                                    <span class="texte-en-gras">
+                                        <t t-esc="line.employee_id.ref_nomination"/>
+                                    </span>
+                                    المؤرخ في
+                                    <span class="texte-en-gras">
+                                        <t t-esc="line_date_ref_nomination.get(line.id, '')"/>
+                                    </span>
+                                    المتضمن تعيين
+                                </spans>
+                                <t t-if="line.employee_id.gender == 'male'">
+                                    السيد
+                                </t>
+                                <t t-if="line.employee_id.gender == 'female'">
+                                    السيدة
+                                </t>
+                                <spans>
+                                    <span class="texte-en-gras">
+                                        <t t-esc="line.employee_id.name"/>
+                                    </span>
+                                    في رتبة
+                                    <span class="texte-en-gras">
+                                        <t t-esc="line.grade_id.intitule_grade"/>
+                                    </span>
+                                    ابتداء من
+                                    <span class="texte-en-gras">
+<!--                                        <t t-esc="line.employee_id.date_nomination"/>-->
+                                        <t t-esc="line_date_nomination.get(line.id, '')"/>
+                                    </span>
+                                </spans>
+                            </div>
+                            <br/>
+                            <div class="arabic_typesetting" style="font-size: 30px; text-align: right;">
+                                  <t t-if="avance">
                                 <t t-foreach="avance" t-as="av">
                                             <t t-if="line.employee_id.id == av.employee_id.id">
                                                 <spans>
@@ -270,31 +300,31 @@
                                 </t>
                             </div>
                             <div class="arabic_typesetting" style="font-size: 30px; text-align: right;">
-                            <span>
-                                <t t-if="not promotion.code_decision_groupe">
-                                    ـ وبناء على المقرر الجماعي رقم.....
-                                </t>
-                                <t t-if="promotion.code_decision_groupe">
-                                    ـ وبناء على المقرر الجماعي رقم
-                                    <span class="texte-en-gras">
-                                        <t t-esc="promotion.code_decision_groupe"/>
-                                    </span>
-                                </t>
-                                <t t-if="not promotion.date_decision_groupe">
-                                    المؤرخ في .................
-                                </t>
-                                <t t-if="promotion.date_decision_groupe">
-                                    المؤرخ في
-                                    <span class="texte-en-gras">
-                                        <t t-esc="line_date_decision_groupe.get(promotion.id, '')"/>
-                                    </span>
-                                </t>
-                                المتعلق بإعادة
-                                ترتيب
-                                الموظفين، و المتضمن ترتيب المعنية
-                                في رتبة
+                                <span>
+                                    <t t-if="not promotion.code_decision_groupe">
+                                        ـ وبناء على المقرر الجماعي رقم.....
+                                    </t>
+                                    <t t-if="promotion.code_decision_groupe">
+                                        ـ وبناء على المقرر الجماعي رقم
+                                        <span class="texte-en-gras">
+                                            <t t-esc="promotion.code_decision_groupe"/>
+                                        </span>
+                                    </t>
+                                    <t t-if="not promotion.date_decision_groupe">
+                                        المؤرخ في .................
+                                    </t>
+                                    <t t-if="promotion.date_decision_groupe">
+                                        المؤرخ في
+                                        <span class="texte-en-gras">
+                                            <t t-esc="line_date_decision_groupe.get(promotion.id, '')"/>
+                                        </span>
+                                    </t>
+                                    المتعلق بإعادة
+                                    ترتيب
+                                    الموظفين، و المتضمن ترتيب المعنية
+                                    في رتبة
 
-                                  <t t-if="grille_old">
+                                        <t t-if="grille_old">
                                      <t t-foreach="grille_old" t-as="grille_precedent">
                                     <t t-if="line.employee_id.id == grille_precedent.employee_id.id">
                                         <span class="texte-en-gras">
@@ -378,29 +408,26 @@
                                                     <t t-esc="line.date_avancement"/>
                                                 </span>
                                 </t>
-                            </span>
-                        </div>
+
+                                </span>
+                            </div>
                             <div class="arabic_typesetting" style="font-size: 30px; text-align: right;">
                                 <spans>
 
-                                        ـ بناء على محضر اجتماع اللجنة المكلفة باعداد قائمة الناجحين نهائيا في الامتحان المهني للالتحاق بسلك
-                                        <span class="texte-en-gras">
-                                            <t t-esc="line.grade_id.corps_id.intitule_corps"/>
-                                        </span>
-           رتبة
-                                        <span class="texte-en-gras">
-                                            <t t-esc="line.grade_new_id.intitule_grade"/>
-                                        </span>
-                              المؤرخ في
-                                        <span class="texte-en-gras">
-                                            <t t-esc="line_date_examin_professionnel.get(promotion.id, '')"/>
-<!--                                            <t t-esc="promotion.date_examin_professionnel"/>-->
-                                        </span>
+                                    ـ بناء على محضر اجتماع اللجنة الإدارية المتساوية الأعضاء الخاصة بأسلاك الموظفين
+                                    الإداريين المؤرخ في
+                                    <span class="texte-en-gras">
+                                        <t t-esc="line.grade_id.corps_id.intitule_corps"/>
+                                    </span>
+                                    <span class="texte-en-gras">
+                                        <t t-esc="line_date_examin_professionnel.get(promotion.id, '')"/>
+                                        <!--                                            <t t-esc="promotion.date_examin_professionnel"/>-->
+                                    </span>
                                     <br>
                                     </br>
-                                     <span class="texte-en-gras">
-                                           باقتراح من السيد الأمين العام للمدرسة الوطنية للإدارة
-                                        </span>
+                                    <span class="texte-en-gras">
+                                        باقتراح من السيد الأمين العام للمدرسة الوطنية للإدارة
+                                    </span>
                                     <br>
                                     </br>
                                     <br>
@@ -408,13 +435,13 @@
 
                                 </spans>
                             </div>
-                             <div class="texte-en-gras"  style="font-size: 30px; text-align: center;">
-                                           يقرر
-                                    <br>
-                                    </br>
-                                    <br>
-                                    </br>
-                             </div>
+                            <div class="texte-en-gras" style="font-size: 30px; text-align: center;">
+                                يقرر
+                                <br>
+                                </br>
+                                <br>
+                                </br>
+                            </div>
                             <div class="arabic_typesetting" style="font-size: 30px; text-align: right;">
                                 <spans>
                                     <span class="texte-en-gras">
@@ -431,23 +458,17 @@
                                     </span>
                                     في سللك
                                 </spans>
-                                 <span class="texte-en-gras">
-                                            <t t-esc="line.grade_id.corps_id.intitule_corps"/>
-                                        </span>
-           رتبة
-                                        <span class="texte-en-gras">
-                                            <t t-esc="line.grade_new_id.intitule_grade"/>
-                                        </span>
-                                ابتداء من
                                 <span class="texte-en-gras">
-                                            <t t-esc="line_date_new_grade.get(line.id, '')"/>
-                                        </span>
-                                <t t-if="line.employee_id.gender == 'male'">
-                                       تاريخ تنصيبه
-                                    </t>
-                                    <t t-if="line.employee_id.gender == 'female'">
-                                        تاريخ تنصيبها.
-                                    </t>
+                                    <t t-esc="line.grade_id.corps_id.intitule_corps"/>
+                                </span>
+                                رتبة
+                                <span class="texte-en-gras">
+                                    <t t-esc="line.grade_new_id.intitule_grade"/>
+                                </span>
+                                بالمدرسةالوطنية للإدارة ابتداء من
+                                <span class="texte-en-gras">
+                                    <t t-esc="line_date_new_grade.get(line.id, '')"/>
+                                </span>
                             </div>
                             <div class="arabic_typesetting" style="font-size: 30px; text-align: right;">
                                 <span>
@@ -460,25 +481,26 @@
                                     <t t-if="line.employee_id.gender == 'female'">
                                         يعاد ترتيب المعنية عند نفس التاريخ في الصنف
                                     </t>
-                                     <span class="texte-en-gras">
-                                    <t t-esc="line.employee_id.categorie_id.intitule"/>
-                                </span>
-                                الدرجة
-                                <span class="texte-en-gras">
-                                    <t t-esc="line.employee_id.echelon_id.intitule"/>
-                                </span>
-                                 الرقم الاستدلالي
-                                <span class="texte-en-gras">
-                                    <t t-esc="line.employee_id.echelon_id.indice_echelon + line.employee_id.categorie_id.Indice_minimal"/>
-                                </span>
+                                    <span class="texte-en-gras">
+                                        <t t-esc="line.employee_id.categorie_id.intitule"/>
+                                    </span>
+                                    الدرجة
+                                    <span class="texte-en-gras">
+                                        <t t-esc="line.employee_id.echelon_id.intitule"/>
+                                    </span>
+                                    الرقم الاستدلالي
+                                    <span class="texte-en-gras">
+                                        <t t-esc="line.employee_id.echelon_id.indice_echelon + line.employee_id.categorie_id.Indice_minimal"/>
+                                    </span>
                                 </span>
                             </div>
                             <div class="arabic_typesetting" style="font-size: 30px; text-align: right;">
 
-                                 <span class="texte-en-gras">
+                                <span class="texte-en-gras">
                                     المادة 03 :
                                 </span>
-                             يكلف السيد الأمين العام للمدرسة بتنفيذ هذا المقرر الذي سينشر في سجل المقررات الإدارية للمدرسة الوطنية للإدارة
+                                يكلف السيد الأمين العام للمدرسة بتنفيذ هذا المقرر الذي سينشر في سجل المقررات الإدارية
+                                للمدرسة الوطنية للإدارة
 
                             </div>
                         </div>
