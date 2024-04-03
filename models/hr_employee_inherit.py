@@ -138,12 +138,9 @@ class HrEmployeInherited(models.Model):
 
     @api.onchange('fin_relation')
     def _onchange_fin_relation(self):
-        print('in compute fin relation function')
         if self.fin_relation:
-            print('in if')
             self.parent_id = [(5, 0, 0)]
         else:
-            print('in else')
             self.parent_id = self.department_id.manager_id
 
     @api.depends('wage')

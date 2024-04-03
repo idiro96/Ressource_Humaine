@@ -29756,6 +29756,11 @@ msgid "Date Reintegration"
 msgstr "تاريخ إعادة الإدماج"
 
 #. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_reintegration
+msgid "Reintegration"
+msgstr "الإدماج"
+
+#. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_date_signature
 msgid "Date Signature"
 msgstr "تاريخ الإمضاء"
