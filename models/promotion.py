@@ -124,11 +124,11 @@ class RHPromotion(models.Model):
                     employee.write({'date_ref_promotion': self.date_ref_ouverture_examin})
                     if rec.duree == 120:
                         employee.write({'promotion_dix': True})
-                    # promotion_droit = self.env['rh.promotion.droit'].search(
-                    #     [('employee_id', '=', rec.employee_id.id), ('date_promotion', '=', promotion.date_promotion)])
-                    # if promotion_droit:
-                    #     print('valider: True')
-                    #     promotion_droit.write({'valider': True})
+                    promotion_droit = self.env['rh.promotion.droit'].search(
+                        [('employee_id', '=', rec.employee_id.id), ('date_promotion', '=', promotion.date_promotion)])
+                    if promotion_droit:
+                        print('valider: True')
+                        promotion_droit.write({'valider': True})
 
                 elif rec.employee_id.nature_travail_id.code_type_fonction == 'postesuperieure':
                     promo_line = self.env['rh.promotion.line'].create({
