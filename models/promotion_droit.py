@@ -50,9 +50,9 @@ class RHPromotionDroit(models.Model):
             print('erreure')
             print(rec.employee_id.id)
             print(rec.date_promotion)
-            if record2:
-                if rec.valider:
-                    raise UserError("مستحيل تغيير تقدم في الرتبة اللذي تم تحققه")
+            # if record2:
+            #     if rec.valider:
+            #         # raise UserError("مستحيل تغيير تقدم في الرتبة اللذي تم تحققه")
         return result
 
     @api.multi
