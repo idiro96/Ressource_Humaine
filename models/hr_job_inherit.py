@@ -48,6 +48,9 @@ class CustomDepartment(models.Model):
 
     _rec_name = 'name'
 
+    department_type = fields.Selection(selection=[('secretariat', 'Secrétariat'), ('direction', 'Direction'),
+                                                  ('service', 'Service'), ('bureau', 'Bureau')], required=True, readonly=False)
+
     # def _update_employee_manager(self, manager_id):
     #     employees = self.env['hr.employee']
     #     for department in self:

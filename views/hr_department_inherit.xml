@@ -1,0 +1,42 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="hr_department_inherited">
+            <field name="name">department inherit</field>
+            <field name="model">hr.department</field>
+            <field name="inherit_id" ref="hr.view_department_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form//sheet//group" position="replace">
+                    <group>
+                        <group>
+                            <field name="name" string="المديرية"
+                                   attrs="{'invisible': [('department_type', '!=', 'secretariat')]}"/>
+                            <field name="name" string="الأمانة/المديرية"
+                                   attrs="{'invisible': [('department_type', '!=', 'direction')]}"/>
+                            <field name="name" string="اسم المصلحة"
+                                   attrs="{'invisible': [('department_type', '!=', 'service')]}"/>
+                            <field name="name" string="اسم المكتب"
+                                   attrs="{'invisible': [('department_type', '!=', 'bureau')]}"/>
+                            <field name="department_type"/>
+                        </group>
+                        <group>
+                            <field name="manager_id" string="المدير"
+                                   attrs="{'invisible': [('department_type', '!=', 'secretariat')]}"/>
+                            <field name="manager_id" string="الأمين/المدير"
+                                   attrs="{'invisible': [('department_type', '!=', 'direction')]}"/>
+                            <field name="manager_id" string="رئيس المصلحة"
+                                   attrs="{'invisible': [('department_type', '!=', 'service')]}"/>
+                            <field name="manager_id" string="رئيس المكتب"
+                                   attrs="{'invisible': [('department_type', '!=', 'bureau')]}"/>
+                            <field name="parent_id" string="المديرية"
+                                   attrs="{'invisible': [('department_type', '!=', 'direction')]}"/>
+                            <field name="parent_id" string="الأمانة/المديرية"
+                                   attrs="{'invisible': [('department_type', '!=', 'service')]}"/>
+                            <field name="parent_id" string="اسم المصلحة"
+                                   attrs="{'invisible': [('department_type', '!=', 'bureau')]}"/>
+                        </group>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

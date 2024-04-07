@@ -30866,7 +30866,6 @@ msgid "Denmark"
 msgstr "الدنمارك"
 
 #. modules: hr_holidays, hr, hr_contract, hr_recruitment, ressource_humaine
-#: model:ir.model.fields,field_description:hr.field_hr_employee_department_id
 #: model:ir.model.fields,field_description:hr.field_hr_job_department_id
 #: model:ir.ui.view,arch_db:hr.view_department_filter
 #: model:ir.ui.view,arch_db:hr.view_employee_filter
@@ -32053,7 +32052,7 @@ msgstr "طريقة العرض"
 #: model:ir.model.fields,field_description:website.field_website_redirect_display_name
 #: model:ir.model.fields,field_description:website.field_website_seo_metadata_display_name
 msgid "Display Name"
-msgstr "الاسم الهيكل"
+msgstr "اسم الهيكل"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_report_paperformat_header_line
@@ -83869,3 +83868,33 @@ msgstr "السبب وعدد المرات"
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_reintegration
 msgid "Reintegration"
 msgstr "إعادة الإدماج"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_department_department_type
+msgid "Department Type"
+msgstr "نوع الهيكل"
+
+#. module: ressource_humaine
+#: selection:hr.department,department_type:0
+msgid "Bureau"
+msgstr "مكتب"
+
+#. module: ressource_humaine
+#: selection:hr.department,department_type:0
+msgid "Service"
+msgstr "مصلحة"
+
+#. module: ressource_humaine
+#: selection:hr.department,department_type:0
+msgid "Direction"
+msgstr "أمانة/مديرية"
+
+#. module: ressource_humaine
+#: selection:hr.department,department_type:0
+msgid "Secrétariat"
+msgstr "مديرية"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee_department_id
+msgid "Department"
+msgstr "الهيكل التنظيمي"
