@@ -44,7 +44,7 @@ class RHAvencementDroit(models.Model):
     duree_lettre = fields.Selection(selection=[('inferieure', 'Inferieure'), ('moyen', 'Moyen'), ('superieure', 'Supérieure')])
     code_type_fonction = fields.Char(related='employee_id.nature_travail_id.code_type_fonction',
                                      store=True)
-
+    valider = fields.Boolean(Default=False)
     time_years = fields.Integer(compute="_compute_time", store=True)
     time_months = fields.Integer(compute="_compute_time", store=True)
     time_days = fields.Integer(compute="_compute_time", store=True)
@@ -124,8 +124,8 @@ class RHAvencementDroit(models.Model):
                     raise UserError("أكد أولا الحق في التقدم في الدرجة")
             record2 = self.env['rh.avancement.line'].search(
                 [('employee_id', '=', rec.employee_id.id), ('date_avancement', '=', rec.date_avancement)])
-            if record2:
-                raise UserError("مستحيل تغيير تقدم في الدرجة اللذي تم تحققه")
+            # if record2:
+            #     raise UserError("مستحيل تغيير تقدم في الدرجة اللذي تم تحققه")
 
         return result1
 

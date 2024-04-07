@@ -370,19 +370,19 @@
                     <page name="الترقيات في الرتبة" string="الترقيات في الدرجة">
                         <tree>
                             <field name="avancement_lines">
-                                <tree create="false" delete="false">
-                                    <field name="grade_id"/>
-                                    <field name="date_old_avancement"/>
+                                <tree create="false" delete="false" editable="bottom">
+                                    <field name="grade_id" readonly="True"/>
+                                    <field name="date_old_avancement" readonly="True"/>
                                     <field name="ref"/>
-                                    <field name="grille_old_id"/>
-                                    <field name="categorie_old_id"/>
-                                    <field name="echelon_old_id"/>
-                                    <field name="date_new_avancement"/>
-                                    <field name="date_avancement"/>
-                                    <field name="duree"/>
-                                    <field name="grille_new_id"/>
-                                    <field name="categorie_new_id"/>
-                                    <field name="echelon_new_id"/>
+                                    <field name="grille_old_id" readonly="True"/>
+                                    <field name="categorie_old_id" readonly="True"/>
+                                    <field name="echelon_old_id" readonly="True"/>
+                                    <field name="date_new_avancement" readonly="True"/>
+                                    <field name="date_avancement" readonly="True"/>
+                                    <field name="duree" readonly="True"/>
+                                    <field name="grille_new_id" readonly="True"/>
+                                    <field name="categorie_new_id" readonly="True"/>
+                                    <field name="echelon_new_id" readonly="True"/>
                                 </tree>
 
                             </field>

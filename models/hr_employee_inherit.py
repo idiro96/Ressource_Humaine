@@ -53,7 +53,7 @@ class HrEmployeInherited(models.Model):
     # days_off = fields.Float(compute='_compute_days_off', store=True, translate=True)
     type_id = fields.Many2one('hr.contract.type')
     # days_off = fields.Float(compute='_compute_days_off', store=True, translate=True)
-    days_off = fields.Float(store=True)
+    days_off = fields.Float()
     jour_sup = fields.Float(store=True)
     corps_id = fields.Many2one('rh.corps')
     grade_id = fields.Many2one('rh.grade')

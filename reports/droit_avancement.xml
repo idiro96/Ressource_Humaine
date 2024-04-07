@@ -145,6 +145,7 @@
                                     <span class="texte-en-gras">
                                         <t t-esc="line.ref"/>
                                     </span>
+                                    المؤرخ في
                                     <span class="texte-en-gras">
                                         <t t-esc="line_date_ref.get(line.id, '')"/>
                                     </span>

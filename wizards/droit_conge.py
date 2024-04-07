@@ -123,10 +123,13 @@ class RHDroitConge(models.TransientModel):
 
 
                 conge_empl_total = self.env['rh.congedroit'].search(
-                    [('id_personnel', '=', empl.id)], limit=3)
+                    [('id_personnel', '=', empl.id)])
                 jour_reste = 0
                 for cong in conge_empl_total:
                     jour_reste = cong.nbr_jour_reste + jour_reste
+                    print(empl.name)
+                    print(jour_reste)
+                print(jour_reste)
                 empl.write({'days_off': jour_reste})
             current_date2 = datetime.now().date()
             mois2 = current_date2.month

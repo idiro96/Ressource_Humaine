@@ -95,6 +95,11 @@ class RHAvancement(models.Model):
                     employee.write({
                         'wage': rec.employee_id.wage,
                     })
+                    avancement_droit = self.env['rh.avencement.droit'].search(
+                        [('employee_id', '=', rec.employee_id.id), ('date_avancement', '=', avancement.date_avancement)])
+                    if avancement_droit:
+                        print('valider: True')
+                        avancement_droit.write({'valider': True})
                 elif rec.employee_id.nature_travail_id.code_type_fonction == 'fonctionsuperieure':
 
                     avance_line = self.env['rh.avancement.line'].create({
@@ -160,6 +165,11 @@ class RHAvancement(models.Model):
                     employee.write({
                         'wage': rec.employee_id.wage,
                     })
+                    avancement_droit = self.env['rh.avencement.droit'].search(
+                        [('employee_id', '=', rec.employee_id.id), ('date_avancement', '=', avancement.date_avancement)])
+                    if avancement_droit:
+                        print('valider: True')
+                        avancement_droit.write({'valider': True})
                 elif rec.employee_id.nature_travail_id.code_type_fonction == 'postesuperieure':
                     print('teste')
 

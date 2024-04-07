@@ -338,6 +338,27 @@ class DroitPromotionReport(models.AbstractModel):
                 else:
                     line_date_signature_av[rec.id] = ''
 
+        line_date_ref = {}
+        for rec in promotion_lines:
+            date_ref_str = rec.employee_id.date_ref
+            if date_ref_str:
+                formatted_date_ref = datetime.strptime(date_ref_str,
+                                                                "%Y-%m-%d").strftime(
+                    "%d-%m-%Y")
+                line_date_ref[rec.id] = formatted_date_ref
+            else:
+                line_date_ref[rec.id] = ''
+        line_date_avancement = {}
+        for rec in promotion_lines:
+            date_avancement_str = rec.employee_id.date_avancement
+            if date_avancement_str:
+                formatted_date_avancement = datetime.strptime(date_avancement_str,
+                                                       "%Y-%m-%d").strftime(
+                    "%d-%m-%Y")
+                line_date_avancement[rec.id] = formatted_date_avancement
+            else:
+                line_date_avancement[rec.id] = ''
+
         line_date_new_avancement_av = {}
         for rec2 in avance:
             for rec in rec2:
@@ -350,7 +371,7 @@ class DroitPromotionReport(models.AbstractModel):
                 else:
                     line_date_new_avancement_av[rec.id] = ''
 
-        line_date_ref = {}
+        # line_date_ref = {}
         # for rec in promotion_lines:
         #     date_ref_str = rec.date_ref
         #     if date_ref_str:
@@ -458,6 +479,7 @@ class DroitPromotionReport(models.AbstractModel):
             'line_date_new_grade': line_date_new_grade,
             'line_date_grade': line_date_grade,
             'line_date_ref': line_date_ref,
+            'line_date_avancement': line_date_avancement,
             'line_date_promotion': line_date_promotion,
             'line_date_signature': line_date_signature,
             'line_date_new_promotion': line_date_new_promotion,
