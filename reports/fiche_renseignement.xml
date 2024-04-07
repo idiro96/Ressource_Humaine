@@ -134,7 +134,7 @@
                             <span>
                                 <t t-if="employee.gender == 'male'">
                                     <t t-if="employee.service_militaire =='field'">
-                                        مجلد
+                                        مجند
                                     </t>
                                     <t t-if="employee.service_militaire =='exempted'">
                                         معفى

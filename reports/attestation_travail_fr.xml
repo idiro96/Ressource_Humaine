@@ -102,7 +102,7 @@
                         </span>
                         <t t-if="not employee.gender or employee.gender == 'male'">
                             <span style="display: inline-block">
-                                Monsieur,
+                                Monsieur
                                 <strong>
                                     <t t-esc="employee.nom_fr"/>
                                 </strong>
@@ -114,7 +114,7 @@
                         </t>
                         <t t-if="employee.gender == 'female'">
                             <span style="display: inline-block">
-                                Madame,
+                                Madame
                                 <strong>
                                     <t t-esc="employee.nom_fr"/>
                                 </strong>
@@ -127,7 +127,7 @@
                         <span>
                             à
                             <strong>
-                                <t t-esc="employee.place_of_birth_fr"/>.
+                                <t t-esc="employee.place_of_birth_fr"/>
                             </strong>
                             <t t-if="employee.gender == 'female'">
                                 <t t-if="employee.nature_travail_id.code_type_fonction == 'contractuel'">
@@ -153,7 +153,7 @@
                         </span>
                         <t t-if="not employee.gender or employee.gender == 'male'">
                             <span>
-                                Il, exerce ses fonctions en sa qualité de
+                                Il exerce ses fonctions en sa qualité de
                                 <strong>
                                     <t t-esc="employee.grade_id.intitule_grade_fr"/>.
                                 </strong>
@@ -161,7 +161,7 @@
                         </t>
                         <t t-if="employee.gender == 'female'">
                             <span>
-                                Elle, exerce ses fonctions en sa qualité de :
+                                Elle exerce ses fonctions en sa qualité de :
                                 <strong>
                                     <t t-esc="employee.grade_id.intitule_grade_fr"/>.
                                 </strong>
@@ -274,7 +274,7 @@
                         </span>
                         <t t-if="not employee.gender or employee.gender == 'male'">
                             <span style="display: inline-block">
-                                Monsieur,
+                                Monsieur
                                 <strong>
                                     <t t-esc="employee.nom_fr"/>
                                 </strong>
@@ -286,7 +286,7 @@
                         </t>
                         <t t-if="employee.gender == 'female'">
                             <span style="display: inline-block">
-                                Madame,
+                                Madame
                                 <strong>
                                     <t t-esc="employee.nom_fr"/>
                                 </strong>
@@ -299,7 +299,7 @@
                         <span>
                             à
                             <strong>
-                                <t t-esc="employee.place_of_birth_fr"/>.
+                                <t t-esc="employee.place_of_birth_fr"/>
                             </strong>
                             <t t-if="employee.gender == 'female'">
                                 <t t-if="employee.nature_travail_id.code_type_fonction == 'contractuel'">
@@ -325,7 +325,7 @@
                         </span>
                         <t t-if="not employee.gender or employee.gender == 'male'">
                             <span>
-                                Il, exerce ses fonctions en sa qualité de
+                                Il exerce ses fonctions en sa qualité de
                                 <strong>
                                     <t t-esc="employee.grade_id.intitule_grade_fr"/>.
                                 </strong>
@@ -333,7 +333,7 @@
                         </t>
                         <t t-if="employee.gender == 'female'">
                             <span>
-                                Elle, exerce ses fonctions en sa qualité de
+                                Elle exerce ses fonctions en sa qualité de
                                 <strong>
                                     <t t-esc="employee.grade_id.intitule_grade_fr"/>.
                                 </strong>

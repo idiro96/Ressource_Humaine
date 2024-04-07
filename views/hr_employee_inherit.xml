@@ -442,8 +442,8 @@
                 <xpath expr="//form//sheet//notebook//page[@name='معلومات حول الراتب']" position="inside">
                     <group>
                         <group>
-                            <field name="date_avancement" help="تاريخ الإستفادة في الترقية في الدرجة"/>
-                            <field name="ref" help="رقم مقرر آخر ترقية"/>
+                            <field name="date_avancement"/>
+                            <field name="ref"/>
                             <field name="date_ref"/>
                             <field name="code_type_fonction" invisible="1"/>
                             <field name="grille_id" required="1"

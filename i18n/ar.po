@@ -29485,13 +29485,19 @@ msgstr "تاريخ الموافقة"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_droit_avencement_date_avancement
-#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_date_avancement
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_date_avancement
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_date_avancement
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_wizard_date_avancement
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avencement_droit_date_avancement
 msgid "Date Avancement"
 msgstr "تاريخ الإستفادة"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_date_avancement
+msgid "Date Avancement"
+msgstr "تاريخ الإستفادة في الترقية في الدرجة"
+
+
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_fin_relation_date_cnas
@@ -61092,11 +61098,16 @@ msgstr "Reduce the time and resources spent on support"
 #: code:addons/account/static/src/xml/account_reconciliation.xml:231
 #: model:ir.ui.view,arch_db:account.report_generalledger
 #: model:ir.ui.view,arch_db:account.report_partnerledger
-#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_ref
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_ref
 #, python-format
 msgid "Ref"
 msgstr "رقم المقرر"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_ref
+msgid "Ref"
+msgstr "رقم مقرر آخر ترقية"
+
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_sanction_ref_pv_sanction
@@ -83837,7 +83848,7 @@ msgstr "تاريخ الإياب"
 #. module: ressource_humaine
 #: selection:hr.employee,service_militaire:0
 msgid "Dossier"
-msgstr "مجلد"
+msgstr "مجند"
 
 #. module: ressource_humaine
 #: selection:hr.employee,service_militaire:0
