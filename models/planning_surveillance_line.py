@@ -20,25 +20,23 @@ class RHPlanningLine(models.Model):
     filtered_employee_ids = fields.Many2many('hr.employee', compute='_compute_filtered_employees',
                                              string="Filtered Employees")
 
-
-
-
     @api.onchange('date_examen')
     def onchange_date(self):
         domain = []
-        for emp in self.env['hr.employee'].search([('fin_relation', '=', False)]):
-            conges = self.env['hr.holidays'].search([('employee_id', '=', emp.id), ('state', '=', 'validate')])
+        for emp in self.env['hr.employee'].search([]):
+            if emp.fin_relation or emp.position_statutaire != 'activite':
+                domain.append(emp.id)
+            else:
+                conges = self.env['hr.holidays'].search([('employee_id', '=', emp.id), ('state', '=', 'validate')])
+                if conges:
+                    for conge in conges:
+                        date_debut_conge = datetime.strptime(conge.date_from, "%Y-%m-%d %H:%M:%S").strftime("%Y-%m-%d")
+                        date_fin_conge = datetime.strptime(conge.date_to, "%Y-%m-%d %H:%M:%S").strftime("%Y-%m-%d")
+                        if date_debut_conge < self.planning_survellance_id.date_surveillance < date_fin_conge:
+                            domain.append(emp.id)
+                            break
             # sanction = self.env['rh.sanction'].search([('employee_id', '=', emp.id), ('state', '=', 'confirm')])
             # formations = self.env['rh.formation.line'].search([('employee_id', '=', emp.id)])
-            if conges:
-                for conge in conges:
-                    date_debut_conge = datetime.strptime(conge.date_from, "%Y-%m-%d %H:%M:%S").strftime("%Y-%m-%d")
-                    date_fin_conge = datetime.strptime(conge.date_to, "%Y-%m-%d %H:%M:%S").strftime("%Y-%m-%d")
-                    if date_debut_conge < self.planning_survellance_id.date_surveillance and date_fin_conge > self.planning_survellance_id.date_surveillance:
-                        print('conges')
-                        print(emp.name)
-                        domain.append(emp.id)
-                        break
 
             # if sanction:
             #     date_sanction = sanction.date_decision_sanction
