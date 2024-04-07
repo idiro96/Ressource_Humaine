@@ -51,6 +51,21 @@ class CustomDepartment(models.Model):
     department_type = fields.Selection(selection=[('secretariat', 'Secrétariat'), ('direction', 'Direction'),
                                                   ('service', 'Service'), ('bureau', 'Bureau')], required=True, readonly=False)
 
+    @api.onchange('department_type')
+    def onchange_department_type(self):
+        domain = []
+        if self.department_type == 'direction':
+            secretariat_deps = self.env['hr.department'].search([('department_type', '=', 'secretariat')])
+            domain += [('id', 'in', secretariat_deps.ids)]
+        if self.department_type == 'service':
+            direction_deps = self.env['hr.department'].search([('department_type', '=', 'direction')])
+            domain += [('id', 'in', direction_deps.ids)]
+        if self.department_type == 'bureau':
+            service_deps = self.env['hr.department'].search([('department_type', '=', 'service')])
+            domain += [('id', 'in', service_deps.ids)]
+
+        return {'domain': {'parent_id': domain}}
+
     # def _update_employee_manager(self, manager_id):
     #     employees = self.env['hr.employee']
     #     for department in self:
