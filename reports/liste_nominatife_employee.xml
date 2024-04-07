@@ -2511,7 +2511,7 @@
                             <t t-foreach="employees_miseendisponibilite" t-as="employee">
                                 <tr>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                        <!--                                        <span t-field="line.employee_id"/>-->
+                                        <span t-field="employee.cause"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
                                         <t t-if="employee.date_retour">
@@ -2528,12 +2528,12 @@
                                         <span t-field="employee.num_date"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                        <!--                                        <span t-esc="'%.2f'%(record.depreciated_value)"/>-->
+                                        <span t-esc="employee.duree"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
                                         <span t-esc="employee.grade_id.intitule_grade"/>
                                     </td>
-                                    <td style="border:2px solid black;vertical-align:middle;text-align:centert;font-size:18px;">
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
                                         <span t-esc="employee.birthday"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
@@ -2609,7 +2609,7 @@
                             <t t-foreach="employees_detachement" t-as="employee">
                                 <tr>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                        <!--                                        <span t-field="line.employee_id"/>-->
+                                        <span t-field="employee.cause"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
                                         <t t-if="employee.date_retour">
@@ -2626,12 +2626,12 @@
                                         <span t-field="employee.num_date"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                        <!--                                        <span t-esc="'%.2f'%(record.depreciated_value)"/>-->
+                                        <span t-esc="employee.duree"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
                                         <span t-esc="employee.grade_id.intitule_grade"/>
                                     </td>
-                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
                                         <span t-esc="employee.birthday"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
@@ -2707,24 +2707,29 @@
                             <t t-foreach="employees_horscadre" t-as="employee">
                                 <tr>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                        <!--                                        <span t-field="line.employee_id"/>-->
+                                        <span t-field="employee.cause"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                        <!--                                        <span t-esc="'%.2f'%(record.depreciated_value)"/>-->
+                                        <t t-if="employee.date_retour">
+                                            <span t-field="employee.date_retour"/>
+                                        </t>
+                                        <t t-if="not employee.date_retour">
+                                            <span>إلى غاية إنهاء المهام</span>
+                                        </t>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
-                                        <!--                                        <span t-esc="line.emphy_id.intitule_emphy"/>-->
+                                        <span t-field="employee.date_depart"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                        <!--                                        <span t-field="line.employee_id"/>-->
+                                        <span t-field="employee.num_date"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                        <!--                                        <span t-esc="'%.2f'%(record.depreciated_value)"/>-->
+                                        <span t-esc="employee.duree"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
                                         <span t-esc="employee.grade_id.intitule_grade"/>
                                     </td>
-                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
                                         <span t-esc="employee.birthday"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
@@ -2800,24 +2805,29 @@
                             <t t-foreach="employees_servicenationale" t-as="employee">
                                 <tr>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                        <!--                                        <span t-field="line.employee_id"/>-->
+                                        <span t-field="employee.cause"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                        <!--                                        <span t-esc="'%.2f'%(record.depreciated_value)"/>-->
+                                        <t t-if="employee.date_retour">
+                                            <span t-field="employee.date_retour"/>
+                                        </t>
+                                        <t t-if="not employee.date_retour">
+                                            <span>إلى غاية إنهاء المهام</span>
+                                        </t>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
-                                        <!--                                        <span t-esc="line.emphy_id.intitule_emphy"/>-->
+                                        <span t-field="employee.date_depart"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                        <!--                                        <span t-field="line.employee_id"/>-->
+                                        <span t-field="employee.num_date"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
-                                        <!--                                        <span t-esc="'%.2f'%(record.depreciated_value)"/>-->
+                                        <span t-esc="employee.duree"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
                                         <span t-esc="employee.grade_id.intitule_grade"/>
                                     </td>
-                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:center;font-size:18px;">
                                         <span t-esc="employee.birthday"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;">

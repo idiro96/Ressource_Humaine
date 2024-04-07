@@ -183,7 +183,7 @@ class HrContratInherited(models.Model):
                 else:
                     rec.bool1 = True
                 # job = self.env['hr.job'].search([('nature_travail_id', '=', type_fonction.id)])
-                employee = self.env['hr.employee'].search([('nature_travail_id', '!=', type_fonction.id)])
+                employee = self.env['hr.employee'].search(['|', ('nature_travail_id', '!=', type_fonction.id), ('nature_travail_id', '=', False)])
                 domain.append(('id', 'in', employee.ids))
         res = {'domain': {'employee_id': domain}}
 
@@ -303,6 +303,8 @@ class HrContratInherited(models.Model):
     def onchange_employee_type_id(self):
         if self.employee_id:
             self.type_id = self.employee_id.type_id
+        else:
+            self.type_id = False
 
 
 class HrContractReport(models.AbstractModel):

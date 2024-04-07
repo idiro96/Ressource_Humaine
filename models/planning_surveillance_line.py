@@ -20,28 +20,39 @@ class RHPlanningLine(models.Model):
     filtered_employee_ids = fields.Many2many('hr.employee', compute='_compute_filtered_employees',
                                              string="Filtered Employees")
 
-
-
-
     @api.onchange('date_examen')
     def onchange_date(self):
         domain = []
-        for emp in self.env['hr.employee'].search([('fin_relation', '=', False)]):
-            conges = self.env['hr.holidays'].search([('employee_id', '=', emp.id), ('state', '=', 'validate')])
-            sanction = self.env['rh.sanction'].search([('employee_id', '=', emp.id)])
-            if conges:
-                for conge in conges:
-                    date_debut_conge = datetime.strptime(conge.date_from, "%Y-%m-%d %H:%M:%S").strftime("%Y-%m-%d")
-                    date_fin_conge = datetime.strptime(conge.date_to, "%Y-%m-%d %H:%M:%S").strftime("%Y-%m-%d")
-                    if date_debut_conge > self.planning_survellance_id.date_surveillance or date_fin_conge < self.planning_survellance_id.date_surveillance:
-                        if not sanction:
+        for emp in self.env['hr.employee'].search([]):
+            if emp.fin_relation or emp.position_statutaire != 'activite':
+                domain.append(emp.id)
+            else:
+                conges = self.env['hr.holidays'].search([('employee_id', '=', emp.id), ('state', '=', 'validate')])
+                if conges:
+                    for conge in conges:
+                        date_debut_conge = datetime.strptime(conge.date_from, "%Y-%m-%d %H:%M:%S").strftime("%Y-%m-%d")
+                        date_fin_conge = datetime.strptime(conge.date_to, "%Y-%m-%d %H:%M:%S").strftime("%Y-%m-%d")
+                        if date_debut_conge < self.planning_survellance_id.date_surveillance < date_fin_conge:
                             domain.append(emp.id)
                             break
-            elif sanction:
-                date_sanction = datetime.strptime(sanction.date_decision_sanction, "%Y-%m-%d").strftime("%Y-%m-%d")
-                if date_sanction > self.planning_survellance_id.date_surveillance:
-                    domain.append(emp.id)
-            else:
-                domain.append(emp.id)
+            # sanction = self.env['rh.sanction'].search([('employee_id', '=', emp.id), ('state', '=', 'confirm')])
+            # formations = self.env['rh.formation.line'].search([('employee_id', '=', emp.id)])
 
-        return {'domain': {'employee_id': [('id', 'in', domain)]}}
+            # if sanction:
+            #     date_sanction = sanction.date_decision_sanction
+            #     if date_sanction < self.planning_survellance_id.date_surveillance:
+            #         print('sanction')
+            #         print(emp.name)
+            #         domain.append(emp.id)
+
+            # if formations:
+            #     for formation in formations:
+            #         debut = formation.date_debut_formation_line
+            #         fin = formation.date_fin_formation_line
+            #         if debut < self.planning_survellance_id.date_surveillance and fin > self.planning_survellance_id.date_surveillance:
+            #             print('formation')
+            #             print(emp.name)
+            #             domain.append(emp.id)
+            #             break
+
+        return {'domain': {'employee_id': [('id', 'not in', domain)]}}

@@ -27,12 +27,13 @@
                                    options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                             <field name="num_decision_fin_relation"/>
                             <field name="date_decision_fin_relation"/>
+                        </group>
+                        <group>
                             <field name="date_fin_relation"/>
                             <field name="description" invisible="1"/>
                             <field name="type_fin_relation_id"
                                    options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
-                            <field name="date_cnas" attrs="{'invisible': [('description', '!=', 'إحالة التقاعد')]}"
-                            string="CNAS تاريخ"/>
+                            <field name="date_cnas" attrs="{'invisible': [('description', '!=', 'إحالة التقاعد')]}"/>
                         </group>
 
                     </group>

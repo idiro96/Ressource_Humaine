@@ -83,6 +83,7 @@
         'views/company.xml',
         'views/emphy.xml',
         'views/planning_surveillance.xml',
+        'views/hr_department_inherit.xml',
         'data/sequence.xml',
         'data/type_fonction.xml',
         'data/type_contract.xml',

@@ -14722,7 +14722,7 @@ msgstr "<strong>المراقبون</strong>"
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.planning_conge
 msgid "<strong>المستخلف في حالة ضرورة المصلحة</strong>"
-msgstr "<strong>المستخلف في حالة ضرورة المصلحة</strong>"
+msgstr "<strong>المستخلف في حالة ضرورة الهيكل</strong>"
 
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.pv_instalation
@@ -22546,7 +22546,7 @@ msgstr "حسب الإشعار الدائن"
 #. module: hr_recruitment
 #: model:ir.filters,name:hr_recruitment.hr_applicant_filter_department
 msgid "By Department"
-msgstr "حسب المصلحة"
+msgstr "حسب الهيكل"
 
 #. module: hr_holidays
 #: selection:hr.holidays,holiday_type:0
@@ -22710,7 +22710,12 @@ msgstr "فلاتر شبكة توصيل المحتوى"
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_fin_relation_form
 msgid "CNAS تاريخ"
-msgstr "CNAS تاريخ"
+msgstr "تاريخ CNAS"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_fin_relation_date_cnas
+msgid "Date Cnas"
+msgstr "تاريخ CNAS"
 
 #. module: stock
 #: model:stock.incoterms,name:stock.incoterm_CFR
@@ -24170,7 +24175,7 @@ msgstr "الشركات الفرعية"
 #. module: hr
 #: model:ir.model.fields,field_description:hr.field_hr_department_child_ids
 msgid "Child Departments"
-msgstr "المصلحات الفرعية"
+msgstr "الهياكل الفرعية"
 
 #. modules: website, base
 #: model:ir.model.fields,field_description:base.field_ir_ui_view_field_parent
@@ -24725,7 +24730,7 @@ msgstr "انقر لإنشاء فاتورة العميل."
 #. module: hr
 #: model:ir.actions.act_window,help:hr.open_module_tree_department
 msgid "Click to create a department."
-msgstr "أنقر هنا لإضافة مصلحة جديد."
+msgstr "أنقر هنا لإضافة هيكل جديد."
 
 #. module: gamification
 #: model:ir.actions.act_window,help:gamification.goal_definition_list_action
@@ -29480,13 +29485,19 @@ msgstr "تاريخ الموافقة"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_droit_avencement_date_avancement
-#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_date_avancement
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_date_avancement
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_date_avancement
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_wizard_date_avancement
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avencement_droit_date_avancement
 msgid "Date Avancement"
 msgstr "تاريخ الإستفادة"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_date_avancement
+msgid "Date Avancement"
+msgstr "تاريخ الإستفادة في الترقية في الدرجة"
+
+
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_fin_relation_date_cnas
@@ -29748,12 +29759,17 @@ msgstr "تاريخ مقرر آخر ترقية"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_date_reintegration
 msgid "Date Reintegration"
-msgstr "إعادة الإدماج"
+msgstr "تاريخ إعادة الإدماج"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_reintegration
+msgid "Reintegration"
+msgstr "الإدماج"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_date_signature
 msgid "Date Signature"
-msgstr "Date Signature"
+msgstr "تاريخ الإمضاء"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_planning_date_surveillance
@@ -30850,7 +30866,6 @@ msgid "Denmark"
 msgstr "الدنمارك"
 
 #. modules: hr_holidays, hr, hr_contract, hr_recruitment, ressource_humaine
-#: model:ir.model.fields,field_description:hr.field_hr_employee_department_id
 #: model:ir.model.fields,field_description:hr.field_hr_job_department_id
 #: model:ir.ui.view,arch_db:hr.view_department_filter
 #: model:ir.ui.view,arch_db:hr.view_employee_filter
@@ -30864,12 +30879,12 @@ msgstr "الدنمارك"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_commission_line_department_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_commission_line_department_id
 msgid "Department"
-msgstr "المصلحة"
+msgstr "الهيكل"
 
 #. module: hr_holidays
 #: model:ir.actions.act_window,name:hr_holidays.open_department_holidays_approve
 msgid "Department Leaves"
-msgstr "إجازات المصلحة"
+msgstr "إجازات الهيكل"
 
 #. module: hr_holidays
 #: model:ir.actions.act_window,name:hr_holidays.open_department_holidays_allocation_approve
@@ -30879,12 +30894,12 @@ msgstr "Department Leaves Allocation"
 #. module: hr_recruitment
 #: model:ir.model.fields,field_description:hr_recruitment.field_hr_job_manager_id
 msgid "Department Manager"
-msgstr "مدير المصلحة"
+msgstr "مدير الهيكل"
 
 #. module: hr
 #: model:ir.model.fields,field_description:hr.field_hr_department_name
 msgid "Department Name"
-msgstr "اسم المصلحة"
+msgstr "اسم الهيكل"
 
 #. module: hr_holidays
 #: model:ir.model.fields,field_description:hr_holidays.field_hr_holidays_summary_dept_depts
@@ -30898,7 +30913,7 @@ msgstr "الإدارات"
 #: model:ir.actions.act_window,name:hr_recruitment.action_hr_department
 #: model:ir.ui.menu,name:hr_recruitment.menu_hr_department
 msgid "Departments"
-msgstr "المصلحات"
+msgstr "الهيكل التنظيمي"
 
 #. modules: website, base
 #. openerp-web
@@ -32037,7 +32052,7 @@ msgstr "طريقة العرض"
 #: model:ir.model.fields,field_description:website.field_website_redirect_display_name
 #: model:ir.model.fields,field_description:website.field_website_seo_metadata_display_name
 msgid "Display Name"
-msgstr "الاسم المعروض"
+msgstr "اسم الهيكل"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_report_paperformat_header_line
@@ -32383,7 +32398,7 @@ msgstr "جمهورية الدومينيكان - محاسبة"
 #: model:ir.actions.act_window,help:hr_recruitment.hr_recruitment_stage_act
 msgid "Don't forget to specify the department if your recruitment process\n"
 "            is different according to the job position."
-msgstr "لا تنسَ تحديد المصلحة إن كانت عملية التعيين\n"
+msgstr "لا تنسَ تحديد الهيكل إن كانت عملية التعيين\n"
 "            ستختلف حسب المنصف الوظيفي."
 
 #. module: website
@@ -32927,7 +32942,7 @@ msgstr "تقارير ديناميكية"
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.wage_graph
 msgid "Département"
-msgstr "المصلحة"
+msgstr "الهيكل"
 
 #. module: base
 #: model:res.partner.industry,full_name:base.res_partner_industry_E
@@ -37824,7 +37839,7 @@ msgstr "الرقم الإستدلالي"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_employee_structure
 msgid "Structure"
-msgstr "المصلحة"
+msgstr "الهيكل"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_grille_old_id
@@ -56103,7 +56118,7 @@ msgstr "الشركة الأم"
 #. module: hr
 #: model:ir.model.fields,field_description:hr.field_hr_department_parent_id
 msgid "Parent Department"
-msgstr "مصلحة رئيسية"
+msgstr "الهيكل الرئيسي"
 
 #. modules: website, base
 #: model:ir.model.fields,field_description:base.field_ir_ui_menu_parent_left
@@ -61082,11 +61097,16 @@ msgstr "Reduce the time and resources spent on support"
 #: code:addons/account/static/src/xml/account_reconciliation.xml:231
 #: model:ir.ui.view,arch_db:account.report_generalledger
 #: model:ir.ui.view,arch_db:account.report_partnerledger
-#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_ref
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_ref
 #, python-format
 msgid "Ref"
 msgstr "رقم المقرر"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_ref
+msgid "Ref"
+msgstr "رقم مقرر آخر ترقية"
+
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_sanction_ref_pv_sanction
@@ -71086,7 +71106,7 @@ msgstr "يغير هذا تاريخ جدولة كافة بنود الأمر لل�
 #. module: hr_holidays
 #: model:ir.model.fields,help:hr_holidays.field_hr_holidays_status_color_name
 msgid "This color will be used in the leaves summary located in Reporting > Leaves by Department."
-msgstr "سيستخدم هذا اللون عند عرض ملخص الإجازات الموجود في التقارير > الإجازات حسب المصلحة."
+msgstr "سيستخدم هذا اللون عند عرض ملخص الإجازات الموجود في التقارير > الإجازات حسب الهيكل."
 
 #. module: base
 #: code:addons/base/ir/ir_model.py:645
@@ -78444,7 +78464,7 @@ msgstr "لديك تحديد وحدة قياس المنتج في نفس الفئ�
 #: code:addons/hr_holidays/wizard/hr_holidays_summary_department.py:27
 #, python-format
 msgid "You have to select at least one Department. And try again."
-msgstr "يجب أن تختار مصلحة واحدة على الأقل. ثم حاول مرة أخرى."
+msgstr "يجب أن تختار هيكل واحد على الأقل. ثم حاول مرة أخرى."
 
 #. module: account_bank_statement_import
 #: code:addons/account_bank_statement_import/account_bank_statement_import.py:47
@@ -79751,7 +79771,7 @@ msgstr "عشري.الدقة.اختبار"
 #. module: hr
 #: model:ir.ui.view,arch_db:hr.view_department_form
 msgid "department"
-msgstr "المصلحة"
+msgstr "الهيكل"
 
 #. module: website
 #. openerp-web
@@ -82673,8 +82693,8 @@ msgstr "ابتداء من تاريخ"
 
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.view_planning_conge
-msgid "اختر المصلحة الذي تريد طباعة جدول الإجازات"
-msgstr "اختر المصلحة الذي تريد طباعة جدول الإجازات"
+msgid "اختر الهيكل الذي تريد طباعة جدول الإجازات"
+msgstr "اختر الهيكل الذي تريد طباعة جدول الإجازات"
 
 #. module: ressource_humaine
 #: selection:attestation.travail,signataire:0
@@ -82749,7 +82769,7 @@ msgstr "الخاص بالسيدة"
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.planning_conge
 msgid "الخاص بمصلحة"
-msgstr "الخاص بمصلحة"
+msgstr "الخاص بهيكل"
 
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.droit_avancement_report
@@ -82952,7 +82972,7 @@ msgstr "المدير العام"
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.view_planning_conge
 msgid "المصلحة"
-msgstr "المصلحة"
+msgstr "الهيكل"
 
 #. module: ressource_humaine
 #: selection:attestation.travail,signataire:0
@@ -83535,7 +83555,7 @@ msgstr "قـد نصـبنا السـيدة"
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.note_conge
 msgid "كأقصى حد, ولا يمكن تأجيل\n"
-"                        العطلة إلا بداعي ضرورة المصلحة, مع مرعاة ضمان الحد الأدنى من الخدمة على مستوى جميع المديريات و\n"
+"                        العطلة إلا بداعي ضرورة الهيكل, مع مرعاة ضمان الحد الأدنى من الخدمة على مستوى جميع المديريات و\n"
 "                        المصالح\n"
 "\n"
 "                        <br/>\n"
@@ -83550,7 +83570,7 @@ msgid "كأقصى حد, ولا يمكن تأجيل\n"
 "                        <br/>\n"
 "                        ـ نسخة للإعلام للسيد المدير العام"
 msgstr "كأقصى حد, ولا يمكن تأجيل\n"
-"                        العطلة إلا بداعي ضرورة المصلحة, مع مرعاة ضمان الحد الأدنى من الخدمة على مستوى جميع المديريات و\n"
+"                        العطلة إلا بداعي ضرورة الهيكل, مع مرعاة ضمان الحد الأدنى من الخدمة على مستوى جميع المديريات و\n"
 "                        المصالح\n"
 "\n"
 "                        <br/>\n"
@@ -83827,7 +83847,7 @@ msgstr "تاريخ الإياب"
 #. module: ressource_humaine
 #: selection:hr.employee,service_militaire:0
 msgid "Dossier"
-msgstr "مجلد"
+msgstr "مجند"
 
 #. module: ressource_humaine
 #: selection:hr.employee,service_militaire:0
@@ -83838,3 +83858,43 @@ msgstr "معفى"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_fin_relation_date_decision_fin_relation
 msgid "Date Decision Fin Relation"
 msgstr "تاريخ المقرر"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_cause
+msgid "Cause"
+msgstr "السبب وعدد المرات"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_reintegration
+msgid "Reintegration"
+msgstr "إعادة الإدماج"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_department_department_type
+msgid "Department Type"
+msgstr "نوع الهيكل"
+
+#. module: ressource_humaine
+#: selection:hr.department,department_type:0
+msgid "Bureau"
+msgstr "مكتب"
+
+#. module: ressource_humaine
+#: selection:hr.department,department_type:0
+msgid "Service"
+msgstr "مصلحة"
+
+#. module: ressource_humaine
+#: selection:hr.department,department_type:0
+msgid "Direction"
+msgstr "أمانة/مديرية"
+
+#. module: ressource_humaine
+#: selection:hr.department,department_type:0
+msgid "Secrétariat"
+msgstr "مديرية"
+
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee_department_id
+msgid "Department"
+msgstr "الهيكل التنظيمي"

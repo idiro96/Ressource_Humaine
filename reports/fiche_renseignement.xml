@@ -132,11 +132,19 @@
                         <br/>
                         <div style="font-size: 20px; text-align: right;margin-right: 300px;">
                             <span>
-                                <t t-if="employee.position_statutaire == 'servicenationale'">
-                                    تحت التصرف
+                                <t t-if="employee.gender == 'male'">
+                                    <t t-if="employee.service_militaire =='field'">
+                                        مجند
+                                    </t>
+                                    <t t-if="employee.service_militaire =='exempted'">
+                                        معفى
+                                    </t>
+                                    <t t-if="not employee.service_militaire">
+                                        غير محدد
+                                    </t>
                                 </t>
-                                <t t-if="not employee.position_statutaire == 'servicenationale'">
-                                    معفى
+                                <t t-if="employee.gender == 'female'">
+                                    غير معنية
                                 </t>
                             </span>
                         </div>
