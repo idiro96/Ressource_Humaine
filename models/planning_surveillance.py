@@ -3,14 +3,30 @@ import math
 from odoo import models, fields, api, _
 from odoo.exceptions import UserError, ValidationError
 
+
 class RHPlanning(models.Model):
     _name = 'rh.planning'
     _rec_name = 'date_surveillance'
+    _order = "date_surveillance desc"
+    _inherit = ['mail.thread', 'mail.activity.mixin']
+    _mail_post_access = 'read'
 
-    date_surveillance = fields.Date()
-    time_surveillance_start = fields.Char()
-    time_surveillance_end = fields.Char()
-    planning_surveillance_line = fields.One2many('rh.planning.line', 'planning_survellance_id')
+    date_surveillance = fields.Date(track_visibility='onchange')
+    time_surveillance_start = fields.Char(track_visibility='onchange')
+    time_surveillance_end = fields.Char(track_visibility='onchange')
+    planning_surveillance_line = fields.One2many('rh.planning.line', 'planning_survellance_id', track_visibility='onchange')
+    create_uid = fields.Many2one('res.users', string='Created by', readonly=True, track_visibility='onchange')
+    write_uid = fields.Many2one('res.users', string='Last Updated by', readonly=True, track_visibility='onchange')
+
+    @api.model
+    def create(self, vals):
+        vals['create_uid'] = self.env.user.id
+        return super(RHPlanning, self).create(vals)
+
+    @api.multi
+    def write(self, vals):
+        vals['write_uid'] = self.env.user.id
+        return super(RHPlanning, self).write(vals)
 
     @api.constrains('date_surveillance', 'time_surveillance_start', 'time_surveillance_end', 'planning_surveillance_line')
     def _check_employee_availability(self):
@@ -24,7 +40,7 @@ class RHPlanning(models.Model):
                     ('time_end', '=', planning.time_surveillance_end),
                 ])
                 if conflicting_lines:
-                    raise ValidationError("un employee ne peut pas surveiller deux emphy au meme horraire")
+                    raise ValidationError("لا يجوز للموظف الإشراف على موظفين في نفس الوقت")
 
 
     def action_planning(self):

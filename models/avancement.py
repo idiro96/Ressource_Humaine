@@ -7,21 +7,35 @@ from odoo.exceptions import UserError
 
 class RHAvancement(models.Model):
     _name = 'rh.avancement'
+    _order = "date_avancement desc"
+    _inherit = ['mail.thread', 'mail.activity.mixin']
+    _mail_post_access = 'read'
 
-    date_avancement = fields.Date()
-    date_signature = fields.Date()
-    code = fields.Char()
-    code_decision_groupe = fields.Char()
-    date_decision_groupe = fields.Date()
-    date_effet_decision_groupe = fields.Date()
-    avancement_lines = fields.One2many('rh.avancement.line', inverse_name='avancement_id')
+    date_avancement = fields.Date(track_visibility='onchange')
+    date_signature = fields.Date(track_visibility='onchange')
+    code = fields.Char(track_visibility='onchange')
+    code_decision_groupe = fields.Char(track_visibility='onchange')
+    date_decision_groupe = fields.Date(track_visibility='onchange')
+    date_effet_decision_groupe = fields.Date(track_visibility='onchange')
+    avancement_lines = fields.One2many('rh.avancement.line', inverse_name='avancement_id', track_visibility='onchange')
     avancement_lines_wizard = fields.One2many('rh.avancement.line.wizard', inverse_name='avancement_id')
-    date_comission = fields.Date()
+    date_comission = fields.Date(track_visibility='onchange')
     avancement_wizard = fields.Boolean(default=True)
-    choisir_commission_lines = fields.One2many('rh.avancement.commission.line', 'avancement_id')
+    choisir_commission_lines = fields.One2many('rh.avancement.commission.line', 'avancement_id', track_visibility='onchange')
     promotion_file_lines = fields.One2many('rh.file', 'promotion_id')
-    avancement_file_lines = fields.One2many('rh.file', 'avancement_id')
+    avancement_file_lines = fields.One2many('rh.file', 'avancement_id', track_visibility='onchange')
+    create_uid = fields.Many2one('res.users', string='Created by', readonly=True, track_visibility='onchange')
+    write_uid = fields.Many2one('res.users', string='Last Updated by', readonly=True, track_visibility='onchange')
 
+    @api.model
+    def create(self, vals):
+        vals['create_uid'] = self.env.user.id
+        return super(RHAvancement, self).create(vals)
+
+    @api.multi
+    def write(self, vals):
+        vals['write_uid'] = self.env.user.id
+        return super(RHAvancement, self).write(vals)
 
     @api.model
     def create(self, vals):
@@ -30,28 +44,28 @@ class RHAvancement(models.Model):
             for rec in avancement.avancement_lines_wizard:
                 if rec.employee_id.nature_travail_id.code_type_fonction == 'fonction':
                     avance_line = self.env['rh.avancement.line'].create({
-                    'code': self.env['ir.sequence'].next_by_code('rh.avancement.line.sequence'),
-                    'employee_id': rec.employee_id.id,
-                    'type_fonction_id': rec.employee_id.nature_travail_id.id,
-                    'date_old_avancement': rec.date_old_avancement,
-                    'ref': rec.employee_id.ref,
-                    'date_ref': rec.employee_id.date_ref,
-                    'grade_id': rec.grade_id.id,
-                    'job_id': rec.job_id.id,
-                    'date_avancement': avancement.date_avancement,
-                    'avancement_id': avancement.id,
-                    'grille_old_id': rec.grille_old_id.id,
-                    'groupe_old_id': rec.groupe_old_id.id,
-                    'categorie_old_id': rec.categorie_old_id.id,
-                    'echelon_old_id': rec.echelon_old_id.id,
+                        'code': self.env['ir.sequence'].next_by_code('rh.avancement.line.sequence'),
+                        'employee_id': rec.employee_id.id,
+                        'type_fonction_id': rec.employee_id.nature_travail_id.id,
+                        'date_old_avancement': rec.date_old_avancement,
+                        'ref': rec.employee_id.ref,
+                        'date_ref': rec.employee_id.date_ref,
+                        'grade_id': rec.grade_id.id,
+                        'job_id': rec.job_id.id,
+                        'date_avancement': avancement.date_avancement,
+                        'avancement_id': avancement.id,
+                        'grille_old_id': rec.grille_old_id.id,
+                        'groupe_old_id': rec.groupe_old_id.id,
+                        'categorie_old_id': rec.categorie_old_id.id,
+                        'echelon_old_id': rec.echelon_old_id.id,
 
-                    'grille_new_id': rec.grille_new_id.id,
-                    'groupe_new_id': rec.groupe_new_id.id,
-                    'categorie_new_id': rec.categorie_new_id.id,
-                    'echelon_new_id': rec.echelon_new_id.id,
-                    'duree': rec.duree,
-                    'duree_lettre': rec.duree_lettre,
-                    'date_new_avancement': rec.date_new_avancement
+                        'grille_new_id': rec.grille_new_id.id,
+                        'groupe_new_id': rec.groupe_new_id.id,
+                        'categorie_new_id': rec.categorie_new_id.id,
+                        'echelon_new_id': rec.echelon_new_id.id,
+                        'duree': rec.duree,
+                        'duree_lettre': rec.duree_lettre,
+                        'date_new_avancement': rec.date_new_avancement
                     })
                     employee = self.env['hr.employee'].search(
                         [('id', '=', rec.employee_id.id)])
@@ -96,7 +110,8 @@ class RHAvancement(models.Model):
                         'wage': rec.employee_id.wage,
                     })
                     avancement_droit = self.env['rh.avencement.droit'].search(
-                        [('employee_id', '=', rec.employee_id.id), ('date_avancement', '=', avancement.date_avancement)])
+                        [('employee_id', '=', rec.employee_id.id),
+                         ('date_avancement', '=', avancement.date_avancement)])
                     if avancement_droit:
                         print('valider: True')
                         avancement_droit.write({'valider': True})
@@ -166,7 +181,8 @@ class RHAvancement(models.Model):
                         'wage': rec.employee_id.wage,
                     })
                     avancement_droit = self.env['rh.avencement.droit'].search(
-                        [('employee_id', '=', rec.employee_id.id), ('date_avancement', '=', avancement.date_avancement)])
+                        [('employee_id', '=', rec.employee_id.id),
+                         ('date_avancement', '=', avancement.date_avancement)])
                     if avancement_droit:
                         print('valider: True')
                         avancement_droit.write({'valider': True})
@@ -204,77 +220,77 @@ class RHAvancement(models.Model):
         avancement_ligne_droit = self.env['rh.avancement.line.wizard'].search([])
         for record in avancement_ligne_droit:
             record.unlink()
-        for rec2  in self:
+        for rec2 in self:
             avancement_line = self.env['rh.avencement.droit'].search(
-                [('date_avancement', '=', rec2.date_avancement),('sauvegarde', '=', True),('retenue', '=', True)],
+                [('date_avancement', '=', rec2.date_avancement), ('sauvegarde', '=', True), ('retenue', '=', True)],
                 order='date_avancement desc')
         if avancement_line:
-             for avance in avancement_line:
-                    dateDebut_object = fields.Date.from_string(self.date_avancement)
-                    dateDebut_object2 = fields.Date.from_string(avance.date_avancement)
-                    difference = (
-                                             dateDebut_object.year - dateDebut_object2.year) * 12 + dateDebut_object.month - dateDebut_object2.month
-                    # difference = dateDebut_object - dateDebut_object2
-                    print(avance.employee_id.id)
-                    print('difference')
-                    record2 = self.env['rh.avancement.line'].search(
-                        [('employee_id', '=', avance.employee_id.id), ('date_avancement', '=', self.date_avancement)])
-                    if not record2:
-                        if avance.type_fonction_id.code_type_fonction == 'fonction':
-                            self.env['rh.avancement.line.wizard'].create({
-                                'employee_id': avance.employee_id.id,
-                                'type_fonction_id': avance.type_fonction_id.id,
-                                'date_old_avancement': avance.date_old_avancement,
-                                'date_avancement': avance.date_avancement,
-                                'grade_id': avance.grade_id.id,
-                                'job_id': avance.job_id.id,
-                                'grille_old_id': avance.grille_old_id.id,
-                                'groupe_old_id': avance.groupe_old_id.id,
-                                'categorie_old_id': avance.categorie_old_id.id,
-                                'echelon_old_id': avance.echelon_old_id.id,
-                                'grille_new_id': avance.grille_new_id.id,
-                                'groupe_new_id': avance.groupe_new_id.id,
-                                'categorie_new_id': avance.categorie_new_id.id,
-                                'echelon_new_id': avance.echelon_new_id.id,
-                                'duree': avance.duree,
-                                'duree_lettre': avance.duree_lettre,
-                                'date_new_avancement': avance.date_new_avancement,
+            for avance in avancement_line:
+                dateDebut_object = fields.Date.from_string(self.date_avancement)
+                dateDebut_object2 = fields.Date.from_string(avance.date_avancement)
+                difference = (
+                                     dateDebut_object.year - dateDebut_object2.year) * 12 + dateDebut_object.month - dateDebut_object2.month
+                # difference = dateDebut_object - dateDebut_object2
+                print(avance.employee_id.id)
+                print('difference')
+                record2 = self.env['rh.avancement.line'].search(
+                    [('employee_id', '=', avance.employee_id.id), ('date_avancement', '=', self.date_avancement)])
+                if not record2:
+                    if avance.type_fonction_id.code_type_fonction == 'fonction':
+                        self.env['rh.avancement.line.wizard'].create({
+                            'employee_id': avance.employee_id.id,
+                            'type_fonction_id': avance.type_fonction_id.id,
+                            'date_old_avancement': avance.date_old_avancement,
+                            'date_avancement': avance.date_avancement,
+                            'grade_id': avance.grade_id.id,
+                            'job_id': avance.job_id.id,
+                            'grille_old_id': avance.grille_old_id.id,
+                            'groupe_old_id': avance.groupe_old_id.id,
+                            'categorie_old_id': avance.categorie_old_id.id,
+                            'echelon_old_id': avance.echelon_old_id.id,
+                            'grille_new_id': avance.grille_new_id.id,
+                            'groupe_new_id': avance.groupe_new_id.id,
+                            'categorie_new_id': avance.categorie_new_id.id,
+                            'echelon_new_id': avance.echelon_new_id.id,
+                            'duree': avance.duree,
+                            'duree_lettre': avance.duree_lettre,
+                            'date_new_avancement': avance.date_new_avancement,
 
-                            })
-                        elif avance.type_fonction_id.code_type_fonction == 'fonctionsuperieure':
-                            self.env['rh.avancement.line.wizard'].create({
-                                'employee_id': avance.employee_id.id,
-                                'type_fonction_id': avance.type_fonction_id.id,
-                                'date_old_avancement': avance.date_old_avancement,
-                                'date_avancement': avance.date_avancement,
-                                'grade_id': avance.grade_id.id,
-                                'job_id': avance.job_id.id,
-                                'grille_old_id': avance.grille_old_id.id,
-                                'categorie_old_id': avance.categorie_old_id.id,
-                                'section_old_id': avance.section_old_id.id,
-                                'echelon_old_id': avance.echelon_old_id.id,
+                        })
+                    elif avance.type_fonction_id.code_type_fonction == 'fonctionsuperieure':
+                        self.env['rh.avancement.line.wizard'].create({
+                            'employee_id': avance.employee_id.id,
+                            'type_fonction_id': avance.type_fonction_id.id,
+                            'date_old_avancement': avance.date_old_avancement,
+                            'date_avancement': avance.date_avancement,
+                            'grade_id': avance.grade_id.id,
+                            'job_id': avance.job_id.id,
+                            'grille_old_id': avance.grille_old_id.id,
+                            'categorie_old_id': avance.categorie_old_id.id,
+                            'section_old_id': avance.section_old_id.id,
+                            'echelon_old_id': avance.echelon_old_id.id,
 
-                                'grille_new_id': avance.grille_new_id.id,
-                                'categorie_new_id': avance.categorie_new_id.id,
-                                'section_new_id': avance.section_new_id.id,
-                                'echelon_new_id': avance.echelon_new_id.id,
-                                'duree': avance.duree,
-                                'duree_lettre': avance.duree_lettre,
-                                'date_new_avancement': avance.date_new_avancement,
+                            'grille_new_id': avance.grille_new_id.id,
+                            'categorie_new_id': avance.categorie_new_id.id,
+                            'section_new_id': avance.section_new_id.id,
+                            'echelon_new_id': avance.echelon_new_id.id,
+                            'duree': avance.duree,
+                            'duree_lettre': avance.duree_lettre,
+                            'date_new_avancement': avance.date_new_avancement,
 
-                            })
-                        elif avance.type_fonction_id.code_type_fonction == 'postesuperieure':
-                            print('teste')
+                        })
+                    elif avance.type_fonction_id.code_type_fonction == 'postesuperieure':
+                        print('teste')
 
         self.avancement_lines_wizard = self.env['rh.avancement.line.wizard'].search([])
 
         return {
-                'type': 'ir.actions.act_window',
-                'target': 'new',
-                'name': 'Avancement',
-                'view_mode': 'form',
-                'res_model': 'rh.avancement',
-            }
+            'type': 'ir.actions.act_window',
+            'target': 'new',
+            'name': 'Avancement',
+            'view_mode': 'form',
+            'res_model': 'rh.avancement',
+        }
 
     def choisir_commission(self):
 
@@ -291,7 +307,6 @@ class RHAvancement(models.Model):
         return self.env.ref('ressource_humaine.action_droit_avancement_report').report_action(self)
 
 
-
 class DroitAvancementReport(models.AbstractModel):
     _name = 'report.ressource_humaine.droit_avancement_report'
 
@@ -301,12 +316,16 @@ class DroitAvancementReport(models.AbstractModel):
 
         avancement_lines = avancement.avancement_lines
         avance = []
-        avance_first= []
-        avance_next= []
+        avance_first = []
+        avance_next = []
         derniere_grille = []
         for rec in avancement_lines:
-            employe_avancement_lines = self.env['rh.avancement.line'].search([('employee_id', '=', rec.employee_id.id),('date_avancement', '<=', avancement.date_avancement)],order='date_avancement desc', limit=2)
-            avancement_lines_grille = self.env['rh.avancement.line'].search([('employee_id', '=', rec.employee_id.id),('date_avancement', '<=', avancement.date_avancement)],order='date_avancement desc')
+            employe_avancement_lines = self.env['rh.avancement.line'].search(
+                [('employee_id', '=', rec.employee_id.id), ('date_avancement', '<=', avancement.date_avancement)],
+                order='date_avancement desc', limit=2)
+            avancement_lines_grille = self.env['rh.avancement.line'].search(
+                [('employee_id', '=', rec.employee_id.id), ('date_avancement', '<=', avancement.date_avancement)],
+                order='date_avancement desc')
             if avancement_lines_grille:
                 for rec1 in avancement_lines_grille:
                     avancement_lines_grille3 = self.env['rh.avancement.line'].search(
@@ -314,12 +333,12 @@ class DroitAvancementReport(models.AbstractModel):
                          ('grille_old_id', '=', rec.grille_old_id.id),
                          ('date_avancement', '<=', avancement.date_avancement)], order='date_avancement desc')
                     if rec.grille_old_id.id != rec1.grille_old_id.id:
-                          if not avancement_lines_grille3[-1] in derniere_grille:
+                        if not avancement_lines_grille3[-1] in derniere_grille:
                             derniere_grille.append(avancement_lines_grille3[-1])
                             print(avancement_lines_grille[0].echelon_old_id.intitule)
-                if not employe_avancement_lines[-1] in derniere_grille and not avancement_lines_grille3[-1] in derniere_grille:
+                if not employe_avancement_lines[-1] in derniere_grille and not avancement_lines_grille3[
+                                                                                   -1] in derniere_grille:
                     derniere_grille.append(avancement_lines_grille[-1])
-
 
             if employe_avancement_lines:
                 # print(employe_avancement_lines[0])
@@ -333,8 +352,6 @@ class DroitAvancementReport(models.AbstractModel):
                 else:
                     avance.append(employe_avancement_lines[1])
                     avance_next.append(employe_avancement_lines[0])
-
-
 
         line_date_old_avancement = {}
         for rec in avancement_lines:
@@ -394,7 +411,8 @@ class DroitAvancementReport(models.AbstractModel):
             print('date:')
 
             if date_decision_groupe_str:
-                formatted_date_effet_decision_groupe = datetime.strptime(date_effet_decision_groupe_str, "%Y-%m-%d").strftime(
+                formatted_date_effet_decision_groupe = datetime.strptime(date_effet_decision_groupe_str,
+                                                                         "%Y-%m-%d").strftime(
                     "%d-%m-%Y")
                 line_date_effet_decision_groupe[rec.id] = formatted_date_effet_decision_groupe
             else:
@@ -450,4 +468,3 @@ class DroitAvancementReport(models.AbstractModel):
         }
 
         return report_data
-

@@ -3,12 +3,11 @@ from dateutil.relativedelta import relativedelta
 from odoo import models, fields, api, _
 
 
-
 class RHAvancementLine(models.Model):
     _name = 'rh.avancement.line'
 
     date_avancement = fields.Date()
-    code = fields.Char(readonly=False, default=lambda self: self.env['ir.sequence'].next_by_code('rh.avancement.line.sequence'))
+    code = fields.Char(readonly=False, default=lambda self: self.env['ir.sequence'].next_by_code('rh.avancement.line.sequence'), track_visibility='onchange')
     ref = fields.Char()
     date_ref = fields.Date()
     avancement_id = fields.Many2one('rh.avancement')
@@ -45,8 +44,8 @@ class RHAvancementLine(models.Model):
     grade_new_id = fields.Many2one('rh.grade')
     date_new_grade = fields.Date()
 
-    avancement_line_file_line = fields.Binary()
-    ancien_index = fields.Integer()
+    avancement_line_file_line = fields.Binary(track_visibility='onchange')
+    ancien_index = fields.Integer(track_visibility='onchange')
 
     @api.depends('date_new_avancement', 'avancement_id.date_avancement')
     def _compute_time(self):

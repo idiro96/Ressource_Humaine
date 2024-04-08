@@ -7,31 +7,43 @@ from odoo.exceptions import UserError
 
 class RHPromotion(models.Model):
     _name = 'rh.promotion'
+    _order = "date_promotion desc"
+    _inherit = ['mail.thread', 'mail.activity.mixin']
+    _mail_post_access = 'read'
 
-    date_examin_professionnel = fields.Date()
-    date_promotion = fields.Date()
-    date_signature = fields.Date()
-    code = fields.Char()
-    code_decision_groupe = fields.Char()
-    date_decision_groupe = fields.Date()
-    date_effet_decision_groupe = fields.Date()
-    ref_ouverture_examin = fields.Char()
-    date_ref_ouverture_examin = fields.Date()
-    promotion_lines = fields.One2many('rh.promotion.line', inverse_name='promotion_id')
-    promotion_file_lines = fields.One2many('rh.file', 'promotion_id')
+    date_examin_professionnel = fields.Date(track_visibility='onchange')
+    date_promotion = fields.Date(track_visibility='onchange')
+    date_signature = fields.Date(track_visibility='onchange')
+    code = fields.Char(track_visibility='onchange')
+    code_decision_groupe = fields.Char(track_visibility='onchange')
+    date_decision_groupe = fields.Date(track_visibility='onchange')
+    date_effet_decision_groupe = fields.Date(track_visibility='onchange')
+    ref_ouverture_examin = fields.Char(track_visibility='onchange')
+    date_ref_ouverture_examin = fields.Date(track_visibility='onchange')
+    promotion_lines = fields.One2many('rh.promotion.line', inverse_name='promotion_id', track_visibility='onchange')
+    promotion_file_lines = fields.One2many('rh.file', 'promotion_id', track_visibility='onchange')
     promotion_lines_wizard = fields.One2many('rh.promotion.line.wizard', inverse_name='promotion_id')
-
     avancement_wizard = fields.Boolean(default=True)
-
     type_fonction_id = fields.Many2one('rh.type.fonction')
     job_id = fields.Many2one('hr.job')
     grade_id = fields.Many2one('rh.grade')
     date_grade = fields.Date()
-
     grade_new_id = fields.Many2one('rh.grade')
     date_new_grade = fields.Date()
-    choisir_commission_lines = fields.One2many('rh.promotion.commission.line', 'promotion_id')
+    choisir_commission_lines = fields.One2many('rh.promotion.commission.line', 'promotion_id', track_visibility='onchange')
     date_creation = fields.Char(compute="_compute_date", store=True)
+    create_uid = fields.Many2one('res.users', string='Created by', readonly=True, track_visibility='onchange')
+    write_uid = fields.Many2one('res.users', string='Last Updated by', readonly=True, track_visibility='onchange')
+
+    @api.model
+    def create(self, vals):
+        vals['create_uid'] = self.env.user.id
+        return super(RHPromotion, self).create(vals)
+
+    @api.multi
+    def write(self, vals):
+        vals['write_uid'] = self.env.user.id
+        return super(RHPromotion, self).write(vals)
 
     @api.depends('date_promotion')
     def _compute_date(self):
@@ -42,7 +54,6 @@ class RHPromotion(models.Model):
                 # Récupère uniquement la date
                 date_creation = datetime_object[0]
                 record.date_creation = date_creation
-
 
     @api.model
     def create(self, vals):
@@ -172,30 +183,30 @@ class RHPromotion(models.Model):
         promotion_ligne_droit = self.env['rh.promotion.line.wizard'].search([])
         for record in promotion_ligne_droit:
             record.unlink()
-        for rec2  in self:
+        for rec2 in self:
             promotion_line = self.env['rh.promotion.droit'].search(
-                [('date_promotion', '=', rec2.date_promotion),('sauvegarde', '=', True),('retenue', '=', True)],
+                [('date_promotion', '=', rec2.date_promotion), ('sauvegarde', '=', True), ('retenue', '=', True)],
                 order='date_promotion desc')
         if promotion_line:
             for promo in promotion_line:
                 dateDebut_object = fields.Date.from_string(self.date_promotion)
                 dateDebut_object2 = fields.Date.from_string(promo.date_promotion)
                 difference = (
-                                        dateDebut_object.year - dateDebut_object2.year) * 12 + dateDebut_object.month - dateDebut_object2.month
+                                     dateDebut_object.year - dateDebut_object2.year) * 12 + dateDebut_object.month - dateDebut_object2.month
                 record2 = self.env['rh.promotion.line'].search(
                     [('employee_id', '=', promo.employee_id.id), ('date_promotion', '=', self.date_promotion)])
                 if not record2:
                     self.env['rh.promotion.line.wizard'].create({
-                                'employee_id': promo.employee_id.id,
-                                'type_fonction_id': promo.type_fonction_id.id,
-                                'job_id': promo.job_id.id,
-                                'grade_id': promo.grade_id.id,
-                                'date_grade': promo.date_grade,
-                                'grade_new_id': promo.grade_new_id.id,
-                                'date_new_grade': promo.date_new_grade,
-                                'duree': promo.duree,
+                        'employee_id': promo.employee_id.id,
+                        'type_fonction_id': promo.type_fonction_id.id,
+                        'job_id': promo.job_id.id,
+                        'grade_id': promo.grade_id.id,
+                        'date_grade': promo.date_grade,
+                        'grade_new_id': promo.grade_new_id.id,
+                        'date_new_grade': promo.date_new_grade,
+                        'duree': promo.duree,
 
-                            })
+                    })
 
         self.promotion_lines_wizard = self.env['rh.promotion.line.wizard'].search([])
 
@@ -219,7 +230,8 @@ class RHPromotion(models.Model):
 
     @api.multi
     def print_promotions(self):
-        return self.env.ref('ressource_humaine.action_hr_tableau_des_promotions').with_context(landscape=True).report_action(self)
+        return self.env.ref('ressource_humaine.action_hr_tableau_des_promotions').with_context(
+            landscape=True).report_action(self)
 
     @api.multi
     def write(self, vals):
@@ -237,7 +249,6 @@ class RHPromotion(models.Model):
 
 
 class TableauDesPromotions(models.AbstractModel):
-
     _name = 'report.ressource_humaine.tableau_des_promotions'
 
     @api.model
@@ -283,7 +294,6 @@ class DroitPromotionReport(models.AbstractModel):
                          ('grille_old_id', '=', rec2.grille_old_id.id)], order='date_avancement desc')
                     derniere_grille.append(avancement_lines_grille3[-1])
 
-
         line_date_old_promotion = {}
         for rec in promotion_lines:
             date_old_promotion_str = rec.date_grade
@@ -298,7 +308,8 @@ class DroitPromotionReport(models.AbstractModel):
         for rec in promotion:
             date_ref_ouverture_examin_str = rec.date_ref_ouverture_examin
             if date_ref_ouverture_examin_str:
-                formatted_date_ref_ouverture_examin = datetime.strptime(date_ref_ouverture_examin_str, "%Y-%m-%d").strftime(
+                formatted_date_ref_ouverture_examin = datetime.strptime(date_ref_ouverture_examin_str,
+                                                                        "%Y-%m-%d").strftime(
                     "%d-%m-%Y")
                 line_date_ref_ouverture_examin[rec.id] = formatted_date_ref_ouverture_examin
             else:
@@ -309,7 +320,7 @@ class DroitPromotionReport(models.AbstractModel):
             date_ref_promotion_str = rec.date_ref_promotion
             if date_ref_promotion_str:
                 formatted_date_ref_promotion = datetime.strptime(date_ref_promotion_str,
-                                                                        "%Y-%m-%d").strftime(
+                                                                 "%Y-%m-%d").strftime(
                     "%d-%m-%Y")
                 line_date_ref_promotion[rec.id] = formatted_date_ref_promotion
             else:
@@ -320,7 +331,7 @@ class DroitPromotionReport(models.AbstractModel):
             date_grade_str = rec.date_grade
             if date_grade_str:
                 formatted_date_grade = datetime.strptime(date_grade_str,
-                                                                 "%Y-%m-%d").strftime(
+                                                         "%Y-%m-%d").strftime(
                     "%d-%m-%Y")
                 line_date_grade[rec.id] = formatted_date_grade
             else:
@@ -332,7 +343,7 @@ class DroitPromotionReport(models.AbstractModel):
                 date_signature_str = rec.avancement_id.date_signature
                 if date_signature_str:
                     formatted_date_signature = datetime.strptime(date_signature_str,
-                                                             "%Y-%m-%d").strftime(
+                                                                 "%Y-%m-%d").strftime(
                         "%d-%m-%Y")
                     line_date_signature_av[rec.id] = formatted_date_signature
                 else:
@@ -343,7 +354,7 @@ class DroitPromotionReport(models.AbstractModel):
             date_ref_str = rec.employee_id.date_ref
             if date_ref_str:
                 formatted_date_ref = datetime.strptime(date_ref_str,
-                                                                "%Y-%m-%d").strftime(
+                                                       "%Y-%m-%d").strftime(
                     "%d-%m-%Y")
                 line_date_ref[rec.id] = formatted_date_ref
             else:
@@ -353,7 +364,7 @@ class DroitPromotionReport(models.AbstractModel):
             date_avancement_str = rec.employee_id.date_avancement
             if date_avancement_str:
                 formatted_date_avancement = datetime.strptime(date_avancement_str,
-                                                       "%Y-%m-%d").strftime(
+                                                              "%Y-%m-%d").strftime(
                     "%d-%m-%Y")
                 line_date_avancement[rec.id] = formatted_date_avancement
             else:
@@ -365,7 +376,7 @@ class DroitPromotionReport(models.AbstractModel):
                 date_new_avancement_av_str = rec.date_new_avancement
                 if date_new_avancement_av_str:
                     formatted_date_new_avancement_av = datetime.strptime(date_new_avancement_av_str,
-                                                                 "%Y-%m-%d").strftime(
+                                                                         "%Y-%m-%d").strftime(
                         "%d-%m-%Y")
                     line_date_new_avancement_av[rec.id] = formatted_date_new_avancement_av
                 else:
@@ -405,7 +416,8 @@ class DroitPromotionReport(models.AbstractModel):
         for rec in promotion:
             date_examin_professionnel_str = rec.date_examin_professionnel
             if date_examin_professionnel_str:
-                formatted_date_examin_professionnel= datetime.strptime(date_examin_professionnel_str, "%Y-%m-%d").strftime(
+                formatted_date_examin_professionnel = datetime.strptime(date_examin_professionnel_str,
+                                                                        "%Y-%m-%d").strftime(
                     "%d-%m-%Y")
                 line_date_examin_professionnel[rec.id] = formatted_date_examin_professionnel
             else:
@@ -415,7 +427,8 @@ class DroitPromotionReport(models.AbstractModel):
         for rec in promotion:
             date_effet_decision_groupe_str = rec.date_effet_decision_groupe
             if date_promotion_str:
-                formatted_date_effet_decision_groupe = datetime.strptime(date_effet_decision_groupe_str, "%Y-%m-%d").strftime(
+                formatted_date_effet_decision_groupe = datetime.strptime(date_effet_decision_groupe_str,
+                                                                         "%Y-%m-%d").strftime(
                     "%d-%m-%Y")
                 line_date_effet_decision_groupe[rec.id] = formatted_date_effet_decision_groupe
             else:
@@ -426,7 +439,7 @@ class DroitPromotionReport(models.AbstractModel):
             date_new_grade_str = rec.date_new_grade
             if date_new_grade_str:
                 formatted_date_new_grade = datetime.strptime(date_new_grade_str,
-                                                                         "%Y-%m-%d").strftime(
+                                                             "%Y-%m-%d").strftime(
                     "%d-%m-%Y")
                 line_date_new_grade[rec.id] = formatted_date_new_grade
             else:
@@ -487,4 +500,3 @@ class DroitPromotionReport(models.AbstractModel):
         }
 
         return report_data
-

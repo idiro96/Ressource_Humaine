@@ -1,10 +1,9 @@
 <odoo>
+
     <record id="view_rh_categorie_tree1" model="ir.ui.view">
         <field name="name">rh.categorie.tree</field>
         <field name="model">rh.categorie</field>
         <field name="arch" type="xml">
-
-
             <tree>
                 <field name="intitule"/>
                 <field name="description"/>
@@ -14,8 +13,8 @@
                 <field name="grille_id"/>
             </tree>
         </field>
-
     </record>
+
     <record id="view_rh_categorie_form1" model="ir.ui.view">
         <field name="name">rh.categorie.form</field>
         <field name="model">rh.categorie</field>
@@ -35,14 +34,17 @@
                             <field name="groupe_id"
                                    attrs="{'invisible': ['|',('code_type_fonction', '=', 'fonctionsuperieure'),('code_type_fonction', '=', 'contractuel')],
                                            'required': ['|',('code_type_fonction', '=', 'fonction'),('code_type_fonction', '=', 'postesuperieure')]}"/>
-
                         </group>
                     </group>
-
                 </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
             </form>
         </field>
     </record>
+
     <record id="action_rh_categorie" model="ir.actions.act_window">
         <field name="name">categorie</field>
         <field name="type">ir.actions.act_window</field>
@@ -53,6 +55,8 @@
             <p class="o_view_nocontent_smiling_face">Creation categorie!</p>
         </field>
     </record>
+
     <menuitem name="categorie" id="ressource_humaine_categorie" parent="promotion_id" sequence="15"
               action="action_rh_categorie"/>
+
 </odoo>

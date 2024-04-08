@@ -3,9 +3,10 @@
 from odoo import models, fields, api, _
 
 
-
 class RHPromotionLine(models.Model):
     _name = 'rh.promotion.line'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
+    _mail_post_access = 'read'
 
     date_examin_professionnel = fields.Date()
     date_promotion = fields.Date()
@@ -20,14 +21,14 @@ class RHPromotionLine(models.Model):
     date_new_grade = fields.Date()
     date_grade = fields.Date()
     type_fonction_id = fields.Many2one('rh.type.fonction')
-    promotion_line_file_line = fields.Binary()
+    promotion_line_file_line = fields.Binary(track_visibility='onchange')
     duree = fields.Integer()
     imprimer = fields.Boolean(Default=False)
-    code_line = fields.Char()
+    code_line = fields.Char(track_visibility='onchange')
     date_creation = fields.Char(compute="_compute_date", store=True)
     ref_promotion = fields.Char()
     date_ref_promotion = fields.Date()
-    ancien_index = fields.Integer()
+    ancien_index = fields.Integer(track_visibility='onchange')
     categorie_id = fields.Many2one('rh.categorie')
     section_id = fields.Many2one('rh.section')
     echelon_id = fields.Many2one('rh.echelon')
@@ -35,6 +36,7 @@ class RHPromotionLine(models.Model):
     date_avancement = fields.Date()
     ref = fields.Char()
     date_ref = fields.Date()
+
     @api.depends('code_line')
     def _compute_date(self):
         for record in self:

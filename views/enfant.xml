@@ -10,7 +10,6 @@
                 <field name="scolarite"/>
             </tree>
         </field>
-
     </record>
     <record id="view_rh_enfant_form" model="ir.ui.view">
         <field name="name">RH Enfant form</field>
@@ -20,27 +19,31 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="employee_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                            <field name="employee_id"
+                                   options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                             <field name="prenom_enfant"/>
                         </group>
                         <group>
                             <field name="date_naissance_enfant"/>
                             <field name="scolarite"/>
                         </group>
-
                     </group>
-                          <notebook>
-                              <page name="liste_des_fichiers" string="قائمة الملفات">
-                                  <field name="enfant_file_lines">
-                                      <tree editable="bottom">
-                                          <field name="type_file_id" domain="[('type_file', '=', 'employe')]"/>
-                                          <field name="description_fichier"/>
-                                          <field name="fichier"/>
-                                      </tree>
-                                  </field>
-                              </page>
+                    <notebook>
+                        <page name="liste_des_fichiers" string="قائمة الملفات">
+                            <field name="enfant_file_lines">
+                                <tree editable="bottom">
+                                    <field name="type_file_id" domain="[('type_file', '=', 'employe')]"/>
+                                    <field name="description_fichier"/>
+                                    <field name="fichier"/>
+                                </tree>
+                            </field>
+                        </page>
                     </notebook>
                 </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
             </form>
         </field>
     </record>
@@ -54,6 +57,6 @@
             <p class="o_view_nocontent_smiling_face">Create your first conjoint!</p>
         </field>
     </record>
-            <menuitem name="Enfant" id="ressource_humaine_enfant" parent="ressource_humaine_employee_info"
-           action="action_rh_enfant"/>
+    <menuitem name="Enfant" id="ressource_humaine_enfant" parent="ressource_humaine_employee_info"
+              action="action_rh_enfant"/>
 </odoo>

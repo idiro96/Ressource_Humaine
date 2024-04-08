@@ -13,8 +13,8 @@
 <!--                <button name="appliquer_grille" type="object" class="oe_highlight"/>-->
             </tree>
         </field>
-
     </record>
+
     <record id="view_rh_grille_form" model="ir.ui.view">
         <field name="name">rh.grille.form</field>
         <field name="model">rh.grille</field>
@@ -35,14 +35,17 @@
                              <field name="date_application_provisoire"/>
                              <field name="statut_applique"/>
                              <field name="date_application_effective" attrs="{'invisible': [('statut_applique', '=', False)]}"/>
-
                          </group>
                      </group>
-
                 </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
             </form>
         </field>
     </record>
+
     <record id="action_rh_grille" model="ir.actions.act_window">
         <field name="name">Grille</field>
         <field name="type">ir.actions.act_window</field>
@@ -54,11 +57,9 @@
         </field>
     </record>
 
-
     <menuitem name="Classification" id="classification_id" parent="promotion_id" sequence="11"/>
 
     <menuitem name="Grille" id="ressource_humaine_grille" parent="classification_id" sequence="12"
            action="action_rh_grille"/>
-
 
 </odoo>

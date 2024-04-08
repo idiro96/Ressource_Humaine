@@ -8,11 +8,13 @@ from odoo.exceptions import UserError
 
 class RHPlanningLine(models.Model):
     _name = 'rh.planning.line'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
+    _mail_post_access = 'read'
 
-    employee_id = fields.Many2many('hr.employee')
-    emphy_id = fields.Many2one('rh.emphy')
+    employee_id = fields.Many2many('hr.employee', track_visibility='onchange')
+    emphy_id = fields.Many2one('rh.emphy', track_visibility='onchange')
     planning_survellance_id = fields.Many2one('rh.planning')
-    president_emphy = fields.Many2one('hr.employee')
+    president_emphy = fields.Many2one('hr.employee', track_visibility='onchange')
     date_examen = fields.Date(related="planning_survellance_id.date_surveillance", store=True)
     time_start = fields.Char(related="planning_survellance_id.time_surveillance_start")
     time_end = fields.Char(related="planning_survellance_id.time_surveillance_end")
