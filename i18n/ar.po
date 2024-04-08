@@ -63522,6 +63522,12 @@ msgstr "Saudi Arabia - Accounting"
 msgid "Sauvegarde"
 msgstr "تأكيد الإستحقاق"
 
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_droit_avencement_grade_id
+#: model:ir.model.fields,field_description:ressource_humaine.field_droit_promotion_grade_id
+msgid "Grade"
+msgstr "الرتبة"
+
 #. modules: web, account, base, website, web_editor
 #. openerp-web
 #: model:ir.ui.view,arch_db:account.setup_bank_journal_form
@@ -83823,6 +83829,11 @@ msgstr "التاريخ المرجع بالترقية"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_code_decision_groupe
 msgid "Code Decision Groupe"
 msgstr "رقم المقرر الجماعي"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_grade_id
+msgid "Grade"
+msgstr "الرتبة"
 
 #. module: ressource_humaine
 #: model:ir.actions.report,name:ressource_humaine.action_droit_promotion_report

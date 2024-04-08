@@ -173,9 +173,15 @@ class RHPromotion(models.Model):
         for record in promotion_ligne_droit:
             record.unlink()
         for rec2  in self:
-            promotion_line = self.env['rh.promotion.droit'].search(
-                [('date_promotion', '=', rec2.date_promotion),('sauvegarde', '=', True),('retenue', '=', True)],
-                order='date_promotion desc')
+            if self.grade_id:
+                promotion_line = self.env['rh.promotion.droit'].search(
+                    [('date_promotion', '=', rec2.date_promotion),('grade_id', '=', rec2.grade_id.id),('sauvegarde', '=', True),('retenue', '=', True)],
+                    order='date_promotion desc')
+            else:
+                promotion_line = self.env['rh.promotion.droit'].search(
+                    [('date_promotion', '=', rec2.date_promotion),
+                     ('sauvegarde', '=', True), ('retenue', '=', True)],
+                    order='date_promotion desc')
         if promotion_line:
             for promo in promotion_line:
                 dateDebut_object = fields.Date.from_string(self.date_promotion)

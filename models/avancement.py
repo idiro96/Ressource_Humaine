@@ -21,7 +21,7 @@ class RHAvancement(models.Model):
     choisir_commission_lines = fields.One2many('rh.avancement.commission.line', 'avancement_id')
     promotion_file_lines = fields.One2many('rh.file', 'promotion_id')
     avancement_file_lines = fields.One2many('rh.file', 'avancement_id')
-
+    grade_id = fields.Many2one('rh.grade')
 
     @api.model
     def create(self, vals):
@@ -205,9 +205,15 @@ class RHAvancement(models.Model):
         for record in avancement_ligne_droit:
             record.unlink()
         for rec2  in self:
-            avancement_line = self.env['rh.avencement.droit'].search(
-                [('date_avancement', '=', rec2.date_avancement),('sauvegarde', '=', True),('retenue', '=', True)],
-                order='date_avancement desc')
+            if rec2.grade_id:
+                avancement_line = self.env['rh.avencement.droit'].search(
+                    [('date_avancement', '=', rec2.date_avancement),('grade_id', '=', rec2.grade_id.id),('sauvegarde', '=', True),('retenue', '=', True)],
+                    order='date_avancement desc')
+            else:
+                avancement_line = self.env['rh.avencement.droit'].search(
+                    [('date_avancement', '=', rec2.date_avancement), ('sauvegarde', '=', True), ('retenue', '=', True)],
+                    order='date_avancement desc')
+
         if avancement_line:
              for avance in avancement_line:
                     dateDebut_object = fields.Date.from_string(self.date_avancement)

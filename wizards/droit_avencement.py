@@ -18,7 +18,7 @@ class RHDroitAvencement(models.TransientModel):
     boul = fields.Boolean(default=False)
     reclassement = fields.Boolean(default=False)
     sauvegarde = fields.Boolean(default=False)
-
+    grade_id = fields.Many2one('rh.grade')
 
     @api.multi
     def Archiver(self):
@@ -44,10 +44,15 @@ class RHDroitAvencement(models.TransientModel):
             for record in avancement_ligne_droit:
                 if record.sauvegarde == False:
                     record.unlink()
-
-            avancement_line = self.env['hr.employee'].search(
-                    [('date_avancement', '<=', self.date_avancement),('fin_relation', '=', False)],
+            if self.grade_id:
+                avancement_line = self.env['hr.employee'].search(
+                        [('date_avancement', '<=', self.date_avancement),('grade_id', '=', self.grade_id.id),('fin_relation', '=', False)],
+                        order='date_avancement DESC')
+            else:
+                avancement_line = self.env['hr.employee'].search(
+                    [('date_avancement', '<=', self.date_avancement), ('fin_relation', '=', False)],
                     order='date_avancement DESC')
+
             if avancement_line:
                 for avance in avancement_line:
                         avancement_ligne_droit2 = self.env['rh.avencement.droit'].search([('employee_id', '=', avance.id),('date_avancement', '=', self.date_avancement)])
@@ -221,16 +226,26 @@ class RHDroitAvencement(models.TransientModel):
                                             'sauvegarde': self.sauvegarde,
                                             'retenue': self.sauvegarde
                                         })
+            if self.grade_id:
+                return {
+                    'name': 'Droit Avancement',
+                    'view_type': 'form',
+                    'view_mode': 'tree,form',
+                    'res_model': 'rh.avencement.droit',
+                    'type': 'ir.actions.act_window',
+                    'domain': [('date_avancement', '=', self.date_avancement),('grade_id', '=', self.grade_id.id),('valider', '=', False)]
 
-            return {
-                'name': 'Droit Avancement',
-                'view_type': 'form',
-                'view_mode': 'tree,form',
-                'res_model': 'rh.avencement.droit',
-                'type': 'ir.actions.act_window',
-                'domain': [('date_avancement', '=', self.date_avancement),('valider', '=', False)]
+                }
+            else:
+                return {
+                    'name': 'Droit Avancement',
+                    'view_type': 'form',
+                    'view_mode': 'tree,form',
+                    'res_model': 'rh.avencement.droit',
+                    'type': 'ir.actions.act_window',
+                    'domain': [('date_avancement', '=', self.date_avancement), ('valider', '=', False)]
 
-            }
+                }
         else:
             return {
                 'name': 'Droit Avancement',
