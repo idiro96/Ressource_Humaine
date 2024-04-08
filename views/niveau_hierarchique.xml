@@ -1,19 +1,17 @@
 <odoo>
+
     <record id="view_rh_niveau_hierarchique_tree" model="ir.ui.view">
         <field name="name">rh.niveau.hierarchique.tree</field>
         <field name="model">rh.niveau.hierarchique</field>
         <field name="arch" type="xml">
-
-
             <tree>
                 <field name="intitule"/>
                 <field name="section_superieure_id"/>
                 <field name="bonification_indiciaire"/>
-
             </tree>
         </field>
-
     </record>
+
     <record id="view_rh_niveau_hierarchique_form" model="ir.ui.view">
         <field name="name">rh.niveau.hierarchique.form</field>
         <field name="model">rh.niveau.hierarchique</field>
@@ -28,9 +26,14 @@
                         </group>
                     </group>
                 </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
             </form>
         </field>
     </record>
+
     <record id="action_rh_niveau_hierarchique" model="ir.actions.act_window">
         <field name="name">niveau.hierarchique</field>
         <field name="type">ir.actions.act_window</field>
@@ -41,6 +44,8 @@
             <p class="o_view_nocontent_smiling_face">Creation niveau hierarchique!</p>
         </field>
     </record>
+
     <menuitem name="Niveau hierarchique" id="ressource_humaine_niveau_hierarchique" parent="promotion_id" sequence="20"
               action="action_rh_niveau_hierarchique"/>
+
 </odoo>

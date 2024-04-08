@@ -37785,6 +37785,7 @@ msgstr "الشبكة"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_categorie_grille_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_echelon_grille_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_groupe_grille_id
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_niveau_hierarchique_chef_bureau_grille_id
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_grille
 msgid "Grille"
 msgstr "رقم الشبكة الإستدلالية"

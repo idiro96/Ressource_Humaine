@@ -1,17 +1,16 @@
 <odoo>
+
     <record id="view_rh_categorie_superieure_tree" model="ir.ui.view">
         <field name="name">rh.categorie.superieure.tree</field>
         <field name="model">rh.categorie.superieure</field>
         <field name="arch" type="xml">
-
-
             <tree>
                 <field name="intitule"/>
                 <field name="description"/>
             </tree>
         </field>
-
     </record>
+
     <record id="view_rh_categorie_superieure_form" model="ir.ui.view">
         <field name="name">rh.categorie.superieure.form</field>
         <field name="model">rh.categorie.superieure</field>
@@ -24,11 +23,15 @@
                             <field name="description"/>
                         </group>
                     </group>
-
                 </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
             </form>
         </field>
     </record>
+
     <record id="action_rh_categorie_superieure" model="ir.actions.act_window">
         <field name="name">categorie superieure</field>
         <field name="type">ir.actions.act_window</field>
@@ -39,6 +42,8 @@
             <p class="o_view_nocontent_smiling_face">Creation categorie superieure!</p>
         </field>
     </record>
+
     <menuitem name="categorie_superieure" id="ressource_humaine_categorie_superieure" parent="promotion_id" sequence="18"
               action="action_rh_categorie_superieure"/>
+
 </odoo>

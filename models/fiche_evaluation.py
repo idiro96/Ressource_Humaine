@@ -8,19 +8,33 @@ from datetime import datetime, date
 
 class RHFicheEvaluation(models.Model):
     _name = 'rh.fiche.evaluation'
+    _order = "employee_id"
+    _inherit = ['mail.thread', 'mail.activity.mixin']
+    _mail_post_access = 'read'
 
-    date_evaluation = fields.Date(required=True, store=True)
-    employee_id = fields.Many2one('hr.employee', required=True, store=True)
+    date_evaluation = fields.Date(required=True, store=True, track_visibility='onchange')
+    employee_id = fields.Many2one('hr.employee', required=True, store=True, track_visibility='onchange')
     grade_id = fields.Many2one('rh.grade', compute='_onchange_employee_id', store=True)
     job_id = fields.Many2one('hr.job', compute='_onchange_employee_id', store=True)
     echelon_id = fields.Many2one('rh.echelon', compute='_onchange_employee_id', store=True)
     date_grade = fields.Date()
-    note = fields.Integer()
-    observation = fields.Char()
-    fiche_evaluation_file = fields.Binary()
+    note = fields.Integer(track_visibility='onchange')
+    observation = fields.Char(track_visibility='onchange')
+    fiche_evaluation_file = fields.Binary(track_visibility='onchange')
     exercice = fields.Integer(compute='_compute_exercice', store=True)
-
     # annee = exercice
+    create_uid = fields.Many2one('res.users', string='Created by', readonly=True, track_visibility='onchange')
+    write_uid = fields.Many2one('res.users', string='Last Updated by', readonly=True, track_visibility='onchange')
+
+    @api.model
+    def create(self, vals):
+        vals['create_uid'] = self.env.user.id
+        return super(RHFicheEvaluation, self).create(vals)
+
+    @api.multi
+    def write(self, vals):
+        vals['write_uid'] = self.env.user.id
+        return super(RHFicheEvaluation, self).write(vals)
 
     @api.model
     def create(self, vals):
