@@ -21,7 +21,8 @@ class RHAvancement(models.Model):
     avancement_lines_wizard = fields.One2many('rh.avancement.line.wizard', inverse_name='avancement_id')
     date_comission = fields.Date(track_visibility='onchange')
     avancement_wizard = fields.Boolean(default=True)
-    choisir_commission_lines = fields.One2many('rh.avancement.commission.line', 'avancement_id', track_visibility='onchange')
+    choisir_commission_lines = fields.One2many('rh.avancement.commission.line', 'avancement_id',
+                                               track_visibility='onchange')
     promotion_file_lines = fields.One2many('rh.file', 'promotion_id')
     avancement_file_lines = fields.One2many('rh.file', 'avancement_id', track_visibility='onchange')
     create_uid = fields.Many2one('res.users', string='Created by', readonly=True, track_visibility='onchange')
@@ -36,6 +37,9 @@ class RHAvancement(models.Model):
     def write(self, vals):
         vals['write_uid'] = self.env.user.id
         return super(RHAvancement, self).write(vals)
+
+    avancement_file_lines = fields.One2many('rh.file', 'avancement_id')
+    grade_id = fields.Many2one('rh.grade')
 
     @api.model
     def create(self, vals):
@@ -224,6 +228,17 @@ class RHAvancement(models.Model):
             avancement_line = self.env['rh.avencement.droit'].search(
                 [('date_avancement', '=', rec2.date_avancement), ('sauvegarde', '=', True), ('retenue', '=', True)],
                 order='date_avancement desc')
+        for rec2 in self:
+            if rec2.grade_id:
+                avancement_line = self.env['rh.avencement.droit'].search(
+                    [('date_avancement', '=', rec2.date_avancement), ('grade_id', '=', rec2.grade_id.id),
+                     ('sauvegarde', '=', True), ('retenue', '=', True)],
+                    order='date_avancement desc')
+            else:
+                avancement_line = self.env['rh.avencement.droit'].search(
+                    [('date_avancement', '=', rec2.date_avancement), ('sauvegarde', '=', True), ('retenue', '=', True)],
+                    order='date_avancement desc')
+
         if avancement_line:
             for avance in avancement_line:
                 dateDebut_object = fields.Date.from_string(self.date_avancement)

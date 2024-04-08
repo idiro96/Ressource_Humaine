@@ -30,7 +30,8 @@ class RHPromotion(models.Model):
     date_grade = fields.Date()
     grade_new_id = fields.Many2one('rh.grade')
     date_new_grade = fields.Date()
-    choisir_commission_lines = fields.One2many('rh.promotion.commission.line', 'promotion_id', track_visibility='onchange')
+    choisir_commission_lines = fields.One2many('rh.promotion.commission.line', 'promotion_id',
+                                               track_visibility='onchange')
     date_creation = fields.Char(compute="_compute_date", store=True)
     create_uid = fields.Many2one('res.users', string='Created by', readonly=True, track_visibility='onchange')
     write_uid = fields.Many2one('res.users', string='Last Updated by', readonly=True, track_visibility='onchange')
@@ -187,6 +188,17 @@ class RHPromotion(models.Model):
             promotion_line = self.env['rh.promotion.droit'].search(
                 [('date_promotion', '=', rec2.date_promotion), ('sauvegarde', '=', True), ('retenue', '=', True)],
                 order='date_promotion desc')
+        for rec2 in self:
+            if self.grade_id:
+                promotion_line = self.env['rh.promotion.droit'].search(
+                    [('date_promotion', '=', rec2.date_promotion), ('grade_id', '=', rec2.grade_id.id),
+                     ('sauvegarde', '=', True), ('retenue', '=', True)],
+                    order='date_promotion desc')
+            else:
+                promotion_line = self.env['rh.promotion.droit'].search(
+                    [('date_promotion', '=', rec2.date_promotion),
+                     ('sauvegarde', '=', True), ('retenue', '=', True)],
+                    order='date_promotion desc')
         if promotion_line:
             for promo in promotion_line:
                 dateDebut_object = fields.Date.from_string(self.date_promotion)
