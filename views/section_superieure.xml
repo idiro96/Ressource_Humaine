@@ -1,20 +1,17 @@
 <odoo>
+
     <record id="view_rh_section_superieure_tree" model="ir.ui.view">
         <field name="name">rh.section.superieure.tree</field>
         <field name="model">rh.section.superieure</field>
         <field name="arch" type="xml">
-
-
             <tree>
                 <field name="intitule"/>
-
                 <field name="description"/>
                 <field name="categorie_superieure_id"/>
-
             </tree>
         </field>
-
     </record>
+
     <record id="view_rh_section_superieure_form" model="ir.ui.view">
         <field name="name">rh.section.form</field>
         <field name="model">rh.section.superieure</field>
@@ -28,11 +25,15 @@
                             <field name="categorie_superieure_id"/>
                         </group>
                     </group>
-
                 </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
             </form>
         </field>
     </record>
+
     <record id="action_rh_section_superieure" model="ir.actions.act_window">
         <field name="name">section</field>
         <field name="type">ir.actions.act_window</field>
@@ -43,6 +44,8 @@
             <p class="o_view_nocontent_smiling_face">Creation section superieure!</p>
         </field>
     </record>
+
     <menuitem name="Section superieure" id="ressource_humaine_section_superieure" parent="promotion_id" sequence="19"
               action="action_rh_section_superieure"/>
+
 </odoo>

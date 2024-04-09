@@ -1,4 +1,5 @@
 <odoo>
+
     <record id="view_cabinet_medical_tree" model="ir.ui.view">
         <field name="name">Cabinet Medical tree</field>
         <field name="model">rh.cabinet.medical</field>
@@ -10,8 +11,8 @@
                 <field name="adress"/>
             </tree>
         </field>
-
     </record>
+
     <record id="view_cabinet_medical_form" model="ir.ui.view">
         <field name="name">Cabinet Medical form</field>
         <field name="model">rh.cabinet.medical</field>
@@ -31,23 +32,27 @@
                             <field name="nis_cabinet"/>
                             <field name="num_article"/>
                         </group>
-
                     </group>
-                     <notebook>
-                            <page string="قائمة الملفات">
-                         <field name="cabinet_medicale_file_lines">
-                           <tree editable="bottom">
-                             <field name="type_file_id" domain="[('type_file', '=', 'controlemedicale')]"/>
-                             <field name="description_fichier"/>
-                             <field name="fichier"/>
-                           </tree>
-                         </field>
-                       </page>
+                    <notebook>
+                        <page string="قائمة الملفات">
+                            <field name="cabinet_medicale_file_lines">
+                                <tree editable="bottom">
+                                    <field name="type_file_id" domain="[('type_file', '=', 'controlemedicale')]"/>
+                                    <field name="description_fichier"/>
+                                    <field name="fichier"/>
+                                </tree>
+                            </field>
+                        </page>
                     </notebook>
                 </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
             </form>
         </field>
     </record>
+
     <record id="action_cabinet_medical" model="ir.actions.act_window">
         <field name="name">Cabinet Medical</field>
         <field name="type">ir.actions.act_window</field>
@@ -58,6 +63,8 @@
             <p class="o_view_nocontent_smiling_face">Create your Cabinet Medical!</p>
         </field>
     </record>
-            <menuitem name="Cabinet Medical" id="ressource_humaine_cabinet_medical" parent="medecine_travai_id"
-           action="action_cabinet_medical"/>
+
+    <menuitem name="Cabinet Medical" id="ressource_humaine_cabinet_medical" parent="medecine_travai_id"
+              action="action_cabinet_medical"/>
+
 </odoo>

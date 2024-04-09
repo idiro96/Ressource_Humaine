@@ -5,15 +5,24 @@ from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
 
 
-
 class RHNiveauHierarchique(models.Model):
     _name = 'rh.niveau.hierarchique'
     _rec_name = 'intitule'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
+    _mail_post_access = 'read'
 
-    intitule = fields.Char()
-    bonification_indiciaire = fields.Integer()
+    intitule = fields.Char(track_visibility='onchange')
+    bonification_indiciaire = fields.Integer(track_visibility='onchange')
+    section_superieure_id = fields.Many2one('rh.section.superieure', track_visibility='onchange')
+    create_uid = fields.Many2one('res.users', string='Created by', readonly=True, track_visibility='onchange')
+    write_uid = fields.Many2one('res.users', string='Last Updated by', readonly=True, track_visibility='onchange')
 
-    section_superieure_id = fields.Many2one('rh.section.superieure')
+    @api.model
+    def create(self, vals):
+        vals['create_uid'] = self.env.user.id
+        return super(RHNiveauHierarchique, self).create(vals)
 
-
-
+    @api.multi
+    def write(self, vals):
+        vals['write_uid'] = self.env.user.id
+        return super(RHNiveauHierarchique, self).write(vals)

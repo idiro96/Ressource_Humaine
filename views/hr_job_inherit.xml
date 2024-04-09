@@ -65,9 +65,9 @@
                 <xpath expr="//form//sheet//group//group[@name='recruitment']" position="before">
                     <group string="المنصب / الوظيفة">
                         <field name="nature_travail_id"
-                           options="{'no_create': True, 'no_create_edit':True, 'no_open':True}" widget='selection'/>
+                               options="{'no_create': True, 'no_create_edit':True, 'no_open':True}" widget='selection'/>
                         <field name="poste_organique"
-                           attrs="{'invisible': [('code_type_fonction', '!=', 'fonctionsuperieure')]}"/>
+                               attrs="{'invisible': [('code_type_fonction', '!=', 'fonctionsuperieure')]}"/>
                         <field name="max_employee" sting="العدد النظري"/>
                     </group>
                 </xpath>
@@ -80,8 +80,9 @@
                 <!--                     <label for="nature_poste" class="oe_edit_only"/>-->
                 <!--                     <field name="nature_poste"/>-->
                 <!--                </xpath>-->
-
-
+                <xpath expr="//form//div//field[@name='message_follower_ids']" position="after">
+                    <field name="message_ids" widget="mail_thread"/>
+                </xpath>
             </field>
         </record>
         <record model="ir.actions.act_window" id="action_hr_job">

@@ -15,15 +15,28 @@ class HrJobInherited(models.Model):
     # nature_poste = fields.Selection([('postesuperieure', 'Postesuperieure'),
     #                           ('fonctionsuperieure', 'Fonctionsuperieure'),
     #                           ], readonly=False)
-    nature_travail_id = fields.Many2one('rh.type.fonction')
+    nature_travail_id = fields.Many2one('rh.type.fonction', track_visibility='onchange')
     poste_organique = fields.Selection(selection=[('organique', 'منصب هيكلي'), ('squelaire', 'منصب عضوي')],
-                                       readonly=False)
-    max_employee = fields.Integer(default=1, store=True)
+                                       readonly=False, track_visibility='onchange')
+    max_employee = fields.Integer(default=1, store=True, track_visibility='onchange')
     nombre_de_postes_vacants = fields.Integer(compute='_compute_nombre_de_postes_vacants', store=True, )
     code_type_fonction = fields.Char(related='nature_travail_id.code_type_fonction',
                                      string='Code Type Fonction', store=True)
     methode_embauche = fields.Selection([('recrutement', 'Recrutement'), ('transfert', 'Transfert'),
                                          ('detachement', 'Detachement'), ], related='employee_ids.methode_embauche')
+    name = fields.Char(string='Job Position', required=True, index=True, translate=True, track_visibility='onchange')
+    create_uid = fields.Many2one('res.users', string='Created by', readonly=True, track_visibility='onchange')
+    write_uid = fields.Many2one('res.users', string='Last Updated by', readonly=True, track_visibility='onchange')
+
+    @api.model
+    def create(self, vals):
+        vals['create_uid'] = self.env.user.id
+        return super(HrJobInherited, self).create(vals)
+
+    @api.multi
+    def write(self, vals):
+        vals['write_uid'] = self.env.user.id
+        return super(HrJobInherited, self).write(vals)
 
     # @api.constrains('no_of_employee', 'max_employee')
     # def _check_max_employee_limit(self):
