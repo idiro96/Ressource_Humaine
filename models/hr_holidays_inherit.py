@@ -131,22 +131,6 @@ class HrHolidaysInherited(models.Model):
         """ Update the number_of_days. """
         date_from = fields.Date.from_string(self.date_from) if self.date_from else None
         date_to = fields.Date.from_string(self.date_to) if self.date_to else None
-
-        if date_from and date_to:
-            difference = date_to - date_from
-            # Compute and update the number of days
-            if date_from <= date_to:
-                self.number_of_days_temp = difference.days + 1
-            else:
-                self.number_of_days_temp = 0
-        else:
-            self.number_of_days_temp = 0
-
-    @api.onchange('date_to')
-    def _onchange_date_to(self):
-        """ Update the number_of_days. """
-        date_from = fields.Date.from_string(self.date_from) if self.date_from else None
-        date_to = fields.Date.from_string(self.date_to) if self.date_to else None
         difference = 0
         if date_from and date_to:
             difference = (date_to - date_from).days
