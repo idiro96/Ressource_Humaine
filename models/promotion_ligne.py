@@ -28,6 +28,7 @@ class RHPromotionLine(models.Model):
     date_creation = fields.Char(compute="_compute_date", store=True)
     ref_promotion = fields.Char()
     date_ref_promotion = fields.Date()
+    date_signature = fields.Date(related='promotion_id.date_signature')
     ancien_index = fields.Integer(track_visibility='onchange')
     categorie_id = fields.Many2one('rh.categorie')
     section_id = fields.Many2one('rh.section')

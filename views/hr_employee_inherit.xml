@@ -392,12 +392,16 @@
                         <tree>
                             <field name="promotion_lines">
                                 <tree create="false" delete="false">
-                                    <field name="date_promotion"/>
                                     <field name="grade_id"/>
+                                     <field name="ref_promotion"/>
+                                    <field name="date_ref_promotion"/>
                                     <field name="date_grade"/>
-                                    <field name="duree"/>
                                     <field name="grade_new_id"/>
+                                    <field name="code_line"/>
+                                    <field name="date_signature"/>
+                                    <field name="duree"/>
                                     <field name="date_new_grade"/>
+                                    <field name="date_promotion"/>
                                 </tree>
 
                             </field>
@@ -410,17 +414,20 @@
                             <field name="avancement_lines">
                                 <tree create="false" delete="false" editable="bottom">
                                     <field name="grade_id" readonly="True"/>
-                                    <field name="date_old_avancement" readonly="True"/>
                                     <field name="ref"/>
+                                    <field name="date_ref"/>
+                                    <field name="date_old_avancement" readonly="True"/>
                                     <field name="grille_old_id" readonly="True"/>
                                     <field name="categorie_old_id" readonly="True"/>
                                     <field name="echelon_old_id" readonly="True"/>
                                     <field name="date_new_avancement" readonly="True"/>
-                                    <field name="date_avancement" readonly="True"/>
+                                    <field name="code"/>
+                                    <field name="date_signature"/>
                                     <field name="duree" readonly="True"/>
                                     <field name="grille_new_id" readonly="True"/>
                                     <field name="categorie_new_id" readonly="True"/>
                                     <field name="echelon_new_id" readonly="True"/>
+                                    <field name="date_avancement" readonly="True"/>
                                 </tree>
 
                             </field>
