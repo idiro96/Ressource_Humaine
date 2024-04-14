@@ -4,11 +4,8 @@ from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
 
 
-
-
 class RHFormationLine(models.Model):
     _name = 'rh.formation.line'
-
 
     employee_id = fields.Many2one('hr.employee')
     formation_id = fields.Many2one('rh.formation')
@@ -19,6 +16,10 @@ class RHFormationLine(models.Model):
         [('groupe1', 'Groupe 1'), ('groupe2', 'Groupe 2'), ('groupe3', 'Groupe 3'), ('groupe4', 'Groupe 4'),
          ('groupe5', 'Groupe 5')])
 
+    @api.onchange('employee_id')
+    def _onchange_employee_id(self):
+        selected_employees = self.formation_id.formation_lines.mapped('employee_id')
+        return {'domain': {'employee_id': [('id', 'not in', selected_employees.ids)]}}
 
     def formation_absence(self):
         context = {
@@ -26,19 +27,10 @@ class RHFormationLine(models.Model):
         }
 
         return {
-        'type': 'ir.actions.act_window',
-        'target': 'new',
-        'name': 'Formation absence',
-        'view_mode': 'form',
-        'res_model': 'absence.formation',
-        'context': context,
+            'type': 'ir.actions.act_window',
+            'target': 'new',
+            'name': 'Formation absence',
+            'view_mode': 'form',
+            'res_model': 'absence.formation',
+            'context': context,
         }
-
-
-
-
-
-
-
-
-

@@ -38,6 +38,11 @@ class RHSanction(models.Model):
         vals['write_uid'] = self.env.user.id
         return super(RHSanction, self).write(vals)
 
+    @api.onchange('choisir_commission_lines')
+    def _onchange_choisir_commission_lines(self):
+        selected_employees = self.choisir_commission_lines.mapped('employee_id')
+        return {'domain': {'employee_id': [('id', 'not in', selected_employees.ids)]}}
+
     def unlink(self):
         for rec in self:
             if rec.state in ['confirm', 'refuse']:
