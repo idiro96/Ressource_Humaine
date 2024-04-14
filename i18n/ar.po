@@ -21055,7 +21055,22 @@ msgstr "خطوط التقدم "
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_avancement_line_file_line
 msgid "Avancement Line File Line"
-msgstr "خطوط التقدم خط ملف "
+msgstr "تحميل ملف"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_date_signature
+msgid "Date Signature"
+msgstr "تاريخ الإمضاء"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_line_date_signature
+msgid "Date Signature"
+msgstr "تاريخ الإمضاء"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_line_ref_promotion
+msgid "Ref Promotion"
+msgstr "رقم مقرر الترقية"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_avancement_lines
@@ -25092,7 +25107,7 @@ msgstr "كود المجموعة"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_line_code_line
 msgid "Code Line"
-msgstr "خط الكود"
+msgstr "رقم المقرر"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_organisme_code_organisme
@@ -29705,7 +29720,7 @@ msgstr "تاريخ ميلاد الإبن/البنت"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_wizard_date_new_avancement
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avencement_droit_date_new_avancement
 msgid "Date New Avancement"
-msgstr "تاريخ سريان الترقية القديمة"
+msgstr "تاريخ سريان الترقية القادمة"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_date_new_grade
@@ -59355,7 +59370,7 @@ msgstr "خطوط الترقية"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_line_promotion_line_file_line
 msgid "Promotion Line File Line"
-msgstr "خطوط الترقية خطوط ملف"
+msgstr "تحميل ملف"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_promotion_lines

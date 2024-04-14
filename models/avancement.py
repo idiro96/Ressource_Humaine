@@ -48,7 +48,7 @@ class RHAvancement(models.Model):
             for rec in avancement.avancement_lines_wizard:
                 if rec.employee_id.nature_travail_id.code_type_fonction == 'fonction':
                     avance_line = self.env['rh.avancement.line'].create({
-                        'code': self.env['ir.sequence'].next_by_code('rh.avancement.line.sequence'),
+                        # 'code': self.env['ir.sequence'].next_by_code('rh.avancement.line.sequence'),
                         'employee_id': rec.employee_id.id,
                         'type_fonction_id': rec.employee_id.nature_travail_id.id,
                         'date_old_avancement': rec.date_old_avancement,
@@ -123,7 +123,7 @@ class RHAvancement(models.Model):
 
                     avance_line = self.env['rh.avancement.line'].create({
                         'employee_id': rec.employee_id.id,
-                        'code': self.env['ir.sequence'].next_by_code('rh.avancement.line.sequence'),
+                        # 'code': self.env['ir.sequence'].next_by_code('rh.avancement.line.sequence'),
                         'type_fonction_id': rec.employee_id.nature_travail_id.id,
                         'date_old_avancement': rec.date_old_avancement,
                         'ref': rec.employee_id.ref,

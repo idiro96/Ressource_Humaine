@@ -14,6 +14,7 @@ class RHAvancementLine(models.Model):
     employee_id = fields.Many2one('hr.employee')
     birthday = fields.Date(related='employee_id.birthday')
     marital = fields.Selection(related='employee_id.marital')
+    date_signature = fields.Date(related='avancement_id.date_signature')
     type_fonction_id = fields.Many2one('rh.type.fonction')
     grille_old_id = fields.Many2one('rh.grille')
     groupe_old_id = fields.Many2one('rh.groupe')
