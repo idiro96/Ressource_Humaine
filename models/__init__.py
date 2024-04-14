@@ -58,5 +58,3 @@ from . import planning_surveillance
 from . import planning_surveillance_line
 from . import fiche_evaluation
 from . import hr_contract_type_inherit
-
-

@@ -7,10 +7,10 @@ from odoo.exceptions import ValidationError
 class RHFormationLine(models.Model):
     _name = 'rh.formation.line'
 
-    employee_id = fields.Many2one('hr.employee')
+    employee_id = fields.Many2one('hr.employee', tracking=True)
     formation_id = fields.Many2one('rh.formation')
-    date_debut_formation_line = fields.Date()
-    date_fin_formation_line = fields.Date()
+    date_debut_formation_line = fields.Date(tracking=True)
+    date_fin_formation_line = fields.Date(tracking=True)
     # nbr_jour_assiste = fields.Integer()
     groupe = fields.Selection(
         [('groupe1', 'Groupe 1'), ('groupe2', 'Groupe 2'), ('groupe3', 'Groupe 3'), ('groupe4', 'Groupe 4'),
