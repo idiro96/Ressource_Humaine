@@ -20,7 +20,7 @@ class RHFormation(models.Model):
     budget_allouee_formation = fields.Float(track_visibility='onchange')
     type_formation_id = fields.Many2one('rh.type.formation', track_visibility='onchange')
     organisme_id = fields.Many2one('rh.organisme', track_visibility='onchange')
-    formation_lines = fields.One2many('rh.formation.line', inverse_name='formation_id', tracking=True)
+    formation_lines = fields.One2many('rh.formation.line', inverse_name='formation_id')
     formation_absence = fields.One2many('rh.absence.formation', inverse_name='formation_id')
     formation_file_lines = fields.One2many('rh.file', 'formation_id')
     state = fields.Selection([('draft', 'Brouillon'), ('confirm', 'Validé'), ], readonly=True, default='draft')
@@ -34,25 +34,6 @@ class RHFormation(models.Model):
 
     @api.multi
     def write(self, vals):
-        # if 'formation_lines' in vals:
-        #     old_values = self.mapped('formation_lines').ids
-        #     new_values = vals.get('formation_lines') and vals['formation_lines'][0][2]
-        #
-        #     added_values = list(set(new_values) - set(old_values)) if new_values else []
-        #     removed_values = list(set(old_values) - set(new_values)) if new_values else []
-        #
-        #     message_body = ''
-        #
-        #     if added_values:
-        #         message_body += "Added records: %s\n" % ', '.join(map(str, added_values))
-        #
-        #     if removed_values:
-        #         message_body += "Removed records: %s\n" % ', '.join(map(str, removed_values))
-        #
-        #     if message_body:
-        #         self.message_post(body=message_body, subtype='mail.mt_comment',
-        #                           message_type='comment', author_id=self.env.user.id,
-        #                           partner_ids=[(4, self.env.user.partner_id.id)])
         vals['write_uid'] = self.env.user.id
         return super(RHFormation, self).write(vals)
 
