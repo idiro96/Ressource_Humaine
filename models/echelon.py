@@ -15,7 +15,7 @@ class RHEchelon(models.Model):
     indice_echelon = fields.Integer(track_visibility='onchange')
     categorie_id = fields.Many2one('rh.categorie', track_visibility='onchange')
     groupe_id = fields.Many2one('rh.groupe')
-    type_fonction = fields.Many2one('rh.type.fonction', domain="[('code_type_fonction', '!=', 'contractuel')]",
+    type_fonction = fields.Many2one('rh.type.fonction',
                                     track_visibility='onchange')
     section = fields.Many2one('rh.section', track_visibility='onchange')
     code_type_fonction = fields.Char(related='type_fonction.code_type_fonction',

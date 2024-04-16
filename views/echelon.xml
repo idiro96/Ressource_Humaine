@@ -33,7 +33,7 @@
                                                          ('code_type_fonction', '=', 'contractuel')],'required': ['|',('code_type_fonction', '=', 'fonction'),('code_type_fonction', '=', 'postesuperieure')]}"/>
                             <field name="categorie_id" required="1"/>
                             <field name="section" attrs="{'invisible': ['|', ('code_type_fonction', '=', 'postesuperieure'),
-                                                         ('code_type_fonction', '=', 'fonction')],'required': ['|',('code_type_fonction', '=', 'fonctionsuperieure')]}"/>
+                                                         ('code_type_fonction', '=', 'fonction')],'required': ['|',('code_type_fonction', '=', 'fonctionsuperieure'),('code_type_fonction', '=', 'contractuel')]}"/>
                             <field name="indice_echelon" required="1"/>
                             <field name="grille_compute1_id"/>
 
