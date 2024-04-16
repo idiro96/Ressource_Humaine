@@ -11,7 +11,8 @@
                 <field name="section"/>
                 <field name="indice_echelon" required="1"/>
                 <field name="groupe_id"/>
-                <field name="grille_id"/>
+                <field name="grille_id" required="1"/>
+                <field name="grille_compute1_id"/>
             </tree>
         </field>
     </record>
@@ -27,12 +28,15 @@
                             <field name="code_type_fonction" invisible="1"/>
                             <field name="intitule" required="1"/>
                             <field name="type_fonction" required="1"/>
+                            <field name="grille_id" required="1"/>
+                            <field name="groupe_id" attrs="{'invisible': ['|', ('code_type_fonction', '=', 'fonctionsuperieure'),
+                                                         ('code_type_fonction', '=', 'contractuel')],'required': ['|',('code_type_fonction', '=', 'fonction'),('code_type_fonction', '=', 'postesuperieure')]}"/>
                             <field name="categorie_id" required="1"/>
                             <field name="section" attrs="{'invisible': ['|', ('code_type_fonction', '=', 'postesuperieure'),
                                                          ('code_type_fonction', '=', 'fonction')],'required': ['|',('code_type_fonction', '=', 'fonctionsuperieure')]}"/>
                             <field name="indice_echelon" required="1"/>
-                            <field name="groupe_id" readonly="True"/>
-                            <field name="grille_id" readonly="True"/>
+                            <field name="grille_compute1_id"/>
+
                         </group>
                     </group>
                 </sheet>

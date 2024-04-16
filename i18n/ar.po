@@ -83838,7 +83838,7 @@ msgstr "التاريخ المرجع بفتح الإمتحان"
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_date_ref_promotion
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_line_date_ref_promotion
 msgid "Date Ref Promotion"
-msgstr "التاريخ المرجع بالترقية"
+msgstr "تاريخ الإمضاء "
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_code_decision_groupe

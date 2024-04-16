@@ -86,6 +86,17 @@ class RHPromotion(models.Model):
                         'ref_promotion': rec.employee_id.ref_promotion,
                         'date_ref_promotion': rec.employee_id.date_ref_promotion,
                     })
+                    historique_line = self.env['rh.historique.employee'].create({
+                        'du': rec.date_grade,
+                        'au': rec.date_new_grade,
+                        'grade': rec.grade_id.intitule_grade,
+                        'poste': rec.job_id.name,
+                        'categorie': rec.employee_id.categorie_id.intitule,
+                        'echelon': rec.employee_id.echelon_id.intitule,
+                        'point_indiciaire': rec.employee_id.total_indice,
+                        'structure': rec.employee_id.department_id.name,
+                        'employee_id': rec.employee_id.id
+                    })
                     employee = self.env['hr.employee'].search([('id', '=', rec.employee_id.id)])
                     grade = self.env['rh.grade'].search([('grade_id', '=', rec.grade_new_id.id)])
                     if grade:
@@ -125,6 +136,17 @@ class RHPromotion(models.Model):
                         'date_ref_promotion': rec.employee_id.date_ref_promotion,
 
                     })
+                    historique_line = self.env['rh.historique.employee'].create({
+                        'du': rec.date_grade,
+                        'au': rec.date_new_grade,
+                        'grade': rec.grade_id.intitule_grade,
+                        'poste': rec.job_id.name,
+                        'categorie': rec.employee_id.categorie_id.intitule,
+                        'echelon': rec.employee_id.echelon_id.intitule,
+                        'point_indiciaire': rec.employee_id.total_indice,
+                        'structure': rec.employee_id.department_id.name,
+                        'employee_id': rec.employee_id.id
+                    })
                     employee = self.env['hr.employee'].search([('id', '=', rec.employee_id.id)])
                     grade = self.env['rh.grade'].search([('grade_id', '=', rec.grade_new_id.id)])
                     if grade:
@@ -156,6 +178,17 @@ class RHPromotion(models.Model):
                         'ref_promotion': rec.employee_id.ref_promotion,
                         'date_ref_promotion': rec.employee_id.date_ref_promotion
 
+                    })
+                    historique_line = self.env['rh.historique.employee'].create({
+                        'du': rec.date_grade,
+                        'au': rec.date_new_grade,
+                        'grade': rec.grade_id.intitule_grade,
+                        'poste': rec.job_id.name,
+                        'categorie': rec.employee_id.categorie_id.intitule,
+                        'echelon': rec.employee_id.echelon_id.intitule,
+                        'point_indiciaire': rec.employee_id.total_indice,
+                        'structure': rec.employee_id.department_id.name,
+                        'employee_id': rec.employee_id.id
                     })
                     print('errrrrrrrreeeeeeeeeeeerre2')
                     employee = self.env['hr.employee'].search([('id', '=', rec.employee_id.id)])

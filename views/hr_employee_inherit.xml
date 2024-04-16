@@ -392,8 +392,9 @@
                         <tree>
                             <field name="promotion_lines">
                                 <tree create="false" delete="false">
+                                    <field name="job_id" readonly="True"/>
                                     <field name="grade_id"/>
-                                     <field name="ref_promotion"/>
+                                    <field name="ref_promotion"/>
                                     <field name="date_ref_promotion"/>
                                     <field name="date_grade"/>
                                     <field name="grade_new_id"/>
@@ -413,6 +414,7 @@
                         <tree>
                             <field name="avancement_lines">
                                 <tree create="false" delete="false" editable="bottom">
+                                    <field name="job_id" readonly="True"/>
                                     <field name="grade_id" readonly="True"/>
                                     <field name="ref"/>
                                     <field name="date_ref"/>
