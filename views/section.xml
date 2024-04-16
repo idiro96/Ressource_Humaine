@@ -9,6 +9,7 @@
                 <field name="description"/>
                 <field name="categorie_id"/>
                 <field name="indice_base"/>
+                <field name="grille_compute1_id"/>
             </tree>
         </field>
     </record>
@@ -23,8 +24,10 @@
                         <group>
                             <field name="intitule" required="1"/>
                             <field name="description" required="1"/>
+                            <field name="grille_id" required="1"/>
                             <field name="categorie_id" required="1"/>
                             <field name="indice_base" required="1"/>
+                            <field name="grille_compute1_id"/>
                         </group>
                     </group>
                 </sheet>

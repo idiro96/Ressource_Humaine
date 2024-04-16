@@ -81,15 +81,6 @@ class RHAvencementDroit(models.Model):
 
     @api.onchange('grille_new_id')
     def _onchange_grille_new_id(self):
-        # if self.grille_new_id:
-        #     self.groupe_new_id = False
-        #     self.categorie_new_id = False
-        #     self.section_new_id = False
-        #     self.echelon_new_id = False
-        # if self.groupe_new_id:
-        #     return {'domain': {'groupe_new_id': [('grille_id', '=', self.grille_new_id.id)]}}
-        # else:
-        #     return {'domain': {'categorie_new_id': [('grille_id', '=', self.grille_new_id.id)]}}
         for rec in self:
             domain = []
             if self.grille_new_id:

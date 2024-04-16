@@ -21,6 +21,24 @@ class RHCategorie(models.Model):
     code_type_fonction = fields.Char(related='type_fonction_id.code_type_fonction', store=True)
     create_uid = fields.Many2one('res.users', string='Created by', readonly=True, track_visibility='onchange')
     write_uid = fields.Many2one('res.users', string='Last Updated by', readonly=True, track_visibility='onchange')
+    grille_compute1_id = fields.Char(compute="_compute_grille")
+
+    @api.multi
+    def _compute_grille(self):
+        for record in self:
+
+            # print(record.intitule)
+            if record.type_fonction_id.code_type_fonction == 'fonction':
+                print(record.intitule)
+                print(record.groupe_id.grille_id.id)
+                record.grille_compute1_id = record.groupe_id.grille_id.description_grille
+            if record.type_fonction_id.code_type_fonction == 'fonctionsuperieure':
+                print(record.grille_id.id)
+                record.grille_compute1_id = record.grille_id.description_grille
+            if record.type_fonction_id.code_type_fonction == 'postesuperieure':
+                record.grille_compute1_id = record.groupe_id.grille_id.description_grille
+            if record.type_fonction_id.code_type_fonction == 'contractuel':
+                record.grille_compute1_id = record.grille_id.description_grille
 
     @api.model
     def create(self, vals):

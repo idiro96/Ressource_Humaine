@@ -11,6 +11,7 @@
                 <field name="Indice_minimal"/>
                 <field name="groupe_id"/>
                 <field name="grille_id"/>
+                <field name="grille_compute1_id"/>
             </tree>
         </field>
     </record>
@@ -26,6 +27,7 @@
                             <field name="intitule" required="1"/>
                             <field name="description" required="1"/>
                             <field name="Indice_minimal" required="1"/>
+                            <field name="grille_compute1_id"/>
                         </group>
                         <group>
                             <field name="code_type_fonction" invisible="1"/>
