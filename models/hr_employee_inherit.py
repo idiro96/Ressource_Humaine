@@ -64,6 +64,14 @@ class HrEmployeInherited(models.Model):
     promotion_lines = fields.One2many('rh.promotion.line', inverse_name='employee_id')
     avancement_lines = fields.One2many('rh.avancement.line', inverse_name='employee_id')
     historique_employee_lines = fields.One2many('rh.historique.employee', inverse_name='employee_id')
+    historique_diplome_lines = fields.One2many('rh.historique.diplome', inverse_name='employee_id')
+    historique_grade_lines = fields.One2many('rh.historique.grade', inverse_name='employee_id')
+    historique_poste_superieure_lines = fields.One2many('rh.historique.poste.superieure', inverse_name='employee_id')
+    historique_poisition_statutaire_lines = fields.One2many('rh.historique.position.statutaire', inverse_name='employee_id')
+    historique_structure_lines = fields.One2many('rh.historique.structure', inverse_name='employee_id')
+    historique_fin_relation_lines = fields.One2many('rh.historique.fin.relation', inverse_name='employee_id')
+    historique_sanction_lines = fields.One2many('rh.historique.sanction', inverse_name='employee_id')
+
     nature_travail_id = fields.Many2one('rh.type.fonction', track_visibility="onchange")
     position_statutaire = fields.Selection([('activite', 'Activite'),
                                             ('detachement', 'Detachement'),

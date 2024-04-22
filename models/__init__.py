@@ -7,6 +7,13 @@ from . import historique_employee
 from . import hr_contrat_inherit
 from . import fin_relation
 from . import type_fin_relation
+from . import historique_diplome
+from . import historique_grade
+from . import historique_poste_superieure
+from . import historique_position_statutaire
+from . import historique_structure
+from . import historique_sanction
+from . import historique_fin_relation
 from . import visite_medicale
 from . import enfant
 from . import cabinet_medical
