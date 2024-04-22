@@ -83841,6 +83841,96 @@ msgid "Date Ref Promotion"
 msgstr "تاريخ الإمضاء "
 
 #. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_grade_grade
+msgid "Grade"
+msgstr "الرتبة"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_grade_date_debut_travail
+msgid "Date Debut Travail"
+msgstr "تاريخ بداية العمل"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_grade_document_file_line
+msgid "Document File Line"
+msgstr "تحميل ملف"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_diplome_type_diplome
+msgid "Type Diplome"
+msgstr "نوع الشهادة"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_diplome_diplôme
+msgid "Diplôme"
+msgstr "الشهادة"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_diplome_document_file_line
+msgid "Document File Line"
+msgstr "تحميل ملف"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_poste_superieure_type_poste
+msgid "Type Poste"
+msgstr "نوع المصب العالي"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_poste_superieure_date_debut_poste
+msgid "Date Debut Poste"
+msgstr "تاريخ التعين في المنصب العالي"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_poste_superieure_date_fin_poste
+msgid "Date Fin Poste"
+msgstr "تاريخ إنهاء المهام في المنصب العالي"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_poste_superieure_document_file_line
+msgid "Document File Line"
+msgstr "تحميل ملف"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_position_statutaire_position_statutaire
+msgid "Position Statutaire"
+msgstr "الوضعية القانوية"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_position_statutaire_document_file_line
+msgid "Document File Line"
+msgstr "تحميل ملف"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_structure_structure
+msgid "Structure"
+msgstr "المصلحة"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_structure_document_file_line
+msgid "Document File Line"
+msgstr "تحميل ملف"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_sanction_sanction
+msgid "Sanction"
+msgstr "العقوبة"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_sanction_document_file_line
+msgid "Document File Line"
+msgstr "تحميل ملف"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_fin_relation_date_fin_relation
+msgid "Date Fin Relation"
+msgstr "تاريخ نهاية علاقة العمل"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_fin_relation_document_file_line
+msgid "Document File Line"
+msgstr "تحميل ملف"
+
+#. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_code_decision_groupe
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_code_decision_groupe
 msgid "Code Decision Groupe"

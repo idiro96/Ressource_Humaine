@@ -71,17 +71,6 @@ class RHAvancement(models.Model):
                         'duree_lettre': rec.duree_lettre,
                         'date_new_avancement': rec.date_new_avancement
                     })
-                    historique_line = self.env['rh.historique.employee'].create({
-                        'du': rec.employee_id.date_ref,
-                        'au': rec.date_new_avancement,
-                        'grade': rec.grade_id.intitule_grade,
-                        'poste': rec.job_id.name,
-                        'categorie': rec.categorie_old_id.intitule,
-                        'echelon': rec.echelon_old_id.intitule,
-                        'point_indiciaire': rec.employee_id.total_indice,
-                        'structure': rec.employee_id.department_id.name,
-                        'employee_id': rec.employee_id.id
-                    })
                     employee = self.env['hr.employee'].search(
                         [('id', '=', rec.employee_id.id)])
                     employee.write({
@@ -155,17 +144,6 @@ class RHAvancement(models.Model):
                         'duree': rec.duree,
                         'duree_lettre': rec.duree_lettre,
                         'date_new_avancement': rec.date_new_avancement
-                    })
-                    historique_line = self.env['rh.historique.employee'].create({
-                        'du': rec.employee_id.date_ref,
-                        'au': rec.date_new_avancement,
-                        'grade': rec.grade_id.intitule_grade,
-                        'poste': rec.job_id.name,
-                        'categorie': rec.categorie_old_id.intitule,
-                        'echelon': rec.echelon_old_id.intitule,
-                        'point_indiciaire': rec.employee_id.total_indice,
-                        'structure': rec.employee_id.department_id.name,
-                        'employee_id': rec.employee_id.id
                     })
                     employee = self.env['hr.employee'].search(
                         [('id', '=', rec.employee_id.id)])

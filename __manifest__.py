@@ -60,7 +60,7 @@
         'views/absence.xml',
         'wizards/droit_conge.xml',
         'views/conge_droit.xml',
-        'views/cron_view.xml',
+        # 'views/cron_view.xml',
         'views/hr_job_inherit.xml',
         'views/groupe.xml',
         'views/categorie.xml',
