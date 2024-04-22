@@ -83919,7 +83919,7 @@ msgstr "أمانة/مديرية"
 #. module: ressource_humaine
 #: selection:hr.department,department_type:0
 msgid "Secrétariat"
-msgstr "مديرية"
+msgstr "مديرية عامة"
 
 #. module: hr
 #: model:ir.model.fields,field_description:hr.field_hr_employee_department_id
