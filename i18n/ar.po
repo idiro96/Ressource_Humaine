@@ -17761,6 +17761,7 @@ msgstr "النطاق النشط"
 
 #. module: ressource_humaine
 #: selection:hr.employee,position_statutaire:0
+#: selection:rh.historique.position.statutaire,position_statutaire:0
 msgid "Activite"
 msgstr "حالة الخدمة"
 
@@ -31318,6 +31319,7 @@ msgstr "مسار الوجهة"
 #. module: ressource_humaine
 #: selection:hr.employee,methode_embauche:0
 #: selection:hr.employee,position_statutaire:0
+#: selection:rh.historique.position.statutaire,position_statutaire:0
 msgid "Detachement"
 msgstr "الإنتداب"
 
@@ -38820,6 +38822,7 @@ msgstr "أفقي"
 
 #. module: ressource_humaine
 #: selection:hr.employee,position_statutaire:0
+#: selection:rh.historique.position.statutaire,position_statutaire:0
 msgid "Horscadre"
 msgstr "خارج الإطار"
 
@@ -48120,6 +48123,7 @@ msgstr "عمليات متنوعة"
 
 #. module: ressource_humaine
 #: selection:hr.employee,position_statutaire:0
+#: selection:rh.historique.position.statutaire,position_statutaire:0
 msgid "Miseendisponibilite"
 msgstr "الإستيداع"
 
@@ -65187,6 +65191,7 @@ msgstr "اسم الخدمة"
 
 #. module: ressource_humaine
 #: selection:hr.employee,position_statutaire:0
+#: selection:rh.historique.position.statutaire,position_statutaire:0
 msgid "Servicenationale"
 msgstr "تحت التصرف"
 
@@ -84015,3 +84020,18 @@ msgstr "مديرية عامة"
 #: model:ir.model.fields,field_description:hr.field_hr_employee_department_id
 msgid "Department"
 msgstr "الهيكل التنظيمي"
+
+#. module: ressource_humaine
+#: selection:rh.historique.diplome,type_diplome:0
+msgid "Enseignement supérieure"
+msgstr "التعليم العالي"
+
+#. module: ressource_humaine
+#: selection:rh.historique.diplome,type_diplome:0
+msgid "Secondaire"
+msgstr "الثانوي"
+
+#. module: ressource_humaine
+#: selection:rh.historique.diplome,type_diplome:0
+msgid "Formation Professionnelle"
+msgstr "التكوين المهني"
