@@ -66,7 +66,7 @@ class PlanningCongeReport(models.AbstractModel):
             ], order='date_new_grade DESC', limit=1)
             squ_employees_promotion_mapping[employee] = promotion_line
 
-        grade_enseignant = self.env['rh.grade'].search([('intitule_grade', 'ilike', '%أستاذ%')], order='intitule desc')
+        grade_enseignant = self.env['rh.grade'].search([('intitule_grade', 'ilike', '%أستاذ%')], order='Indice_minimal desc')
         enseignant_employees = []
         for grade in grade_enseignant:
             employees = self.env['hr.employee'].search(
@@ -82,7 +82,7 @@ class PlanningCongeReport(models.AbstractModel):
             else:
                 enseignant_employees.append({'grade': grade, 'employees': employees, 'promotion_lines': None})
 
-        grade_a = self.env['rh.grade'].search([('categorie_id.groupe_id.name', 'ilike', '%المجموعة أ%')], order='intitule desc')
+        grade_a = self.env['rh.grade'].search([('categorie_id.groupe_id.name', 'ilike', '%المجموعة أ%')], order='Indice_minimal desc')
         grade_a_excluded = grade_a - grade_enseignant
         grade_a_employees = []
         for grade in grade_a_excluded:
@@ -99,7 +99,7 @@ class PlanningCongeReport(models.AbstractModel):
             else:
                 grade_a_employees.append({'grade': grade, 'employees': employees, 'promotion_lines': None})
 
-        grade_b = self.env['rh.grade'].search([('categorie_id.groupe_id.name', 'ilike', '%المجموعة ب%')], order='intitule desc')
+        grade_b = self.env['rh.grade'].search([('categorie_id.groupe_id.name', 'ilike', '%المجموعة ب%')], order='Indice_minimal desc')
         grade_b_employees = []
         for grade in grade_b:
             employees = self.env['hr.employee'].search(
@@ -115,7 +115,7 @@ class PlanningCongeReport(models.AbstractModel):
             else:
                 grade_b_employees.append({'grade': grade, 'employees': employees, 'promotion_lines': None})
 
-        grade_c = self.env['rh.grade'].search([('categorie_id.groupe_id.name', 'ilike', '%المجموعة ج%')], order='intitule desc')
+        grade_c = self.env['rh.grade'].search([('categorie_id.groupe_id.name', 'ilike', '%المجموعة ج%')], order='Indice_minimal desc')
         grade_c_employees = []
         for grade in grade_c:
             employees = self.env['hr.employee'].search(
@@ -131,9 +131,9 @@ class PlanningCongeReport(models.AbstractModel):
             else:
                 grade_c_employees.append({'grade': grade, 'employees': employees, 'promotion_lines': None})
 
-        grade_d = self.env['rh.grade'].search([('categorie_id.groupe_id.name', 'ilike', '%المجموعة د%')], order='intitule desc')
+        grade_d = self.env['rh.grade'].search([('categorie_id.groupe_id.name', 'ilike', '%المجموعة د%')], order='Indice_minimal desc')
         grade_ing = self.env['rh.grade'].search([('categorie_id.groupe_id.name', 'ilike', '%المجموعة د%'),
-                                                 ('corps_id.intitule_corps', 'ilike', '%مهن%')], order='intitule desc')
+                                                 ('corps_id.intitule_corps', 'ilike', '%مهن%')], order='Indice_minimal desc')
         grade_d_filtered = grade_d - grade_ing
         grade_d_filtered_employees = []
         for grade in grade_d_filtered:
@@ -167,7 +167,7 @@ class PlanningCongeReport(models.AbstractModel):
 
         grade_cdi_plein = self.env['rh.grade'].search(['|', ('corps_id.intitule_corps', 'ilike', 'متعاقد'),
                                                        ('corps_id.intitule_corps', 'ilike', 'سيار'),
-                                                       ('intitule_grade', 'ilike', '%غير محدد%كامل%')], order='intitule desc')
+                                                       ('intitule_grade', 'ilike', '%غير محدد%كامل%')], order='Indice_minimal desc')
         employees_cdi_plein = []
         for grade in grade_cdi_plein:
             employees = self.env['hr.employee'].search(
@@ -186,7 +186,7 @@ class PlanningCongeReport(models.AbstractModel):
         grade_cdd_plein = self.env['rh.grade'].search(['|', ('corps_id.intitule_corps', 'ilike', 'متعاقد'),
                                                        ('corps_id.intitule_corps', 'ilike', 'سيار'),
                                                        ('intitule_grade', 'ilike', '%محدد%كامل%'),
-                                                       ('intitule_grade', 'not ilike', '%غير%')], order='intitule desc')
+                                                       ('intitule_grade', 'not ilike', '%غير%')], order='Indice_minimal desc')
         employees_cdd_plein = []
         for grade in grade_cdd_plein:
             employees = self.env['hr.employee'].search(
@@ -203,7 +203,7 @@ class PlanningCongeReport(models.AbstractModel):
 
         grade_cdi_partiel = self.env['rh.grade'].search(['|', ('corps_id.intitule_corps', 'ilike', 'متعاقد'),
                                                          ('corps_id.intitule_corps', 'ilike', 'سيار'),
-                                                         ('intitule_grade', 'ilike', '%غير محدد%جزئي%')], order='intitule desc')
+                                                         ('intitule_grade', 'ilike', '%غير محدد%جزئي%')], order='Indice_minimal desc')
         employees_cdi_partiel = []
         for grade in grade_cdi_partiel:
             employees = self.env['hr.employee'].search(
@@ -221,7 +221,7 @@ class PlanningCongeReport(models.AbstractModel):
         grade_cdd_partiel = self.env['rh.grade'].search(['|', ('corps_id.intitule_corps', 'ilike', 'متعاقد'),
                                                          ('corps_id.intitule_corps', 'ilike', 'سيار'),
                                                          ('intitule_grade', 'ilike', '%محدد%جزئي%'),
-                                                         ('intitule_grade', 'not ilike', '%غير%')], order='intitule desc')
+                                                         ('intitule_grade', 'not ilike', '%غير%')], order='Indice_minimal desc')
         employees_cdd_partiel = []
         for grade in grade_cdd_partiel:
             employees = self.env['hr.employee'].search(
