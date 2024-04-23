@@ -346,15 +346,15 @@
                                         <t t-if="line['employees']">
                                             <span style="color: white;">أ</span>
                                             <span>
-                                                <t t-if="line['employees'][0].bonification_indiciaire">
-                                                    <span t-esc="line['employees'][0].bonification_indiciaire"/>
+                                                <t t-if="line['employees'][0].niveau_hirerachique_chef_Bureau.bonification_indiciaire">
+                                                    <span t-esc="line['employees'][0].niveau_hirerachique_chef_Bureau.bonification_indiciaire"/>
                                                 </t>
-                                                <t t-if="not line['employees'][0].bonification_indiciaire">
+                                                <t t-if="not line['employees'][0].niveau_hirerachique_chef_Bureau.bonification_indiciaire">
                                                     <t t-set="found_employee" t-value="False"/>
                                                     <t t-foreach="line['employees']" t-as="employee">
-                                                        <t t-if="not found_employee and employee.bonification_indiciaire">
+                                                        <t t-if="not found_employee and employee.niveau_hirerachique_chef_Bureau.bonification_indiciaire">
                                                             <t t-set="found_employee" t-value="True"/>
-                                                            <span t-esc="employee.bonification_indiciaire"/>
+                                                            <span t-esc="employee.niveau_hirerachique_chef_Bureau.bonification_indiciaire"/>
                                                         </t>
                                                     </t>
                                                 </t>
@@ -459,15 +459,15 @@
                                         <t t-if="line['employees']">
                                             <span style="color: white;">أ</span>
                                             <span>
-                                                <t t-if="line['employees'][0].bonification_indiciaire">
-                                                    <span t-esc="line['employees'][0].bonification_indiciaire"/>
+                                                <t t-if="line['employees'][0].niveau_hirerachique_chef_Bureau.bonification_indiciaire">
+                                                    <span t-esc="line['employees'][0].niveau_hirerachique_chef_Bureau.bonification_indiciaire"/>
                                                 </t>
-                                                <t t-if="not line['employees'][0].bonification_indiciaire">
+                                                <t t-if="not line['employees'][0].niveau_hirerachique_chef_Bureau.bonification_indiciaire">
                                                     <t t-set="found_employee" t-value="False"/>
                                                     <t t-foreach="line['employees']" t-as="employee">
-                                                        <t t-if="not found_employee and employee.bonification_indiciaire">
+                                                        <t t-if="not found_employee and employee.niveau_hirerachique_chef_Bureau.bonification_indiciaire">
                                                             <t t-set="found_employee" t-value="True"/>
-                                                            <span t-esc="employee.bonification_indiciaire"/>
+                                                            <span t-esc="employee.niveau_hirerachique_chef_Bureau.bonification_indiciaire"/>
                                                         </t>
                                                     </t>
                                                 </t>

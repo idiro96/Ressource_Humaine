@@ -96,7 +96,7 @@ class HrEmployeInherited(models.Model):
     nomination = fields.Selection(
         selection=[('satagiaire', 'Satagiaire'), ('nomination', 'Titulaire'), ('contractuel', 'Contractuel')],
         readonly=False, required=True, track_visibility="onchange")
-    place_of_birth_fr = fields.Char('Lieu de naissance', groups="hr.group_hr_user", required=True, track_visibility="onchange")
+    place_of_birth_fr = fields.Char('Lieu de naissance', track_visibility="onchange")
     # place_of_birth_fr = fields.Char('Lieu de naissance', groups="hr.group_hr_user")
     grille_id = fields.Many2one('rh.grille', readonly=False, track_visibility="onchange")
     groupe_id = fields.Many2one('rh.groupe', readonly=False, track_visibility="onchange")

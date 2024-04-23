@@ -16,7 +16,7 @@ class RHConjoint(models.Model):
     lieu_naissance_conjoint = fields.Char(track_visibility="onchange")
     date_mariage = fields.Date(track_visibility="onchange")
     femme_foyer = fields.Boolean(default=False, track_visibility="onchange")
-    conjoint_file_lines = fields.One2many('rh.file', 'conjoint_id', track_visibility="onchange")
+    conjoint_file_lines = fields.One2many('rh.file', 'conjoint_id')
     employee_id = fields.Many2one('hr.employee', track_visibility="onchange")
     create_uid = fields.Many2one('res.users', string='Created by', readonly=True, track_visibility='onchange')
     write_uid = fields.Many2one('res.users', string='Last Updated by', readonly=True, track_visibility='onchange')

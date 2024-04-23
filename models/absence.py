@@ -18,11 +18,9 @@ class RHAbsence(models.Model):
     nbre_heure_absence = fields.Float(track_visibility="onchange")
     employee_id = fields.Many2one('hr.employee', track_visibility="onchange")
     type_absence_id = fields.Many2one('rh.type.absence', track_visibility="onchange")
-    absence_file_lines = fields.One2many('rh.file', 'absence_id', track_visibility="onchange")
-    state = fields.Selection([('draft', 'Brouillon'),
-                              ('confirm', 'Validé'),
-                              ('refuse', 'Refusé'), ],
-                             readonly=True, default='draft', track_visibility="onchange")
+    absence_file_lines = fields.One2many('rh.file', 'absence_id')
+    state = fields.Selection([('draft', 'Brouillon'), ('confirm', 'Validé'), ('refuse', 'Refusé')], readonly=True,
+                             default='draft', track_visibility="onchange")
     create_uid = fields.Many2one('res.users', string='Created by', readonly=True, track_visibility='onchange')
     write_uid = fields.Many2one('res.users', string='Last Updated by', readonly=True, track_visibility='onchange')
 

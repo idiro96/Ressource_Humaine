@@ -21,7 +21,7 @@ class RHPromotion(models.Model):
     ref_ouverture_examin = fields.Char(track_visibility='onchange')
     date_ref_ouverture_examin = fields.Date(track_visibility='onchange')
     promotion_lines = fields.One2many('rh.promotion.line', inverse_name='promotion_id', track_visibility='onchange')
-    promotion_file_lines = fields.One2many('rh.file', 'promotion_id', track_visibility='onchange')
+    promotion_file_lines = fields.One2many('rh.file', 'promotion_id')
     promotion_lines_wizard = fields.One2many('rh.promotion.line.wizard', inverse_name='promotion_id')
     avancement_wizard = fields.Boolean(default=True)
     type_fonction_id = fields.Many2one('rh.type.fonction')
@@ -30,8 +30,7 @@ class RHPromotion(models.Model):
     date_grade = fields.Date()
     grade_new_id = fields.Many2one('rh.grade')
     date_new_grade = fields.Date()
-    choisir_commission_lines = fields.One2many('rh.promotion.commission.line', 'promotion_id',
-                                               track_visibility='onchange')
+    choisir_commission_lines = fields.One2many('rh.promotion.commission.line', 'promotion_id')
     date_creation = fields.Char(compute="_compute_date", store=True)
     create_uid = fields.Many2one('res.users', string='Created by', readonly=True, track_visibility='onchange')
     write_uid = fields.Many2one('res.users', string='Last Updated by', readonly=True, track_visibility='onchange')

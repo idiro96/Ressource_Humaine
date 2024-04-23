@@ -67,4 +67,17 @@ access_rh_type_formation,access.rh.type.formation,model_rh_type_formation,group_
 access_rh_type_sanction,access.rh.type.sanction,model_rh_type_sanction,group_rh_absence,1,1,1,1
 access_rh_visite_medical.line,access.rh.visite.medical.line,model_rh_visite_medical_line,group_rh_absence,1,1,1,1
 access_rh_visite_medicale,access.rh.visite.medicale,model_rh_visite_medicale,group_rh_absence,1,1,1,1
+access_rh_historique_employee,access.rh.historique.employee,model_rh_historique_employee,group_rh_absence,1,1,1,1
+access_rh_planning_line,access.rh.planning.line,model_rh_planning_line,group_rh_absence,1,1,1,1
+access_rh_planning,access.rh.planning,model_rh_planning,group_rh_absence,1,1,1,1
+
+
+
+
+
+
+
+
+
+
 

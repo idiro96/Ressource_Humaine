@@ -18,7 +18,7 @@ class RHFinRelation(models.Model):
     num_decision_fin_relation = fields.Char(track_visibility='onchange')
     type_fin_relation_id = fields.Many2one('rh.type.fin.relation', track_visibility='onchange')
     employee_id = fields.Many2one('hr.employee', domain="[('fin_relation', '=', False)]", track_visibility='onchange')
-    fin_relation_file_lines = fields.One2many('rh.file', 'fin_relation_id', track_visibility='onchange')
+    fin_relation_file_lines = fields.One2many('rh.file', 'fin_relation_id')
     description = fields.Char(related='type_fin_relation_id.description')
     date_cnas = fields.Date(track_visibility='onchange')
     date_decision_fin_relation = fields.Date(track_visibility='onchange')

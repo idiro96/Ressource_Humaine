@@ -17,14 +17,13 @@ class RHAvancement(models.Model):
     code_decision_groupe = fields.Char(track_visibility='onchange')
     date_decision_groupe = fields.Date(track_visibility='onchange')
     date_effet_decision_groupe = fields.Date(track_visibility='onchange')
-    avancement_lines = fields.One2many('rh.avancement.line', inverse_name='avancement_id', track_visibility='onchange')
+    avancement_lines = fields.One2many('rh.avancement.line', inverse_name='avancement_id')
     avancement_lines_wizard = fields.One2many('rh.avancement.line.wizard', inverse_name='avancement_id')
     date_comission = fields.Date(track_visibility='onchange')
     avancement_wizard = fields.Boolean(default=True)
-    choisir_commission_lines = fields.One2many('rh.avancement.commission.line', 'avancement_id',
-                                               track_visibility='onchange')
+    choisir_commission_lines = fields.One2many('rh.avancement.commission.line', 'avancement_id')
     promotion_file_lines = fields.One2many('rh.file', 'promotion_id')
-    avancement_file_lines = fields.One2many('rh.file', 'avancement_id', track_visibility='onchange')
+    avancement_file_lines = fields.One2many('rh.file', 'avancement_id')
     create_uid = fields.Many2one('res.users', string='Created by', readonly=True, track_visibility='onchange')
     write_uid = fields.Many2one('res.users', string='Last Updated by', readonly=True, track_visibility='onchange')
 
