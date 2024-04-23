@@ -355,21 +355,21 @@
                                         </t>
                                     </t>
                                     <t t-if="'رئيس' in job_data['job'].name and 'مكتب' in job_data['job'].name">
-                                        <t t-if="job_data['employees'][0].bonification_indiciaire">
+                                        <t t-if="job_data['employees'][0].niveau_hirerachique_chef_Bureau.bonification_indiciaire">
                                             زائد
-                                            <span t-esc="job_data['employees'][0].bonification_indiciaire"/>
+                                            <span t-esc="job_data['employees'][0].niveau_hirerachique_chef_Bureau.bonification_indiciaire"/>
                                             نقطة إستدلالية
                                             <span style="color: white;">
                                                 أ
                                             </span>
                                         </t>
-                                        <t t-if="not job_data['employees'][0].bonification_indiciaire">
+                                        <t t-if="not job_data['employees'][0].niveau_hirerachique_chef_Bureau.bonification_indiciaire">
                                             <t t-set="found_employee" t-value="False"/>
                                             <t t-foreach="job_data['employees']" t-as="employee">
-                                                <t t-if="not found_employee and employee.bonification_indiciaire">
+                                                <t t-if="not found_employee and employee.niveau_hirerachique_chef_Bureau.bonification_indiciaire">
                                                     <t t-set="found_employee" t-value="True"/>
                                                     زائد
-                                                    <span t-esc="employee.bonification_indiciaire"/>
+                                                    <span t-esc="employee.niveau_hirerachique_chef_Bureau.bonification_indiciaire"/>
                                                     نقطة إستدلالية
                                                 </t>
                                             </t>
@@ -582,20 +582,20 @@
                         الصنف:
                         <t t-set="found_bonus" t-value="False"/>
                         <t t-foreach="squ_employees" t-as="employee">
-                            <t t-if="not found_bonus and employee.bonification_indiciaire">
+                            <t t-if="not found_bonus and employee.niveau_hirerachique_chef_Bureau.bonification_indiciaire">
                                 زائد
-                                <span t-esc="employee.bonification_indiciaire"/>
+                                <span t-esc="employee.niveau_hirerachique_chef_Bureau.bonification_indiciaire"/>
                                 نقطة إستدلالية
                                 <span style="color: white;">أ</span>
                                 <t t-set="found_bonus" t-value="True"/>
                             </t>
                         </t>
-                        <t t-if="not found_bonus">
-                            زائد 100 نقطة إستدلالية
-                        </t>
                     </span>
                     <br/>
-                    <t t-set="max_employee" t-value="len(job_hight_squ)"/>
+                    <t t-set="max_employee" t-value="0"/>
+                    <t t-foreach="job_hight_squ" t-as="job">
+                        <t t-set="max_employee" t-value="max_employee + job.max_employee"/>
+                    </t>
                     <span>
                         عدد المناصب المالية:
                         <span t-esc="max_employee"/>
