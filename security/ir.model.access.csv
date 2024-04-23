@@ -7,6 +7,14 @@ access_rh_avancement_commission_line,access.rh.avancement.commission.line,model_
 access_rh_avancement_line,access.rh.avancement.line,model_rh_avancement_line,group_rh_absence,1,1,1,1
 access_rh_avencement_droit,access.rh.avencement.droit,model_rh_avencement_droit,group_rh_absence,1,1,1,1
 
+access_rh_historique_diplome,access.rh.historique.diplome,model_rh_historique_diplome,group_rh_absence,1,1,1,1
+access_rh_historique_employee,access.rh.historique.employee,model_rh_historique_employee,group_rh_absence,1,1,1,1
+access_rh_historique_fin_relation,access.rh.historique.fin.relation,model_rh_historique_fin_relation,group_rh_absence,1,1,1,1
+access_rh_historique_grade,access.rh.historique.grade,model_rh_historique_grade,group_rh_absence,1,1,1,1
+access_rh_historique_position_statutaire,access.rh.historique.position.statutaire,model_rh_historique_position_statutaire,group_rh_absence,1,1,1,1
+access_rh_historique_poste_superieure,access.rh.historique.poste.superieure,model_rh_historique_poste_superieure,group_rh_absence,1,1,1,1
+access_rh_historique_sanction,access.rh.historique.sanction,model_rh_historique_sanction,group_rh_absence,1,1,1,1
+access_rh_historique_structure,access.rh.historique.structure,model_rh_historique_structure,group_rh_absence,1,1,1,1
 
 access_rh_cabinet_medical,access.rh.cabinet.medical,model_rh_cabinet_medical,group_rh_absence,1,1,1,1
 access_rh_categorie,access.rh.categorie,model_rh_categorie,group_rh_absence,1,1,1,1
