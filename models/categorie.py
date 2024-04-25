@@ -8,7 +8,7 @@ from odoo.exceptions import ValidationError
 class RHCategorie(models.Model):
     _name = 'rh.categorie'
     _rec_name = 'intitule'
-    _order = "intitule desc"
+    _order = "Indice_minimal desc"
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _mail_post_access = 'read'
 
