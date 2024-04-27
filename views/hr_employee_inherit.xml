@@ -455,7 +455,7 @@
                             <field name="ref"/>
                             <field name="date_ref"/>
                             <field name="code_type_fonction" invisible="1"/>
-                            <field name="grille_id"
+                            <field name="grille_id" required="1"
                                    options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                             <field name="groupe_id"
                                    options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"

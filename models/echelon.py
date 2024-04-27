@@ -41,6 +41,7 @@ class RHEchelon(models.Model):
     @api.model
     def create(self, vals):
         vals['create_uid'] = self.env.user.id
+
         return super(RHEchelon, self).create(vals)
 
     @api.multi
