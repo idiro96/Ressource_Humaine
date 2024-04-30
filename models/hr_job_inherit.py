@@ -52,7 +52,7 @@ class HrJobInherited(models.Model):
     @api.multi
     def unlink(self):
         raise UserError(
-            "Vous ne pouvez pas supprimer cet enregistrement")
+            "لا يمكنك حذف هذا التسجيل")
         return super(HrJobInherited, self).unlink()
 
 

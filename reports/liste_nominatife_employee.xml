@@ -1952,7 +1952,7 @@
                                 منصب شغل
                                 :
                                 <span t-esc="grade_data['grade'].description"/>
-                                بالتوقيت الكامل غير محدد المدة
+                                بالتوقيت الكامل محدد المدة
                             </span>
                             <br/>
                             <span>
@@ -2128,7 +2128,7 @@
                                 منصب شغل
                                 :
                                 <span t-esc="grade_data['grade'].description"/>
-                                بالتوقيت الكامل غير محدد المدة
+                                بالتوقيت الجزئي غير محدد المدة
                             </span>
                             <br/>
                             <span>
@@ -2304,7 +2304,7 @@
                                 منصب شغل
                                 :
                                 <span t-esc="grade_data['grade'].description"/>
-                                بالتوقيت الكامل غير محدد المدة
+                                بالتوقيت الجزئي محدد المدة
                             </span>
                             <br/>
                             <span>
