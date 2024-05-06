@@ -248,10 +248,15 @@
                         <br/>
                         <div style="font-size: 18px; text-align: right;">
                             <span style="margin-right:200px;">
-                                <t t-if="employee.grade_id.intitule_grade">
-                                    <t t-esc="employee.grade_id.intitule_grade"/>
+                                <t t-if="employee.grade_id">
+                                    <t t-if="employee.grade_id.description">
+                                        <t t-esc="employee.grade_id.description"/>
+                                    </t>
+                                    <t t-if="not employee.grade_id.description">
+                                        <t t-esc="employee.grade_id.intitule_grade"/>
+                                    </t>
                                 </t>
-                                <t t-if="not employee.grade_id.intitule_grade">
+                                <t t-if="not employee.grade_id">
                                     &#160;
                                 </t>
                             </span>

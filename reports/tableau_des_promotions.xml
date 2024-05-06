@@ -107,7 +107,12 @@
                                     &#160;
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
-                                    <span t-esc="line.grade_new_id.intitule_grade"/>
+                                    <t t-if="line.grade_new_id.description">
+                                        <t t-esc="line.grade_new_id.description"/>
+                                    </t>
+                                    <t t-if="not line.grade_new_id.description">
+                                        <t t-esc="line.grade_new_id.intitule_grade"/>
+                                    </t>
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
                                     <span t-esc="line.date_grade"/>
@@ -119,7 +124,12 @@
                                     <span t-esc="line.job_id.name"/>
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
-                                    <span t-esc="line.grade_id.intitule_grade"/>
+                                    <t t-if="line.grade_id.description">
+                                        <t t-esc="line.grade_id.description"/>
+                                    </t>
+                                    <t t-if="not line.grade_id.description">
+                                        <t t-esc="line.grade_id.intitule_grade"/>
+                                    </t>
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
                                     <t t-if="line.marital == 'single'">

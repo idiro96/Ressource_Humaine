@@ -33,9 +33,14 @@ class ListeNominativeReport(models.AbstractModel):
                  ('fin_relation', '=', False)])
             hight_org_1_employees.append({'job': job, 'employees': employees})
 
+        # Retrieve the records
         job_hight_org_2 = self.env['hr.job'].search(
             [('nature_travail_id.code_type_fonction', '=', 'fonctionsuperieure'),
-             ('poste_organique', '=', 'organique')], order='name')
+             ('poste_organique', '=', 'organique')]
+        )
+
+        # Sort the records based on a custom condition
+        job_hight_org_2 = job_hight_org_2.sorted(key=lambda r: (1 if 'رئيس' in r.name else 0, r.name))
 
         job_hight_org = job_hight_org_2 - job_hight_org_1
         hight_org_employees = []
