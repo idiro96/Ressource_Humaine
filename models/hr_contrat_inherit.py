@@ -3,8 +3,7 @@ from datetime import datetime
 
 from odoo import models, fields, api, _
 
-from odoo.exceptions import ValidationError, UserError
-
+from odoo.exceptions import ValidationError
 
 
 class HrContratInherited(models.Model):
@@ -54,12 +53,6 @@ class HrContratInherited(models.Model):
                 rec.wage_range = 'high'
             else:
                 rec.wage_range = 'very_high'
-
-    @api.multi
-    def unlink(self):
-        raise UserError(
-            "لا يمكنك حذف هذا التسجيل")
-        return super(HrContratInherited, self).unlink()
 
     @api.model
     def create(self, vals):

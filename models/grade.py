@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api, _
-from odoo.exceptions import ValidationError, UserError
 from werkzeug.routing import ValidationError
 
 
@@ -42,12 +41,6 @@ class RHGrade(models.Model):
     def write(self, vals):
         vals['write_uid'] = self.env.user.id
         return super(RHGrade, self).write(vals)
-
-    @api.multi
-    def unlink(self):
-        raise UserError(
-            "لا يمكنك حذف هذا التسجيل")
-        return super(RHGrade, self).unlink()
 
     # @api.depends('employee_ids.grade_id', 'employee_ids.active', 'employee_ids.nature_travail_id', 'employee_ids.methode_embauche')
     # def _compute_employees(self):

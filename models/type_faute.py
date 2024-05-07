@@ -1,7 +1,6 @@
 
 
 from odoo import models, fields, api, _
-from odoo.exceptions import UserError
 
 
 
@@ -22,8 +21,3 @@ class RHTypeFaute(models.Model):
         return result
 
 
-    @api.multi
-    def unlink(self):
-        raise UserError(
-            "لا يمكنك حذف هذا التسجيل")
-        return super(RHTypeFaute, self).unlink()

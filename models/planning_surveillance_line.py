@@ -22,11 +22,6 @@ class RHPlanningLine(models.Model):
     filtered_employee_ids = fields.Many2many('hr.employee', compute='_compute_filtered_employees',
                                              string="Filtered Employees")
 
-    @api.onchange('employee_id')
-    def _onchange_employee_id(self):
-        selected_employees = self.planning_survellance_id.planning_surveillance_line.mapped('employee_id')
-        return {'domain': {'employee_id': [('id', 'not in', selected_employees.ids)]}}
-
     @api.onchange('date_examen')
     def onchange_date(self):
         domain = []

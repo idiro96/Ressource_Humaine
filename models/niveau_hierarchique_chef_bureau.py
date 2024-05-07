@@ -2,7 +2,7 @@
 import math
 
 from odoo import models, fields, api, _
-from odoo.exceptions import ValidationError, UserError
+from odoo.exceptions import ValidationError
 
 
 class RHNiveauHierarchiqueCheBureau(models.Model):
@@ -27,9 +27,3 @@ class RHNiveauHierarchiqueCheBureau(models.Model):
     def write(self, vals):
         vals['write_uid'] = self.env.user.id
         return super(RHNiveauHierarchiqueCheBureau, self).write(vals)
-
-    @api.multi
-    def unlink(self):
-        raise UserError(
-            "لا يمكنك حذف هذا التسجيل")
-        return super(RHNiveauHierarchiqueCheBureau, self).unlink()
