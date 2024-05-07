@@ -42,23 +42,18 @@
                             <t t-esc="superior_employee.name" t-if="superior_employee.name"/>
                         </span>
                         <t t-if="not pv_insta.employee_id.gender or pv_insta.employee_id.gender == 'male'">
-                            قـد نصـبنا السـيد
+                        قـد نصـبنا السـيد
                         </t>
                         <t t-if="pv_insta.employee_id.gender == 'female'">
-                            قـد نصـبنا السـيدة
+                        قـد نصـبنا السـيدة
                         </t>
                         <span>
                             <t t-esc="pv_insta.employee_id.name"/>
                         </span>
-                        <t t-if="not pv_insta.employee_id.gender or pv_insta.employee_id.gender == 'male'">
+                       <t t-if="not pv_insta.employee_id.gender or pv_insta.employee_id.gender == 'male'">
                             بصفتـه
                             <span>
-                                <t t-if="pv_insta.employee_id.grade_id.description">
-                                    <t t-esc="pv_insta.employee_id.grade_id.description"/>
-                                </t>
-                                <t t-if="not pv_insta.employee_id.grade_id.description">
-                                    <t t-esc="pv_insta.employee_id.grade_id.intitule_grade"/>
-                                </t>
+                                <t t-esc="pv_insta.employee_id.grade_id.intitule_grade"/>
                             </span>
                             بالمدرسة الوطنية للإدارة، وقد أمض معنا هذا المحضر في
                             اليوم و الشهر و السنة المشار إليهم أعلاه
@@ -66,12 +61,7 @@
                         <t t-if="pv_insta.employee_id.gender == 'female'">
                             بصفتـها
                             <span>
-                                <t t-if="pv_insta.employee_id.grade_id.description">
-                                    <t t-esc="pv_insta.employee_id.grade_id.description"/>
-                                </t>
-                                <t t-if="not pv_insta.employee_id.grade_id.description">
-                                    <t t-esc="pv_insta.employee_id.grade_id.intitule_grade"/>
-                                </t>
+                                <t t-esc="pv_insta.employee_id.grade_id.intitule_grade"/>
                             </span>
                             بالمدرسة الوطنية للإدارة، وقد أمضت معنا هذا المحضر في
                             اليوم و الشهر و السنة المشار إليها أعلاه

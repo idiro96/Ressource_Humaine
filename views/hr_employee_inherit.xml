@@ -88,7 +88,7 @@
                     <attribute name="invisible">True</attribute>
                 </xpath>
                 <xpath expr="//field[@name='jour_sup']" position="after">
-                    <field name="resource_calendar_id"/>
+                    <field name="resource_calendar_id" options="{'no_create': True, 'no_create_edit':True, 'no_open':True}"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='resource_calendar_id']"
                        position="after">
@@ -120,11 +120,13 @@
                 <xpath expr="//group[field[@name='date_job_id']]"
                        position="after">
                     <group name="info grade" string="الرتبة">
-                        <field name="corps_id" required="True"/>
+                        <field name="corps_id"
+                               options="{'no_create': True, 'no_create_edit':True, 'no_open':True}" required="True"/>
                     </group>
                 </xpath>
                 <xpath expr="//field[@name='corps_id']" position="after">
-                    <field name="grade_id" required="True"/>
+                    <field name="grade_id"
+                           options="{'no_create': True, 'no_create_edit':True, 'no_open':True}" required="True"/>
                 </xpath>
                 <xpath expr="//field[@name='grade_id']" position="after">
                     <field name="date_grade" required="True" context="{'lang':'fr_FR'}"/>
@@ -323,6 +325,12 @@
                 <xpath expr="//group[field[@name='address_id']]" position="attributes">
                     <attribute name="string">معلومات عامة</attribute>
                 </xpath>
+                <xpath expr="//group//field[@name='department_id']" position="attributes">
+                    <attribute name="options">{'no_create': True, 'no_create_edit': True, 'no_open': True}</attribute>
+                </xpath>
+                <xpath expr="//group//field[@name='job_id']" position="attributes">
+                    <attribute name="options">{'no_create': True, 'no_create_edit': True, 'no_open': True}</attribute>
+                </xpath>
                 <xpath expr="//group[field[@name='department_id']]" position="attributes">
                     <attribute name="string">المنصب</attribute>
                 </xpath>
@@ -509,7 +517,9 @@
                     <page string="قائمة الملفات">
                         <field name="formation_file_lines">
                             <tree editable="bottom">
-                                <field name="type_file_id" domain="[('type_file', '=', 'employe')]"/>
+                                <field name="type_file_id"
+                                       options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
+                                       domain="[('type_file', '=', 'employe')]"/>
                                 <field name="description_fichier"/>
                                 <field name="fichier"/>
                             </tree>
@@ -518,7 +528,7 @@
                 </xpath>
                 <xpath expr="//form//sheet//notebook" position="inside">
                     <page string="السيرة المهنية">
-                     <notebook >
+                     <notebook>
                      <page string="الشهادات و المؤهلات">
                          <field name="historique_diplome_lines">
                             <tree editable="bottom">

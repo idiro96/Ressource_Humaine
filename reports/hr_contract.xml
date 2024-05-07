@@ -162,19 +162,12 @@
                                         &#160;
                                     </span>
                                 </t>
-                                <t t-if="employee.grade_id">
-                                    <t t-if="employee.grade_id.description">
-                                        <span>
-                                            <t t-esc="employee.grade_id.description"/>
-                                        </span>
-                                    </t>
-                                    <t t-if="not employee.grade_id.description">
-                                        <span>
-                                            <t t-esc="employee.grade_id.intitule_grade"/>
-                                        </span>
-                                    </t>
+                                <t t-if="employee.grade_id.intitule_grade">
+                                    <span>
+                                        <t t-esc="employee.grade_id.intitule_grade"/>
+                                    </span>
                                 </t>
-                                <t t-if="not employee.grade_id">
+                                <t t-if="not employee.grade_id.intitule_grade">
                                     <span>
                                         &#160;
                                     </span>
