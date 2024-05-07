@@ -24,7 +24,7 @@
                             <field name="intitule_corps"/>
                         </group>
                         <group>
-                            <field name="loi_id"/>
+                            <field name="loi_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                             <field name="filiere_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                         </group>
                     </group>
