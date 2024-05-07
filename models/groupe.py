@@ -2,8 +2,7 @@
 import math
 
 from odoo import models, fields, api, _
-from odoo.exceptions import ValidationError
-
+from odoo.exceptions import ValidationError, UserError
 
 class RHGroupe(models.Model):
     _name = 'rh.groupe'
@@ -29,3 +28,10 @@ class RHGroupe(models.Model):
     def write(self, vals):
         vals['write_uid'] = self.env.user.id
         return super(RHGroupe, self).write(vals)
+
+    @api.multi
+    def unlink(self):
+        raise UserError(
+            "لا يمكنك حذف هذا التسجيل")
+        return super(RHGroupe, self).unlink()
+

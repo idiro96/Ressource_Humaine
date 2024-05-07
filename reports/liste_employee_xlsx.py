@@ -32,7 +32,7 @@ class EmployeeXLS(models.AbstractModel):
         sheet.set_column(1, 1, 20)
         sheet.set_column(2, 2, 15)
         sheet.set_column(3, 3, 10)
-        sheet.set_column(4, 4, 40)
+        sheet.set_column(4, 4, 20)
         sheet.set_column(5, 5, 25)
         sheet.set_column(6, 6, 25)
         sheet.set_column(7, 7, 25)

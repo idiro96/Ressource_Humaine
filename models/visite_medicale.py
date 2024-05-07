@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api, _
-
+from odoo.exceptions import UserError
 
 class RHVisiteMedicale(models.Model):
     _name = 'rh.visite.medicale'
@@ -28,6 +28,14 @@ class RHVisiteMedicale(models.Model):
     def write(self, vals):
         vals['write_uid'] = self.env.user.id
         return super(RHVisiteMedicale, self).write(vals)
+
+    @api.model
+    def create(self, vals):
+        if vals.get('code_type_sanction', _('New')) == _('New'):
+             vals['code_type_sanction'] = self.env['ir.sequence'].next_by_code('rh.type.sanction.sequence') or _('New')
+        result = super(RHVisiteMedicale, self).create(vals)
+        return result
+
 
     @api.model
     def create(self, vals):

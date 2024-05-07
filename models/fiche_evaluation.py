@@ -36,6 +36,12 @@ class RHFicheEvaluation(models.Model):
         vals['write_uid'] = self.env.user.id
         return super(RHFicheEvaluation, self).write(vals)
 
+    @api.multi
+    def unlink(self):
+        raise UserError(
+            "لا يمكنك حذف هذا التسجيل")
+        return super(RHFicheEvaluation, self).unlink()
+
     @api.model
     def create(self, vals):
         # recalculer la valeur de "exercice"

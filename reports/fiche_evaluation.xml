@@ -53,16 +53,7 @@
                             <tr>
                                 <th style="border:2px solid black;vertical-align:middle;text-align:right;font-size:18px;padding-right: 10px;">
                                     <span>الرتبة :</span>
-                                    <t t-if="employee_evaluee.grade_id.description">
-                                        <strong>
-                                            <t t-esc="employee_evaluee.grade_id.description"/>
-                                        </strong>
-                                    </t>
-                                    <t t-if="not employee_evaluee.grade_id.description">
-                                        <strong>
-                                            <t t-esc="employee_evaluee.grade_id.intitule_grade"/>
-                                        </strong>
-                                    </t>
+                                    <span t-esc="employee_evaluee.grade_id.intitule_grade"/>
                                     <br/>
                                     <span>المنصب :</span>
                                     <span t-esc="employee_info.job_id.name"/>
@@ -128,8 +119,7 @@
                 <br/>
                 <br/>
                 <div style="text-align:center;font-size: 20px;">
-                    <span>يجوز للموظف أن يبدي وجهة نظره في العالمة الممنوحة له و ذلك في مفكرة يرفقها بهذه اإلستمارة
-                    </span>
+                    <span>يجوز للموظف أن يبدي وجهة نظره في العالمة الممنوحة له و ذلك في مفكرة يرفقها بهذه اإلستمارة</span>
                 </div>
             </div>
         </t>

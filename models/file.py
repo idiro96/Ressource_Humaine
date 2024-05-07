@@ -8,23 +8,24 @@ class RHFile(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _mail_post_access = 'read'
 
-    fichier = fields.Binary()
-    description_fichier = fields.Char(tracking=True)
-    sanction_id = fields.Many2one('rh.sanction')
-    organisme_id = fields.Many2one('rh.organisme')
-    fin_relation_id = fields.Many2one('rh.fin.relation')
-    cabinet_medicale_id = fields.Many2one('rh.cabinet.medical')
-    enfant_id = fields.Many2one('rh.enfant')
-    conjoint_id = fields.Many2one('rh.conjoint')
-    absence_id = fields.Many2one('rh.absence')
-    formation_id = fields.Many2one('rh.formation')
-    avancement_id = fields.Many2one('rh.avancement')
-    avancement_line_id = fields.Many2one('rh.avancement.line')
-    promotion_line_id = fields.Many2one('rh.promotion.line')
-    promotion_id = fields.Many2one('rh.promotion')
-    accident_travail_id = fields.Many2one('rh.accident.travail')
-    type_file_id = fields.Many2one('rh.type.file', tracking=True)
-    employee_id = fields.Many2one('hr.employee')
+
+    fichier = fields.Binary(track_visibility="onchange")
+    description_fichier = fields.Char(track_visibility="onchange")
+    sanction_id = fields.Many2one('rh.sanction', track_visibility="onchange")
+    organisme_id = fields.Many2one('rh.organisme', track_visibility="onchange")
+    fin_relation_id = fields.Many2one('rh.fin.relation', track_visibility="onchange")
+    cabinet_medicale_id = fields.Many2one('rh.cabinet.medical', track_visibility="onchange")
+    enfant_id = fields.Many2one('rh.enfant', track_visibility="onchange")
+    conjoint_id = fields.Many2one('rh.conjoint', track_visibility="onchange")
+    absence_id = fields.Many2one('rh.absence', track_visibility="onchange")
+    formation_id = fields.Many2one('rh.formation', track_visibility="onchange")
+    avancement_id = fields.Many2one('rh.avancement', track_visibility="onchange")
+    avancement_line_id = fields.Many2one('rh.avancement.line', track_visibility="onchange")
+    promotion_line_id = fields.Many2one('rh.promotion.line', track_visibility="onchange")
+    promotion_id = fields.Many2one('rh.promotion_id', track_visibility="onchange")
+    accident_travail_id = fields.Many2one('rh.accident_travail', track_visibility="onchange")
+    type_file_id = fields.Many2one('rh.type.file', track_visibility="onchange")
+    employee_id = fields.Many2one('hr.employee', track_visibility="onchange")
 
     @api.model
     def create(self, vals):
@@ -121,3 +122,4 @@ class RHFile(models.Model):
                 self.avancement_id.message_post(body=message_body)
                 self.promotion_id.message_post(body=message_body)
                 self.accident_travail_id.message_post(body=message_body)
+

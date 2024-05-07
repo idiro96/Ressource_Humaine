@@ -20,7 +20,7 @@
                                 <t t-esc="decision.numero_decision_arret"/>
                             </span>
                             <span>مؤرخ في</span>
-                            <!--                            <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%m-%Y')"/>-->
+<!--                            <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%m-%Y')"/>-->
                         </div>
                         <br/>
                         <div style="font-size: 20px;text-align: center;">
@@ -82,16 +82,7 @@
                                     </span>
                                     <span>في رتبة</span>
                                     <span style="display: inline-block;">
-                                        <t t-if="decision.employee_id.grade_id.description">
-                                            <strong>
-                                                <t t-esc="decision.employee_id.grade_id.description"/>
-                                            </strong>
-                                        </t>
-                                        <t t-if="not decision.employee_id.grade_id.description">
-                                            <strong>
-                                                <t t-esc="decision.employee_id.grade_id.intitule_grade"/>
-                                            </strong>
-                                        </t>
+                                        <t t-esc="decision.employee_id.grade_id.intitule_grade"/>
                                     </span>
                                     <span>بالمدرسة إبتداء من تاريخ</span>
                                     <span style="display: inline;">
@@ -123,16 +114,7 @@
                         </span>
                         <span>في رتبة</span>
                         <span style="display: inline-block;">
-                            <t t-if="decision.employee_id.grade_id.description">
-                                <strong>
-                                    <t t-esc="decision.employee_id.grade_id.description"/>
-                                </strong>
-                            </t>
-                            <t t-if="not decision.employee_id.grade_id.description">
-                                <strong>
-                                    <t t-esc="decision.employee_id.grade_id.intitule_grade"/>
-                                </strong>
-                            </t>
+                            <t t-esc="decision.employee_id.grade_id.intitule_grade"/>
                         </span>
 
                         <span style="display: inline-block;">
@@ -204,16 +186,7 @@
                             <span>بصفتها</span>
                         </t>
                         <span style="display: inline-block;">
-                            <t t-if="decision.employee_id.grade_id.description">
-                                <strong>
-                                    <t t-esc="decision.employee_id.grade_id.description"/>
-                                </strong>
-                            </t>
-                            <t t-if="not decision.employee_id.grade_id.description">
-                                <strong>
-                                    <t t-esc="decision.employee_id.grade_id.intitule_grade"/>
-                                </strong>
-                            </t>
+                            <t t-esc="decision.employee_id.grade_id.intitule_grade"/>
                         </span>
                         <span>إبتداء من تاريخ</span>
                         <span style="display: inline-block;">

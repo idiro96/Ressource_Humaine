@@ -27,7 +27,7 @@
                                 <t t-esc="nom_employee.num_decision_fin_relation"/>
                             </span>
                             <span>مؤرخ في</span>
-                            <!--                            <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%m-%Y')"/>-->
+<!--                            <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%m-%Y')"/>-->
                         </div>
                         <br/>
                         <div style="font-size: 20px;text-align: center;">
@@ -63,7 +63,7 @@
                         </span>
                         <br/>
                         <span style="display: inline-block;">
-                            - و بمقتضى
+                             - و بمقتضى
                             <t t-esc="nom_employee.employee_id.grade_id.loi_id.intitule_loi"/>
                         </span>
                         <br/>
@@ -88,12 +88,7 @@
                         </span>
                         <span>عن طريق الامتحان المهني في رتبة</span>
                         <span style="display: inline-block;">
-                            <t t-if="nom_employee.employee_id.grade_id.description">
-                                <t t-esc="nom_employee.employee_id.grade_id.description"/>
-                            </t>
-                            <t t-if="not nom_employee.employee_id.grade_id.description">
-                                <t t-esc="nom_employee.employee_id.grade_id.intitule_grade"/>
-                            </t>
+                            <t t-esc="nom_employee.employee_id.grade_id.intitule_grade"/>
                         </span>
                         <span style="display: inline-block;">
                             <t t-esc="nom_employee.employee_id.categorie_id.intitule"/>
@@ -124,12 +119,7 @@
                         </span>
                         <span>في رتبة</span>
                         <span style="display: inline-block;">
-                            <t t-if="nom_employee.employee_id.grade_id.description">
-                                <t t-esc="nom_employee.employee_id.grade_id.description"/>
-                            </t>
-                            <t t-if="not nom_employee.employee_id.grade_id.description">
-                                <t t-esc="nom_employee.employee_id.grade_id.intitule_grade"/>
-                            </t>
+                            <t t-esc="nom_employee.employee_id.grade_id.intitule_grade"/>
                         </span>
                         <span>
                             من
@@ -158,7 +148,7 @@
                             <!-- disctionnaire.field_dictionnaire.field_relation -->
                         </span>
                         <span>المؤرخة في</span>
-                        <!--                        <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%m-%Y')"/>-->
+<!--                        <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%m-%Y')"/>-->
                         <span>
                             <t t-esc="nom_employee.date_cnas"/>
                         </span>
@@ -193,12 +183,7 @@
                             <span>بصفتها</span>
                         </t>
                         <span style="display: inline-block;">
-                            <t t-if="nom_employee.employee_id.grade_id.description">
-                                <t t-esc="nom_employee.employee_id.grade_id.description"/>
-                            </t>
-                            <t t-if="not nom_employee.employee_id.grade_id.description">
-                                <t t-esc="nom_employee.employee_id.grade_id.intitule_grade"/>
-                            </t>
+                            <t t-esc="nom_employee.employee_id.grade_id.intitule_grade"/>
                         </span>
                         <span style="display: inline-block;">
                             <t t-esc="nom_employee.employee_id.categorie_id.intitule"/>

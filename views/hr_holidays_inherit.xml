@@ -38,7 +38,9 @@
                     <button name="print_conge" type="object" string="Imprimer titre de congé" class="oe_highlight"
                             invisible="1"/>
                 </xpath>
-
+                <xpath expr="//group//field[@name='employee_id']" position="attributes">
+                    <attribute name="options">{'no_create': True, 'no_create_edit': True, 'no_open': True}</attribute>
+                </xpath>
                 <xpath expr="//field[@name='holiday_status_id']" position="attributes">
                     <attribute name="readonly">True</attribute>
                 </xpath>

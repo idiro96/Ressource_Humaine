@@ -8,7 +8,7 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="employee_id" string="الموظف"/>
+                            <field name="employee_id" string="الموظف" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                             <field name="numero_decision_arret" string="رقم مقرر توقيف الراتب"/>
                             <field name="date_arret_salaire" string="تاريخ توقيف الراتب"/>
                         </group>

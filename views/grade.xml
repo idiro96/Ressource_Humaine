@@ -28,7 +28,7 @@
                             <field name="intitule_grade"/>
                             <field name="description"/>
                             <field name="intitule_grade_fr" string="Intitule Grade FR"/>
-                            <field name="categorie_id"/>
+                            <field name="categorie_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                         </group>
                         <group>
                             <field name="loi_id"

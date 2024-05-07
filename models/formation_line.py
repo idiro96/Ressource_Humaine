@@ -8,7 +8,9 @@ class RHFormationLine(models.Model):
     _name = 'rh.formation.line'
     _inherit = ['mail.thread']
 
+
     employee_id = fields.Many2one('hr.employee', tracking=True)
+
     formation_id = fields.Many2one('rh.formation')
     date_debut_formation_line = fields.Date(tracking=True)
     date_fin_formation_line = fields.Date(tracking=True)
