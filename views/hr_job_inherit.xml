@@ -62,6 +62,9 @@
                 <xpath expr="//div[@name='button_box']" position="attributes">
                     <attribute name="invisible">True</attribute>
                 </xpath>
+                <xpath expr="//field[@name='department_id']" position="attributes">
+                    <attribute name="options">{'no_create': True, 'no_create_edit': True, 'no_open': True}</attribute>
+                </xpath>
                 <xpath expr="//form//sheet//group//group[@name='recruitment']" position="before">
                     <group string="المنصب / الوظيفة">
                         <field name="nature_travail_id"

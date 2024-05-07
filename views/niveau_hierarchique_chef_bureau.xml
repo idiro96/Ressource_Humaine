@@ -20,7 +20,7 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="grille_id"/>
+                            <field name="grille_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                             <field name="intitule"/>
                             <field name="bonification_indiciaire"/>
                         </group>
