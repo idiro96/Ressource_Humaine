@@ -21,7 +21,6 @@
                 </xpath>
                 <xpath expr="//field[@name='employee_id']" position="attributes">
                     <attribute name="required">1</attribute>
-                    <attribute name="options">{'no_create': True, 'no_create_edit': True, 'no_open': True}</attribute>
                 </xpath>
                 <xpath expr="//page[@name='information']" position="attributes">
                     <attribute name="string">معلومات حول الراتب</attribute>
@@ -41,16 +40,14 @@
                 </xpath>
                 <xpath expr="//div[@name='wage']" position="after">
                     <field name="groupe_id"
-                           options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
                            attrs="{'invisible': ['|', ('code_type_fonction', '=', 'fonctionsuperieure'), ('code_type_fonction', '=', 'contractuel')]}"/>
                 </xpath>
 
                 <xpath expr="//field[@name='groupe_id']" position="after">
-                    <field name="categorie_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                    <field name="categorie_id"/>
                 </xpath>
                 <xpath expr="//field[@name='categorie_id']" position="after">
                     <field name="section_id"
-                           options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
                            attrs="{'invisible': [('code_type_fonction', '!=', 'fonctionsuperieure')]}"/>
                 </xpath>
                 <xpath expr="//field[@name='section_id']" position="after">
@@ -62,26 +59,21 @@
                            attrs="{'invisible': ['|',('code_type_fonction', '=', 'fonctionsuperieure'),('code_type_fonction', '=', 'fonction')]}"/>
                 </xpath>
                 <xpath expr="//field[@name='indice_minimal']" position="after">
-                    <field name="echelon_id"
-                           options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
-                           attrs="{'invisible': [('code_type_fonction', '=', 'contractuel')]}"/>
+                    <field name="echelon_id" attrs="{'invisible': [('code_type_fonction', '=', 'contractuel')]}"/>
                 </xpath>
                 <xpath expr="//field[@name='echelon_id']" position="after">
                     <field name="point_indiciare" attrs="{'invisible': [('code_type_fonction', '=', 'contractuel')]}"/>
                 </xpath>
                 <xpath expr="//field[@name='point_indiciare']" position="after">
                     <field name="categorie_superieure_id"
-                           options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
                            attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')]}"/>
                 </xpath>
                 <xpath expr="//field[@name='categorie_superieure_id']" position="after">
                     <field name="section_superieure_id"
-                           options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
                            attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')]}"/>
                 </xpath>
                 <xpath expr="//field[@name='section_superieure_id']" position="after">
                     <field name="niveau_hierarchique_id"
-                           options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
                            attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')]}"/>
                 </xpath>
                 <xpath expr="//field[@name='niveau_hierarchique_id']" position="after">
@@ -89,10 +81,10 @@
                            attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')]}"/>
                 </xpath>
                 <xpath expr="//form//group//group//field[@name='job_id']" position="after">
-                    <field name="corps_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                    <field name="corps_id"/>
                 </xpath>
                 <xpath expr="//form//group//group//field[@name='corps_id']" position="after">
-                    <field name="grade_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                    <field name="grade_id"/>
                 </xpath>
                 <!--                <xpath expr="//page[@name='information']" position="after">-->
                 <!--                    <page name="grille_page"/>-->

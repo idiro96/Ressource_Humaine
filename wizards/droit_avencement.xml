@@ -9,7 +9,7 @@
                     <group>
                         <group>
                             <field name="date_avancement"/>
-                            <field name="grade_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                            <field name="grade_id"/>
                             <field name="reclassement"/>
                             <field name="boul" string="كامل قائمة الاستحقاقات"/>
                         </group>

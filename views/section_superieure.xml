@@ -22,7 +22,7 @@
                         <group>
                             <field name="intitule"/>
                             <field name="description"/>
-                            <field name="categorie_superieure_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                            <field name="categorie_superieure_id"/>
                         </group>
                     </group>
                 </sheet>

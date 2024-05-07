@@ -23,7 +23,7 @@
                     <group>
                         <group>
                             <field name="code"/>
-                            <field name="grade_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                            <field name="grade_id"/>
                             <field name="date_avancement" required="1"/>
                             <field name="date_comission" string="تاريخ إجتماع اللجنة"/>
                             <field name="date_signature" string="تاريخ الامضاء"/>
@@ -77,9 +77,9 @@
                         <page string="أعضاء اللجنة" attrs="{'invisible': [('id', '=', False)]}">
                             <field name="choisir_commission_lines">
                                 <tree editable="bottom">
-                                    <field name="employee_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
-                                    <field name="department_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
-                                    <field name="job_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                                    <field name="employee_id"/>
+                                    <field name="department_id"/>
+                                    <field name="job_id"/>
                                 </tree>
                             </field>
                         </page>

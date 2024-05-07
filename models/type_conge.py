@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api, _
-from odoo.exceptions import UserError
 
 
 
@@ -18,8 +17,3 @@ class RHTypeConge(models.Model):
 
 
 
-    @api.multi
-    def unlink(self):
-        raise UserError(
-            "لا يمكنك حذف هذا التسجيل")
-        return super(RHTypeConge, self).unlink()

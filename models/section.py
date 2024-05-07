@@ -2,7 +2,7 @@
 import math
 
 from odoo import models, fields, api, _
-from odoo.exceptions import UserError, ValidationError
+from odoo.exceptions import ValidationError
 
 
 class RHSection(models.Model):
@@ -39,14 +39,6 @@ class RHSection(models.Model):
     def write(self, vals):
         vals['write_uid'] = self.env.user.id
         return super(RHSection, self).write(vals)
-
-    @api.multi
-    def unlink(self):
-        raise UserError(
-            "لا يمكنك حذف هذا التسجيل")
-        return super(RHSection, self).unlink()
-
-
 
     @api.onchange('grille_id')
     def _onchange_grille_id(self):

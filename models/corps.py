@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api, _
-from odoo.exceptions import ValidationError, UserError
 
 
 class RHSecteure(models.Model):
@@ -27,12 +26,6 @@ class RHSecteure(models.Model):
     def write(self, vals):
         vals['write_uid'] = self.env.user.id
         return super(RHSecteure, self).write(vals)
-
-    @api.multi
-    def unlink(self):
-        raise UserError(
-            "لا يمكنك حذف هذا التسجيل")
-        return super(RHSecteure, self).unlink()
 
     @api.model
     def create(self, vals):

@@ -19,7 +19,7 @@
                         <br/>
                         <br/>
                         <div style="font-size: 20px;text-align: center;">
-<!--                            <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/>&#160;-->
+                            <!--                            <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/>&#160;-->
                             <span style="display: inline-block;">
                                 مؤرخ في
                             </span>&#160;
@@ -63,32 +63,50 @@
                         <br/>
                         <t t-if="contract.employee_id.gender == 'female'">
                             <span>
-                                  &#160;ـ و بناء على
-                            <t t-esc="contract.type_id.name"/>
+                                &#160;ـ و بناء على
+                                <t t-esc="contract.type_id.name"/>
                                 رقم .......... المؤرخ في
-<!--                            <t t-esc="contract.name"/>&#160;-->
-                            <t t-esc="contract.date_start"/>&#160;
+                                <!--                            <t t-esc="contract.name"/>&#160;-->
+                                <t t-esc="contract.date_start"/>&#160;
                                 &#160;الخاص بالسيدة
-                            <t t-esc="contract.employee_id.name"/>
+                                <t t-esc="contract.employee_id.name"/>
                                 بصفتها
-                            <t t-esc="contract.employee_id.grade_id.intitule_grade"/>
+                                <t t-if="contract.employee_id.grade_id.description">
+                                    <strong>
+                                        <t t-esc="contract.employee_id.grade_id.description"/>
+                                    </strong>
+                                </t>
+                                <t t-if="not contract.employee_id.grade_id.description">
+                                    <strong>
+                                        <t t-esc="contract.employee_id.grade_id.intitule_grade"/>
+                                    </strong>
+                                </t>
                                 ، لمدة محددة بسنة واحدة ، إبتداأ من تاريخ
-                            <t t-esc="contract.date_end"/>&#160;
+                                <t t-esc="contract.date_end"/>&#160;
                             </span>
                         </t>
                         <t t-if="not contract.employee_id.gender or contract.employee_id.gender == 'male'">
                             <span>
-                                  &#160;ـ و بناء على
-                            <t t-esc="contract.type_id.name"/>
+                                &#160;ـ و بناء على
+                                <t t-esc="contract.type_id.name"/>
                                 رقم .......... المؤرخ في
-<!--                            <t t-esc="contract.name"/>&#160;-->
-                            <t t-esc="contract.date_start"/>&#160;
+                                <!--                            <t t-esc="contract.name"/>&#160;-->
+                                <t t-esc="contract.date_start"/>&#160;
                                 &#160;الخاص بالسيد
-                            <t t-esc="contract.employee_id.name"/>
+                                <t t-esc="contract.employee_id.name"/>
                                 بصفته
-                            <t t-esc="contract.employee_id.grade_id.intitule_grade"/>
+                                <t t-if="contract.employee_id.grade_id.description">
+                                    <strong>
+                                        <t t-esc="contract.employee_id.grade_id.description"/>
+                                    </strong>
+                                </t>
+                                <t t-if="not contract.employee_id.grade_id.description">
+                                    <strong>
+                                        <t t-esc="contract.employee_id.grade_id.intitule_grade"/>
+                                    </strong>
+                                </t>
                                 ، لمدة محددة بسنة واحدة ، إبتداأ من تاريخ
-                            <t t-esc="contract.date_end"/>&#160;
+                                <t t-esc="contract.date_end"/>&#160;
                             </span>
                         </t>
                         <br/>

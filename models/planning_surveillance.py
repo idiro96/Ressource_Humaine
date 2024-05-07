@@ -28,14 +28,6 @@ class RHPlanning(models.Model):
         vals['write_uid'] = self.env.user.id
         return super(RHPlanning, self).write(vals)
 
-    @api.multi
-    def unlink(self):
-        raise UserError(
-            "لا يمكنك حذف هذا التسجيل")
-        return super(RHPlanning, self).unlink()
-
-
-
     @api.constrains('date_surveillance', 'time_surveillance_start', 'time_surveillance_end', 'planning_surveillance_line')
     def _check_employee_availability(self):
         for planning in self:

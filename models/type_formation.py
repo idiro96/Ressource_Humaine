@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api, _
-from odoo.exceptions import UserError
 
 
 
@@ -20,8 +19,3 @@ class RHTypeFormation(models.Model):
         result = super(RHTypeFormation, self).create(vals)
         return result
 
-    @api.multi
-    def unlink(self):
-        raise UserError(
-            "لا يمكنك حذف هذا التسجيل")
-        return super(RHTypeFormation, self).unlink()

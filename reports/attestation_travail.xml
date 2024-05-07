@@ -34,7 +34,8 @@
                             </span>
                         </div>
                         <br/>
-                        <div class="Diwani_Letter" style="font-size: 32px;text-align: right;margin-right:15px;word-spacing: 9px;">
+                        <div class="Diwani_Letter"
+                             style="font-size: 32px;text-align: right;margin-right:15px;word-spacing: 9px;">
                             <t t-if="attestation_travail.signataire == 'sg'">
                                 <span>
                                     الأمانة العامة
@@ -52,13 +53,15 @@
                             </t>
                         </div>
                         <br/>
-                        <div class="Diwani_Letter" style="font-size: 32px;text-align: right;margin-right:15px;word-spacing: 9px;">
+                        <div class="Diwani_Letter"
+                             style="font-size: 32px;text-align: right;margin-right:15px;word-spacing: 9px;">
                             <span>
                                 مصلحة تسيير الموارد البشرية
                             </span>
                         </div>
                         <br/>
-                        <div class="Diwani_Letter" style="font-size: 32px;text-align: right;margin-right:15px;word-spacing: 9px;">
+                        <div class="Diwani_Letter"
+                             style="font-size: 32px;text-align: right;margin-right:15px;word-spacing: 9px;">
                             <t t-if="attestation_travail.signataire == 'sg'">
                                 <span>
                                     رقم ........... /م.و.إ/أ.ع/م.ت.م.ب/
@@ -186,8 +189,20 @@
                             </span>
                         </t>
                         <span>
+                            <t t-if="employee.grade_id.description">
+                                <strong class="texte-en-gras">
+                                    <t t-esc="employee.grade_id.description"/>
+                                </strong>
+                            </t>
+                            <t t-if="not employee.grade_id.description">
+                                <strong class="texte-en-gras">
+                                    <t t-esc="employee.grade_id.intitule_grade"/>
+                                </strong>
+                            </t>
+                        </span>
+                        <span>
                             <strong class="texte-en-gras">
-                                <t t-esc="employee.grade_id.intitule_grade"/>.
+                                <t t-esc="employee.job_id.name"/>.
                             </strong>
                         </span>
                         <span style="color: white;">
@@ -238,19 +253,22 @@
                             </span>
                         </div>
                         <br/>
-                        <div class="Diwani_Letter" style="font-size: 32px;text-align: right;margin-right:15px;word-spacing: 9px;">
+                        <div class="Diwani_Letter"
+                             style="font-size: 32px;text-align: right;margin-right:15px;word-spacing: 9px;">
                             <span>
                                 الأمانة العامة
                             </span>
                         </div>
                         <br/>
-                        <div class="Diwani_Letter" style="font-size: 32px;text-align: right;margin-right:15px;word-spacing: 9px;">
+                        <div class="Diwani_Letter"
+                             style="font-size: 32px;text-align: right;margin-right:15px;word-spacing: 9px;">
                             <span>
                                 مصلحة تسيير الموارد البشرية
                             </span>
                         </div>
                         <br/>
-                        <div class="Diwani_Letter" style="font-size: 32px;text-align: right;margin-right:15px;word-spacing: 9px;">
+                        <div class="Diwani_Letter"
+                             style="font-size: 32px;text-align: right;margin-right:15px;word-spacing: 9px;">
                             <span>
                                 رقم ........... /م.و.إ/أ.ع/م.ت.م.ب/
                                 <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
@@ -364,8 +382,20 @@
                             </span>
                         </t>
                         <span>
+                            <t t-if="employee.grade_id.description">
+                                <strong class="texte-en-gras">
+                                    <t t-esc="employee.grade_id.description"/>
+                                </strong>
+                            </t>
+                            <t t-if="not employee.grade_id.description">
+                                <strong class="texte-en-gras">
+                                    <t t-esc="employee.grade_id.intitule_grade"/>
+                                </strong>
+                            </t>
+                        </span>
+                        <span>
                             <strong class="texte-en-gras">
-                                <t t-esc="employee.grade_id.intitule_grade"/>.
+                                <t t-esc="employee.job_id.name"/>.
                             </strong>
                         </span>
                         <span style="color: white;">

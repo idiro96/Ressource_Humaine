@@ -13,6 +13,7 @@
                             </group>
                             <group>
                                 <field name="department_id" string="المصلحة"
+                                       widget='selection'
                                        options="{'no_create': True, 'no_create_edit':True, 'no_open':True}"/>
                             </group>
                         </group>
