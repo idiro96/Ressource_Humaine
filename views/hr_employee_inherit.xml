@@ -88,7 +88,8 @@
                     <attribute name="invisible">True</attribute>
                 </xpath>
                 <xpath expr="//field[@name='jour_sup']" position="after">
-                    <field name="resource_calendar_id" options="{'no_create': True, 'no_create_edit':True, 'no_open':True}"/>
+                    <field name="resource_calendar_id"
+                           options="{'no_create': True, 'no_create_edit':True, 'no_open':True}"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='resource_calendar_id']"
                        position="after">
@@ -100,16 +101,19 @@
                            attrs="{'invisible': ['|', ('position_statutaire', '=', 'activite'), ('position_statutaire', '=', False)]}"/>
                     <div style="display: inline-block;">
                         <div style="display: inline-block;">
-                            <field name="date_depart" attrs="{'invisible': ['|', ('position_statutaire', '=', 'activite'), ('position_statutaire', '=', False)]}"
+                            <field name="date_depart"
+                                   attrs="{'invisible': ['|', ('position_statutaire', '=', 'activite'), ('position_statutaire', '=', False)]}"
                                    class="oe_inline" style="max-width: 130px;"/>
                             <label string="-" class="oe_inline"
                                    attrs="{'invisible': ['|', ('position_statutaire', '=', 'activite'), ('position_statutaire', '=', False)]}"/>
-                            <field name="date_retour" attrs="{'invisible': ['|', ('position_statutaire', '=', 'activite'), ('position_statutaire', '=', False)]}"
+                            <field name="date_retour"
+                                   attrs="{'invisible': ['|', ('position_statutaire', '=', 'activite'), ('position_statutaire', '=', False)]}"
                                    class="oe_inline" style="max-width: 130px;"/>
                         </div>
                     </div>
                     <field name="duree"
-                           attrs="{'invisible': ['|', ('position_statutaire', '=', 'activite'), ('position_statutaire', '=', False)]}" class="oe_inline"
+                           attrs="{'invisible': ['|', ('position_statutaire', '=', 'activite'), ('position_statutaire', '=', False)]}"
+                           class="oe_inline"
                            string="" placeholder="إلى غاية إنهاء المهام"/>
                     <field name="cause"
                            attrs="{'invisible': ['|', ('position_statutaire', '=', 'activite'), ('position_statutaire', '=', False)]}"/>
@@ -146,12 +150,12 @@
                 <xpath expr="//field[@name='fin_relation']" position="after">
                     <field name="date_fin_relation" attrs="{'invisible': [('fin_relation', '=', False)]}"/>
                 </xpath>
-<!--                <xpath expr="//field[@name='date_fin_relation']" position="after">-->
-<!--                    <field name="reintegration" attrs="{'invisible': [('fin_relation', '=', False)]}"/>-->
-<!--                </xpath>-->
-<!--                <xpath expr="//field[@name='reintegration']" position="after">-->
-<!--                    <field name="date_reintegration" attrs="{'invisible': [('reintegration', '=', False)]}"/>-->
-<!--                </xpath>-->
+                <!--                <xpath expr="//field[@name='date_fin_relation']" position="after">-->
+                <!--                    <field name="reintegration" attrs="{'invisible': [('fin_relation', '=', False)]}"/>-->
+                <!--                </xpath>-->
+                <!--                <xpath expr="//field[@name='reintegration']" position="after">-->
+                <!--                    <field name="date_reintegration" attrs="{'invisible': [('reintegration', '=', False)]}"/>-->
+                <!--                </xpath>-->
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='department_id']"
                        position="before">
                     <field name="date_entrer" required="True"/>
@@ -389,11 +393,11 @@
                                attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}"/>
                     </group>
                 </xpath>
-<!--                <xpath expr="//form//sheet//notebook//page//group//group[@string='Contact Information']" position="after">-->
-<!--                    <group string="المنصب / الوظيفة">-->
-<!--                        <field name="num_date"/>-->
-<!--                    </group>-->
-<!--                </xpath>-->
+                <!--                <xpath expr="//form//sheet//notebook//page//group//group[@string='Contact Information']" position="after">-->
+                <!--                    <group string="المنصب / الوظيفة">-->
+                <!--                        <field name="num_date"/>-->
+                <!--                    </group>-->
+                <!--                </xpath>-->
 
                 <xpath expr="//form//sheet//notebook" position="inside">
                     <page name="الترقيات في الدرجة" string="الترقيات في الرتبة">
@@ -528,72 +532,72 @@
                 </xpath>
                 <xpath expr="//form//sheet//notebook" position="inside">
                     <page string="السيرة المهنية">
-                     <notebook>
-                     <page string="الشهادات و المؤهلات">
-                         <field name="historique_diplome_lines">
-                            <tree editable="bottom">
-                                <field name="type_diplome"/>
-                                <field name="diplôme"/>
-                                <field name="document_file_line"/>
-                            </tree>
-                        </field>
-                     </page>
+                        <notebook>
+                            <page string="الشهادات و المؤهلات">
+                                <field name="historique_diplome_lines">
+                                    <tree editable="bottom">
+                                        <field name="type_diplome"/>
+                                        <field name="diplôme"/>
+                                        <field name="document_file_line"/>
+                                    </tree>
+                                </field>
+                            </page>
 
-                    <page string="الرتب">
-                             <field name="historique_grade_lines">
-                                <tree editable="bottom">
-                                    <field name="grade"/>
-                                    <field name="date_debut_travail"/>
-                                    <field name="document_file_line"/>
-                                </tree>
-                            </field>
-                         </page>
-                         <page string="المناصب العليا">
-                             <field name="historique_poste_superieure_lines">
-                                <tree editable="bottom">
-                                    <field name="type_poste"/>
-                                    <field name="date_debut_poste"/>
-                                    <field name="date_fin_poste"/>
-                                    <field name="document_file_line"/>
-                                </tree>
-                            </field>
-                         </page>
-                             <page string="الوضعيات القانونية">
-                             <field name="historique_poisition_statutaire_lines">
-                                <tree editable="bottom">
-                                    <field name="position_statutaire"/>
-<!--                                    <field name="date_debut_poste"/>-->
-<!--                                    <field name="date_fin_poste"/>-->
-                                    <field name="document_file_line"/>
-                                </tree>
-                            </field>
-                         </page>
+                            <page string="الرتب">
+                                <field name="historique_grade_lines">
+                                    <tree editable="bottom">
+                                        <field name="grade"/>
+                                        <field name="date_debut_travail"/>
+                                        <field name="document_file_line"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="المناصب العليا">
+                                <field name="historique_poste_superieure_lines">
+                                    <tree editable="bottom">
+                                        <field name="type_poste"/>
+                                        <field name="date_debut_poste"/>
+                                        <field name="date_fin_poste"/>
+                                        <field name="document_file_line"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="الوضعيات القانونية">
+                                <field name="historique_poisition_statutaire_lines">
+                                    <tree editable="bottom">
+                                        <field name="position_statutaire"/>
+                                        <!--                                    <field name="date_debut_poste"/>-->
+                                        <!--                                    <field name="date_fin_poste"/>-->
+                                        <field name="document_file_line"/>
+                                    </tree>
+                                </field>
+                            </page>
                             <page string="مصالح التعين">
-                             <field name="historique_structure_lines">
-                                <tree editable="bottom">
-                                    <field name="structure"/>
-<!--                                    <field name="date_debut_poste"/>-->
-<!--                                    <field name="date_fin_poste"/>-->
-                                    <field name="document_file_line"/>
-                                </tree>
-                            </field>
-                         </page>
-                         <page string="العقوبات التأدبية">
-                             <field name="historique_sanction_lines">
-                                <tree editable="bottom">
-                                    <field name="sanction"/>
-                                    <field name="document_file_line"/>
-                                </tree>
-                            </field>
-                         </page>
-                             <page string="نهاية علاقة العمل">
-                             <field name="historique_fin_relation_lines">
-                                <tree editable="bottom">
-                                    <field name="date_fin_relation"/>
-                                    <field name="document_file_line"/>
-                                </tree>
-                            </field>
-                         </page>
+                                <field name="historique_structure_lines">
+                                    <tree editable="bottom">
+                                        <field name="structure"/>
+                                        <!--                                    <field name="date_debut_poste"/>-->
+                                        <!--                                    <field name="date_fin_poste"/>-->
+                                        <field name="document_file_line"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="العقوبات التأدبية">
+                                <field name="historique_sanction_lines">
+                                    <tree editable="bottom">
+                                        <field name="sanction"/>
+                                        <field name="document_file_line"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="نهاية علاقة العمل">
+                                <field name="historique_fin_relation_lines">
+                                    <tree editable="bottom">
+                                        <field name="date_fin_relation"/>
+                                        <field name="document_file_line"/>
+                                    </tree>
+                                </field>
+                            </page>
                         </notebook>
                     </page>
                 </xpath>
@@ -617,6 +621,26 @@
             <field name="view_mode">tree,form</field>
             <field name="type">ir.actions.act_window</field>
             <field name="context">{}</field>
+        </record>
+
+        <record id="view_employee_filter_inherited" model="ir.ui.view">
+            <field name="name">hr.employee.search.inherited</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//search" position="inside">
+                    <field name="grade_id"/>
+                    <field name="nature_travail_id"/>
+                    <field name="position_statutaire"/>
+                    <field name="chef_bureau"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Grade" name="grade_id" context="{'group_by': 'grade_id'}"/>
+                        <filter string="Nature Travail" name="nature_travail_id" context="{'group_by': 'nature_travail_id'}"/>
+                        <filter string="Position Statutaire" name="position_statutaire" context="{'group_by': 'position_statutaire'}"/>
+                        <filter string="Chef Bureau" name="chef_bureau" context="{'group_by': 'chef_bureau'}"/>
+                    </group>
+                </xpath>
+            </field>
         </record>
 
         <menuitem name="Ressource Humaine" id="ressource_humaine.menu_root"
