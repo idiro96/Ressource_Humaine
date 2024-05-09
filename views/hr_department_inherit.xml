@@ -46,8 +46,7 @@
                 <xpath expr="//search" position="inside">
                     <field name="department_type"/>
                     <group expand="0" string="Group By">
-                        <filter string="Department Type" name="department_type"
-                                context="{'group_by': 'department_type'}"/>
+                        <filter string="Department Type" name="department_type" context="{'group_by': 'department_type'}"/>
                     </group>
                 </xpath>
             </field>

@@ -80,3 +80,4 @@ class RHcommissionLine(models.Model):
                 message_body += f"  • تغيير منصب {new_employee_name} من {original_job_id} إلى {self.job_id}<br/>"
 
             self.sanction_id.message_post(body=message_body)
+

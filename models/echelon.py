@@ -2,7 +2,7 @@
 import math
 
 from odoo import models, fields, api, _
-from odoo.exceptions import ValidationError
+from odoo.exceptions import ValidationError, UserError
 
 
 class RHEchelon(models.Model):
@@ -47,6 +47,12 @@ class RHEchelon(models.Model):
     def write(self, vals):
         vals['write_uid'] = self.env.user.id
         return super(RHEchelon, self).write(vals)
+
+    @api.multi
+    def unlink(self):
+        raise UserError(
+            "لا يمكنك حذف هذا التسجيل")
+        return super(RHSecteure, self).unlink()
 
     @api.depends('categorie_id')
     def _compute_categorie_fields(self):

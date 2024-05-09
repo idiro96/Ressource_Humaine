@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import logging
 from odoo import models, fields, api, _
+from odoo.exceptions import ValidationError, UserError
 import csv
 from io import StringIO
 
@@ -38,6 +39,12 @@ class RHGrille(models.Model):
     def write(self, vals):
         vals['write_uid'] = self.env.user.id
         return super(RHGrille, self).write(vals)
+
+    @api.multi
+    def unlink(self):
+        raise UserError(
+            "لا يمكنك حذف هذا التسجيل")
+        return super(RHGrille, self).unlink()
 
     @api.model
     def check_date_application_provisoire_and_notify(self):
