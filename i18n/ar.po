@@ -24488,13 +24488,13 @@ msgstr "مسح الاحداث"
 #: code:addons/mail/models/mail_thread.py:348
 #, python-format
 msgid "Click here to add new %(document)s or send an email to: %(email_link)s"
-msgstr "Click here to add new %(document)s or send an email to: %(email_link)s"
+msgstr "انقر هنا لإضافة %(مستند)s جديد أو إرسال بريد إلكتروني إلى: %(email_link)s"
 
 #. module: mail
 #: code:addons/mail/models/mail_thread.py:366
 #, python-format
 msgid "Click here to add new %s"
-msgstr "Click here to add new %s"
+msgstr "انقر هنا لإضافة %s جديد"
 
 #. module: sale_management
 #. openerp-web
@@ -25076,6 +25076,7 @@ msgstr "جزر الكوكوس"
 #: model:ir.model.fields,field_description:ressource_humaine.field_droit_avencement_code
 #: model:ir.model.fields,field_description:ressource_humaine.field_droit_promotion_code
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_holidays_code
+#: model:ir.model.fields,field_description:ressource_humaine.field_note_conge_code
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_code
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_code
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_cabinet_medical_code
@@ -50566,10 +50567,20 @@ msgstr "ملاحظة"
 #. module: ressource_humaine
 #: model:ir.actions.report,name:ressource_humaine.report_note_conge
 msgid "Note Conge"
-msgstr "تعليمة العطلة"
+msgstr "مذكـرة مصلحية"
+
+#. module: ressource_humaine
+#: model:ir.actions.report,name:ressource_humaine.new_report_note_conge
+msgid "Note Conge"
+msgstr "مذكـرة مصلحية"
 
 #. module: ressource_humaine
 #: model:ir.ui.menu,name:ressource_humaine.menu_note_conge
+msgid "Note Congé"
+msgstr "مذكـرة مصلحية"
+
+#. module: ressource_humaine
+#: model:ir.ui.menu,name:ressource_humaine.menu_note_conge_wizard
 msgid "Note Congé"
 msgstr "مذكـرة مصلحية"
 
@@ -50582,6 +50593,11 @@ msgstr "ملاحظة من قبل"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.note_conge_action
+msgid "Note de Congé"
+msgstr "مذكـرة مصلحية"
+
+#. module: ressource_humaine
+#: model:ir.actions.act_window,name:ressource_humaine.note_conge_wizard_action
 msgid "Note de Congé"
 msgstr "مذكـرة مصلحية"
 
