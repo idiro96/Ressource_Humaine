@@ -26627,6 +26627,8 @@ msgstr "شروط العقد"
 #: model:ir.ui.view,arch_db:hr_contract.hr_contract_type_view_tree
 #: model:ir.ui.view,arch_db:hr_contract.hr_contract_view_search
 #: model:ir.model,name:ressource_humaine.model_hr_contract_type
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_contract_contract_type_id
+#: model:ir.ui.view,arch_db:ressource_humaine.hr_contract_view_search_inherited
 msgid "Contract Type"
 msgstr "نوع العقد"
 

@@ -15,9 +15,8 @@
                                default="contrat" widget="radio" options="{'horizontal': true}"/>
                     </group>
                 </xpath>
-                <xpath expr="//field[@name='type_id']" position="attributes">
-                    <attribute name="readonly">1</attribute>
-                    <attribute name="attrs">{'invisible': [('type','=', 'decision')]}</attribute>
+                <xpath expr="//field[@name='type_id']" position="replace">
+                    <field name="contract_type_id" attrs="{'invisible': [('type','=', 'decision')]}" readonly="1"/>
                 </xpath>
                 <xpath expr="//field[@name='employee_id']" position="attributes">
                     <attribute name="required">1</attribute>
@@ -46,7 +45,8 @@
                 </xpath>
 
                 <xpath expr="//field[@name='groupe_id']" position="after">
-                    <field name="categorie_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                    <field name="categorie_id"
+                           options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                 </xpath>
                 <xpath expr="//field[@name='categorie_id']" position="after">
                     <field name="section_id"
@@ -89,10 +89,12 @@
                            attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')]}"/>
                 </xpath>
                 <xpath expr="//form//group//group//field[@name='job_id']" position="after">
-                    <field name="corps_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                    <field name="corps_id"
+                           options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                 </xpath>
                 <xpath expr="//form//group//group//field[@name='corps_id']" position="after">
-                    <field name="grade_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                    <field name="grade_id"
+                           options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                 </xpath>
                 <!--                <xpath expr="//page[@name='information']" position="after">-->
                 <!--                    <page name="grille_page"/>-->
@@ -128,8 +130,9 @@
                 <xpath expr="//group[field[@name='notes']]" position="attributes">
                     <attribute name="string">ملاحظات</attribute>
                 </xpath>
-
-
+                <xpath expr="//field[@name='date_start']" position="attributes">
+                    <attribute name="readonly">0</attribute>
+                </xpath>
             </field>
         </record>
         <record model="ir.actions.act_window" id="action_ressource_humaine_contart">
@@ -139,8 +142,20 @@
             <field name="view_mode">calendar,tree,form</field>
             <field name="view_id" ref="hr_contract.hr_contract_view_tree"/>
         </record>
-
-
+        <record id="hr_contract_view_search_inherited" model="ir.ui.view">
+            <field name="name">hr.contract.view.search.inherited</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="//search" position="inside">
+                    <field name="contract_type_id"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Contract Type" name="contract_type_id"
+                                context="{'group_by': 'contract_type_id'}"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
         <menuitem name="Contrat/Decision" id="menu_hr_contart" parent="recrutement_id"
                   action="action_ressource_humaine_contart"/>
 
