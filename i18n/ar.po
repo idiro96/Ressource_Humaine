@@ -26684,7 +26684,7 @@ msgstr "العقد"
 #. module: ressource_humaine
 #: model:ir.actions.report,name:ressource_humaine.action_cont_indete_tem_part_report
 msgid "Contrat Indéterminé à Temps Partiel"
-msgstr "عقد غير محدد المدة بدوام جزئي"
+msgstr "عقد عمل غير محدد المدة بالتوقيت الجزئي"
 
 #. module: ressource_humaine
 #: model:ir.ui.menu,name:ressource_humaine.menu_hr_contart
@@ -73244,13 +73244,14 @@ msgstr "اكتب '<i class=\"confirm_word\">نعم</i>' في الصندوق با
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.action_rh_type_absence
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_absence_type_absence_id
-#: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_type_faute
+#: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_type_absence
 msgid "Type Absence"
 msgstr "أنواع الغيابات"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.action_rh_type_faute
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_sanction_type_faute_id
+#: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_type_faute
 msgid "Type Faute"
 msgstr "نوع الخطأ"
 
