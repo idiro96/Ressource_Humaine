@@ -33,6 +33,7 @@ class RHGrille(models.Model):
     @api.model
     def create(self, vals):
         vals['create_uid'] = self.env.user.id
+
         return super(RHGrille, self).create(vals)
 
     @api.multi
@@ -56,10 +57,79 @@ class RHGrille(models.Model):
 
     @api.model
     def create(self, vals):
+
         if vals.get('code', _('New')) == _('New'):
             vals['code'] = self.env['ir.sequence'].next_by_code('rh.code.sequence') or _('New')
-
         result = super(RHGrille, self).create(vals)
+        grille = self.env['rh.grille'].search([('description_grille', '=', 54)])
+        for rec in grille:
+            print('test')
+            print(rec)
+            groupe = self.env['rh.groupe'].search([('grille_id', '=', rec.id)])
+            if groupe:
+                for record in groupe:
+                    print('test2')
+                    print(record)
+                    groupe_new = self.env['rh.groupe'].create({
+                        'name': record.name,
+                        'description': record.description,
+                        'grille_id': result.id,
+                    })
+                    categorie = self.env['rh.categorie'].search([('groupe_id', '=', record.id)])
+                    if categorie:
+                        for cat in categorie:
+                            categorie_new = self.env['rh.categorie'].create({
+                                'intitule': cat.intitule,
+                                'description': cat.description,
+                                'Indice_minimal': cat.Indice_minimal,
+                                'type_fonction_id': cat.type_fonction_id.id,
+                                'grille_id': result.id,
+                                'groupe_id': groupe_new.id,
+                            })
+                            echelon = self.env['rh.echelon'].search([('categorie_id', '=', cat.id)])
+                            if echelon:
+                                for ech in echelon:
+                                    echelon_new = self.env['rh.echelon'].create({
+                                        'intitule': ech.intitule,
+                                        'type_fonction': ech.type_fonction.id,
+                                        'grille_id': result.id,
+                                        'categorie_id': categorie_new.id,
+                                        'indice_echelon': ech.indice_echelon,
+                                    })
+
+            categorie_sup = self.env['rh.categorie'].search([('grille_id', '=', rec.id),('groupe_id', '=', None)])
+            if categorie_sup:
+                for catsup in categorie_sup:
+                    categorie_sup_new = self.env['rh.categorie'].create({
+                        'intitule': catsup.intitule,
+                        'description': catsup.description,
+                        'Indice_minimal': catsup.Indice_minimal,
+                        'type_fonction_id': catsup.type_fonction_id.id,
+                        'grille_id': result.id,
+                    })
+                    section = self.env['rh.section'].search(
+                        [('categorie_id', '=', catsup.id)])
+                    if section:
+                        for sect in section:
+                            section_new = self.env['rh.section'].create({
+                                'intitule': sect.intitule,
+                                'description': sect.description,
+                                'indice_base': sect.indice_base,
+                                'categorie_id': categorie_sup_new.id,
+                                'grille_id': result.id,
+                            })
+                            echelon_section = self.env['rh.echelon'].search([('section', '=', sect.id)])
+                            if echelon_section:
+                                for ech_sect in echelon_section:
+                                    echelon_sect_new = self.env['rh.echelon'].create({
+                                        'intitule': ech_sect.intitule,
+                                        'type_fonction': ech_sect.type_fonction.id,
+                                        'grille_id': result.id,
+                                        'categorie_id': categorie_sup_new.id,
+                                        'section': section_new.id,
+                                        'indice_echelon': ech_sect.indice_echelon,
+                                    })
+
         return result
 
     @api.multi
