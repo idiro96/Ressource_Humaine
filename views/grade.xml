@@ -28,7 +28,8 @@
                             <field name="intitule_grade"/>
                             <field name="description"/>
                             <field name="intitule_grade_fr" string="Intitule Grade FR"/>
-                            <field name="categorie_id"/>
+                            <field name="categorie_id"
+                                   options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                         </group>
                         <group>
                             <field name="loi_id"
@@ -56,6 +57,19 @@
         <field name="context">{}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">Création d'un grade</p>
+        </field>
+    </record>
+    <record id="rh_grade_search" model="ir.ui.view">
+        <field name="name">rh.grade.search</field>
+        <field name="model">rh.grade</field>
+        <field name="arch" type="xml">
+            <search string="Corps">
+                <field name="intitule_grade" string="Intitule"/>
+                <field name="corps_id" string="Corps"/>
+                <group expand="0" string="Group By">
+                    <filter string="Corps" name="corps_id" context="{'group_by': 'corps_id'}"/>
+                </group>
+            </search>
         </field>
     </record>
     <menuitem name="Grade" id="ressource_humaine_grade" parent="promotion_de_grade" sequence="7"

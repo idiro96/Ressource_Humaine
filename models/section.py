@@ -2,7 +2,7 @@
 import math
 
 from odoo import models, fields, api, _
-from odoo.exceptions import ValidationError
+from odoo.exceptions import UserError, ValidationError
 
 
 class RHSection(models.Model):
@@ -20,6 +20,7 @@ class RHSection(models.Model):
     write_uid = fields.Many2one('res.users', string='Last Updated by', readonly=True, track_visibility='onchange')
     grille_compute1_id = fields.Char(compute="_compute_grille")
     grille_id = fields.Many2one('rh.grille', track_visibility='onchange')
+    old_section_id = fields.Many2one('rh.section', track_visibility='onchange')
     @api.multi
     def _compute_grille(self):
         for record in self:
@@ -39,6 +40,14 @@ class RHSection(models.Model):
     def write(self, vals):
         vals['write_uid'] = self.env.user.id
         return super(RHSection, self).write(vals)
+
+    @api.multi
+    def unlink(self):
+        raise UserError(
+            "لا يمكنك حذف هذا التسجيل")
+        return super(RHSection, self).unlink()
+
+
 
     @api.onchange('grille_id')
     def _onchange_grille_id(self):

@@ -18,6 +18,7 @@ class HrEmployeInherited(models.Model):
     _order = "name"
     _mail_post_access = 'read'
 
+
     # name = fields.Char(string="Employee Tag", required=True, compute='_compute_nom')
     handicape = fields.Boolean(default=False, track_visibility="onchange")
     promotion_dix = fields.Boolean(default=False)
@@ -156,6 +157,12 @@ class HrEmployeInherited(models.Model):
         help='Employee bank salary account', track_visibility="onchange")
     birthday = fields.Date('Date of Birth', groups="hr.group_hr_user", track_visibility="onchange")
     place_of_birth = fields.Char('Place of Birth', groups="hr.group_hr_user", track_visibility="onchange")
+
+    @api.multi
+    def unlink(self):
+        raise UserError(
+            "لا يمكنك حذف هذا التسجيل")
+        return super(RHGrade, self).unlink()
 
     @api.onchange('fin_relation')
     def _onchange_fin_relation(self):

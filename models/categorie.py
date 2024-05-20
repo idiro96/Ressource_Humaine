@@ -8,7 +8,7 @@ from odoo.exceptions import ValidationError
 class RHCategorie(models.Model):
     _name = 'rh.categorie'
     _rec_name = 'intitule'
-    _order = "intitule desc"
+    _order = "Indice_minimal desc"
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _mail_post_access = 'read'
 
@@ -22,7 +22,7 @@ class RHCategorie(models.Model):
     create_uid = fields.Many2one('res.users', string='Created by', readonly=True, track_visibility='onchange')
     write_uid = fields.Many2one('res.users', string='Last Updated by', readonly=True, track_visibility='onchange')
     grille_compute1_id = fields.Char(compute="_compute_grille")
-
+    old_categorie_id = fields.Many2one('rh.categorie', track_visibility='onchange')
     @api.multi
     def _compute_grille(self):
         for record in self:

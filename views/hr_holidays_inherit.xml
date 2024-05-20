@@ -38,7 +38,9 @@
                     <button name="print_conge" type="object" string="Imprimer titre de congé" class="oe_highlight"
                             invisible="1"/>
                 </xpath>
-
+                <xpath expr="//group//field[@name='employee_id']" position="attributes">
+                    <attribute name="options">{'no_create': True, 'no_create_edit': True, 'no_open': True}</attribute>
+                </xpath>
                 <xpath expr="//field[@name='holiday_status_id']" position="attributes">
                     <attribute name="readonly">True</attribute>
                 </xpath>
@@ -75,44 +77,44 @@
             <field name="view_id" ref="hr_holidays.view_holiday_new_calendar"/>
         </record>
 
-        <record id="view_note_conge" model="ir.ui.view">
-            <field name="name">note.conge.form</field>
-            <field name="model">hr.holidays</field>
-            <field name="arch" type="xml">
-                <form>
-                    <sheet>
-                        <group>
-                            <group>
-                                <field name="code"/>
-                            </group>
-                        </group>
-                        <p>هل تريد طباعة مذكـرة مصلحية ؟</p>
-                    </sheet>
-                    <footer>
-                        <button string="تجاهل" class="oe_link" special="cancel"/>
-                        <button name="note_conge" string="طباعة" type="object" class="oe_highlight"/>
-                    </footer>
-                </form>
-            </field>
-        </record>
+<!--        <record id="view_note_conge" model="ir.ui.view">-->
+<!--            <field name="name">note.conge.form</field>-->
+<!--            <field name="model">hr.holidays</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <form>-->
+<!--                    <sheet>-->
+<!--                        <group>-->
+<!--                            <group>-->
+<!--                                <field name="code"/>-->
+<!--                            </group>-->
+<!--                        </group>-->
+<!--                        <p>هل تريد طباعة مذكـرة مصلحية ؟</p>-->
+<!--                    </sheet>-->
+<!--                    <footer>-->
+<!--                        <button string="تجاهل" class="oe_link" special="cancel"/>-->
+<!--                        <button name="note_conge" string="طباعة" type="object" class="oe_highlight"/>-->
+<!--                    </footer>-->
+<!--                </form>-->
+<!--            </field>-->
+<!--        </record>-->
 
-        <record id="note_conge_action" model="ir.actions.act_window">
-            <field name="name">Note de Congé</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">hr.holidays</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">form</field>
-            <field name="view_id" ref="view_note_conge"/>
-            <field name="context">{}</field>
-            <field name="target">new</field>
-        </record>
+<!--        <record id="note_conge_action" model="ir.actions.act_window">-->
+<!--            <field name="name">Note de Congé</field>-->
+<!--            <field name="type">ir.actions.act_window</field>-->
+<!--            <field name="res_model">hr.holidays</field>-->
+<!--            <field name="view_type">form</field>-->
+<!--            <field name="view_mode">form</field>-->
+<!--            <field name="view_id" ref="view_note_conge"/>-->
+<!--            <field name="context">{}</field>-->
+<!--            <field name="target">new</field>-->
+<!--        </record>-->
 
 
         <menuitem name="Congé" id="conge_id" parent="ressource_humaine.menu_root" sequence="4"/>
         <menuitem name="Congé" id="menu_hr_holidays_root" parent="conge_id" sequence="2"
                   action="action_hr_holidays_dashboard"/>
-        <menuitem name="Note Congé" id="menu_note_conge" parent="conge_id" sequence="3"
-                  action="note_conge_action"/>
+<!--        <menuitem name="Note Congé" id="menu_note_conge" parent="conge_id" sequence="3"-->
+<!--                  action="note_conge_action"/>-->
 
     </data>
 

@@ -23,6 +23,11 @@
 <!--                <header>-->
 <!--                <button name="importation_grille" type="object" class="oe_highlight"/>-->
 <!--                </header>-->
+                   <header>
+                        <h1>My Header</h1>
+                              <button name="update_employee" type="object" class="oe_highlight"
+                            string="Mettre à jour la fiche employée"></button>
+                    </header>
                 <sheet>
                     <group>
                          <group>

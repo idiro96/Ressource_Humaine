@@ -17761,7 +17761,6 @@ msgstr "النطاق النشط"
 
 #. module: ressource_humaine
 #: selection:hr.employee,position_statutaire:0
-#: selection:rh.historique.position.statutaire,position_statutaire:0
 msgid "Activite"
 msgstr "حالة الخدمة"
 
@@ -24164,6 +24163,7 @@ msgstr "Checksum/SHA1"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_chef_bureau
+#: model:ir.ui.view,arch_db:ressource_humaine.view_employee_filter_inherited
 msgid "Chef Bureau"
 msgstr "رئيس مكتب"
 
@@ -24488,13 +24488,13 @@ msgstr "مسح الاحداث"
 #: code:addons/mail/models/mail_thread.py:348
 #, python-format
 msgid "Click here to add new %(document)s or send an email to: %(email_link)s"
-msgstr "Click here to add new %(document)s or send an email to: %(email_link)s"
+msgstr "انقر هنا لإضافة %(مستند)s جديد أو إرسال بريد إلكتروني إلى: %(email_link)s"
 
 #. module: mail
 #: code:addons/mail/models/mail_thread.py:366
 #, python-format
 msgid "Click here to add new %s"
-msgstr "Click here to add new %s"
+msgstr "انقر هنا لإضافة %s جديد"
 
 #. module: sale_management
 #. openerp-web
@@ -25076,6 +25076,7 @@ msgstr "جزر الكوكوس"
 #: model:ir.model.fields,field_description:ressource_humaine.field_droit_avencement_code
 #: model:ir.model.fields,field_description:ressource_humaine.field_droit_promotion_code
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_holidays_code
+#: model:ir.model.fields,field_description:ressource_humaine.field_note_conge_code
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_code
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_code
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_cabinet_medical_code
@@ -26626,6 +26627,8 @@ msgstr "شروط العقد"
 #: model:ir.ui.view,arch_db:hr_contract.hr_contract_type_view_tree
 #: model:ir.ui.view,arch_db:hr_contract.hr_contract_view_search
 #: model:ir.model,name:ressource_humaine.model_hr_contract_type
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_contract_contract_type_id
+#: model:ir.ui.view,arch_db:ressource_humaine.hr_contract_view_search_inherited
 msgid "Contract Type"
 msgstr "نوع العقد"
 
@@ -26681,7 +26684,7 @@ msgstr "العقد"
 #. module: ressource_humaine
 #: model:ir.actions.report,name:ressource_humaine.action_cont_indete_tem_part_report
 msgid "Contrat Indéterminé à Temps Partiel"
-msgstr "عقد غير محدد المدة بدوام جزئي"
+msgstr "عقد عمل غير محدد المدة بالتوقيت الجزئي"
 
 #. module: ressource_humaine
 #: model:ir.ui.menu,name:ressource_humaine.menu_hr_contart
@@ -26816,6 +26819,7 @@ msgstr "Copyright © 2004-2016"
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_corps_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_grade_corps_id
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_corps
+#: model:ir.ui.view,arch_db:ressource_humaine.rh_grade_search
 msgid "Corps"
 msgstr "السلك"
 
@@ -31319,7 +31323,6 @@ msgstr "مسار الوجهة"
 #. module: ressource_humaine
 #: selection:hr.employee,methode_embauche:0
 #: selection:hr.employee,position_statutaire:0
-#: selection:rh.historique.position.statutaire,position_statutaire:0
 msgid "Detachement"
 msgstr "الإنتداب"
 
@@ -35517,6 +35520,7 @@ msgstr "اسم الملف"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_corps_filiere_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_grade_filiere_id
+#: model:ir.ui.view,arch_db:ressource_humaine.rh_corps_search
 msgid "Filiere"
 msgstr "الشعبة"
 
@@ -37625,18 +37629,24 @@ msgid "Google+ Account"
 msgstr "حساب جوجل+"
 
 #. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_droit_avencement_grade_id
+#: model:ir.model.fields,field_description:ressource_humaine.field_droit_promotion_grade_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_contract_grade_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_grade_id
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_grade_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_grade_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_wizard_grade_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avencement_droit_grade_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_fiche_evaluation_grade_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_grade_grade_id
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_employee_grade
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_grade_grade
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_droit_grade_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_grade_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_line_grade_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_line_wizard_grade_id
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_grade
+#: model:ir.ui.view,arch_db:ressource_humaine.view_employee_filter_inherited
 msgid "Grade"
 msgstr "الرتبة"
 
@@ -37803,7 +37813,10 @@ msgstr "الشبكة"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_echelon_grille_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_groupe_grille_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_niveau_hierarchique_chef_bureau_grille_id
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_section_grille_id
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_grille
+#: model:ir.ui.view,arch_db:ressource_humaine.rh_categorie_search
+#: model:ir.ui.view,arch_db:ressource_humaine.rh_niveau_hierarchique_chef_bureau_search
 msgid "Grille"
 msgstr "رقم الشبكة الإستدلالية"
 
@@ -38822,7 +38835,6 @@ msgstr "أفقي"
 
 #. module: ressource_humaine
 #: selection:hr.employee,position_statutaire:0
-#: selection:rh.historique.position.statutaire,position_statutaire:0
 msgid "Horscadre"
 msgstr "خارج الإطار"
 
@@ -48123,7 +48135,6 @@ msgstr "عمليات متنوعة"
 
 #. module: ressource_humaine
 #: selection:hr.employee,position_statutaire:0
-#: selection:rh.historique.position.statutaire,position_statutaire:0
 msgid "Miseendisponibilite"
 msgstr "الإستيداع"
 
@@ -49264,6 +49275,8 @@ msgstr "طبيعة الإعاقة"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_nature_travail_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_job_nature_travail_id
+#: model:ir.ui.view,arch_db:ressource_humaine.view_employee_filter_inherited
+#: model:ir.ui.view,arch_db:ressource_humaine.view_job_filter_inherited
 msgid "Nature Travail"
 msgstr "طبيعة العمل"
 
@@ -50556,10 +50569,20 @@ msgstr "ملاحظة"
 #. module: ressource_humaine
 #: model:ir.actions.report,name:ressource_humaine.report_note_conge
 msgid "Note Conge"
-msgstr "تعليمة العطلة"
+msgstr "مذكـرة مصلحية"
+
+#. module: ressource_humaine
+#: model:ir.actions.report,name:ressource_humaine.new_report_note_conge
+msgid "Note Conge"
+msgstr "مذكـرة مصلحية"
 
 #. module: ressource_humaine
 #: model:ir.ui.menu,name:ressource_humaine.menu_note_conge
+msgid "Note Congé"
+msgstr "مذكـرة مصلحية"
+
+#. module: ressource_humaine
+#: model:ir.ui.menu,name:ressource_humaine.menu_note_conge_wizard
 msgid "Note Congé"
 msgstr "مذكـرة مصلحية"
 
@@ -50572,6 +50595,11 @@ msgstr "ملاحظة من قبل"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.note_conge_action
+msgid "Note de Congé"
+msgstr "مذكـرة مصلحية"
+
+#. module: ressource_humaine
+#: model:ir.actions.act_window,name:ressource_humaine.note_conge_wizard_action
 msgid "Note de Congé"
 msgstr "مذكـرة مصلحية"
 
@@ -58016,7 +58044,10 @@ msgid "Position"
 msgstr "منصب"
 
 #. module: ressource_humaine
+#. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_position_statutaire
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_position_statutaire_position_statutaire
+#: model:ir.ui.view,arch_db:ressource_humaine.view_employee_filter_inherited
 msgid "Position Statutaire"
 msgstr "الوضعيات القانونية الاساسية للموظف"
 
@@ -58064,6 +58095,7 @@ msgstr "ترحيل قسيمة الأجور إلى المحاسبة"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_job_poste_organique
+#: model:ir.ui.view,arch_db:ressource_humaine.view_job_filter_inherited
 msgid "Poste Organique"
 msgstr "نوع المنصب"
 
@@ -65191,7 +65223,6 @@ msgstr "اسم الخدمة"
 
 #. module: ressource_humaine
 #: selection:hr.employee,position_statutaire:0
-#: selection:rh.historique.position.statutaire,position_statutaire:0
 msgid "Servicenationale"
 msgstr "تحت التصرف"
 
@@ -73213,13 +73244,14 @@ msgstr "اكتب '<i class=\"confirm_word\">نعم</i>' في الصندوق با
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.action_rh_type_absence
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_absence_type_absence_id
-#: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_type_faute
+#: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_type_absence
 msgid "Type Absence"
 msgstr "أنواع الغيابات"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.action_rh_type_faute
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_sanction_type_faute_id
+#: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_type_faute
 msgid "Type Faute"
 msgstr "نوع الخطأ"
 
@@ -73227,6 +73259,7 @@ msgstr "نوع الخطأ"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_file_type_file_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_file_type_file
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_type_file
+#: model:ir.ui.view,arch_db:ressource_humaine.rh_type_file_search
 msgid "Type File"
 msgstr "نوع الملف"
 
@@ -83896,11 +83929,6 @@ msgid "Document File Line"
 msgstr "تحميل ملف"
 
 #. module: ressource_humaine
-#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_position_statutaire_position_statutaire
-msgid "Position Statutaire"
-msgstr "الوضعية القانوية"
-
-#. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_position_statutaire_document_file_line
 msgid "Document File Line"
 msgstr "تحميل ملف"
@@ -83993,6 +84021,7 @@ msgstr "إعادة الإدماج"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_department_department_type
+#: model:ir.ui.view,arch_db:ressource_humaine.view_department_filter_inherited
 msgid "Department Type"
 msgstr "نوع الهيكل"
 
@@ -84020,18 +84049,3 @@ msgstr "مديرية عامة"
 #: model:ir.model.fields,field_description:hr.field_hr_employee_department_id
 msgid "Department"
 msgstr "الهيكل التنظيمي"
-
-#. module: ressource_humaine
-#: selection:rh.historique.diplome,type_diplome:0
-msgid "Enseignement supérieure"
-msgstr "التعليم العالي"
-
-#. module: ressource_humaine
-#: selection:rh.historique.diplome,type_diplome:0
-msgid "Secondaire"
-msgstr "الثانوي"
-
-#. module: ressource_humaine
-#: selection:rh.historique.diplome,type_diplome:0
-msgid "Formation Professionnelle"
-msgstr "التكوين المهني"

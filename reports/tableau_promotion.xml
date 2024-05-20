@@ -133,7 +133,12 @@
                                     <span t-esc="record.job_id.name"/>
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
-                                    <span t-esc="record.grade_id.intitule_grade"/>
+                                    <t t-if="line.grade_id.description">
+                                        <t t-esc="line.grade_id.description"/>
+                                    </t>
+                                    <t t-if="not line.grade_id.description">
+                                        <t t-esc="line.grade_id.intitule_grade"/>
+                                    </t>
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
                                     <t t-if="record.employee_id.marital == 'single'">

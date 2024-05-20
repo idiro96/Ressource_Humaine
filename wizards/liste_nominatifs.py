@@ -165,8 +165,8 @@ class PlanningCongeReport(models.AbstractModel):
             else:
                 grade_ing_employees.append({'grade': grade, 'employees': employees, 'promotion_lines': None})
 
-        grade_cdi_plein = self.env['rh.grade'].search(['|', ('corps_id.intitule_corps', 'ilike', 'متعاقد'),
-                                                       ('corps_id.intitule_corps', 'ilike', 'سيار'),
+        grade_cdi_plein = self.env['rh.grade'].search(['|', ('corps_id.intitule_corps', 'ilike', '%متعاقد%'),
+                                                       ('corps_id.intitule_corps', 'ilike', '%سيار%'),
                                                        ('intitule_grade', 'ilike', '%غير محدد%كامل%')], order='Indice_minimal desc')
         employees_cdi_plein = []
         for grade in grade_cdi_plein:

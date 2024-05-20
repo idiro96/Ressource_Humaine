@@ -1,0 +1,40 @@
+<odoo>
+    <data>
+
+        <record id="note_conge_wizard" model="ir.ui.view">
+            <field name="name">note.conge.wizard</field>
+            <field name="model">note.conge</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="code"/>
+                            </group>
+                        </group>
+                        <p>هل تريد طباعة مذكـرة مصلحية ؟</p>
+                    </sheet>
+                    <footer>
+                        <button string="تجاهل" class="oe_link" special="cancel"/>
+                        <button name="print_report" string="طباعة" type="object" class="oe_highlight"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="note_conge_wizard_action" model="ir.actions.act_window">
+            <field name="name">Note de Congé</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">note.conge</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="note_conge_wizard"/>
+            <field name="context">{}</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem name="Note Congé" id="menu_note_conge_wizard" parent="conge_id" sequence="6"
+                  action="note_conge_wizard_action"/>
+
+    </data>
+</odoo>

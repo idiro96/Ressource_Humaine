@@ -64,14 +64,16 @@
                     </strong>
                 </div>
                 <br/>
-                <div class="texte-en-gras" style="text-align:center;font-size: 35px">
-                    <strong>
+                <div style="text-align:center">
+                    <strong class="texte-en-gras" style="font-size: 35px">
                         وضعية التعداد النظري و الحقيقي الموقوف إلى غاية
                     </strong>
-                    <br/>
-                    <strong>
-                        ......./12/31
+                    <strong style="font-size: 22px">
+                        12/31/..........
                     </strong>
+                    <span style="color: white;">
+                        أ
+                    </span>
                 </div>
                 <div class="texte-en-gras" style="text-align:center;">
                     <strong>
@@ -149,15 +151,15 @@
                                                     </t>
                                                 </t>
                                                 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
-                                                <t t-if="line['employees'][0].indice_base">
-                                                    <span t-esc="line['employees'][0].indice_base"/>
+                                                <t t-if="line['employees'][0].bonification_indiciaire">
+                                                    <span t-esc="line['employees'][0].bonification_indiciaire"/>
                                                 </t>
-                                                <t t-if="not line['employees'][0].indice_base">
+                                                <t t-if="not line['employees'][0].bonification_indiciaire">
                                                     <t t-set="found_employee" t-value="False"/>
                                                     <t t-foreach="line['employees']" t-as="employee">
-                                                        <t t-if="not found_employee and employee.indice_base">
+                                                        <t t-if="not found_employee and employee.bonification_indiciaire">
                                                             <t t-set="found_employee" t-value="True"/>
-                                                            <span t-esc="employee.indice_base"/>
+                                                            <span t-esc="employee.bonification_indiciaire"/>
                                                         </t>
                                                     </t>
                                                 </t>
@@ -574,7 +576,8 @@
                                         <span t-esc="line['grade'].categorie_id.intitule"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:23px;width:25%">
-                                        <span t-esc="line['grade'].intitule_grade"/><span style="color: white;">أ</span>
+                                        <span t-esc="line['grade'].intitule_grade"/>
+                                        <span style="color: white;">أ</span>
                                     </td>
                                 </tr>
                             </t>

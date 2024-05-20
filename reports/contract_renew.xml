@@ -7,7 +7,7 @@
                 <t t-call="ressource_humaine.report_header_custom"/>
                 <div class="page">
                     <strong>
-                        <div style="font-size: 20px;text-align: right;">
+                        <div class="Diwani_Letter" style="font-size: 28px;text-align: right;">
                             <span>
                                 المدرسة الوطنية للإدارة
                             </span>
@@ -17,78 +17,130 @@
                             </span>
                         </div>
                         <br/>
-                        <br/>
-                        <div style="font-size: 20px;text-align: center;">
-<!--                            <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/>&#160;-->
-                            <span style="display: inline-block;">
-                                مؤرخ في
-                            </span>&#160;
-                            <span>
-                                ...............&#160;مقرر رقم
+                        <div style="font-size: 28px;text-align: center;">
+                            <!--                            <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/>&#160;-->
+                            <span class="texte-en-gras">
+                                مقرر رقم...............مؤرخ في.........................
+                            </span>
+                            <span style="color: white;">
+                                أ
                             </span>
                             <br/>
-                            <span>
+                            <span class="texte-en-gras">
                                 المتضمن تجـديد عقد عمل
                             </span>
                         </div>
                         <br/>
-                        <br/>
                     </strong>
-                    <div style="font-size: 20px;text-align: right;">
+                    <div class="arabic_typesetting" style="font-size: 28px;text-align: right;">
                         <span>
                             ،إن الـسيد المدير العام للمدرسة الوطنية للإدارة
                         </span>
                         <br/>
                         <span>
                             ـ بمقتضى الأمر رقم 06ـ03 المؤرخ في 19 جمادى الثانية عام 1427
-                            الموافق ل 15 يوليو سنة 2006 المتضمن القانون الأساسي العام للوظيفة العمومية
+                            الموافق ل 15 يوليو سنة 2006 المتضمن القانون الأساسي العام للوظيفة العمومية،المتمم،
+                        </span>
+                        <span style="color: white;">
+                            أ
                         </span>
                         <br/>
                         <span>
-                            ـ و بمقتضى المرسوم رقم 64ـ155 المؤرخ في 8 يوليو 1964، المتضمن إنشاء المدرسة الوطنية للإدارة،
-                            المعدل و المتمم
+                            ـ و بمقتضى المرسوم رقم 64ـ155 المؤرخ في 8 يوليو 1964، المتضمن إنشاء المـــدرسة الوطنية
+                            للإدارة،
+                            المعدل و المتمم،
+                        </span>
+                        <span style="color: white;">
+                            أ
                         </span>
                         <br/>
                         <span>
                             ـ و بمقتضى المرسوم الرئاسي رقم 07ـ308 المؤرخ في 29 سبتمبر 2007 المحدد لكيفيات توظيف الأعوان
                             المتعاقدين و حقوقهم
-                            وواجباتهم و العناصر المشكلة لرواتبهم و القواعد المتعلقة بتسييرهم و كذا النظام المطبق عليهم
+                            وواجباتهم و العناصر المشكلة لرواتبهم و القواعد المتعلقة بتسييرهم و كذا النظام التأديبي
+                            المطبق عليهم،
+                        </span>
+                        <span style="color: white;">
+                            أ
                         </span>
                         <br/>
                         <span>
                             ـ و بمقتضى المرسوم التنفذي رقم 90ـ99 المؤرخ في أول رمضان عام 1410
                             الموافق 27 مارس سنة 1990 المتعلق بسلطة التعيين و التسيير الإداري بالنسبة للموظفيين
-                            و أعوان الإدارة المركزية و الولايات و البلديات و المؤسسات العمومية ذات الطابع الإداري
+                            و أعوان الإدارة المركزية و الولايات و البلديات و المؤسسات العمومية ذات الطابع الإداري،
+                        </span>
+                        <span style="color: white;">
+                            أ
                         </span>
                         <br/>
                         <t t-if="contract.employee_id.gender == 'female'">
                             <span>
-                                  &#160;ـ و بناء على
-                            <t t-esc="contract.type_id.name"/>
-                                رقم .......... المؤرخ في
-<!--                            <t t-esc="contract.name"/>&#160;-->
-                            <t t-esc="contract.date_start"/>&#160;
-                                &#160;الخاص بالسيدة
-                            <t t-esc="contract.employee_id.name"/>
+                                ـ و بناء على عقد
+                                <t t-esc="contract.contract_type_id.name"/>
+                                رقم ...... المؤرخ في ................. الخاص بالسيدة
+                                <t t-esc="contract.employee_id.name"/>
                                 بصفتها
-                            <t t-esc="contract.employee_id.grade_id.intitule_grade"/>
-                                ، لمدة محددة بسنة واحدة ، إبتداأ من تاريخ
-                            <t t-esc="contract.date_end"/>&#160;
+                                <t t-if="contract.grade_id.description">
+                                    <t t-esc="contract.grade_id.description"/>
+                                </t>
+                                <t t-if="not contract.grade_id.description">
+                                    <t t-esc="contract.grade_id.intitule_grade"/>
+                                </t>
+                                ، لمدة محددة بسنة واحدة ، إبتداء من تاريخ
+                                <t t-esc="formatted_date_start"/>.
+                            </span>
+                            <span style="color: white;">
+                                أ
+                            </span>
+                            <br/>
+                            <span>
+                                ـ و بناء على عقد جماعي رقم ...... المؤرخ في ................. المتعلق بإعادة ترتيب
+                                <t t-esc="contract.corps_id.intitule_corps"/>
+                                ، و المتضمن ترتيب المعنية في منصب شغل
+                                <t t-esc="contract.grade_id.intitule_grade"/>
+                                الصنف
+                                <t t-esc="contract.categorie_id.intitule"/>
+                                الرقم الاستدلالي
+                                <t t-esc="contract.indice_minimal"/>
+                                ابتداء من تاريخ .................،
+                            </span>
+                            <span style="color: white;">
+                                أ
                             </span>
                         </t>
                         <t t-if="not contract.employee_id.gender or contract.employee_id.gender == 'male'">
                             <span>
-                                  &#160;ـ و بناء على
-                            <t t-esc="contract.type_id.name"/>
-                                رقم .......... المؤرخ في
-<!--                            <t t-esc="contract.name"/>&#160;-->
-                            <t t-esc="contract.date_start"/>&#160;
-                                &#160;الخاص بالسيد
-                            <t t-esc="contract.employee_id.name"/>
+                                ـ و بناء على عقد
+                                <t t-esc="contract.contract_type_id.name"/>
+                                رقم ...... المؤرخ في ................. الخاص بالسيد
+                                <t t-esc="contract.employee_id.name"/>
                                 بصفته
-                            <t t-esc="contract.employee_id.grade_id.intitule_grade"/>
-                                ، لمدة محددة بسنة واحدة ، إبتداأ من تاريخ
-                            <t t-esc="contract.date_end"/>&#160;
+                                <t t-if="contract.grade_id.description">
+                                    <t t-esc="contract.grade_id.description"/>
+                                </t>
+                                <t t-if="not contract.grade_id.description">
+                                    <t t-esc="contract.grade_id.intitule_grade"/>
+                                </t>
+                                ، لمدة محددة بسنة واحدة ، إبتداء من تاريخ
+                                <t t-esc="formatted_date_start"/>.
+                            </span>
+                            <span style="color: white;">
+                                أ
+                            </span>
+                            <br/>
+                            <span>
+                                ـ و بناء على عقد جماعي رقم ...... المؤرخ في ................. المتعلق بإعادة ترتيب
+                                <t t-esc="contract.corps_id.intitule_corps"/>
+                                ، و المتضمن ترتيب المعني في منصب شغل
+                                <t t-esc="contract.grade_id.intitule_grade"/>
+                                الصنف
+                                <t t-esc="contract.categorie_id.intitule"/>
+                                الرقم الاستدلالي
+                                <t t-esc="contract.indice_minimal"/>
+                                ابتداء من تاريخ .................،
+                            </span>
+                            <span style="color: white;">
+                                أ
                             </span>
                         </t>
                         <br/>
@@ -99,44 +151,47 @@
                     </div>
                     <br/>
                     <strong>
-                        <div style="font-size: 20px;text-align: center;">
-                            <span>
-                                يقـــــــرر
+                        <div style="font-size: 28px;text-align: center;">
+                            <span class="texte-en-gras">
+                                يقـــــــــــرر
                             </span>
                         </div>
                     </strong>
                     <br/>
-                    <div style="font-size: 20px;text-align: right;">
-                        <span style="display: inline-block;">
-                            <strong>
-                                <u>
-                                    المادة الأولى:
-                                </u>
-                            </strong>
-                            <t t-if="contract.employee_id.gender == 'female'">
-                                <span>
-                                    يجدد عقد عمل السيدة لشغل منصب عاملة مهنية من المستوى الأول بالتوقيت الكامل لمدة سنة
-                                    واحدة،
-                                    إبتداءا من تاريخ ................
-                                </span>
-                            </t>
-                            <t t-if="not contract.employee_id.gender or contract.employee_id.gender == 'male'">
-                                <span>
-                                    يجدد عقد عمل السيد لشغل منصب عامل مهني من المستوى الأول بالتوقيت الكامل لمدة سنة
-                                    واحدة،
-                                    إبتداءا من تاريخ ................
-                                </span>
-                            </t>
+                    <div class="arabic_typesetting" style="font-size: 28px;text-align: right;">
+                        <span class="texte-en-gras" style="border-bottom: 1px solid black;">
+                            المادة الأولى
                         </span>
+                        <t t-if="contract.employee_id.gender == 'female'">
+                            <span>
+                                : يجدد عقد عمل السيدة لشغل منصب
+                                <t t-esc="contract.grade_id.intitule_grade"/>
+                                لمدة سنة واحدة، إبتداء من تاريخ .................
+                            </span>
+                            <span style="color: white;">
+                                أ
+                            </span>
+                        </t>
+                        <t t-if="not contract.employee_id.gender or contract.employee_id.gender == 'male'">
+                            <span>
+                                : يجدد عقد عمل السيد لشغل منصب
+                                <t t-esc="contract.grade_id.intitule_grade"/>
+                                لمدة سنة واحدة، إبتداء من تاريخ .................
+                            </span>
+                            <span style="color: white;">
+                                أ
+                            </span>
+                        </t>
                         <br/>
-                        <span style="display: inline-block;">
-                            <strong>
-                                <u>
-                                    المادة 02:
-                                </u>
-                            </strong>
-                            يكلف السـيد الأمين العام للمدرسة بتنفيذ هذا المقرر الذي سينشر في سجل المقررات الإدارية
-                            للمدرسة الوطنية للإدارة
+                        <span class="texte-en-gras" style="border-bottom: 1px solid black;">
+                            المادة 02
+                        </span>
+                        <span>
+                            : يكلف السـيد الأمين العام للمدرسة بتنفيذ هذا المقرر الذي سينشر في سجل المقررات الإدارية
+                            للمدرسة الوطنية للإدارة.
+                        </span>
+                        <span style="color: white;">
+                            أ
                         </span>
                     </div>
                 </div>

@@ -62,6 +62,9 @@
                 <xpath expr="//div[@name='button_box']" position="attributes">
                     <attribute name="invisible">True</attribute>
                 </xpath>
+                <xpath expr="//field[@name='department_id']" position="attributes">
+                    <attribute name="options">{'no_create': True, 'no_create_edit': True, 'no_open': True}</attribute>
+                </xpath>
                 <xpath expr="//form//sheet//group//group[@name='recruitment']" position="before">
                     <group string="المنصب / الوظيفة">
                         <field name="nature_travail_id"
@@ -91,7 +94,6 @@
             <field name="view_type">form</field>
             <field name="view_mode">kanban,tree,form</field>
             <field name="view_id" ref="hr_recruitment.view_hr_job_kanban"/>
-
         </record>
 
         <record model="ir.actions.act_window" id="crm_case_categ0_act_job">
@@ -102,6 +104,21 @@
             <field name="view_id" ref="hr_recruitment.hr_kanban_view_applicant"/>
         </record>
 
+        <record id="view_job_filter_inherited" model="ir.ui.view">
+            <field name="name">hr.job.search.inherited</field>
+            <field name="model">hr.job</field>
+            <field name="inherit_id" ref="hr.view_job_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//search" position="inside">
+                    <field name="nature_travail_id"/>
+                    <field name="poste_organique"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Nature Travail" name="nature_travail_id" context="{'group_by': 'nature_travail_id'}"/>
+                        <filter string="Poste Organique" name="poste_organique" context="{'group_by': 'poste_organique'}"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
 
         <menuitem name="Postes" id="action_hr_job_id" parent="recrutement_id"
                   action="action_hr_job"/>

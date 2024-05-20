@@ -10,7 +10,7 @@
                         <group>
                             <field name="date_promotion"/>
                             <field name="duree_promotion" required="1"/>
-                            <field name="grade_id"/>
+                            <field name="grade_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                         </group>
                         <group>
                             <field name="boul" string="كامل قائمة الاستحقاقات"/>

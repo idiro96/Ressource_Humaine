@@ -25,9 +25,9 @@ class HrHolidaysInherited(models.Model):
     def print_conge(self):
         return self.env.ref('ressource_humaine.report_titre_conge').report_action(self)
 
-    @api.multi
-    def note_conge(self):
-        return self.env.ref('ressource_humaine.report_note_conge').report_action(self)
+    # @api.multi
+    # def note_conge(self):
+    #     return self.env.ref('ressource_humaine.report_note_conge').report_action(self)
 
     @api.multi
     def planning_conge(self):
@@ -140,15 +140,15 @@ class HrHolidaysInherited(models.Model):
             self.number_of_days_temp = 0
 
 
-class NoteCongeReport(models.AbstractModel):
-    _name = 'report.ressource_humaine.note_conge'
-
-    @api.model
-    def get_report_values(self, docids, data=None):
-        data = self.env['hr.holidays'].browse(docids[0])
-
-        report_data = {
-            'code': data.code,
-        }
-
-        return report_data
+# class NoteCongeReport(models.AbstractModel):
+#     _name = 'report.ressource_humaine.note_conge'
+#
+#     @api.model
+#     def get_report_values(self, docids, data=None):
+#         data = self.env['hr.holidays'].browse(docids[0])
+#
+#         report_data = {
+#             'code': data.code,
+#         }
+#
+#         return report_data

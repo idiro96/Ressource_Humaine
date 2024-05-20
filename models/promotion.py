@@ -45,6 +45,12 @@ class RHPromotion(models.Model):
         vals['write_uid'] = self.env.user.id
         return super(RHPromotion, self).write(vals)
 
+    @api.multi
+    def unlink(self):
+        raise UserError(
+            "لا يمكنك حذف هذا التسجيل")
+        return super(RHPromotion, self).unlink()
+
     @api.depends('date_promotion')
     def _compute_date(self):
         for record in self:

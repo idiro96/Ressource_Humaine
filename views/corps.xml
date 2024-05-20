@@ -24,7 +24,7 @@
                             <field name="intitule_corps"/>
                         </group>
                         <group>
-                            <field name="loi_id"/>
+                            <field name="loi_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                             <field name="filiere_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                         </group>
                     </group>
@@ -44,6 +44,18 @@
         <field name="context">{}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">Création d'un corps</p>
+        </field>
+    </record>
+    <record id="rh_corps_search" model="ir.ui.view">
+        <field name="name">rh.corps.search</field>
+        <field name="model">rh.corps</field>
+        <field name="arch" type="xml">
+            <search string="Filiere">
+                <field name="filiere_id" string="Filiere"/>
+                <group expand="0" string="Group By">
+                    <filter string="Filiere" name="filiere_id" context="{'group_by': 'filiere_id'}"/>
+                </group>
+            </search>
         </field>
     </record>
     <menuitem name="Corps" id="ressource_humaine_corps" parent="promotion_de_grade" sequence="6"

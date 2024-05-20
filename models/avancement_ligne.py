@@ -6,6 +6,7 @@ from odoo import models, fields, api, _
 class RHAvancementLine(models.Model):
     _name = 'rh.avancement.line'
     _inherit = ['mail.thread']
+    _mail_post_access = 'read'
 
     date_avancement = fields.Date(tracking=True)
     code = fields.Char(readonly=False,

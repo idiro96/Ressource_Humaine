@@ -2,7 +2,7 @@
 import math
 
 from odoo import models, fields, api, _
-from odoo.exceptions import ValidationError
+from odoo.exceptions import ValidationError, UserError
 
 
 class RHEchelon(models.Model):
@@ -26,7 +26,7 @@ class RHEchelon(models.Model):
     create_uid = fields.Many2one('res.users', string='Created by', readonly=True, track_visibility='onchange')
     write_uid = fields.Many2one('res.users', string='Last Updated by', readonly=True, track_visibility='onchange')
     grille_compute1_id = fields.Char(compute="_compute_grille")
-
+    old_echelon_id = fields.Many2one('rh.echelon', track_visibility='onchange')
     @api.multi
     def _compute_grille(self):
         for record in self:
@@ -48,6 +48,12 @@ class RHEchelon(models.Model):
     def write(self, vals):
         vals['write_uid'] = self.env.user.id
         return super(RHEchelon, self).write(vals)
+
+    @api.multi
+    def unlink(self):
+        raise UserError(
+            "لا يمكنك حذف هذا التسجيل")
+        return super(RHSecteure, self).unlink()
 
     @api.depends('categorie_id')
     def _compute_categorie_fields(self):
