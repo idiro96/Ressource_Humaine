@@ -42,7 +42,7 @@
                 <br/>
                 <div style="text-align:center;font-size: 25px">
                     <strong>
-                        الخاص بمصلحة
+                        الخاص بـ:
                     <t t-esc="conge.department_id.name"/>
                     </strong>
                 </div>
