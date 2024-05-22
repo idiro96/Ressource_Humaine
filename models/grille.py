@@ -163,7 +163,15 @@ class RHGrille(models.Model):
                             rec.write({
                                 'wage': categorie.Indice_minimal * 45,
                             })
-
+        grades = self.env['rh.grade'].search([])
+        for recor  in grades:
+            categories = self.env['rh.categorie'].search(
+                [('old_categorie_id', '=', recor.categorie_id.id)], limit=1)
+            if categories:
+                recor.write({
+                    'categorie_id': categories.id,
+                })
+                print('moi')
 
     @api.model
     def create(self, vals):
