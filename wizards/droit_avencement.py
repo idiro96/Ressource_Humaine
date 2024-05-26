@@ -25,6 +25,10 @@ class RHDroitAvencement(models.TransientModel):
         print('glllllllllll')
         self.sauvegarde = True
 
+    def print_report(self):
+        return self.env.ref('ressource_humaine.liste_avancements').report_action(self)
+
+
     def check_avancement_date_and_sauvegarde(self):
         for wizard_record in self:
             # Check if there is a corresponding record in RHAvencementDroit with sauvegarde=True
@@ -256,6 +260,121 @@ class RHDroitAvencement(models.TransientModel):
                 'domain': [('sauvegarde', '=', True)]
 
             }
+
+class listeAvancementReport(models.AbstractModel):
+        _name = 'report.ressource_humaine.liste_avancements_report'
+
+        date_avancement_wizard = fields.Date()
+        duree1 = fields.Integer()
+        bool = fields.Boolean(default=False)
+        time_years = fields.Integer()
+        time_months = fields.Integer()
+        time_days = fields.Integer()
+        time_difference = fields.Char()
+
+
+
+        @api.model
+        def get_report_values(self, docids, data=None):
+            duree1 = 0
+            print('self.date_avancement')
+            # print(self.date_avancement)
+            params = self.env['droit.avencement'].search(
+                [])
+
+            for rec in params:
+                date_avancement_wizard = rec.date_avancement
+                bool = rec.boul
+                if not bool:
+                    date_avancement_wizard2 = fields.Date.from_string(
+                                                    date_avancement_wizard) - relativedelta(months=30)
+                else:
+                    date_avancement_wizard2 = fields.Date.from_string(
+                        date_avancement_wizard) - relativedelta(months=24)
+
+                grade = rec.grade_id
+
+            if grade:
+                employees = self.env['hr.employee'].search(
+                    [('date_avancement', '<=', date_avancement_wizard2),('grade_id', '=', grade.id),('fin_relation', '=', False)])
+            else:
+                employees = self.env['hr.employee'].search(
+                    [('date_avancement', '<=', date_avancement_wizard2), ('fin_relation', '=', False)])
+
+            avancements = []
+            for empl in employees:
+                print('date_avancement_wizard')
+                print(date_avancement_wizard)
+                print('empl.date_avancement_wizard')
+                print(empl.date_avancement)
+                duree = []
+
+                if empl.date_avancement:
+                    dateDebut_object = fields.Date.from_string(date_avancement_wizard)
+                    dateDebut_object2 = fields.Date.from_string(empl.date_avancement)
+                    difference = (dateDebut_object.year - dateDebut_object2.year) * 12 + dateDebut_object.month - dateDebut_object2.month
+                    if not bool:
+                        if (difference >= 30 and empl.nature_travail_id.code_type_fonction == 'fonction') or (difference >= 30 and empl.nature_travail_id.code_type_fonction == 'fonctionsuperieure'):
+                            avancements.append(empl)
+
+                        duree1 = 30
+                    else:
+                        if (difference >= 24 and empl.nature_travail_id.code_type_fonction == 'fonctionsuperieure'):
+                            avancements.append(empl)
+
+                        duree1 = 24
+
+            line_date_new_avancement_av = {}
+            for rec in avancements:
+                for rec2 in rec:
+                    if rec2.date_avancement:
+                        print('date_new_avancement_av_str')
+                        print(rec2.date_avancement)
+                        if not bool:
+                            date_new_avancement_av_str = relativedelta(months=30) + fields.Date.from_string(
+                                                        rec2.date_avancement)
+                        else:
+                            date_new_avancement_av_str = relativedelta(months=24) + fields.Date.from_string(
+                                rec2.date_avancement)
+                        if date_new_avancement_av_str:
+                            print('date_new_avancement_av_str2')
+                            print(date_new_avancement_av_str)
+                            # formatted_date_new_avancement_av = datetime.strptime(date_new_avancement_av_str, "%Y-%m-%d").strftime(
+                            #                 "%d-%m-%Y")
+                            line_date_new_avancement_av[rec2.id] = date_new_avancement_av_str
+            line_date_new_avancement_av2 = {}
+            for rec in avancements:
+                    for rec2 in rec:
+                        if rec2.date_avancement:
+                            date_new_avancement = fields.Datetime.from_string(date_avancement_wizard)
+
+
+                            date_old_avancement = fields.Date.from_string(
+                                    rec2.date_avancement)
+
+                            delta = relativedelta(date_new_avancement, date_old_avancement)
+
+                            years = delta.years
+                            months = delta.months
+                            days = delta.days
+
+                            time_years = years
+                            time_months = months
+                            time_days = days
+                            time_difference = f"قدره {years} سنة و {months} شهر و {days} يوم"
+                            print('time_difference')
+                            print(time_difference)
+                            line_date_new_avancement_av2[rec2.id] = time_difference
+
+
+            report_data = {
+                'employee_droit': avancements,
+                'duree1': duree1,
+                'line_date_new_avancement_av': line_date_new_avancement_av,
+                'line_date_new_avancement_av2': line_date_new_avancement_av2,
+            }
+
+            return report_data
 
 
 

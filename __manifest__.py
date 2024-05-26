@@ -107,6 +107,8 @@
         'reports/hr_contract.xml',
         'reports/attestation_travail.xml',
         'reports/attestation_travail_fr.xml',
+        'reports/liste_avancements_report.xml',
+        'reports/liste_promotions_report.xml',
         'reports/cont_indete_tem_part.xml',
         'reports/report_rh.xml',
         'reports/titre_conge.xml',

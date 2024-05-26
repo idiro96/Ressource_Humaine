@@ -18,9 +18,11 @@
                         </group>
                     </group>
                     <footer>
+                        <button name="print_report" string="طباعة" type="object" class="oe_highlight"/>
                         <button name="actualiser_droit_avencement" string="تحديث حق التقدم" type="object"
                                 class="btn-danger text-uppercase"/>
                         <button string="إلغاء" class="btn-default" special="cancel"/>
+
                     </footer>
                 </form>
             </field>
