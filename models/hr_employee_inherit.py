@@ -102,7 +102,7 @@ class HrEmployeInherited(models.Model):
     grille_id = fields.Many2one('rh.grille', readonly=False, track_visibility="onchange")
     groupe_id = fields.Many2one('rh.groupe', readonly=False, track_visibility="onchange")
     point_indiciare = fields.Integer()
-    indice_minimal = fields.Integer(store=True)
+    indice_minimal = fields.Integer(compute="_compute_indice_minimal",store=True)
     indice_base = fields.Integer(store=True, default=0)
     total_indice = fields.Integer(store=True, track_visibility="onchange")
     bonification_indiciaire = fields.Integer(store=True, track_visibility="onchange")
@@ -157,6 +157,20 @@ class HrEmployeInherited(models.Model):
         help='Employee bank salary account', track_visibility="onchange")
     birthday = fields.Date('Date of Birth', groups="hr.group_hr_user", track_visibility="onchange")
     place_of_birth = fields.Char('Place of Birth', groups="hr.group_hr_user", track_visibility="onchange")
+    has_high_position = fields.Boolean(
+        compute="_compute_has_high_position",
+        store=True
+    )
+
+    @api.depends('nature_travail_id')
+    def _compute_has_high_position(self):
+        for employee in self:
+            employee.has_high_position = (employee.nature_travail_id == 'منصب عالي')
+
+    @api.depends('grade_id.categorie_id.Indice_minimal')
+    def _compute_indice_minimal(self):
+        for employee in self:
+            employee.indice_minimal = employee.grade_id.categorie_id.Indice_minimal if employee.grade_id.categorie_id else 0
 
     @api.multi
     def unlink(self):

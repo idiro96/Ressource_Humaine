@@ -18,9 +18,9 @@
             <form>
                 <sheet>
                     <group>
-                            <field name="code"/>
-                            <field name="intitule"/>
-                            <field name="type_file"/>
+                        <field name="code"/>
+                        <field name="intitule"/>
+                        <field name="type_file"/>
                     </group>
                 </sheet>
             </form>
@@ -36,6 +36,18 @@
             <p class="o_view_nocontent_smiling_face">Création d'un type de file</p>
         </field>
     </record>
-            <menuitem name="Type File" id="ressource_humaine_type_file" parent="referentiel_id" sequence="5"
-           action="action_rh_type_file"/>
+    <record id="rh_type_file_search" model="ir.ui.view">
+        <field name="name">rh.type.file.search</field>
+        <field name="model">rh.type.file</field>
+        <field name="arch" type="xml">
+            <search string="Type File">
+                <field name="type_file" string="Type File"/>
+                <group expand="0" string="Group By">
+                    <filter string="Type File" name="type_file" context="{'group_by': 'type_file'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <menuitem name="Type File" id="ressource_humaine_type_file" parent="referentiel_id" sequence="5"
+              action="action_rh_type_file"/>
 </odoo>

@@ -10,31 +10,32 @@ from odoo.exceptions import ValidationError, UserError
 class HrContratInherited(models.Model):
     _inherit = 'hr.contract'
 
-    name = fields.Char('Contract Reference', required=True, readonly=True, default=lambda self: _('New'))
-    corps_id = fields.Many2one('rh.corps', readonly=True, compute='_compute_employee_fields')
-    grade_id = fields.Many2one('rh.grade', readonly=True, compute='_compute_employee_fields')
-    groupe_id = fields.Many2one('rh.groupe', readonly=False)
+    name = fields.Char('Contract Reference', required=True, readonly=True, default=lambda self: _('New'), track_visibility="onchange")
+    corps_id = fields.Many2one('rh.corps', readonly=True, compute='_compute_employee_fields', track_visibility="onchange")
+    grade_id = fields.Many2one('rh.grade', readonly=True, compute='_compute_employee_fields', track_visibility="onchange")
+    groupe_id = fields.Many2one('rh.groupe', readonly=False, track_visibility="onchange")
     department_id = fields.Many2one('hr.department', readonly=True, related='employee_id.department_id',
-                                    compute='_compute_employee_fields', store=True)
-    job_id = fields.Many2one('hr.job', readonly=True, compute='_compute_employee_fields')
+                                    compute='_compute_employee_fields', store=True, track_visibility="onchange")
+    job_id = fields.Many2one('hr.job', readonly=True, compute='_compute_employee_fields', track_visibility="onchange")
     type = fields.Selection([('contrat', 'Contrat'), ('decision', 'Decision'), ]
-                            , required=True, default='contrat')
+                            , required=True, default='contrat', track_visibility="onchange")
 
-    date_start = fields.Date('Start Date', readonly=True, help="Start date of the contract.")
-    point_indiciare = fields.Integer()
-    indice_minimal = fields.Integer()
-    indice_base = fields.Integer()
-    bonification_indiciaire = fields.Integer()
-    categorie_id = fields.Many2one('rh.categorie')
-    categorie_superieure_id = fields.Many2one('rh.categorie.superieure')
-    echelon_id = fields.Many2one('rh.echelon')
-    niveau_hierarchique_id = fields.Many2one('rh.niveau.hierarchique')
-    section_id = fields.Many2one('rh.section')
-    section_superieure_id = fields.Many2one('rh.section.superieure')
-    grille_id = fields.Many2one('rh.grille')
+    date_start = fields.Date('Start Date', readonly=True, help="Start date of the contract.", track_visibility="onchange")
+    point_indiciare = fields.Integer(track_visibility="onchange")
+    indice_minimal = fields.Integer(track_visibility="onchange")
+    indice_base = fields.Integer(track_visibility="onchange")
+    bonification_indiciaire = fields.Integer(track_visibility="onchange")
+    categorie_id = fields.Many2one('rh.categorie', track_visibility="onchange")
+    categorie_superieure_id = fields.Many2one('rh.categorie.superieure', track_visibility="onchange")
+    echelon_id = fields.Many2one('rh.echelon', track_visibility="onchange")
+    niveau_hierarchique_id = fields.Many2one('rh.niveau.hierarchique', track_visibility="onchange")
+    section_id = fields.Many2one('rh.section', track_visibility="onchange")
+    section_superieure_id = fields.Many2one('rh.section.superieure', track_visibility="onchange")
+    grille_id = fields.Many2one('rh.grille', track_visibility="onchange")
     bool1 = fields.Boolean(default=True)
     code_type_fonction = fields.Char(related='employee_id.nature_travail_id.code_type_fonction',
                                      string='Code Type Fonction', store=True)
+    contract_type_id = fields.Many2one('hr.contract.type', compute='_compute_contract_type_id', store=True, track_visibility="onchange")
 
     wage_range = fields.Selection([
         ('low', '15000-30000'),
@@ -306,12 +307,13 @@ class HrContratInherited(models.Model):
             rec.corps_id = rec.employee_id.corps_id.id if rec.employee_id else False
             rec.grade_id = rec.employee_id.grade_id.id if rec.employee_id else False
 
-    @api.onchange('employee_id')
-    def onchange_employee_type_id(self):
-        if self.employee_id:
-            self.type_id = self.employee_id.type_id
-        else:
-            self.type_id = False
+    @api.depends('employee_id')
+    def _compute_contract_type_id(self):
+        for record in self:
+            if record.employee_id:
+                record.contract_type_id = record.employee_id.type_id
+            else:
+                record.contract_type_id = False
 
 
 class HrContractReport(models.AbstractModel):

@@ -64,14 +64,16 @@
                     </strong>
                 </div>
                 <br/>
-                <div class="texte-en-gras" style="text-align:center;font-size: 35px">
-                    <strong>
+                <div style="text-align:center">
+                    <strong class="texte-en-gras" style="font-size: 35px">
                         وضعية التعداد النظري و الحقيقي الموقوف إلى غاية
                     </strong>
-                    <br/>
-                    <strong>
-                        ......./12/31
+                    <strong style="font-size: 22px">
+                        12/31/..........
                     </strong>
+                    <span style="color: white;">
+                        أ
+                    </span>
                 </div>
                 <div class="texte-en-gras" style="text-align:center;">
                     <strong>
@@ -574,7 +576,8 @@
                                         <span t-esc="line['grade'].categorie_id.intitule"/>
                                     </td>
                                     <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:23px;width:25%">
-                                        <span t-esc="line['grade'].intitule_grade"/><span style="color: white;">أ</span>
+                                        <span t-esc="line['grade'].intitule_grade"/>
+                                        <span style="color: white;">أ</span>
                                     </td>
                                 </tr>
                             </t>

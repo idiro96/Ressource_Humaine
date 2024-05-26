@@ -1773,10 +1773,10 @@
                     <div style="text-align: right;font-size:23px;">
                         <t t-if="grade_data.get('grade')">
                             <span>
-                                منصب شغل
+                                منصب
                                 :
                                 <span t-esc="grade_data['grade'].description"/>
-                                بالتوقيت الكامل غير محدد المدة
+                                بالتوقيت الكامل
                             </span>
                             <br/>
                             <span>
@@ -1949,10 +1949,10 @@
                     <div style="text-align: right;font-size:23px;">
                         <t t-if="grade_data.get('grade')">
                             <span>
-                                منصب شغل
+                                منصب
                                 :
                                 <span t-esc="grade_data['grade'].description"/>
-                                بالتوقيت الكامل محدد المدة
+                                بالتوقيت الكامل
                             </span>
                             <br/>
                             <span>
@@ -2125,10 +2125,10 @@
                     <div style="text-align: right;font-size:23px;">
                         <t t-if="grade_data.get('grade')">
                             <span>
-                                منصب شغل
+                                منصب
                                 :
                                 <span t-esc="grade_data['grade'].description"/>
-                                بالتوقيت الجزئي غير محدد المدة
+                                بالتوقيت الجزئي
                             </span>
                             <br/>
                             <span>
@@ -2301,10 +2301,10 @@
                     <div style="text-align: right;font-size:23px;">
                         <t t-if="grade_data.get('grade')">
                             <span>
-                                منصب شغل
+                                منصب
                                 :
                                 <span t-esc="grade_data['grade'].description"/>
-                                بالتوقيت الجزئي محدد المدة
+                                بالتوقيت الجزئي
                             </span>
                             <br/>
                             <span>

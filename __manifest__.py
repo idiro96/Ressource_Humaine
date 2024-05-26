@@ -102,6 +102,7 @@
         'wizards/programme_surveillance_employee.xml',
         'wizards/organization_chart.xml',
         'wizards/arret_salaire.xml',
+        'wizards/note_conge.xml',
         'reports/paper_format.xml',
         'reports/hr_contract.xml',
         'reports/attestation_travail.xml',

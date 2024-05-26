@@ -38,6 +38,6 @@
             <p class="o_view_nocontent_smiling_face">Création d'un type de faute</p>
         </field>
     </record>
-            <menuitem name="Type Faute" id="ressource_humaine_type_faute" parent="referentiel_id"
+            <menuitem name="Type Faute" id="ressource_humaine_type_faute" parent="referentiel_id" sequence="10"
            action="action_rh_type_faute"/>
 </odoo>

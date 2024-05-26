@@ -18,5 +18,5 @@ from . import attestation_travail_wizard
 from . import programme_surveillance_employee
 from . import organization_chart
 from . import arret_salaire
-
+from . import note_conge
 

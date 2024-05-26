@@ -17,10 +17,18 @@
             file="ressource_humaine.attestation_travail_report"
             paperformat="ressource_humaine.paperformat_european_a4_portrait_bordered"/>
 
+<!--    <report-->
+<!--            id="report_note_conge"-->
+<!--            string="Note Conge"-->
+<!--            model="droit.avencement"-->
+<!--            report_type="qweb-html"-->
+<!--            name="ressource_humaine.note_conge"-->
+<!--            file="ressource_humaine.note_conge"/>-->
+
     <report
-            id="report_note_conge"
+            id="new_report_note_conge"
             string="Note Conge"
-            model="droit.avencement"
+            model="note.conge"
             report_type="qweb-html"
             name="ressource_humaine.note_conge"
             file="ressource_humaine.note_conge"/>
@@ -66,6 +74,7 @@
             report_type="qweb-html"
             name="ressource_humaine.cont_indete_tem_part_report"
             file="ressource_humaine.cont_indete_tem_part_report"
+            paperformat="ressource_humaine.paperformat_european_a4_portrait_bordered"/>
     />
     <report
             id="action_hr_contract_report"

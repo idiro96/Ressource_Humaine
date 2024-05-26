@@ -5,20 +5,14 @@
             <t t-call="ressource_humaine.report_header_custom"/>
             <div class="page">
                 <div class="row">
-                    <div style="float:left;font-size : 20px;">
-                        <p>
-                            <strong>
-                                <!--                                <span t-field="docs.company_id.name"/>-->
-                            </strong>
-                        </p>
+                    <br/>
+                    <div class="Diwani_Letter" style="font-size: 28px;text-align: right;">
+                        <span>
+                            المدرسة الوطنية للإدارة
+                            <br/>
+                            "مولالي أحمد مدغري"
+                        </span>
                     </div>
-                    <br/>
-                    <br/>
-                    <strong style="width: 250px; font-size: 20px; float: right; line-height: 3;">
-                        <div class="text-right">
-                            <t t-esc="company.name"/>
-                        </div>
-                    </strong>
                 </div>
                 <br/>
                 <br/>
@@ -61,7 +55,10 @@
                                 </t>
                             </span>
                             بالمدرسة الوطنية للإدارة، وقد أمض معنا هذا المحضر في
-                            اليوم و الشهر و السنة المشار إليهم أعلاه
+                            اليوم و الشهر و السنة المشار إليهم أعلاه.
+                            <span style="color: white;">
+                                أ
+                            </span>
                         </t>
                         <t t-if="pv_insta.employee_id.gender == 'female'">
                             بصفتـها
@@ -74,7 +71,10 @@
                                 </t>
                             </span>
                             بالمدرسة الوطنية للإدارة، وقد أمضت معنا هذا المحضر في
-                            اليوم و الشهر و السنة المشار إليها أعلاه
+                            اليوم و الشهر و السنة المشار إليها أعلاه.
+                            <span style="color: white;">
+                                أ
+                            </span>
                         </t>
                         <br/>
                         <br/>
@@ -116,9 +116,7 @@
                         </p>
                     </div>
                 </div>
-
             </div>
-
         </t>
     </template>
 </odoo>
