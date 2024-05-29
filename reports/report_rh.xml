@@ -277,6 +277,24 @@
             report_type="qweb-html"
             name="ressource_humaine.promotion_report"
             file="ressource_humaine.promotion_report"/>
+        <report
+            id="liste_avancements"
+            model="liste.avancements"
+            string="                        القائمة الإسمية للموظفين و العمال المهنيين
+                        و الأعوان المتعاقدين الموقوفة"
+            report_type="qweb-html"
+            name="ressource_humaine.liste_avancements_report"
+            file="ressource_humaine.liste_avancements_report"
+            paperformat="ressource_humaine.paperformat_european_a4_landscape_basic"/>
+        <report
+                id="liste_promotions"
+                model="liste.promotions"
+                string="                        القائمة الإسمية للموظفين و العمال المهنيين
+                            و الأعوان المتعاقدين الموقوفة"
+                report_type="qweb-html"
+                name="ressource_humaine.liste_promotions_report"
+                file="ressource_humaine.liste_promotions_report"
+                paperformat="ressource_humaine.paperformat_european_a4_landscape_basic"/>
 
 
 </odoo>

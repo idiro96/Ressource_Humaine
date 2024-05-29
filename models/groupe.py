@@ -18,7 +18,7 @@ class RHGroupe(models.Model):
     categorie_lines = fields.One2many('rh.categorie', inverse_name='groupe_id', track_visibility='onchange')
     create_uid = fields.Many2one('res.users', string='Created by', readonly=True, track_visibility='onchange')
     write_uid = fields.Many2one('res.users', string='Last Updated by', readonly=True, track_visibility='onchange')
-
+    old_groupe_id = fields.Many2one('rh.groupe', track_visibility='onchange')
     @api.model
     def create(self, vals):
         vals['create_uid'] = self.env.user.id

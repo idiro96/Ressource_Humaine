@@ -1773,7 +1773,7 @@
                     <div style="text-align: right;font-size:23px;">
                         <t t-if="grade_data.get('grade')">
                             <span>
-                                منصب
+                                المنصب
                                 :
                                 <span t-esc="grade_data['grade'].description"/>
                                 بالتوقيت الكامل
@@ -1949,7 +1949,7 @@
                     <div style="text-align: right;font-size:23px;">
                         <t t-if="grade_data.get('grade')">
                             <span>
-                                منصب
+                                المنصب
                                 :
                                 <span t-esc="grade_data['grade'].description"/>
                                 بالتوقيت الكامل
@@ -2125,7 +2125,7 @@
                     <div style="text-align: right;font-size:23px;">
                         <t t-if="grade_data.get('grade')">
                             <span>
-                                منصب
+                                المنصب
                                 :
                                 <span t-esc="grade_data['grade'].description"/>
                                 بالتوقيت الجزئي
@@ -2301,7 +2301,7 @@
                     <div style="text-align: right;font-size:23px;">
                         <t t-if="grade_data.get('grade')">
                             <span>
-                                منصب
+                                المنصب
                                 :
                                 <span t-esc="grade_data['grade'].description"/>
                                 بالتوقيت الجزئي

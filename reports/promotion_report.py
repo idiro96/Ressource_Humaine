@@ -54,6 +54,7 @@ class PromotionReport(models.AbstractModel):
         for rec in promotion_lines:
             date_ref_promotion_str = rec.date_ref_promotion
             if date_ref_promotion_str:
+
                 formatted_date_ref_promotion = datetime.strptime(date_ref_promotion_str,
                                                                         "%Y-%m-%d").strftime(
                     "%d-%m-%Y")

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="liste_promotions_report">
+        <t t-call="web.basic_layout">
+            <t t-call="ressource_humaine.report_header_custom"/>
+            <div class="page">
+                <div class="row">
+                    <br/>
+                    <strong>
+                        <div class="Diwani_Letter"
+                             style="font-size: 32px;text-align: right;word-spacing: 9px;margin-right:15px">
+                            <span style="display: inline-block;margin-left: 400px;">
+                                المدرسة الوطنية للإدارة
+                            </span>
+                        </div>
+                        <br/>
+                        <div class="Diwani_Letter"
+                             style="font-size: 32px;text-align: right;word-spacing: 9px;margin-right:15px">
+                            <span>
+                                الأمانة العامة
+                            </span>
+                        </div>
+                        <br/>
+                        <div class="Diwani_Letter"
+                             style="font-size: 32px;text-align: right;word-spacing: 9px;margin-right:15px">
+                            <span>
+                                مصلحة تسيير الموارد البشرية
+                            </span>
+                        </div>
+                        <br/>
+                    </strong>
+                </div>
+                <br/>
+                <br/>
+                <div style="text-align:center;font-size: 30px">
+                    <strong>
+                        <span t-esc="date"/>
+                        جدول ترقية موظفي المدرسة الوطنية للإدارة لسنة
+                    </strong>
+                </div>
+                <br/>
+                <div class="row" style="margin:-15;">
+                    <table style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;width:150px">
+                                    <strong>فرق المدة</strong>
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;width:125px">
+                                    <strong>تاريخ سريان الترقية القادمة</strong>
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;width:25px">
+                                    <strong>التنقيط</strong>
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;width:25px">
+                                    <strong>المدة</strong>
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;width:25px">
+                                    <strong>عامين و نصف</strong>
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
+                                    <strong>ترقية</strong>
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;width:125px">
+                                    <strong>تاريخ سريان الترقيةالحالية</strong>
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
+                                    <strong>الدرجة</strong>
+                                </th>
+
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
+                                    <strong>المنصب</strong>
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
+                                    <strong>الرتبة</strong>
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
+                                    <strong>الحالة العائلية</strong>
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;width:125px">
+                                    <strong>تاريخ الميلاد</strong>
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
+                                    <strong>الإسم و اللقب</strong>
+                                </th>
+                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;width:25px">
+                                    <strong></strong>
+                                </th>
+                            </tr>
+                        </thead>
+                        <t t-set="line_count" t-value="1"/>
+                        <t t-foreach="employee_droit" t-as="line1">
+                            <t t-foreach="line1" t-as="line">
+                            <tbody>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px;width:150px">
+                                <t t-esc="line_date_new_promotion_av2.get(line.id, '')"/>
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
+                                <t t-esc="line_date_new_promotion_av.get(line.id, '')"/>
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
+                                    <span t-esc="duree1"/>
+
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
+                                    &#160;
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
+                                    <t t-if="line.date_grade">
+                                        <t t-esc="line.date_grade"/>
+                                    </t>
+                                    <t t-if="not line.date_grade">
+                                        <t t-esc="line.date_grade"/>
+                                    </t>
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
+                                    <span t-esc="line.date_grade"/>
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
+                                    <span t-esc="line.echelon_id.intitule"/>
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
+                                    <span t-esc="line.job_id.name"/>
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
+                                    <t t-if="line.grade_id.description">
+                                        <t t-esc="line.grade_id.description"/>
+                                    </t>
+                                    <t t-if="not line.grade_id.description">
+                                        <t t-esc="line.grade_id.intitule_grade"/>
+                                    </t>
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
+                                    <t t-if="line.marital == 'single'">
+                                        <t t-if="line.gender == 'male'">
+                                            <span>أعزب</span>
+                                        </t>
+                                        <t t-if="line.gender == 'female'">
+                                            <span>عازبة</span>
+                                        </t>
+                                    </t>
+                                    <t t-if="line.marital == 'married'">
+                                        <t t-if="line.gender == 'male'">
+                                            <span>متزوّج</span>
+                                        </t>
+                                        <t t-if="line.gender == 'female'">
+                                            <span>متزوّجة</span>
+                                        </t>
+                                    </t>
+                                    <t t-if="line.marital == 'cohabitant'">
+                                        <span>معاش قانوني</span>
+                                    </t>
+                                    <t t-if="line.marital == 'widower'">
+                                        <t t-if="line.gender == 'male'">
+                                            <span>أرمل</span>
+                                        </t>
+                                        <t t-if="line.gender == 'female'">
+                                            <span>أرملة</span>
+                                        </t>
+                                    </t>
+                                    <t t-if="line.marital == 'divorced'">
+                                        <t t-if="line.gender == 'male'">
+                                            <span>مطلّق</span>
+                                        </t>
+                                        <t t-if="line.gender == 'female'">
+                                            <span>مطلّقة</span>
+                                        </t>
+                                    </t>
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
+                                    <span t-esc="line.birthday"/>
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
+                                    <span t-esc="line.name"/>
+                                </td>
+                                <td style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;">
+                                    <t t-esc="line_count"/>
+                                </td>
+                                <t t-set="line_count" t-value="line_count + 1"/>
+                            </tbody>
+                            </t>
+                        </t>
+                    </table>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
