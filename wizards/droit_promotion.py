@@ -275,14 +275,14 @@ class listePromotionReport(models.AbstractModel):
                 if duree_promotion == '5':
                     promotion_line2 = self.env['hr.employee'].search(
                         [('date_grade', '<=', date_promotion_wizard),
-                         ('indice_minimal', '<', 4275),('nature_travail_id', '=', nature_travail_superieure.id),('grade_id', '=', grade.id),
+                         ('point_indiciare', '<', 4275),('nature_travail_id', '=', nature_travail_superieure.id),('grade_id', '=', grade.id),
                          ('fin_relation', '=', False)],
                         order='date_grade DESC')
                     print('<821')
                 elif duree_promotion == '7':
                     promotion_line2 = self.env['hr.employee'].search(
                         [('date_grade', '<=', date_promotion_wizard),
-                         ('indice_minimal', '>=', 4275), ('nature_travail_id', '=', nature_travail_superieure.id),('grade_id', '=', grade.id),
+                         ('point_indiciare', '>=', 4275), ('nature_travail_id', '=', nature_travail_superieure.id),('grade_id', '=', grade.id),
                          ('fin_relation', '=', False)],
                         order='date_grade DESC')
                     print('>821')
@@ -319,14 +319,14 @@ class listePromotionReport(models.AbstractModel):
                 if duree_promotion == '5':
                     promotion_line2 = self.env['hr.employee'].search(
                         [('date_grade', '<=', date_promotion_wizard),
-                         ('indice_minimal', '<', 4275),('nature_travail_id', '=', nature_travail_superieure.id),
+                         ('point_indiciare', '<', 4275),('nature_travail_id', '=', nature_travail_superieure.id),
                          ('fin_relation', '=', False)],
                         order='date_grade DESC')
                     print('<821')
                 elif duree_promotion == '7':
                     promotion_line2 = self.env['hr.employee'].search(
                         [('date_grade', '<=', date_promotion_wizard),
-                         ('indice_minimal', '>=', 4275), ('nature_travail_id', '=', nature_travail_superieure.id),
+                         ('point_indiciare', '>=', 4275), ('nature_travail_id', '=', nature_travail_superieure.id),
                          ('fin_relation', '=', False)],
                         order='date_grade DESC')
                     print('>821')
