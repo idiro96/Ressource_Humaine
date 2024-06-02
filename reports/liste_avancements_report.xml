@@ -81,7 +81,7 @@
                                     <strong>المدة</strong>
                                 </th>
                                 <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;width:25px">
-                                    <strong>عامين و نصف</strong>
+                                    <strong>المدة</strong>
                                 </th>
                                 <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;width:125px">
                                     <strong>ترقية</strong>
@@ -123,22 +123,20 @@
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                 <t t-esc="line_date_new_avancement_av.get(line.id, '')"/>
                                 </td>
+
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
-                                    &#160;
+<!--                                    <span t-esc="duree1"/>-->
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
                                     <span t-esc="duree1"/>
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
-                                    &#160;
+                                    <span>
+                                        دنيا
+                                    </span>
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
-                                    <t t-if="line.date_avancement">
-                                        <t t-esc="line.date_avancement"/>
-                                    </t>
-                                    <t t-if="not line.date_avancement">
-                                        <t t-esc="line.date_avancement"/>
-                                    </t>
+
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
                                     <span t-esc="line.date_avancement"/>

@@ -246,7 +246,7 @@ class listePromotionReport(models.AbstractModel):
                 date_promotion_wizard = rec.date_promotion
                 duree_promotion = rec.duree_promotion
                 grade = rec.grade_id
-
+                formatted_date_promotion = datetime.strptime(date_promotion_wizard, "%Y-%m-%d").strftime("%Y")
                 date_promotion_wizard2 = fields.Date.from_string(
                         date_promotion_wizard) - relativedelta(months=int(duree_promotion) * 12)
                 bool = rec.boul
@@ -409,6 +409,7 @@ class listePromotionReport(models.AbstractModel):
                 'duree1': duree1,
                 'line_date_new_promotion_av': line_date_new_promotion_av,
                 'line_date_new_promotion_av2': line_date_new_promotion_av2,
+                'date': formatted_date_promotion,
             }
 
             return report_data

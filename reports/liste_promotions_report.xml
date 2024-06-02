@@ -134,10 +134,10 @@
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
                                     <t t-if="line.date_grade">
-                                        <t t-esc="line.date_grade"/>
+<!--                                        <t t-esc="line.date_grade"/>-->
                                     </t>
                                     <t t-if="not line.date_grade">
-                                        <t t-esc="line.date_grade"/>
+<!--                                        <t t-esc="line.date_grade"/>-->
                                     </t>
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">

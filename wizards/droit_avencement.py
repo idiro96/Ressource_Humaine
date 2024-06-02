@@ -285,6 +285,7 @@ class listeAvancementReport(models.AbstractModel):
             for rec in params:
                 date_avancement_wizard = rec.date_avancement
                 bool = rec.boul
+                formatted_date_avancement = datetime.strptime(date_avancement_wizard, "%Y-%m-%d").strftime("%Y")
                 if not bool:
                     date_avancement_wizard2 = fields.Date.from_string(
                                                     date_avancement_wizard) - relativedelta(months=30)
@@ -372,6 +373,7 @@ class listeAvancementReport(models.AbstractModel):
                 'duree1': duree1,
                 'line_date_new_avancement_av': line_date_new_avancement_av,
                 'line_date_new_avancement_av2': line_date_new_avancement_av2,
+                'date': formatted_date_avancement,
             }
 
             return report_data
