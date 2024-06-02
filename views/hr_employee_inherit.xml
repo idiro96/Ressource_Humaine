@@ -143,13 +143,7 @@
                        position="after">
                     <field name="date_ref_promotion" context="{'lang':'fr_FR'}"/>
                 </xpath>
-                <xpath expr="//field[@name='date_ref_promotion']"
-                       position="after">
-                    <field name="fin_relation"/>
-                </xpath>
-                <xpath expr="//field[@name='fin_relation']" position="after">
-                    <field name="date_fin_relation" attrs="{'invisible': [('fin_relation', '=', False)]}"/>
-                </xpath>
+
                 <!--                <xpath expr="//field[@name='date_fin_relation']" position="after">-->
                 <!--                    <field name="reintegration" attrs="{'invisible': [('fin_relation', '=', False)]}"/>-->
                 <!--                </xpath>-->
@@ -294,11 +288,18 @@
                        position="after">
                     <field name="numero_securite_social"/>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='numero_securite_social']"
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='date_ref_promotion']"
                        position="after">
                     <field name="num_date"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group//field[@name='num_date']"
+                       position="after">
+                    <field name="fin_relation"/>
+                </xpath>
+                <xpath expr="//field[@name='fin_relation']" position="after">
+                    <field name="date_fin_relation" attrs="{'invisible': [('fin_relation', '=', False)]}"/>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group//field[@name='numero_securite_social']"
                        position="after">
                     <field name="service_militaire"
                            attrs="{'invisible': [('gender', '!=', 'male')]}"/>
