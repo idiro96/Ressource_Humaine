@@ -280,8 +280,7 @@
         <report
             id="liste_avancements"
             model="droit.avencement"
-            string="                        القائمة الإسمية للموظفين و العمال المهنيين
-                        و الأعوان المتعاقدين الموقوفة"
+            string="جدول ترقية موظفي المدرسة الوطنية للإدارة"
             report_type="qweb-html"
             name="ressource_humaine.liste_avancements_report"
             file="ressource_humaine.liste_avancements_report"
@@ -289,8 +288,7 @@
         <report
                 id="liste_promotions"
                 model="droit.promotion"
-                string="                        القائمة الإسمية للموظفين و العمال المهنيين
-                            و الأعوان المتعاقدين الموقوفة"
+                string="جدول ترقية موظفي المدرسة الوطنية للإدارة"
                 report_type="qweb-html"
                 name="ressource_humaine.liste_promotions_report"
                 file="ressource_humaine.liste_promotions_report"

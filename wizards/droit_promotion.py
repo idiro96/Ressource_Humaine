@@ -215,6 +215,7 @@ class RHDroitPromotion(models.TransientModel):
 
             }
 
+
 class listePromotionReport(models.AbstractModel):
         _name = 'report.ressource_humaine.liste_promotions_report'
 
@@ -227,7 +228,6 @@ class listePromotionReport(models.AbstractModel):
         time_days = fields.Integer()
         time_difference = fields.Char()
 
-
         @api.model
         def get_report_values(self, docids, data=None):
             duree1 = 0
@@ -236,8 +236,10 @@ class listePromotionReport(models.AbstractModel):
             promotion_line = None
             print('self.date_promotion_')
             # print(self.date_avancement)
-            params = self.env['droit.promotion'].search(
-                [])
+            params = self.env['droit.promotion'].search([])
+            promotion = self.env['droit.promotion'].browse(docids[0])
+            date_promotion_wizard = promotion.date_promotion
+            formatted_date_promotion_wizard = datetime.strptime(date_promotion_wizard, "%Y-%m-%d").strftime("%Y")
             nature_travail = self.env['rh.type.fonction'].search([('code_type_fonction', '=', 'fonction')])
             nature_travail_superieure = self.env['rh.type.fonction'].search(
                 [('code_type_fonction', '=', 'fonctionsuperieure')])
@@ -409,6 +411,7 @@ class listePromotionReport(models.AbstractModel):
                 'duree1': duree1,
                 'line_date_new_promotion_av': line_date_new_promotion_av,
                 'line_date_new_promotion_av2': line_date_new_promotion_av2,
+                'date': formatted_date_promotion_wizard,
             }
 
             return report_data

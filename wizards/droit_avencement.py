@@ -7,8 +7,6 @@ import calendar
 from odoo.exceptions import ValidationError
 
 
-
-
 class RHDroitAvencement(models.TransientModel):
     _name = 'droit.avencement'
 
@@ -261,6 +259,7 @@ class RHDroitAvencement(models.TransientModel):
 
             }
 
+
 class listeAvancementReport(models.AbstractModel):
         _name = 'report.ressource_humaine.liste_avancements_report'
 
@@ -272,15 +271,15 @@ class listeAvancementReport(models.AbstractModel):
         time_days = fields.Integer()
         time_difference = fields.Char()
 
-
-
         @api.model
         def get_report_values(self, docids, data=None):
             duree1 = 0
             print('self.date_avancement')
             # print(self.date_avancement)
-            params = self.env['droit.avencement'].search(
-                [])
+            params = self.env['droit.avencement'].search([])
+            avancement = self.env['droit.avencement'].browse(docids[0])
+            date_avancement_wizard = avancement.date_avancement
+            formatted_date_avancement_wizard = datetime.strptime(date_avancement_wizard, "%Y-%m-%d").strftime("%Y")
 
             for rec in params:
                 date_avancement_wizard = rec.date_avancement
@@ -372,6 +371,7 @@ class listeAvancementReport(models.AbstractModel):
                 'duree1': duree1,
                 'line_date_new_avancement_av': line_date_new_avancement_av,
                 'line_date_new_avancement_av2': line_date_new_avancement_av2,
+                'date': formatted_date_avancement_wizard,
             }
 
             return report_data

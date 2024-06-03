@@ -16,6 +16,7 @@
                                    attrs="{'invisible': [('department_type', '!=', 'service')]}"/>
                             <field name="name" string="اسم المكتب"
                                    attrs="{'invisible': [('department_type', '!=', 'bureau')]}"/>
+                            <field name="intitule"/>
                             <field name="department_type"/>
                         </group>
                         <group>

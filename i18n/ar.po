@@ -57598,17 +57598,17 @@ msgstr "جدول الإجازات"
 #: model:ir.actions.act_window,name:ressource_humaine.action_rh_planning
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_planning
 msgid "Planning Surveillance"
-msgstr "برنامج المراقبة"
+msgstr "برنامج حراسة الامتحانات و المسابقات"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_planning_planning_surveillance_line
 msgid "Planning Surveillance Line"
-msgstr "تفاصيل برنامج المراقبة "
+msgstr "تفاصيل برنامج حراسة الامتحانات و المسابقات "
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_planning_line_planning_survellance_id
 msgid "Planning Survellance"
-msgstr "برنامج المراقبة"
+msgstr "برنامج حراسة الامتحانات و المسابقات"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.planning_conge_action
@@ -81421,7 +81421,7 @@ msgstr "برنامج"
 #. module: ressource_humaine
 #: model:ir.ui.menu,name:ressource_humaine.programme_menu
 msgid "programme de surveillance pour les employees"
-msgstr "برنامج متابعة الموظفين"
+msgstr "تسخيرة الامتحانات و المسابقات"
 
 #. module: ressource_humaine
 #: model:ir.model,name:ressource_humaine.model_programme_employee
@@ -83217,7 +83217,7 @@ msgstr "تأكيد اللجنة"
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.view_rh_planning_form
 msgid "تأكيد برنامج المراقبة"
-msgstr "تأكيد برنامج المراقبة"
+msgstr "تأكيد برنامج حراسة الامتحانات و المسابقات"
 
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.view_avancement_form

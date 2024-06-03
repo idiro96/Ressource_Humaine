@@ -27,6 +27,7 @@ class HrJobInherited(models.Model):
     name = fields.Char(string='Job Position', required=True, index=True, translate=True, track_visibility='onchange')
     create_uid = fields.Many2one('res.users', string='Created by', readonly=True, track_visibility='onchange')
     write_uid = fields.Many2one('res.users', string='Last Updated by', readonly=True, track_visibility='onchange')
+    intitule = fields.Char(required=True, translate=True, track_visibility='onchange')
 
     @api.model
     def create(self, vals):
@@ -63,6 +64,7 @@ class CustomDepartment(models.Model):
 
     department_type = fields.Selection(selection=[('secretariat', 'Secrétariat'), ('direction', 'Direction'),
                                                   ('service', 'Service'), ('bureau', 'Bureau')], required=True, readonly=False)
+    intitule = fields.Char(required=True, translate=True, track_visibility='onchange')
 
     @api.onchange('department_type')
     def onchange_department_type(self):
