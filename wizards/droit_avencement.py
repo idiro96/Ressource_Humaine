@@ -284,7 +284,7 @@ class listeAvancementReport(models.AbstractModel):
 
             for rec in params:
                 date_avancement_wizard = rec.date_avancement
-                bool = rec.boul
+                bool = rec.reclassement
                 formatted_date_avancement = datetime.strptime(date_avancement_wizard, "%Y-%m-%d").strftime("%Y")
                 if not bool:
                     date_avancement_wizard2 = fields.Date.from_string(

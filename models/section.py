@@ -24,8 +24,6 @@ class RHSection(models.Model):
     @api.multi
     def _compute_grille(self):
         for record in self:
-
-
             if record.categorie_id.type_fonction_id.code_type_fonction == 'fonctionsuperieure':
                 record.grille_compute1_id = record.categorie_id.grille_id.description_grille
             if record.categorie_id.type_fonction_id.code_type_fonction == 'contractuel':

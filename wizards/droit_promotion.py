@@ -21,16 +21,6 @@ class RHDroitPromotion(models.TransientModel):
     sauvegarde = fields.Boolean(default=False)
     grade_id = fields.Many2one('rh.grade')
 
-    # @api.constrains
-    # @api.multi
-    # def unlink(self):
-    #     records = self.env['rh.promotion.droit'].browse(self._context['active_ids'])
-    #     for rec in records:
-    #         promotion_ligne = self.env['rh.promotion.ligne'].search(
-    #             [('employee_id', '=', rec.employee_id.id), ('date_grade', '=', rec.date_new_grade)])
-    #         if promotion_ligne:
-    #             raise UserError("Enregistrement déja fait, vous ne pouvez pas le supprimer")
-
     def print_report(self):
         return self.env.ref('ressource_humaine.liste_promotions').report_action(self)
     @api.multi
@@ -226,6 +216,8 @@ class listePromotionReport(models.AbstractModel):
         time_months = fields.Integer()
         time_days = fields.Integer()
         time_difference = fields.Char()
+        indice = fields.Integer()
+        indice2 = fields.Integer()
 
 
         @api.model
@@ -242,6 +234,19 @@ class listePromotionReport(models.AbstractModel):
             nature_travail_superieure = self.env['rh.type.fonction'].search(
                 [('code_type_fonction', '=', 'fonctionsuperieure')])
 
+            grille = self.env['rh.grille'].search(
+                [],limit=1, order='create_date DESC')
+            for gril in grille:
+                categ = self.env['rh.categorie'].search(
+                    [('intitule', '=', '14'),('grille_id', '=', gril.id),('type_fonction_id', '=', nature_travail.id)])
+                categ2 = self.env['rh.categorie'].search(
+                    [('intitule', '=', 'ب'), ('grille_id', '=', gril.id),
+                     ('type_fonction_id', '=', nature_travail_superieure.id)])
+                if categ2:
+                    for cat in categ2:
+                        section2 = self.env['rh.section'].search(
+                            [('categorie_id', '=', cat.id),('intitule', '=', '2')])
+
             for rec in params:
                 date_promotion_wizard = rec.date_promotion
                 duree_promotion = rec.duree_promotion
@@ -250,62 +255,86 @@ class listePromotionReport(models.AbstractModel):
                 date_promotion_wizard2 = fields.Date.from_string(
                         date_promotion_wizard) - relativedelta(months=int(duree_promotion) * 12)
                 bool = rec.boul
+                if categ:
+                    for record in categ:
+                        indice = record.Indice_minimal
+                if section2:
+                    for record in section2:
+                        indice2 = record.indice_base
+            print('indice')
+            print(indice)
+            print('indice2')
+            print(indice2)
+
+            tab = []
             if grade:
-                if duree_promotion == '5':
-                    promotion_line1 = self.env['hr.employee'].search(
-                        [('date_grade', '<=', date_promotion_wizard),
-                         ('indice_minimal', '<', 821),('grade_id', '=', grade.id), ('nature_travail_id', '=', nature_travail.id),('grade_id', '=', grade.id),
-                         ('fin_relation', '=', False)],
-                        order='date_grade DESC')
-                    print('<821')
-                elif duree_promotion == '7':
-                    promotion_line1 = self.env['hr.employee'].search(
-                        [('date_grade', '<=', date_promotion_wizard),
-                         ('indice_minimal', '>=', 821), ('nature_travail_id', '=', nature_travail.id),('grade_id', '=', grade.id),
-                         ('fin_relation', '=', False)],
-                        order='date_grade DESC')
-                    print('>821')
-                else:
+                grade_line = self.env['rh.grade.line'].search(
+                    [('grade_id', '=', grade.id)])
+                if grade_line:
+                    for gradeline in grade_line:
+                        employe = self.env['hr.employee'].search([('grade_id', '=', gradeline.grade2_id.id)])
+                        print('gradeline')
+                        print(gradeline)
+                        for rec in employe:
+                            print('rec')
+                            print(rec)
+                            if duree_promotion == '5':
+                                promotion_line1 = self.env['hr.employee'].search(
+                                    [('date_grade', '<=', date_promotion_wizard),
+                                     ('indice_minimal', '<', indice),('id', '=', rec.id), ('nature_travail_id', '=', nature_travail.id),
+                                     ('fin_relation', '=', False)],
+                                    order='date_grade DESC')
 
-                    promotion_line1 = self.env['hr.employee'].search(
-                        [('date_grade', '<=', date_promotion_wizard),
-                         ('fin_relation', '=', False), ('nature_travail_id', '=', nature_travail.id),('grade_id', '=', grade.id),
-                         ('promotion_dix', '=', False)],
-                        order='date_grade DESC')
-                if duree_promotion == '5':
-                    promotion_line2 = self.env['hr.employee'].search(
-                        [('date_grade', '<=', date_promotion_wizard),
-                         ('point_indiciare', '<', 4275),('nature_travail_id', '=', nature_travail_superieure.id),('grade_id', '=', grade.id),
-                         ('fin_relation', '=', False)],
-                        order='date_grade DESC')
-                    print('<821')
-                elif duree_promotion == '7':
-                    promotion_line2 = self.env['hr.employee'].search(
-                        [('date_grade', '<=', date_promotion_wizard),
-                         ('point_indiciare', '>=', 4275), ('nature_travail_id', '=', nature_travail_superieure.id),('grade_id', '=', grade.id),
-                         ('fin_relation', '=', False)],
-                        order='date_grade DESC')
-                    print('>821')
-                else:
+                            elif duree_promotion == '7':
+                                promotion_line1 = self.env['hr.employee'].search(
+                                    [('date_grade', '<=', date_promotion_wizard),
+                                     ('indice_minimal', '>=', indice), ('nature_travail_id', '=', nature_travail.id),('id', '=', rec.id),
+                                     ('fin_relation', '=', False)],
+                                    order='date_grade DESC')
 
-                    promotion_line2 = self.env['hr.employee'].search(
-                        [('date_grade', '<=', date_promotion_wizard),
-                         ('fin_relation', '=', False), ('nature_travail_id', '=', nature_travail_superieure.id),('grade_id', '=', grade.id),
-                         ('promotion_dix', '=', False)],
-                        order='date_grade DESC')
+                            else:
+
+                                promotion_line1 = self.env['hr.employee'].search(
+                                    [('date_grade', '<=', date_promotion_wizard),
+                                     ('fin_relation', '=', False), ('nature_travail_id', '=', nature_travail.id),('id', '=', rec.id),
+                                     ('promotion_dix', '=', False)],
+                                    order='date_grade DESC')
+                            tab.append(promotion_line1)
+                            if duree_promotion == '5':
+                                promotion_line2 = self.env['hr.employee'].search(
+                                    [('date_grade', '<=', date_promotion_wizard),
+                                     ('point_indiciare', '<', indice2),('nature_travail_id', '=', nature_travail_superieure.id),('id', '=', rec.id),
+                                     ('fin_relation', '=', False)],
+                                    order='date_grade DESC')
+                                print('<821')
+                            elif duree_promotion == '7':
+                                promotion_line2 = self.env['hr.employee'].search(
+                                    [('date_grade', '<=', date_promotion_wizard),
+                                     ('point_indiciare', '>=', indice2), ('nature_travail_id', '=', nature_travail_superieure.id),('id', '=', rec.id),
+                                     ('fin_relation', '=', False)],
+                                    order='date_grade DESC')
+
+                            else:
+
+                                promotion_line2 = self.env['hr.employee'].search(
+                                    [('date_grade', '<=', date_promotion_wizard),
+                                     ('fin_relation', '=', False), ('nature_travail_id', '=', nature_travail_superieure.id),('id', '=', rec.id),
+                                     ('promotion_dix', '=', False)],
+                                    order='date_grade DESC')
+                            tab.append(promotion_line2)
 
             else:
                 if duree_promotion == '5':
                     promotion_line1 = self.env['hr.employee'].search(
                         [('date_grade', '<=', date_promotion_wizard),
-                         ('indice_minimal', '<', 821), ('nature_travail_id', '=', nature_travail.id),
+                         ('indice_minimal', '<', indice), ('nature_travail_id', '=', nature_travail.id),
                          ('fin_relation', '=', False)],
                         order='date_grade DESC')
                     print('<821')
                 elif duree_promotion == '7':
                     promotion_line1 = self.env['hr.employee'].search(
                         [('date_grade', '<=', date_promotion_wizard),
-                         ('indice_minimal', '>=', 821), ('nature_travail_id', '=', nature_travail.id),
+                         ('indice_minimal', '>=', indice), ('nature_travail_id', '=', nature_travail.id),
                          ('fin_relation', '=', False)],
                         order='date_grade DESC')
                     print('>821')
@@ -316,17 +345,18 @@ class listePromotionReport(models.AbstractModel):
                          ('fin_relation', '=', False), ('nature_travail_id', '=', nature_travail.id),
                          ('promotion_dix', '=', False)],
                         order='date_grade DESC')
+                tab.append(promotion_line1)
                 if duree_promotion == '5':
                     promotion_line2 = self.env['hr.employee'].search(
                         [('date_grade', '<=', date_promotion_wizard),
-                         ('point_indiciare', '<', 4275),('nature_travail_id', '=', nature_travail_superieure.id),
+                         ('point_indiciare', '<', indice2),('nature_travail_id', '=', nature_travail_superieure.id),
                          ('fin_relation', '=', False)],
                         order='date_grade DESC')
                     print('<821')
                 elif duree_promotion == '7':
                     promotion_line2 = self.env['hr.employee'].search(
                         [('date_grade', '<=', date_promotion_wizard),
-                         ('point_indiciare', '>=', 4275), ('nature_travail_id', '=', nature_travail_superieure.id),
+                         ('point_indiciare', '>=', indice2), ('nature_travail_id', '=', nature_travail_superieure.id),
                          ('fin_relation', '=', False)],
                         order='date_grade DESC')
                     print('>821')
@@ -337,7 +367,7 @@ class listePromotionReport(models.AbstractModel):
                          ('fin_relation', '=', False), ('nature_travail_id', '=', nature_travail_superieure.id),
                          ('promotion_dix', '=', False)],
                         order='date_grade DESC')
-
+                tab.append(promotion_line2)
             promotions = []
             if  promotion_line1 and promotion_line2:
                 promotion_line = promotion_line1 + promotion_line2
@@ -345,23 +375,26 @@ class listePromotionReport(models.AbstractModel):
                 promotion_line = promotion_line1
             if  not promotion_line1 and promotion_line2:
                 promotion_line = promotion_line2
-            for empl in promotion_line:
-                print('date_promotion_wizard')
-                print(date_promotion_wizard)
-                print('empl.date_promotion_wizard')
-                print(empl.date_grade)
-                duree = []
 
-                if empl.date_grade:
-                    dateDebut_object = fields.Date.from_string(date_promotion_wizard)
-                    dateDebut_object2 = fields.Date.from_string(empl.date_grade)
-                    difference = (
-                                             dateDebut_object.year - dateDebut_object2.year) * 12 + dateDebut_object.month - dateDebut_object2.month
+            if tab:
+                for t in tab:
+                    for empl in t:
+                        print('date_promotion_wizard')
+                        print(date_promotion_wizard)
+                        print('empl.date_promotion_wizard')
+                        print(empl.date_grade)
+                        duree = []
 
-                    if difference >= int(duree_promotion) * 12:
-                        promotions.append(empl)
+                        if empl.date_grade:
+                            dateDebut_object = fields.Date.from_string(date_promotion_wizard)
+                            dateDebut_object2 = fields.Date.from_string(empl.date_grade)
+                            difference = (
+                                                     dateDebut_object.year - dateDebut_object2.year) * 12 + dateDebut_object.month - dateDebut_object2.month
 
-                        duree1 = int(duree_promotion) * 12
+                            if difference >= int(duree_promotion) * 12:
+                                promotions.append(empl)
+
+                                duree1 = int(duree_promotion) * 12
 
 
             line_date_new_promotion_av = {}
@@ -387,8 +420,6 @@ class listePromotionReport(models.AbstractModel):
                         date_old_promotion = fields.Date.from_string(
                             rec2.date_grade)
 
-
-                        print('date_new_avancement2')
                         print(date_new_promotion)
                         delta = relativedelta(date_new_promotion, date_old_promotion)
 
@@ -403,12 +434,21 @@ class listePromotionReport(models.AbstractModel):
                         print('time_difference')
                         print(time_difference)
                         line_date_new_promotion_av2[rec2.id] = time_difference
+            line_grade = {}
+            for rec in promotions:
+                for rec2 in rec:
+                        if rec2.grade_id:
+                            promotion2 = self.env['rh.grade.line'].search(
+                                [('grade2_id', '=', rec2.grade_id.id)])
+                            for prom in promotion2:
+                                line_grade[rec2.id] = prom.grade_id.intitule_grade
 
             report_data = {
                 'employee_droit': promotions,
                 'duree1': duree1,
                 'line_date_new_promotion_av': line_date_new_promotion_av,
                 'line_date_new_promotion_av2': line_date_new_promotion_av2,
+                'line_grade': line_grade,
                 'date': formatted_date_promotion,
             }
 

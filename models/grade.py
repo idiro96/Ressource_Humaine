@@ -32,7 +32,7 @@ class RHGrade(models.Model):
     description = fields.Char()
     create_uid = fields.Many2one('res.users', string='Created by', readonly=True, track_visibility='onchange')
     write_uid = fields.Many2one('res.users', string='Last Updated by', readonly=True, track_visibility='onchange')
-
+    grade_lines = fields.One2many('rh.grade.line', inverse_name='grade_id', track_visibility='onchange')
     @api.model
     def create(self, vals):
         vals['create_uid'] = self.env.user.id

@@ -133,12 +133,7 @@
                                     &#160;
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
-                                    <t t-if="line.date_grade">
-<!--                                        <t t-esc="line.date_grade"/>-->
-                                    </t>
-                                    <t t-if="not line.date_grade">
-<!--                                        <t t-esc="line.date_grade"/>-->
-                                    </t>
+                                        <t t-esc="line_grade.get(line.id, '')"/>
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
                                     <span t-esc="line.date_grade"/>
