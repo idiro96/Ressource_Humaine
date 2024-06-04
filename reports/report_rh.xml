@@ -294,5 +294,12 @@
                 file="ressource_humaine.liste_promotions_report"
                 paperformat="ressource_humaine.paperformat_european_a4_landscape_basic"/>
 
+        <report
+            id="action_droit_promotions_xlsx"
+            model="droit.promotion"
+            string="جدول ترقية موظفي المدرسة الوطنية للإدارة لسنة Excel"
+            report_type="xlsx"
+            name="ressource_humaine.droit_promotions_xlsx"
+            file="جدول ترقية موظفي المدرسة الوطنية للإدارة لسنة"/>
 
 </odoo>
