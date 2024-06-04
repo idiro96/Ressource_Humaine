@@ -71,6 +71,7 @@ access_rh_historique_employee,access.rh.historique.employee,model_rh_historique_
 access_rh_planning_line,access.rh.planning.line,model_rh_planning_line,group_rh_absence,1,1,1,1
 access_rh_planning,access.rh.planning,model_rh_planning,group_rh_absence,1,1,1,1
 access_rh_emphy,access.rh.emphy,model_rh_emphy,group_rh_absence,1,1,1,1
+access_rh_type_arret_salaire,access.rh_type_arret_salaire,model_rh_type_arret_salaire,group_rh_absence,1,1,1,1
 
 
 
