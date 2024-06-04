@@ -225,6 +225,9 @@
                         <br/>
                         <br/>
                         <br/>
+                        <t t-if="not employee.job_id">
+                            <br/>
+                        </t>
                         <t t-if="not employee.gender or employee.gender == 'male'">
                             <span>
                                 .تسلم هذه الشهادة للمعني للإدلاء بها في إطار ما يسمح به القانون
@@ -429,6 +432,9 @@
                         <br/>
                         <br/>
                         <br/>
+                        <t t-if="not employee.job_id">
+                            <br/>
+                        </t>
                         <t t-if="not employee.gender or employee.gender == 'male'">
                             <span>
                                 .تسلم هذه الشهادة للمعني للإدلاء بها في إطار ما يسمح به القانون
