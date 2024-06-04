@@ -205,13 +205,15 @@
                                 /
                                 <strong class="texte-en-gras">
                                     <t t-esc="employee.job_id.name"/>
-                                    <t t-if="employee.job_id.poste_organique == 'organique'">
-                                        <t t-if="'رئيس مكتب' in employee.job_id.name or 'رئيس مصلحة' in employee.job_id.name">
-                                            ،
-                                            <t t-esc="employee.department_id.name"/>
-                                        </t>
-                                    </t>
                                 </strong>
+                                <t t-if="employee.job_id.poste_organique == 'organique'">
+                                    <t t-if="'رئيس مكتب' in employee.job_id.name or 'رئيس مصلحة' in employee.job_id.name">
+                                        ،
+                                        <strong class="texte-en-gras">
+                                            <t t-esc="employee.department_id.name"/>
+                                        </strong>
+                                    </t>
+                                </t>
                             </t>
                             .
                         </span>
@@ -233,7 +235,6 @@
                                 .تسلم هذه الشهادة للمعنية للإدلاء بها في إطار ما يسمح به القانون
                             </span>
                         </t>
-                        <br/>
                         <br/>
                     </div>
                 </div>
@@ -408,13 +409,15 @@
                                 /
                                 <strong class="texte-en-gras">
                                     <t t-esc="employee.job_id.name"/>
-                                    <t t-if="employee.job_id.poste_organique == 'organique'">
-                                        <t t-if="'رئيس مكتب' in employee.job_id.name or 'رئيس مصلحة' in employee.job_id.name">
-                                            ،
-                                            <t t-esc="employee.department_id.name"/>
-                                        </t>
-                                    </t>
                                 </strong>
+                                <t t-if="employee.job_id.poste_organique == 'organique'">
+                                    <t t-if="'رئيس مكتب' in employee.job_id.name or 'رئيس مصلحة' in employee.job_id.name">
+                                        ،
+                                        <strong class="texte-en-gras">
+                                            <t t-esc="employee.department_id.name"/>
+                                        </strong>
+                                    </t>
+                                </t>
                             </t>
                             .
                         </span>
@@ -436,7 +439,6 @@
                                 .تسلم هذه الشهادة للمعنية للإدلاء بها في إطار ما يسمح به القانون
                             </span>
                         </t>
-                        <br/>
                         <br/>
                     </div>
                 </div>
