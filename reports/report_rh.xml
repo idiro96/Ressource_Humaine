@@ -297,9 +297,17 @@
         <report
             id="action_droit_promotions_xlsx"
             model="droit.promotion"
-            string="جدول ترقية موظفي المدرسة الوطنية للإدارة لسنة Excel"
+            string="جدول ترقية موظفي المدرسة الوطنية للإدارة Excel"
             report_type="xlsx"
             name="ressource_humaine.droit_promotions_xlsx"
-            file="جدول ترقية موظفي المدرسة الوطنية للإدارة لسنة"/>
+            file="جدول ترقية موظفي المدرسة الوطنية للإدارة"/>
+
+    <report
+            id="action_droit_avancements_xlsx"
+            model="droit.avencement"
+            string="جدول ترقية موظفي المدرسة الوطنية للإدارة Excel"
+            report_type="xlsx"
+            name="ressource_humaine.droit_avancements_xlsx"
+            file="جدول ترقية موظفي المدرسة الوطنية للإدارة"/>
 
 </odoo>

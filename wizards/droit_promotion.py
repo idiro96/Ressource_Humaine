@@ -428,6 +428,9 @@ class DroitPromotiondXLS(models.AbstractModel):
     _inherit = 'report.report_xlsx.abstract'
 
     def generate_xlsx_report(self, workbook, data, objs):
+        promotion = self._get_objs_for_report(objs.ids, data)
+        date_promotion = promotion.date_promotion
+        formatted_date_promotion = datetime.strptime(date_promotion, "%Y-%m-%d").strftime("%Y")
         duree1 = 0
         promotion_line1 = None
         promotion_line2 = None
@@ -583,11 +586,13 @@ class DroitPromotiondXLS(models.AbstractModel):
                                            'bg_color': '#FFFFFF', 'num_format': 'J MMMM AAAA'})
         date_format2 = workbook.add_format({'font_size': 10, 'align': 'center', 'valign': 'vcenter', 'border': 1,
                                            'bg_color': '#FFFFFF', 'num_format': 'AAAA - MM - JJ'})
+        title_format = workbook.add_format(
+            {'bold': True, 'font_size': 32, 'align': 'center', 'valign': 'vcenter', 'border': 2, 'bg_color': '#FFFFFF'})
         sheet = workbook.add_worksheet('جدول ترقية')
         sheet.right_to_left()
 
-        sheet.set_row(0, 25)
-        for row_num in range(1, len(promotions) + 1):
+        sheet.set_row(6, 25)
+        for row_num in range(7, len(promotions) + 1):
             sheet.set_row(row_num, 20)
 
         sheet.set_column(0, 0, 5)
@@ -605,22 +610,25 @@ class DroitPromotiondXLS(models.AbstractModel):
         sheet.set_column(12, 12, 25)
         sheet.set_column(13, 13, 30)
 
-        sheet.write(0, 0, 'الرقم', format1)
-        sheet.write(0, 1, 'الاسم و اللقب', format1)
-        sheet.write(0, 2, 'تاريخ الميلاد', format1)
-        sheet.write(0, 3, 'الحالة العائلية', format1)
-        sheet.write(0, 4, 'الرتبة', format1)
-        sheet.write(0, 5, 'المنصب', format1)
-        sheet.write(0, 6, 'الدرجة', format1)
-        sheet.write(0, 7, 'تاريخ سريان الترقيةالحالية', format1)
-        sheet.write(0, 8, 'ترقية', format1)
-        sheet.write(0, 9, 'عامين و نصف', format1)
-        sheet.write(0, 10, 'المدة', format1)
-        sheet.write(0, 11, 'التنقيط', format1)
-        sheet.write(0, 12, 'تاريخ سريان الترقية القادمة', format1)
-        sheet.write(0, 13, 'فرق المدة', format1)
+        sheet.write(6, 0, 'الرقم', format1)
+        sheet.write(6, 1, 'الاسم و اللقب', format1)
+        sheet.write(6, 2, 'تاريخ الميلاد', format1)
+        sheet.write(6, 3, 'الحالة العائلية', format1)
+        sheet.write(6, 4, 'الرتبة', format1)
+        sheet.write(6, 5, 'المنصب', format1)
+        sheet.write(6, 6, 'الدرجة', format1)
+        sheet.write(6, 7, 'تاريخ سريان الترقيةالحالية', format1)
+        sheet.write(6, 8, 'ترقية', format1)
+        sheet.write(6, 9, 'عامين و نصف', format1)
+        sheet.write(6, 10, 'المدة', format1)
+        sheet.write(6, 11, 'التنقيط', format1)
+        sheet.write(6, 12, 'تاريخ سريان الترقية القادمة', format1)
+        sheet.write(6, 13, 'فرق المدة', format1)
 
-        row = 1
+        sheet.merge_range('E2:J4', f"{formatted_date_promotion}جدول ترقية موظفي المدرسة الوطنية للإدارة لسنة ",
+                          title_format)
+
+        row = 7
         for index, line in enumerate(promotions, start=1):
             sheet.write(row, 0, index, format2)
             sheet.write(row, 1, line.name, format3)
