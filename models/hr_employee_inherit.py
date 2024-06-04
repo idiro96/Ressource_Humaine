@@ -80,7 +80,7 @@ class HrEmployeInherited(models.Model):
                                             ('servicenationale', 'Servicenationale')], track_visibility="onchange",
                                            readonly=False, default='activite')
     methode_embauche = fields.Selection([('recrutement', 'Recrutement'), ('transfert', 'Transfert'), ('detachement', 'Detachement')],
-                                        readonly=False, default='recrutement', track_visibility="onchange")
+                                        readonly=False, track_visibility="onchange")
     ancienne_etablissement = fields.Char(track_visibility="onchange")
     nom_ar = fields.Char(track_visibility="onchange")
     prenom_ar = fields.Char(track_visibility="onchange")
@@ -161,6 +161,23 @@ class HrEmployeInherited(models.Model):
         compute="_compute_has_high_position",
         store=True
     )
+    type_methode_embauche = fields.Selection([('interne', 'Interne'),
+                                        ('externe', 'Externe')], track_visibility="onchange")
+    description_methode_embauche = fields.Many2one('rh.type.methode.embauche', track_visibility="onchange")
+
+
+    @api.onchange('type_methode_embauche')
+    def _onchange_type_methode_embauche(self):
+        if self.type_methode_embauche:
+            if self.type_methode_embauche in ['interne', 'داخلي']:
+                domain = [('type_embauche', '=', 'داخلي')]
+            elif self.type_methode_embauche in ['externe', 'خارجي']:
+                domain = [('type_embauche', '=', 'خارجي')]
+            else:
+                domain = []
+            return {'domain': {'description_methode_embauche': domain}}
+        return {'domain': {'description_methode_embauche': []}}
+
 
     @api.depends('nature_travail_id')
     def _compute_has_high_position(self):
