@@ -84,6 +84,7 @@
         'views/emphy.xml',
         'views/planning_surveillance.xml',
         'views/hr_department_inherit.xml',
+        'views/type_arret_salaire.xml',
         'data/sequence.xml',
         'data/type_fonction.xml',
         'data/type_contract.xml',

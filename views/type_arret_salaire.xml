@@ -1,0 +1,39 @@
+<odoo>
+    <record id="view_rh_type_arret_salaire_tree" model="ir.ui.view">
+        <field name="name">rh.type.arret.salaire.tree</field>
+        <field name="model">rh.type.arret.salaire</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="code"/>
+                <field name="description"/>
+            </tree>
+        </field>
+
+    </record>
+    <record id="view_rh_type_arret_salaire_form" model="ir.ui.view">
+        <field name="name">rh.type.arret.salaire.form</field>
+        <field name="model">rh.type.arret.salaire</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="code"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_rh_type_arret_salaire" model="ir.actions.act_window">
+        <field name="name">Type Arret Salaire</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">rh.type.arret.salaire</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Création d'un Type Arret Salaire</p>
+        </field>
+    </record>
+    <menuitem name="Type Arret Salaire" id="ressource_humaine_type_arret_salaire" parent="referentiel_id" sequence="11"
+              action="action_rh_type_arret_salaire"/>
+</odoo>
