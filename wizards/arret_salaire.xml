@@ -9,7 +9,7 @@
                     <group>
                         <group>
                             <field name="employee_id" string="الموظف" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
-<!--                            <field name="numero_decision_arret" string="رقم مقرر توقيف الراتب"/>-->
+                            <field name="numero_decision_arret" string="رقم مقرر توقيف الراتب" invisible="1"/>
                         </group>
                         <group>
                             <field name="numero_decision_titularisation" string='رقم مقرر الترسيم'/>

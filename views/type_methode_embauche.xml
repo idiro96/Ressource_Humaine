@@ -1,0 +1,42 @@
+<odoo>
+    <record id="view_rh_type_methode_embauche_tree" model="ir.ui.view">
+        <field name="name">Type Methode Embauche tree</field>
+        <field name="model">rh.type.methode.embauche</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="type_embauche"/>
+                <field name="description_type_embauche"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_rh_type_methode_embauche_form" model="ir.ui.view">
+        <field name="name">Type Methode Embauche form</field>
+        <field name="model">rh.type.methode.embauche</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+
+                    <group>
+                        <field name="type_embauche"/>
+                        <field name="description_type_embauche"/>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_type_methode_embauche" model="ir.actions.act_window">
+        <field name="name">Type Methode Embauche</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">rh.type.methode.embauche</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Création d'un type de Methode Embauche</p>
+        </field>
+    </record>
+    <menuitem name="type methode embauche" id="ressource_humaine_type_methode_embauche" parent="referentiel_id"
+              sequence="12"
+              action="action_type_methode_embauche"/>
+</odoo>
