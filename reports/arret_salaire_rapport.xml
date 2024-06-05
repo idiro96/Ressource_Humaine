@@ -85,7 +85,7 @@
                                     </span>
                                     <span>مؤرخ في</span>
                                     <span>
-                                        <t t-esc="decision.date_decision_titularisation"/>
+                                        <t t-esc="date_decision_titularisation"/>
                                     </span>
                                     <t t-if="decision.employee_id.gender == 'male' ">
                                         <span>المتضمن ترسيم السيد</span>
@@ -111,7 +111,7 @@
                                     </span>
                                     <span>بالمدرسة إبتداء من تاريخ</span>
                                     <span>
-                                        <t t-esc="decision.date_titularisation"/>،
+                                        <t t-esc="date_titularisation"/>،
                                     </span>
                                     <span style="color: white;">
                                         أ
@@ -123,11 +123,21 @@
                     <div class="arabic_typesetting" style="font-size: 25px;text-align: right;">
                         <span>ـ و بناء على مقرر جماعي رقم</span>
                         <span>
-                            <t t-esc="decision.employee_id.corps_id.filiere_id.code_group"/>
+                            <t t-if="decision.employee_id.corps_id.filiere_id.code_group">
+                                <t t-esc="decision.employee_id.corps_id.filiere_id.code_group"/>
+                            </t>
+                            <t t-if="not decision.employee_id.corps_id.filiere_id.code_group">
+                                ......
+                            </t>
                         </span>
                         <span>مؤرخ في</span>
                         <span>
-                            <t t-esc="decision.employee_id.corps_id.filiere_id.date_code"/>
+                            <t t-if="decision.employee_id.corps_id.filiere_id.date_code">
+                                <t t-esc="decision.employee_id.corps_id.filiere_id.date_code"/>
+                            </t>
+                            <t t-if="not decision.employee_id.corps_id.filiere_id.date_code">
+                                ...................
+                            </t>
                         </span>
                         <t t-if="decision.employee_id.gender== 'male' ">
                             <span>المتعلق باعادة ترتيب الموظفين، و المتضمن ترتيب المعني</span>
@@ -165,7 +175,7 @@
                         </span>
                         <span>إبتداء من تاريخ</span>
                         <span>
-                            <t t-esc="decision.employee_id.date_avancement"/>،
+                            <t t-esc="date_avancement"/>،
                         </span>
                         <span style="color: white;">
                             أ
@@ -189,7 +199,7 @@
                         </span>
                         <span>مؤرخ في</span>
                         <span>
-                            <t t-esc="decision.date_motif"/>،
+                            <t t-esc="date_motif"/>،
                         </span>
                         <span style="color: white;">
                             أ
@@ -243,7 +253,7 @@
                         </span>
                         <span>إبتداء من تاريخ</span>
                         <span>
-                            <t t-esc="decision.date_arret_salaire"/>
+                            <t t-esc="date_arret_salaire"/>
                         </span>
                         <span>
                             بسبب
