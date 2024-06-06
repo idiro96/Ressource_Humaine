@@ -14,10 +14,17 @@
         <field name="name">Ressource Humaine</field>
     </record>
     <record id="group_rh_absence" model="res.groups">
-        <field name="name">Ressource Humaine</field>
+        <field name="name">Ressource Humaine1</field>
         <field name="category_id" ref="module_category_rh"/>
         <field name="domain_force"> [('user_id','=', user_id)]</field>
     </record>
-
+      <record id="module_category_rh1" model="ir.module.category">
+        <field name="name">Ressource Humaine</field>
+    </record>
+     <record id="group_rh_consultation" model="res.groups">
+        <field name="name">consultation</field>
+        <field name="category_id" ref="module_category_rh1"/>
+        <field name="domain_force"> [('user_id','=', user_id)]</field>
+    </record>
 
 </odoo>

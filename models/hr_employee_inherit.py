@@ -179,6 +179,28 @@ class HrEmployeInherited(models.Model):
         return {'domain': {'description_methode_embauche': []}}
 
 
+    categorie_grade_indice = fields.Integer(related='grade_id.categorie_id.Indice_minimal',
+                                     store=True)
+    categorie_grade = fields.Many2one(related='grade_id.categorie_id',
+                                            store=True)
+    echelon_id_grade = fields.Many2one('rh.echelon', track_visibility="onchange")
+    echelon_id_montant = fields.Integer()
+    ref_poste = fields.Char(track_visibility="onchange")
+    date_signature_poste = fields.Date(track_visibility="onchange")
+    @api.onchange('echelon_id_grade')
+    def onchange_echelon_id_grade(self):
+        print('moi')
+        for rec in self:
+            if rec.echelon_id_grade:
+                type_fonction = self.env['rh.type.fonction'].search([('id', '=', rec.nature_travail_id.id)])
+                if type_fonction.code_type_fonction == 'fonctionsuperieure':
+                    rec.echelon_id_montant = rec.indice_base + rec.echelon_id_grade.indice_echelon
+                    print(rec.indice_base)
+                    print(rec.echelon_id_grade.indice_echelon)
+                    echelon = self.env['rh.echelon'].search([('section', '=', rec.section_id.id),('indice_echelon', '>', rec.echelon_id_montant)], limit=1, order='indice_echelon asc')
+                    print(echelon.indice_echelon)
+                    rec.wage = (echelon.indice_echelon * 45)
+
     @api.depends('nature_travail_id')
     def _compute_has_high_position(self):
         for employee in self:
