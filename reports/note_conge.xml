@@ -31,29 +31,18 @@
                         <div class="Diwani_Letter"
                              style="font-size: 32px;text-align: right;word-spacing: 9px;margin-right:15px">
                             <span>
-                                <t t-if="code">
-                                    رقم
-                                    <t t-esc="code"/>
-                                    /م.و.إ/أ.ع/م.ت.م.ب/
-<!--                                    <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>-->
-                                    <span style="margin-right:260px">
-                                        الجزائر في،
-                                    </span>
-                                </t>
-                                <t t-if="not code">
                                     رقم .........../م.و.إ/أ.ع/م.ت.م.ب/
 <!--                                <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>-->
                                 <span style="margin-right:200px">
                                     الجزائر في،
                                 </span>
-                                </t>
                                 <span style="color: white;">أ</span>
                             </span>
                         </div>
                         <br/>
                         <br/>
                         <br/>
-                        <div style="font-size: 20px;text-align: left;">
+                        <div class="normal_mohammad_font" style="font-size: 20px;text-align: left;">
                             <span>
                                 السيدات و السادة المدراء و رؤساء المصالح
                             </span>
@@ -62,14 +51,14 @@
                 </div>
                 <br/>
                 <br/>
-                <div style="text-align:center;font-size: 40px">
+                <div class="normal_mohammad_font" style="text-align:center;font-size: 40px">
                     <strong>
                         <u>مذكـرة مصلحية</u>
                     </strong>
                 </div>
                 <br/>
                 <br/>
-                <div class="text-right" style="text-align:center;font-size:23px;text-align: right;">
+                <div class="normal_mohammad_font" style="text-align:center;font-size:23px;text-align: right;">
                     <p>
                         ـ في إطار تحضير رزمانة العطلة السنوية للموظفين و العمال بعنوان سنة
                         <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
