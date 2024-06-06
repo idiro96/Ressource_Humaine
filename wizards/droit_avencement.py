@@ -26,6 +26,9 @@ class RHDroitAvencement(models.TransientModel):
     def print_report(self):
         return self.env.ref('ressource_humaine.liste_avancements').report_action(self)
 
+    def export_report(self):
+        return self.env.ref('ressource_humaine.action_droit_avancements_xlsx').report_action(self)
+
 
     def check_avancement_date_and_sauvegarde(self):
         for wizard_record in self:

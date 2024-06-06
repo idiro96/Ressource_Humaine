@@ -67,8 +67,5 @@ from . import fiche_evaluation
 from . import hr_contract_type_inherit
 from . import grade_line
 from . import type_arret_salaire
-<<<<<<< HEAD
 from . import type_methode_embauche
-=======
 
->>>>>>> eac3726b1ca931be27fcf27a777881166dc5e496
