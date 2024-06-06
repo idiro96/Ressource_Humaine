@@ -22,6 +22,7 @@
                     </group>
                     <footer>
                         <button name="print_report" string="طباعة" type="object" class="oe_highlight"/>
+                        <button name="export_report" type="object" class="btn-primary" string="تصدير"/>
                         <button name="actualiser_droit_promotion" string="تحديث إستحقاق الترقية" type="object"
                                 class="btn-danger text-uppercase"/>
                         <button string="إلغاء" class="btn-default" special="cancel"/>

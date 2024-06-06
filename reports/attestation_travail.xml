@@ -136,7 +136,7 @@
                         <strong class="texte-en-gras">
                             <t t-esc="formatted_date"/>
                         </strong>
-                        ب
+                        بـ
                         <strong class="texte-en-gras">
                             <t t-esc="employee.place_of_birth"/>.
                         </strong>
@@ -204,10 +204,18 @@
                             <t t-if="employee.job_id">
                                 /
                                 <strong class="texte-en-gras">
-                                    <t t-esc="employee.job_id.name"/> ،
-                                    <t t-esc="employee.department_id.name"/>.
+                                    <t t-esc="employee.job_id.name"/>
                                 </strong>
+                                <t t-if="employee.job_id.poste_organique == 'organique'">
+                                    <t t-if="'رئيس مكتب' in employee.job_id.name or 'رئيس مصلحة' in employee.job_id.name">
+                                        ،
+                                        <strong class="texte-en-gras">
+                                            <t t-esc="employee.department_id.name"/>
+                                        </strong>
+                                    </t>
+                                </t>
                             </t>
+                            .
                         </span>
                         <span style="color: white;">
                             أ
@@ -217,6 +225,9 @@
                         <br/>
                         <br/>
                         <br/>
+                        <t t-if="not employee.job_id">
+                            <br/>
+                        </t>
                         <t t-if="not employee.gender or employee.gender == 'male'">
                             <span>
                                 .تسلم هذه الشهادة للمعني للإدلاء بها في إطار ما يسمح به القانون
@@ -227,7 +238,6 @@
                                 .تسلم هذه الشهادة للمعنية للإدلاء بها في إطار ما يسمح به القانون
                             </span>
                         </t>
-                        <br/>
                         <br/>
                     </div>
                 </div>
@@ -398,9 +408,21 @@
                             </t>
                         </span>
                         <span>
-                            <strong class="texte-en-gras">
-                                <t t-esc="employee.job_id.name"/>.
-                            </strong>
+                            <t t-if="employee.job_id">
+                                /
+                                <strong class="texte-en-gras">
+                                    <t t-esc="employee.job_id.name"/>
+                                </strong>
+                                <t t-if="employee.job_id.poste_organique == 'organique'">
+                                    <t t-if="'رئيس مكتب' in employee.job_id.name or 'رئيس مصلحة' in employee.job_id.name">
+                                        ،
+                                        <strong class="texte-en-gras">
+                                            <t t-esc="employee.department_id.name"/>
+                                        </strong>
+                                    </t>
+                                </t>
+                            </t>
+                            .
                         </span>
                         <span style="color: white;">
                             أ
@@ -410,6 +432,9 @@
                         <br/>
                         <br/>
                         <br/>
+                        <t t-if="not employee.job_id">
+                            <br/>
+                        </t>
                         <t t-if="not employee.gender or employee.gender == 'male'">
                             <span>
                                 .تسلم هذه الشهادة للمعني للإدلاء بها في إطار ما يسمح به القانون
@@ -420,7 +445,6 @@
                                 .تسلم هذه الشهادة للمعنية للإدلاء بها في إطار ما يسمح به القانون
                             </span>
                         </t>
-                        <br/>
                         <br/>
                     </div>
                 </div>

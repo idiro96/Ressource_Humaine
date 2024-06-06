@@ -31,6 +31,7 @@
                 <xpath expr="//tree//field[@name='date_grade']" position="after">
                     <field name="date_job_id"/>
                 </xpath>
+
                 <xpath expr="//tree//field[@name='date_job_id']" position="after">
                     <field name="nom_fr"/>
                 </xpath>
@@ -121,7 +122,14 @@
                 <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='job_id']" position="after">
                     <field name="date_job_id"/>
                 </xpath>
-                <xpath expr="//group[field[@name='date_job_id']]"
+                  <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='date_job_id']" position="after">
+                    <field name="ref_poste"/>
+                </xpath>
+                  <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='ref_poste']" position="after">
+                    <field name="date_signature_poste"/>
+                </xpath>
+
+                <xpath expr="//group[field[@name='date_signature_poste']]"
                        position="after">
                     <group name="info grade" string="الرتبة">
                         <field name="corps_id"
@@ -513,6 +521,9 @@
                             <field name="bonification_indiciaire"
                                    options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
                                    attrs="{'invisible': [('chef_bureau', '!=', True)], 'required': [('chef_bureau', '=', 'True')]}"/>
+                            <field name="echelon_id_grade"
+                                   options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
+                                   attrs="{'invisible': [('code_type_fonction', '!=', 'fonctionsuperieure')], 'required': [('code_type_fonction', '=', 'fonctionsuperieure')]}"/>
 
                             <field name="wage"/>
                         </group>

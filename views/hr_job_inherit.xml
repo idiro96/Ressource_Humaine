@@ -67,11 +67,12 @@
                 </xpath>
                 <xpath expr="//form//sheet//group//group[@name='recruitment']" position="before">
                     <group string="المنصب / الوظيفة">
+                        <field name="intitule"/>
                         <field name="nature_travail_id"
                                options="{'no_create': True, 'no_create_edit':True, 'no_open':True}" widget='selection'/>
                         <field name="poste_organique"
                                attrs="{'invisible': [('code_type_fonction', '!=', 'fonctionsuperieure')]}"/>
-                        <field name="max_employee" sting="العدد النظري"/>
+                        <field name="max_employee" string="العدد النظري"/>
                     </group>
                 </xpath>
                 <!--                <xpath expr="//div[@class='oe_button_box']/button[@name='toggle_active']" position="attributes">-->
