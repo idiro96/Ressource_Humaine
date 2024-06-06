@@ -84097,3 +84097,18 @@ msgstr "طريقة التوظيف"
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_type_methode_embauche
 msgid "type methode embauche"
 msgstr "أنواع طريقة التوظيف"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_echelon_id_grade
+msgid "Echelon Id Grade"
+msgstr "الدرجة في الرتبة"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_ref_poste
+msgid "Ref Poste"
+msgstr "رقم مقرر تعين في المنصب"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_date_signature_poste
+msgid "Date Signature Poste"
+msgstr "تاريخ إمضاء المقرر"
