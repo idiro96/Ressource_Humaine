@@ -8,6 +8,7 @@ from num2words import num2words
 class TitreCongeReport(models.AbstractModel):
     _name = 'report.ressource_humaine.titre_conge'
 
+    # reliquat = fields.Boolean(string='Reliquat', default=False)
     ARABIC_MONTHS = {
         1: 'يناير',
         2: 'فبراير',
@@ -26,8 +27,22 @@ class TitreCongeReport(models.AbstractModel):
     @api.model
     def get_report_values(self, docids, data=None):
         conge = self.env['hr.holidays'].browse(docids[0])
+        if conge.state != 'validate':
+            raise UserError("The state of the record must be 'validate' to print this report.")
 
-        contract = self.env['hr.contract'].search([('employee_id', '=', conge.employee_id.id)], limit=1)
+        # droit_conge = self.env['rh.congedroit'].search([('id_personnel', '=', conge.employee_id.id)], order='exercice_conge desc')
+        # if len(droit_conge) > 1:
+        #     all_zero = False
+        #     for droit_conge in droit_conge[1:]:
+        #         if droit_conge.nbr_jour_reste != 0:
+        #             all_zero = True
+        #             break
+        #
+        #     conge.reliquat = all_zero
+        # else:
+        #     conge.reliquat = False
+
+        # contract = self.env['hr.contract'].search([('employee_id', '=', conge.employee_id.id)], limit=1)
         conge_date_to = conge.date_to
         formatted_conge_date_to = datetime.strptime(conge_date_to, "%Y-%m-%d %H:%M:%S").strftime("%d-%m-%Y")
         conge_date_from = conge.date_from
@@ -38,7 +53,7 @@ class TitreCongeReport(models.AbstractModel):
         report_data = {
             'conge': conge,
             'company': self.env.user.company_id,
-            'contract': contract,
+            # 'contract': contract,
             'conge_date_to': formatted_conge_date_to,
             'conge_date_from': formatted_conge_date_from,
             'arabic_number_of_days_words': arabic_number_of_days_words,

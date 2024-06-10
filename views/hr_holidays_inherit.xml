@@ -67,6 +67,11 @@
                 <xpath expr="//form//sheet//div" position="attributes">
                     <attribute name="invisible">True</attribute>
                 </xpath>
+                <xpath expr="//form//sheet//group" position="after">
+                    <group>
+                        <field name="reliquat" string="Reliquats"/>
+                    </group>
+                </xpath>
             </field>
         </record>
         <record model="ir.actions.act_window" id="action_hr_holidays_dashboard">
