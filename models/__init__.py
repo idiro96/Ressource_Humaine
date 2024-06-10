@@ -67,5 +67,11 @@ from . import fiche_evaluation
 from . import hr_contract_type_inherit
 from . import grade_line
 from . import type_arret_salaire
+<<<<<<< HEAD
+from . import corps_decision_line
+from . import prime_rendement
+from . import prime_rendement_line
+=======
 from . import type_methode_embauche
+>>>>>>> fad7930fea134ad0a25f32be8cf7c7826d235313
 

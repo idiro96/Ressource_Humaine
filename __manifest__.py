@@ -79,6 +79,7 @@
         'views/fiche_evaluation.xml',
         'views/avancement.xml',
         'views/avencement_droit.xml',
+        'views/prime_rendement.xml',
         'views/promotion_droit.xml',
         'views/company.xml',
         'views/emphy.xml',

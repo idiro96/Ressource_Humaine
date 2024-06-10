@@ -75,7 +75,7 @@ class HrHolidaysInherited(models.Model):
             if employ:
                 print('rrrrrrr')
                 if employ.days_off >= holidays.number_of_days_temp:
-                    droitconge = self.env['rh.congedroit'].search([('id_personnel', '=', employ.id)], limit=3)
+                    droitconge = self.env['rh.congedroit'].search([('id_personnel', '=', employ.id),('nbr_jour_reste', '!=', 0)], limit=3, order='id asc')
                     jours_conge = holidays.number_of_days_temp
                     nbr_jour_reste = 0
                     nbr_jour_consomme = 0
