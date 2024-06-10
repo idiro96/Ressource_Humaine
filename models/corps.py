@@ -17,7 +17,7 @@ class RHSecteure(models.Model):
     loi_id = fields.Many2one(comodel_name='rh.loi', track_visibility='onchange')
     create_uid = fields.Many2one('res.users', string='Created by', readonly=True, track_visibility='onchange')
     write_uid = fields.Many2one('res.users', string='Last Updated by', readonly=True, track_visibility='onchange')
-
+    corps_decision_lines = fields.One2many('rh.corps.decision.line', inverse_name='corps_id')
     @api.model
     def create(self, vals):
         vals['create_uid'] = self.env.user.id
