@@ -11,6 +11,7 @@ class HrHolidaysInherited(models.Model):
                                         states={'draft': [('readonly', False)], 'confirm': [('readonly', False)]},
                                         compute='_get_default_value')
     code = fields.Char()
+    reliquat = fields.Boolean(track_visibility='onchange', tratranslate=True, default=False)
 
     def _get_default_value(self):
         # You can set the default value based on your requirements

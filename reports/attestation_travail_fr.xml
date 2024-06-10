@@ -160,12 +160,11 @@
                                 <strong>
                                     <t t-esc="employee.grade_id.intitule_grade_fr"/>
                                     <t t-if="employee.job_id">
-                                        /
+                                        ,
                                         <t t-esc="employee.job_id.intitule"/>
                                         <t t-if="employee.job_id.poste_organique == 'organique'">
                                             <t t-if="'رئيس مكتب' in employee.job_id.name or 'رئيس مصلحة' in employee.job_id.name">
-                                                ,
-                                                <t t-esc="employee.department_id.intitule"/>
+                                                <t t-esc="department_name_fr"/>
                                             </t>
                                         </t>
                                     </t>
@@ -179,12 +178,11 @@
                                 <strong>
                                     <t t-esc="employee.grade_id.intitule_grade_fr"/>
                                     <t t-if="employee.job_id">
-                                        /
+                                        ,
                                         <t t-esc="employee.job_id.intitule"/>
                                         <t t-if="employee.job_id.poste_organique == 'organique'">
                                             <t t-if="'رئيس مكتب' in employee.job_id.name or 'رئيس مصلحة' in employee.job_id.name">
-                                                ,
-                                                <t t-esc="employee.department_id.intitule"/>
+                                                <t t-esc="department_name_fr"/>
                                             </t>
                                         </t>
                                     </t>
@@ -357,12 +355,11 @@
                                 <strong>
                                     <t t-esc="employee.grade_id.intitule_grade_fr"/>
                                     <t t-if="employee.job_id">
-                                        /
+                                        ,
                                         <t t-esc="employee.job_id.intitule"/>
                                         <t t-if="employee.job_id.poste_organique == 'organique'">
                                             <t t-if="'رئيس مكتب' in employee.job_id.name or 'رئيس مصلحة' in employee.job_id.name">
-                                                ,
-                                                <t t-esc="employee.department_id.intitule"/>
+                                                <t t-esc="department_name_fr"/>
                                             </t>
                                         </t>
                                     </t>
@@ -376,12 +373,11 @@
                                 <strong>
                                     <t t-esc="employee.grade_id.intitule_grade_fr"/>
                                     <t t-if="employee.job_id">
-                                        /
+                                        ,
                                         <t t-esc="employee.job_id.intitule"/>
                                         <t t-if="employee.job_id.poste_organique == 'organique'">
                                             <t t-if="'رئيس مكتب' in employee.job_id.name or 'رئيس مصلحة' in employee.job_id.name">
-                                                ,
-                                                <t t-esc="employee.department_id.intitule"/>
+                                                <t t-esc="department_name_fr"/>
                                             </t>
                                         </t>
                                     </t>

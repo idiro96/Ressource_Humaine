@@ -1,3 +1,5 @@
+import re
+
 from datetime import datetime
 
 from odoo import models, fields, api, _
@@ -32,6 +34,10 @@ class AttestationTravailReport(models.AbstractModel):
     def get_report_values(self, docids, data=None):
         attestation_travail = self.env['attestation.travail'].browse(docids[0])
 
+        department_name = attestation_travail.employee_id.department_id.name
+        if department_name:
+            department_name = re.sub(r'^(مكتب|مصلحة)\s*', '', department_name).strip()
+
         formatted_date = None
         formatted_date_entrer = None
 
@@ -44,6 +50,7 @@ class AttestationTravailReport(models.AbstractModel):
             formatted_date_entrer = datetime.strptime(date_entrer, "%Y-%m-%d").strftime("%Y/%m/%d")
 
         report_data = {
+            'department_name': department_name,
             'formatted_date': formatted_date,
             'date_entrer': formatted_date_entrer,
             'attestation_travail': attestation_travail,
@@ -60,6 +67,9 @@ class AttestationTravailFrReport(models.AbstractModel):
     @api.model
     def get_report_values(self, docids, data=None):
         attestation_travail = self.env['attestation.travail'].browse(docids[0])
+        department_name_fr = attestation_travail.employee_id.department_id.intitule
+        if department_name_fr:
+            department_name_fr = re.sub(r'^(Le Bureau|Le Service|Bureau|Service)\s*', '', department_name_fr).strip()
 
         formatted_birthday = None
         formatted_date_entrer = None
@@ -73,6 +83,7 @@ class AttestationTravailFrReport(models.AbstractModel):
             formatted_date_entrer = datetime.strptime(date_entrer, "%Y-%m-%d").strftime("%d/%m/%Y")
 
         report_data = {
+            'department_name_fr': department_name_fr,
             'attestation_travail': attestation_travail,
             'formatted_date_entrer': formatted_date_entrer,
             'formatted_birthday': formatted_birthday,

@@ -6,20 +6,19 @@
             <tree>
                 <field name="id_personnel"/>
                 <field name="exercice_conge"/>
-                 <field name="nbr_jour"/>
+                <field name="nbr_jour"/>
                 <field name="nbr_jour_consomme"/>
                 <field name="nbr_jour_reste"/>
             </tree>
         </field>
-
     </record>
     <record id="view_rh_droit_conge_form" model="ir.ui.view">
         <field name="name">rh congedroit form</field>
         <field name="model">rh.congedroit</field>
         <field name="arch" type="xml">
             <form>
-                 <header>
-<!--                <button name="Actualiser_Droit_Conge" type="object" string="Actualiser Droit Congé" class="oe_highlight"/>-->
+                <header>
+                    <!--                <button name="Actualiser_Droit_Conge" type="object" string="Actualiser Droit Congé" class="oe_highlight"/>-->
                 </header>
                 <sheet>
                     <group>
@@ -37,26 +36,41 @@
             </form>
         </field>
     </record>
-<!--    <record id="action_rh_droit_conge" model="ir.actions.act_window">-->
-<!--        <field name="name">Droit Conge</field>-->
-<!--        <field name="type">ir.actions.act_window</field>-->
-<!--        <field name="res_model">rh.congedroit</field>-->
-<!--        <field name="view_mode">tree,form</field>-->
-<!--        <field name="context">{}</field>-->
-<!--        <field name="help" type="html">-->
-<!--            <p class="o_view_nocontent_smiling_face">Create your first conge droit!</p>-->
-<!--        </field>-->
-<!--    </record>-->
+    <record id="conge_droit_search" model="ir.ui.view">
+        <field name="name">conge.droit.search</field>
+        <field name="model">rh.congedroit</field>
+        <field name="arch" type="xml">
+            <search string="Search Right to Leave">
+                <field name="id_personnel" string="Employee" filter_domain="[('id_personnel', 'ilike', self)]"/>
+                <field name="exercice_conge" string="Exercice Congé" domain="[('exercice_conge', 'ilike', self)]"/>
+                <filter string="Reliquats" name="nbr_jour_reste" domain="[('nbr_jour_reste', '!=', 0)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Employee" name="id_personnel" context="{'group_by': 'id_personnel'}"/>
+                    <filter string="Exercice Congé" name="exercice_conge" context="{'group_by': 'exercice_conge'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <!--    <record id="action_rh_droit_conge" model="ir.actions.act_window">-->
+    <!--        <field name="name">Droit Conge</field>-->
+    <!--        <field name="type">ir.actions.act_window</field>-->
+    <!--        <field name="res_model">rh.congedroit</field>-->
+    <!--        <field name="view_mode">tree,form</field>-->
+    <!--        <field name="context">{}</field>-->
+    <!--        <field name="help" type="html">-->
+    <!--            <p class="o_view_nocontent_smiling_face">Create your first conge droit!</p>-->
+    <!--        </field>-->
+    <!--    </record>-->
     <record id="action_droit_conge_wizard" model="ir.actions.act_window">
-            <field name="name">Droit Conge</field>
-            <field name="res_model">droit.conge</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">form</field>
-           <field name="view_id" ref="droit_conge_liste"/>
-           <field name="target">new</field>
-     </record>
+        <field name="name">Droit Conge</field>
+        <field name="res_model">droit.conge</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="droit_conge_liste"/>
+        <field name="target">new</field>
+    </record>
     <menuitem name="Droit Conge" id="ressource_humaine_droit_conge" parent="conge_id" sequence="1"
-           action="action_droit_conge_wizard"/>
+              action="action_droit_conge_wizard"/>
 </odoo>
 
 

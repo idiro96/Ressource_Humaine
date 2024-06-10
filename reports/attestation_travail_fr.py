@@ -1,3 +1,5 @@
+import re
+
 from datetime import datetime
 
 from odoo import models, fields, api, _
@@ -18,6 +20,9 @@ class EmployeeAttestationTravailFrReport(models.AbstractModel):
     @api.model
     def get_report_values(self, docids, data=None):
         employee = self.env['hr.employee'].browse(docids[0])
+        department_name_fr = employee.department_id.intitule
+        if department_name_fr:
+            department_name_fr = re.sub(r'^(Le Bureau|Le Service|Bureau|Service)\s*', '', department_name_fr).strip()
 
         formatted_date_entrer = None
         formatted_birthday = None
@@ -30,6 +35,7 @@ class EmployeeAttestationTravailFrReport(models.AbstractModel):
             formatted_date_entrer = datetime.strptime(date_entrer, "%Y-%m-%d").strftime("%d/%m/%Y")
 
         report_data = {
+            'department_name_fr': department_name_fr,
             'formatted_date_entrer': formatted_date_entrer,
             'formatted_birthday': formatted_birthday,
             'employee': employee,

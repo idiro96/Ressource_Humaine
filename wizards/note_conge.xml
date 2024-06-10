@@ -7,11 +7,11 @@
             <field name="arch" type="xml">
                 <form>
                     <sheet>
-                        <group>
-                            <group>
-                                <field name="code"/>
-                            </group>
-                        </group>
+<!--                        <group>-->
+<!--                            <group>-->
+<!--                                <field name="code"/>-->
+<!--                            </group>-->
+<!--                        </group>-->
                         <p>هل تريد طباعة مذكـرة مصلحية ؟</p>
                     </sheet>
                     <footer>
