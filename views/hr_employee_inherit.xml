@@ -390,6 +390,11 @@
                         <field name="annee_travail" string="سنوات العمل"
                                attrs="{'invisible': [('code_type_fonction', '!=', 'contractuel')]}"/>
                         <field name="methode_embauche" required="True"/>
+                        <field name="type_methode_embauche"
+                               attrs="{'invisible': [('methode_embauche', '!=', 'recrutement')]}"/>
+                        <field name="description_methode_embauche"
+                               options="{'no_create': True, 'no_create_edit':True, 'no_open':True}" widget='selection'
+                               attrs="{'invisible': [('methode_embauche', '!=', 'recrutement')]}"/>
                         <field name="ancienne_etablissement"
                                attrs="{'invisible': [('methode_embauche', '=', 'recrutement')]}"/>
                         <field name="date_debut_emploi"

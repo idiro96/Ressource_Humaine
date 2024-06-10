@@ -47955,7 +47955,7 @@ msgstr "الطريقة:"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_methode_embauche
 msgid "Methode Embauche"
-msgstr "طريقة التوظيف"
+msgstr "طبيعة التوظيف"
 
 #. module: base
 #: code:addons/base/res/res_config.py:503
@@ -84062,3 +84062,38 @@ msgstr "أسباب توقيف الراتب"
 #: model:ir.model,name:ressource_humaine.model_rh_type_arret_salaire
 msgid "rh.type.arret.salaire"
 msgstr "أسباب توقيف الراتب"
+
+#. module: ressource_humaine
+#: selection:hr.employee,type_methode_embauche:0
+msgid "Externe"
+msgstr "خارجي"
+
+#. module: ressource_humaine
+#: selection:hr.employee,type_methode_embauche:0
+msgid "Interne"
+msgstr "داخلي"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_type_methode_embauche
+msgid "Type Methode Embauche"
+msgstr "طريقة التوظيف"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_description_methode_embauche
+msgid "Description Methode Embauche"
+msgstr "نوع طريقة التوظيف"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_methode_embauche_description_type_embauche
+msgid "Description Type Embauche"
+msgstr "وصف طريقة التوظيف"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_methode_embauche_type_embauche
+msgid "Type Embauche"
+msgstr "طريقة التوظيف"
+
+#. module: ressource_humaine
+#: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_type_methode_embauche
+msgid "type methode embauche"
+msgstr "أنواع طريقة التوظيف"

@@ -106,9 +106,8 @@
             string="جدول ترقية في الدرجة"
             report_type="qweb-html"
             name="ressource_humaine.tableau_promotion"
-            file="جدول ترقية في الرتبة"
-            paperformat="ressource_humaine.paperformat_european_a4_landscape"
-    />
+            file="جدول ترقية في الدرجة"
+            paperformat="ressource_humaine.paperformat_european_a4_landscape_basic"/>
 
     <report
             id="action_hr_tableau_des_promotions"
@@ -116,9 +115,8 @@
             string="جدول ترقية في الرتبة"
             report_type="qweb-html"
             name="ressource_humaine.tableau_des_promotions"
-            file="جدول ترقية في الدرجة"
-            paperformat="ressource_humaine.paperformat_european_a4_landscape"
-    />
+            file="جدول ترقية في الرتبة"
+            paperformat="ressource_humaine.paperformat_european_a4_landscape_basic"/>
 
     <report
             id="action_liste_employee"
@@ -297,9 +295,17 @@
         <report
             id="action_droit_promotions_xlsx"
             model="droit.promotion"
-            string="جدول ترقية موظفي المدرسة الوطنية للإدارة لسنة Excel"
+            string="جدول ترقية موظفي المدرسة الوطنية للإدارة Excel"
             report_type="xlsx"
             name="ressource_humaine.droit_promotions_xlsx"
-            file="جدول ترقية موظفي المدرسة الوطنية للإدارة لسنة"/>
+            file="جدول ترقية موظفي المدرسة الوطنية للإدارة"/>
+
+    <report
+            id="action_droit_avancements_xlsx"
+            model="droit.avencement"
+            string="جدول ترقية موظفي المدرسة الوطنية للإدارة Excel"
+            report_type="xlsx"
+            name="ressource_humaine.droit_avancements_xlsx"
+            file="جدول ترقية موظفي المدرسة الوطنية للإدارة"/>
 
 </odoo>
