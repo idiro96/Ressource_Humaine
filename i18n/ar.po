@@ -81423,7 +81423,7 @@ msgstr "برنامج"
 #. module: ressource_humaine
 #: model:ir.ui.menu,name:ressource_humaine.programme_menu
 msgid "programme de surveillance pour les employees"
-msgstr "تسخيرة الامتحانات و المسابقات"
+msgstr "جدول الامتحانات و المسابقات"
 
 #. module: ressource_humaine
 #: model:ir.model,name:ressource_humaine.model_programme_employee
@@ -84112,3 +84112,8 @@ msgstr "رقم مقرر تعين في المنصب"
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_date_signature_poste
 msgid "Date Signature Poste"
 msgstr "تاريخ إمضاء المقرر"
+
+#. module: ressource_humaine
+#: model:ir.ui.menu,name:ressource_humaine.programme_individuel
+msgid "programme de surveillance individuel pour les employees"
+msgstr "تسخيرة الامتحانات و المسابقات"

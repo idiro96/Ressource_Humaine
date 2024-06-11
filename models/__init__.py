@@ -68,3 +68,4 @@ from . import hr_contract_type_inherit
 from . import grade_line
 from . import type_arret_salaire
 from . import type_methode_embauche
+

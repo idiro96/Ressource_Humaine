@@ -158,6 +158,7 @@ access_rh_type_arret_salaire,access.rh_type_arret_salaire,model_rh_type_arret_sa
 access_rh_grade_line,access.rh.grade.line,model_rh_grade_line,group_rh_consultation,1,1,1,1
 access_rh_grade_line,access.rh.grade.line,model_rh_grade_line,group_rh_absence,1,1,1,1
 access_droit_promotion,access.droit.promotion,model_droit_promotion,group_rh_consultation,1,1,1,1
+access_programme_individuel,access.programme.individuel,model_programme_individuel,group_rh_consultation,1,1,1,1
 
 
 

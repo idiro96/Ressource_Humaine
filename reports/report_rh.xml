@@ -275,7 +275,7 @@
             report_type="qweb-html"
             name="ressource_humaine.promotion_report"
             file="ressource_humaine.promotion_report"/>
-        <report
+    <report
             id="liste_avancements"
             model="droit.avencement"
             string="جدول ترقية موظفي المدرسة الوطنية للإدارة"
@@ -283,16 +283,16 @@
             name="ressource_humaine.liste_avancements_report"
             file="ressource_humaine.liste_avancements_report"
             paperformat="ressource_humaine.paperformat_european_a4_landscape_basic"/>
-        <report
-                id="liste_promotions"
-                model="droit.promotion"
-                string="جدول ترقية موظفي المدرسة الوطنية للإدارة"
-                report_type="qweb-html"
-                name="ressource_humaine.liste_promotions_report"
-                file="ressource_humaine.liste_promotions_report"
-                paperformat="ressource_humaine.paperformat_european_a4_landscape_basic"/>
+    <report
+            id="liste_promotions"
+            model="droit.promotion"
+            string="جدول ترقية موظفي المدرسة الوطنية للإدارة"
+            report_type="qweb-html"
+            name="ressource_humaine.liste_promotions_report"
+            file="ressource_humaine.liste_promotions_report"
+            paperformat="ressource_humaine.paperformat_european_a4_landscape_basic"/>
 
-        <report
+    <report
             id="action_droit_promotions_xlsx"
             model="droit.promotion"
             string="جدول ترقية موظفي المدرسة الوطنية للإدارة Excel"
@@ -307,5 +307,13 @@
             report_type="xlsx"
             name="ressource_humaine.droit_avancements_xlsx"
             file="جدول ترقية موظفي المدرسة الوطنية للإدارة"/>
+
+    <report
+            id="action_notice_planning_individuel_report"
+            model="programme.individuel"
+            string="تسخيرة الإستدعاء للامتحان"
+            report_type="qweb-html"
+            name="ressource_humaine.notice_planning_individuel_report"
+            file="ressource_humaine.notice_planning_individuel_report"/>
 
 </odoo>
