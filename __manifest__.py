@@ -138,6 +138,7 @@
         'reports/arret_salaire_rapport.xml',
         'reports/fiche_evaluation.xml',
         'reports/promotion_report.xml',
+        'reports/prime_rendement.xml',
     ],
 
     # only loaded in demonstration mode
