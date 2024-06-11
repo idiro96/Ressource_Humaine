@@ -20,3 +20,5 @@ from . import organization_chart
 from . import arret_salaire
 from . import note_conge
 from . import liste_formation
+from . import planning_surveillance_individuel
+
