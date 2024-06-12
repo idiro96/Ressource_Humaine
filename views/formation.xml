@@ -54,7 +54,7 @@
                                     <field name="date_debut_formation_line"/>
                                     <field name="date_fin_formation_line"/>
                                     <field name="groupe"/>
-                                    <button name="formation_absence" type="object"
+                                    <button name="formation_absence" type="object" string="غياب"
                                             class="oe_highlight"/>
                                 </tree>
                             </field>
