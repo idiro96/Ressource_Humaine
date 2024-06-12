@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="notice_planning_individuel_report">
+        <t t-call="web.basic_layout">
+            <t t-call="ressource_humaine.report_header_custom"/>
+            <div class="page">
+                <div class="row">
+                    <strong>
+                        <div class="Diwani_Letter"
+                             style="font-size: 32px;text-align: right;word-spacing: 9px;margin-right:15px">
+                            <span style="display: inline-block;margin-left: 400px;">
+                                المدرسة الوطنية للإدارة
+                            </span>
+                        </div>
+                        <br/>
+                        <div class="Diwani_Letter"
+                             style="font-size: 32px;text-align: right;word-spacing: 9px;margin-right:15px">
+                            <span>
+                                الأمانة العامة
+                            </span>
+                        </div>
+                        <br/>
+                        <div class="Diwani_Letter"
+                             style="font-size: 32px;text-align: right;word-spacing: 9px;margin-right:15px">
+                            <span>
+                                مصلحة تسيير الموارد البشرية
+                            </span>
+                        </div>
+                        <br/>
+                        <div class="Diwani_Letter"
+                             style="font-size: 32px;text-align: right;word-spacing: 9px;margin-right:15px">
+                            <span>
+                                رقم......../م.و.إ/أ.ع/م.ت.م.ب/
+                                <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
+                            </span>
+                            <span style="color: white;">أ</span>
+                        </div>
+                        <br/>
+                        <div class="al-mohanad_bold" style="font-size: 35px;text-align: center;">
+                            <span>
+                                تسخيرة
+                            </span>
+                        </div>
+                        <br/>
+                        <div class="al-mohanad_bold" style="font-size: 25px;text-align: right;margin-right:500px;">
+                            <span>
+                                الإسم و اللقب:
+                            </span>
+                            <span t-field="docs.employee_id.name"/>
+                            <br/>
+                            <span>
+                                الرتبة:
+                            </span>
+                            <span t-field="docs.employee_id.grade_id"/>
+                        </div>
+                        <br/>
+                    </strong>
+                    <br/>
+                    <br/>
+                    <div class="al-mohanad" style="font-size: 25px;text-align: right;">
+                        <span>
+                            المطلوب منكم الحظور الى
+                        </span>
+                        <span t-field="docs.lieu_examen"/>
+                        <span>
+                            <t t-esc="docs.formatted_date_examanen"/>
+                        </span>
+                        <span>
+                            للمشاركة في تأطير مسابقة الالتحاق بالمدرسة الوطنية للإدارة،بصفتكم مراقب على مستوى
+                        </span>
+                        <span t-field="docs.place_examen"/>.
+                        <span style="color: white;">أ</span>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

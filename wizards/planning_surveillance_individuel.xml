@@ -1,0 +1,38 @@
+<odoo>
+
+    <record id="programme_individuel_form" model="ir.ui.view">
+        <field name="name">programme individuel form</field>
+        <field name="model">programme.individuel</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="employee_id" string="الموظف"
+                           options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
+                    <field name="lieu_examen" string="مقر الامتحان"/>
+                    <field name="date_examanen" string="تاريخ الامتحان"/>
+                    <field name="place_examen" string="مكان الامتحان"/>
+                </group>
+
+                <footer>
+                    <button string="تجاهل" class="oe_link" special="cancel"/>
+                    <button name="print_report" string="طباعة" type="object" class="oe_highlight"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_programme_individuel" model="ir.actions.act_window">
+        <field name="name">programme individuel</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">programme.individuel</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="programme_individuel_form"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem name="programme de surveillance individuel pour les employees" id="programme_individuel"
+              parent="ressource_humaine.reporting_id"
+              action="action_programme_individuel"/>
+
+</odoo>
