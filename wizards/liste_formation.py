@@ -106,9 +106,9 @@ class ListeFormationXLS(models.AbstractModel):
         sheet = workbook.add_worksheet('قائمة الموظفين المستفيدين من التكوين')
         sheet.right_to_left()
 
-        sheet.set_row(6, 35)
-        for row_num in range(7, len(formation_lines) + 1):
-            sheet.set_row(row_num, 30)
+        sheet.set_row(6, 40)
+        for row_num in range(7, 1000):
+            sheet.set_row(row_num, 35)
 
         sheet.set_column(0, 0, 30)
         sheet.set_column(1, 1, 40)
