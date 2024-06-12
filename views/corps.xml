@@ -28,6 +28,17 @@
                             <field name="filiere_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                         </group>
                     </group>
+                     <notebook>
+                        <page string="المقررات الجماعية">
+                                <field name="corps_decision_lines">
+                                    <tree editable="bottom">
+                                        <field name="code"/>
+                                        <field name="date"/>
+                                        <field name="date_debut"/>
+                                    </tree>
+                                </field>
+                        </page>
+                    </notebook>
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids" widget="mail_followers"/>

@@ -1,0 +1,60 @@
+<odoo>
+    <record id="view_rh_prime_rendement_tree" model="ir.ui.view">
+        <field name="name">Prime Rendement</field>
+        <field name="model">rh.prime.rendement</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="date_debut" string="date_debut"/>
+                <field name="date_fin" string="date_fin"/>
+                <field name="exercice" string="exercice"/>
+                <!--                <field name="time_surveillance_end1" widget="timepicker" options="{'timepicker': {'stepping': 15}}"/>-->
+            </tree>
+        </field>
+
+    </record>
+    <record id="view_rh_prime_rendement_form" model="ir.ui.view">
+        <field name="name">prime.rendement.form</field>
+        <field name="model">rh.prime.rendement</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="date_debut" string="date_debut"/>
+                            <field name="date_fin" string="date_fin"/>
+                            <field name="exercice" string="exercice"/>
+                        </group>
+                    </group>
+                      <notebook>
+                        <page string="قائمة الموظفين">
+                            <field name="prime_rendement_lines">
+                                <tree editable="bottom">
+                                    <field name="employee_id"/>
+                                    <field name="nbr_jours_travail"/>
+                                    <field name="notation_responsable"/>
+                                    <field name="notation_finale"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="action_rh_prime_rendement" model="ir.actions.act_window">
+        <field name="name">Prime Rendement</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">rh.prime.rendement</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Creation emphy!</p>
+        </field>
+    </record>
+    <menuitem name="Prime Rendement" id="ressource_humaine_prime_rendement" parent="suivi_personnel_id" sequence="16"
+              action="action_rh_prime_rendement"/>
+</odoo>

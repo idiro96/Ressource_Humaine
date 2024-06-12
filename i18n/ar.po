@@ -33575,6 +33575,7 @@ msgstr "الموظف"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_sanction_employee_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_visite_medical_line_employee_id
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_employee
+#: model:ir.ui.view,arch_db:ressource_humaine.conge_droit_search
 msgid "Employee"
 msgstr "الموظف"
 
@@ -84099,6 +84100,7 @@ msgid "type methode embauche"
 msgstr "أنواع طريقة التوظيف"
 
 #. module: ressource_humaine
+<<<<<<< HEAD
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_echelon_id_grade
 msgid "Echelon Id Grade"
 msgstr "الدرجة في الرتبة"
@@ -84117,3 +84119,38 @@ msgstr "تاريخ إمضاء المقرر"
 #: model:ir.ui.menu,name:ressource_humaine.programme_individuel
 msgid "programme de surveillance individuel pour les employees"
 msgstr "تسخيرة الامتحانات و المسابقات"
+=======
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_holidays_reliquat
+msgid "Reliquat"
+msgstr "مخلف عطلة"
+
+#. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.conge_droit_search
+#: model:ir.ui.view,arch_db:ressource_humaine.holidays_form
+msgid "Reliquats"
+msgstr "مخلف عطلة"
+
+#. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.conge_droit_search
+msgid "Exercice Congé"
+msgstr "سنة العطلة"
+
+#. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.conge_droit_search
+msgid "Search Right to Leave"
+msgstr "بحث في حق العطلة"
+
+#. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.conge_droit_search
+#: model:ir.ui.view,arch_db:ressource_humaine.hr_contract_view_search_inherited
+#: model:ir.ui.view,arch_db:ressource_humaine.rh_categorie_search
+#: model:ir.ui.view,arch_db:ressource_humaine.rh_corps_search
+#: model:ir.ui.view,arch_db:ressource_humaine.rh_grade_search
+#: model:ir.ui.view,arch_db:ressource_humaine.rh_niveau_hierarchique_chef_bureau_search
+#: model:ir.ui.view,arch_db:ressource_humaine.rh_type_file_search
+#: model:ir.ui.view,arch_db:ressource_humaine.view_department_filter_inherited
+#: model:ir.ui.view,arch_db:ressource_humaine.view_employee_filter_inherited
+#: model:ir.ui.view,arch_db:ressource_humaine.view_job_filter_inherited
+msgid "Group By"
+msgstr "تجميع حسب"
+>>>>>>> 085e8048bc4fa78178b42c3a28261c7c6e07a821

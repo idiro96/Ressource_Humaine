@@ -64,7 +64,7 @@
 @font-face {
    font-family: 'Mohammad-Bold-normal';
    src: url('/ressource_humaine/static/src/font/Mohammad-Bold-normal.ttf') format('truetype');
-   font-weight: bold;
+   font-weight: normal;
    font-style: normal;
      }
 
@@ -113,4 +113,17 @@
     -webkit-text-stroke-color: black; /* Color of the stroke */
     }
 
+@font-face {
+   font-family: 'Al-Mohanad Regular';
+   src: url('/ressource_humaine/static/src/font/Al-Mohanad Regular.ttf') format('truetype');
+   font-weight: normal;
+   font-style: normal;
+     }
 
+   .al-mohanad {font-family: Al-Mohanad Regular;}
+
+    .al-mohanad_bold {
+    font-family: Al-Mohanad Regular;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    }
