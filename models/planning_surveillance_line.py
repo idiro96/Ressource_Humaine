@@ -19,8 +19,8 @@ class RHPlanningLine(models.Model):
     time_start = fields.Char(related="planning_survellance_id.time_surveillance_start")
     time_end = fields.Char(related="planning_survellance_id.time_surveillance_end")
 
-    filtered_employee_ids = fields.Many2many('hr.employee', compute='_compute_filtered_employees',
-                                             string="Filtered Employees")
+    # filtered_employee_ids = fields.Many2many('hr.employee', compute='_compute_filtered_employees',
+    #                                          string="Filtered Employees")
 
     @api.onchange('employee_id')
     def _onchange_employee_id(self):
