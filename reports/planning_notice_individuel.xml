@@ -30,22 +30,19 @@
                         <div class="Diwani_Letter"
                              style="font-size: 32px;text-align: right;word-spacing: 9px;margin-right:15px">
                             <span>
-                                رقم
+                                رقم......../م.و.إ/أ.ع/م.ت.م.ب/
+                                <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
                             </span>
-<!--                            <span t-field="employee.numero"/>-->
-                            <span>
-                                /م.و.إ/أ.ع/م.ت.م.ب/
-                                <!--                                <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>-->
-                            </span>
+                            <span style="color: white;">أ</span>
                         </div>
                         <br/>
-                        <div style="font-size: 30px;text-align: center;">
+                        <div class="al-mohanad_bold" style="font-size: 35px;text-align: center;">
                             <span>
                                 تسخيرة
                             </span>
                         </div>
                         <br/>
-                        <div style="font-size: 20px;text-align: right;margin-right:500px;">
+                        <div class="al-mohanad_bold" style="font-size: 25px;text-align: right;margin-right:500px;">
                             <span>
                                 الإسم و اللقب:
                             </span>
@@ -60,7 +57,7 @@
                     </strong>
                     <br/>
                     <br/>
-                    <div style="font-size: 20px;text-align: right;">
+                    <div class="al-mohanad" style="font-size: 25px;text-align: right;">
                         <span>
                             المطلوب منكم الحظور الى
                         </span>
@@ -71,7 +68,8 @@
                         <span>
                             للمشاركة في تأطير مسابقة الالتحاق بالمدرسة الوطنية للإدارة،بصفتكم مراقب على مستوى
                         </span>
-                        <span t-field="docs.place_examen"/>
+                        <span t-field="docs.place_examen"/>.
+                        <span style="color: white;">أ</span>
                     </div>
                 </div>
             </div>

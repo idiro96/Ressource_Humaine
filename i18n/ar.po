@@ -34509,8 +34509,7 @@ msgstr "Executive 4   7.5 x 10 inches, 190.5 x 254 mm"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_fiche_evaluation_exercice
-#: model:ir.ui.view,arch_db:ressource_humaine.view_rh_prime_rendement_form
-#: model:ir.ui.view,arch_db:ressource_humaine.view_rh_prime_rendement_tree
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_prime_rendement_exercice
 msgid "Exercice"
 msgstr "السنة"
 

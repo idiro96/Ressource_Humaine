@@ -334,4 +334,12 @@
             name="ressource_humaine.notice_planning_individuel_report"
             file="ressource_humaine.notice_planning_individuel_report"/>
 
+    <report
+            id="action_liste_formation_xlsx"
+            model="liste.formation.wizard"
+            string="قائمة الموظفين المستفيدين من التكوين Excel"
+            report_type="xlsx"
+            name="ressource_humaine.liste_formation_xlsx"
+            file="قائمة الموظفين المستفيدين من التكوين"/>
+
 </odoo>
