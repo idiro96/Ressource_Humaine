@@ -83,9 +83,9 @@ class TitreCongeReport(models.AbstractModel):
             elif 10 <= chunk < 20:
                 result.append(teens[chunk - 10])
             elif chunk >= 20:
-                result.append(tens[chunk // 10 - 1])
                 if chunk % 10 > 0:
                     result.append(units[chunk % 10])
+                result.append(tens[chunk // 10 - 1])
 
             return result
 
@@ -106,4 +106,4 @@ class TitreCongeReport(models.AbstractModel):
             number //= 1000
             chunk_count += 1
 
-        return ' و'.join(result_words)
+        return ' و '.join(result_words)
