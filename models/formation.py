@@ -19,7 +19,8 @@ class RHFormation(models.Model):
     salle_formation = fields.Char(track_visibility='onchange')
     budget_allouee_formation = fields.Float(track_visibility='onchange')
     type_formation_id = fields.Many2one('rh.type.formation', track_visibility='onchange')
-    organisme_id = fields.Many2one('rh.organisme', track_visibility='onchange')
+    # organisme_id = fields.Many2one('rh.organisme', track_visibility='onchange')
+    organisme_formation = fields.Text(track_visibility='onchange')
     formation_lines = fields.One2many('rh.formation.line', 'formation_id')
     formation_absence = fields.One2many('rh.absence.formation', inverse_name='formation_id')
     formation_file_lines = fields.One2many('rh.file', 'formation_id')
@@ -63,27 +64,44 @@ class RHFormation(models.Model):
         result = super(RHFormation, self).create(vals)
         return result
 
+
+
     @api.constrains('date_debut_formation', 'date_fin_formation', 'formation_lines')
     def _check_contract_overlap(self):
         for formation in self:
             for line in formation.formation_lines:
                 employee = line.employee_id
-                date_start = line.date_debut_formation_line
-                date_end = line.date_fin_formation_line
-
-                if not (formation.date_debut_formation <= date_start <= formation.date_fin_formation) or \
-                        not (formation.date_debut_formation <= date_end <= formation.date_fin_formation):
-                    raise ValidationError("la date doit étre compris dans l'intervale")
-
-                # Check for overlapping formations for each employee
                 overlapping_formations = self.search([
                     ('formation_lines.employee_id', '=', employee.id),
-                    ('formation_lines.date_debut_formation_line', '<=', date_end),
-                    ('formation_lines.date_fin_formation_line', '>=', date_start),
+                    ('date_debut_formation', '<=', self.date_fin_formation),
+                    ('date_fin_formation', '>=', self.date_debut_formation),
                     ('id', '!=', formation.id),
                 ])
                 if overlapping_formations:
                     raise ValidationError("vous avez sélectioner des employees en qui sont déja en formation")
+
+
+    # @api.constrains('date_debut_formation', 'date_fin_formation', 'formation_lines')
+    # def _check_contract_overlap(self):
+    #     for formation in self:
+    #         for line in formation.formation_lines:
+    #             employee = line.employee_id
+    #             date_start = line.date_debut_formation_line
+    #             date_end = line.date_fin_formation_line
+    #
+    #             if not (formation.date_debut_formation <= date_start <= formation.date_fin_formation) or \
+    #                     not (formation.date_debut_formation <= date_end <= formation.date_fin_formation):
+    #                 raise ValidationError("la date doit étre compris dans l'intervale")
+    #
+    #             # Check for overlapping formations for each employee
+    #             overlapping_formations = self.search([
+    #                 ('formation_lines.employee_id', '=', employee.id),
+    #                 ('formation_lines.date_debut_formation_line', '<=', date_end),
+    #                 ('formation_lines.date_fin_formation_line', '>=', date_start),
+    #                 ('id', '!=', formation.id),
+    #             ])
+    #             if overlapping_formations:
+    #                 raise ValidationError("vous avez sélectioner des employees en qui sont déja en formation")
 
     # @api.constrains('formation_lines')
     # def _check_contract_overlap(self):

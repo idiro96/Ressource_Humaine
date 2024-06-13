@@ -26,3 +26,16 @@ class RHPrimeRendement(models.Model):
             if rec.date_fin:
                 date_obj = fields.Date.from_string(rec.date_fin)
                 rec.exercice = date_obj.year
+
+    @api.model
+    def create(self, vals):
+        prime = super(RHPrimeRendement, self).create(vals)
+        nature_travail = self.env['rh.type.fonction'].search([('code_type_fonction', '=', 'fonction')])
+        nature_travail2 = self.env['rh.type.fonction'].search([('code_type_fonction', '=', 'contractuel')])
+        employee = self.env['hr.employee'].search(['|',('nature_travail_id', '=', nature_travail.id),('nature_travail_id', '=', nature_travail2.id)])
+        for rec in employee:
+            prime_rendement_line = self.env['rh.prime.rendement.line'].create({
+            'employee_id': rec.id,
+            'prime_rendement_id': prime.id,
+        })
+        return prime

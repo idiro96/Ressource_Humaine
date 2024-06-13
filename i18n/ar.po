@@ -84102,6 +84102,26 @@ msgid "type methode embauche"
 msgstr "أنواع طريقة التوظيف"
 
 #. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_echelon_id_grade
+msgid "Echelon Id Grade"
+msgstr "الدرجة في الرتبة"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_ref_poste
+msgid "Ref Poste"
+msgstr "رقم مقرر تعين في المنصب"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_date_signature_poste
+msgid "Date Signature Poste"
+msgstr "تاريخ إمضاء المقرر"
+
+#. module: ressource_humaine
+#: model:ir.ui.menu,name:ressource_humaine.programme_individuel
+msgid "programme de surveillance individuel pour les employees"
+msgstr "تسخيرة الامتحانات و المسابقات"
+
+
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_holidays_reliquat
 msgid "Reliquat"
 msgstr "مخلف عطلة"
@@ -84229,3 +84249,4 @@ msgstr "تاريخ إمضاء المقرر"
 #: model:ir.ui.menu,name:ressource_humaine.programme_individuel
 msgid "programme de surveillance individuel pour les employees"
 msgstr "تسخيرة الامتحانات و المسابقات"
+
