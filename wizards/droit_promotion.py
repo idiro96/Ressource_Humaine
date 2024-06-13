@@ -78,7 +78,7 @@ class RHDroitPromotion(models.TransientModel):
                             print(promotion_line1)
                         elif self.duree_promotion == '7':
                             promotion_line1 = self.env['hr.employee'].search(
-                                [('date_grade', '<=', self.date_promotion),('grade_id', '=', gradeline.grade2_id.id), ('categorie_grade_indice', '<', indice),('nature_travail_id', '=', nature_travail.id),('fin_relation', '=', False)],
+                                [('date_grade', '<=', self.date_promotion),('grade_id', '=', gradeline.grade2_id.id), ('categorie_grade_indice', '>=', indice),('nature_travail_id', '=', nature_travail.id),('fin_relation', '=', False)],
                                 order='date_grade DESC')
                             print('>821')
                         else:
@@ -95,7 +95,7 @@ class RHDroitPromotion(models.TransientModel):
                             print('<821')
                         elif self.duree_promotion == '7':
                             promotion_line2 = self.env['hr.employee'].search(
-                                [('date_grade', '<=', self.date_promotion),('grade_id', '=', gradeline.grade2_id.id), ('categorie_grade_indice', '<', indice),('nature_travail_id', '=', nature_travail_superieure.id),('fin_relation', '=', False)],
+                                [('date_grade', '<=', self.date_promotion),('grade_id', '=', gradeline.grade2_id.id), ('categorie_grade_indice', '>=', indice),('nature_travail_id', '=', nature_travail_superieure.id),('fin_relation', '=', False)],
                                 order='date_grade DESC')
                             print('>821')
                         else:
@@ -113,10 +113,11 @@ class RHDroitPromotion(models.TransientModel):
                     print('<821')
                 elif self.duree_promotion == '7':
                     promotion_line1 = self.env['hr.employee'].search(
-                        [('date_grade', '<=', self.date_promotion), ('categorie_grade_indice', '<', indice),
+                        [('date_grade', '<=', self.date_promotion), ('categorie_grade_indice', '>=', indice),
                          ('nature_travail_id', '=', nature_travail.id), ('fin_relation', '=', False)],
                         order='date_grade DESC')
-                    print('>821')
+                    print('>821555555555555555555555555555555555555555555555555555555555555555')
+                    print(promotion_line1)
                 else:
                     dateDebut_object10 = fields.Date.from_string(self.date_promotion) - relativedelta(months=120)
                     promotion_line1 = self.env['hr.employee'].search(
@@ -124,6 +125,8 @@ class RHDroitPromotion(models.TransientModel):
                          ('nature_travail_id', '=', nature_travail.id), ('promotion_dix', '=', False)],
                         order='date_grade DESC')
                     print('+10')
+
+
                 tab.append(promotion_line1)
                 if self.duree_promotion == '5':
                     promotion_line2 = self.env['hr.employee'].search(
@@ -133,10 +136,11 @@ class RHDroitPromotion(models.TransientModel):
                     print('<821')
                 elif self.duree_promotion == '7':
                     promotion_line2 = self.env['hr.employee'].search(
-                        [('date_grade', '<=', self.date_promotion), ('categorie_grade_indice', '<', indice),
+                        [('date_grade', '<=', self.date_promotion), ('categorie_grade_indice', '>=', indice),
                          ('nature_travail_id', '=', nature_travail_superieure.id), ('fin_relation', '=', False)],
                         order='date_grade DESC')
-                    print('>821')
+                    print('>82144444444444444444444444444444444444444444444444444444444444')
+                    print(promotion_line2)
                 else:
                     dateDebut_object10 = fields.Date.from_string(self.date_promotion) - relativedelta(months=120)
                     promotion_line2 = self.env['hr.employee'].search(
@@ -162,8 +166,8 @@ class RHDroitPromotion(models.TransientModel):
                         [('employee_id', '=', rec.id), ('date_promotion', '=', self.date_promotion)])
                         if promotion_ligne2:
                             promotion_ligne3 = promotion_ligne3 - rec
-                            if tab3[rec.id]:
-                                tab3.remove(t)
+                            # if tab3[t]:
+                            tab3.remove(t)
 
 
             if promotion_ligne3:
@@ -173,11 +177,9 @@ class RHDroitPromotion(models.TransientModel):
 
             if tab:
                 for t in tab:
-                    print('errrrrrrrrrrreeeeeeeeeeeeeeeeeeeeeeee15')
                     for promo in t:
-                        print('errrrrrrrrrrreeeeeeeeeeeeeeeeeeeeeeee16')
-                        # grade2 = self.env['rh.grade.line'].search(
-                        #     [('grade2_id', '=', promo.grade_id.id)])
+                        grade2 = self.env['rh.grade.line'].search(
+                            [('grade2_id', '=', promo.grade_id.id)])
                         promotion_ligne_droit2 = self.env['rh.promotion.droit'].search(
                             [('employee_id', '=', promo.id), ('date_promotion', '=', self.date_promotion)])
                         promotion_ligne_droit3 = self.env['rh.promotion.droit'].search(
@@ -191,7 +193,7 @@ class RHDroitPromotion(models.TransientModel):
                                 if promotion_ligne_droit3:
                                     print('errrrrrrrrrrreeeeeeeeeeeeeeeeeeeeeeee167')
                                     if fields.Date.from_string(promotion_ligne_droit3.date_new_grade) == fields.Date.from_string(promo.date_grade):
-                                        print('errrrrrrrrrrreeeeeeeeeeeeeeeeeeeeeeee168')
+                                        print('errrrrrrrrrrreeeeeeeeeeeeeeeeeeeeeeee163')
                                         self.env['rh.promotion.droit'].create({
                                             'employee_id': promo.id,
                                             'type_fonction_id': promo.nature_travail_id.id,
@@ -201,7 +203,7 @@ class RHDroitPromotion(models.TransientModel):
                                             'grade_id': promo.grade_id.id,
                                             'categorie_id': promo.categorie_id.id,
                                             'date_grade': promo.date_grade,
-                                            'grade_new_id': promo.grade_id.id,
+                                            'grade_new_id': grade2.grade_id.id,
                                             'date_new_grade': relativedelta(months=int(self.duree_promotion) * 12) + fields.Date.from_string(promo.date_grade),
                                             'duree': int(self.duree_promotion) * 12,
                                             'sauvegarde': self.sauvegarde,
@@ -220,7 +222,7 @@ class RHDroitPromotion(models.TransientModel):
                                         'grade_id': promo.grade_id.id,
                                         'categorie_id': promo.categorie_id.id,
                                         'date_grade': promo.date_grade,
-                                        'grade_new_id': promo.grade_id.id,
+                                        'grade_new_id': grade2.grade_id.id,
                                         'date_new_grade': relativedelta(months=int(self.duree_promotion) * 12) + fields.Date.from_string(promo.date_grade),
                                         'duree': int(self.duree_promotion) * 12,
                                         'sauvegarde': self.sauvegarde,
@@ -234,7 +236,7 @@ class RHDroitPromotion(models.TransientModel):
                     'view_mode': 'tree,form',
                     'res_model': 'rh.promotion.droit',
                     'type': 'ir.actions.act_window',
-                    'domain': [('date_promotion', '=', self.date_promotion),('grade_id', '=', self.grade_id.id),('valider', '=', False)]
+                    'domain': [('date_promotion', '=', self.date_promotion),('grade_new_id', '=', self.grade_id.id),('valider', '=', False)]
 
                 }
             else:
@@ -393,6 +395,7 @@ class listePromotionReport(models.AbstractModel):
                          ('categorie_grade_indice', '>=', indice), ('nature_travail_id', '=', nature_travail.id),
                          ('fin_relation', '=', False)],
                         order='date_grade DESC')
+                    print('>8212222222222222211111111111111111111111111111111111111111111111111111')
                     # print('>821')
                 else:
 
@@ -415,7 +418,7 @@ class listePromotionReport(models.AbstractModel):
                          ('categorie_grade_indice', '>=', indice), ('nature_travail_id', '=', nature_travail_superieure.id),
                          ('fin_relation', '=', False)],
                         order='date_grade DESC')
-                    # print('>821')
+                    print('>8212222222222222222222222222222222222222222222222222222222222222222')
                 else:
 
                     promotion_line2 = self.env['hr.employee'].search(
