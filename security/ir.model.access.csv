@@ -1,80 +1,81 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_rh_absence,access.rh.absence,model_rh_absence,group_rh_absence,1,0,0,0
+access_rh_absence1,access.rh.absence,model_rh_absence,group_rh_absence,1,1,1,1
+access_rh_type_methode_embauche1,access.rh.type.methode.embauche,model_rh_type_methode_embauche,group_rh_absence,1,1,1,1
 
-access_hr_employee,access.hr.employee,model_hr_employee,group_rh_absence,1,1,1,1
-access_absence_formation,access.absence.formation,model_rh_absence_formation,group_rh_absence,1,1,1,1
-access_accident_travail,access.accident.travail,model_rh_accident_travail,group_rh_absence,1,1,1,1
-access_rh_avancement,access.rh.avancement,model_rh_avancement,group_rh_absence,1,1,1,1
-access_rh_avancement_commission_line,access.rh.avancement.commission.line,model_rh_avancement_commission_line,group_rh_absence,1,1,1,1
-access_rh_avancement_line,access.rh.avancement.line,model_rh_avancement_line,group_rh_absence,1,1,1,1
+access_hr_employee1,access.hr.employee,model_hr_employee,group_rh_absence,1,1,1,1
+access_absence_formation1,access.absence.formation,model_rh_absence_formation,group_rh_absence,1,1,1,1
+access_accident_travail1,access.accident.travail,model_rh_accident_travail,group_rh_absence,1,1,1,1
+access_rh_avancement1,access.rh.avancement,model_rh_avancement,group_rh_absence,1,1,1,1
+access_rh_avancement1_commission_line,access.rh.avancement.commission.line,model_rh_avancement_commission_line,group_rh_absence,1,1,1,1
+access_rh_avancement1_line,access.rh.avancement.line,model_rh_avancement_line,group_rh_absence,1,1,1,1
 access_rh_avencement_droit,access.rh.avencement.droit,model_rh_avencement_droit,group_rh_absence,1,1,1,1
 
-access_rh_historique_diplome,access.rh.historique.diplome,model_rh_historique_diplome,group_rh_absence,1,1,1,1
-access_rh_historique_employee,access.rh.historique.employee,model_rh_historique_employee,group_rh_absence,1,1,1,1
-access_rh_historique_fin_relation,access.rh.historique.fin.relation,model_rh_historique_fin_relation,group_rh_absence,1,1,1,1
-access_rh_historique_grade,access.rh.historique.grade,model_rh_historique_grade,group_rh_absence,1,1,1,1
-access_rh_historique_position_statutaire,access.rh.historique.position.statutaire,model_rh_historique_position_statutaire,group_rh_absence,1,1,1,1
-access_rh_historique_poste_superieure,access.rh.historique.poste.superieure,model_rh_historique_poste_superieure,group_rh_absence,1,1,1,1
-access_rh_historique_sanction,access.rh.historique.sanction,model_rh_historique_sanction,group_rh_absence,1,1,1,1
-access_rh_historique_structure,access.rh.historique.structure,model_rh_historique_structure,group_rh_absence,1,1,1,1
+access_rh_historique_diplome1,access.rh.historique.diplome,model_rh_historique_diplome,group_rh_absence,1,1,1,1
+access_rh_historique_employee1,access.rh.historique.employee,model_rh_historique_employee,group_rh_absence,1,1,1,1
+access_rh_historique_fin_relation1,access.rh.historique.fin.relation,model_rh_historique_fin_relation,group_rh_absence,1,1,1,1
+access_rh_historique_grade1,access.rh.historique.grade,model_rh_historique_grade,group_rh_absence,1,1,1,1
+access_rh_historique_position_statutaire1,access.rh.historique.position.statutaire,model_rh_historique_position_statutaire,group_rh_absence,1,1,1,1
+access_rh_historique_poste_superieure1,access.rh.historique.poste.superieure,model_rh_historique_poste_superieure,group_rh_absence,1,1,1,1
+access_rh_historique_sanction1,access.rh.historique.sanction,model_rh_historique_sanction,group_rh_absence,1,1,1,1
+access_rh_historique_structure1,access.rh.historique.structure,model_rh_historique_structure,group_rh_absence,1,1,1,1
 
-access_rh_cabinet_medical,access.rh.cabinet.medical,model_rh_cabinet_medical,group_rh_absence,1,1,1,1
-access_rh_categorie,access.rh.categorie,model_rh_categorie,group_rh_absence,1,1,1,1
-access_rh_categorie_superieure,access.rh.categorie.superieure,model_rh_categorie_superieure,group_rh_absence,1,1,1,1
-access_rh_commission_line,access.rh.commission.line,model_rh_commission_line,group_rh_absence,1,1,1,1
-access_res_company,access.res.company,model_res_company,group_rh_absence,1,1,1,1
-access_rh_congedroit,access.rh.congedroit,model_rh_congedroit,group_rh_absence,1,1,1,1
-access_rh_conge_droit_month,access.rh.conge_droit_month,model_rh_congedroit,group_rh_absence,1,1,1,1
-access_rh_conjoint,access.rh.conjoint,model_rh_conjoint,group_rh_absence,1,1,1,1
-access_rh_corps,access.rh.corps,model_rh_corps,group_rh_absence,1,1,1,1
+access_rh_cabinet_medical1,access.rh.cabinet.medical,model_rh_cabinet_medical,group_rh_absence,1,1,1,1
+access_rh_categorie1,access.rh.categorie1,model_rh_categorie,group_rh_absence,1,1,1,1
+access_rh_categorie_superieure1,access.rh.categorie.superieure,model_rh_categorie_superieure,group_rh_absence,1,1,1,1
+access_rh_commission_line1,access.rh.commission.line,model_rh_commission_line,group_rh_absence,1,1,1,1
+access_res_company1,access.res.company,model_res_company,group_rh_absence,1,1,1,1
+access_rh_congedroit1,access.rh.congedroit,model_rh_congedroit,group_rh_absence,1,1,1,1
+access_rh_conge_droit_month1,access.rh.conge_droit_month,model_rh_congedroit,group_rh_absence,1,1,1,1
+access_rh_conjoint1,access.rh.conjoint,model_rh_conjoint,group_rh_absence,1,1,1,1
+access_rh_corps1,access.rh.corps,model_rh_corps,group_rh_absence,1,1,1,1
 
-access_rh_echelon,access.rh.echelon,model_rh_echelon,group_rh_absence,1,1,1,1
-access_rh_enfant,access.rh.enfant,model_rh_enfant,group_rh_absence,1,1,1,1
-access_rh_file,access.rh.file,model_rh_file,group_rh_absence,1,1,1,1
-access_rh_filiere,access.rh.filiere,model_rh_filiere,group_rh_absence,1,1,1,1
-access_rh_fin_relation,access.rh.fin.relation,model_rh_fin_relation,group_rh_absence,1,1,1,1
+access_rh_echelon1,access.rh.echelon,model_rh_echelon,group_rh_absence,1,1,1,1
+access_rh_enfant1,access.rh.enfant,model_rh_enfant,group_rh_absence,1,1,1,1
+access_rh_file1,access.rh.file,model_rh_file,group_rh_absence,1,1,1,1
+access_rh_filiere1,access.rh.filiere,model_rh_filiere,group_rh_absence,1,1,1,1
+access_rh_fin_relation1,access.rh.fin.relation,model_rh_fin_relation,group_rh_absence,1,1,1,1
 
 
-access_rh_formation,access.rh.formation,model_rh_formation,group_rh_absence,1,1,1,1
-access_rh_formation_line,access.rh.formation.line,model_rh_formation_line,group_rh_absence,1,1,1,1
-access_rh_grade,access.rh.grade,model_rh_grade,group_rh_absence,1,1,1,1
-access_rh_grille,access.rh.grille,model_rh_grille,group_rh_absence,1,1,1,1
-access_rh_groupe,access.rh.groupe,model_rh_groupe,group_rh_absence,1,1,1,1
-access_hr_contract,access.hr.contract.relation,model_hr_contract,group_rh_absence,1,1,1,1
+access_rh_formation1,access.rh.formation,model_rh_formation,group_rh_absence,1,1,1,1
+access_rh_formation_line1,access.rh.formation.line,model_rh_formation_line,group_rh_absence,1,1,1,1
+access_rh_grade1,access.rh.grade,model_rh_grade,group_rh_absence,1,1,1,1
+access_rh_grille1,access.rh.grille,model_rh_grille,group_rh_absence,1,1,1,1
+access_rh_groupe1,access.rh.groupe,model_rh_groupe,group_rh_absence,1,1,1,1
+access_hr_contract1,access.hr.contract.relation,model_hr_contract,group_rh_absence,1,1,1,1
 
-access_hr_holidays,access.hr.holidays,model_hr_holidays,group_rh_absence,1,1,1,1
-access_hr_job,access.hr.job,model_hr_job,group_rh_absence,1,1,1,1
-access_rh_loi,access.rh.loi,model_rh_loi,group_rh_absence,1,1,1,1
-access_rh_niveau_hierarchique,access.rh.niveau.hierarchique,model_rh_niveau_hierarchique,group_rh_absence,1,1,1,1
-access_rh_niveau_hierarchique_chef_bureau,access.rh.niveau.hierarchique.chef.bureau,model_rh_niveau_hierarchique_chef_bureau,group_rh_absence,1,1,1,1
-access_rh_organisme,access.rh.organisme,model_rh_organisme,group_rh_absence,1,1,1,1
+access_hr_holidays1,access.hr.holidays,model_hr_holidays,group_rh_absence,1,1,1,1
+access_hr_job1,access.hr.job,model_hr_job,group_rh_absence,1,1,1,1
+access_rh_loi1,access.rh.loi,model_rh_loi,group_rh_absence,1,1,1,1
+access_rh_niveau_hierarchique1,access.rh.niveau.hierarchique,model_rh_niveau_hierarchique,group_rh_absence,1,1,1,1
+access_rh_niveau_hierarchique_chef_bureau1,access.rh.niveau.hierarchique.chef.bureau,model_rh_niveau_hierarchique_chef_bureau,group_rh_absence,1,1,1,1
+access_rh_organisme1,access.rh.organisme,model_rh_organisme,group_rh_absence,1,1,1,1
 
-access_rh_promotion,access.rh.promotion,model_rh_promotion,group_rh_absence,1,1,1,1
-access_rh_promotion_commission_line,accessrh.promotion.commission.line,model_rh_promotion_commission_line,group_rh_absence,1,1,1,1
-access_rh_promotion_droit,access.rh.promotion.droit,model_rh_promotion_droit,group_rh_absence,1,1,1,1
-access_rh_promotion_line,access.rh.promotion.line,model_rh_promotion_line,group_rh_absence,1,1,1,1
+access_rh_promotion1,access.rh.promotion,model_rh_promotion,group_rh_absence,1,1,1,1
+access_rh_promotion_commission_line1,accessrh.promotion.commission.line,model_rh_promotion_commission_line,group_rh_absence,1,1,1,1
+access_rh_promotion_droit1,access.rh.promotion.droit,model_rh_promotion_droit,group_rh_absence,1,1,1,1
+access_rh_promotion_line1,access.rh.promotion.line,model_rh_promotion_line,group_rh_absence,1,1,1,1
 
-access_rh_sanction,access.rh.sanction,model_rh_sanction,group_rh_absence,1,1,1,1
-access_rh_section,access.rh.section,model_rh_section,group_rh_absence,1,1,1,1
-access_rh_section_superieure,access.rh.section.superieure,model_rh_section_superieure,group_rh_absence,1,1,1,1
+access_rh_sanction1,access.rh.sanction,model_rh_sanction,group_rh_absence,1,1,1,1
+access_rh_section1,access.rh.section,model_rh_section,group_rh_absence,1,1,1,1
+access_rh_section_superieure1,access.rh.section.superieure,model_rh_section_superieure,group_rh_absence,1,1,1,1
 
-access_rh_type.absence,access.rh.type.absence,model_rh_type_absence,group_rh_absence,1,1,1,1
-access_rh_type_conge,access.rh.type.conge,model_rh_type_conge,group_rh_absence,1,1,1,1
-access_rh_type_faute,access.rh.type.faute,model_rh_type_faute,group_rh_absence,1,1,1,1
+access_rh_type.absence1,access.rh.type.absence,model_rh_type_absence,group_rh_absence,1,1,1,1
+access_rh_type_conge1,access.rh.type.conge,model_rh_type_conge,group_rh_absence,1,1,1,1
+access_rh_type_faute1,access.rh.type.faute,model_rh_type_faute,group_rh_absence,1,1,1,1
 
-access_rh_type_file,access.rh.type.file,model_rh_type_file,group_rh_absence,1,1,1,1
-access_rh_type_fin.relation,access.rh.type.fin.relation,model_rh_type_fin_relation,group_rh_absence,1,1,1,1
-access_rh_type_fonction,access.rh.type.fonction,model_rh_type_fonction,group_rh_absence,1,1,1,1
-access_rh_type_formation,access.rh.type.formation,model_rh_type_formation,group_rh_absence,1,1,1,1
-access_rh_type_sanction,access.rh.type.sanction,model_rh_type_sanction,group_rh_absence,1,1,1,1
-access_rh_visite_medical.line,access.rh.visite.medical.line,model_rh_visite_medical_line,group_rh_absence,1,1,1,1
-access_rh_visite_medicale,access.rh.visite.medicale,model_rh_visite_medicale,group_rh_absence,1,1,1,1
-access_rh_historique_employee,access.rh.historique.employee,model_rh_historique_employee,group_rh_absence,1,1,1,1
-access_rh_planning_line,access.rh.planning.line,model_rh_planning_line,group_rh_absence,1,1,1,1
-access_rh_planning,access.rh.planning,model_rh_planning,group_rh_absence,1,1,1,1
-access_rh_emphy,access.rh.emphy,model_rh_emphy,group_rh_absence,1,1,1,1
-access_rh_type_arret_salaire,access.rh_type_arret_salaire,model_rh_type_arret_salaire,group_rh_absence,1,1,1,1
-access_rh_type_methode_embauche,access.rh_type_methode_embauche,model_rh_type_methode_embauche,group_rh_absence,1,1,1,1
+access_rh_type_file1,access.rh.type.file,model_rh_type_file,group_rh_absence,1,1,1,1
+access_rh_type_fin.relation1,access.rh.type.fin.relation,model_rh_type_fin_relation,group_rh_absence,1,1,1,1
+access_rh_type_fonction1,access.rh.type.fonction,model_rh_type_fonction,group_rh_absence,1,1,1,1
+access_rh_type_formation1,access.rh.type.formation,model_rh_type_formation,group_rh_absence,1,1,1,1
+access_rh_type_sanction1,access.rh.type.sanction,model_rh_type_sanction,group_rh_absence,1,1,1,1
+access_rh_visite_medical_line1,access.rh.visite.medical.line,model_rh_visite_medical_line,group_rh_absence,1,1,1,1
+access_rh_visite_medicale1,access.rh.visite.medicale,model_rh_visite_medicale,group_rh_absence,1,1,1,1
+access_rh_historique_employee1,access.rh.historique.employee,model_rh_historique_employee,group_rh_absence,1,1,1,1
+access_rh_planning_line1,access.rh.planning.line,model_rh_planning_line,group_rh_absence,1,1,1,1
+access_rh_planning1,access.rh.planning,model_rh_planning,group_rh_absence,1,1,1,1
+access_rh_emphy1,access.rh.emphy,model_rh_emphy,group_rh_absence,1,1,1,1
+access_rh_type_arret_salaire1,access.rh_type_arret_salaire,model_rh_type_arret_salaire,group_rh_absence,1,1,1,1
+access_rh_type_methode_embauche,access.rh.type.methode.embauche,model_rh_type_methode_embauche,group_rh_consultation,1,0,0,0
 
 
 
@@ -156,9 +157,13 @@ access_rh_emphy,access.rh.emphy,model_rh_emphy,group_rh_consultation,1,0,0,0
 access_rh_type_arret_salaire,access.rh_type_arret_salaire,model_rh_type_arret_salaire,group_rh_consultation,1,0,0,0
 
 access_rh_grade_line,access.rh.grade.line,model_rh_grade_line,group_rh_consultation,1,1,1,1
-access_rh_grade_line,access.rh.grade.line,model_rh_grade_line,group_rh_absence,1,1,1,1
+access_rh_grade_line1,access.rh.grade.line,model_rh_grade_line,group_rh_absence,1,1,1,1
 access_droit_promotion,access.droit.promotion,model_droit_promotion,group_rh_consultation,1,1,1,1
-access_programme_individuel,access.programme.individuel,model_programme_individuel,group_rh_consultation,1,1,1,1
+access_rh_prime_rendement1,access.rh.prime.rendement,model_rh_prime_rendement,group_rh_absence,1,1,1,1
+access_rh_prime_rendement,access.rh.prime.rendement,model_rh_prime_rendement,group_rh_consultation,1,0,0,0
+access_rh_prime_rendement_line1,access.rh.prime.rendement.line,model_rh_prime_rendement_line,group_rh_absence,1,1,1,1
+access_rh_prime_rendement_line,access.rh.prime.rendement.line,model_rh_prime_rendement_line,group_rh_consultation,1,0,0,0
+access_rh_type_methode_embauche,access.rh.type.methode.embauche,model_rh_type_methode_embauche,group_rh_consultation,1,0,0,0
 
 
 
