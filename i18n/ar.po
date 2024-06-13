@@ -33576,6 +33576,7 @@ msgstr "الموظف"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_visite_medical_line_employee_id
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_employee
 #: model:ir.ui.view,arch_db:ressource_humaine.conge_droit_search
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_prime_rendement_line_employee_id
 msgid "Employee"
 msgstr "الموظف"
 
@@ -34508,6 +34509,7 @@ msgstr "Executive 4   7.5 x 10 inches, 190.5 x 254 mm"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_fiche_evaluation_exercice
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_prime_rendement_exercice
 msgid "Exercice"
 msgstr "السنة"
 
@@ -41581,7 +41583,7 @@ msgstr "الشعبة"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_formation_intitule_formation
 msgid "Intitule Formation"
-msgstr "التخصص"
+msgstr "موضوع الدورة التكوينية"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_type_file_intitule_fr
@@ -84100,7 +84102,6 @@ msgid "type methode embauche"
 msgstr "أنواع طريقة التوظيف"
 
 #. module: ressource_humaine
-<<<<<<< HEAD
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_echelon_id_grade
 msgid "Echelon Id Grade"
 msgstr "الدرجة في الرتبة"
@@ -84119,7 +84120,8 @@ msgstr "تاريخ إمضاء المقرر"
 #: model:ir.ui.menu,name:ressource_humaine.programme_individuel
 msgid "programme de surveillance individuel pour les employees"
 msgstr "تسخيرة الامتحانات و المسابقات"
-=======
+
+
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_holidays_reliquat
 msgid "Reliquat"
 msgstr "مخلف عطلة"
@@ -84153,4 +84155,98 @@ msgstr "بحث في حق العطلة"
 #: model:ir.ui.view,arch_db:ressource_humaine.view_job_filter_inherited
 msgid "Group By"
 msgstr "تجميع حسب"
->>>>>>> 085e8048bc4fa78178b42c3a28261c7c6e07a821
+
+#. module: ressource_humaine
+#: model:ir.actions.act_window,name:ressource_humaine.action_rh_prime_rendement
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_prime_rendement_line_prime_rendement_id
+#: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_prime_rendement
+msgid "Prime Rendement"
+msgstr "منحة المردودية"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_prime_rendement_prime_rendement_lines
+msgid "Prime Rendement Lines"
+msgstr "قائمة منحة المردودية"
+
+#. module: ressource_humaine
+#: model:ir.actions.report,name:ressource_humaine.action_prime_rendement_report
+msgid "Prime de Rendement"
+msgstr "منحة المردودية"
+
+#. module: ressource_humaine
+#: model:ir.actions.act_window,name:ressource_humaine.liste_formation_action
+#: model:ir.actions.report,name:ressource_humaine.action_liste_formation_report
+#: model:ir.ui.menu,name:ressource_humaine.liste_formation_menu
+msgid "Liste Formation"
+msgstr "قائمة الموظفين المستفيدين من التكوين"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_liste_formation_wizard_date_debut
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_corps_decision_line_date_debut
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_prime_rendement_date_debut
+msgid "Date Debut"
+msgstr "تاريخ البداية"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_liste_formation_wizard_date_fin
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_prime_rendement_date_fin
+msgid "Date Fin"
+msgstr "تاريخ النهاية"
+
+#. module: ressource_humaine
+#: model:ir.model,name:ressource_humaine.model_rh_prime_rendement
+msgid "rh.prime.rendement"
+msgstr "منحة المردودية"
+
+#. module: ressource_humaine
+#: model:ir.model,name:ressource_humaine.model_rh_prime_rendement_line
+msgid "rh.prime.rendement.line"
+msgstr "قائمة منحة المردودية"
+
+#. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.view_rh_prime_rendement_form
+#: model:ir.ui.view,arch_db:ressource_humaine.view_rh_prime_rendement_tree
+msgid "date_debut"
+msgstr "تاريخ البداية"
+
+#. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.view_rh_prime_rendement_form
+#: model:ir.ui.view,arch_db:ressource_humaine.view_rh_prime_rendement_tree
+msgid "date_fin"
+msgstr "تاريخ النهاية"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_prime_rendement_line_nbr_jours_travail
+msgid "Nbr Jours Travail"
+msgstr "عدد أيام العمل"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_prime_rendement_line_notation_responsable
+msgid "Notation Responsable"
+msgstr "تنقيط الرئيس السلمي"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_prime_rendement_line_notation_finale
+msgid "Notation Finale"
+msgstr "التنقيط النهائي"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_echelon_id_grade
+msgid "Echelon Id Grade"
+msgstr "الدرجة في الرتبة"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_ref_poste
+msgid "Ref Poste"
+msgstr "رقم مقرر تعين في المنصب"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_date_signature_poste
+msgid "Date Signature Poste"
+msgstr "تاريخ إمضاء المقرر"
+
+#. module: ressource_humaine
+#: model:ir.ui.menu,name:ressource_humaine.programme_individuel
+msgid "programme de surveillance individuel pour les employees"
+msgstr "تسخيرة الامتحانات و المسابقات"
+

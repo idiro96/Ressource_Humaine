@@ -4,9 +4,9 @@
         <field name="model">rh.prime.rendement</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="date_debut" string="date_debut"/>
-                <field name="date_fin" string="date_fin"/>
-                <field name="exercice" string="exercice"/>
+                <field name="date_debut"/>
+                <field name="date_fin"/>
+                <field name="exercice"/>
                 <!--                <field name="time_surveillance_end1" widget="timepicker" options="{'timepicker': {'stepping': 15}}"/>-->
             </tree>
         </field>
@@ -20,9 +20,9 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="date_debut" string="date_debut"/>
-                            <field name="date_fin" string="date_fin"/>
-                            <field name="exercice" string="exercice"/>
+                            <field name="date_debut"/>
+                            <field name="date_fin"/>
+                            <field name="exercice"/>
                         </group>
                     </group>
                       <notebook>

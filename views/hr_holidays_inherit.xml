@@ -69,7 +69,7 @@
                 </xpath>
                 <xpath expr="//form//sheet//group" position="after">
                     <group>
-                        <field name="reliquat" string="Reliquats"/>
+                        <field name="reliquat"/>
                     </group>
                 </xpath>
             </field>
