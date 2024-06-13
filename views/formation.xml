@@ -52,10 +52,10 @@
                             <field name="formation_lines">
                                 <tree editable="bottom">
                                     <field name="employee_id" options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
-                                    <field name="date_debut_formation_line"/>
-                                    <field name="date_fin_formation_line"/>
+<!--                                    <field name="date_debut_formation_line"/>-->
+<!--                                    <field name="date_fin_formation_line"/>-->
 <!--                                    <field name="groupe"/>-->
-                                    <button name="formation_absence" type="object"
+                                    <button name="formation_absence" type="object" string="غياب"
                                             class="oe_highlight"/>
                                 </tree>
                             </field>

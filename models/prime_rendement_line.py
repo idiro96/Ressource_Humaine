@@ -7,8 +7,8 @@ from odoo.exceptions import UserError, ValidationError
 class RHPrimeRendementLine(models.Model):
     _name = 'rh.prime.rendement.line'
 
-    _inherit = ['mail.thread', 'mail.activity.mixin']
-    _mail_post_access = 'read'
+    # _inherit = ['mail.thread', 'mail.activity.mixin']
+    # _mail_post_access = 'read'
 
     prime_rendement_id = fields.Many2one('rh.prime.rendement', tracking=True)
     employee_id = fields.Many2one('hr.employee')

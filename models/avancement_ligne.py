@@ -5,8 +5,8 @@ from odoo import models, fields, api, _
 
 class RHAvancementLine(models.Model):
     _name = 'rh.avancement.line'
-    _inherit = ['mail.thread']
-    _mail_post_access = 'read'
+    # _inherit = ['mail.thread']
+    # _mail_post_access = 'read'
 
     date_avancement = fields.Date(tracking=True)
     code = fields.Char(readonly=False,
@@ -127,53 +127,53 @@ class RHAvancementLine(models.Model):
     #
     #     return new_record
 
-    @api.multi
-    def unlink(self):
-        for record in self:
-            message_body = f"قد تم حذف الموظف {record.employee_id.name} من قائمة الموظفين"
-            if message_body:
-                record.avancement_id.message_post(body=message_body)
-
-        return super(RHAvancementLine, self).unlink()
-
-    def write(self, vals):
-        # Store the original values of the fields before the write operation
-        original_ref = self.ref
-        original_date_ref = self.date_ref
-        original_code = self.code
-        original_date_signature = self.date_signature
-        original_ancien_index = self.ancien_index
-
-        # Call super to perform the default behavior of write
-        result = super(RHAvancementLine, self).write(vals)
-
-        # Check if any of the tracked fields have changed
-        if any(field in vals for field in
-               ['ref', 'date_ref', 'code', 'date_signature', 'ancien_index']):
-            self._track_changes(original_ref, original_date_ref, original_code, original_date_signature, original_ancien_index)
-
-        return result
-
-    def _track_changes(self, original_ref, original_date_ref, original_code, original_date_signature, original_ancien_index):
-        # Post a message in the chatter of the related formation record
-        if self.employee_id or self.avancement_id:
-            employee_name = self.employee_id.name if self.employee_id else False
-
-            message_body = 'تحديث الترقيات في الدرجة :<br/>'
-            if self.ref != original_ref:
-                message_body += f"  • تغيير رقم مقرر {employee_name} من {original_ref} إلى {self.ref}<br/>"
-
-            if self.date_ref != original_date_ref:
-                message_body += f"  • تغيير تاريخ مقرر آخر ترقية {employee_name} من {original_date_ref} إلى {self.date_ref}<br/>"
-
-            if self.code != original_code:
-                message_body += f"  • تغيير كود {employee_name} من {original_code} إلى {self.code}<br/>"
-
-            if self.date_signature != original_date_signature:
-                message_body += f"  • تغيير تاريخ إمضاء {employee_name} من {original_date_signature} إلى {self.date_signature}<br/>"
-
-            if self.ancien_index != original_ancien_index:
-                message_body += f"  • تغيير الرقم الإستدلالي لطلبة {employee_name} من {original_ancien_index} إلى {self.ancien_index}<br/>"
-
-            self.employee_id.message_post(body=message_body)
-            self.avancement_id.message_post(body=message_body)
+    # @api.multi
+    # def unlink(self):
+    #     for record in self:
+    #         message_body = f"قد تم حذف الموظف {record.employee_id.name} من قائمة الموظفين"
+    #         if message_body:
+    #             record.avancement_id.message_post(body=message_body)
+    #
+    #     return super(RHAvancementLine, self).unlink()
+    #
+    # def write(self, vals):
+    #     # Store the original values of the fields before the write operation
+    #     original_ref = self.ref
+    #     original_date_ref = self.date_ref
+    #     original_code = self.code
+    #     original_date_signature = self.date_signature
+    #     original_ancien_index = self.ancien_index
+    #
+    #     # Call super to perform the default behavior of write
+    #     result = super(RHAvancementLine, self).write(vals)
+    #
+    #     # Check if any of the tracked fields have changed
+    #     if any(field in vals for field in
+    #            ['ref', 'date_ref', 'code', 'date_signature', 'ancien_index']):
+    #         self._track_changes(original_ref, original_date_ref, original_code, original_date_signature, original_ancien_index)
+    #
+    #     return result
+    #
+    # def _track_changes(self, original_ref, original_date_ref, original_code, original_date_signature, original_ancien_index):
+    #     # Post a message in the chatter of the related formation record
+    #     if self.employee_id or self.avancement_id:
+    #         employee_name = self.employee_id.name if self.employee_id else False
+    #
+    #         message_body = 'تحديث الترقيات في الدرجة :<br/>'
+    #         if self.ref != original_ref:
+    #             message_body += f"  • تغيير رقم مقرر {employee_name} من {original_ref} إلى {self.ref}<br/>"
+    #
+    #         if self.date_ref != original_date_ref:
+    #             message_body += f"  • تغيير تاريخ مقرر آخر ترقية {employee_name} من {original_date_ref} إلى {self.date_ref}<br/>"
+    #
+    #         if self.code != original_code:
+    #             message_body += f"  • تغيير كود {employee_name} من {original_code} إلى {self.code}<br/>"
+    #
+    #         if self.date_signature != original_date_signature:
+    #             message_body += f"  • تغيير تاريخ إمضاء {employee_name} من {original_date_signature} إلى {self.date_signature}<br/>"
+    #
+    #         if self.ancien_index != original_ancien_index:
+    #             message_body += f"  • تغيير الرقم الإستدلالي لطلبة {employee_name} من {original_ancien_index} إلى {self.ancien_index}<br/>"
+    #
+    #         self.employee_id.message_post(body=message_body)
+    #         self.avancement_id.message_post(body=message_body)
