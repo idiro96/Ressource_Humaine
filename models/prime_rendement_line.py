@@ -19,19 +19,20 @@ class RHPrimeRendementLine(models.Model):
     write_uid = fields.Many2one('res.users', string='Last Updated by', readonly=True, track_visibility='onchange')
     categorie_grade_indice = fields.Integer(related='employee_id.grade_id.categorie_id.Indice_minimal', store=True)
 
-    @api.multi
-    def write(self, vals):
-        res = super(RHPrimeRendementLine, self).write(vals)
-        if vals['notation_responsable'] > 40:
-            raise UserError("La notation maximal ne doit pas depasser 40%")
+    @api.constrains('notation_responsable')
+    def chek_notation(self):
+        for rec in self:
+            if rec.notation_responsable > 40:
+                raise UserError("La notation maximal ne doit pas depasser 40%")
 
-    @api.model
-    def create(self, vals):
-        prime = super(RHPrimeRendementLine, self).create(vals)
 
-        if float(prime.notation_responsable) > 40:
-            raise UserError("La notation maximal ne doit pas depasser 40%")
-        return prime
+    # @api.model
+    # def create(self, vals):
+    #     prime = super(RHPrimeRendementLine, self).create(vals)
+    #
+    #     if float(prime.notation_responsable) > 40:
+    #         raise UserError("La notation maximal ne doit pas depasser 40%")
+    #     return prime
     @api.depends('nbr_jours_travail','notation_finale')
     def _compute_prime_final_fields(self):
         for rec in self:
