@@ -106,6 +106,8 @@
         'wizards/organization_chart.xml',
         'wizards/arret_salaire.xml',
         'wizards/note_conge.xml',
+        'wizards/liste_formation.xml',
+        'wizards/planning_surveillance_individuel.xml',
         'reports/paper_format.xml',
         'reports/hr_contract.xml',
         'reports/attestation_travail.xml',
@@ -138,6 +140,9 @@
         'reports/arret_salaire_rapport.xml',
         'reports/fiche_evaluation.xml',
         'reports/promotion_report.xml',
+        'reports/prime_rendement.xml',
+        'reports/liste_formation_report.xml',
+        'reports/planning_notice_individuel.xml',
     ],
 
     # only loaded in demonstration mode

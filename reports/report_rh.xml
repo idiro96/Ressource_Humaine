@@ -17,13 +17,13 @@
             file="ressource_humaine.attestation_travail_report"
             paperformat="ressource_humaine.paperformat_european_a4_portrait_bordered"/>
 
-<!--    <report-->
-<!--            id="report_note_conge"-->
-<!--            string="Note Conge"-->
-<!--            model="droit.avencement"-->
-<!--            report_type="qweb-html"-->
-<!--            name="ressource_humaine.note_conge"-->
-<!--            file="ressource_humaine.note_conge"/>-->
+    <!--    <report-->
+    <!--            id="report_note_conge"-->
+    <!--            string="Note Conge"-->
+    <!--            model="droit.avencement"-->
+    <!--            report_type="qweb-html"-->
+    <!--            name="ressource_humaine.note_conge"-->
+    <!--            file="ressource_humaine.note_conge"/>-->
 
     <report
             id="new_report_note_conge"
@@ -75,7 +75,7 @@
             name="ressource_humaine.cont_indete_tem_part_report"
             file="ressource_humaine.cont_indete_tem_part_report"
             paperformat="ressource_humaine.paperformat_european_a4_portrait_bordered"/>
-    />
+
     <report
             id="action_hr_contract_report"
             model="hr.employee"
@@ -83,8 +83,8 @@
             report_type="qweb-pdf"
             name="ressource_humaine.hr_contract_report"
             file="ressource_humaine.hr_contract_report"
-            paperformat="ressource_humaine.paperformat_european_a4_portrait"
-    />
+            paperformat="ressource_humaine.paperformat_european_a4_portrait"/>
+
     <report
             id="action_droit_avancement_report"
             string="Extrait du siège approuvant le calendrier des promotions de grade"
@@ -92,6 +92,7 @@
             report_type="qweb-html"
             name="ressource_humaine.droit_avancement_report"
             file="مستخرج من مقرر المصادقة على جدول الترقية في الدرجات"/>
+
     <report
             id="action_droit_promotion_report"
             string="Extrait du siège approuvant le calendrier des promotions de grade par examains professionnel"
@@ -125,8 +126,7 @@
             report_type="qweb-html"
             name="ressource_humaine.liste_employee"
             file="العمال و الموظفين"
-            paperformat="ressource_humaine.paperformat_european_a4_landscape"
-    />
+            paperformat="ressource_humaine.paperformat_european_a4_landscape"/>
 
     <report
             id="action_liste_employee_xlsx"
@@ -134,16 +134,16 @@
             string="العمال و الموظفين Excel"
             report_type="xlsx"
             name="ressource_humaine.liste_employee_xlsx"
-            file="العمال و الموظفين"
-    />
+            file="العمال و الموظفين"/>
+
     <report
             id="action_planning_surveillance"
             model="rh.planning"
             string="جدول المراقبة"
             report_type="qweb-html"
             name="ressource_humaine.planning_surveillance_report"
-            file="ressource_humaine.planning_surveillance_report"
-    />
+            file="ressource_humaine.planning_surveillance_report"/>
+
     <report
             id="action_liste_nominatife"
             model="liste.nominatifs"
@@ -275,7 +275,7 @@
             report_type="qweb-html"
             name="ressource_humaine.promotion_report"
             file="ressource_humaine.promotion_report"/>
-        <report
+    <report
             id="liste_avancements"
             model="droit.avencement"
             string="جدول ترقية موظفي المدرسة الوطنية للإدارة"
@@ -283,16 +283,16 @@
             name="ressource_humaine.liste_avancements_report"
             file="ressource_humaine.liste_avancements_report"
             paperformat="ressource_humaine.paperformat_european_a4_landscape_basic"/>
-        <report
-                id="liste_promotions"
-                model="droit.promotion"
-                string="جدول ترقية موظفي المدرسة الوطنية للإدارة"
-                report_type="qweb-html"
-                name="ressource_humaine.liste_promotions_report"
-                file="ressource_humaine.liste_promotions_report"
-                paperformat="ressource_humaine.paperformat_european_a4_landscape_basic"/>
+    <report
+            id="liste_promotions"
+            model="droit.promotion"
+            string="جدول ترقية موظفي المدرسة الوطنية للإدارة"
+            report_type="qweb-html"
+            name="ressource_humaine.liste_promotions_report"
+            file="ressource_humaine.liste_promotions_report"
+            paperformat="ressource_humaine.paperformat_european_a4_landscape_basic"/>
 
-        <report
+    <report
             id="action_droit_promotions_xlsx"
             model="droit.promotion"
             string="جدول ترقية موظفي المدرسة الوطنية للإدارة Excel"
@@ -307,5 +307,39 @@
             report_type="xlsx"
             name="ressource_humaine.droit_avancements_xlsx"
             file="جدول ترقية موظفي المدرسة الوطنية للإدارة"/>
+
+    <report
+            id="action_prime_rendement_report"
+            model="rh.prime.rendement"
+            string="Prime de Rendement"
+            report_type="qweb-html"
+            name="ressource_humaine.prime_rendement_report"
+            file="منحة المردودية"
+            paperformat="ressource_humaine.paperformat_european_a4_landscape"/>
+
+    <report
+            id="action_liste_formation_report"
+            string="Liste Formation"
+            model="liste.formation.wizard"
+            report_type="qweb-html"
+            name="ressource_humaine.liste_formation_report"
+            file="ressource_humaine.liste_formation_report"
+            paperformat="ressource_humaine.paperformat_european_a4_landscape"/>
+
+    <report
+            id="action_notice_planning_individuel_report"
+            model="programme.individuel"
+            string="تسخيرة الإستدعاء للامتحان"
+            report_type="qweb-html"
+            name="ressource_humaine.notice_planning_individuel_report"
+            file="ressource_humaine.notice_planning_individuel_report"/>
+
+    <report
+            id="action_liste_formation_xlsx"
+            model="liste.formation.wizard"
+            string="قائمة الموظفين المستفيدين من التكوين Excel"
+            report_type="xlsx"
+            name="ressource_humaine.liste_formation_xlsx"
+            file="قائمة الموظفين المستفيدين من التكوين"/>
 
 </odoo>
