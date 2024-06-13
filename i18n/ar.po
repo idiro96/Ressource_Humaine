@@ -84255,3 +84255,7 @@ msgstr "تسخيرة الامتحانات و المسابقات"
 msgid "Organisme Formation"
 msgstr "مؤسسات التكوين"
 
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_grade_line_grade2_id
+msgid "Grade2"
+msgstr "الرتب"
