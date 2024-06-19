@@ -40,16 +40,11 @@
                     </strong>
                     <br/>
                     <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
                     <div class="texte-en-gras"
-                         style="text-align:center;font-size:40px;width:60%;margin:0 auto;font-weight:bold;">
+                         style="text-align:center;font-size:35px;width:60%;margin:0 auto;font-weight:bold;">
                         <strong>
                             <span style="border-bottom: 1px solid black">
-                                قائمة موظفي المديرية العامة
+                                قائمة موظفي مصلحة تسيير الموارد البشرية
                                 <br/>
                                 المستفيدين من منحة المردودية للثلاثي
                                 <t t-esc="trimestre"/>
@@ -57,34 +52,23 @@
                             </span>
                         </strong>
                     </div>
-                    <div style="page-break-before: always;"></div>
-                    <div class="texte-en-gras"
-                         style="text-align:center;font-size:40px;width:60%;margin:0 auto;font-weight:bold;">
-                        <strong>
-                            <span style="border-bottom: 1px solid black">
-                                مصلحة تسيير الموارد البشرية
-                            </span>
-                        </strong>
-                    </div>
-                    <br/>
-                    <br/>
                     <div class="row" style="margin:75px;">
                         <table style="width: 100%;">
                             <thead class="texte-en-gras">
                                 <tr>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:20%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:20%;height:30px">
                                         الملاحظة
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:15%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:15%;height:30px">
                                         التنقيط النهائي
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:20%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:20%;height:30px">
                                         تنقيط الرئيس السلمي
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:20%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:20%;height:30px">
                                         الاسم و اللقب
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:5%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:5%;height:30px">
                                         الرقم
                                     </th>
                                 </tr>
@@ -97,12 +81,12 @@
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         %
                                         <span t-esc="line.notation_finale"
-                                              t-options='{"widget": "float", "precision": 0}'/>
+                                              t-options='{"widget": "float", "precision": 2}'/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         %
                                         <span t-esc="line.notation_responsable"
-                                              t-options='{"widget": "float", "precision": 0}'/>
+                                              t-options='{"widget": "float", "precision": 2}'/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         <span t-esc="line.employee_id.name"/>
@@ -116,33 +100,60 @@
                         </table>
                     </div>
                     <div style="page-break-before: always;"></div>
+                    <strong>
+                        <div class="Diwani_Letter"
+                             style="font-size: 32px;text-align: right;word-spacing: 9px;margin-right:15px">
+                            <span style="display: inline-block;margin-left: 400px;">
+                                المدرسة الوطنية للإدارة
+                            </span>
+                        </div>
+                        <br/>
+                        <div class="Diwani_Letter"
+                             style="font-size: 32px;text-align: right;word-spacing: 9px;margin-right:15px">
+                            <span>
+                                الأمانة العامة
+                            </span>
+                        </div>
+                        <br/>
+                        <div class="Diwani_Letter"
+                             style="font-size: 32px;text-align: right;word-spacing: 9px;margin-right:15px">
+                            <span>
+                                مصلحة تسيير الموارد البشرية
+                            </span>
+                        </div>
+                        <br/>
+                    </strong>
+                    <br/>
+                    <br/>
                     <div class="texte-en-gras"
-                         style="text-align:center;font-size:40px;width:60%;margin:0 auto;font-weight:bold;">
+                         style="text-align:center;font-size:35px;width:60%;margin:0 auto;font-weight:bold;">
                         <strong>
                             <span style="border-bottom: 1px solid black">
-                                مصلحة الميزانية والمحاسبة
+                                قائمة موظفي مصلحة الميزانية و الماسبة
+                                <br/>
+                                المستفيدين من منحة المردودية للثلاثي
+                                <t t-esc="trimestre"/>
+                                <t t-esc="prime_rendement.exercice"/>
                             </span>
                         </strong>
                     </div>
-                    <br/>
-                    <br/>
                     <div class="row" style="margin:75px;">
                         <table style="width: 100%;">
                             <thead class="texte-en-gras">
                                 <tr>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:20%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:20%;height:30px">
                                         الملاحظة
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:15%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:15%;height:30px">
                                         التنقيط النهائي
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:20%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:20%;height:30px">
                                         تنقيط الرئيس السلمي
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:20%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:20%;height:30px">
                                         الاسم و اللقب
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:5%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:5%;height:30px">
                                         الرقم
                                     </th>
                                 </tr>
@@ -155,12 +166,12 @@
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         %
                                         <span t-esc="line.notation_finale"
-                                              t-options='{"widget": "float", "precision": 0}'/>
+                                              t-options='{"widget": "float", "precision": 2}'/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         %
                                         <span t-esc="line.notation_responsable"
-                                              t-options='{"widget": "float", "precision": 0}'/>
+                                              t-options='{"widget": "float", "precision": 2}'/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         <span t-esc="line.employee_id.name"/>
@@ -174,33 +185,60 @@
                         </table>
                     </div>
                     <div style="page-break-before: always;"></div>
+                    <strong>
+                        <div class="Diwani_Letter"
+                             style="font-size: 32px;text-align: right;word-spacing: 9px;margin-right:15px">
+                            <span style="display: inline-block;margin-left: 400px;">
+                                المدرسة الوطنية للإدارة
+                            </span>
+                        </div>
+                        <br/>
+                        <div class="Diwani_Letter"
+                             style="font-size: 32px;text-align: right;word-spacing: 9px;margin-right:15px">
+                            <span>
+                                الأمانة العامة
+                            </span>
+                        </div>
+                        <br/>
+                        <div class="Diwani_Letter"
+                             style="font-size: 32px;text-align: right;word-spacing: 9px;margin-right:15px">
+                            <span>
+                                مصلحة تسيير الموارد البشرية
+                            </span>
+                        </div>
+                        <br/>
+                    </strong>
+                    <br/>
+                    <br/>
                     <div class="texte-en-gras"
-                         style="text-align:center;font-size:40px;width:60%;margin:0 auto;font-weight:bold;">
+                         style="text-align:center;font-size:35px;width:60%;margin:0 auto;font-weight:bold;">
                         <strong>
                             <span style="border-bottom: 1px solid black">
-                                مصلحة الإعلام الآلي و السمعي البصري
+                                قائمة موظفي مصلحة الإعلام الآلي و السمعي البصري
+                                <br/>
+                                المستفيدين من منحة المردودية للثلاثي
+                                <t t-esc="trimestre"/>
+                                <t t-esc="prime_rendement.exercice"/>
                             </span>
                         </strong>
                     </div>
-                    <br/>
-                    <br/>
                     <div class="row" style="margin:75px;">
                         <table style="width: 100%;">
                             <thead class="texte-en-gras">
                                 <tr>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:20%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:20%;height:30px">
                                         الملاحظة
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:15%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:15%;height:30px">
                                         التنقيط النهائي
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:20%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:20%;height:30px">
                                         تنقيط الرئيس السلمي
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:20%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:20%;height:30px">
                                         الاسم و اللقب
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:5%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:5%;height:30px">
                                         الرقم
                                     </th>
                                 </tr>
@@ -213,12 +251,12 @@
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         %
                                         <span t-esc="line.notation_finale"
-                                              t-options='{"widget": "float", "precision": 0}'/>
+                                              t-options='{"widget": "float", "precision": 2}'/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         %
                                         <span t-esc="line.notation_responsable"
-                                              t-options='{"widget": "float", "precision": 0}'/>
+                                              t-options='{"widget": "float", "precision": 2}'/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         <span t-esc="line.employee_id.name"/>
@@ -232,33 +270,60 @@
                         </table>
                     </div>
                     <div style="page-break-before: always;"></div>
+                    <strong>
+                        <div class="Diwani_Letter"
+                             style="font-size: 32px;text-align: right;word-spacing: 9px;margin-right:15px">
+                            <span style="display: inline-block;margin-left: 400px;">
+                                المدرسة الوطنية للإدارة
+                            </span>
+                        </div>
+                        <br/>
+                        <div class="Diwani_Letter"
+                             style="font-size: 32px;text-align: right;word-spacing: 9px;margin-right:15px">
+                            <span>
+                                الأمانة العامة
+                            </span>
+                        </div>
+                        <br/>
+                        <div class="Diwani_Letter"
+                             style="font-size: 32px;text-align: right;word-spacing: 9px;margin-right:15px">
+                            <span>
+                                مصلحة تسيير الموارد البشرية
+                            </span>
+                        </div>
+                        <br/>
+                    </strong>
+                    <br/>
+                    <br/>
                     <div class="texte-en-gras"
-                         style="text-align:center;font-size:40px;width:60%;margin:0 auto;font-weight:bold;">
+                         style="text-align:center;font-size:35px;width:60%;margin:0 auto;font-weight:bold;">
                         <strong>
                             <span style="border-bottom: 1px solid black">
-                                مصلحة التجهيزات و الوسائل العامة
+                                قائمة موظفي مصلحة التجهيزات و الوسائل العامة
+                                <br/>
+                                المستفيدين من منحة المردودية للثلاثي
+                                <t t-esc="trimestre"/>
+                                <t t-esc="prime_rendement.exercice"/>
                             </span>
                         </strong>
                     </div>
-                    <br/>
-                    <br/>
                     <div class="row" style="margin:75px;">
                         <table style="width: 100%;">
                             <thead class="texte-en-gras">
                                 <tr>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:20%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:20%;height:30px">
                                         الملاحظة
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:15%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:15%;height:30px">
                                         التنقيط النهائي
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:20%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:20%;height:30px">
                                         تنقيط الرئيس السلمي
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:20%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:20%;height:30px">
                                         الاسم و اللقب
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:5%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:5%;height:30px">
                                         الرقم
                                     </th>
                                 </tr>
@@ -271,12 +336,12 @@
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         %
                                         <span t-esc="line.notation_finale"
-                                              t-options='{"widget": "float", "precision": 0}'/>
+                                              t-options='{"widget": "float", "precision": 2}'/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         %
                                         <span t-esc="line.notation_responsable"
-                                              t-options='{"widget": "float", "precision": 0}'/>
+                                              t-options='{"widget": "float", "precision": 2}'/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         <span t-esc="line.employee_id.name"/>
@@ -290,33 +355,60 @@
                         </table>
                     </div>
                     <div style="page-break-before: always;"></div>
+                    <strong>
+                        <div class="Diwani_Letter"
+                             style="font-size: 32px;text-align: right;word-spacing: 9px;margin-right:15px">
+                            <span style="display: inline-block;margin-left: 400px;">
+                                المدرسة الوطنية للإدارة
+                            </span>
+                        </div>
+                        <br/>
+                        <div class="Diwani_Letter"
+                             style="font-size: 32px;text-align: right;word-spacing: 9px;margin-right:15px">
+                            <span>
+                                الأمانة العامة
+                            </span>
+                        </div>
+                        <br/>
+                        <div class="Diwani_Letter"
+                             style="font-size: 32px;text-align: right;word-spacing: 9px;margin-right:15px">
+                            <span>
+                                مصلحة تسيير الموارد البشرية
+                            </span>
+                        </div>
+                        <br/>
+                    </strong>
+                    <br/>
+                    <br/>
                     <div class="texte-en-gras"
-                         style="text-align:center;font-size:40px;width:60%;margin:0 auto;font-weight:bold;">
+                         style="text-align:center;font-size:35px;width:60%;margin:0 auto;font-weight:bold;">
                         <strong>
                             <span style="border-bottom: 1px solid black">
-                                مصلحة النظام الداخلي
+                                قائمة موظفي مصلحة النظام الداخلي
+                                <br/>
+                                المستفيدين من منحة المردودية للثلاثي
+                                <t t-esc="trimestre"/>
+                                <t t-esc="prime_rendement.exercice"/>
                             </span>
                         </strong>
                     </div>
-                    <br/>
-                    <br/>
                     <div class="row" style="margin:75px;">
                         <table style="width: 100%;">
                             <thead class="texte-en-gras">
                                 <tr>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:20%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:20%;height:30px">
                                         الملاحظة
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:15%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:15%;height:30px">
                                         التنقيط النهائي
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:20%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:20%;height:30px">
                                         تنقيط الرئيس السلمي
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:20%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:20%;height:30px">
                                         الاسم و اللقب
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:5%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:5%;height:30px">
                                         الرقم
                                     </th>
                                 </tr>
@@ -329,12 +421,12 @@
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         %
                                         <span t-esc="line.notation_finale"
-                                              t-options='{"widget": "float", "precision": 0}'/>
+                                              t-options='{"widget": "float", "precision": 2}'/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         %
                                         <span t-esc="line.notation_responsable"
-                                              t-options='{"widget": "float", "precision": 0}'/>
+                                              t-options='{"widget": "float", "precision": 2}'/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         <span t-esc="line.employee_id.name"/>
@@ -348,33 +440,60 @@
                         </table>
                     </div>
                     <div style="page-break-before: always;"></div>
+                    <strong>
+                        <div class="Diwani_Letter"
+                             style="font-size: 32px;text-align: right;word-spacing: 9px;margin-right:15px">
+                            <span style="display: inline-block;margin-left: 400px;">
+                                المدرسة الوطنية للإدارة
+                            </span>
+                        </div>
+                        <br/>
+                        <div class="Diwani_Letter"
+                             style="font-size: 32px;text-align: right;word-spacing: 9px;margin-right:15px">
+                            <span>
+                                الأمانة العامة
+                            </span>
+                        </div>
+                        <br/>
+                        <div class="Diwani_Letter"
+                             style="font-size: 32px;text-align: right;word-spacing: 9px;margin-right:15px">
+                            <span>
+                                مصلحة تسيير الموارد البشرية
+                            </span>
+                        </div>
+                        <br/>
+                    </strong>
+                    <br/>
+                    <br/>
                     <div class="texte-en-gras"
-                         style="text-align:center;font-size:40px;width:60%;margin:0 auto;font-weight:bold;">
+                         style="text-align:center;font-size:35px;width:60%;margin:0 auto;font-weight:bold;">
                         <strong>
                             <span style="border-bottom: 1px solid black">
-                                مديرية الدراسات
+                                قائمة موظفي مديرية الدراسات
+                                <br/>
+                                المستفيدين من منحة المردودية للثلاثي
+                                <t t-esc="trimestre"/>
+                                <t t-esc="prime_rendement.exercice"/>
                             </span>
                         </strong>
                     </div>
-                    <br/>
-                    <br/>
                     <div class="row" style="margin:75px;">
                         <table style="width: 100%;">
                             <thead class="texte-en-gras">
                                 <tr>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:20%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:20%;height:35px">
                                         الملاحظة
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:15%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:15%;height:30px">
                                         التنقيط النهائي
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:20%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:20%;height:30px">
                                         تنقيط الرئيس السلمي
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:20%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:20%;height:30px">
                                         الاسم و اللقب
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:5%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:5%;height:30px">
                                         الرقم
                                     </th>
                                 </tr>
@@ -387,12 +506,12 @@
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         %
                                         <span t-esc="line.notation_finale"
-                                              t-options='{"widget": "float", "precision": 0}'/>
+                                              t-options='{"widget": "float", "precision": 2}'/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         %
                                         <span t-esc="line.notation_responsable"
-                                              t-options='{"widget": "float", "precision": 0}'/>
+                                              t-options='{"widget": "float", "precision": 2}'/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         <span t-esc="line.employee_id.name"/>
@@ -406,33 +525,60 @@
                         </table>
                     </div>
                     <div style="page-break-before: always;"></div>
+                    <strong>
+                        <div class="Diwani_Letter"
+                             style="font-size: 32px;text-align: right;word-spacing: 9px;margin-right:15px">
+                            <span style="display: inline-block;margin-left: 400px;">
+                                المدرسة الوطنية للإدارة
+                            </span>
+                        </div>
+                        <br/>
+                        <div class="Diwani_Letter"
+                             style="font-size: 32px;text-align: right;word-spacing: 9px;margin-right:15px">
+                            <span>
+                                الأمانة العامة
+                            </span>
+                        </div>
+                        <br/>
+                        <div class="Diwani_Letter"
+                             style="font-size: 32px;text-align: right;word-spacing: 9px;margin-right:15px">
+                            <span>
+                                مصلحة تسيير الموارد البشرية
+                            </span>
+                        </div>
+                        <br/>
+                    </strong>
+                    <br/>
+                    <br/>
                     <div class="texte-en-gras"
-                         style="text-align:center;font-size:40px;width:60%;margin:0 auto;font-weight:bold;">
+                         style="text-align:center;font-size:35px;width:60%;margin:0 auto;font-weight:bold;">
                         <strong>
                             <span style="border-bottom: 1px solid black">
-                                مديرية التربصات
+                                قائمة موظفي مديرية التربصات
+                                <br/>
+                                المستفيدين من منحة المردودية للثلاثي
+                                <t t-esc="trimestre"/>
+                                <t t-esc="prime_rendement.exercice"/>
                             </span>
                         </strong>
                     </div>
-                    <br/>
-                    <br/>
                     <div class="row" style="margin:75px;">
                         <table style="width: 100%;">
                             <thead class="texte-en-gras">
                                 <tr>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:20%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:20%;height:30px">
                                         الملاحظة
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:15%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:15%;height:30px">
                                         التنقيط النهائي
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:20%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:20%;height:30px">
                                         تنقيط الرئيس السلمي
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:20%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:20%;height:30px">
                                         الاسم و اللقب
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:5%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:5%;height:30px">
                                         الرقم
                                     </th>
                                 </tr>
@@ -445,12 +591,12 @@
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         %
                                         <span t-esc="line.notation_finale"
-                                              t-options='{"widget": "float", "precision": 0}'/>
+                                              t-options='{"widget": "float", "precision": 2}'/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         %
                                         <span t-esc="line.notation_responsable"
-                                              t-options='{"widget": "float", "precision": 0}'/>
+                                              t-options='{"widget": "float", "precision": 2}'/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         <span t-esc="line.employee_id.name"/>
@@ -464,33 +610,60 @@
                         </table>
                     </div>
                     <div style="page-break-before: always;"></div>
+                    <strong>
+                        <div class="Diwani_Letter"
+                             style="font-size: 32px;text-align: right;word-spacing: 9px;margin-right:15px">
+                            <span style="display: inline-block;margin-left: 400px;">
+                                المدرسة الوطنية للإدارة
+                            </span>
+                        </div>
+                        <br/>
+                        <div class="Diwani_Letter"
+                             style="font-size: 32px;text-align: right;word-spacing: 9px;margin-right:15px">
+                            <span>
+                                الأمانة العامة
+                            </span>
+                        </div>
+                        <br/>
+                        <div class="Diwani_Letter"
+                             style="font-size: 32px;text-align: right;word-spacing: 9px;margin-right:15px">
+                            <span>
+                                مصلحة تسيير الموارد البشرية
+                            </span>
+                        </div>
+                        <br/>
+                    </strong>
+                    <br/>
+                    <br/>
                     <div class="texte-en-gras"
-                         style="text-align:center;font-size:40px;width:60%;margin:0 auto;font-weight:bold;">
+                         style="text-align:center;font-size:35px;width:60%;margin:0 auto;font-weight:bold;">
                         <strong>
                             <span style="border-bottom: 1px solid black">
-                                مديرية التكوين المتواصل و التعاون
+                                قائمة موظفي مديرية التكوين المتواصل و التعاون
+                                <br/>
+                                المستفيدين من منحة المردودية للثلاثي
+                                <t t-esc="trimestre"/>
+                                <t t-esc="prime_rendement.exercice"/>
                             </span>
                         </strong>
                     </div>
-                    <br/>
-                    <br/>
                     <div class="row" style="margin:75px;">
                         <table style="width: 100%;">
                             <thead class="texte-en-gras">
                                 <tr>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:20%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:20%;height:30px">
                                         الملاحظة
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:15%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:15%;height:30px">
                                         التنقيط النهائي
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:20%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:20%;height:30px">
                                         تنقيط الرئيس السلمي
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:20%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:20%;height:30px">
                                         الاسم و اللقب
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:5%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:5%;height:30px">
                                         الرقم
                                     </th>
                                 </tr>
@@ -503,12 +676,12 @@
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         %
                                         <span t-esc="line.notation_finale"
-                                              t-options='{"widget": "float", "precision": 0}'/>
+                                              t-options='{"widget": "float", "precision": 2}'/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         %
                                         <span t-esc="line.notation_responsable"
-                                              t-options='{"widget": "float", "precision": 0}'/>
+                                              t-options='{"widget": "float", "precision": 2}'/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         <span t-esc="line.employee_id.name"/>
@@ -522,33 +695,60 @@
                         </table>
                     </div>
                     <div style="page-break-before: always;"></div>
+                    <strong>
+                        <div class="Diwani_Letter"
+                             style="font-size: 32px;text-align: right;word-spacing: 9px;margin-right:15px">
+                            <span style="display: inline-block;margin-left: 400px;">
+                                المدرسة الوطنية للإدارة
+                            </span>
+                        </div>
+                        <br/>
+                        <div class="Diwani_Letter"
+                             style="font-size: 32px;text-align: right;word-spacing: 9px;margin-right:15px">
+                            <span>
+                                الأمانة العامة
+                            </span>
+                        </div>
+                        <br/>
+                        <div class="Diwani_Letter"
+                             style="font-size: 32px;text-align: right;word-spacing: 9px;margin-right:15px">
+                            <span>
+                                مصلحة تسيير الموارد البشرية
+                            </span>
+                        </div>
+                        <br/>
+                    </strong>
+                    <br/>
+                    <br/>
                     <div class="texte-en-gras"
-                         style="text-align:center;font-size:40px;width:60%;margin:0 auto;font-weight:bold;">
+                         style="text-align:center;font-size:35px;width:60%;margin:0 auto;font-weight:bold;">
                         <strong>
                             <span style="border-bottom: 1px solid black">
-                                مركز التوثيق والبحث والخبرة
+                                قائمة موظفي مركز التوثيق والبحث والخبرة
+                                <br/>
+                                المستفيدين من منحة المردودية للثلاثي
+                                <t t-esc="trimestre"/>
+                                <t t-esc="prime_rendement.exercice"/>
                             </span>
                         </strong>
                     </div>
-                    <br/>
-                    <br/>
                     <div class="row" style="margin:75px;">
                         <table style="width: 100%;">
                             <thead class="texte-en-gras">
                                 <tr>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:20%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:20%;height:30px">
                                         الملاحظة
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:15%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:15%;height:30px">
                                         التنقيط النهائي
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:20%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:20%;height:30px">
                                         تنقيط الرئيس السلمي
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:20%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:20%;height:30px">
                                         الاسم و اللقب
                                     </th>
-                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:40px;width:5%;height:35px">
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:35px;width:5%;height:30px">
                                         الرقم
                                     </th>
                                 </tr>
@@ -561,12 +761,12 @@
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         %
                                         <span t-esc="line.notation_finale"
-                                              t-options='{"widget": "float", "precision": 0}'/>
+                                              t-options='{"widget": "float", "precision": 2}'/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         %
                                         <span t-esc="line.notation_responsable"
-                                              t-options='{"widget": "float", "precision": 0}'/>
+                                              t-options='{"widget": "float", "precision": 2}'/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         <span t-esc="line.employee_id.name"/>
