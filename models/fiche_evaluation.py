@@ -18,7 +18,7 @@ class RHFicheEvaluation(models.Model):
     job_id = fields.Many2one('hr.job', compute='_onchange_employee_id', store=True)
     echelon_id = fields.Many2one('rh.echelon', compute='_onchange_employee_id', store=True)
     date_grade = fields.Date()
-    note = fields.Integer(track_visibility='onchange')
+    note = fields.Integer(default='20', track_visibility='onchange')
     observation = fields.Char(track_visibility='onchange')
     fiche_evaluation_file = fields.Binary(track_visibility='onchange')
     exercice = fields.Integer(compute='_compute_exercice', store=True)

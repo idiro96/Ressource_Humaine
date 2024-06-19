@@ -59,7 +59,7 @@
                     <br/>
                     <div class="al-mohanad" style="font-size: 25px;text-align: right;">
                         <span>
-                            المطلوب منكم الحظور الى
+                            المطلوب منكم الحضور الى
                         </span>
                         <span t-field="docs.lieu_examen"/>
                         <span>

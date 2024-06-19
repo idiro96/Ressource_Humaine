@@ -573,7 +573,7 @@ class DroitAvancementXLS(models.AbstractModel):
                 sheet.write(row, 8, '/', format3)
             sheet.write(row, 9, duree1 or '/', format3)
             sheet.write(row, 10, '', format3)
-            sheet.write(row, 11, '', format3)
+            sheet.write(row, 11, '20', format3)
             sheet.write(row, 12, line_date_new_avancement_av.get(line.id, '') or '/', date_format2)
             sheet.write(row, 13, line_date_new_avancement_av2.get(line.id, '') or '/', format3)
             row += 1
