@@ -84250,3 +84250,8 @@ msgstr "تاريخ إمضاء المقرر"
 msgid "programme de surveillance individuel pour les employees"
 msgstr "تسخيرة الامتحانات و المسابقات"
 
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_formation_organisme_formation
+msgid "Organisme Formation"
+msgstr "مؤسسات التكوين"
+
