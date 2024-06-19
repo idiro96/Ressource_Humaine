@@ -109,6 +109,8 @@ class HrEmployeInherited(models.Model):
     categorie_id = fields.Many2one('rh.categorie', track_visibility="onchange")
     categorie_superieure_id = fields.Many2one('rh.categorie.superieure', track_visibility="onchange")
     echelon_id = fields.Many2one('rh.echelon', track_visibility="onchange")
+    echelon_code = fields.Char(related='echelon_id.intitule', store=True)
+    echelon_code_sup = fields.Char(related='echelon_id_grade.intitule', store=True)
     niveau_hierarchique_id = fields.Many2one('rh.niveau.hierarchique', track_visibility="onchange")
     section_id = fields.Many2one('rh.section', track_visibility="onchange")
     section_superieure_id = fields.Many2one('rh.section.superieure', track_visibility="onchange")

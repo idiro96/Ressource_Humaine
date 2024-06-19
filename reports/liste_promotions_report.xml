@@ -124,7 +124,7 @@
                                 <t t-esc="line_date_new_promotion_av.get(line.id, '')"/>
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
-                                    &#160;
+                                   <t t-esc="20"/>
                                 </td>
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
                                     <span t-esc="duree1"/>
