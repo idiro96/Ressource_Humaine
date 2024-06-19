@@ -77,7 +77,7 @@
                                     <span>اللقب :</span>
                                     <span t-esc="employee_info.nom_ar"/>
                                     <br/>
-                                    <span>إلاسم :</span>
+                                    <span>الإسم :</span>
                                     <t t-if="employee_info.prenom_ar">
                                         <span t-esc="employee_info.prenom_ar"/>
                                     </t>
