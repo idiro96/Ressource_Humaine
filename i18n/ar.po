@@ -25006,7 +25006,7 @@ msgstr "استنساخ هذه الصفحة"
 #: code:addons/website/static/src/xml/website.gallery.xml:51
 #, python-format
 msgid "Close"
-msgstr "إقفال"
+msgstr "غلق"
 
 #. module: account
 #. openerp-web
