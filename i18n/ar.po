@@ -81972,12 +81972,12 @@ msgstr "rh.entretien.line"
 #. module: ressource_humaine
 #: model:ir.model,name:ressource_humaine.model_rh_fiche_evaluation
 msgid "rh.fiche.evaluation"
-msgstr "rh.fiche.evaluation"
+msgstr "إستمارة التنقيط"
 
 #. module: ressource_humaine
 #: model:ir.model,name:ressource_humaine.model_rh_file
 msgid "rh.file"
-msgstr "rh.file"
+msgstr "ملف"
 
 #. module: ressource_humaine
 #: model:ir.model,name:ressource_humaine.model_rh_filiere
@@ -84259,3 +84259,18 @@ msgstr "مؤسسات التكوين"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_grade_line_grade2_id
 msgid "Grade2"
 msgstr "الرتب"
+
+#. module: ressource_humaine
+#: model:ir.actions.report,name:ressource_humaine.action_fiche_evaluation
+msgid "Fiche d'évaluation"
+msgstr "إستمارة التنقيط"
+
+#. module: ressource_humaine
+#: model:ir.actions.act_window,name:ressource_humaine.action_programme_individuel
+msgid "programme individuel"
+msgstr "تسخيرة الامتحانات و المسابقات"
+
+#. module: ressource_humaine
+#: model:ir.model,name:ressource_humaine.model_programme_individuel
+msgid "programme.individuel"
+msgstr "تسخيرة الامتحانات و المسابقات"
