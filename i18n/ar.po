@@ -84077,6 +84077,7 @@ msgid "Interne"
 msgstr "داخلي"
 
 #. module: ressource_humaine
+#: model:ir.actions.act_window,name:ressource_humaine.action_type_methode_embauche
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_type_methode_embauche
 msgid "Type Methode Embauche"
 msgstr "طريقة التوظيف"
