@@ -33577,6 +33577,8 @@ msgstr "الموظف"
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_employee
 #: model:ir.ui.view,arch_db:ressource_humaine.conge_droit_search
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_prime_rendement_line_employee_id
+#: model:ir.ui.view,arch_db:ressource_humaine.conjoint_search
+#: model:ir.ui.view,arch_db:ressource_humaine.enfant_search
 msgid "Employee"
 msgstr "الموظف"
 
@@ -84154,6 +84156,8 @@ msgstr "بحث في حق العطلة"
 #: model:ir.ui.view,arch_db:ressource_humaine.view_department_filter_inherited
 #: model:ir.ui.view,arch_db:ressource_humaine.view_employee_filter_inherited
 #: model:ir.ui.view,arch_db:ressource_humaine.view_job_filter_inherited
+#: model:ir.ui.view,arch_db:ressource_humaine.conjoint_search
+#: model:ir.ui.view,arch_db:ressource_humaine.enfant_search
 msgid "Group By"
 msgstr "تجميع حسب"
 
@@ -84280,3 +84284,49 @@ msgstr "تسخيرة الامتحانات و المسابقات"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_prime_rendement_line_remarque
 msgid "Remarque"
 msgstr "الملاحظات"
+
+#. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.conjoint_search
+msgid "Search Spouse"
+msgstr "البحث بتفاصيل عن تسجيلات الأزواج"
+
+#. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.conjoint_search
+msgid "Spouse's Last Name"
+msgstr "لقب الزوج(ة)"
+
+#. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.conjoint_search
+msgid "Spouse's First Name"
+msgstr "إسم الزوج(ة)"
+
+#. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.conjoint_search
+msgid "Housewife"
+msgstr "ماكثة في البيت"
+
+#. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.conjoint_search
+msgid "Wedding's Date"
+msgstr "تاريخ الزواج"
+
+#. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.enfant_search
+msgid "Search Child"
+msgstr "البحث بتفاصيل عن تسجيلات الأبناء"
+
+#. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.enfant_search
+msgid "Child's Name"
+msgstr "إسم الإبن/البنت"
+
+#. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.enfant_search
+msgid "Scholarity"
+msgstr "متمدرس"
+
+#. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.enfant_search
+msgid "Child's Birthday"
+msgstr "تاريخ ميلاد الإبن/البنت"
+
