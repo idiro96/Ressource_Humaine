@@ -66,6 +66,18 @@
             </form>
         </field>
     </record>
+    <record id="planning_search" model="ir.ui.view">
+        <field name="name">planning.search</field>
+        <field name="model">rh.planning</field>
+        <field name="arch" type="xml">
+            <search string="Search Schedule">
+                <field name="date_surveillance" string="Monitoring Date"/>
+                <group expand="0" string="Group By">
+                    <filter string="Monitoring Date" name="date_surveillance" context="{'group_by': 'date_surveillance:year'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
     <record id="action_rh_planning" model="ir.actions.act_window">
         <field name="name">Planning Surveillance</field>
         <field name="type">ir.actions.act_window</field>

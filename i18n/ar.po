@@ -84158,6 +84158,7 @@ msgstr "بحث في حق العطلة"
 #: model:ir.ui.view,arch_db:ressource_humaine.view_job_filter_inherited
 #: model:ir.ui.view,arch_db:ressource_humaine.conjoint_search
 #: model:ir.ui.view,arch_db:ressource_humaine.enfant_search
+#: model:ir.ui.view,arch_db:ressource_humaine.planning_search
 msgid "Group By"
 msgstr "تجميع حسب"
 
@@ -84324,3 +84325,13 @@ msgstr "متمدرس"
 #: model:ir.ui.view,arch_db:ressource_humaine.enfant_search
 msgid "Child's Birthday"
 msgstr "تاريخ ميلاد الإبن/البنت"
+
+#. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.planning_search
+msgid "Search Schedule"
+msgstr "برنامج حراسة الامتحانات و المسابقات"
+
+#. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.planning_search
+msgid "Monitoring Date"
+msgstr "تاريخ الامتحان"
