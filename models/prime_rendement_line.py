@@ -15,6 +15,7 @@ class RHPrimeRendementLine(models.Model):
     nbr_jours_travail = fields.Integer(track_visibility='onchange', default=90)
     notation_responsable = fields.Float(track_visibility='onchange', default=30)
     notation_finale = fields.Float(track_visibility='onchange',  compute='_compute_prime_final_fields')
+    remarque = fields.Char(track_visibility='onchange')
     create_uid = fields.Many2one('res.users', string='Created by', readonly=True, track_visibility='onchange')
     write_uid = fields.Many2one('res.users', string='Last Updated by', readonly=True, track_visibility='onchange')
     categorie_grade_indice = fields.Integer(related='employee_id.grade_id.categorie_id.Indice_minimal', store=True)

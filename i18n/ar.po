@@ -84275,3 +84275,8 @@ msgstr "تسخيرة الامتحانات و المسابقات"
 #: model:ir.model,name:ressource_humaine.model_programme_individuel
 msgid "programme.individuel"
 msgstr "تسخيرة الامتحانات و المسابقات"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_prime_rendement_line_remarque
+msgid "Remarque"
+msgstr "الملاحظات"

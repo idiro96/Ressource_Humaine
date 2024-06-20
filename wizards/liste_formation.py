@@ -51,7 +51,7 @@ class ListeFormationReport(models.AbstractModel):
             date_fin_formation = datetime.strptime(formation.date_fin_formation, "%Y-%m-%d").strftime("%Y/%m/%d")
             formatted_formations.append({
                 'id': formation.id,
-                'organisme_id': formation.organisme_id.rs_organisme,
+                'organisme_id': formation.organisme_formation,
                 'date_debut_formation': date_debut_formation,
                 'date_fin_formation': date_fin_formation,
                 'intitule_formation': formation.intitule_formation,
@@ -131,5 +131,5 @@ class ListeFormationXLS(models.AbstractModel):
             sheet.write(row, 1, line.employee_id.grade_id.intitule_grade, format3)
             sheet.write(row, 2, line.formation_id.intitule_formation, format3)
             sheet.write(row, 3, f"{line.formation_id.date_fin_formation} / {line.formation_id.date_debut_formation}", format3)
-            sheet.write(row, 4, line.formation_id.organisme_id.rs_organisme or '/', format3)
+            sheet.write(row, 4, line.formation_id.organisme_formation or '/', format3)
             row += 1
