@@ -25006,7 +25006,7 @@ msgstr "استنساخ هذه الصفحة"
 #: code:addons/website/static/src/xml/website.gallery.xml:51
 #, python-format
 msgid "Close"
-msgstr "إقفال"
+msgstr "غلق"
 
 #. module: account
 #. openerp-web
@@ -84282,6 +84282,11 @@ msgid "programme.individuel"
 msgstr "تسخيرة الامتحانات و المسابقات"
 
 #. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_prime_rendement_line_remarque
+msgid "Remarque"
+msgstr "الملاحظات"
+
+#. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.conjoint_search
 msgid "Search Spouse"
 msgstr "البحث بتفاصيل عن تسجيلات الأزواج"
@@ -84326,6 +84331,7 @@ msgstr "متمدرس"
 msgid "Child's Birthday"
 msgstr "تاريخ ميلاد الإبن/البنت"
 
+
 #. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.planning_search
 msgid "Search Schedule"
@@ -84335,3 +84341,4 @@ msgstr "برنامج حراسة الامتحانات و المسابقات"
 #: model:ir.ui.view,arch_db:ressource_humaine.planning_search
 msgid "Monitoring Date"
 msgstr "تاريخ الامتحان"
+
