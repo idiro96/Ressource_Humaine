@@ -342,4 +342,13 @@
             name="ressource_humaine.liste_formation_xlsx"
             file="قائمة الموظفين المستفيدين من التكوين"/>
 
+    <report
+            id="action_direct_liste_formation_report"
+            string="Liste Formation"
+            model="rh.formation"
+            report_type="qweb-html"
+            name="ressource_humaine.direct_liste_formation_report"
+            file="ressource_humaine.direct_liste_formation_report"
+            paperformat="ressource_humaine.paperformat_european_a4_landscape"/>
+
 </odoo>

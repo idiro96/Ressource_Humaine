@@ -82,11 +82,132 @@
                                         <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                             <t t-foreach="line['formation_lines']" t-as="formation_line">
                                                 <t t-if="formation_lines_sizes[line['id']] == 1">
-                                                    <t t-esc="formation_line['employee_id']['grade_id']['intitule_grade']"/>
+                                                    <t t-if="formation_line['employee_id']['grade_id']['description']">
+                                                        <t t-esc="formation_line['employee_id']['grade_id']['description']"/>
+                                                    </t>
+                                                    <t t-if="not formation_line['employee_id']['grade_id']['description']">
+                                                        <t t-esc="formation_line['employee_id']['grade_id']['intitule_grade']"/>
+                                                    </t>
                                                 </t>
                                                 <t t-if="formation_lines_sizes[line['id']] != 1">
                                                     <div style="border-bottom:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:55px">
+                                                        <t t-if="formation_line['employee_id']['grade_id']['description']">
+                                                            <t t-esc="formation_line['employee_id']['grade_id']['description']"/>
+                                                        </t>
+                                                        <t t-if="not formation_line['employee_id']['grade_id']['description']">
+                                                            <t t-esc="formation_line['employee_id']['grade_id']['intitule_grade']"/>
+                                                        </t>
+                                                    </div>
+                                                </t>
+                                            </t>
+                                        </td>
+                                        <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
+                                            <t t-foreach="line['formation_lines']" t-as="formation_line">
+                                                <t t-if="formation_lines_sizes[line['id']] == 1">
+                                                    <t t-esc="formation_line['employee_id']['name']"/>
+                                                </t>
+                                                <t t-if="formation_lines_sizes[line['id']] != 1">
+                                                    <div style="border-bottom:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:55px">
+                                                        <t t-esc="formation_line['employee_id']['name']"/>
+                                                    </div>
+                                                </t>
+                                            </t>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="page-break-before: always;"></div>
+                </div>
+            </div>
+        </t>
+    </template>
+    <template id="direct_liste_formation_report">
+        <t t-call="web.basic_layout">
+            <t t-call="ressource_humaine.report_header_custom"/>
+            <div class="page">
+                <div class="row">
+                    <strong>
+                        <div class="al-mohanad_bold"
+                             style="font-size: 35px;text-align: right;word-spacing: 5px;margin-right:15px">
+                            <span>
+                                الأمانة العامة
+                            </span>
+                        </div>
+                        <br/>
+                        <div class="al-mohanad_bold"
+                             style="font-size: 35px;text-align: right;word-spacing: 5px;margin-right:15px">
+                            <span>
+                                مصلحة تسيير الموارد البشرية
+                            </span>
+                        </div>
+                        <br/>
+                        <div style="text-align:center;font-size:35px;width:80%;margin:0 auto;font-weight:bold;">
+                            <span class="al-mohanad_bold">
+                                قائمة الموظفين المستفيدين من التكوين
+                            </span>
+                        </div>
+                    </strong>
+                    <br/>
+                    <br/>
+                    <div class="row" style="margin:75px;">
+                        <table style="width: 100%;">
+                            <thead class="al-mohanad_bold">
+                                <tr>
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:30px;width:20%;height:35px">
+                                        ملاحــــــظة
+                                    </th>
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:30px;width:20%;height:35px">
+                                        المدة و التاريخ
+                                    </th>
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:30px;width:20%;height:35px">
+                                        موضوع الدورة التكوينية
+                                    </th>
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:30px;width:20%;height:35px">
+                                        الرتبة/الوظيفة
+                                    </th>
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:30px;width:20%;height:35px">
+                                        الإسم و اللقب
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="formations" t-as="line">
+                                    <tr>
+                                        <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
+                                            <t t-esc="line['organisme_id']"/>
+                                        </td>
+                                        <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
+                                            إبتداء من
+                                            <t t-esc="line['date_debut_formation']"/>
+                                            إلى
+                                            <t t-esc="line['date_fin_formation']"/>
+                                            <span style="color: white;">
+                                                أ
+                                            </span>
+                                        </td>
+                                        <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
+                                            <t t-esc="line['intitule_formation']"/>
+                                        </td>
+                                        <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
+                                            <t t-foreach="line['formation_lines']" t-as="formation_line">
+                                                <t t-if="formation_lines_sizes[line['id']] == 1">
+                                                    <t t-if="formation_line['employee_id']['grade_id']['description']">
+                                                        <t t-esc="formation_line['employee_id']['grade_id']['description']"/>
+                                                    </t>
+                                                    <t t-if="not formation_line['employee_id']['grade_id']['description']">
                                                         <t t-esc="formation_line['employee_id']['grade_id']['intitule_grade']"/>
+                                                    </t>
+                                                </t>
+                                                <t t-if="formation_lines_sizes[line['id']] != 1">
+                                                    <div style="border-bottom:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:55px">
+                                                        <t t-if="formation_line['employee_id']['grade_id']['description']">
+                                                            <t t-esc="formation_line['employee_id']['grade_id']['description']"/>
+                                                        </t>
+                                                        <t t-if="not formation_line['employee_id']['grade_id']['description']">
+                                                            <t t-esc="formation_line['employee_id']['grade_id']['intitule_grade']"/>
+                                                        </t>
                                                     </div>
                                                 </t>
                                             </t>

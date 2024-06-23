@@ -133,3 +133,40 @@ class ListeFormationXLS(models.AbstractModel):
             sheet.write(row, 3, f"{line.formation_id.date_fin_formation} / {line.formation_id.date_debut_formation}" or '', format3)
             sheet.write(row, 4, line.formation_id.organisme_formation or '/', format3)
             row += 1
+
+
+class DirectListeFormationReport(models.AbstractModel):
+    _name = 'report.ressource_humaine.direct_liste_formation_report'
+
+    @api.model
+    def get_report_values(self, docids, data=None):
+        formations = self.env['rh.formation'].browse(docids)
+
+        formation_lines = []
+        for formation in formations:
+            formation_lines.extend(formation.formation_lines)
+
+        print(formations)
+        print(formation_lines)
+
+        formatted_formations = []
+        for formation in formations:
+            date_debut_formation = datetime.strptime(formation.date_debut_formation, "%Y-%m-%d").strftime("%Y/%m/%d")
+            date_fin_formation = datetime.strptime(formation.date_fin_formation, "%Y-%m-%d").strftime("%Y/%m/%d")
+            formatted_formations.append({
+                'id': formation.id,
+                'organisme_id': formation.organisme_formation,
+                'date_debut_formation': date_debut_formation,
+                'date_fin_formation': date_fin_formation,
+                'intitule_formation': formation.intitule_formation,
+                'formation_lines': formation.formation_lines,
+            })
+
+        report_data = {
+            'formation_lines': formation_lines,
+            'formation_lines_sizes': {formation.id: len(formation.formation_lines) for formation in formations},
+            'formations': formatted_formations,
+            'company': self.env.user.company_id,
+        }
+
+        return report_data
