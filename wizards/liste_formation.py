@@ -132,4 +132,6 @@ class ListeFormationXLS(models.AbstractModel):
             sheet.write(row, 2, line.formation_id.intitule_formation, format3)
             sheet.write(row, 3, f"{line.formation_id.date_fin_formation} / {line.formation_id.date_debut_formation}", format3)
             sheet.write(row, 4, line.formation_id.organisme_formation or '/', format3)
+
             row += 1
+
