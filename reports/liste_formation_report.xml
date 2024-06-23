@@ -332,7 +332,12 @@
                                     <t t-esc="line['arabic_date_debut_formation']"/>
                                     إبتداء من الساعة
                                     <span>
-                                        <t t-esc="' : '.join(line['time_start'].split(' : ')[::-1])"/>
+                                        <t t-if="line['time_period']">
+                                            <t t-esc="' : '.join(line['time_start'].split(' : ')[::-1])"/>
+                                        </t>
+                                        <t t-if="not line['time_period']">
+                                            .................
+                                        </t>
                                     </span>
                                     <t t-if="line['time_period'] == 'Morning'">
                                         صباحا
