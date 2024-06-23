@@ -127,9 +127,9 @@ class ListeFormationXLS(models.AbstractModel):
 
         row = 7
         for index, line in enumerate(formation_lines, start=1):
-            sheet.write(row, 0, line.employee_id.name, format3)
-            sheet.write(row, 1, line.employee_id.grade_id.intitule_grade, format3)
-            sheet.write(row, 2, line.formation_id.intitule_formation, format3)
-            sheet.write(row, 3, f"{line.formation_id.date_fin_formation} / {line.formation_id.date_debut_formation}", format3)
+            sheet.write(row, 0, line.employee_id.name or '', format3)
+            sheet.write(row, 1, line.employee_id.grade_id.intitule_grade or '', format3)
+            sheet.write(row, 2, line.formation_id.intitule_formation or '', format3)
+            sheet.write(row, 3, f"{line.formation_id.date_fin_formation} / {line.formation_id.date_debut_formation}" or '', format3)
             sheet.write(row, 4, line.formation_id.organisme_formation or '/', format3)
             row += 1
