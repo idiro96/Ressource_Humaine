@@ -234,4 +234,123 @@
             </div>
         </t>
     </template>
+    <template id="appel_liste_formation_report">
+        <t t-call="web.basic_layout">
+            <t t-call="ressource_humaine.report_header_custom"/>
+            <t t-foreach="formations" t-as="line">
+                <t t-foreach="line['formation_lines']" t-as="formation_line">
+                    <div class="page">
+                        <div class="row">
+                            <strong>
+                                <div class="Diwani_Letter" style="font-size: 32px;text-align: right;">
+                                    <span style="margin-right:15px;word-spacing: 9px;">
+                                        المدرسة الوطنية للإدارة
+                                    </span>
+                                    <span style="margin-right:370px">
+                                        الجزائر في
+                                    </span>
+                                </div>
+                                <br/>
+                                <div class="Diwani_Letter"
+                                     style="font-size: 32px;text-align: right;margin-right:15px;word-spacing: 9px;">
+                                    <span>
+                                        الأمانة العامة
+                                    </span>
+                                </div>
+                                <br/>
+                                <div class="Diwani_Letter"
+                                     style="font-size: 32px;text-align: right;margin-right:15px;word-spacing: 9px;">
+                                    <span>
+                                        مصلحة تسيير الموارد البشرية
+                                    </span>
+                                </div>
+                                <br/>
+                                <div class="Diwani_Letter"
+                                     style="font-size: 32px;text-align: right;margin-right:15px;word-spacing: 9px;">
+                                    <span>
+                                        رقم ........... /م.و.إ/أ.ع/م.ت.م.ب/
+                                        <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
+                                    </span>
+                                </div>
+                            </strong>
+                            <br/>
+                            <br/>
+                            <div class="al-mohanad_bold" style="font-size: 25px;text-align: right;margin-right:500px;">
+                                <span>
+                                    الإسم و اللقب:
+                                    <t t-esc="formation_line['employee_id']['name']"/>
+                                </span>
+                                <br/>
+                                <span>
+                                    الرتبة:
+                                    <t t-if="formation_line['employee_id']['grade_id']['description']">
+                                        <t t-esc="formation_line['employee_id']['grade_id']['description']"/>
+                                    </t>
+                                    <t t-if="not formation_line['employee_id']['grade_id']['description']">
+                                        <t t-esc="formation_line['employee_id']['grade_id']['intitule_grade']"/>
+                                    </t>
+                                </span>
+                            </div>
+                            <div class="al-mohanad_bold" style="font-size: 25px;text-align: right;margin-right:50px;">
+                                الموضوع: دعوة
+                            </div>
+                            <br/>
+                            <div class="al-mohanad" style="font-size: 25px;text-align: right;margin-right:25px;">
+                                <span style="color: white;">
+                                    أأأأأأأأأأ
+                                </span>
+                                <span>
+                                    في إطار المشاركة في الدورة التكوينية على مستوى
+                                    <t t-if="line['organisme_id']">
+                                        <t t-esc="line['organisme_id']"/>
+                                    </t>
+                                    <t t-if="not line['organisme_id']">
+                                        .....................................
+                                    </t>
+                                    في موضوع
+                                    <t t-if="line['intitule_formation']">
+                                        <t t-esc="line['intitule_formation']"/>
+                                    </t>
+                                    <t t-if="not line['intitule_formation']">
+                                        .....................................
+                                    </t>
+                                    ، أدعوكم للالتحاق بالتكوين وذلك لمدة
+                                    <t t-if="line['time_difference'] == 1">
+                                        يوم
+                                        (<t t-esc="line['time_difference']"/>)
+                                    </t>
+                                    <t t-if="line['time_difference'] == 2">
+                                        يومين
+                                        (<t t-esc="line['time_difference']"/>)
+                                    </t>
+                                    <t t-if="line['time_difference'] != 1 and line['time_difference'] != 2">
+                                        <t t-esc="line['arabic_number_of_days']"/>
+                                        (<t t-esc="line['time_difference']"/>)
+                                        أيام
+                                    </t>
+                                    ابتداء من
+                                    <t t-esc="line['arabic_date_debut_formation']"/>
+                                    إبتداء من الساعة
+                                    <span>
+                                        <t t-esc="' : '.join(line['time_start'].split(' : ')[::-1])"/>
+                                    </span>
+                                    <t t-if="line['time_period'] == 'Morning'">
+                                        صباحا
+                                    </t>
+                                    <t t-if="line['time_period'] == 'Evening'">
+                                        مساء
+                                    </t>
+                                    .
+                                </span>
+                                <span style="color: white;">
+                                    أ
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="page-break-before: always;"></div>
+                </t>
+            </t>
+        </t>
+    </template>
 </odoo>

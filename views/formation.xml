@@ -33,8 +33,22 @@
                         <group>
                             <field name="code_for"/>
                             <field name="intitule_formation"/>
-                            <field name="date_debut_formation"/>
-                            <field name="date_fin_formation"/>
+                            <label string="تاريخ بداية التكوين"/>
+                            <div>
+                                <div>
+                                    <field name="date_debut_formation" class="oe_inline"/>
+                                    <label string="&#160;&#160;&#160;&#160;&#160;" class="oe_inline"/>
+                                    <field name="time_start" widget="timepicker" class="oe_inline"/>
+                                </div>
+                            </div>
+                            <label string="تاريخ نهاية التكوين"/>
+                            <div>
+                                <div>
+                                    <field name="date_fin_formation" class="oe_inline"/>
+                                    <label string="&#160;&#160;&#160;&#160;&#160;" class="oe_inline"/>
+                                    <field name="time_end" widget="timepicker" class="oe_inline"/>
+                                </div>
+                            </div>
                             <field name="type_formation_id"
                                    options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
                         </group>
