@@ -69,8 +69,21 @@
                 </xpath>
                 <xpath expr="//form//sheet//group" position="after">
                     <group>
-                        <field name="reliquat"/>
+                        <field name="exercice"/>
                     </group>
+                </xpath>
+                <xpath expr="//form//sheet//group//field[@name='exercice']" position="before">
+                        <field name="reliquat"/>
+                </xpath>
+
+                <xpath expr="//form//sheet//group//field[@name='exercice']" position="after">
+                        <field name="regle2"/>
+                </xpath>
+                <xpath expr="//form//sheet//group//field[@name='regle2']" position="after">
+                        <field name="regle3"/>
+                </xpath>
+                 <xpath expr="//form//sheet//group//field[@name='regle3']" position="after">
+                        <field name="sur_demande"/>
                 </xpath>
             </field>
         </record>

@@ -11,8 +11,12 @@ class HrHolidaysInherited(models.Model):
                                         states={'draft': [('readonly', False)], 'confirm': [('readonly', False)]},
                                         compute='_get_default_value')
     code = fields.Char()
-    reliquat = fields.Boolean(track_visibility='onchange', tratranslate=True, default=False)
 
+    reliquat = fields.Boolean(track_visibility='onchange', tratranslate=True, default=False)
+    exercice = fields.Char()
+    regle2 = fields.Char()
+    regle3 = fields.Boolean(track_visibility='onchange',default=False)
+    sur_demande = fields.Char(track_visibility='onchange',default='ـ بناء على جدول العطلة السنوية لمستخدمي المدرسة الوطنية للإدارة بعنوان سنة')
     def _get_default_value(self):
         # You can set the default value based on your requirements
         # For example, if you want to set a specific record as default, you can use the `search` method
@@ -43,10 +47,8 @@ class HrHolidaysInherited(models.Model):
         if employ:
             leave_days = employ.days_off
             leave_days = 0
-            print('ici conge1')
         result = super(Holidays, self)._check_holidays()
         employ.write({'days_off': 0})
-        print('ici conge2')
         # Votre code supplémentaire ici
         return result
 

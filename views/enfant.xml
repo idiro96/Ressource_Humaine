@@ -47,6 +47,21 @@
             </form>
         </field>
     </record>
+    <record id="enfant_search" model="ir.ui.view">
+        <field name="name">enfant.search</field>
+        <field name="model">rh.enfant</field>
+        <field name="arch" type="xml">
+            <search string="Search Child">
+                <field name="employee_id" string="Employee" filter_domain="[('employee_id', 'ilike', self)]"/>
+                <field name="prenom_enfant" string="Child's Name" domain="[('prenom_enfant', 'ilike', self)]"/>
+                <filter string="Scholarity" name="scolarite" domain="[('scolarite', '=', True)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Employee" name="employee_id" context="{'group_by': 'employee_id'}"/>
+                    <filter string="Child's Birthday" name="date_naissance_enfant" context="{'group_by': 'date_naissance_enfant'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
     <record id="action_rh_enfant" model="ir.actions.act_window">
         <field name="name">Enfant</field>
         <field name="type">ir.actions.act_window</field>

@@ -1,7 +1,9 @@
+from dateutil.tz import relativedelta
+
 from odoo import models, fields, api, _
 from odoo.exceptions import UserError
 from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
-from datetime import datetime
+from datetime import datetime, timedelta
 from num2words import num2words
 
 
@@ -43,6 +45,8 @@ class TitreCongeReport(models.AbstractModel):
         #     conge.reliquat = False
 
         # contract = self.env['hr.contract'].search([('employee_id', '=', conge.employee_id.id)], limit=1)
+
+        print(conge.date_to)
         conge_date_to = conge.date_to
         formatted_conge_date_to = datetime.strptime(conge_date_to, "%Y-%m-%d %H:%M:%S").strftime("%d-%m-%Y")
         conge_date_from = conge.date_from

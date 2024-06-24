@@ -52,6 +52,21 @@
             </form>
         </field>
     </record>
+     <record id="conjoint_search" model="ir.ui.view">
+        <field name="name">conjoint.search</field>
+        <field name="model">rh.conjoint</field>
+        <field name="arch" type="xml">
+            <search string="Search Spouse">
+                <field name="employee_id" string="Employee" filter_domain="[('employee_id', 'ilike', self)]"/>
+                <field name="nom_conjoint" string="Spouse's Last Name" domain="[('nom_conjoint', 'ilike', self)]"/>
+                <field name="prenom_conjoint" string="Spouse's First Name" domain="[('prenom_conjoint', 'ilike', self)]"/>
+                <filter string="Housewife" name="femme_foyer" domain="[('femme_foyer', '=', True)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Wedding's Date" name="date_mariage" context="{'group_by': 'date_mariage'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
     <record id="action_rh_conjoint" model="ir.actions.act_window">
         <field name="name">Conjoint</field>
         <field name="type">ir.actions.act_window</field>
