@@ -6,6 +6,7 @@ from odoo.exceptions import UserError, ValidationError
 
 class RHPrimeRendement(models.Model):
     _name = 'rh.prime.rendement'
+    _rec_name = 'exercice'
     _order = "date_debut desc"
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _mail_post_access = 'read'

@@ -25006,7 +25006,7 @@ msgstr "استنساخ هذه الصفحة"
 #: code:addons/website/static/src/xml/website.gallery.xml:51
 #, python-format
 msgid "Close"
-msgstr "إقفال"
+msgstr "غلق"
 
 #. module: account
 #. openerp-web
@@ -84168,6 +84168,7 @@ msgstr "بحث في حق العطلة"
 #: model:ir.ui.view,arch_db:ressource_humaine.view_job_filter_inherited
 #: model:ir.ui.view,arch_db:ressource_humaine.conjoint_search
 #: model:ir.ui.view,arch_db:ressource_humaine.enfant_search
+#: model:ir.ui.view,arch_db:ressource_humaine.planning_search
 msgid "Group By"
 msgstr "تجميع حسب"
 
@@ -84190,6 +84191,7 @@ msgstr "منحة المردودية"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.liste_formation_action
+#: model:ir.actions.report,name:ressource_humaine.action_direct_liste_formation_report
 #: model:ir.actions.report,name:ressource_humaine.action_liste_formation_report
 #: model:ir.ui.menu,name:ressource_humaine.liste_formation_menu
 msgid "Liste Formation"
@@ -84291,6 +84293,11 @@ msgid "programme.individuel"
 msgstr "تسخيرة الامتحانات و المسابقات"
 
 #. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_prime_rendement_line_remarque
+msgid "Remarque"
+msgstr "الملاحظات"
+
+#. module: ressource_humaine
 #: model:ir.ui.view,arch_db:ressource_humaine.conjoint_search
 msgid "Search Spouse"
 msgstr "البحث بتفاصيل عن تسجيلات الأزواج"
@@ -84334,3 +84341,29 @@ msgstr "متمدرس"
 #: model:ir.ui.view,arch_db:ressource_humaine.enfant_search
 msgid "Child's Birthday"
 msgstr "تاريخ ميلاد الإبن/البنت"
+
+
+#. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.planning_search
+msgid "Search Schedule"
+msgstr "برنامج حراسة الامتحانات و المسابقات"
+
+#. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.planning_search
+msgid "Monitoring Date"
+msgstr "تاريخ الامتحان"
+
+#. module: ressource_humaine
+#: model:ir.actions.report,name:ressource_humaine.action_appel_liste_formation_report
+msgid "Appel Formation"
+msgstr "دعوة"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_formation_time_start
+msgid "Time Start"
+msgstr "ساعة بداية التكوين"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_formation_time_end
+msgid "Time End"
+msgstr "ساعة نهاية التكوين"

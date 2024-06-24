@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from datetime import datetime
 
 from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
@@ -27,6 +28,24 @@ class RHFormation(models.Model):
     state = fields.Selection([('draft', 'Brouillon'), ('confirm', 'Validé'), ], readonly=True, default='draft')
     create_uid = fields.Many2one('res.users', string='Created by', readonly=True, track_visibility='onchange')
     write_uid = fields.Many2one('res.users', string='Last Updated by', readonly=True, track_visibility='onchange')
+    time_start = fields.Char(track_visibility='onchange')
+    time_end = fields.Char(track_visibility='onchange')
+    time_period = fields.Char(string='Time Period', compute='_compute_time_period', store='True')
+
+    @api.depends('time_start')
+    def _compute_time_period(self):
+        for record in self:
+            if record.time_start:
+                try:
+                    time_obj = datetime.strptime(record.time_start.strip(), '%H : %M')
+                    if time_obj.hour < 12:
+                        record.time_period = 'Morning'
+                    else:
+                        record.time_period = 'Evening'
+                except ValueError:
+                    record.time_period = ''
+            else:
+                record.time_period = ''
 
     @api.model
     def create(self, vals):
