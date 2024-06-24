@@ -58,10 +58,7 @@
                         <span style="color: white;">أ</span>
                         <br/>
                         <br/>
-                        ـ بناء على جدول العطلة السنوية لمستخدمي المدرسة الوطنية للإدارة بعنوان سنة
-                        <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
-                        ،
-                        <span style="color: white;">أ</span>
+                         <span t-esc="conge.sur_demande"/>
                         <br/>
                     </p>
                 </div>
@@ -73,11 +70,15 @@
                     <span>
                         <t t-if="conge.reliquat == True">
                             تمنح مخلف عطلة سنوية بعنوان
+                            <t t-esc="conge.exercice"/>
                         </t>
                         <t t-if="conge.reliquat == False">
                             تمنح عطلة سنوية بعنوان
+                            <t t-esc="conge.exercice"/>
+<!--                            <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>-->
                         </t>
-                        <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
+
+
                         مدتها
                         <t t-esc="arabic_number_of_days_words"/>
                         (<t t-esc="conge.number_of_days_temp" t-options='{"widget": "float", "precision": 0}'/>)
@@ -96,20 +97,44 @@
                     </span>
                     <br/>
                     <span>
+                        <t t-if="conge.employee_id.nature_travail_id.code_type_fonction == 'fonction'">
                         الرتبة :
-                        <t t-if="conge.employee_id.grade_id.description">
-                            <t t-esc="conge.employee_id.grade_id.description"/>
-                        </t>
-                        <t t-if="not conge.employee_id.grade_id.description">
+                        <t t-if="conge.employee_id.grade_id.intitule_grade">
                             <t t-esc="conge.employee_id.grade_id.intitule_grade"/>
                         </t>
                         <span style="color: white;">أ</span>
-                    </span>
-                    <br/>
-                    <span>
-                        المنصب :
-                        <t t-esc="conge.employee_id.job_id.name"/>
+                        </t>
+                        <t t-if="conge.employee_id.nature_travail_id.code_type_fonction == 'fonctionsuperieure'">
+                        الرتبة :
+                        <t t-if="conge.employee_id.grade_id.intitule_grade">
+                            <t t-esc="conge.employee_id.grade_id.intitule_grade"/>
+                        </t>
+                             <br/>
+                         الوظيفة :
+                        <t t-if="conge.employee_id.job_id.name">
+                            <t t-esc="conge.employee_id.job_id.name"/>
+                        </t>
                         <span style="color: white;">أ</span>
+                        </t>
+                         <t t-if="conge.employee_id.nature_travail_id.code_type_fonction == 'postesuperieure'">
+                        الرتبة :
+                        <t t-if="conge.employee_id.grade_id.intitule_grade">
+                            <t t-esc="conge.employee_id.grade_id.intitule_grade"/>
+                        </t>
+                              <br/>
+                         الوظيفة :
+                        <t t-if="conge.employee_id.job_id.name">
+                            <t t-esc="conge.employee_id.job_id.name"/>
+                        </t>
+                        <span style="color: white;">أ</span>
+                        </t>
+                         <t t-if="conge.employee_id.nature_travail_id.code_type_fonction == 'contractuel'">
+                         منصب الشغل :
+                        <t t-if="conge.employee_id.job_id.name">
+                            <t t-esc="conge.employee_id.job_id.name"/>
+                        </t>
+                        <span style="color: white;">أ</span>
+                        </t>
                     </span>
                     <br/>
                     <span>
@@ -126,18 +151,36 @@
                     <br/>
                     <span>
                         <u>المادة 02 :</u>
-                        <t t-if="not conge.employee_id.gender or conge.employee_id.gender == 'male'">
+
+                            <t t-if="conge.regle2">
+                                <t t-esc="conge.regle2"/>
+                            </t>
+                        <t t-if="not conge.regle2">
+                            <t t-if="not conge.employee_id.gender or conge.employee_id.gender == 'male'">
                             يحتفظ المعنى بمخلف عطلة قدره
-                        </t>
-                        <t t-if="conge.employee_id.gender == 'female'">
+                            </t>
+                            <t t-if="conge.employee_id.gender == 'female'">
                             تحتفظ المعنىة بمخلف عطلة قدره
-                        </t>
-                        <t t-if="conge.employee_id.days_off == 0">
+                            </t>
+                            <t t-if="conge.employee_id.days_off == 0">
                             لا شيء
-                        </t>
+                            </t>
                         <t t-if="conge.employee_id.days_off != 0">
                             <t t-esc="conge.employee_id.days_off" t-options='{"widget": "float", "precision": 0}'/>
                             يوم
+                            </t>
+                        </t>
+                    </span>
+                     <br/>
+                    <span>
+                          <t t-if="conge.regle3">
+                            <u>المادة 03 :</u>
+                            <t t-if="not conge.employee_id.gender or conge.employee_id.gender == 'male'">
+                                يستفيد المعني من هذه العطلة السنوية خارج أرض الوطن
+                            </t>
+                            <t t-if="conge.employee_id.gender == 'female'">
+                                تستفيد المعنية من هذه العطلة السنوية خارج أرض الوطن
+                            </t>
                         </t>
                     </span>
                 </div>

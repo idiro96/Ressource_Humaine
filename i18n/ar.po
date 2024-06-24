@@ -46854,6 +46854,16 @@ msgstr "إدارة صفحات الموقع"
 msgid "Manage access rights"
 msgstr "الصلاحيات"
 
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_holidays_regle2
+msgid "Regle2"
+msgstr "تعديل المادة 02"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_holidays_regle3
+msgid "Regle3"
+msgstr "المادة 03"
+
 #. module: base
 #: model:ir.actions.act_window,help:base.grant_menu_access
 msgid "Manage and customize the items available and displayed in your Odoo system menu. You can delete an item by clicking on the box at the beginning of each line and then delete it through the button that appeared. Items can be assigned to specific groups in order to make them accessible to some users within the system."
