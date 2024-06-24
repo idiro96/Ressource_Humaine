@@ -3,152 +3,177 @@
     <template id="fiche_evaluation_report">
         <t t-call="web.basic_layout">
             <t t-call="ressource_humaine.report_header_custom"/>
-            <div class="page">
-                <div class="row">
-                    <strong>
-                        <div class="Diwani_Letter"
-                             style="font-size: 32px;text-align: right;margin-right:15px;word-spacing: 9px;">
-                            <span>
-                                المدرسة الوطنية للإدارة
-                            </span>
-                        </div>
-                        <br/>
-                        <div class="Diwani_Letter"
-                             style="font-size: 32px;text-align: right;margin-right:15px;word-spacing: 9px;">
-                            <span>
-                                الأمانة العامة
-                            </span>
-                        </div>
-                        <br/>
-                        <div class="Diwani_Letter"
-                             style="font-size: 32px;text-align: right;margin-right:15px;word-spacing: 9px;">
-                            <span>
-                                مصلحة تسيير الموارد البشرية
-                            </span>
-                        </div>
-                        <br/>
-                        <br/>
-                    </strong>
-                </div>
-                <br/>
-                <br/>
-                <div class="al-mohanad_bold" style="text-align: center;">
-                    <span style="font-size: 35px;">
-                        <t t-esc="employee_evaluee.exercice"/>
-                    </span>
-                    <span style="font-size: 45px;">إسـتمارة التنقيط لسنة</span>
-                </div>
-                <br/>
-                <div class="row" style="margin:30;">
-                    <table style="width: 100%;">
-                        <thead class="al-mohanad">
-                            <tr>
-                                <th style="border:2px solid black;vertical-align:middle;text-align:right;font-size:25px;padding-right: 10px;">
-                                    <span>الرتبة :</span>
-                                    <t t-if="employee_evaluee.grade_id.description">
-                                        <strong>
-                                            <t t-esc="employee_evaluee.grade_id.description"/>
-                                        </strong>
-                                    </t>
-                                    <t t-if="not employee_evaluee.grade_id.description">
-                                        <strong>
-                                            <t t-esc="employee_evaluee.grade_id.intitule_grade"/>
-                                        </strong>
-                                    </t>
-                                    <br/>
-                                    <span>المنصب :</span>
-                                    <t t-if="employee_info.job_id.name">
-                                        <span t-esc="employee_info.job_id.name"/>
-                                    </t>
-                                    <t t-if="not employee_info.job_id.name">
-                                        <span style="color: white;">أ</span>
-                                    </t>
-                                    <br/>
-                                    <span>الدرجة :</span>
-                                    <span t-esc="employee_evaluee.echelon_id.intitule"/>
-                                    <br/>
-                                    <span>تاريخ آخر ترقية :</span>
-                                    <span t-esc="date_grade"/>
-                                    <br/>
-                                    <span>المدة :</span>
-                                    <span t-esc="duree"/>
-                                </th>
-                                <th style="border:2px solid black;vertical-align:middle;text-align:right;font-size:25px;padding-right: 10px;">
-                                    <span>اللقب :</span>
-                                    <span t-esc="employee_info.nom_ar"/>
-                                    <br/>
-                                    <span>الإسم :</span>
-                                    <t t-if="employee_info.prenom_ar">
-                                        <span t-esc="employee_info.prenom_ar"/>
-                                    </t>
-                                    <t t-if="not employee_info.prenom_ar">
-                                        <span style="color: white;">أ</span>
-                                    </t>
-                                    <br/>
-                                    <span>تاريخ الميلاد :</span>
-                                    <span t-esc="birthday"/>
-                                    <br/>
-                                    <span>الحالة العائلية :</span>
-                                    <t t-if="employee_info.marital=='single'">
-                                        <span>أعزب</span>
-                                    </t>
-                                    <t t-if="employee_info.marital=='married'">
-                                        <span>متزوّج</span>
-                                    </t>
-                                    <t t-if="employee_info.marital=='widower'">
-                                        <span>أرمل</span>
-                                    </t>
-                                    <t t-if="employee_info.marital=='divorced'">
-                                        <span>مطلّق</span>
-                                    </t>
-                                    <t t-if="not employee_info.marital">
-                                        <span style="color: white;">أ</span>
-                                    </t>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="al-mohanad">
-                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:25px;padding-right: 10px;">
-                                    <span>
-                                        <u>الملاحظات :</u>
-                                        <span style="color: white;">أ</span>
-                                    </span>
-                                    <br/>
-                                    <t t-if="employee_evaluee.observation">
-                                        <span t-esc="employee_evaluee.observation"/>
-                                    </t>
-                                    <t t-if="not employee_evaluee.observation">
-                                        <span style="color: white;">أ</span>
-                                    </t>
-                                </td>
-                                <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:25px;padding-right: 10px;">
-                                    <span>
-                                        <u>العلامة :</u>
-                                        <span style="color: white;">أ</span>
-                                    </span>
-                                    <br/>
-                                    <span t-esc="employee_evaluee.note"/>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <br/>
-                <div class="al-mohanad" style="font-size: 25px">
-                    <span style="margin-left: 225px;">توقيع الموظف المعني</span>
-                    <span style="margin-left: 150px;">توقيع الرئيس السلمي</span>
-                </div>
-                <div class="footer">
+            <t t-foreach="fiche_evaluation_lines" t-as="line">
+                <div class="page">
                     <div class="row">
-                        <div class="al-mohanad" style="text-align:right;font-size:25px;padding-right:10px;">
-                            <span>يجوز للموظف أن يبدي وجهة نظره في العالمة الممنوحة له و ذلك في مفكرة يرفقها بهذه
-                                اإلستمارة
-                            </span>
+                        <strong>
+                            <div class="Diwani_Letter"
+                                 style="font-size: 32px;text-align: right;margin-right:15px;word-spacing: 9px;">
+                                <span>
+                                    المدرسة الوطنية للإدارة
+                                </span>
+                            </div>
+                            <br/>
+                            <div class="Diwani_Letter"
+                                 style="font-size: 32px;text-align: right;margin-right:15px;word-spacing: 9px;">
+                                <span>
+                                    الأمانة العامة
+                                </span>
+                            </div>
+                            <br/>
+                            <div class="Diwani_Letter"
+                                 style="font-size: 32px;text-align: right;margin-right:15px;word-spacing: 9px;">
+                                <span>
+                                    مصلحة تسيير الموارد البشرية
+                                </span>
+                            </div>
+                            <br/>
+                            <br/>
+                        </strong>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="al-mohanad_bold" style="text-align: center;">
+                        <span style="font-size: 35px;">
+                            <t t-esc="evaluation.exercice"/>
+                        </span>
+                        <span style="font-size: 45px;">إسـتمارة التنقيط لسنة</span>
+                    </div>
+                    <br/>
+                    <div class="row" style="margin:30;">
+                        <table style="width: 100%;">
+                            <thead class="al-mohanad">
+                                <tr>
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:right;font-size:25px;padding-right: 10px;">
+                                        <span>الرتبة :</span>
+                                        <t t-if="line['description']">
+                                            <strong>
+                                                <t t-esc="line['description']"/>
+                                            </strong>
+                                        </t>
+                                        <t t-if="not line['description']">
+                                            <strong>
+                                                <t t-esc="line['grade']"/>
+                                            </strong>
+                                        </t>
+                                        <br/>
+                                        <span>المنصب :</span>
+                                        <t t-if="line['job']">
+                                            <span t-esc="line['job']"/>
+                                        </t>
+                                        <t t-if="not line['job']">
+                                            <span style="color: white;">أ</span>
+                                        </t>
+                                        <br/>
+                                        <span>الدرجة :</span>
+                                        <span t-esc="line['echelon']"/>
+                                        <br/>
+                                        <span>تاريخ آخر ترقية :</span>
+                                        <span t-esc="line['date_grade']"/>
+                                        <br/>
+                                        <span>المدة :</span>
+                                        <t t-if="line['duree'] == 'inferieure'">
+                                            <span>دنيى</span>
+                                        </t>
+                                        <t t-if="line['duree'] == 'moyen'">
+                                            <span>وسطى</span>
+                                        </t>
+                                        <t t-if="line['duree'] == 'superieure'">
+                                            <span>قصوى</span>
+                                        </t>
+                                    </th>
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:right;font-size:25px;padding-right: 10px;">
+                                        <span>اللقب :</span>
+                                        <span t-esc="line['nom']"/>
+                                        <br/>
+                                        <span>الإسم :</span>
+                                        <t t-if="line['prenom']">
+                                            <span t-esc="line['prenom']"/>
+                                        </t>
+                                        <t t-if="not line['prenom']">
+                                            <span style="color: white;">أ</span>
+                                        </t>
+                                        <br/>
+                                        <span>تاريخ الميلاد :</span>
+                                        <span t-esc="line['birthday']"/>
+                                        <br/>
+                                        <span>الحالة العائلية :</span>
+                                        <t t-if="line['gender'] == 'male'">
+                                            <t t-if="line['status'] == 'single'">
+                                                <span>أعزب</span>
+                                            </t>
+                                            <t t-if="line['status'] == 'married'">
+                                                <span>متزوّج</span>
+                                            </t>
+                                            <t t-if="line['status'] == 'widower'">
+                                                <span>أرمل</span>
+                                            </t>
+                                            <t t-if="line['status'] == 'divorced'">
+                                                <span>مطلّق</span>
+                                            </t>
+                                        </t>
+                                        <t t-if="line['gender'] == 'female'">
+                                            <t t-if="line['status'] == 'single'">
+                                                <span>عزبة</span>
+                                            </t>
+                                            <t t-if="line['status'] == 'married'">
+                                                <span>متزوّجة</span>
+                                            </t>
+                                            <t t-if="line['status'] == 'widower'">
+                                                <span>أرملة</span>
+                                            </t>
+                                            <t t-if="line['status'] == 'divorced'">
+                                                <span>مطلّقة</span>
+                                            </t>
+                                        </t>
+                                        <span style="color: white;">أ</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="al-mohanad">
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:25px;padding-right: 10px;">
+                                        <span>
+                                            <u>الملاحظات :</u>
+                                            <span style="color: white;">أ</span>
+                                        </span>
+                                        <br/>
+                                        <t t-if="line['observation']">
+                                            <span t-esc="line['observation']"/>
+                                        </t>
+                                        <t t-if="not line['observation']">
+                                            <span style="color: white;">أ</span>
+                                        </t>
+                                    </td>
+                                    <td style="border:2px solid black;vertical-align:middle;text-align:right;font-size:25px;padding-right: 10px;">
+                                        <span>
+                                            <u>العلامة :</u>
+                                            <span style="color: white;">أ</span>
+                                        </span>
+                                        <br/>
+                                        <span t-esc="line['note']"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <br/>
+                    <div class="al-mohanad" style="font-size: 25px">
+                        <span style="margin-left: 225px;">توقيع الموظف المعني</span>
+                        <span style="margin-left: 150px;">توقيع الرئيس السلمي</span>
+                    </div>
+                    <div class="footer">
+                        <div class="row">
+                            <div class="al-mohanad" style="text-align:right;font-size:25px;padding-right:10px;">
+                                <span>يجوز للموظف أن يبدي وجهة نظره في العالمة الممنوحة له و ذلك في مفكرة يرفقها بهذه
+                                    اإلستمارة
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+                <div style="page-break-before: always;"></div>
+            </t>
         </t>
     </template>
 </odoo>
