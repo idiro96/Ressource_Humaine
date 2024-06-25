@@ -14,7 +14,7 @@ class RHPrimeRendementLine(models.Model):
     employee_id = fields.Many2one('hr.employee')
     nbr_jours_travail = fields.Integer(track_visibility='onchange', default=90)
     notation_responsable = fields.Float(track_visibility='onchange', default=30)
-    notation_finale = fields.Float(track_visibility='onchange',  compute='_compute_prime_final_fields')
+    notation_finale = fields.Float(track_visibility='onchange', compute='_compute_prime_final_fields')
     remarque = fields.Char(track_visibility='onchange')
     create_uid = fields.Many2one('res.users', string='Created by', readonly=True, track_visibility='onchange')
     write_uid = fields.Many2one('res.users', string='Last Updated by', readonly=True, track_visibility='onchange')
@@ -26,7 +26,6 @@ class RHPrimeRendementLine(models.Model):
             if rec.notation_responsable > 40:
                 raise UserError("La notation maximal ne doit pas depasser 40%")
 
-
     # @api.model
     # def create(self, vals):
     #     prime = super(RHPrimeRendementLine, self).create(vals)
@@ -34,7 +33,7 @@ class RHPrimeRendementLine(models.Model):
     #     if float(prime.notation_responsable) > 40:
     #         raise UserError("La notation maximal ne doit pas depasser 40%")
     #     return prime
-    @api.depends('nbr_jours_travail','notation_finale')
+    @api.depends('nbr_jours_travail', 'notation_finale')
     def _compute_prime_final_fields(self):
         for rec in self:
             rec.notation_finale = (rec.notation_responsable * rec.nbr_jours_travail) / 90
