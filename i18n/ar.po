@@ -27949,6 +27949,10 @@ msgstr "طرق العرض التي تمّ إنشاؤها"
 #: model:ir.model.fields,field_description:website.field_website_menu_create_uid
 #: model:ir.model.fields,field_description:website.field_website_page_create_uid
 #: model:ir.model.fields,field_description:website.field_website_redirect_create_uid
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_fiche_evaluation_create_uid
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_fiche_evaluation_line_create_uid
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_prime_rendement_create_uid
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_prime_rendement_line_create_uid
 msgid "Created by"
 msgstr "أنشئ بواسطة"
 
@@ -32930,9 +32934,11 @@ msgid "Durations can't be negative"
 msgstr "الفترات لا يمكن أن تكون سلبية"
 
 #. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_duree
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_duree
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_wizard_duree
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avencement_droit_duree
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_fiche_evaluation_line_duree
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_droit_duree
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_line_duree
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_line_wizard_duree
@@ -33525,34 +33531,11 @@ msgstr "المدرج"
 msgid "Employe"
 msgstr "الموظف"
 
-#. modules: hr_holidays, hr, hr_contract, hr_gamification, base, hr_recruitment, ressource_humaine, hr_payroll, hr_org_chart, calendar
-#: model:ir.model.fields,field_description:base.field_res_partner_employee
-#: model:ir.model.fields,field_description:base.field_res_users_employee
-#: model:res.groups,name:base.group_user
-#: model:ir.model.fields,field_description:calendar.field_calendar_contacts_partner_id
-#: model:ir.model,name:hr.model_hr_employee
-#: model:ir.ui.view,arch_db:hr.view_employee_form
-#: model:ir.model,name:hr_contract.model_hr_employee
-#: model:ir.model.fields,field_description:hr_contract.field_hr_contract_employee_id
-#: model:ir.ui.view,arch_db:hr_contract.hr_contract_view_search
-#: model:ir.model,name:hr_gamification.model_hr_employee
-#: model:ir.model.fields,field_description:hr_gamification.field_gamification_badge_user_employee_id
-#: model:ir.model.fields,field_description:hr_gamification.field_gamification_badge_user_wizard_employee_id
-#: model:ir.model,name:hr_holidays.model_hr_employee
-#: model:ir.model.fields,field_description:hr_holidays.field_hr_holidays_employee_id
-#: model:ir.model.fields,field_description:hr_holidays.field_hr_holidays_remaining_leaves_user_name
-#: model:ir.ui.view,arch_db:hr_holidays.hr_holidays_leaves_assign_tree_view
-#: model:ir.ui.view,arch_db:hr_holidays.view_hr_holidays_filter
-#: model:ir.model,name:hr_org_chart.model_hr_employee
-#: model:ir.model,name:hr_payroll.model_hr_employee
-#: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip_employee_id
-#: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip_line_employee_id
-#: model:ir.ui.view,arch_db:hr_payroll.view_hr_payslip_form
-#: model:ir.model,name:hr_recruitment.model_hr_employee
-#: model:ir.model.fields,field_description:hr_recruitment.field_hr_applicant_emp_id
-#: model:ir.ui.view,arch_db:hr_recruitment.crm_case_form_view_job
+#. module: ressource_humaine
 #: model:ir.model,name:ressource_humaine.model_hr_employee
+#: model:ir.model.fields,field_description:ressource_humaine.field_arret_salaire_employee_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_attestation_travail_employee_id
+#: model:ir.model.fields,field_description:ressource_humaine.field_programme_individuel_employee_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_absence_employee_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_absence_formation_employee_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_accident_travail_employee_id
@@ -33563,11 +33546,20 @@ msgstr "الموظف"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_commission_line_employee_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_conjoint_employee_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_enfant_employee_id
-#: model:ir.model.fields,field_description:ressource_humaine.field_rh_fiche_evaluation_employee_id
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_fiche_evaluation_line_employee_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_file_employee_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_fin_relation_employee_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_formation_line_employee_id
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_diplome_employee_id
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_employee_employee_id
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_fin_relation_employee_id
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_grade_employee_id
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_position_statutaire_employee_id
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_poste_superieure_employee_id
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_sanction_employee_id
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_structure_employee_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_planning_line_employee_id
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_prime_rendement_line_employee_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_commission_line_employee_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_droit_employee_id
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_line_employee_id
@@ -33576,7 +33568,6 @@ msgstr "الموظف"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_visite_medical_line_employee_id
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_employee
 #: model:ir.ui.view,arch_db:ressource_humaine.conge_droit_search
-#: model:ir.model.fields,field_description:ressource_humaine.field_rh_prime_rendement_line_employee_id
 #: model:ir.ui.view,arch_db:ressource_humaine.conjoint_search
 #: model:ir.ui.view,arch_db:ressource_humaine.enfant_search
 msgid "Employee"
@@ -40976,8 +40967,11 @@ msgstr "الرقم الإستدلالي للدرجات"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_contract_indice_minimal
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_categorie_grade_indice
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_indice_minimal
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_categorie_Indice_minimal
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_grade_Indice_minimal
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_prime_rendement_line_categorie_grade_indice
 msgid "Indice Minimal"
 msgstr "الرقم الإستدلالي الأدنى"
 
@@ -41039,6 +41033,7 @@ msgstr "مجال العمل"
 #: selection:rh.avancement.line,duree_lettre:0
 #: selection:rh.avancement.line.wizard,duree_lettre:0
 #: selection:rh.avencement.droit,duree_lettre:0
+#: selection:rh.fiche.evaluation.line,duree:0
 msgid "Inferieure"
 msgstr "دنيا"
 
@@ -44560,6 +44555,9 @@ msgstr "آخر تحديث"
 #: model:ir.model.fields,field_description:website.field_website_page_write_uid
 #: model:ir.model.fields,field_description:website.field_website_redirect_write_uid
 #: model:ir.model.fields,field_description:website.field_website_write_uid
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_fiche_evaluation_line_write_uid
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_prime_rendement_line_write_uid
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_prime_rendement_write_uid
 msgid "Last Updated by"
 msgstr "آخر تحديث بواسطة"
 
@@ -48875,6 +48873,7 @@ msgstr "التحركات التي تم إنشاؤها من خلال هذه ال�
 #: selection:rh.avancement.line,duree_lettre:0
 #: selection:rh.avancement.line.wizard,duree_lettre:0
 #: selection:rh.avencement.droit,duree_lettre:0
+#: selection:rh.fiche.evaluation.line,duree:0
 msgid "Moyen"
 msgstr "متوسطة"
 
@@ -67806,6 +67805,7 @@ msgstr "أيقونات السداد المدعومة"
 #: selection:rh.avancement.line,duree_lettre:0
 #: selection:rh.avancement.line.wizard,duree_lettre:0
 #: selection:rh.avencement.droit,duree_lettre:0
+#: selection:rh.fiche.evaluation.line,duree:0
 msgid "Supérieure"
 msgstr "أقصى"
 
@@ -84367,3 +84367,23 @@ msgstr "ساعة بداية التكوين"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_formation_time_end
 msgid "Time End"
 msgstr "ساعة نهاية التكوين"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_fiche_evaluation_line_note
+msgid "Note"
+msgstr "العلامة"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_fiche_evaluation_line_observation
+msgid "Observation"
+msgstr "الملاحظة"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_fiche_evaluation_fiche_evaluation_lines
+msgid "Fiche Evaluation Lines"
+msgstr "إستمارة تنقيط الموظف"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_fiche_evaluation_line_fiche_evaluation_id
+msgid "Fiche Evaluation"
+msgstr "إستمارة التنقيط"

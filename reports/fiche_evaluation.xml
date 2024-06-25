@@ -73,13 +73,13 @@
                                         <br/>
                                         <span>المدة :</span>
                                         <t t-if="line['duree'] == 'inferieure'">
-                                            <span>دنيى</span>
+                                            <span>دنيا</span>
                                         </t>
                                         <t t-if="line['duree'] == 'moyen'">
-                                            <span>وسطى</span>
+                                            <span>متوسطة</span>
                                         </t>
                                         <t t-if="line['duree'] == 'superieure'">
-                                            <span>قصوى</span>
+                                            <span>أقصى</span>
                                         </t>
                                     </th>
                                     <th style="border:2px solid black;vertical-align:middle;text-align:right;font-size:25px;padding-right: 10px;">
