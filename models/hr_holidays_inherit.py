@@ -79,7 +79,51 @@ class HrHolidaysInherited(models.Model):
             if employ:
                 print('rrrrrrr')
                 if employ.days_off >= holidays.number_of_days_temp:
-                    droitconge = self.env['rh.congedroit'].search([('id_personnel', '=', employ.id),('nbr_jour_reste', '!=', 0)], limit=3, order='id asc')
+                    year1 = None
+                    year2 = None
+                    year3 = None
+                    i = 0
+                    droitconge = None
+                    droitconge2 = self.env['rh.congedroit'].search(
+                        [('id_personnel', '=', employ.id)], limit=3, order='id desc')
+                    for rec in droitconge2:
+                        print('rec.exercice_conge22')
+                        print(rec.exercice_conge)
+                        print('rec.exercice_conge22')
+                        i = i + 1
+                        if i == 1:
+                            print('fdf')
+                            year1 = rec.exercice_conge
+                        if i == 2:
+                            year2 = rec.exercice_conge
+                            print('fdf23')
+                        if i == 3:
+                            year3 = rec.exercice_conge
+                            print('fdf2')
+
+                    if year1:
+                        droitconge = self.env['rh.congedroit'].search(
+                            [('id_personnel', '=', employ.id), ('exercice_conge', '=',year1)], limit=1, order='id asc')
+                        for rr in droitconge:
+                            print('rr.exercice_conge')
+                            print(rr.exercice_conge)
+                    if year1 and year2:
+                        droitconge = self.env['rh.congedroit'].search(
+                            [('id_personnel', '=', employ.id),'|',('exercice_conge', '=',year1),
+                             ('exercice_conge', '=',year2)], limit=2, order='id asc')
+                        for rr in droitconge:
+                            print('rr.exercice_conge')
+                            print(rr.exercice_conge)
+                    if year1 and year2 and year3:
+                        print('rrrrrrr66')
+                        droitconge = self.env['rh.congedroit'].search(
+                            [('id_personnel', '=', employ.id), '|',('exercice_conge', '=',year1),'|',
+                             ('exercice_conge', '=',year2), ('exercice_conge', '=',year3)], limit=3, order='id asc')
+                        for rr in droitconge:
+                            print('rr.exercice_conge')
+                            print(rr.exercice_conge)
+                        print('rrrrrrr6677')
+                    # droitconge = self.env['rh.congedroit'].search([('id_personnel', '=', employ.id),'|',('exercice_conge', '=', year1),'|',('exercice_conge', '=', year2),('exercice_conge', '=', year3)], limit=3, order='id asc')
                     jours_conge = holidays.number_of_days_temp
                     nbr_jour_reste = 0
                     nbr_jour_consomme = 0
