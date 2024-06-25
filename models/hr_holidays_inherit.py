@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from datetime import datetime
+
 from odoo import models, fields, api, _
 from odoo.addons.hr_holidays.models.hr_holidays import Holidays
 from odoo.exceptions import ValidationError, UserError
@@ -13,10 +15,10 @@ class HrHolidaysInherited(models.Model):
     code = fields.Char()
 
     reliquat = fields.Boolean(track_visibility='onchange', tratranslate=True, default=False)
-    exercice = fields.Char()
+    exercice = fields.Char(default=str(datetime.today().year))
     regle2 = fields.Char()
     regle3 = fields.Boolean(track_visibility='onchange',default=False)
-    sur_demande = fields.Char(track_visibility='onchange',default='ـ بناء على جدول العطلة السنوية لمستخدمي المدرسة الوطنية للإدارة بعنوان سنة')
+    sur_demande = fields.Char(track_visibility='onchange',default='ـ بناء على جدول العطلة السنوية لمستخدمي المدرسة الوطنية للإدارة بعنوان سنة ' + str(datetime.today().year))
     def _get_default_value(self):
         # You can set the default value based on your requirements
         # For example, if you want to set a specific record as default, you can use the `search` method
