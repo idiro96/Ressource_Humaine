@@ -48,7 +48,10 @@ class TitreCongeReport(models.AbstractModel):
 
         print(conge.date_to)
         conge_date_to = conge.date_to
-        formatted_conge_date_to = datetime.strptime(conge_date_to, "%Y-%m-%d %H:%M:%S").strftime("%d-%m-%Y")
+        new_date = fields.Date.from_string(conge_date_to) + timedelta(days=1)
+        conge_date_to = fields.Date.to_string(new_date)
+        formatted_conge_date_to = datetime.strptime(conge_date_to, "%Y-%m-%d").strftime("%d-%m-%Y")
+
         conge_date_from = conge.date_from
         formatted_conge_date_from = datetime.strptime(conge_date_from, "%Y-%m-%d %H:%M:%S").strftime("%d-%m-%Y")
 
