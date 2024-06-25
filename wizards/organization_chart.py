@@ -1,3 +1,5 @@
+import re
+
 from odoo import models, fields, api, _
 
 
@@ -16,6 +18,22 @@ class OrganizationChartReport(models.AbstractModel):
     def get_report_values(self, docids, data=None):
         ressource_humaine = self.env['hr.employee'].search([('department_id.complete_name', 'ilike', 'الموارد البشرية'),
                                                             ('fin_relation', '=', False)], order='categorie_grade_indice desc')
+        emp_rh = []
+        for rec in ressource_humaine:
+            department_name = rec.department_id.name
+            if department_name:
+                department_name = re.sub(r'^(مكتب|مصلحة)\s*', '', department_name).strip()
+            employee_data = {
+                'name': rec.name,
+                'birthday': rec.birthday,
+                'place_of_birth': rec.place_of_birth,
+                'grade': rec.grade_id.intitule_grade,
+                'description': rec.grade_id.description,
+                'job_name': rec.job_id.name,
+                'job_type': rec.job_id.poste_organique,
+                'department_name': department_name,
+            }
+            emp_rh.append(employee_data)
 
         budget_comptabilite = self.env['hr.employee'].search([('department_id.complete_name', 'ilike', 'الميزانية'),
                                                               ('fin_relation', '=', False)], order='categorie_grade_indice desc')
@@ -41,9 +59,12 @@ class OrganizationChartReport(models.AbstractModel):
         recherche = self.env['hr.employee'].search([('department_id.complete_name', 'ilike', 'البحث'),
                                                     ('fin_relation', '=', False)], order='categorie_grade_indice desc')
 
+        enseignant = self.env['hr.employee'].search([('department_id', '=', False), ('fin_relation', '=', False),
+                                                     ('grade_id.intitule_grade', 'ilike', '%أستاذ%')], order='categorie_grade_indice desc')
+
         report_data = {
             'company': self.env.user.company_id,
-            'ressource_humaine': ressource_humaine,
+            'ressource_humaine': emp_rh,
             'budget_comptabilite': budget_comptabilite,
             'informatique': informatique,
             'mgx': mgx,
@@ -52,6 +73,7 @@ class OrganizationChartReport(models.AbstractModel):
             'stage': stage,
             'formation': formation,
             'recherche': recherche,
+            'enseignant': enseignant,
         }
 
         return report_data

@@ -16337,7 +16337,7 @@ msgstr "نموذج لاختبار ميزة إلغاء التثبيت."
 #. module: base
 #: model:ir.module.module,description:base.module_test_translation_import
 msgid "A module to test translation import."
-msgstr "موديول لاختبار عملية استيراد الترجمة."
+msgstr "موديول لاختبار عملية تحميل الترجمة."
 
 #. module: base
 #: model:ir.module.module,description:base.module_test_assetsbundle
@@ -16893,7 +16893,7 @@ msgstr "تفاصيل كشف الحساب البنكي لصندوق الكاشي�
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_account_bank_statement_import
 msgid "Account Bank Statement Import"
-msgstr "استيراد كشف الحساب البنكي للحساب"
+msgstr "تحميل كشف الحساب البنكي للحساب"
 
 #. module: account
 #: model:ir.model,name:account.model_account_bank_statement_closebalance
@@ -20910,7 +20910,7 @@ msgstr "أسعار الصرف الآلية"
 #. module: account
 #: model:ir.ui.view,arch_db:account.res_config_settings_view_form
 msgid "Automatic Import"
-msgstr "استيراد آلي"
+msgstr "تحميل آلي"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_module_module_auto_install
@@ -21784,12 +21784,12 @@ msgstr "حساب تحصيل الضرائب الأساسية"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_base_import
 msgid "Base import"
-msgstr "استيراد قاعدة"
+msgstr "تحميل قاعدة"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_base_import_module
 msgid "Base import module"
-msgstr "وحدة استيراد قاعدة"
+msgstr "وحدة تحميل قاعدة"
 
 #. module: base
 #: model:ir.module.module,description:base.module_website_partner
@@ -22698,7 +22698,7 @@ msgstr "CABA"
 #. module: account
 #: model:ir.ui.view,arch_db:account.res_config_settings_view_form
 msgid "CAMT Import"
-msgstr "استيراد CAMT"
+msgstr "تحميل CAMT"
 
 #. module: stock
 #: model:stock.incoterms,name:stock.incoterm_CIP
@@ -22765,7 +22765,7 @@ msgstr "ملف CSV"
 #. module: account
 #: model:ir.ui.view,arch_db:account.res_config_settings_view_form
 msgid "CSV Import"
-msgstr "استيراد CSV"
+msgstr "تحميل CSV"
 
 #. module: base
 #: model:ir.ui.view,arch_db:base.wizard_lang_export
@@ -34501,6 +34501,7 @@ msgid "Executive 4   7.5 x 10 inches, 190.5 x 254 mm"
 msgstr "Executive 4   7.5 x 10 inches, 190.5 x 254 mm"
 
 #. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_holidays_exercice
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_fiche_evaluation_exercice
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_prime_rendement_exercice
 msgid "Exercice"
@@ -40344,27 +40345,27 @@ msgstr "تشغيل حقول التناثر."
 #: code:addons/base_import/static/src/xml/base_import.xml:153
 #, python-format
 msgid "Import"
-msgstr "استيراد"
+msgstr "تحميل"
 
 #. module: base_setup
 #: model:ir.ui.view,arch_db:base_setup.res_config_settings_view_form
 msgid "Import & Export"
-msgstr "استيراد وتصدير"
+msgstr "تحميل وتصدير"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_res_config_settings_module_account_bank_statement_import_qif
 msgid "Import .qif files"
-msgstr "استيراد ملفات .qif "
+msgstr "تحميل ملفات .qif "
 
 #. module: base
 #: model:ir.ui.menu,name:base.menu_translation_export
 msgid "Import / Export"
-msgstr "استيراد / تصدير"
+msgstr "تحميل / تصدير"
 
 #. module: account_bank_statement_import
 #: model:ir.model,name:account_bank_statement_import.model_account_bank_statement_import
 msgid "Import Bank Statement"
-msgstr "استيراد كشف الحساب"
+msgstr "تحميل كشف الحساب"
 
 #. module: account_bank_statement_import
 #: model:ir.model,name:account_bank_statement_import.model_account_bank_statement_import_journal_creation
@@ -40391,29 +40392,29 @@ msgstr "ادخل كشف الحساب"
 #: model:ir.ui.menu,name:base.menu_view_base_import_language
 #: model:ir.ui.view,arch_db:base.view_base_import_language
 msgid "Import Translation"
-msgstr "استيراد ترجمة"
+msgstr "تحميل ترجمة"
 
 #. module: base_import
 #. openerp-web
 #: code:addons/base_import/static/src/js/import_action.js:110
 #, python-format
 msgid "Import a File"
-msgstr "استيراد ملف"
+msgstr "تحميل ملف"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_res_config_settings_module_account_bank_statement_import_csv
 msgid "Import in .csv format"
-msgstr "استيراد بفورمات csv."
+msgstr "تحميل بفورمات csv."
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_res_config_settings_module_account_bank_statement_import_ofx
 msgid "Import in .ofx format"
-msgstr "استيراد بفورمات .ofx"
+msgstr "تحميل بفورمات .ofx"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_res_config_settings_module_account_bank_statement_import_camt
 msgid "Import in CAMT.053 format"
-msgstr "استيراد في شكل camt. 053"
+msgstr "تحميل في شكل camt. 053"
 
 #. module: base_import
 #. openerp-web
@@ -40425,7 +40426,7 @@ msgstr "فشلت عملية معاينة الاستيراد للأسباب ال�
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid "Import using the \"Import\" button on the top left corner of"
-msgstr "استيراد باستخدام زر \"استرداد\" من اعلى الركن الأيسر ل"
+msgstr "تحميل باستخدام زر \"استرداد\" من اعلى الركن الأيسر ل"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.inventory_planner
@@ -40435,32 +40436,32 @@ msgstr "Import using the top left button in"
 #. module: purchase
 #: model:ir.ui.view,arch_db:purchase.res_config_settings_view_form_purchase
 msgid "Import vendor pricelists"
-msgstr "استيراد قوائم أسعار المورد"
+msgstr "تحميل قوائم أسعار المورد"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.res_config_settings_view_form
 msgid "Import your bank statements automatically"
-msgstr "استيراد كشوفات الحسابات البنكية آلياً"
+msgstr "تحميل كشوفات الحسابات البنكية آلياً"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.res_config_settings_view_form
 msgid "Import your bank statements in CAMT.053"
-msgstr "استيراد كشوفات الحسابات البنكية بصيغة CAMT.053"
+msgstr "تحميل كشوفات الحسابات البنكية بصيغة CAMT.053"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.res_config_settings_view_form
 msgid "Import your bank statements in CSV"
-msgstr "استيراد كشوفات الحسابات البنكية بصيغة CSV"
+msgstr "تحميل كشوفات الحسابات البنكية بصيغة CSV"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.res_config_settings_view_form
 msgid "Import your bank statements in OFX"
-msgstr "استيراد كشوفات الحسابات البنكية بصيغة OFX"
+msgstr "تحميل كشوفات الحسابات البنكية بصيغة OFX"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.res_config_settings_view_form
 msgid "Import your bank statements in QIF"
-msgstr "استيراد كشوفات الحسابات البنكية بصيغة QIF"
+msgstr "تحميل كشوفات الحسابات البنكية بصيغة QIF"
 
 #. module: web
 #. openerp-web
@@ -43569,7 +43570,7 @@ msgstr "اللغة"
 #. module: base
 #: model:ir.model,name:base.model_base_language_import
 msgid "Language Import"
-msgstr "استيراد لغة"
+msgstr "تحميل لغة"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_base_language_import_name
@@ -51071,7 +51072,7 @@ msgstr "OAuth2 Authentication"
 #. module: account
 #: model:ir.ui.view,arch_db:account.res_config_settings_view_form
 msgid "OFX Import"
-msgstr "استيراد QFX"
+msgstr "تحميل QFX"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_syscohada
@@ -60002,7 +60003,7 @@ msgstr "Q HUMAN HEALTH AND SOCIAL WORK ACTIVITIES"
 #. module: account
 #: model:ir.ui.view,arch_db:account.res_config_settings_view_form
 msgid "QIF Import"
-msgstr "استيراد QIF"
+msgstr "تحميل QIF"
 
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.report_stock_body_print
@@ -68952,7 +68953,7 @@ msgstr "اختبار اتصال"
 #: code:addons/base_import/static/src/xml/base_import.xml:92
 #, python-format
 msgid "Test Import"
-msgstr "استيراد الاختبار"
+msgstr "تحميل الاختبار"
 
 #. module: mail
 #: model:ir.model,name:mail.model_mail_test
@@ -73302,7 +73303,7 @@ msgstr "نوع الوظيفة"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_formation_type_formation_id
 msgid "Type Formation"
-msgstr "أنواع التكوين"
+msgstr "تحسين المستوى"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.action_rh_type_sanction
@@ -73331,7 +73332,7 @@ msgstr "نوع الوظيفة"
 #: model:ir.actions.act_window,name:ressource_humaine.action_rh_type_formation
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_type_formation
 msgid "Type formation"
-msgstr "أنواع التكوين"
+msgstr "تحسين المستوى"
 
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_stock_move_picking_code
@@ -82334,7 +82335,7 @@ msgstr "اختبار-محول-الحقل"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_test_impex
 msgid "test-import-export"
-msgstr "اختبار-تصدير-استيراد"
+msgstr "اختبار-تصدير-تحميل"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_test_inherit
@@ -84387,3 +84388,124 @@ msgstr "إستمارة تنقيط الموظف"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_fiche_evaluation_line_fiche_evaluation_id
 msgid "Fiche Evaluation"
 msgstr "إستمارة التنقيط"
+
+#. module: crm
+#: model:ir.ui.view,arch_db:crm.base_partner_merge_automatic_wizard_form
+msgid "Close"
+msgstr "غلق"
+
+#. module: account
+#. openerp-web
+#: code:addons/account/static/src/xml/account_reconciliation.xml:260
+#, python-format
+msgid "Close"
+msgstr "غلق"
+
+#. module: account_asset
+#: selection:account.asset.asset,state:0 selection:asset.asset.report,state:0
+msgid "Close"
+msgstr "غلق"
+
+#. module: base_import_module
+#: model:ir.ui.view,arch_db:base_import_module.view_base_module_import
+msgid "Close"
+msgstr "غلق"
+
+#. module: hr_payroll
+#: selection:hr.payslip.run,state:0
+#: model:ir.ui.view,arch_db:hr_payroll.hr_payslip_run_form
+msgid "Close"
+msgstr "غلق"
+
+#. module: base
+#: model:ir.ui.view,arch_db:base.view_base_language_install
+#: model:ir.ui.view,arch_db:base.view_base_module_update
+#: model:ir.ui.view,arch_db:base.wizard_lang_export
+msgid "Close"
+msgstr "غلق"
+
+#. module: website_gengo
+#. openerp-web
+#: code:addons/website_gengo/static/src/xml/website.gengo.xml:14
+#: code:addons/website_gengo/static/src/xml/website.gengo.xml:61
+#: code:addons/website_gengo/static/src/xml/website.gengo.xml:88
+#: code:addons/website_gengo/static/src/xml/website.gengo.xml:102
+#: code:addons/website_gengo/static/src/xml/website.gengo.xml:113
+#: code:addons/website_gengo/static/src/xml/website.gengo.xml:153
+#, python-format
+msgid "Close"
+msgstr "غلق"
+
+#. module: website_forum
+#. openerp-web
+#: code:addons/website_forum/static/src/xml/website_forum_share_templates.xml:46
+#: selection:forum.post,state:0
+#: model:ir.ui.view,arch_db:website_forum.post_description_full
+#, python-format
+msgid "Close"
+msgstr "غلق"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.gallery.xml:51
+#, python-format
+msgid "Close"
+msgstr "غلق"
+
+#. module: web_editor
+#. openerp-web
+#: code:addons/web_editor/static/src/js/editor/rte.summernote.js:972
+#: code:addons/web_editor/static/src/js/editor/translator.js:52
+#: code:addons/web_editor/static/src/xml/ace.xml:30
+#, python-format
+msgid "Close"
+msgstr "غلق"
+
+#. module: web
+#. openerp-web
+#: code:addons/web/static/src/js/fields/basic_fields.js:1666
+#: code:addons/web/static/src/js/views/calendar/calendar_controller.js:315
+#: code:addons/web/static/src/js/views/view_dialogs.js:111
+#: code:addons/web/static/src/js/widgets/data_export.js:203
+#: code:addons/web/static/src/js/widgets/debug_manager.js:442
+#: code:addons/web/static/src/js/widgets/domain_selector_dialog.js:24
+#, python-format
+msgid "Close"
+msgstr "غلق"
+
+#. module: survey
+#: model:ir.ui.view,arch_db:survey.page
+#: model:ir.ui.view,arch_db:survey.survey_email_compose_message
+msgid "Close"
+msgstr "غلق"
+
+#. module: payment_stripe
+#. openerp-web
+#: code:addons/payment_stripe/static/src/xml/stripe_templates.xml:15
+#, python-format
+msgid "Close"
+msgstr "غلق"
+
+#. module: base_import_module
+#: model:ir.ui.view,arch_db:base_import_module.view_base_module_import
+msgid "Close"
+msgstr "غلق"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_holidays_sur_demande
+msgid "Sur Demande"
+msgstr "على أساس:"
+
+#. modules: hr_holidays, calendar, hr_timesheet
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_duration
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_form
+#: model:ir.ui.view,arch_db:hr_holidays.edit_holiday_new
+#: model:ir.ui.view,arch_db:hr_timesheet.portal_my_task
+#: model:ir.ui.view,arch_db:hr_timesheet.view_task_form2_inherited
+msgid "Duration"
+msgstr "المدة"
+
+#. module: ressource_humaine
+#: model:ir.actions.act_window,help:ressource_humaine.action_rh_prime_rendement
+msgid "Creation emphy!"
+msgstr " إنشاء منحة المردودية!"
