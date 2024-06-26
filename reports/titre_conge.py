@@ -1,4 +1,3 @@
-from dateutil.tz import relativedelta
 
 from odoo import models, fields, api, _
 from odoo.exceptions import UserError

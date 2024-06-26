@@ -21,19 +21,23 @@ class OrganizationChartReport(models.AbstractModel):
 
         informatique = self.env['rh.prime.rendement.line'].search([('prime_rendement_id', '=', prime_rendement.id),
                                                                    ('employee_id.department_id.complete_name',
-                                                                    'ilike', 'الإعلام')], order='categorie_grade_indice desc')
+                                                                    'ilike', 'الإعلام')],
+                                                                  order='categorie_grade_indice desc')
 
         mgx = self.env['rh.prime.rendement.line'].search([('prime_rendement_id', '=', prime_rendement.id),
                                                           ('employee_id.department_id.complete_name',
-                                                           'ilike', 'الوسائل العامة')], order='categorie_grade_indice desc')
+                                                           'ilike', 'الوسائل العامة')],
+                                                         order='categorie_grade_indice desc')
 
         internat = self.env['rh.prime.rendement.line'].search([('prime_rendement_id', '=', prime_rendement.id),
                                                                ('employee_id.department_id.complete_name',
-                                                                'ilike', 'النظام الداخلي')], order='categorie_grade_indice desc')
+                                                                'ilike', 'النظام الداخلي')],
+                                                              order='categorie_grade_indice desc')
 
         etude = self.env['rh.prime.rendement.line'].search([('prime_rendement_id', '=', prime_rendement.id),
                                                             ('employee_id.department_id.complete_name',
-                                                             'ilike', '%مديرية الدرسات%')], order='categorie_grade_indice desc')
+                                                             'ilike', '%مديرية الدرسات%')],
+                                                           order='categorie_grade_indice desc')
 
         stage = self.env['rh.prime.rendement.line'].search([('prime_rendement_id', '=', prime_rendement.id),
                                                             ('employee_id.department_id.complete_name',
@@ -41,11 +45,18 @@ class OrganizationChartReport(models.AbstractModel):
 
         formation = self.env['rh.prime.rendement.line'].search([('prime_rendement_id', '=', prime_rendement.id),
                                                                 ('employee_id.department_id.complete_name',
-                                                                 'ilike', 'التكوين')], order='categorie_grade_indice desc')
+                                                                 'ilike', 'التكوين')],
+                                                               order='categorie_grade_indice desc')
 
         recherche = self.env['rh.prime.rendement.line'].search([('prime_rendement_id', '=', prime_rendement.id),
                                                                 ('employee_id.department_id.complete_name',
-                                                                 'ilike', 'البحث')], order='categorie_grade_indice desc')
+                                                                 'ilike', 'البحث')],
+                                                               order='categorie_grade_indice desc')
+
+        enseignant = self.env['rh.prime.rendement.line'].search([('prime_rendement_id', '=', prime_rendement.id),
+                                                                 ('employee_id.department_id', '=', False),
+                                                                 ('employee_id.grade_id.intitule_grade', 'ilike', '%أستاذ%')],
+                                                                order='categorie_grade_indice desc')
 
         report_data = {
             'prime_rendement': prime_rendement,
@@ -60,6 +71,7 @@ class OrganizationChartReport(models.AbstractModel):
             'stage': stage,
             'formation': formation,
             'recherche': recherche,
+            'enseignant': enseignant,
         }
 
         return report_data
