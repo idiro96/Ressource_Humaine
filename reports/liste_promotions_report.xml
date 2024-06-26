@@ -74,9 +74,9 @@
                                 <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;width:125px">
                                     <strong>تاريخ سريان الترقية القادمة</strong>
                                 </th>
-                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;width:25px">
-                                    <strong>التنقيط</strong>
-                                </th>
+<!--                                <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;width:25px">-->
+<!--                                    <strong>التنقيط</strong>-->
+<!--                                </th>-->
                                 <th style="border:1px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:18px;width:25px">
                                     <strong>المدة</strong>
                                 </th>
@@ -123,9 +123,9 @@
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                 <t t-esc="line_date_new_promotion_av.get(line.id, '')"/>
                                 </td>
-                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
-                                   <t t-esc="20"/>
-                                </td>
+<!--                                <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">-->
+<!--                                   <t t-esc="20"/>-->
+<!--                                </td>-->
                                 <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px">
                                     <span t-esc="duree1"/>
                                 </td>

@@ -164,6 +164,16 @@ class RHDroitPromotion(models.TransientModel):
             if tab3:
                 tab = tab3
 
+            tab4 = []
+            for t in tab:
+                for empl in t:
+                    if empl.grade_id:
+                        grade_line1 = self.env['rh.grade.line'].search(
+                            [('grade2_id', '=', empl.grade_id.id)])
+                        if grade_line1:
+                            tab4.append(empl)
+
+            tab = tab4
             if tab:
                 for t in tab:
                     for promo in t:
@@ -437,7 +447,17 @@ class listePromotionReport(models.AbstractModel):
                     # print('empl.date_promotion_wizard')
                     # print(empl.date_grade)
                     duree = []
+            tab3 = []
+            # tab3 = tab
+            for t in tab:
+                for empl in t:
+                    if empl.grade_id:
+                        grade_line1 = self.env['rh.grade.line'].search(
+                            [('grade2_id', '=', empl.grade_id.id)])
+                        if  grade_line1:
+                            tab3.append(empl)
 
+            tab = tab3
             if tab:
                 for t in tab:
                     for empl in t:
