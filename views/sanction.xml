@@ -84,6 +84,25 @@
             <p class="o_view_nocontent_smiling_face">Create your first Sanction!</p>
         </field>
     </record>
+    <record id="sanction_search" model="ir.ui.view">
+        <field name="name">Sanction Search</field>
+        <field name="model">rh.sanction</field>
+        <field name="arch" type="xml">
+            <search string="Search Sanction">
+                <field name="employee_id" string="Employee" filter_domain="[('employee_id', 'ilike', self)]"/>
+                <field name="date_pv_sanction" string="PV Sanction"/>
+                <field name="type_faute_id" string="Fault Type"/>
+                <field name="type_sanction_id" string="Sanction Type"/>
+                <group expand="0" string="Group By">
+                    <filter string="Employee" name="employee_id" context="{'group_by': 'employee_id'}"/>
+                    <filter string="PV Sanction Year" name="date_pv_sanction_year"
+                            context="{'group_by': 'date_pv_sanction:year'}"/>
+                    <filter string="Fault Type" name="type_faute_id" context="{'group_by': 'type_faute_id'}"/>
+                    <filter string="Sanction Type" name="type_sanction_id" context="{'group_by': 'type_sanction_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
             <menuitem name="Sanction" id="ressource_humaine_sanction" parent="suivi_personnel_id" sequence="2"
            action="action_rh_sanction"/>
 </odoo>

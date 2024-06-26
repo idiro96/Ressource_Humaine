@@ -33572,6 +33572,8 @@ msgstr "الموظف"
 #: model:ir.ui.view,arch_db:ressource_humaine.enfant_search
 #: model:ir.ui.view,arch_db:ressource_humaine.rh_fiche_evaluation_lines_search
 #: model:ir.ui.view,arch_db:ressource_humaine.rh_prime_rendement_lines_search
+#: model:ir.ui.view,arch_db:ressource_humaine.absence_search
+#: model:ir.ui.view,arch_db:ressource_humaine.sanction_search
 msgid "Employee"
 msgstr "الموظف"
 
@@ -84159,19 +84161,22 @@ msgid "Search Right to Leave"
 msgstr "بحث في حق العطلة"
 
 #. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.absence_search
 #: model:ir.ui.view,arch_db:ressource_humaine.conge_droit_search
+#: model:ir.ui.view,arch_db:ressource_humaine.conjoint_search
+#: model:ir.ui.view,arch_db:ressource_humaine.enfant_search
 #: model:ir.ui.view,arch_db:ressource_humaine.hr_contract_view_search_inherited
+#: model:ir.ui.view,arch_db:ressource_humaine.planning_search
 #: model:ir.ui.view,arch_db:ressource_humaine.rh_categorie_search
 #: model:ir.ui.view,arch_db:ressource_humaine.rh_corps_search
+#: model:ir.ui.view,arch_db:ressource_humaine.rh_fiche_evaluation_lines_search
 #: model:ir.ui.view,arch_db:ressource_humaine.rh_grade_search
 #: model:ir.ui.view,arch_db:ressource_humaine.rh_niveau_hierarchique_chef_bureau_search
 #: model:ir.ui.view,arch_db:ressource_humaine.rh_type_file_search
+#: model:ir.ui.view,arch_db:ressource_humaine.sanction_search
 #: model:ir.ui.view,arch_db:ressource_humaine.view_department_filter_inherited
 #: model:ir.ui.view,arch_db:ressource_humaine.view_employee_filter_inherited
 #: model:ir.ui.view,arch_db:ressource_humaine.view_job_filter_inherited
-#: model:ir.ui.view,arch_db:ressource_humaine.conjoint_search
-#: model:ir.ui.view,arch_db:ressource_humaine.enfant_search
-#: model:ir.ui.view,arch_db:ressource_humaine.planning_search
 msgid "Group By"
 msgstr "تجميع حسب"
 
@@ -84539,3 +84544,48 @@ msgstr "بدون ملاحظة"
 #: model:ir.ui.view,arch_db:ressource_humaine.rh_fiche_evaluation_lines_search
 msgid "Durée"
 msgstr "المدة"
+
+#. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.absence_search
+msgid "Search Absence"
+msgstr "بحث عن الغياب"
+
+#. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.absence_search
+msgid "Start Absence"
+msgstr "تاريخ بداية الغياب"
+
+#. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.absence_search
+msgid "Absence Year"
+msgstr "سنة الغاب"
+
+#. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.absence_search
+msgid "Absence Month"
+msgstr "شهر و سنة الغاب"
+
+#. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.sanction_search
+msgid "Search Sanction"
+msgstr "بحث عن العقوبات"
+
+#. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.sanction_search
+msgid "PV Sanction"
+msgstr "تاريخ محضر العقوبة التأدبية"
+
+#. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.sanction_search
+msgid "PV Sanction Year"
+msgstr "سنة محضر العقوبة التأدبية"
+
+#. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.sanction_search
+msgid "Fault Type"
+msgstr "نوع الخطأ"
+
+#. module: ressource_humaine
+#: model:ir.ui.view,arch_db:ressource_humaine.sanction_search
+msgid "Sanction Type"
+msgstr "نوع العقوبة التأدبية"

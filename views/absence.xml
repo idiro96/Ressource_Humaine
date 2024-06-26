@@ -4,7 +4,7 @@
         <field name="model">rh.absence</field>
         <field name="arch" type="xml">
             <tree>
-<!--                <field name="num_reference_absence"/>-->
+                <!--                <field name="num_reference_absence"/>-->
                 <field name="employee_id"/>
                 <field name="date_debut_absence" context="{'lang': 'fr_FR'}"/>
                 <field name="date_fin_absence"/>
@@ -32,7 +32,7 @@
                         <group>
                             <field name="employee_id"
                                    options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>
-<!--                            <field name="num_reference_absence"/>-->
+                            <!--                            <field name="num_reference_absence"/>-->
                             <field name="date_debut_absence"/>
                             <field name="date_fin_absence"/>
                         </group>
@@ -70,6 +70,23 @@
         <field name="context">{}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">Creation Absence!</p>
+        </field>
+    </record>
+    <record id="absence_search" model="ir.ui.view">
+        <field name="name">Absence Search</field>
+        <field name="model">rh.absence</field>
+        <field name="arch" type="xml">
+            <search string="Search Absence">
+                <field name="date_debut_absence" string="Start Absence"/>
+                <field name="employee_id" string="Employee" filter_domain="[('employee_id', 'ilike', self)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Absence Year" name="date_debut_absence_year"
+                            context="{'group_by': 'date_debut_absence:year'}"/>
+                    <filter string="Absence Month" name="date_debut_absence_month"
+                            context="{'group_by': 'date_debut_absence:month'}"/>
+                    <filter string="Employee" name="employee_id" context="{'group_by': 'employee_id'}"/>
+                </group>
+            </search>
         </field>
     </record>
     <menuitem name="Indisponibilité/Absence" id="ressource_humaine_absence" parent="suivi_personnel_id" sequence="1"
