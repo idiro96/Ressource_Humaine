@@ -1,4 +1,36 @@
 <odoo>
+    <record id="view_rh_prime_rendement_lines_tree" model="ir.ui.view">
+        <field name="name">Prime Rendement Line</field>
+        <field name="model">rh.prime.rendement.line</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom" create="false" import="false">
+                <field name="employee_id"
+                       options="{'no_create_edit': True, 'no_quick_create': True, 'no_create': True, 'no_open': True}"/>
+                <field name="nbr_jours_travail"/>
+                <field name="notation_responsable"/>
+                <field name="notation_finale"/>
+                <field name="remarque"/>
+            </tree>
+        </field>
+    </record>
+    <record id="rh_prime_rendement_lines_search" model="ir.ui.view">
+        <field name="name">Prime Rendement Lines Search</field>
+        <field name="model">rh.prime.rendement.line</field>
+        <field name="arch" type="xml">
+            <search string="Search Prime Rendement Line">
+                <field name="employee_id" string="Employee" filter_domain="[('employee_id', 'ilike', self)]"/>
+                <filter string="With Remark" name="with_remark" domain="[('remarque', '!=', False)]"/>
+                <filter string="Without Remark" name="without_remark" domain="[('remarque', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+    <record id="action_prime_rendement_lines" model="ir.actions.act_window">
+        <field name="name">Prime Rendement Lines</field>
+        <field name="res_model">rh.prime.rendement.line</field>
+        <field name="view_mode">tree</field>
+        <field name="domain">[('prime_rendement_id', '=', active_id)]</field>
+        <field name="context">{'default_prime_rendement_id': active_id}</field>
+    </record>
     <record id="view_rh_prime_rendement_tree" model="ir.ui.view">
         <field name="name">Prime Rendement</field>
         <field name="model">rh.prime.rendement</field>
@@ -16,6 +48,10 @@
         <field name="model">rh.prime.rendement</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                    <button name="%(action_prime_rendement_lines)d" type="action" string="بحث" class="oe_stat_button"
+                            icon="fa-search"/>
+                </header>
                 <sheet>
                     <group>
                         <group>

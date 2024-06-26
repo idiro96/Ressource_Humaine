@@ -163,25 +163,30 @@
                             <t t-set="line_count" t-value="1"/>
                             <t t-foreach="budget_comptabilite" t-as="line">
                                 <tbody>
-                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <span t-esc="line.job_id.name"/>
-                                    </td>
-                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <t t-if="line.grade_id.description">
-                                            <span t-esc="line.grade_id.description"/>
-                                        </t>
-                                        <t t-if="not line.grade_id.description">
-                                            <span t-esc="line.grade_id.intitule_grade"/>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;;height:35px">
+                                        <span t-esc="line['job_name']"/>
+                                        <t t-if="line['job_type'] == 'organique'">
+                                            <t t-if="'رئيس مكتب' in line['job_name'] or 'رئيس مصلحة' in line['job_name']">
+                                                <t t-esc="line['department_name']"/>
+                                            </t>
                                         </t>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <span t-esc="line.place_of_birth"/>
+                                        <t t-if="line['description']">
+                                            <span t-esc="line['description']"/>
+                                        </t>
+                                        <t t-if="not line['description']">
+                                            <span t-esc="line['grade']"/>
+                                        </t>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <span t-esc="line.birthday"/>
+                                        <span t-esc="line['place_of_birth']"/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <span t-esc="line.name"/>
+                                        <span t-esc="line['birthday']"/>
+                                    </td>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
+                                        <span t-esc="line['name']"/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         <strong>
@@ -230,25 +235,30 @@
                             <t t-set="line_count" t-value="1"/>
                             <t t-foreach="informatique" t-as="line">
                                 <tbody>
-                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <span t-esc="line.job_id.name"/>
-                                    </td>
-                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <t t-if="line.grade_id.description">
-                                            <span t-esc="line.grade_id.description"/>
-                                        </t>
-                                        <t t-if="not line.grade_id.description">
-                                            <span t-esc="line.grade_id.intitule_grade"/>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;;height:35px">
+                                        <span t-esc="line['job_name']"/>
+                                        <t t-if="line['job_type'] == 'organique'">
+                                            <t t-if="'رئيس مكتب' in line['job_name'] or 'رئيس مصلحة' in line['job_name']">
+                                                <t t-esc="line['department_name']"/>
+                                            </t>
                                         </t>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <span t-esc="line.place_of_birth"/>
+                                        <t t-if="line['description']">
+                                            <span t-esc="line['description']"/>
+                                        </t>
+                                        <t t-if="not line['description']">
+                                            <span t-esc="line['grade']"/>
+                                        </t>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <span t-esc="line.birthday"/>
+                                        <span t-esc="line['place_of_birth']"/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <span t-esc="line.name"/>
+                                        <span t-esc="line['birthday']"/>
+                                    </td>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
+                                        <span t-esc="line['name']"/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         <strong>
@@ -297,25 +307,30 @@
                             <t t-set="line_count" t-value="1"/>
                             <t t-foreach="mgx" t-as="line">
                                 <tbody>
-                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <span t-esc="line.job_id.name"/>
-                                    </td>
-                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <t t-if="line.grade_id.description">
-                                            <span t-esc="line.grade_id.description"/>
-                                        </t>
-                                        <t t-if="not line.grade_id.description">
-                                            <span t-esc="line.grade_id.intitule_grade"/>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;;height:35px">
+                                        <span t-esc="line['job_name']"/>
+                                        <t t-if="line['job_type'] == 'organique'">
+                                            <t t-if="'رئيس مكتب' in line['job_name'] or 'رئيس مصلحة' in line['job_name']">
+                                                <t t-esc="line['department_name']"/>
+                                            </t>
                                         </t>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <span t-esc="line.place_of_birth"/>
+                                        <t t-if="line['description']">
+                                            <span t-esc="line['description']"/>
+                                        </t>
+                                        <t t-if="not line['description']">
+                                            <span t-esc="line['grade']"/>
+                                        </t>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <span t-esc="line.birthday"/>
+                                        <span t-esc="line['place_of_birth']"/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <span t-esc="line.name"/>
+                                        <span t-esc="line['birthday']"/>
+                                    </td>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
+                                        <span t-esc="line['name']"/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         <strong>
@@ -364,25 +379,30 @@
                             <t t-set="line_count" t-value="1"/>
                             <t t-foreach="internat" t-as="line">
                                 <tbody>
-                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <span t-esc="line.job_id.name"/>
-                                    </td>
-                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <t t-if="line.grade_id.description">
-                                            <span t-esc="line.grade_id.description"/>
-                                        </t>
-                                        <t t-if="not line.grade_id.description">
-                                            <span t-esc="line.grade_id.intitule_grade"/>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;;height:35px">
+                                        <span t-esc="line['job_name']"/>
+                                        <t t-if="line['job_type'] == 'organique'">
+                                            <t t-if="'رئيس مكتب' in line['job_name'] or 'رئيس مصلحة' in line['job_name']">
+                                                <t t-esc="line['department_name']"/>
+                                            </t>
                                         </t>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <span t-esc="line.place_of_birth"/>
+                                        <t t-if="line['description']">
+                                            <span t-esc="line['description']"/>
+                                        </t>
+                                        <t t-if="not line['description']">
+                                            <span t-esc="line['grade']"/>
+                                        </t>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <span t-esc="line.birthday"/>
+                                        <span t-esc="line['place_of_birth']"/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <span t-esc="line.name"/>
+                                        <span t-esc="line['birthday']"/>
+                                    </td>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
+                                        <span t-esc="line['name']"/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         <strong>
@@ -437,25 +457,30 @@
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         &#160;
                                     </td>
-                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <span t-esc="line.job_id.name"/>
-                                    </td>
-                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <t t-if="line.grade_id.description">
-                                            <span t-esc="line.grade_id.description"/>
-                                        </t>
-                                        <t t-if="not line.grade_id.description">
-                                            <span t-esc="line.grade_id.intitule_grade"/>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;;height:35px">
+                                        <span t-esc="line['job_name']"/>
+                                        <t t-if="line['job_type'] == 'organique'">
+                                            <t t-if="'رئيس مكتب' in line['job_name'] or 'رئيس مصلحة' in line['job_name']">
+                                                <t t-esc="line['department_name']"/>
+                                            </t>
                                         </t>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <span t-esc="line.place_of_birth"/>
+                                        <t t-if="line['description']">
+                                            <span t-esc="line['description']"/>
+                                        </t>
+                                        <t t-if="not line['description']">
+                                            <span t-esc="line['grade']"/>
+                                        </t>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <span t-esc="line.birthday"/>
+                                        <span t-esc="line['place_of_birth']"/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <span t-esc="line.name"/>
+                                        <span t-esc="line['birthday']"/>
+                                    </td>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
+                                        <span t-esc="line['name']"/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         <strong>
@@ -510,25 +535,30 @@
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         &#160;
                                     </td>
-                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <span t-esc="line.job_id.name"/>
-                                    </td>
-                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <t t-if="line.grade_id.description">
-                                            <span t-esc="line.grade_id.description"/>
-                                        </t>
-                                        <t t-if="not line.grade_id.description">
-                                            <span t-esc="line.grade_id.intitule_grade"/>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;;height:35px">
+                                        <span t-esc="line['job_name']"/>
+                                        <t t-if="line['job_type'] == 'organique'">
+                                            <t t-if="'رئيس مكتب' in line['job_name'] or 'رئيس مصلحة' in line['job_name']">
+                                                <t t-esc="line['department_name']"/>
+                                            </t>
                                         </t>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <span t-esc="line.place_of_birth"/>
+                                        <t t-if="line['description']">
+                                            <span t-esc="line['description']"/>
+                                        </t>
+                                        <t t-if="not line['description']">
+                                            <span t-esc="line['grade']"/>
+                                        </t>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <span t-esc="line.birthday"/>
+                                        <span t-esc="line['place_of_birth']"/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <span t-esc="line.name"/>
+                                        <span t-esc="line['birthday']"/>
+                                    </td>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
+                                        <span t-esc="line['name']"/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         <strong>
@@ -583,25 +613,30 @@
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         &#160;
                                     </td>
-                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <span t-esc="line.job_id.name"/>
-                                    </td>
-                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <t t-if="line.grade_id.description">
-                                            <span t-esc="line.grade_id.description"/>
-                                        </t>
-                                        <t t-if="not line.grade_id.description">
-                                            <span t-esc="line.grade_id.intitule_grade"/>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;;height:35px">
+                                        <span t-esc="line['job_name']"/>
+                                        <t t-if="line['job_type'] == 'organique'">
+                                            <t t-if="'رئيس مكتب' in line['job_name'] or 'رئيس مصلحة' in line['job_name']">
+                                                <t t-esc="line['department_name']"/>
+                                            </t>
                                         </t>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <span t-esc="line.place_of_birth"/>
+                                        <t t-if="line['description']">
+                                            <span t-esc="line['description']"/>
+                                        </t>
+                                        <t t-if="not line['description']">
+                                            <span t-esc="line['grade']"/>
+                                        </t>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <span t-esc="line.birthday"/>
+                                        <span t-esc="line['place_of_birth']"/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <span t-esc="line.name"/>
+                                        <span t-esc="line['birthday']"/>
+                                    </td>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
+                                        <span t-esc="line['name']"/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         <strong>
@@ -656,25 +691,30 @@
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         &#160;
                                     </td>
-                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <span t-esc="line.job_id.name"/>
-                                    </td>
-                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <t t-if="line.grade_id.description">
-                                            <span t-esc="line.grade_id.description"/>
-                                        </t>
-                                        <t t-if="not line.grade_id.description">
-                                            <span t-esc="line.grade_id.intitule_grade"/>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;;height:35px">
+                                        <span t-esc="line['job_name']"/>
+                                        <t t-if="line['job_type'] == 'organique'">
+                                            <t t-if="'رئيس مكتب' in line['job_name'] or 'رئيس مصلحة' in line['job_name']">
+                                                <t t-esc="line['department_name']"/>
+                                            </t>
                                         </t>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <span t-esc="line.place_of_birth"/>
+                                        <t t-if="line['description']">
+                                            <span t-esc="line['description']"/>
+                                        </t>
+                                        <t t-if="not line['description']">
+                                            <span t-esc="line['grade']"/>
+                                        </t>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <span t-esc="line.birthday"/>
+                                        <span t-esc="line['place_of_birth']"/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <span t-esc="line.name"/>
+                                        <span t-esc="line['birthday']"/>
+                                    </td>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
+                                        <span t-esc="line['name']"/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         <strong>
@@ -729,20 +769,30 @@
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         &#160;
                                     </td>
-                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <span t-esc="line.job_id.name"/>
+                                    <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;;height:35px">
+                                        <span t-esc="line['job_name']"/>
+                                        <t t-if="line['job_type'] == 'organique'">
+                                            <t t-if="'رئيس مكتب' in line['job_name'] or 'رئيس مصلحة' in line['job_name']">
+                                                <t t-esc="line['department_name']"/>
+                                            </t>
+                                        </t>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <span t-esc="line.grade_id.intitule_grade"/>
+                                        <t t-if="line['description']">
+                                            <span t-esc="line['description']"/>
+                                        </t>
+                                        <t t-if="not line['description']">
+                                            <span t-esc="line['grade']"/>
+                                        </t>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <span t-esc="line.place_of_birth"/>
+                                        <span t-esc="line['place_of_birth']"/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <span t-esc="line.birthday"/>
+                                        <span t-esc="line['birthday']"/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
-                                        <span t-esc="line.name"/>
+                                        <span t-esc="line['name']"/>
                                     </td>
                                     <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                         <strong>
