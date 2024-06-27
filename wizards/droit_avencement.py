@@ -305,6 +305,7 @@ class listeAvancementReport(models.AbstractModel):
                     [('date_avancement', '<=', date_avancement_wizard2),('echelon_code', '!=', '12'), ('fin_relation', '=', False)])
 
             avancements = []
+
             for empl in employees:
                 print('date_avancement_wizard')
                 print(date_avancement_wizard)
@@ -328,6 +329,7 @@ class listeAvancementReport(models.AbstractModel):
                         duree1 = 24
 
             line_date_new_avancement_av = {}
+
             for rec in avancements:
                 for rec2 in rec:
                     if rec2.date_avancement:

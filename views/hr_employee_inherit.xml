@@ -529,6 +529,8 @@
                             <field name="echelon_id_grade"
                                    options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
                                    attrs="{'invisible': [('code_type_fonction', '!=', 'fonctionsuperieure')], 'required': [('code_type_fonction', '=', 'fonctionsuperieure')]}"/>
+                            <field name="promotion_dix"
+                                   />
 
                             <field name="wage"/>
                         </group>
