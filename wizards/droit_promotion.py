@@ -839,9 +839,9 @@ class DroitPromotiondXLS(models.AbstractModel):
         sheet.set_column(8, 8, 25)
         sheet.set_column(9, 9, 10)
         sheet.set_column(10, 10, 10)
-        sheet.set_column(11, 11, 10)
-        sheet.set_column(12, 12, 25)
-        sheet.set_column(13, 13, 30)
+        # sheet.set_column(11, 11, 10)
+        sheet.set_column(11, 11, 25)
+        sheet.set_column(12, 12, 30)
 
         sheet.write(10, 0, 'الرقم', format1)
         sheet.write(10, 1, 'الاسم و اللقب', format1)
@@ -900,12 +900,7 @@ class DroitPromotiondXLS(models.AbstractModel):
             sheet.write(row, 5, line.job_id.name or '/', format3)
             sheet.write(row, 6, line.echelon_id.intitule or '/', format3)
             sheet.write(row, 7, line.date_grade or '/', format3)
-            date_str = line.date_grade
-            if date_str:
-                date_obj = datetime.strptime(date_str, "%Y-%m-%d")
-                sheet.write(row, 8, date_obj, date_format)
-            else:
-                sheet.write(row, 8, '/', format3)
+            sheet.write(row, 8, line_grade.get(line.id, ''), format3)
             sheet.write(row, 9, '', format3)
             sheet.write(row, 10, duree1 or '/', format3)
             # sheet.write(row, 11, '20', format3)
