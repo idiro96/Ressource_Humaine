@@ -49,14 +49,39 @@ class RHDroitAvencement(models.TransientModel):
             for record in avancement_ligne_droit:
                 if record.sauvegarde == False:
                     record.unlink()
+            nature_travail = self.env['rh.type.fonction'].search([('code_type_fonction', '=', 'fonction')])
+            nature_travail_superieure = self.env['rh.type.fonction'].search(
+                [('code_type_fonction', '=', 'fonctionsuperieure')])
             if self.grade_id:
-                avancement_line = self.env['hr.employee'].search(
-                        [('date_avancement', '<=', self.date_avancement),('echelon_code', '!=', '12'),('grade_id', '=', self.grade_id.id),('fin_relation', '=', False)],
+                avancement_line1 = self.env['hr.employee'].search(
+                        [('date_avancement', '<=', self.date_avancement),('nature_travail_id', '=', nature_travail.id),('echelon_code', 'not ilike', '12'),('grade_id', '=', self.grade_id.id),('fin_relation', '=', False)],
                         order='date_avancement DESC')
-            else:
-                avancement_line = self.env['hr.employee'].search(
-                    [('date_avancement', '<=', self.date_avancement), ('echelon_code', '!=', '12'),('fin_relation', '=', False)],
+                avancement_line2 = self.env['hr.employee'].search(
+                    [('date_avancement', '<=', self.date_avancement), ('nature_travail_id', '=', nature_travail_superieure.id),
+                     ('echelon_code', 'not ilike', '24'), ('grade_id', '=', self.grade_id.id),
+                     ('fin_relation', '=', False)],
                     order='date_avancement DESC')
+                if avancement_line1 and avancement_line2:
+                    avancement_line = avancement_line1 + avancement_line2
+                if not avancement_line1 and avancement_line2:
+                    avancement_line = avancement_line2
+                if avancement_line1 and not avancement_line2:
+                    avancement_line = avancement_line1
+            else:
+                avancement_line1 = self.env['hr.employee'].search(
+                    [('date_avancement', '<=', self.date_avancement),('nature_travail_id', '=', nature_travail.id), ('echelon_code', 'not ilike', '12'),('fin_relation', '=', False)],
+                    order='date_avancement DESC')
+                avancement_line2 = self.env['hr.employee'].search(
+                    [('date_avancement', '<=', self.date_avancement), ('nature_travail_id', '=', nature_travail_superieure.id),
+                     ('echelon_code', 'not ilike', '24'), ('fin_relation', '=', False)],
+                    order='date_avancement DESC')
+                if avancement_line1 and avancement_line2:
+                    avancement_line = avancement_line1 + avancement_line2
+                if not avancement_line1 and avancement_line2:
+                    avancement_line = avancement_line2
+                if avancement_line1 and not avancement_line2:
+                    avancement_line = avancement_line1
+
 
             if avancement_line:
                 for avance in avancement_line:
@@ -296,13 +321,35 @@ class listeAvancementReport(models.AbstractModel):
                         date_avancement_wizard) - relativedelta(months=24)
 
                 grade = rec.grade_id
-
+            nature_travail = self.env['rh.type.fonction'].search([('code_type_fonction', '=', 'fonction')])
+            nature_travail_superieure = self.env['rh.type.fonction'].search(
+                [('code_type_fonction', '=', 'fonctionsuperieure')])
             if grade:
-                employees = self.env['hr.employee'].search(
-                    [('date_avancement', '<=', date_avancement_wizard2),('grade_id', '=', grade.id),('echelon_code', '!=', '12'),('fin_relation', '=', False)])
+                employees1 = self.env['hr.employee'].search(
+                    [('date_avancement', '<=', date_avancement_wizard2),('grade_id', '=', grade.id),('echelon_code', 'not ilike', '12'),('nature_travail_id', '=', nature_travail.id),('fin_relation', '=', False)])
+                employees2 = self.env['hr.employee'].search(
+                [('date_avancement', '<=', date_avancement_wizard2), ('grade_id', '=', grade.id),
+                 ('echelon_code', 'not ilike', '24'), ('nature_travail_id', '=', nature_travail_superieure.id),
+                 ('fin_relation', '=', False)])
+                if employees1 and employees2:
+                    employees = employees1 + employees2
+                if not employees1 and employees2:
+                    employees = employees2
+                if employees1 and not employees2:
+                    employees = employees1
+
             else:
-                employees = self.env['hr.employee'].search(
-                    [('date_avancement', '<=', date_avancement_wizard2),('echelon_code', '!=', '12'), ('fin_relation', '=', False)])
+                employees1 = self.env['hr.employee'].search(
+                    [('date_avancement', '<=', date_avancement_wizard2),('echelon_code', 'not ilike', '12'),('nature_travail_id', '=', nature_travail.id), ('fin_relation', '=', False)])
+                employees2 = self.env['hr.employee'].search(
+                    [('date_avancement', '<=', date_avancement_wizard2), ('echelon_code', 'not ilike', '24'),
+                     ('nature_travail_id', '=', nature_travail_superieure.id), ('fin_relation', '=', False)])
+                if employees1 and employees2:
+                    employees = employees1 + employees2
+                if not employees1 and employees2:
+                    employees = employees2
+                if employees1 and not employees2:
+                    employees = employees1
 
             avancements = []
 
