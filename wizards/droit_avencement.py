@@ -51,11 +51,11 @@ class RHDroitAvencement(models.TransientModel):
                     record.unlink()
             if self.grade_id:
                 avancement_line = self.env['hr.employee'].search(
-                        [('date_avancement', '<=', self.date_avancement),('grade_id', '=', self.grade_id.id),('fin_relation', '=', False)],
+                        [('date_avancement', '<=', self.date_avancement),('echelon_code', '!=', '12'),('grade_id', '=', self.grade_id.id),('fin_relation', '=', False)],
                         order='date_avancement DESC')
             else:
                 avancement_line = self.env['hr.employee'].search(
-                    [('date_avancement', '<=', self.date_avancement), ('fin_relation', '=', False)],
+                    [('date_avancement', '<=', self.date_avancement), ('echelon_code', '!=', '12'),('fin_relation', '=', False)],
                     order='date_avancement DESC')
 
             if avancement_line:
@@ -299,10 +299,10 @@ class listeAvancementReport(models.AbstractModel):
 
             if grade:
                 employees = self.env['hr.employee'].search(
-                    [('date_avancement', '<=', date_avancement_wizard2),('grade_id', '=', grade.id),('fin_relation', '=', False)])
+                    [('date_avancement', '<=', date_avancement_wizard2),('grade_id', '=', grade.id),('echelon_code', '!=', '12'),('fin_relation', '=', False)])
             else:
                 employees = self.env['hr.employee'].search(
-                    [('date_avancement', '<=', date_avancement_wizard2), ('fin_relation', '=', False)])
+                    [('date_avancement', '<=', date_avancement_wizard2),('echelon_code', '!=', '12'), ('fin_relation', '=', False)])
 
             avancements = []
             for empl in employees:
@@ -392,38 +392,41 @@ class DroitAvancementXLS(models.AbstractModel):
         avancement = self._get_objs_for_report(objs.ids, data)
         date_avancement = avancement.date_avancement
         formatted_date_avancement = datetime.strptime(date_avancement, "%Y-%m-%d").strftime("%Y")
+
         duree1 = 0
         params = self.env['droit.avencement'].search([])
+        date_avancement_wizard = avancement.date_avancement
+        formatted_date_avancement_wizard = datetime.strptime(date_avancement_wizard, "%Y-%m-%d").strftime("%Y")
 
         for rec in params:
             date_avancement_wizard = rec.date_avancement
-            bool = rec.boul
+            bool = rec.reclassement
+            formatted_date_avancement = datetime.strptime(date_avancement_wizard, "%Y-%m-%d").strftime("%Y")
             if not bool:
-                date_avancement_wizard2 = fields.Date.from_string(
-                    date_avancement_wizard) - relativedelta(months=30)
+                date_avancement_wizard2 = fields.Date.from_string(date_avancement_wizard) - relativedelta(months=30)
             else:
-                date_avancement_wizard2 = fields.Date.from_string(
-                    date_avancement_wizard) - relativedelta(months=24)
+                date_avancement_wizard2 = fields.Date.from_string(date_avancement_wizard) - relativedelta(months=24)
 
             grade = rec.grade_id
 
         if grade:
             employees = self.env['hr.employee'].search(
                 [('date_avancement', '<=', date_avancement_wizard2), ('grade_id', '=', grade.id),
-                 ('fin_relation', '=', False)])
+                 ('echelon_code', '!=', '12'), ('fin_relation', '=', False)])
         else:
             employees = self.env['hr.employee'].search(
-                [('date_avancement', '<=', date_avancement_wizard2), ('fin_relation', '=', False)])
+                [('date_avancement', '<=', date_avancement_wizard2), ('echelon_code', '!=', '12'),
+                 ('fin_relation', '=', False)])
 
         avancements = []
         for empl in employees:
             duree = []
 
             if empl.date_avancement:
-                datedebut_object = fields.Date.from_string(date_avancement_wizard)
-                datedebut_object2 = fields.Date.from_string(empl.date_avancement)
+                dateDebut_object = fields.Date.from_string(date_avancement_wizard)
+                dateDebut_object2 = fields.Date.from_string(empl.date_avancement)
                 difference = (
-                                     datedebut_object.year - datedebut_object2.year) * 12 + datedebut_object.month - datedebut_object2.month
+                                         dateDebut_object.year - dateDebut_object2.year) * 12 + dateDebut_object.month - dateDebut_object2.month
                 if not bool:
                     if (difference >= 30 and empl.nature_travail_id.code_type_fonction == 'fonction') or (
                             difference >= 30 and empl.nature_travail_id.code_type_fonction == 'fonctionsuperieure'):
@@ -454,8 +457,7 @@ class DroitAvancementXLS(models.AbstractModel):
                 if rec2.date_avancement:
                     date_new_avancement = fields.Datetime.from_string(date_avancement_wizard)
 
-                    date_old_avancement = fields.Date.from_string(
-                        rec2.date_avancement)
+                    date_old_avancement = fields.Date.from_string(rec2.date_avancement)
 
                     delta = relativedelta(date_new_avancement, date_old_avancement)
 
@@ -490,8 +492,8 @@ class DroitAvancementXLS(models.AbstractModel):
         sheet = workbook.add_worksheet('جدول ترقية')
         sheet.right_to_left()
 
-        sheet.set_row(6, 25)
-        for row_num in range(7, len(avancements) + 1):
+        sheet.set_row(12, 25)
+        for row_num in range(13, len(avancements) + 1):
             sheet.set_row(row_num, 20)
 
         sheet.set_column(0, 0, 5)
@@ -509,24 +511,24 @@ class DroitAvancementXLS(models.AbstractModel):
         sheet.set_column(12, 12, 25)
         sheet.set_column(13, 13, 30)
 
-        sheet.write(6, 0, 'الرقم', format1)
-        sheet.write(6, 1, 'الاسم و اللقب', format1)
-        sheet.write(6, 2, 'تاريخ الميلاد', format1)
-        sheet.write(6, 3, 'الحالة العائلية', format1)
-        sheet.write(6, 4, 'الرتبة', format1)
-        sheet.write(6, 5, 'المنصب', format1)
-        sheet.write(6, 6, 'الدرجة', format1)
-        sheet.write(6, 7, 'تاريخ سريان الترقيةالحالية', format1)
-        sheet.write(6, 8, 'ترقية', format1)
-        sheet.write(6, 9, 'عامين و نصف', format1)
-        sheet.write(6, 10, 'المدة', format1)
-        sheet.write(6, 11, 'التنقيط', format1)
-        sheet.write(6, 12, 'تاريخ سريان الترقية القادمة', format1)
-        sheet.write(6, 13, 'فرق المدة', format1)
+        sheet.write(12, 0, 'الرقم', format1)
+        sheet.write(12, 1, 'الاسم و اللقب', format1)
+        sheet.write(12, 2, 'تاريخ الميلاد', format1)
+        sheet.write(12, 3, 'الحالة العائلية', format1)
+        sheet.write(12, 4, 'الرتبة', format1)
+        sheet.write(12, 5, 'المنصب', format1)
+        sheet.write(12, 6, 'الدرجة', format1)
+        sheet.write(12, 7, 'تاريخ سريان الترقيةالحالية', format1)
+        sheet.write(12, 8, 'ترقية', format1)
+        sheet.write(12, 9, 'عامين و نصف', format1)
+        sheet.write(12, 10, 'المدة', format1)
+        sheet.write(12, 11, 'التنقيط', format1)
+        sheet.write(12, 12, 'تاريخ سريان الترقية القادمة', format1)
+        sheet.write(12, 13, 'فرق المدة', format1)
 
-        sheet.merge_range('E2:J4', f"{formatted_date_avancement}جدول ترقية موظفي المدرسة الوطنية للإدارة لسنة ", title_format)
+        sheet.merge_range('E8:J10', f"{formatted_date_avancement}جدول ترقية موظفي المدرسة الوطنية للإدارة لسنة ", title_format)
 
-        row = 7
+        row = 13
         for index, line in enumerate(avancements, start=1):
             sheet.write(row, 0, index, format2)
             sheet.write(row, 1, line.name, format3)
@@ -565,14 +567,9 @@ class DroitAvancementXLS(models.AbstractModel):
             sheet.write(row, 5, line.job_id.name or '/', format3)
             sheet.write(row, 6, line.echelon_id.intitule or '/', format3)
             sheet.write(row, 7, line.date_avancement or '/', format3)
-            date_str = line.date_avancement
-            if date_str:
-                date_obj = datetime.strptime(date_str, "%Y-%m-%d")
-                sheet.write(row, 8, date_obj, date_format)
-            else:
-                sheet.write(row, 8, '/', format3)
-            sheet.write(row, 9, duree1 or '/', format3)
-            sheet.write(row, 10, '', format3)
+            sheet.write(row, 8, '', format3)
+            sheet.write(row, 9, 'دنيا', format3)
+            sheet.write(row, 10, duree1, format3)
             sheet.write(row, 11, '20', format3)
             sheet.write(row, 12, line_date_new_avancement_av.get(line.id, '') or '/', date_format2)
             sheet.write(row, 13, line_date_new_avancement_av2.get(line.id, '') or '/', format3)

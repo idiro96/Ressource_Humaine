@@ -824,8 +824,8 @@ class DroitPromotiondXLS(models.AbstractModel):
         sheet = workbook.add_worksheet('جدول ترقية')
         sheet.right_to_left()
 
-        sheet.set_row(6, 25)
-        for row_num in range(7, len(promotions) + 1):
+        sheet.set_row(12, 25)
+        for row_num in range(13, len(promotions) + 1):
             sheet.set_row(row_num, 20)
 
         sheet.set_column(0, 0, 5)
@@ -843,25 +843,25 @@ class DroitPromotiondXLS(models.AbstractModel):
         sheet.set_column(11, 11, 25)
         sheet.set_column(12, 12, 30)
 
-        sheet.write(10, 0, 'الرقم', format1)
-        sheet.write(10, 1, 'الاسم و اللقب', format1)
-        sheet.write(10, 2, 'تاريخ الميلاد', format1)
-        sheet.write(10, 3, 'الحالة العائلية', format1)
-        sheet.write(10, 4, 'الرتبة', format1)
-        sheet.write(10, 5, 'المنصب', format1)
-        sheet.write(10, 6, 'الدرجة', format1)
-        sheet.write(10, 7, 'تاريخ سريان الترقيةالحالية', format1)
-        sheet.write(10, 8, 'ترقية', format1)
-        sheet.write(10, 9, 'عامين و نصف', format1)
-        sheet.write(10, 10, 'المدة', format1)
+        sheet.write(12, 0, 'الرقم', format1)
+        sheet.write(12, 1, 'الاسم و اللقب', format1)
+        sheet.write(12, 2, 'تاريخ الميلاد', format1)
+        sheet.write(12, 3, 'الحالة العائلية', format1)
+        sheet.write(12, 4, 'الرتبة', format1)
+        sheet.write(12, 5, 'المنصب', format1)
+        sheet.write(12, 6, 'الدرجة', format1)
+        sheet.write(12, 7, 'تاريخ سريان الترقيةالحالية', format1)
+        sheet.write(12, 8, 'ترقية', format1)
+        sheet.write(12, 9, 'عامين و نصف', format1)
+        sheet.write(12, 10, 'المدة', format1)
         # sheet.write(6, 11, 'التنقيط', format1)
-        sheet.write(10, 11, 'تاريخ سريان الترقية القادمة', format1)
-        sheet.write(10, 12, 'فرق المدة', format1)
+        sheet.write(12, 11, 'تاريخ سريان الترقية القادمة', format1)
+        sheet.write(12, 12, 'فرق المدة', format1)
 
-        sheet.merge_range('E6:J8', f"{formatted_date_promotion}جدول ترقية موظفي المدرسة الوطنية للإدارة لسنة ",
+        sheet.merge_range('E8:J10', f"{formatted_date_promotion}جدول ترقية موظفي المدرسة الوطنية للإدارة لسنة ",
                           title_format)
 
-        row = 11
+        row = 13
         for index, line in enumerate(promotions, start=1):
             sheet.write(row, 0, index, format2)
             sheet.write(row, 1, line.name, format3)
