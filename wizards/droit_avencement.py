@@ -299,10 +299,10 @@ class listeAvancementReport(models.AbstractModel):
 
             if grade:
                 employees = self.env['hr.employee'].search(
-                    [('date_avancement', '<=', date_avancement_wizard2),('grade_id', '=', grade.id),('fin_relation', '=', False)])
+                    [('date_avancement', '<=', date_avancement_wizard2),('grade_id', '=', grade.id),('echelon_code', '!=', '12'),('fin_relation', '=', False)])
             else:
                 employees = self.env['hr.employee'].search(
-                    [('date_avancement', '<=', date_avancement_wizard2), ('fin_relation', '=', False)])
+                    [('date_avancement', '<=', date_avancement_wizard2),('echelon_code', '!=', '12'), ('fin_relation', '=', False)])
 
             avancements = []
             for empl in employees:

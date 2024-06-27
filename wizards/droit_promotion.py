@@ -843,25 +843,25 @@ class DroitPromotiondXLS(models.AbstractModel):
         sheet.set_column(12, 12, 25)
         sheet.set_column(13, 13, 30)
 
-        sheet.write(6, 0, 'الرقم', format1)
-        sheet.write(6, 1, 'الاسم و اللقب', format1)
-        sheet.write(6, 2, 'تاريخ الميلاد', format1)
-        sheet.write(6, 3, 'الحالة العائلية', format1)
-        sheet.write(6, 4, 'الرتبة', format1)
-        sheet.write(6, 5, 'المنصب', format1)
-        sheet.write(6, 6, 'الدرجة', format1)
-        sheet.write(6, 7, 'تاريخ سريان الترقيةالحالية', format1)
-        sheet.write(6, 8, 'ترقية', format1)
-        sheet.write(6, 9, 'عامين و نصف', format1)
-        sheet.write(6, 10, 'المدة', format1)
-        sheet.write(6, 11, 'التنقيط', format1)
-        sheet.write(6, 12, 'تاريخ سريان الترقية القادمة', format1)
-        sheet.write(6, 13, 'فرق المدة', format1)
+        sheet.write(10, 0, 'الرقم', format1)
+        sheet.write(10, 1, 'الاسم و اللقب', format1)
+        sheet.write(10, 2, 'تاريخ الميلاد', format1)
+        sheet.write(10, 3, 'الحالة العائلية', format1)
+        sheet.write(10, 4, 'الرتبة', format1)
+        sheet.write(10, 5, 'المنصب', format1)
+        sheet.write(10, 6, 'الدرجة', format1)
+        sheet.write(10, 7, 'تاريخ سريان الترقيةالحالية', format1)
+        sheet.write(10, 8, 'ترقية', format1)
+        sheet.write(10, 9, 'عامين و نصف', format1)
+        sheet.write(10, 10, 'المدة', format1)
+        # sheet.write(6, 11, 'التنقيط', format1)
+        sheet.write(10, 11, 'تاريخ سريان الترقية القادمة', format1)
+        sheet.write(10, 12, 'فرق المدة', format1)
 
-        sheet.merge_range('E2:J4', f"{formatted_date_promotion}جدول ترقية موظفي المدرسة الوطنية للإدارة لسنة ",
+        sheet.merge_range('E6:J8', f"{formatted_date_promotion}جدول ترقية موظفي المدرسة الوطنية للإدارة لسنة ",
                           title_format)
 
-        row = 7
+        row = 11
         for index, line in enumerate(promotions, start=1):
             sheet.write(row, 0, index, format2)
             sheet.write(row, 1, line.name, format3)
@@ -906,9 +906,9 @@ class DroitPromotiondXLS(models.AbstractModel):
                 sheet.write(row, 8, date_obj, date_format)
             else:
                 sheet.write(row, 8, '/', format3)
-            sheet.write(row, 9, duree1 or '/', format3)
-            sheet.write(row, 10, '', format3)
-            sheet.write(row, 11, '20', format3)
-            sheet.write(row, 12, line_date_new_promotion_av.get(line.id, '') or '/', date_format2)
-            sheet.write(row, 13, line_date_new_promotion_av2.get(line.id, '') or '/', format3)
+            sheet.write(row, 9, '', format3)
+            sheet.write(row, 10, duree1 or '/', format3)
+            # sheet.write(row, 11, '20', format3)
+            sheet.write(row, 11, line_date_new_promotion_av.get(line.id, '') or '/', date_format2)
+            sheet.write(row, 12, line_date_new_promotion_av2.get(line.id, '') or '/', format3)
             row += 1
