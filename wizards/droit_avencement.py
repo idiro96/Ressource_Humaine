@@ -51,11 +51,11 @@ class RHDroitAvencement(models.TransientModel):
                     record.unlink()
             if self.grade_id:
                 avancement_line = self.env['hr.employee'].search(
-                        [('date_avancement', '<=', self.date_avancement),('grade_id', '=', self.grade_id.id),('fin_relation', '=', False)],
+                        [('date_avancement', '<=', self.date_avancement),('echelon_code', '!=', '12'),('grade_id', '=', self.grade_id.id),('fin_relation', '=', False)],
                         order='date_avancement DESC')
             else:
                 avancement_line = self.env['hr.employee'].search(
-                    [('date_avancement', '<=', self.date_avancement), ('fin_relation', '=', False)],
+                    [('date_avancement', '<=', self.date_avancement), ('echelon_code', '!=', '12'),('fin_relation', '=', False)],
                     order='date_avancement DESC')
 
             if avancement_line:
