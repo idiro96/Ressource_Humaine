@@ -408,7 +408,6 @@ class DroitAvancementXLS(models.AbstractModel):
                 date_avancement_wizard2 = fields.Date.from_string(date_avancement_wizard) - relativedelta(months=30)
             else:
                 date_avancement_wizard2 = fields.Date.from_string(date_avancement_wizard) - relativedelta(months=24)
-
             grade = rec.grade_id
 
         if grade:
@@ -423,22 +422,19 @@ class DroitAvancementXLS(models.AbstractModel):
         avancements = []
         for empl in employees:
             duree = []
-
             if empl.date_avancement:
-                dateDebut_object = fields.Date.from_string(date_avancement_wizard)
-                dateDebut_object2 = fields.Date.from_string(empl.date_avancement)
+                datedebut_object = fields.Date.from_string(date_avancement_wizard)
+                datedebut_object2 = fields.Date.from_string(empl.date_avancement)
                 difference = (
-                                         dateDebut_object.year - dateDebut_object2.year) * 12 + dateDebut_object.month - dateDebut_object2.month
+                                         datedebut_object.year - datedebut_object2.year) * 12 + datedebut_object.month - datedebut_object2.month
                 if not bool:
                     if (difference >= 30 and empl.nature_travail_id.code_type_fonction == 'fonction') or (
                             difference >= 30 and empl.nature_travail_id.code_type_fonction == 'fonctionsuperieure'):
                         avancements.append(empl)
-
                     duree1 = 30
                 else:
                     if (difference >= 24 and empl.nature_travail_id.code_type_fonction == 'fonctionsuperieure'):
                         avancements.append(empl)
-
                     duree1 = 24
 
         line_date_new_avancement_av = {}
@@ -446,27 +442,22 @@ class DroitAvancementXLS(models.AbstractModel):
             for rec2 in rec:
                 if rec2.date_avancement:
                     if not bool:
-                        date_new_avancement_av_str = relativedelta(months=30) + fields.Date.from_string(
-                            rec2.date_avancement)
+                        date_new_avancement_av_str = relativedelta(months=30) + fields.Date.from_string(rec2.date_avancement)
                     else:
-                        date_new_avancement_av_str = relativedelta(months=24) + fields.Date.from_string(
-                            rec2.date_avancement)
+                        date_new_avancement_av_str = relativedelta(months=24) + fields.Date.from_string(rec2.date_avancement)
                     if date_new_avancement_av_str:
                         line_date_new_avancement_av[rec2.id] = date_new_avancement_av_str
+
         line_date_new_avancement_av2 = {}
         for rec in avancements:
             for rec2 in rec:
                 if rec2.date_avancement:
                     date_new_avancement = fields.Datetime.from_string(date_avancement_wizard)
-
                     date_old_avancement = fields.Date.from_string(rec2.date_avancement)
-
                     delta = relativedelta(date_new_avancement, date_old_avancement)
-
                     years = delta.years
                     months = delta.months
                     days = delta.days
-
                     time_years = years
                     time_months = months
                     time_days = days
