@@ -25,6 +25,7 @@ access_rh_categorie_superieure1,access.rh.categorie.superieure,model_rh_categori
 access_rh_commission_line1,access.rh.commission.line,model_rh_commission_line,group_rh_absence,1,1,1,1
 access_res_company1,access.res.company,model_res_company,group_rh_absence,1,1,1,1
 access_rh_congedroit1,access.rh.congedroit,model_rh_congedroit,group_rh_absence,1,1,1,1
+access_rh_conge_droit_month1,access.rh.conge.droit.month,model_rh_conge_droit_month,group_rh_absence,1,1,1,1
 access_rh_conge_droit_month1,access.rh.conge_droit_month,model_rh_congedroit,group_rh_absence,1,1,1,1
 access_rh_conjoint1,access.rh.conjoint,model_rh_conjoint,group_rh_absence,1,1,1,1
 access_rh_corps1,access.rh.corps,model_rh_corps,group_rh_absence,1,1,1,1
@@ -171,7 +172,7 @@ access_rh_prime_rendement,access.rh.prime.rendement,model_rh_prime_rendement,gro
 access_rh_prime_rendement_line1,access.rh.prime.rendement.line,model_rh_prime_rendement_line,group_rh_absence,1,1,1,1
 access_rh_prime_rendement_line,access.rh.prime.rendement.line,model_rh_prime_rendement_line,group_rh_consultation,1,0,0,0
 access_rh_type_methode_embauche,access.rh.type.methode.embauche,model_rh_type_methode_embauche,group_rh_consultation,1,0,0,0
-
+access_rh_conge_droit_month,access.rh.conge.droit.month,model_rh_conge_droit_month,group_rh_consultation,1,0,0,0
 
 
 
