@@ -84589,3 +84589,8 @@ msgstr "نوع الخطأ"
 #: model:ir.ui.view,arch_db:ressource_humaine.sanction_search
 msgid "Sanction Type"
 msgstr "نوع العقوبة التأدبية"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_promotion_dix
+msgid "Promotion Dix"
+msgstr "ترقية عشر سنوات"
