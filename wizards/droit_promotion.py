@@ -179,7 +179,7 @@ class RHDroitPromotion(models.TransientModel):
                         if promotion_ligne2:
                             promotion_ligne3 = promotion_ligne3 - rec
                             # if tab3[t]:
-                            tab3.remove(t)
+                            # tab3.remove(t)
 
             if promotion_ligne3:
                 promotion_line = promotion_ligne3
@@ -201,6 +201,10 @@ class RHDroitPromotion(models.TransientModel):
                     for promo in t:
                         grade2 = self.env['rh.grade.line'].search(
                             [('grade2_id', '=', promo.grade_id.id)])
+                        for rr in grade2:
+                            print('sdff')
+                            print(rr.grade2_id.intitule_grade)
+                            print(rr.grade_id.intitule_grade)
                         promotion_ligne_droit2 = self.env['rh.promotion.droit'].search(
                             [('employee_id', '=', promo.id), ('date_promotion', '=', self.date_promotion)])
                         print('errrrrrrrrrrreeeeeeeeeeeeeeeeeeeeeeee167')
@@ -243,6 +247,8 @@ class RHDroitPromotion(models.TransientModel):
                                         print('employe existe')
                                 else:
                                     print('errrrrrrrrrrreeeeeeeeeeeeeeeeeeeeeeee169')
+                                    print(promo.name)
+                                    print(grade2.grade2_id.intitule_grade)
                                     self.env['rh.promotion.droit'].create({
                                         'employee_id': promo.id,
                                         'type_fonction_id': promo.nature_travail_id.id,
