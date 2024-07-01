@@ -16638,7 +16638,7 @@ msgstr "الغياب"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_absence_absence_file_lines
 msgid "Absence File Lines"
-msgstr "خطوط ملف الغياب"
+msgstr "قائمة الملفات الخاصة بالغياب"
 
 #. module: hr_holidays
 #: model:ir.model.fields,field_description:hr_holidays.field_hr_department_absence_of_today
@@ -16818,7 +16818,7 @@ msgstr "حادث مهني"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_accident_travail_accident_travail_file_lines
 msgid "Accident Travail File Lines"
-msgstr "خطوط ملف الحادث المهني"
+msgstr "قائمة الملفات الخاصة بالحادث المهني"
 
 #. module: ressource_humaine
 #: model:ir.ui.menu,name:ressource_humaine.ressource_humaine_accident_travail
@@ -21045,7 +21045,7 @@ msgstr "التقدم"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_avancement_file_lines
 msgid "Avancement File Lines"
-msgstr "خطوط ملف التقدم "
+msgstr "قائمة الملفات الخاصة بالتقدم "
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_file_avancement_line_id
@@ -22789,7 +22789,7 @@ msgstr "المؤسسات الطبية"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_cabinet_medical_cabinet_medicale_file_lines
 msgid "Cabinet Medicale File Lines"
-msgstr "خطوط ملف المؤسسة الطبيةs"
+msgstr "قائمة الملفات الخاصة بالمؤسسة الطبية"
 
 #. module: product
 #: model:ir.ui.view,arch_db:product.view_product_price_list
@@ -23496,7 +23496,7 @@ msgstr "الصنف"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_groupe_categorie_lines
 msgid "Categorie Lines"
-msgstr "خطوط الصنف"
+msgstr "قائمة الأصناف"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_avancement_line_categorie_new_id
@@ -24277,7 +24277,7 @@ msgstr "الصّين"
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_choisir_commission_lines
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_sanction_choisir_commission_lines
 msgid "Choisir Commission Lines"
-msgstr "خطوط إختيار اللجنة"
+msgstr "أعضاء اللجنة"
 
 #. module: hr_holidays
 #: model:ir.model.fields,help:hr_holidays.field_hr_holidays_type
@@ -26269,7 +26269,7 @@ msgstr "الزوچ(ة)"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_conjoint_conjoint_file_lines
 msgid "Conjoint File Lines"
-msgstr "خطوط ملف الزوج(ة)"
+msgstr "قائمة الملفات الخاصة بالزوج(ة)"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_hw_proxy
@@ -33896,7 +33896,7 @@ msgstr "الأبناء"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_enfant_enfant_file_lines
 msgid "Enfant File Lines"
-msgstr "خطوط ملف الأبناء"
+msgstr "قائمة الملفات الخاصة بالأبناء"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
@@ -35638,7 +35638,7 @@ msgstr "نهاية علاقة العمل"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_fin_relation_fin_relation_file_lines
 msgid "Fin Relation File Lines"
-msgstr "خطوط ملف نهاية علاقة العمل"
+msgstr "قائمة الملفات الخاصة بنهاية علاقة العمل"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.action_rh_fin_relation
@@ -36419,18 +36419,18 @@ msgstr "تفصيل التكوين"
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_formation_file_lines
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_formation_formation_file_lines
 msgid "Formation File Lines"
-msgstr "خطوط ملف التكوين"
+msgstr "قائمة الملفات الخاصة بالتكوين"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_absence_formation_formation_line_id
 msgid "Formation Line"
-msgstr "خطوط التكوين"
+msgstr "الموظف المعني بالتكوين"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_formation_detail_employee_id_lines
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_formation_formation_lines
 msgid "Formation Lines"
-msgstr "خطوط التكوين"
+msgstr "قائمة المعنيين بالتكوين"
 
 #. module: ressource_humaine
 #: model:ir.actions.act_window,name:ressource_humaine.formation_detail_action
@@ -54995,7 +54995,7 @@ msgstr "مؤسسات التكوين"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_organisme_organisme_file_lines
 msgid "Organisme File Lines"
-msgstr "خطوط ملف المؤسسة"
+msgstr "قائمة الملفات الخاصة بالمؤسسة"
 
 #. modules: hr_org_chart, ressource_humaine
 #: model:ir.ui.view,arch_db:hr_org_chart.hr_employee_view_form_inherit_org_chart
@@ -59417,7 +59417,7 @@ msgstr " الترقية في الرتبة"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_promotion_promotion_file_lines
 msgid "Promotion File Lines"
-msgstr "خطوط ملف الترقية"
+msgstr "قائمة الملفات الخاصة بالترقية"
 
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_file_promotion_line_id
@@ -63549,7 +63549,7 @@ msgstr "العقوبات التأدبية"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_sanction_sanction_file_lines
 msgid "Sanction File Lines"
-msgstr "خطوط ملف العقوبة التأدبية"
+msgstr "قائمة الملفات الخاصة بالعقوبة التأدبية"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_partner_bank_sanitized_acc_number
