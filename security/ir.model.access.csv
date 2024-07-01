@@ -8,7 +8,7 @@ access_accident_travail1,access.accident.travail,model_rh_accident_travail,group
 access_rh_avancement1,access.rh.avancement,model_rh_avancement,group_rh_absence,1,1,1,1
 access_rh_avancement1_commission_line,access.rh.avancement.commission.line,model_rh_avancement_commission_line,group_rh_absence,1,1,1,1
 access_rh_avancement1_line,access.rh.avancement.line,model_rh_avancement_line,group_rh_absence,1,1,1,1
-access_rh_avencement_droit,access.rh.avencement.droit,model_rh_avencement_droit,group_rh_absence,1,1,1,1
+access_rh_avencement_droit1,access.rh.avencement.droit,model_rh_avencement_droit,group_rh_absence,1,1,1,1
 
 access_rh_historique_diplome1,access.rh.historique.diplome,model_rh_historique_diplome,group_rh_absence,1,1,1,1
 access_rh_historique_employee1,access.rh.historique.employee,model_rh_historique_employee,group_rh_absence,1,1,1,1
