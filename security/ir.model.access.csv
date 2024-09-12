@@ -77,12 +77,14 @@ access_rh_emphy1,access.rh.emphy,model_rh_emphy,group_rh_absence,1,1,1,1
 access_rh_type_arret_salaire1,access.rh.type.arret.salaire,model_rh_type_arret_salaire,group_rh_absence,1,1,1,1
 access_rh_fiche_evaluation1,access.rh.fiche.evaluation,model_rh_fiche_evaluation,group_rh_absence,1,1,1,1
 access_rh_fiche_evaluation_line1,access.rh.fiche.evaluation.line,model_rh_fiche_evaluation_line,group_rh_absence,1,1,1,1
+access_rh_historique_exterieur1,access.rh.historique.exterieur,model_rh_historique_exterieur,group_rh_absence,1,1,1,1
 
 
 
 access_rh_type_methode_embauche,access.rh.type.methode.embauche,model_rh_type_methode_embauche,group_rh_consultation,1,0,0,0
 access_rh_fiche_evaluation,access.rh.fiche.evaluation,model_rh_fiche_evaluation,group_rh_consultation,1,0,0,0
 access_rh_fiche_evaluation_line,access.rh.fiche.evaluation.line,model_rh_fiche_evaluation_line,group_rh_consultation,1,0,0,0
+access_rh_historique_exterieur,access.rh.historique.exterieur,model_rh_historique_exterieur,group_rh_consultation,1,0,0,0
 
 
 

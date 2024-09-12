@@ -71,4 +71,5 @@ from . import corps_decision_line
 from . import prime_rendement
 from . import prime_rendement_line
 from . import type_methode_embauche
+from . import historique_diplome_ext
 

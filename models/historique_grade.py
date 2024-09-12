@@ -12,4 +12,19 @@ class RHhistorique_grade(models.Model):
     grade = fields.Char()
     employee_id = fields.Many2one('hr.employee')
     date_debut_travail = fields.Date()
+    anne_debut_travail = fields.Char()
+    is_year = fields.Boolean(default=True)
     document_file_line = fields.Binary()
+
+
+
+    # @api.multi
+    # def changer_type(self):
+    #     print(self.active)
+    #     for record in self:
+    #         print('ttttttttttt')
+    #         print(record.active)
+    #         record.active = not record.active
+    #         print(record.active)
+
+

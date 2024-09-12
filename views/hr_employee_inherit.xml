@@ -557,7 +557,18 @@
                                     <tree editable="bottom">
                                         <field name="type_diplome"/>
                                         <field name="diplôme"/>
-                                        <field name="document_file_line"/>
+                                        <field name="document_file_line" widget='button'/>
+<!--                                        <field name="document_file_line_filename"/>-->
+                                    </tree>
+                                </field>
+                            </page>
+
+                            <page string="الشهادات الخارجية">
+                                <field name="historique_diplome_exterieur">
+                                    <tree editable="bottom">
+                                        <field name="type_diplome_ex"/>
+                                        <field name="diplôme_ex"/>
+                                        <field name="document_file_line" widget='button'/>
                                     </tree>
                                 </field>
                             </page>
@@ -566,8 +577,12 @@
                                 <field name="historique_grade_lines">
                                     <tree editable="bottom">
                                         <field name="grade"/>
+<!--                                        <button name="changer_type" type="object" string="سنة فقط" class="oe_highlight"/>-->
+                                        <field name="is_year" invisible="1"/>
                                         <field name="date_debut_travail"/>
-                                        <field name="document_file_line"/>
+<!--                                        <field name="date_debut_travail" attrs="{'invisible': [('is_year', '=', False)]}"/>-->
+<!--                                        <field name="anne_debut_travail" attrs="{'invisible': [('is_year', '=', True)]}"/>-->
+                                        <field name="document_file_line" widget='button'/>
                                     </tree>
                                 </field>
                             </page>
@@ -577,7 +592,7 @@
                                         <field name="type_poste"/>
                                         <field name="date_debut_poste"/>
                                         <field name="date_fin_poste"/>
-                                        <field name="document_file_line"/>
+                                        <field name="document_file_line" widget='button'/>
                                     </tree>
                                 </field>
                             </page>
@@ -587,7 +602,7 @@
                                         <field name="position_statutaire"/>
                                         <!--                                    <field name="date_debut_poste"/>-->
                                         <!--                                    <field name="date_fin_poste"/>-->
-                                        <field name="document_file_line"/>
+                                        <field name="document_file_line" widget='button'/>
                                     </tree>
                                 </field>
                             </page>
@@ -597,7 +612,7 @@
                                         <field name="structure"/>
                                         <!--                                    <field name="date_debut_poste"/>-->
                                         <!--                                    <field name="date_fin_poste"/>-->
-                                        <field name="document_file_line"/>
+                                        <field name="document_file_line" widget='button'/>
                                     </tree>
                                 </field>
                             </page>
@@ -605,7 +620,7 @@
                                 <field name="historique_sanction_lines">
                                     <tree editable="bottom">
                                         <field name="sanction"/>
-                                        <field name="document_file_line"/>
+                                        <field name="document_file_line" widget='button'/>
                                     </tree>
                                 </field>
                             </page>
@@ -613,7 +628,7 @@
                                 <field name="historique_fin_relation_lines">
                                     <tree editable="bottom">
                                         <field name="date_fin_relation"/>
-                                        <field name="document_file_line"/>
+                                        <field name="document_file_line" widget='button'/>
                                     </tree>
                                 </field>
                             </page>
