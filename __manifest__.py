@@ -24,7 +24,8 @@
                 'enterprise_theme',
                 'web_rtl', 'website_rtl', 'report_xlsx', 'field_timepicker'],
 
-    # always loaded
+    # always loadedce
+
     'data': [
         'security/ressource_humaine_security.xml',
         'security/ir.model.access.csv',
