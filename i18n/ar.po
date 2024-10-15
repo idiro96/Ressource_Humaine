@@ -83975,6 +83975,13 @@ msgstr "العقوبة"
 msgid "Document File Line"
 msgstr "تحميل ملف"
 
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_exterieur_document_file_line
+msgid "Document File Line"
+msgstr "تحميل ملف"
+
+
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_fin_relation_date_fin_relation
 msgid "Date Fin Relation"
@@ -84594,3 +84601,30 @@ msgstr "نوع العقوبة التأدبية"
 #: model:ir.model.fields,field_description:ressource_humaine.field_hr_employee_promotion_dix
 msgid "Promotion Dix"
 msgstr "ترقية عشر سنوات"
+
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_exterieur_type_diplome_ex
+msgid "Type Diplome Ex"
+msgstr "نوع الشهادة الخارجية"
+
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_exterieur_diplôme_ex
+msgid "Diplôme Ex"
+msgstr "الشهادة"
+
+#. module: ressource_humaine
+#: selection:rh.historique.diplome,type_diplome:0
+msgid "Formation et amélioration niveau"
+msgstr "تكوين وتحسين المستوى"
+
+#. module: ressource_humaine
+#: selection:rh.historique.diplome,type_diplome:0
+msgid "Moyen"
+msgstr "المتوسط"
+
+#. module: ressource_humaine
+#: selection:rh.historique.diplome,type_diplome:0
+msgid "Primaire"
+msgstr "الإبتدائي"

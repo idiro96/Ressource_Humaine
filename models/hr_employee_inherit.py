@@ -66,6 +66,7 @@ class HrEmployeInherited(models.Model):
     avancement_lines = fields.One2many('rh.avancement.line', inverse_name='employee_id')
     historique_employee_lines = fields.One2many('rh.historique.employee', inverse_name='employee_id')
     historique_diplome_lines = fields.One2many('rh.historique.diplome', inverse_name='employee_id')
+    historique_diplome_exterieur = fields.One2many('rh.historique.exterieur', inverse_name='employee_id')
     historique_grade_lines = fields.One2many('rh.historique.grade', inverse_name='employee_id')
     historique_poste_superieure_lines = fields.One2many('rh.historique.poste.superieure', inverse_name='employee_id')
     historique_poisition_statutaire_lines = fields.One2many('rh.historique.position.statutaire', inverse_name='employee_id')
