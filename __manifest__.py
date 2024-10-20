@@ -145,6 +145,7 @@
         'reports/prime_rendement.xml',
         'reports/liste_formation_report.xml',
         'reports/planning_notice_individuel.xml',
+        'reports/fiche_information.xml',
     ],
 
     # only loaded in demonstration mode

@@ -368,4 +368,12 @@
             name="ressource_humaine.appel_liste_formation_report"
             file="ressource_humaine.appel_liste_formation_report"/>
 
+    <report
+            id="action_fiche_information_report"
+            model="hr.employee"
+            string="Fiche Information"
+            report_type="qweb-html"
+            name="ressource_humaine.fiche_information_report"
+            file="ressource_humaine.fiche_information_report"/>
+
 </odoo>
