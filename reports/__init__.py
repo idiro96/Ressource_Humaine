@@ -9,6 +9,7 @@ from . import tableau_promotion
 from . import liste_employee
 from . import liste_employee_xlsx
 from . import fiche_renseignement
+from . import fiche_renseignement_new
 from . import planning_surv
 from . import tableau_des_promotions_xlsx
 from . import attestation_de_cessation
@@ -19,6 +20,7 @@ from . import arret_salaire_rapport
 from . import fiche_evaluation
 from . import promotion_report
 from . import prime_rendement
+from . import fiche_information
 
 
 

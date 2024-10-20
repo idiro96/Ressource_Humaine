@@ -84618,3 +84618,13 @@ msgstr "الشهادة"
 #: selection:rh.historique.diplome,type_diplome:0
 msgid "Formation et amélioration niveau"
 msgstr "تكوين وتحسين المستوى"
+
+#. module: ressource_humaine
+#: selection:rh.historique.diplome,type_diplome:0
+msgid "Moyen"
+msgstr "المتوسط"
+
+#. module: ressource_humaine
+#: selection:rh.historique.diplome,type_diplome:0
+msgid "Primaire"
+msgstr "الإبتدائي"

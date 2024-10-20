@@ -15,7 +15,7 @@ class RHhistorique_diplome(models.Model):
     employee_id = fields.Many2one('hr.employee')
     document_file_line = fields.Binary()
     type_diplome = fields.Selection(
-        [('enseignementsuperieure', 'Enseignement supérieure'),('primaire', 'Primaire'),('college', 'College'), ('secondaire', 'Secondaire'), ('formationprofessionnel', 'Formation Professionnelle'),
+        [('enseignementsuperieure', 'Enseignement supérieure'), ('secondaire', 'Secondaire'),('moyen', 'Moyen'),('primaire', 'Primaire'), ('formationprofessionnel', 'Formation Professionnelle'),
          ('formationameliorerniveau', 'Formation et amélioration niveau')])
 
 

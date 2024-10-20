@@ -164,6 +164,15 @@
             paperformat="ressource_humaine.paperformat_european_a4_portrait"/>
 
     <report
+            id="action_fiche_renseignement_new_report"
+            string="Fiche de renseignement2"
+            model="hr.employee"
+            report_type="qweb-pdf"
+            name="ressource_humaine.fiche_renseignement_new_report"
+            file="ressource_humaine.fiche_renseignement_new_report"
+            paperformat="ressource_humaine.paperformat_european_a4_portrait"/>
+
+    <report
             id="action_tableau_des_promotions_xlsx"
             model="rh.promotion.droit"
             string="جدول ترقية في الرتبة Excel"
@@ -358,5 +367,13 @@
             report_type="qweb-html"
             name="ressource_humaine.appel_liste_formation_report"
             file="ressource_humaine.appel_liste_formation_report"/>
+
+    <report
+            id="action_fiche_information_report"
+            model="hr.employee"
+            string="Fiche Information"
+            report_type="qweb-html"
+            name="ressource_humaine.fiche_information_report"
+            file="ressource_humaine.fiche_information_report"/>
 
 </odoo>

@@ -24,7 +24,8 @@
                 'enterprise_theme',
                 'web_rtl', 'website_rtl', 'report_xlsx', 'field_timepicker'],
 
-    # always loaded
+    # always loadedce
+
     'data': [
         'security/ressource_humaine_security.xml',
         'security/ir.model.access.csv',
@@ -131,6 +132,7 @@
         'reports/planning_surveillance.xml',
         'reports/liste_nominatife_employee.xml',
         'reports/fiche_renseignement.xml',
+        'reports/fiche_renseignement_new.xml',
         'reports/liste_nominative.xml',
         'reports/rapport_retraite_text.xml',
         'reports/attestation_de_cessation.xml',
@@ -143,6 +145,7 @@
         'reports/prime_rendement.xml',
         'reports/liste_formation_report.xml',
         'reports/planning_notice_individuel.xml',
+        'reports/fiche_information.xml',
     ],
 
     # only loaded in demonstration mode
