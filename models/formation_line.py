@@ -96,7 +96,7 @@ class RHFormationLine(models.Model):
     @api.onchange('employee_id')
     def _onchange_employee_id(self):
         selected_employees = self.formation_id.formation_lines.mapped('employee_id')
-        return {'domain': {'employee_id': [('id', 'not in', selected_employees.ids)]}}
+        return {'domain': {'employee_id': [('id', 'not in', selected_employees.ids),('fin_relation', '=', False)]}}
 
     def formation_absence(self):
         context = {

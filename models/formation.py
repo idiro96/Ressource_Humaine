@@ -22,6 +22,7 @@ class RHFormation(models.Model):
     type_formation_id = fields.Many2one('rh.type.formation', track_visibility='onchange')
     # organisme_id = fields.Many2one('rh.organisme', track_visibility='onchange')
     organisme_formation = fields.Text(track_visibility='onchange')
+    remarque = fields.Text(track_visibility='onchange')
     formation_lines = fields.One2many('rh.formation.line', 'formation_id')
     formation_absence = fields.One2many('rh.absence.formation', inverse_name='formation_id')
     formation_file_lines = fields.One2many('rh.file', 'formation_id')

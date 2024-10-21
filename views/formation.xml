@@ -59,6 +59,7 @@
 <!--                                   options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"/>-->
                             <field name="lieu_formation"/>
                             <field name="salle_formation"/>
+                            <field name="remarque"/>
                         </group>
                     </group>
                     <notebook>

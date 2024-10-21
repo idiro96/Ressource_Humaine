@@ -48,6 +48,9 @@
                                         ملاحــــــظة
                                     </th>
                                     <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:30px;width:20%;height:35px">
+                                        مؤسسات التكوين
+                                    </th>
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:30px;width:20%;height:35px">
                                         المدة و التاريخ
                                     </th>
                                     <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:30px;width:20%;height:35px">
@@ -64,6 +67,9 @@
                             <tbody>
                                 <t t-foreach="formations" t-as="line">
                                     <tr>
+                                        <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
+                                            <t t-esc="line['remarque']"/>
+                                        </td>
                                         <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                             <t t-esc="line['organisme_id']"/>
                                         </td>
@@ -145,7 +151,8 @@
                         <br/>
                         <div style="text-align:center;font-size:35px;width:80%;margin:0 auto;font-weight:bold;">
                             <span class="al-mohanad_bold">
-                                قائمة الموظفين المستفيدين من التكوين
+                                 قائمة الموظفين المستفيدين من التكوين لسنة
+                                <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
                             </span>
                         </div>
                     </strong>
@@ -157,6 +164,9 @@
                                 <tr>
                                     <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:30px;width:20%;height:35px">
                                         ملاحــــــظة
+                                    </th>
+                                    <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:30px;width:20%;height:35px">
+                                        مؤسسات التكوين
                                     </th>
                                     <th style="border:2px solid black;vertical-align:middle;text-align:center;background-color:#D3D3D3;font-size:30px;width:20%;height:35px">
                                         المدة و التاريخ
@@ -175,6 +185,9 @@
                             <tbody>
                                 <t t-foreach="formations" t-as="line">
                                     <tr>
+                                        <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
+                                            <t t-esc="line['remarque']"/>
+                                        </td>
                                         <td style="border:1px solid black;vertical-align:middle;text-align:center;font-size:18px;height:35px">
                                             <t t-esc="line['organisme_id']"/>
                                         </td>
@@ -275,7 +288,7 @@
                             </strong>
                             <br/>
                             <br/>
-                            <div class="al-mohanad_bold" style="font-size: 25px;text-align: right;margin-right:500px;">
+                            <div class="al-mohanad_bold" style="font-size: 35px;text-align: right;margin-right:500px;">
                                 <span>
                                     الإسم و اللقب:
                                     <t t-esc="formation_line['employee_id']['name']"/>
@@ -291,11 +304,16 @@
                                     </t>
                                 </span>
                             </div>
-                            <div class="al-mohanad_bold" style="font-size: 25px;text-align: right;margin-right:50px;">
+                            <br/>
+                            <br/>
+                            <br/>
+                            <div class="al-mohanad_bold" style="font-size: 35px;text-align: right;margin-right:50px;">
                                 الموضوع: دعوة
                             </div>
                             <br/>
-                            <div class="al-mohanad" style="font-size: 25px;text-align: right;margin-right:25px;">
+                            <br/>
+                            <br/>
+                            <div class="al-mohanad" style="font-size: 30px;text-align: right;margin-right:25px;">
                                 <span style="color: white;">
                                     أأأأأأأأأأ
                                 </span>

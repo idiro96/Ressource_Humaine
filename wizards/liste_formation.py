@@ -53,6 +53,7 @@ class ListeFormationReport(models.AbstractModel):
             date_fin_formation = datetime.strptime(formation.date_fin_formation, "%Y-%m-%d").strftime("%Y/%m/%d")
             formatted_formations.append({
                 'id': formation.id,
+                'remarque': formation.remarque,
                 'organisme_id': formation.organisme_formation,
                 'date_debut_formation': date_debut_formation,
                 'date_fin_formation': date_fin_formation,
@@ -155,6 +156,7 @@ class DirectListeFormationReport(models.AbstractModel):
             date_fin_formation = datetime.strptime(formation.date_fin_formation, "%Y-%m-%d").strftime("%Y/%m/%d")
             formatted_formations.append({
                 'id': formation.id,
+                'remarque': formation.remarque,
                 'organisme_id': formation.organisme_formation,
                 'date_debut_formation': date_debut_formation,
                 'date_fin_formation': date_fin_formation,
@@ -266,6 +268,7 @@ class AppelListeFormationReport(models.AbstractModel):
             date_debut_formation = datetime.strptime(formation.date_debut_formation, "%Y-%m-%d").strftime("%Y/%m/%d")
             formatted_formations.append({
                 'id': formation.id,
+                'remarque': formation.remarque,
                 'organisme_id': formation.organisme_formation,
                 'date_debut_formation': date_debut_formation,
                 'intitule_formation': formation.intitule_formation,
