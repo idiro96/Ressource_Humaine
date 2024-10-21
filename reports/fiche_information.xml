@@ -45,24 +45,45 @@
                                 صورة الموظف
                             </div>
                         </div>
-                            <span style="margin-right:370px">
+                        <span style="margin-right: 15px;">
+                        <table style="width: 80.9%;">
+
+                                <tr>
+                                    <th style="border:2px solid white;vertical-align:middle;text-align:left;width:20%;height:30px">
+                                         <span style="margin-right:15px;margin-left:15px">
                                 Prenom:
                                 <t t-esc="employee.prenom_fr"/>
                             </span>
-                            <span style="margin-right:15px">
+                                    </th>
+                                    <th style="border:2px solid white;vertical-align:middle;text-align:right;width:15%;height:30px">
+                                           <span style="margin-right:15px;margin-left:15px">
                                 الاسم:
                                 <t t-esc="employee.prenom_ar"/>
-                            </span>
-                        <br/>
-                            <span style="margin-right:370px">
-                                Nom:
-                                <t t-esc="employee.nom_fr"/>
-                            </span>
-                            <span style="margin-right:15px">
-                                اللقب:
-                                <t t-esc="employee.nom_ar"/>
-                            </span>
-                        <br/>
+                                        </span>
+                                    </th>
+                                </tr>
+                        </table>
+
+                        <table style="width: 80.9%;">
+                            <thead>
+                                <tr>
+                                        <th style="border:2px solid white;vertical-align:middle;text-align:left;width:20%;height:30px">
+                                          <span style="margi9n-right:15px;margin-left:15px">
+                                            Nom:
+                                             <t t-esc="employee.nom_fr"/>
+                                        </span>
+                                    </th>
+                                    <th style="border:2px solid white;vertical-align:middle;text-align:right;width:20%;height:30px">
+                                          <span style="margin-right:15px;margin-left:15px">
+                                            اللقب:
+                                             <t t-esc="employee.nom_ar"/>
+                                        </span>
+                                    </th>
+
+                                </tr>
+                            </thead>
+                        </table>
+                        </span>
                         <span>
                             تاريخ و مكان الميلاد:
                             <t t-esc="employee.birthday"/>
