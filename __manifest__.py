@@ -132,7 +132,7 @@
         'reports/planning_surveillance.xml',
         'reports/liste_nominatife_employee.xml',
         'reports/fiche_renseignement.xml',
-        'reports/fiche_renseignement_new.xml',
+        # 'reports/fiche_renseignement_new.xml',
         'reports/liste_nominative.xml',
         'reports/rapport_retraite_text.xml',
         'reports/attestation_de_cessation.xml',

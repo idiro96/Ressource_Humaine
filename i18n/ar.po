@@ -84309,6 +84309,7 @@ msgid "programme.individuel"
 msgstr "تسخيرة الامتحانات و المسابقات"
 
 #. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_formation_remarque
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_prime_rendement_line_remarque
 msgid "Remarque"
 msgstr "الملاحظات"
@@ -84628,3 +84629,13 @@ msgstr "المتوسط"
 #: selection:rh.historique.diplome,type_diplome:0
 msgid "Primaire"
 msgstr "الإبتدائي"
+
+#. module: ressource_humaine
+#: model:ir.actions.report,name:ressource_humaine.action_fiche_information_report
+msgid "Fiche Information"
+msgstr "بطاقة المعلومات"
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_position_statutaire_date_debut_poste
+msgid "Date Debut Poste"
+msgstr "تاريخ التعين في المنصب"

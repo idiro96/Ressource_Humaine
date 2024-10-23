@@ -163,14 +163,14 @@
             file="ressource_humaine.fiche_renseignement_report"
             paperformat="ressource_humaine.paperformat_european_a4_portrait"/>
 
-    <report
-            id="action_fiche_renseignement_new_report"
-            string="Fiche de renseignement2"
-            model="hr.employee"
-            report_type="qweb-pdf"
-            name="ressource_humaine.fiche_renseignement_new_report"
-            file="ressource_humaine.fiche_renseignement_new_report"
-            paperformat="ressource_humaine.paperformat_european_a4_portrait"/>
+<!--    <report-->
+<!--            id="action_fiche_renseignement_new_report"-->
+<!--            string="Fiche de renseignement2"-->
+<!--            model="hr.employee"-->
+<!--            report_type="qweb-pdf"-->
+<!--            name="ressource_humaine.fiche_renseignement_new_report"-->
+<!--            file="ressource_humaine.fiche_renseignement_new_report"-->
+<!--            paperformat="ressource_humaine.paperformat_european_a4_portrait"/>-->
 
     <report
             id="action_tableau_des_promotions_xlsx"

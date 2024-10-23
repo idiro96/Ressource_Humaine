@@ -4,7 +4,8 @@
         <template id="fiche_information_report">
             <t t-call="web.basic_layout">
                 <t t-call="ressource_humaine.report_header_custom_bordered"/>
-                <div class="page" style="border-bottom: 10px double black; border-left: 10px double black; border-right: 10px double black;">
+                <div class="page"
+                     style="border-bottom: 10px double black; border-left: 10px double black; border-right: 10px double black;">
                     <br/>
                     <strong>
                         <div class="texte-en-gras" style="font-size: 50px; text-align: right;">
@@ -16,11 +17,13 @@
                     <br/>
                     <div class="texte-en-gras" style="font-size: 50px; text-align: center;">
                         <strong>
-                            <span style="border-bottom: 5px double;"> بطاقة معلومات </span>
+                            <span style="border-bottom: 5px double;">بطاقة معلومات</span>
                         </strong>
                     </div>
-                    <br/><br/>
-                    <div class="arabic_typesetting" style="font-size: 37px; text-align: right; margin-right: 15px; line-height: 1.4; word-spacing: 9px;">
+                    <br/>
+                    <br/>
+                    <div class="arabic_typesetting"
+                         style="font-size: 37px; text-align: right; margin-right: 15px; line-height: 1.4; word-spacing: 9px;">
                         <div style="float: left; margin-left: 15px;">
                             <!-- Placeholder for the employee's photo -->
                             <div style="width: 150px; height: 200px; border: 2px solid black; text-align: center; line-height: 200px;">
@@ -32,38 +35,93 @@
                                 <!-- First Name and Arabic Name -->
                                 <div style="float: left; width: 50%;">
                                     <strong>Prenom:</strong>
-                                    <span><t t-esc="employee.prenom_fr"/></span>
+                                    <span>
+                                        <t t-esc="employee.prenom_fr"/>
+                                    </span>
                                 </div>
                                 <div style="float: right; width: 50%; text-align: right;">
                                     <strong>الاسم:</strong>
-                                    <span><t t-esc="employee.prenom_ar"/></span>
+                                    <span>
+                                        <t t-esc="employee.prenom_ar"/>
+                                    </span>
                                 </div>
                             </div>
                             <div style="clear: both;">
                                 <!-- Last Name and Arabic Last Name -->
                                 <div style="float: left; width: 50%;">
                                     <strong>Nom:</strong>
-                                    <span><t t-esc="employee.nom_fr"/></span>
+                                    <span>
+                                        <t t-esc="employee.nom_fr"/>
+                                    </span>
                                 </div>
                                 <div style="float: right; width: 50%; text-align: right;">
                                     <strong>اللقب:</strong>
-                                    <span><t t-esc="employee.nom_ar"/></span>
+                                    <span>
+                                        <t t-esc="employee.nom_ar"/>
+                                    </span>
                                 </div>
                             </div>
                         </div>
-                        <span>تاريخ و مكان الميلاد: <t t-esc="employee.birthday"/></span><br/>
-                        <span>اسم الأب: <t t-esc="employee.prenom_pere"/></span><br/>
-                        <span>اسم و لقب الأم: <t t-esc="employee.nom_mere"/></span><br/>
-                        <span>الحالة العائلية: <t t-esc="employee.marital"/></span><br/>
-                        <span>عدد الأولاد: <t t-esc="employee.children"/></span><br/>
-                        <span>العنوان: <t t-esc="employee.address_perso"/></span><br/>
-                        <span>رقم الضمان الاجتماعي: <t t-esc="employee.numero_securite_social"/></span><br/>
-                        <span>الشهادات و المؤهلات: <t t-esc="employee.historique_diplome_lines.diplôme"/></span><br/>
-                        <span>تاريخ الالتحاق بالمدرسة: <t t-esc="employee.date_entrer"/></span><br/>
-                        <span>تاريخ أول توظيف: <t t-esc="employee.date_debut_emploi"/></span><br/>
-                        <span>الرتبة الحالية: <t t-esc="employee.grade_id.intitule_grade"/></span><br/>
-                        <span>تاريخ الترقية في الرتبة الحالية: <t t-esc="employee.date_grade"/></span><br/>
-                        <span>مصلحة التعيين: <t t-esc="employee.historique_structure_lines.structure"/></span><br/>
+                        <span>تاريخ و مكان الميلاد:
+                            <t t-esc="employee.birthday"/>
+                        </span>
+                        <br/>
+                        <span>اسم الأب:
+                            <t t-esc="employee.prenom_pere"/>
+                        </span>
+                        <br/>
+                        <span>اسم و لقب الأم:
+                            <t t-esc="employee.nom_mere"/>
+                        </span>
+                        <br/>
+                        <span>الحالة العائلية:
+                            <span>
+                                <t t-esc="
+                                    {'single': 'أعزب',
+                                     'married': 'متزوج',
+                                     'widower': 'أرمل',
+                                     'divorced': 'مطلق'
+                                    }.get(employee.marital, 'غير محدد')
+                                "/>
+                            </span>
+                        </span>
+                        <br/>
+                        <span>عدد الأولاد:
+                            <t t-esc="employee.children"/>
+                        </span>
+                        <br/>
+                        <span>العنوان:
+                            <t t-esc="employee.address_perso"/>
+                        </span>
+                        <br/>
+                        <span>رقم الضمان الاجتماعي:
+                            <t t-esc="employee.numero_securite_social"/>
+                        </span>
+                        <br/>
+                        <span>الشهادات و المؤهلات:
+                            <t t-esc="employee.historique_diplome_lines.diplôme"/>
+                        </span>
+                        <br/>
+                        <span>تاريخ الالتحاق بالمدرسة:
+                            <t t-esc="employee.date_entrer"/>
+                        </span>
+                        <br/>
+                        <span>تاريخ أول توظيف:
+                            <t t-esc="employee.date_debut_emploi"/>
+                        </span>
+                        <br/>
+                        <span>الرتبة الحالية:
+                            <t t-esc="employee.grade_id.intitule_grade"/>
+                        </span>
+                        <br/>
+                        <span>تاريخ الترقية في الرتبة الحالية:
+                            <t t-esc="employee.date_grade"/>
+                        </span>
+                        <br/>
+                        <span>مصلحة التعيين:
+                            <t t-esc="employee.historique_structure_lines.structure"/>
+                        </span>
+                        <br/>
                     </div>
                 </div>
             </t>

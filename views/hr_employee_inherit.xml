@@ -600,7 +600,7 @@
                                 <field name="historique_poisition_statutaire_lines">
                                     <tree editable="bottom">
                                         <field name="position_statutaire"/>
-                                        <!--                                    <field name="date_debut_poste"/>-->
+                                        <field name="date_debut_poste"/>
                                         <!--                                    <field name="date_fin_poste"/>-->
                                         <field name="document_file_line" widget='button'/>
                                     </tree>

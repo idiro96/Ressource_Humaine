@@ -9,7 +9,7 @@ from . import tableau_promotion
 from . import liste_employee
 from . import liste_employee_xlsx
 from . import fiche_renseignement
-from . import fiche_renseignement_new
+# from . import fiche_renseignement_new
 from . import planning_surv
 from . import tableau_des_promotions_xlsx
 from . import attestation_de_cessation
