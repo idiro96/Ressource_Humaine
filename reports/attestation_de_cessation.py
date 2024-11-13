@@ -14,6 +14,8 @@ class AttestationCessationReport(models.AbstractModel):
         employee_date_entrer = {}
         for employee in employees:
             date_entrer = employee.date_entrer
+            print('repuuuuuuuuuuuuuuuuuuuuu')
+            print(date_entrer)
             formatted_date_entrer = datetime.strptime(date_entrer, "%Y-%m-%d").strftime("%d/%m/%Y")
             employee_date_entrer[employee.id] = formatted_date_entrer
 

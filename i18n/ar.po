@@ -84638,4 +84638,4 @@ msgstr "بطاقة المعلومات"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_position_statutaire_date_debut_poste
 msgid "Date Debut Poste"
-msgstr "تاريخ التعين في المنصب"
+msgstr "تاريخ"

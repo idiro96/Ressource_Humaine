@@ -99,7 +99,11 @@
                         </span>
                         <br/>
                         <span>الشهادات و المؤهلات:
-                            <t t-esc="employee.historique_diplome_lines.diplôme"/>
+                            <t t-foreach="employee.historique_diplome_lines" t-as="diploma_line">
+                            <span>
+                                <t t-esc="diploma_line.diplôme"/>
+                            </span>
+                            </t>
                         </span>
                         <br/>
                         <span>تاريخ الالتحاق بالمدرسة:
@@ -119,7 +123,11 @@
                         </span>
                         <br/>
                         <span>مصلحة التعيين:
-                            <t t-esc="employee.historique_structure_lines.structure"/>
+                            <t t-foreach="employee.historique_structure_lines" t-as="structure_line">
+                            <span>
+                                <t t-esc="structure_line.structure"/>
+                            </span>
+                            </t>
                         </span>
                         <br/>
                     </div>

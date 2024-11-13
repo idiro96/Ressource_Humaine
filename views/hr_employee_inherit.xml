@@ -120,12 +120,14 @@
                            attrs="{'invisible': ['|', ('position_statutaire', '=', 'activite'), ('position_statutaire', '=', False)]}"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='job_id']" position="after">
-                    <field name="date_job_id"/>
+                    <field name="date_job_id" string="تاريخ التعيين في المنصب العالي"
+                    attrs="{'string': [('nature_travail_id', '=', 'منصب عالي'), 'تاريخ التعيين في المنصب العالي', ('nature_travail_id', '=', 'وظيفة عليا'), 'تاريخ التعيين في الوظيفة عليا']}"/>
                 </xpath>
-                  <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='date_job_id']" position="after">
+                <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='date_job_id']"
+                       position="after">
                     <field name="ref_poste"/>
                 </xpath>
-                  <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='ref_poste']" position="after">
+                <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='ref_poste']" position="after">
                     <field name="date_signature_poste"/>
                 </xpath>
 
@@ -530,7 +532,7 @@
                                    options="{'no_create_edit': True,'no_quick_create': True,'no_create': True,'no_open': True}"
                                    attrs="{'invisible': [('code_type_fonction', '!=', 'fonctionsuperieure')], 'required': [('code_type_fonction', '=', 'fonctionsuperieure')]}"/>
                             <field name="promotion_dix"
-                                   />
+                            />
 
                             <field name="wage"/>
                         </group>
@@ -558,7 +560,7 @@
                                         <field name="type_diplome"/>
                                         <field name="diplôme"/>
                                         <field name="document_file_line" widget='button'/>
-<!--                                        <field name="document_file_line_filename"/>-->
+                                        <!--                                        <field name="document_file_line_filename"/>-->
                                     </tree>
                                 </field>
                             </page>
@@ -577,11 +579,11 @@
                                 <field name="historique_grade_lines">
                                     <tree editable="bottom">
                                         <field name="grade"/>
-<!--                                        <button name="changer_type" type="object" string="سنة فقط" class="oe_highlight"/>-->
+                                        <!--                                        <button name="changer_type" type="object" string="سنة فقط" class="oe_highlight"/>-->
                                         <field name="is_year" invisible="1"/>
                                         <field name="date_debut_travail"/>
-<!--                                        <field name="date_debut_travail" attrs="{'invisible': [('is_year', '=', False)]}"/>-->
-<!--                                        <field name="anne_debut_travail" attrs="{'invisible': [('is_year', '=', True)]}"/>-->
+                                        <!--                                        <field name="date_debut_travail" attrs="{'invisible': [('is_year', '=', False)]}"/>-->
+                                        <!--                                        <field name="anne_debut_travail" attrs="{'invisible': [('is_year', '=', True)]}"/>-->
                                         <field name="document_file_line" widget='button'/>
                                     </tree>
                                 </field>
@@ -654,6 +656,7 @@
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <field name="type">ir.actions.act_window</field>
+            <field name="domain">[('fin_relation', '=', False)]</field>
             <field name="context">{}</field>
         </record>
 
@@ -669,8 +672,10 @@
                     <field name="chef_bureau"/>
                     <group expand="0" string="Group By">
                         <filter string="Grade" name="grade_id" context="{'group_by': 'grade_id'}"/>
-                        <filter string="Nature Travail" name="nature_travail_id" context="{'group_by': 'nature_travail_id'}"/>
-                        <filter string="Position Statutaire" name="position_statutaire" context="{'group_by': 'position_statutaire'}"/>
+                        <filter string="Nature Travail" name="nature_travail_id"
+                                context="{'group_by': 'nature_travail_id'}"/>
+                        <filter string="Position Statutaire" name="position_statutaire"
+                                context="{'group_by': 'position_statutaire'}"/>
                         <filter string="Chef Bureau" name="chef_bureau" context="{'group_by': 'chef_bureau'}"/>
                     </group>
                 </xpath>

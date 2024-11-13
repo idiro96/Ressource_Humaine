@@ -167,6 +167,15 @@ class HrEmployeInherited(models.Model):
     type_methode_embauche = fields.Selection([('interne', 'Interne'),
                                         ('externe', 'Externe')], track_visibility="onchange")
     description_methode_embauche = fields.Many2one('rh.type.methode.embauche', track_visibility="onchange")
+    date_job_label = fields.Char(compute='_compute_date_job_label')
+
+    @api.depends('nature_travail_id')
+    def _compute_date_job_label(self):
+        for record in self:
+            if record.nature_travail_id.intitule_type_fonction == "وظيفة عليا":
+                record.date_job_label = "تاريخ التعيين في الوظيفة عليا"
+            else:
+                record.date_job_label = "تاريخ التعيين في المنصب العالي"
 
 
     @api.onchange('type_methode_embauche')
