@@ -11,7 +11,10 @@
                 <xpath expr="//tree//field[@name='name']" position="after">
                     <field name="birthday"/>
                 </xpath>
-                <xpath expr="//tree//field[@name='birthday']" position="after">
+                   <xpath expr="//field[@name='birthday']" position="after">
+                    <field name="fin_relation" domain="[('fin_relation', '!=', 'False')]" invisible="1"/>
+                </xpath>
+                <xpath expr="//tree//field[@name='fin_relation']" position="after">
                     <field name="place_of_birth"/>
                 </xpath>
                 <xpath expr="//tree//field[@name='place_of_birth']" position="after">

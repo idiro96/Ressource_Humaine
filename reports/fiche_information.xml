@@ -63,6 +63,9 @@
                             </div>
                         </div>
                         <span>تاريخ و مكان الميلاد:
+                             <t t-esc="birthday_employee.get(id, '')"/>
+                                    </span>
+                        <span>تاريخ و مكان الميلاد:
                             <t t-esc="employee.birthday"/>
                         </span>
                         <br/>
@@ -99,9 +102,22 @@
                         </span>
                         <br/>
                         <span>الشهادات و المؤهلات:
-                            <t t-esc="employee.historique_diplome_lines.diplôme"/>
+                               <div>
+                            <span>
+                                <t t-foreach="employee.historique_diplome_lines" t-as="line">
+                                <t t-if="line.diplôme">
+                                    <t t-esc="line.diplôme"/>
+                                </t>
+                                <t t-if="not line.diplôme">
+                                    &#160;
+                                </t>
+                                    <br/>
+                                </t>
+                            </span>
+                        </div>
+<!--                            -->
+<!--                            <t t-esc="employee.historique_diplome_lines.diplôme"/>-->
                         </span>
-                        <br/>
                         <span>تاريخ الالتحاق بالمدرسة:
                             <t t-esc="employee.date_entrer"/>
                         </span>
