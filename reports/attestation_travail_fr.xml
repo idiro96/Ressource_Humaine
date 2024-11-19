@@ -156,7 +156,13 @@
                         </span>
                         <t t-if="not employee.gender or employee.gender == 'male'">
                             <span>
-                                Il exerce ses fonctions en sa qualité de
+                                Il exerce ses fonctions en sa qualité
+                                <t t-if="employee.grade_id.intitule_grade_fr and employee.grade_id.intitule_grade_fr[0].lower() in ('a', 'e', 'i', 'o', 'u', 'y')">
+                                    d'
+                                </t>
+                                <t t-else="">
+                                    de
+                                </t>
                                 <strong>
                                     <t t-esc="employee.grade_id.intitule_grade_fr"/>
                                     <t t-if="employee.job_id">
@@ -174,7 +180,13 @@
                         </t>
                         <t t-if="employee.gender == 'female'">
                             <span>
-                                Elle exerce ses fonctions en sa qualité de :
+                                Elle exerce ses fonctions en sa qualité
+                                <t t-if="employee.grade_id.intitule_grade_fr and employee.grade_id.intitule_grade_fr[0].lower() in ('a', 'e', 'i', 'o', 'u', 'y')">
+                                    d'
+                                </t>
+                                <t t-else="">
+                                    de
+                                </t>
                                 <strong>
                                     <t t-esc="employee.grade_id.intitule_grade_fr"/>
                                     <t t-if="employee.job_id">
@@ -351,7 +363,13 @@
                         </span>
                         <t t-if="not employee.gender or employee.gender == 'male'">
                             <span>
-                                Il exerce ses fonctions en sa qualité de
+                                Il exerce ses fonctions en sa qualité
+                                <t t-if="employee.grade_id.intitule_grade_fr and employee.grade_id.intitule_grade_fr[0].lower() in ('a', 'e', 'i', 'o', 'u', 'y')">
+                                    d'
+                                </t>
+                                <t t-else="">
+                                    de
+                                </t>
                                 <strong>
                                     <t t-esc="employee.grade_id.intitule_grade_fr"/>
                                     <t t-if="employee.job_id">
@@ -369,7 +387,13 @@
                         </t>
                         <t t-if="employee.gender == 'female'">
                             <span>
-                                Elle exerce ses fonctions en sa qualité de
+                                Elle exerce ses fonctions en sa qualité
+                                <t t-if="employee.grade_id.intitule_grade_fr and employee.grade_id.intitule_grade_fr[0].lower() in ('a', 'e', 'i', 'o', 'u', 'y')">
+                                    d'
+                                </t>
+                                <t t-else="">
+                                    de
+                                </t>
                                 <strong>
                                     <t t-esc="employee.grade_id.intitule_grade_fr"/>
                                     <t t-if="employee.job_id">
@@ -385,6 +409,7 @@
                                 </strong>
                             </span>
                         </t>
+
                         <br/>
                     </div>
                     <br/>

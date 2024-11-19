@@ -63,10 +63,7 @@
                             </div>
                         </div>
                         <span>تاريخ و مكان الميلاد:
-                             <t t-esc="birthday_employee.get(id, '')"/>
-                                    </span>
-                        <span>تاريخ و مكان الميلاد:
-                            <t t-esc="employee.birthday"/>
+                             <t t-esc="birthday_employee.get(employee.id, '')"/>
                         </span>
                         <br/>
                         <span>اسم الأب:
@@ -102,6 +99,7 @@
                         </span>
                         <br/>
                         <span>الشهادات و المؤهلات:
+
                                <div>
                             <span>
                                 <t t-foreach="employee.historique_diplome_lines" t-as="line">
@@ -115,15 +113,13 @@
                                 </t>
                             </span>
                         </div>
-<!--                            -->
-<!--                            <t t-esc="employee.historique_diplome_lines.diplôme"/>-->
                         </span>
                         <span>تاريخ الالتحاق بالمدرسة:
-                            <t t-esc="employee.date_entrer"/>
+                            <t t-esc="date_debut_emploi_employee.get(employee.id, '')"/>
                         </span>
                         <br/>
                         <span>تاريخ أول توظيف:
-                            <t t-esc="employee.date_debut_emploi"/>
+                            <t t-esc="date_entrer_employee.get(employee.id, '')"/>
                         </span>
                         <br/>
                         <span>الرتبة الحالية:
@@ -131,11 +127,15 @@
                         </span>
                         <br/>
                         <span>تاريخ الترقية في الرتبة الحالية:
-                            <t t-esc="employee.date_grade"/>
+                            <t t-esc="date_grade_employee.get(employee.id, '')"/>
                         </span>
                         <br/>
                         <span>مصلحة التعيين:
-                            <t t-esc="employee.historique_structure_lines.structure"/>
+                            <t t-foreach="employee.historique_structure_lines" t-as="structure_line">
+                            <span>
+                                <t t-esc="structure_line.structure"/>
+                            </span>
+                            </t>
                         </span>
                         <br/>
                     </div>

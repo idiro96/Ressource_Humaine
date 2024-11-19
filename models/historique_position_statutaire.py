@@ -19,3 +19,4 @@ class RHhistorique_position_statutaire(models.Model):
     date_debut_poste = fields.Date()
     date_fin_poste = fields.Date()
     document_file_line = fields.Binary()
+    duree_poste = fields.Char()

@@ -58072,6 +58072,12 @@ msgstr "منصب"
 msgid "Position Statutaire"
 msgstr "الوضعيات القانونية الاساسية للموظف"
 
+
+#. module: ressource_humaine
+#: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_position_statutaire_duree_poste
+msgid "Duree Poste"
+msgstr "المدة"
+
 #. module: stock
 #: model:ir.ui.view,arch_db:stock.quant_search_view
 msgid "Positive Stock"
@@ -84638,4 +84644,4 @@ msgstr "بطاقة المعلومات"
 #. module: ressource_humaine
 #: model:ir.model.fields,field_description:ressource_humaine.field_rh_historique_position_statutaire_date_debut_poste
 msgid "Date Debut Poste"
-msgstr "تاريخ التعين في المنصب"
+msgstr "تاريخ"

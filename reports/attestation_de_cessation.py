@@ -11,11 +11,22 @@ class AttestationCessationReport(models.AbstractModel):
     def get_report_values(self, docids, data=None):
         employees = self.env['hr.employee'].browse(docids)
 
+        # employee_date_entrer = {}
+        # for employee in employees:
+        #     date_entrer = employee.date_entrer
+        #     print('repuuuuuuuuuuuuuuuuuuuuu')
+        #     print(date_entrer)
+        #     formatted_date_entrer = datetime.strptime(date_entrer, "%Y-%m-%d").strftime("%d/%m/%Y")
+        #     employee_date_entrer[employee.id] = formatted_date_entrer
+
         employee_date_entrer = {}
         for employee in employees:
-            date_entrer = employee.date_entrer
-            formatted_date_entrer = datetime.strptime(date_entrer, "%Y-%m-%d").strftime("%d/%m/%Y")
-            employee_date_entrer[employee.id] = formatted_date_entrer
+            date_entrer_str = employee.date_entrer
+            if date_entrer_str:
+                formatted_date_entrer_str = datetime.strptime(date_entrer_str, "%Y-%m-%d").strftime("%d/%m/%Y")
+                employee_date_entrer[employee.id] = formatted_date_entrer_str
+            else:
+                employee_date_entrer[employee.id] = ''
 
         employee_date_fin_relation = {}
         for employee in employees:

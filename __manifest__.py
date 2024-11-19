@@ -88,6 +88,7 @@
         'views/hr_department_inherit.xml',
         'views/type_arret_salaire.xml',
         'views/type_methode_embauche.xml',
+        'views/fin_relation_view.xml',
         'data/sequence.xml',
         'data/type_fonction.xml',
         'data/type_contract.xml',

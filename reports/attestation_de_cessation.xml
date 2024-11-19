@@ -120,12 +120,13 @@
                                     <t t-esc="employee.place_of_birth"/>
                                 </t>
                                 <t t-if="not employee.place_of_birth">
+
                                     &#160;
                                 </t>
                             </span>
                             <span style="display: inline-block; font-size: 20px; margin-right: 80px; float: right;">
                                 <t t-if="employee.birthday">
-                                    <t t-esc="employee.birthday"/>
+                                      <t t-esc="employee_birthday.get(employee.id, '')"/>
                                 </t>
                                 <t t-if="not employee.birthday">
                                     &#160;
@@ -145,7 +146,7 @@
                             </div>
                             <span style="display: inline-block; font-size: 20px; margin-left: 80px;margin-right: 200px;float: right;">
                                 <t t-if="employee.date_fin_relation">
-                                    <t t-esc="employee.date_fin_relation"/>
+                                       <t t-esc="employee_date_fin_relation.get(employee.id, '')"/>
                                 </t>
                                 <t t-if="not employee.date_fin_relation">
                                     &#160;
@@ -153,7 +154,7 @@
                             </span>
                             <span style="display: inline-block; font-size: 20px; margin-left: 200px;margin-right: 80px; float: right;">
                                 <t t-if="employee.date_entrer">
-                                    <t t-esc="employee.date_entrer"/>
+                                    <t t-esc="employee_date_entrer.get(employee.id, '')"/>
                                 </t>
                                 <t t-if="not employee.date_entrer">
                                     &#160;
@@ -163,7 +164,7 @@
                             <br/>
                             <span style="display: inline-block; font-size: 20px; margin-left: 80px; margin-right: 200px; float: right;">
                                 <t t-if="employee.date_fin_relation">
-                                    <t t-esc="employee.date_fin_relation"/>
+                                    <t t-esc="employee_date_fin_relation.get(employee.id, '')"/>
                                 </t>
                                 <t t-if="not employee.date_fin_relation">
                                     &#160;
@@ -180,7 +181,7 @@
                             <br/>
                             <br/>
                             <div style="display: inline-block; font-size: 20px; margin-left: 80px; margin-right: 150px; float: right;" >
-                                <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/>
+                                <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%m-%Y')"/>
                             </div>
                             <br/>
                             <br/>
