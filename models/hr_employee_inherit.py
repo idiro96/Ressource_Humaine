@@ -43,6 +43,7 @@ class HrEmployeInherited(models.Model):
     annee_travail = fields.Float(track_visibility="onchange")
     date_entrer = fields.Date(track_visibility="onchange")
     date_job_id = fields.Date(track_visibility="onchange")
+    date_job_id1 = fields.Date(track_visibility="onchange")
     reintegration = fields.Boolean(default=False)
     date_reintegration = fields.Date()
     activite_conjoint = fields.Boolean(default=False)
