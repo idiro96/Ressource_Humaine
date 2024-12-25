@@ -67,7 +67,7 @@
                             </t>
                             <t t-if="attestation_travail.signataire == 'dg'">
                                 <span>
-                                    N°:.................E.N.A/D.G/S.G.R.H/
+                                    N°:.................E.N.A/D.G/
                                     <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
                                 </span>
                             </t>

@@ -372,8 +372,9 @@
             id="action_fiche_information_report"
             model="hr.employee"
             string="Fiche Information"
-            report_type="qweb-html"
+            report_type="qweb-pdf"
             name="ressource_humaine.fiche_information_report"
-            file="ressource_humaine.fiche_information_report"/>
+            file="ressource_humaine.fiche_information_report"
+            paperformat="ressource_humaine.paperformat_european_a4_portrait_bordered"/>
 
 </odoo>

@@ -85,7 +85,43 @@
                 </div>
             </div>
         </template>
-
+        <template id="report_header_custom_bordered2">
+            <div
+                 style="border-top: 10px double black;border-left: 10px double black;border-right: 10px double black;">
+                <div class="row">
+                    <br/>
+                    <div style="text-align: center;">
+                        <div class="text-center"
+                             style="width: 275px; display: inline-block; vertical-align: top; text-align: center;">
+                            <span class="times_new_roman" style="display: block;">
+                                République Algérienne Démocratique et
+                                <br/>
+                                Populaire
+                            </span>
+                            <span class="times_new_roman" style="display: block;">
+                                Ministre de l'Intérieur des Collectivités Locales et de l'Aménagement du Territoire
+                            </span>
+                        </div>
+                        <div class="text-center"
+                             style="display: inline-block; margin-left: 105px; margin-right: 105px; vertical-align: top;">
+                            <div style="margin-bottom: 30px;">
+                                <img src="/ressource_humaine/static/description/icon.png" style="max-height: 90px;"/>
+                            </div>
+                        </div>
+                        <div class="text-center"
+                             style="width: 250px; display: inline-block; vertical-align: top;font-size:16px">
+                            <span class="normal_mohammad_font">
+                                الجمهورية الجزائرية الديمقراطية الشعبية
+                            </span>
+                            <span class="normal_mohammad_font" style="display: block;">
+                                وزارة الداخلية والجماعات المحلية والتهيئة العمرانية
+                            </span>
+                        </div>
+                    </div>
+                    <div class="" style="border-bottom: 3px solid black;margin-left:40px;margin-right:40px"></div>
+                </div>
+            </div>
+        </template>
     </data>
 </odoo>
         <!--<?xml version="1.0" encoding="utf-8"?>-->

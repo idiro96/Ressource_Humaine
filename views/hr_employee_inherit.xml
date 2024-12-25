@@ -123,10 +123,18 @@
                            attrs="{'invisible': ['|', ('position_statutaire', '=', 'activite'), ('position_statutaire', '=', False)]}"/>
                 </xpath>
                 <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='job_id']" position="after">
+
                     <field name="date_job_id" string=" التعيين في المنصب العالي"
                     attrs="{'string': [('nature_travail_id.intitule_type_fonction', '=', 'منصب عالي'), 'تاريخ التعيين في المنصب العالي', ('nature_travail_id.intitule_type_fonction', '=', 'وظيفة عليا'), 'تاريخ التعيين في الوظيفة عليا']}"/>
+
+                    <field name="date_job_id" string="تاريخ التعيين في المنصب العالي"
+                    attrs="{'invisible': [('code_type_fonction', '=', 'postesuperieure')]}"/>
                 </xpath>
-                <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='date_job_id']"
+                <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='date_job_id']" position="after">
+                    <field name="date_job_id1" string="تريخ التعيين في الوظيفة العليا"
+                    attrs="{'invisible': [('code_type_fonction', '!=', 'postesuperieure')]}"/>
+                </xpath>
+                <xpath expr="//form//sheet//notebook//page//group//group[2]//field[@name='date_job_id1']"
                        position="after">
                     <field name="ref_poste"/>
                 </xpath>

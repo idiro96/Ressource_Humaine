@@ -23,15 +23,15 @@ class FicheInformationReport(models.AbstractModel):
             else:
                 birthday_employee[rec.id] = ''
 
-        date_debut_emploi_employee = {}
+        date_ancien_grade_employee = {}
         for rec in employees:
-            date_debut_emploi_str = rec.date_debut_emploi
-            if date_birthday_str:
-                formatted_date = datetime.strptime(date_debut_emploi_str, "%Y-%m-%d").strftime("%d-%m-%Y")
-                date_debut_emploi_employee[rec.id] = formatted_date
+            date_ancien_grade_str = rec.date_ancien_grade
+            if date_ancien_grade_str:
+                formatted_date = datetime.strptime(date_ancien_grade_str, "%Y-%m-%d").strftime("%d-%m-%Y")
+                date_ancien_grade_employee[rec.id] = formatted_date
 
             else:
-                date_debut_emploi_employee[rec.id] = ''
+                date_ancien_grade_employee[rec.id] = ''
 
         date_entrer_employee = {}
         for rec in employees:
@@ -43,6 +43,16 @@ class FicheInformationReport(models.AbstractModel):
             else:
                 date_entrer_employee[rec.id] = ''
 
+            date_debut_employee = {}
+            for rec in employees:
+                date_debut_str = rec.date_debut_emploi
+                if date_debut_str:
+                    formatted_date = datetime.strptime(date_debut_str, "%Y-%m-%d").strftime("%d-%m-%Y")
+                    date_debut_employee[rec.id] = formatted_date
+
+                else:
+                    date_debut_employee[rec.id] = ''
+
             date_grade_employee = {}
             for rec in employees:
                 date_grade_str = rec.date_grade
@@ -52,13 +62,15 @@ class FicheInformationReport(models.AbstractModel):
 
                 else:
                     date_grade_employee[rec.id] = ''
+
         report_data = {
             'company': self.env.user.company_id,
             "employee": employees,
             'birthday_employee': birthday_employee,
-            'date_debut_emploi_employee': date_debut_emploi_employee,
+            'date_ancien_grade_employee': date_ancien_grade_employee,
             'date_entrer_employee': date_entrer_employee,
             'date_grade_employee': date_grade_employee,
+            'date_debut_employee': date_debut_employee,
 
 
         }

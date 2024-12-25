@@ -1,12 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
+
         <template id="fiche_information_report">
             <t t-call="web.basic_layout">
-                <t t-call="ressource_humaine.report_header_custom_bordered"/>
-                <div class="page"
-                     style="border-bottom: 10px double black; border-left: 10px double black; border-right: 10px double black;">
+ <xpath expr="." position="inside">
+        <style>
+            /* Marges de la page */
+            @page {
+                margin: 20mm; /* Ajustez selon vos besoins */
+            }
+
+            /* Bordure pour chaque page */
+            .page-border {
+             position: relative;
+                width: 100%;
+                height: 100%; /* La hauteur occupe toute la page */
+                min-height: 354mm; /* Hauteur minimale pour une page A4 */
+                border: 10px double black; /* Bordure complète */
+                box-sizing: border-box; /* Inclure la bordure dans les dimensions */
+                padding: 3mm; /* Espacement intérieur pour le contenu */
+                page-break-after: always; /* Nouvelle page après chaque div.page */
+
+            }
+            .page-border1 {
+             position: absolute;
+                width: 100%;
+                height: 100%; /* La hauteur occupe toute la page */
+                min-height: 354mm; /* Hauteur minimale pour une page A4 */
+                border: 10px double black; /* Bordure complète */
+                box-sizing: border-box; /* Inclure la bordure dans les dimensions */
+                padding: 6mm; /* Espacement intérieur pour le contenu */
+
+                page-break-after: always; /* Nouvelle page après chaque div.page */
+            }
+
+            /* Contenu vide ou espacé */
+            .page-content {
+                 height: 100%; /* Force la hauteur pour afficher la bordure */
+
+            }
+            .page-content1 {
+                 height: 100%; /* Force la hauteur pour afficher la bordure */
+
+            }
+            .page-break {
+                page-break-before: always; /* Forcer une nouvelle page */
+            }
+            /* Force une nouvelle page */
+            .new-page {
+                page-break-after: always; /* Force le saut de page après chaque section */
+            }
+        </style>
+    </xpath>
+
+        <div class="page-border">
+                    <div class="page-content">
+                   <div class="row">
                     <br/>
+                    <div style="text-align: center;">
+                        <div class="text-center"
+                             style="width: 275px; display: inline-block; vertical-align: top; text-align: center;">
+                            <span class="times_new_roman" style="display: block;">
+                                République Algérienne Démocratique et
+                                <br/>
+                                Populaire
+                            </span>
+                            <span class="times_new_roman" style="display: block;">
+                                Ministre de l'Intérieur des Collectivités Locales et de l'Aménagement du Territoire
+                            </span>
+                        </div>
+                        <div class="text-center"
+                             style="display: inline-block; margin-left: 105px; margin-right: 105px; vertical-align: top;">
+                            <div style="margin-bottom: 30px;">
+                                <img src="/ressource_humaine/static/description/icon.png" style="max-height: 90px;"/>
+                            </div>
+                        </div>
+                        <div class="text-center"
+                             style="width: 250px; display: inline-block; vertical-align: top;font-size:16px">
+                            <span class="normal_mohammad_font">
+                                الجمهورية الجزائرية الديمقراطية الشعبية
+                            </span>
+                            <span class="normal_mohammad_font" style="display: block;">
+                                وزارة الداخلية والجماعات المحلية والتهيئة العمرانية
+                            </span>
+                        </div>
+                    </div>
+                    <div class="" style="border-bottom: 3px solid black;margin-left:40px;margin-right:40px"></div>
+                </div>
                     <strong>
                         <div class="texte-en-gras" style="font-size: 50px; text-align: right;">
                             <span style="margin-right: 15px; word-spacing: 9px;">
@@ -100,47 +181,114 @@
                         <br/>
                         <span>الشهادات و المؤهلات:
 
-                               <div>
+                            <div>
                             <span>
+                                <t t-set="line_count" t-value="1"/>
+                                <t t-set="line_count1" t-value="1"/>
                                 <t t-foreach="employee.historique_diplome_lines" t-as="line">
                                 <t t-if="line.diplôme">
                                     <t t-esc="line.diplôme"/>
+                                     <t t-set="line_count" t-value="line_count + 1"/>
+                                     <t t-set="line_count1" t-value="line_count1 + 1"/>
                                 </t>
                                 <t t-if="not line.diplôme">
                                     &#160;
                                 </t>
+
                                     <br/>
                                 </t>
                             </span>
+
                         </div>
                         </span>
-                        <span>تاريخ الالتحاق بالمدرسة:
-                            <t t-esc="date_debut_emploi_employee.get(employee.id, '')"/>
-                        </span>
-                        <br/>
-                        <span>تاريخ أول توظيف:
-                            <t t-esc="date_entrer_employee.get(employee.id, '')"/>
-                        </span>
-                        <br/>
-                        <span>الرتبة الحالية:
-                            <t t-esc="employee.grade_id.intitule_grade"/>
-                        </span>
-                        <br/>
-                        <span>تاريخ الترقية في الرتبة الحالية:
-                            <t t-esc="date_grade_employee.get(employee.id, '')"/>
-                        </span>
-                        <br/>
-                        <span>مصلحة التعيين:
-                            <t t-foreach="employee.historique_structure_lines" t-as="structure_line">
-                            <span>
-                                <t t-esc="structure_line.structure"/>
-                            </span>
+                    <t t-if="line_count >= 5">
+
+                                        <div class="new-page"></div>
+                                          <div class="page-border1">
+                                            <div class="page-content1">
+                                                 <span>تاريخ الالتحاق بالمدرسة:
+                                                        <t t-esc="date_entrer_employee.get(employee.id, '')"/>
+                                                    </span>
+                                                    <br/>
+                                                    <span>تاريخ أول توظيف:
+                                                        <t t-if="employee.methode_embauche =='recrutement'">
+                                                            <t t-esc="date_entrer_employee.get(employee.id, '')"/>
+                                                        </t>
+                                                         <t t-else="">
+                                                             <t t-esc="date_debut_employee.get(employee.id, '')"/>
+                                                         </t>
+                                                    </span>
+                                                    <br/>
+                                                <t t-if="employee.code_type_fonction =='contractuel'">
+                                                    <span>منصب الشغل:
+                                                        <t t-esc="employee.grade_id.intitule_grade"/>
+                                                    </span>
+                                                </t>
+                                                 <t t-else="">
+                                                       <span>الرتبة الحالية:
+                                                        <t t-esc="employee.grade_id.intitule_grade"/>
+                                                    </span>
+                                                 </t>
+                                                    <br/>
+                                                    <span>تاريخ الترقية في الرتبة الحالية:
+                                                        <t t-esc="date_grade_employee.get(employee.id, '')"/>
+                                                    </span>
+                                                    <br/>
+                                                    <span>مصلحة التعيين:
+                                                        <t t-foreach="employee.historique_structure_lines" t-as="structure_line">
+                                                        <span>
+                                                            <t t-esc="structure_line.structure"/>
+                                                        </span>
+                                                        </t>
+                                                    </span>
+                                                    <br/>
+                                            </div>
+                                          </div>
                             </t>
-                        </span>
-                        <br/>
+                    <t t-else="">
+
+                                                 <span>تاريخ الالتحاق بالمدرسة:
+                                                        <t t-esc="date_entrer_employee.get(employee.id, '')"/>
+                                                    </span>
+                                                    <br/>
+                                                     <span>تاريخ أول توظيف:
+                                                        <t t-if="employee.methode_embauche =='recrutement'">
+                                                            <t t-esc="date_entrer_employee.get(employee.id, '')"/>
+                                                        </t>
+                                                         <t t-else="">
+                                                             <t t-esc="date_debut_employee.get(employee.id, '')"/>
+                                                         </t>
+                                                    </span>
+                                                    <br/>
+                                                    <t t-if="employee.code_type_fonction =='contractuel'">
+                                                    <span>منصب الشغل:
+                                                        <t t-esc="employee.grade_id.intitule_grade"/>
+                                                    </span>
+                                                </t>
+                                                 <t t-else="">
+                                                       <span>الرتبة الحالية:
+                                                        <t t-esc="employee.grade_id.intitule_grade"/>
+                                                    </span>
+                                                 </t>
+                                                    <br/>
+                                                    <span>تاريخ الترقية في الرتبة الحالية:
+                                                        <t t-esc="date_grade_employee.get(employee.id, '')"/>
+                                                    </span>
+                                                    <br/>
+                                                    <span>مصلحة التعيين:
+                                                        <t t-foreach="employee.historique_structure_lines" t-as="structure_line">
+                                                        <span>
+                                                            <t t-esc="structure_line.structure"/>
+                                                        </span>
+                                                        </t>
+                                                    </span>
+                                                    <br/>
+                            </t>
                     </div>
+</div>
                 </div>
-            </t>
+
+   </t>
         </template>
     </data>
 </odoo>
